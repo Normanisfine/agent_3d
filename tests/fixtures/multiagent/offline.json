@@ -1,0 +1,37 @@
+{
+  "variant": "v1",
+  "scene": "scene.json",
+  "evidence_root": ".",
+  "evidence": {},
+  "output": "../../../outputs/multiagent/offline-first",
+  "models": {
+    "planner": {
+      "backend": "mock",
+      "call_reservation_usd": 0.01
+    },
+    "judge": {
+      "backend": "mock",
+      "call_reservation_usd": 0.01
+    },
+    "cheap": {
+      "backend": "mock",
+      "call_reservation_usd": 0.01
+    }
+  },
+  "services": {},
+  "budget_usd": 3.0,
+  "judge_reserve_usd": 0.75,
+  "max_tasks": 12,
+  "max_generations": 2,
+  "source": "Review this supplied canonical scene and propose evidence-grounded tasks. This example is synthetic: abstain from visual judgments without image evidence.",
+  "tasks": [
+    {
+      "task_id": "inspect_box",
+      "role": "geometry",
+      "object_ids": [
+        "box_01"
+      ],
+      "instruction": "Inspect support for box_01 using numerical tools. Report issues; do not assume source agreement."
+    }
+  ]
+}

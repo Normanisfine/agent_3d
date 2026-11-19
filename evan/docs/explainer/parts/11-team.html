@@ -1,0 +1,170 @@
+<h2 id="team"><span class="num">11</span>分工与交接</h2>
+<p>三个人按流程的三段分工：Yujing 管两头（数据进来、分数出去），Mingjian 管感知和生成工具，Yifan 管中间的 agent。</p>
+<p>三个人之间只靠文件交接。文件格式先定下来，各自就能并行开工，不用等别人写完代码。</p>
+
+<h3 id="d-roles">11.1 三个人各管流程的哪一段</h3>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>还是装修。Yujing 是监理，负责交房前的图纸和交房后的验收；Mingjian 是材料商和测量员，备好尺寸和预制件；Yifan 是带施工队的包工头，指挥 agent 把房子搭出来。</p>
+</div>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 262" width="770" role="img" aria-label="流程从数据到报告，每一段按负责人上色，箭头上是传递的文件">
+<defs><marker id="d-m11a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="10" width="16" height="14" rx="3" class="f1 stroke"/><text x="32" y="22">Yifan · agent 和驱动</text>
+<rect x="210" y="10" width="16" height="14" rx="3" class="f3 stroke"/><text x="232" y="22">Mingjian · 感知和生成</text>
+<rect x="420" y="10" width="16" height="14" rx="3" class="f2 stroke"/><text x="442" y="22">Yujing · 数据和评测</text>
+<rect x="12" y="72" width="56" height="62" rx="6" class="f2 stroke"/><text x="40" y="92" text-anchor="middle" font-weight="700">数据</text><text x="40" y="110" text-anchor="middle">CA-1M</text><text x="40" y="126" text-anchor="middle">帧</text>
+<rect x="144" y="72" width="56" height="62" rx="6" class="f3 stroke"/><text x="172" y="92" text-anchor="middle" font-weight="700">感知</text><text x="172" y="110" text-anchor="middle">Pi3X</text><text x="172" y="126" text-anchor="middle">SAM 3</text>
+<rect x="264" y="72" width="64" height="62" rx="6" class="f3 stroke"/><text x="296" y="92" text-anchor="middle" font-weight="700">清单</text><text x="296" y="110" text-anchor="middle">Boxer 版</text><text x="296" y="126" text-anchor="middle">干净版</text>
+<rect x="436" y="72" width="64" height="62" rx="6" class="f1 stroke"/><text x="468" y="92" text-anchor="middle" font-weight="700">agent</text><text x="468" y="110" text-anchor="middle">建场景</text><text x="468" y="126" text-anchor="middle">A0–A4</text>
+<rect x="594" y="72" width="56" height="62" rx="6" class="f2 stroke"/><text x="622" y="92" text-anchor="middle" font-weight="700">评测</text><text x="622" y="110" text-anchor="middle">对齐</text><text x="622" y="126" text-anchor="middle">漏斗</text>
+<rect x="704" y="72" width="56" height="62" rx="6" class="f2 stroke"/><text x="732" y="92" text-anchor="middle" font-weight="700">报告</text><text x="732" y="110" text-anchor="middle">主笔</text><text x="732" y="126" text-anchor="middle">出图</text>
+<path d="M68,103 L143,103" class="arrow" marker-end="url(#d-m11a)"/><text x="106" y="97" text-anchor="middle" class="shape">input.mp4</text>
+<path d="M200,103 L263,103" class="arrow" marker-end="url(#d-m11a)"/><text x="232" y="97" text-anchor="middle" class="shape">bundle/</text>
+<path d="M328,103 L435,103" class="arrow" marker-end="url(#d-m11a)"/><text x="382" y="97" text-anchor="middle" class="shape">inventory.json</text>
+<path d="M500,103 L593,103" class="arrow" marker-end="url(#d-m11a)"/><text x="547" y="97" text-anchor="middle" class="shape">scene.blend</text>
+<path d="M650,103 L703,103" class="arrow" marker-end="url(#d-m11a)"/><text x="677" y="97" text-anchor="middle">图表</text>
+<rect x="412" y="166" width="112" height="48" rx="6" class="f3 stroke"/><text x="468" y="186" text-anchor="middle" class="shape">gen3d_request</text><text x="468" y="204" text-anchor="middle" class="shape">place_mesh</text>
+<path d="M458,134 L458,165" class="arrow" marker-end="url(#d-m11a)"/><path d="M478,165 L478,135" class="arrow" marker-end="url(#d-m11a)"/>
+<text x="452" y="153" text-anchor="end">调用</text><text x="484" y="153">网格</text>
+<rect x="256" y="166" width="80" height="48" rx="6" class="f3 stroke"/><text x="296" y="186" text-anchor="middle" font-weight="700">P0</text><text x="296" y="204" text-anchor="middle">无 agent</text>
+<path d="M296,134 L296,165" class="arrow" marker-end="url(#d-m11a)"/>
+<path d="M296,214 L296,232 L622,232 L622,135" class="arrow" marker-end="url(#d-m11a)"/><text x="459" y="250" text-anchor="middle">P0 的场景也送去打分</text>
+</g></svg></div>
+<figcaption>整条流程按负责人上色。蓝色一段只有 agent 建场景，但它要调用 Mingjian 写的两个工具（下方黄框）。P0 不经过 agent，直接从清单生成并摆放，结果同样交给 Yujing 打分。箭头上的等宽字是交接的文件名。</figcaption></figure>
+<div class="box plain"><span class="box-label">Yifan · agent 和驱动</span>
+<ul>
+<li><b>职责</b>：装 AHa-3D 和 Blender 5.2.1；接 Codex 和 Claude 两种驱动，量额度；写 A0–A4 的提示词和路由逻辑；记录每次运行的 token 日志。</li>
+<li><b>主要产出</b>：每次运行的 <code>scene.blend</code> 和 <code>run_log.json</code>；<code>configs/run_caps.json</code>（运行上限）；额度表。</li>
+<li><b>步骤</b>：S1、S2、S7、S9（agent 组）、S10（A4、第二次重复、Claude 复跑；高清帧消融的 agent 运行，按我们的理解）。</li>
+<li><b>要读</b>：AHa-3D 的 AGENTS.md 和 skills、GATOR（细读）、<code>codex exec</code> 和 Claude Code 无头模式的文档、Agentic RSR、LiteReality-Agent、VIGA（清单和链接见<a href="#reading">第 16 章</a>）。</li>
+</ul>
+</div>
+<div class="box plain"><span class="box-label">Mingjian · 感知和生成</span>
+<ul>
+<li><b>职责</b>：申请 SAM 3、SAM 3D 的 HF 权限并在 Betty 上部署；在 Betty 上批量跑 Pi3X、SAM 3、Boxer 和干净对照；本地用 Hunyuan 开发两个生成工具；跑 P0、Hunyuan 小对比、训练加分项。</li>
+<li><b>主要产出</b>：每个场景的 <code>bundle/</code>、<code>inventory.json</code>（Boxer 版）、<code>inventory_clean.json</code>（干净版）；<code>gen3d_request</code> 和 <code>place_mesh</code>，以及它们写进 <code>gen/</code> 的网格；P0 的结果。</li>
+<li><b>步骤</b>：S4、S8、S9（P0）、S10（高清帧消融的降采样版清单和生成、Hunyuan 小对比、训练）。高清帧消融的 agent 由 Yifan 跑，这是按我们的理解分的，设计文档没写。</li>
+<li><b>要读</b>：π³/Pi3X、SAM 3、Boxer、SAM 3D Objects、φ-RIE、Hunyuan3D-2 仓库 README、PARCC 入门和 fal 接口页；参考 ReScene、RecGen、OVOW、TRELLIS 和 TRELLIS.2（见<a href="#reading">第 16 章</a>）。</li>
+</ul>
+</div>
+<div class="box plain"><span class="box-label">Yujing · 数据和评测</span>
+<ul>
+<li><b>职责</b>：下载 CA-1M 和 VSI；合成输入视频；划分数据集、定阈值；写评测脚本（对齐、匹配、三种结局、漏斗、bootstrap）；拍演示视频；出图；主笔报告。</li>
+<li><b>主要产出</b>：每个场景的 <code>input.mp4</code> 和 <code>gt/boxes.json</code>；<code>splits.json</code>、<code>thresholds.json</code>；评测脚本从 .blend 导出的 <code>export/objects.json</code>；<code>results/</code> 里的所有表和图。</li>
+<li><b>步骤</b>：S3、S5、S6、S7 和 S9 的打分、S10（演示视频）、S11。</li>
+<li><b>要读</b>：CA-1M、LIVIN（细读）、ARKitScenes、VSI-Bench、BVB、ScanNet++、Scan2CAD、TIDE、Omni3D、SceneActBench、Umeyama 1991（见<a href="#reading">第 16 章</a>）。</li>
+</ul>
+</div>
+<p>提案三人一起改，由一人代表全组上传，每组只交一份。文档里要写队名 3Heads1GPU 和三个人的名字。</p>
+
+<h3 id="d-handoff">11.2 交接架构图：文件在三人之间怎么流</h3>
+<p>交接一共四条线。每条线上传的是什么文件、什么时候第一次传，下图逐条点亮。</p>
+<div class="arch">
+<div class="arch-title">三人之间的四条交接线</div>
+<div class="svg-wrap"><svg viewBox="0 0 770 350" width="770" role="img" aria-label="三人之间的文件交接：Yujing 发视频和配置给所有人，Mingjian 给 Yifan 感知结果、清单和工具，Yifan 给 Yujing 场景和日志，Mingjian 给 Yujing 相机轨迹、两份清单和 P0 结果">
+<defs><marker id="d-m11b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="20" y="130" width="150" height="70" rx="10" class="f3 stroke"/><text x="95" y="158" text-anchor="middle" font-weight="700">Mingjian</text><text x="95" y="180" text-anchor="middle">感知和生成</text>
+<rect x="290" y="130" width="180" height="70" rx="10" class="f1 stroke"/><text x="380" y="158" text-anchor="middle" font-weight="700">Yifan</text><text x="380" y="180" text-anchor="middle">agent 和驱动</text>
+<rect x="590" y="130" width="160" height="70" rx="10" class="f2 stroke"/><text x="670" y="158" text-anchor="middle" font-weight="700">Yujing</text><text x="670" y="180" text-anchor="middle">数据和评测</text>
+<g data-s="1">
+<path d="M670,130 L670,50 L95,50 L95,129" class="arrow-green" marker-end="url(#d-m11b)"/>
+<path d="M380,50 L380,129" class="arrow-green" marker-end="url(#d-m11b)"/>
+<text x="385" y="38" text-anchor="middle" class="shape">input.mp4 · splits.json · thresholds.json</text>
+<text x="525" y="72" text-anchor="middle">S3、S6 · 10/20 前</text>
+</g>
+<g data-s="2">
+<path d="M170,156 L289,156" class="arrow" marker-end="url(#d-m11b)"/>
+<text x="230" y="130" text-anchor="middle" class="shape">bundle/</text><text x="230" y="146" text-anchor="middle" class="shape">inventory.json</text>
+<path d="M170,182 L289,182" class="arrow" marker-end="url(#d-m11b)"/>
+<text x="230" y="198" text-anchor="middle">两个生成工具</text>
+<text x="230" y="216" text-anchor="middle">S4、S8</text>
+</g>
+<g data-s="3">
+<path d="M470,172 L589,172" class="arrow-blue" marker-end="url(#d-m11b)"/>
+<text x="530" y="146" text-anchor="middle" class="shape">scene.blend</text><text x="530" y="162" text-anchor="middle" class="shape">run_log.json</text>
+<text x="530" y="190" text-anchor="middle">每次运行</text>
+</g>
+<g data-s="4">
+<path d="M95,200 L95,280 L670,280 L670,201" class="arrow" marker-end="url(#d-m11b)"/>
+<text x="385" y="256" text-anchor="middle"><tspan class="shape">bundle/</tspan>（相机轨迹：评测对齐、判断"看得见"）</text>
+<text x="385" y="273" text-anchor="middle"><tspan class="shape">inventory.json</tspan>、<tspan class="shape">inventory_clean.json</tspan>（漏斗第 2 关）· P0 的结果</text>
+</g>
+<g data-s="5">
+<rect x="160" y="298" width="450" height="44" rx="8" class="f6 stroke"/><text x="385" y="318" text-anchor="middle" font-weight="700">提案：三人一起改，一人代全组上传</text><text x="385" y="335" text-anchor="middle">10/19 截止，每组只交一份，写队名和三人姓名</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>Yujing → 所有人</b>：每个场景的输入视频 <code>input.mp4</code>、<code>splits.json</code>（哪些是开发、测试、备用）、<code>thresholds.json</code>（各项门槛）。两个配置文件 10/20 前提交后不改。</li>
+<li><b>Mingjian → Yifan</b>：每个场景的感知结果 <code>bundle/</code>、物体清单 <code>inventory.json</code>，以及两个生成工具 <code>gen3d_request</code>、<code>place_mesh</code>。A2 起的 agent 组都要用清单，A3 起还要调两个工具。</li>
+<li><b>Yifan → Yujing</b>：每次运行最后的 <code>scene.blend</code>，和记 token、耗时、轮数的 <code>run_log.json</code>。物体框 <code>export/objects.json</code> 由 Yujing 的评测脚本从 .blend 导出。失败的运行也要交，按最后保存的版本打分。</li>
+<li><b>Mingjian → Yujing</b>：<code>bundle/</code> 里的相机轨迹，评测对齐和判断"看得见"都要用。两份清单 <code>inventory.json</code>、<code>inventory_clean.json</code> 用来判断漏斗第 2 关"检测到"。P0 的场景和它直接写出的 <code>export/objects.json</code> 也直接交给 Yujing，不经过 Yifan。</li>
+<li><b>提案</b>：三人一起改同一份，由一人代表全组上传。</li>
+</ol>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><code>inventory.json</code> 有两个读者。Yifan 拿它当 agent 的待建清单；Yujing 拿它算"检测到"这一关。两边读的必须是同一份文件，否则漏斗第 2 关和 agent 实际看到的清单对不上。</li>
+<li>A0、A1 不读清单，漏斗里没有"检测到"这一关，评测时直接从"看得见"跳到"建出来"。</li>
+</ul>
+</div>
+
+<h3 id="d-files">11.3 文件约定</h3>
+<p>设计文档第 15b 节定了一套文件约定，各章和三人交接都按它来。下图是目录结构，表格写清每个文件谁写、谁读、装什么。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 502" width="770" role="img" aria-label="设计文档 15b 节的文件约定：配置、场景数据、感知结果、生成结果、每次运行的结果和汇总，按谁写上色">
+<g font-size="12">
+<rect x="10" y="8" width="16" height="14" rx="3" class="f1 stroke"/><text x="32" y="20">Yifan 写</text>
+<rect x="110" y="8" width="16" height="14" rx="3" class="f3 stroke"/><text x="132" y="20">Mingjian 写</text>
+<rect x="236" y="8" width="16" height="14" rx="3" class="f2 stroke"/><text x="258" y="20">Yujing 写（含她的评测脚本）</text>
+<text x="20" y="46" class="shape">configs/</text>
+<rect x="60" y="54" width="200" height="20" rx="4" class="f2 stroke"/><text x="68" y="68" class="shape">splits.json</text><text x="276" y="68">开发 5 / 测试 15 / 备用 2，10/20 前提交 · 所有人读</text>
+<rect x="60" y="78" width="200" height="20" rx="4" class="f2 stroke"/><text x="68" y="92" class="shape">thresholds.json</text><text x="276" y="92">判据 I、D，宽松门槛，"看得见"门槛，10/20 前 · 所有人读</text>
+<rect x="60" y="102" width="200" height="20" rx="4" class="f1 stroke"/><text x="68" y="116" class="shape">run_caps.json</text><text x="276" y="116">每次运行的墙钟和轮数上限，10/26 前 · Yifan 读</text>
+<text x="20" y="144" class="shape">scenes/&lt;scene_id&gt;/</text>
+<rect x="60" y="152" width="200" height="20" rx="4" class="f2 stroke"/><text x="68" y="166" class="shape">input.mp4</text><text x="276" y="166">CA-1M 帧按 10 fps 合成的输入视频 · Mingjian、Yifan 读</text>
+<rect x="60" y="176" width="200" height="20" rx="4" class="f2 stroke"/><text x="68" y="190" class="shape">gt/boxes.json</text><text x="276" y="190">去掉结构件的真值框，另有相机轨迹、激光深度 · 只给评测</text>
+<text x="20" y="218" class="shape">perception/&lt;scene_id&gt;/</text>
+<rect x="60" y="226" width="200" height="20" rx="4" class="f3 stroke"/><text x="68" y="240" class="shape">bundle/</text><text x="276" y="240">Pi3X 相机和点图、SAM 3 结构类掩码 · Yifan、Yujing 读</text>
+<rect x="60" y="250" width="200" height="20" rx="4" class="f3 stroke"/><text x="68" y="264" class="shape">inventory.json</text><text x="276" y="264">Boxer 清单，agent 组只用这一份 · Yifan、Yujing 读</text>
+<rect x="60" y="274" width="200" height="20" rx="4" class="f3 stroke"/><text x="68" y="288" class="shape">inventory_clean.json</text><text x="276" y="288">干净对照清单，只用于"检测到"和 P0 · Yujing 读</text>
+<text x="20" y="316" class="shape">gen/&lt;scene_id&gt;/&lt;object_id&gt;/c&lt;k&gt;/</text>
+<rect x="60" y="324" width="200" height="20" rx="4" class="f3 stroke"/><text x="68" y="338" class="shape">mesh.glb · placement.json</text><text x="276" y="338">生成的网格和摆放结果，由 Mingjian 的工具写 · agent、Yujing 读</text>
+<text x="20" y="366" class="shape">runs/&lt;arm&gt;/&lt;scene_id&gt;/&lt;seed&gt;/</text>
+<rect x="60" y="374" width="200" height="20" rx="4" class="f1 stroke"/><text x="68" y="388" class="shape">scene.blend</text><text x="276" y="388">最终场景，失败的运行也留最后一版（P0 由 Mingjian 写）</text>
+<rect x="60" y="398" width="200" height="20" rx="4" class="f1 stroke"/><text x="68" y="412" class="shape">run_log.json</text><text x="276" y="412">token、墙钟、轮数、失败原因、fal 费用 · Yujing 读</text>
+<rect x="60" y="422" width="200" height="20" rx="4" class="f2 stroke"/><text x="68" y="436" class="shape">export/objects.json</text><text x="276" y="436">Yujing 的评测脚本从 .blend 导出；P0 直接写这个文件</text>
+<text x="20" y="464" class="shape">results/</text>
+<rect x="60" y="472" width="200" height="20" rx="4" class="f2 stroke"/><text x="68" y="486">表和图</text><text x="276" y="486">分档表、漏斗图、成本-精度图、bootstrap 结果 · 所有人读</text>
+<path d="M40,51 L40,112 L59,112 M40,64 L59,64 M40,88 L59,88" class="arrow"/>
+<path d="M40,149 L40,186 L59,186 M40,162 L59,162" class="arrow"/>
+<path d="M40,223 L40,284 L59,284 M40,236 L59,236 M40,260 L59,260" class="arrow"/>
+<path d="M40,321 L40,334 L59,334" class="arrow"/>
+<path d="M40,371 L40,432 L59,432 M40,384 L59,384 M40,408 L59,408" class="arrow"/>
+<path d="M40,469 L40,482 L59,482" class="arrow"/>
+</g></svg></div>
+<figcaption>设计文档第 15b 节的目录结构，按"谁写"上色。读法是一行一个文件：左边是路径，右边是它装的东西和谁读。感知结果和清单按场景放在 <code>perception/</code> 下，所有组共用；每次运行的结果在 <code>runs/</code> 下按组、场景、种子各占一个文件夹。<code>export/objects.json</code> 是 Yujing 的评测脚本从 .blend 导出的，所以标绿色；P0 例外，由它自己直接写。</figcaption></figure>
+<div class="table-wrap"><table>
+<thead><tr><th>文件</th><th>谁写</th><th>谁读</th><th>内容和格式要点</th></tr></thead>
+<tbody>
+<tr><td><code>scenes/&lt;scene_id&gt;/input.mp4</code></td><td>Yujing（S3）</td><td>Mingjian、Yifan</td><td>CA-1M 的 1024×768 帧按 10 fps 合成，一个连续镜头（AHa-3D 的要求）</td></tr>
+<tr><td><code>scenes/&lt;scene_id&gt;/gt/boxes.json</code></td><td>Yujing（S3）</td><td>只有评测</td><td>去掉结构件后的真值框。相机轨迹、激光深度也一样只给评测，不进流程</td></tr>
+<tr><td><code>configs/splits.json</code></td><td>Yujing（S3、S6）</td><td>所有人</td><td>22 个视频 ID 分成开发 5、测试 15、备用 2，写明种子；10/20 前提交后不改</td></tr>
+<tr><td><code>configs/thresholds.json</code></td><td>Yujing（S6，三人确认）</td><td>所有人</td><td>判据 I（IoU3D ≥ 0.25，另报 0.5）、判据 D（d̂ ≤ 0.5 且最长边之比 0.67–1.5）、宽松门槛、"看得见"门槛；10/20 前定死</td></tr>
+<tr><td><code>configs/run_caps.json</code></td><td>Yifan</td><td>Yifan</td><td>每次运行的墙钟和轮数上限，取 A1 在 3 个开发场景上中位数的 2 倍；10/26 前提交，所有组共用</td></tr>
+<tr><td><code>perception/&lt;scene_id&gt;/bundle/</code></td><td>Mingjian（S4）</td><td>Yifan、Yujing</td><td>AHa-3D 的 bundle 格式：Pi3X 的相机和点图（32 帧、25.5 万像素）、SAM 3 结构类掩码；每个场景只在 Betty 上算一次。Yujing 用里面的相机轨迹做对齐</td></tr>
+<tr><td><code>perception/&lt;scene_id&gt;/inventory.json</code></td><td>Mingjian（S4）</td><td>Yifan（A2–A4 的待建清单）、Yujing（漏斗第 2 关）</td><td>Boxer 清单，每项一个 3D 框加 2D 裁剪图；agent 组只用这一份</td></tr>
+<tr><td><code>perception/&lt;scene_id&gt;/inventory_clean.json</code></td><td>Mingjian（S4）</td><td>Yujing</td><td>干净对照清单（SAM 3 实例掩码加 Pi3X 点云拟合的有向框），只用于"检测到"这一关和 P0</td></tr>
+<tr><td><code>gen/&lt;scene_id&gt;/&lt;object_id&gt;/c&lt;k&gt;/mesh.glb</code></td><td>Mingjian 的工具（S8）</td><td>agent、Yujing</td><td>生成的网格；同一目录下的 <code>placement.json</code> 是 <code>place_mesh</code> 返回的 PlacementResult（状态、位姿、拟合分数、花费）。生成结果按"帧、掩码、后端、种子"缓存，接口照抄 02 号笔记 §7.2</td></tr>
+<tr><td><code>runs/&lt;arm&gt;/&lt;scene_id&gt;/&lt;seed&gt;/scene.blend</code></td><td>Yifan（P0 由 Mingjian）</td><td>Yujing</td><td>每次运行最终保存的场景；撞上限或跑崩也交最后一版</td></tr>
+<tr><td><code>runs/…/run_log.json</code></td><td>Yifan（P0 由 Mingjian）</td><td>Yujing（成本轴）</td><td>token 数（输入、缓存、输出）、按 API 价折算的美元、墙钟时间、轮数、失败原因、fal 费用</td></tr>
+<tr><td><code>runs/…/export/objects.json</code></td><td>Yujing 的评测脚本（P0 直接写）</td><td>评测</td><td>用 AHa-3D 的 <code>export_model.py</code> 从 .blend 导出，每个语义根节点（按 instance_id 分组）一个世界坐标有向框</td></tr>
+<tr><td><code>results/</code></td><td>Yujing</td><td>所有人</td><td>分档表、漏斗图、成本-精度图、bootstrap 结果</td></tr>
+</tbody></table></div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li>路径以设计文档第 15b 节为准。代码结构和这套约定之外的配置、日志细节，第 16 节留给执行时定。</li>
+<li>真正要守住的是内容约定：<code>export/objects.json</code> 用世界坐标，<code>run_log.json</code> 分开记输入、缓存、输出三种 token。否则 Yujing 那边对齐和算成本都会出错。</li>
+<li>agent 组只读 <code>inventory.json</code>，不读 <code>inventory_clean.json</code>。干净版只在评测"检测到"这一关和 P0 里用。</li>
+</ul>
+</div>
+<p class="src">设计文档第 4、5、7、9、11、15b、16 节；课程仓库 03-final-project/README.md（提案每组只交一份，由一名组员代传）。</p>

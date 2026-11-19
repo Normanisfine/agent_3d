@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "experiment_id": "pilot-plan",
+  "status": "planned",
+  "config": "../../configs/pilot.json",
+  "protocol": "../../docs/experiments.md",
+  "variants": ["B0", "B1", "B2", "B3", "B4"],
+  "executed": false,
+  "cost_usd": null,
+  "results": null,
+  "blockers": [
+    "Offline tests not yet authorized/run",
+    "AHa scene-state export/apply bridge and render validation",
+    "Audited alignment and native CA-1M annotation export",
+    "Frozen inputs, splits, model revisions and dated cost assumptions"
+  ]
+}

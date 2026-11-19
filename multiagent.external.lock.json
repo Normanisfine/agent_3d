@@ -1,0 +1,22 @@
+{
+  "sam-3d-objects": {
+    "url": "https://github.com/facebookresearch/sam-3d-objects.git",
+    "commit": "f91db411c50efee93d8db7aeb323885650f6f722"
+  },
+  "hunyuan3d-2.1": {
+    "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1.git",
+    "commit": "82920d643c0dc2f7bfd7255f45f62d386edfe60c"
+  },
+  "hispatial": {
+    "url": "https://github.com/microsoft/HiSpatial.git",
+    "commit": "9b0a5718ed0fb3b8bd9d9e0b36b6192bd3e99be1"
+  },
+  "sam3": {
+    "url": "https://github.com/facebookresearch/sam3.git",
+    "commit": "660a5e9e1b8b4c02c0ad97229b88a09a6e4ff5b7"
+  },
+  "pi3": {
+    "url": "https://github.com/yyfz/Pi3.git",
+    "commit": "9fa3ddb3f8d53041f8b2738df404f62223bbaa7b"
+  }
+}

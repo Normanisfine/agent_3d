@@ -1,0 +1,14 @@
+{
+  "source_url": "https://s3-us-west-2.amazonaws.com/ai2-thor-public/builds/thor-CloudRendering-f0825767cd50d69f666c7f282e54abfe58f1e917.zip",
+  "archive": "thor-CloudRendering-f0825767cd50d69f666c7f282e54abfe58f1e917.zip",
+  "archive_sha256": "1fd5f998644a6dd522a4cf6604c05360a75a5c27f450a7486c20e52dc2b67bb9",
+  "archive_bytes": 835983275,
+  "checksum_verified": true,
+  "zip_integrity_verified": true,
+  "build_commit": "f0825767cd50d69f666c7f282e54abfe58f1e917",
+  "ai2thor_version": "5.0.0",
+  "scene": "FloorPlan209",
+  "contents": "Official bundled simulator scenes and assets, not reconstruction outputs",
+  "executable": "/home/mj/dl_project/agen3d/datasets/ai2thor/releases/thor-CloudRendering-f0825767cd50d69f666c7f282e54abfe58f1e917/thor-CloudRendering-f0825767cd50d69f666c7f282e54abfe58f1e917",
+  "runtime_tested": false
+}

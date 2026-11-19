@@ -1,0 +1,26 @@
+# 大文件和本机运行时，不进仓库
+.runtime/
+third_party/
+scenes/
+perception/
+gen/
+runs/
+*.blend
+*.blend1
+*.npz
+*.glb
+*.mp4
+*.mov
+*.tar
+*.safetensors
+*.pt
+__pycache__/
+*.pyc
+# 本地预览图
+proposal/preview-*.png
+
+# superpowers 执行记录（本地）
+.superpowers/
+.worktrees/
+perception_betty/
+results/previews/

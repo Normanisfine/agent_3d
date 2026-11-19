@@ -1,0 +1,9 @@
+{
+  "scene": "FloorPlan209",
+  "room_type": "living_room",
+  "ai2thor_version": "5.0.0",
+  "commit_id": "f0825767cd50d69f666c7f282e54abfe58f1e917",
+  "local_executable_path": "/home/mj/dl_project/agen3d/datasets/ai2thor/releases/thor-CloudRendering-f0825767cd50d69f666c7f282e54abfe58f1e917/thor-CloudRendering-f0825767cd50d69f666c7f282e54abfe58f1e917",
+  "platform": "CloudRendering",
+  "preserve_original_furnishings": true
+}

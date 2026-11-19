@@ -1,0 +1,305 @@
+<h2 id="data"><span class="num">7</span>数据</h2>
+<p>这一章讲我们拿什么视频去跑、拿什么当标准答案（设计文档第 8 节，数字来自 03 号笔记）。正式结果只用一个数据集：CA-1M 里的 22 个视频。</p>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>数据像一套考卷。视频是考题，发给考生（AHa-3D 加 agent）；3D 框、相机位姿、激光深度是标准答案，只有阅卷老师（评测脚本）能看。</p>
+<p>答案绝不能夹在考题里发下去，否则分数再高也不算数。这一章反复强调哪些东西"进流程"、哪些"只给评测"，就是这个道理。</p>
+</div>
+<div class="table-wrap"><table>
+<tr><th>用途</th><th>数据</th><th>规模</th><th>说明</th></tr>
+<tr class="hl"><td>正式结果</td><td>CA-1M 验证集里和 BVB-150 重叠的 22 个视频</td><td>5 开发、15 测试、2 备用；约 11 到 16 GB</td><td>不用申请。1024×768 帧（10 fps）、注册位姿、激光渲染深度；每个视频约 125 个不分类别的框</td></tr>
+<tr><td>第二开发集</td><td>VSI-Bench 里的 ScanNet++ 部分</td><td>50 个场景，视频约 1 GB，框 1,119 个</td><td>640×480，没有位姿，只用来调流程，不进结果表</td></tr>
+<tr><td>形状评测（可选）</td><td>官方 ScanNet++</td><td>5 个场景</td><td>要教授手签；11/2 前批下来才加；mesh、标注、位姿约 3 到 4 GB</td></tr>
+<tr><td>演示</td><td>自己拍的视频</td><td>2 到 3 段</td><td>只做定性展示</td></tr>
+</table></div>
+<div class="box detail">
+<span class="box-label">为什么不用原计划的 ARKitScenes 家具框</span>
+<p>BVB-150 用的 ARKitScenes 只标了 17 类家具，里面没有一类是小物体。</p>
+<p>VSI-Bench 公开的这 150 个视频的框共 854 个，最长边小于 0.5 m 的只有 42 个（4.9%），小于 0.2 m 的一个都没有。</p>
+<p>CA-1M 是 Apple 对同一批 ARKitScenes 视频重新做的穷举标注，小物体多得多。视频 ID 和 ARKitScenes 一致，所以能和 BVB 的现成结果对上。</p>
+</div>
+
+<h3 id="c-ca1m">7.1 一个 CA-1M 场景里有什么</h3>
+<p>每个 CA-1M 视频是一个 tar 包（验证集中位数 0.51 GB）。里面的东西分两类：流程能看的，只有 RGB 帧；其余全部只给评测。</p>
+<div class="arch">
+<div class="arch-title">拆开一个 CA-1M 视频：每样东西去哪</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 345" width="760" role="img" aria-label="CA-1M 一个视频的组成：RGB 帧进流程，位姿、重力、激光深度、3D 框只给评测，ARKit LiDAR 深度不用">
+<defs><marker id="c-m7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="20" y="24" font-weight="700" font-size="13">tar 包里有什么</text>
+<text x="440" y="24" font-weight="700" font-size="13">去哪</text>
+<g data-s="1">
+<rect x="20" y="40" width="280" height="40" rx="6" class="f0 stroke"/><text x="32" y="56" font-weight="700">RGB 帧</text><text x="32" y="73">1024×768 PNG，每秒约 10 帧</text>
+<path d="M300,60 L438,60" class="arrow-green" marker-end="url(#c-m7)"/><text x="370" y="54" text-anchor="middle">帧序列</text>
+<rect x="440" y="40" width="300" height="40" rx="6" class="f2 stroke"/><text x="452" y="56" font-weight="700">进流程</text><text x="452" y="73">合成 input.mp4；高清帧也取这里的原图</text>
+</g>
+<g data-s="2">
+<rect x="20" y="90" width="280" height="40" rx="6" class="f0 stroke"/><text x="32" y="106" font-weight="700">RT.json</text><text x="32" y="123">注册到激光坐标系的相机位姿</text>
+<path d="M300,110 L438,110" class="arrow" marker-end="url(#c-m7)"/><text x="370" y="104" text-anchor="middle">相机中心</text>
+<rect x="440" y="90" width="300" height="40" rx="6" class="f1 stroke"/><text x="452" y="106" font-weight="700">评测 · 对齐</text><text x="452" y="123">和 Pi3X 的相机中心配对，解 Sim(3)</text>
+</g>
+<g data-s="2">
+<rect x="20" y="140" width="280" height="40" rx="6" class="f0 stroke"/><text x="32" y="156" font-weight="700">T_gravity.json</text><text x="32" y="173">每帧的重力方向</text>
+<path d="M300,160 L438,160" class="arrow" marker-end="url(#c-m7)"/><text x="370" y="154" text-anchor="middle">重力方向</text>
+<rect x="440" y="140" width="300" height="40" rx="6" class="f1 stroke"/><text x="452" y="156" font-weight="700">评测 · 重力约束</text><text x="452" y="173">对齐时只绕竖直轴转（按我们的理解）</text>
+</g>
+<g data-s="3">
+<rect x="20" y="190" width="280" height="40" rx="6" class="f0 stroke"/><text x="32" y="206" font-weight="700">激光渲染深度</text><text x="32" y="223">512×384，由 FARO 激光扫描渲染</text>
+<path d="M300,210 L438,210" class="arrow" marker-end="url(#c-m7)"/><text x="370" y="204" text-anchor="middle">深度图</text>
+<rect x="440" y="190" width="300" height="40" rx="6" class="f1 stroke"/><text x="452" y="206" font-weight="700">评测 · 看得见</text><text x="452" y="223">判断遮挡，数每个物体的可见像素</text>
+</g>
+<g data-s="4">
+<rect x="20" y="240" width="280" height="40" rx="6" class="f0 stroke"/><text x="32" y="256" font-weight="700">world.gt 框（每个视频一份）</text><text x="32" y="273">约 125 个 3D 框，不分类别</text>
+<path d="M300,260 L438,260" class="arrow" marker-end="url(#c-m7)"/><text x="370" y="254" text-anchor="middle">3D 框</text>
+<rect x="440" y="240" width="300" height="40" rx="6" class="f1 stroke"/><text x="452" y="256" font-weight="700">评测 · 真值</text><text x="452" y="273">去结构件、按大小分档、和预测配对</text>
+</g>
+<g data-s="5">
+<rect x="20" y="290" width="280" height="40" rx="6" class="f0 stroke"/><text x="32" y="306" font-weight="700">ARKit LiDAR 深度</text><text x="32" y="323">256×192，手机自己测的</text>
+<text x="370" y="315" text-anchor="middle" class="lbl-accent" font-weight="700" font-size="13">×</text>
+<rect x="440" y="290" width="300" height="40" rx="6" class="f6 stroke"/><text x="452" y="306" font-weight="700">不用</text><text x="452" y="323">流程不用，评测也用更准的激光深度</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>RGB 帧</b>。1024×768 的 PNG，帧间隔 100 ms，约每秒 10 帧。CA-1M 已经把竖拍的帧转正，没有 .mov。这是流程唯一的输入：合成 <code>input.mp4</code> 交给 AHa-3D，高清帧也从这里取原图。</li>
+<li><b>RT.json 和 T_gravity.json</b>。RT.json 是注册到激光坐标系的相机位姿，评测时拿它的相机中心做对齐（<a href="#eval">第 8 章</a>）。T_gravity.json 是每帧的重力方向，按我们的理解用作对齐的重力约束。</li>
+<li><b>激光渲染深度</b>。FARO 激光扫描渲染出的深度图，512×384，比手机自带的深度准得多。漏斗第 ① 关"看得见"用它判断遮挡（<a href="#funnel">第 5 章</a>）。</li>
+<li><b>world.gt 框</b>。每个视频约 125 个 3D 框，穷举、不分类别，在激光扫描坐标系里（z 朝上），带 3×3 旋转和 8 个角点。去掉结构件后存成 <code>gt/boxes.json</code>，只给评测。</li>
+<li><b>ARKit LiDAR 深度</b>。256×192，手机自己测的。流程不用它，评测有更准的激光深度，也不用它。</li>
+</ol>
+</div>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>流程里的位姿和深度都来自 Pi3X</b>。CA-1M 的 ARKit 位姿、激光深度、注册位姿一律不进入流程（设计文档第 8 节）。否则就成了"偷看答案"。</li>
+<li><b>CA-1M 没有发布 mesh 和掩码</b>。所以在 CA-1M 上只评"在不在、准不准"，不评形状。</li>
+<li><b>许可是 CC BY-NC-ND</b>。只做课程研究，不能分发改过的标注。</li>
+</ul>
+</div>
+<div class="box extra">
+<span class="box-label">补充</span>
+<p>每帧还有一份相机坐标系下的 instances.json，带 <code>box_2d_rend</code>（可见部分的 2D 框）和 <code>box_2d_proj</code>（完整投影）。论文训练和评测都把框当成"重力对齐的 7 自由度"框（03 号笔记）。</p>
+</div>
+
+<h3 id="c-sizes">7.2 尺寸分布</h3>
+<p>03 号笔记用 range 请求读了 6 个重叠视频的框文件，没有下载整包。一共 1,173 个框，每个视频 105 到 336 个。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 262" width="760" role="img" aria-label="CA-1M 抽查 6 个视频 1173 个框按最长边分档的横向条形图，以及类别字段的组成">
+<g font-size="12">
+<text x="20" y="20" font-size="13" font-weight="700">CA-1M 抽查 6 个视频，共 1,173 个框（03 号笔记，按真实比例画）</text>
+<text x="150" y="54" text-anchor="end">XS（&lt; 0.2 m）</text>
+<rect x="160" y="39" width="269" height="22" rx="3" class="f1 stroke"/>
+<text x="435" y="54" font-weight="700">269 个 · 22.9%</text>
+<text x="150" y="88" text-anchor="end">S（0.2–0.5 m）</text>
+<rect x="160" y="73" width="363" height="22" rx="3" class="f1 stroke"/>
+<text x="529" y="88" font-weight="700">363 个 · 30.9%</text>
+<text x="150" y="122" text-anchor="end">M（0.5–1.5 m）</text>
+<rect x="160" y="107" width="285" height="22" rx="3" class="f1 stroke"/>
+<text x="451" y="122" font-weight="700">285 个 · 24.3%</text>
+<text x="150" y="156" text-anchor="end">L（≥ 1.5 m）</text>
+<rect x="160" y="141" width="256" height="22" rx="3" class="f4 stroke"/>
+<text x="422" y="156" font-weight="700">256 个 · 21.8%</text>
+<text x="532.4" y="156" class="lbl-accent">含墙、门框等结构件，评测前去掉</text>
+<line x1="160" y1="176" x2="560" y2="176" class="stroke"/>
+<line x1="160" y1="176" x2="160" y2="181" class="stroke"/>
+<text x="160" y="195" text-anchor="middle">0</text>
+<line x1="260" y1="176" x2="260" y2="181" class="stroke"/>
+<text x="260" y="195" text-anchor="middle">100</text>
+<line x1="360" y1="176" x2="360" y2="181" class="stroke"/>
+<text x="360" y="195" text-anchor="middle">200</text>
+<line x1="460" y1="176" x2="460" y2="181" class="stroke"/>
+<text x="460" y="195" text-anchor="middle">300</text>
+<line x1="560" y1="176" x2="560" y2="181" class="stroke"/>
+<text x="560" y="195" text-anchor="middle">400</text>
+<text x="572" y="195">个框</text>
+<text x="160" y="216">下面这条按占比画，整条 = 100%，和上面的框数刻度无关</text>
+<text x="150" y="238" text-anchor="end">类别字段</text>
+<rect x="160" y="224" width="192" height="22" rx="3" class="f6 stroke"/>
+<rect x="352" y="224" width="208" height="22" rx="3" class="f1 stroke"/>
+<text x="256" y="239" text-anchor="middle">只写 object · 48%</text>
+<text x="456" y="239" text-anchor="middle">有具体名字 · 52%</text>
+<text x="572" y="239">如 bottle 31、lamp 11</text>
+</g></svg></div>
+<figcaption>按真值框最长边分档（档的定义见<a href="#eval">第 8 章</a>）。XS 和 S 两档加起来超过一半，这正是我们要的小物体。L 档里有墙、门框这类结构件，评测前去掉，所以真正的 L 档家具比图上少。下面一条是类别字段：近一半只写了 "object"。</figcaption></figure>
+<ul>
+<li><b>最长边</b>：中位数 0.43 m，第 10 百分位 0.12 m，最小 0.046 m。</li>
+<li><b>类别</b>：自由文本，共 200 种；48% 是笼统的 "object"。有具体名字的里有 bottle 31 个、lamp 11 个，还有 cup、book、vase、remote control、candle、outlet 等。</li>
+<li><b>旋转</b>：1,173 个框里只有 24 个带俯仰或横滚，其余只绕竖直轴转。</li>
+</ul>
+<div class="box key">
+<span class="box-label">必记</span>
+<ul>
+<li>CA-1M 的框是穷举的，所以"多建出来、对不上任何真值"的物体真的是多余的，精确率有意义。</li>
+<li>48% 只写 "object"，所以评测配对<b>不看类别</b>（<a href="#eval">第 8 章</a>）。</li>
+<li>抽样只有 6 个视频，22 个视频的真实分布要等数据下完再数。</li>
+</ul>
+</div>
+
+<h3 id="c-split">7.3 22 个视频和划分</h3>
+<p>这 22 个视频是两个集合的交集再筛一遍得到的。它们同时有 CA-1M 的穷举框和 BVB 的现成结果。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 215" width="760" role="img" aria-label="22 个视频的来历和划分：CA-1M 验证集和 BVB-150 取交集得 27 个，去掉 5 个覆盖不足的剩 22 个，再用固定种子分成 5 开发、15 测试、2 备用">
+<defs><marker id="c-m8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="20" width="160" height="50" rx="8" class="f6 stroke"/><text x="90" y="40" text-anchor="middle" font-weight="700">CA-1M 验证集</text><text x="90" y="58" text-anchor="middle">107 个视频</text>
+<rect x="10" y="100" width="160" height="50" rx="8" class="f6 stroke"/><text x="90" y="120" text-anchor="middle" font-weight="700">VSI 里的 ARKitScenes</text><text x="90" y="138" text-anchor="middle">150 个（BVB-150）</text>
+<path d="M170,45 L213,75" class="arrow" marker-end="url(#c-m8)"/><path d="M170,125 L213,95" class="arrow" marker-end="url(#c-m8)"/>
+<rect x="215" y="60" width="130" height="50" rx="8" class="f1 stroke"/><text x="280" y="80" text-anchor="middle" font-weight="700">交集 27 个</text><text x="280" y="98" text-anchor="middle">和训练集交集 0</text>
+<path d="M345,85 L378,85" class="arrow" marker-end="url(#c-m8)"/><text x="361" y="78" text-anchor="middle" class="lbl-accent" font-weight="700">−5</text>
+<rect x="380" y="60" width="110" height="50" rx="8" class="f1 stroke"/><text x="435" y="80" text-anchor="middle" font-weight="700">22 个可用</text><text x="435" y="98" text-anchor="middle">覆盖 ≥ 80%</text>
+<text x="352" y="138" text-anchor="middle" class="lbl-accent">去掉的 5 个：帧只覆盖轨迹的 2%–76%</text>
+<path d="M490,85 L556,85" class="arrow" marker-end="url(#c-m8)"/><text x="523" y="78" text-anchor="middle">固定种子</text>
+<text x="560" y="44" font-weight="700">开发 5</text>
+<circle cx="616" cy="40" r="6" class="f2 stroke"/><circle cx="632" cy="40" r="6" class="f2 stroke"/><circle cx="648" cy="40" r="6" class="f2 stroke"/><circle cx="664" cy="40" r="6" class="f2 stroke"/><circle cx="680" cy="40" r="6" class="f2 stroke"/>
+<text x="560" y="84" font-weight="700">测试 15</text>
+<circle cx="616" cy="80" r="6" class="f1 stroke"/><circle cx="632" cy="80" r="6" class="f1 stroke"/><circle cx="648" cy="80" r="6" class="f1 stroke"/><circle cx="664" cy="80" r="6" class="f1 stroke"/><circle cx="680" cy="80" r="6" class="f1 stroke"/><circle cx="696" cy="80" r="6" class="f1 stroke"/><circle cx="712" cy="80" r="6" class="f1 stroke"/><circle cx="728" cy="80" r="6" class="f1 stroke"/>
+<circle cx="616" cy="96" r="6" class="f1 stroke"/><circle cx="632" cy="96" r="6" class="f1 stroke"/><circle cx="648" cy="96" r="6" class="f1 stroke"/><circle cx="664" cy="96" r="6" class="f1 stroke"/><circle cx="680" cy="96" r="6" class="f1 stroke"/><circle cx="696" cy="96" r="6" class="f1 stroke"/><circle cx="712" cy="96" r="6" class="f1 stroke"/>
+<text x="560" y="138" font-weight="700">备用 2</text>
+<circle cx="616" cy="134" r="6" class="f6 stroke"/><circle cx="632" cy="134" r="6" class="f6 stroke"/>
+<rect x="560" y="160" width="190" height="42" rx="8" class="f3 stroke"/><text x="655" y="177" text-anchor="middle" class="shape">configs/splits.json</text><text x="655" y="195" text-anchor="middle">10/20 前提交，之后不改</text>
+</g></svg></div>
+<figcaption>22 个视频从哪来、怎么分。两个集合取交集得 27 个，其中 5 个的帧只覆盖原视频轨迹的一小部分，去掉后剩 22 个；再用固定种子分组。哪个视频进哪组，要等脚本跑完才知道。</figcaption></figure>
+<ul>
+<li><b>开发集 5 个</b>：所有阈值、提示词、门槛只在这里调。</li>
+<li><b>测试集 15 个</b>：名单在 10/20 前写进 <code>configs/splits.json</code> 并提交，之后不再改。看了测试结果再回头调，是设计文档列的反目标之一。</li>
+<li><b>备用 2 个</b>：某个视频出了意外（比如跑不通）时顶上。</li>
+</ul>
+<details><summary>22 个视频的 ID，和去掉的 5 个</summary><div class="inner">
+<p>可用的 22 个（03 号笔记 1.3 节）：</p>
+<p><code>42897538 42897647 42898849 42899617 42899698 42899712 42899725 42899729 44358442 44358451 45261121 45261575 45663164 47115469 47115525 47115543 47204552 47331068 47331262 47331319 47334239 47430475</code></p>
+<p>去掉的 5 个，括号里是 CA-1M 帧覆盖的轨迹时长比例：42898486（2%）、42897692（19%）、45662970（65%）、47334107（74%）、42897688（76%）。</p>
+<p>27 个重叠视频的 tar 共约 16.3 GB；22 个按中位数 0.51 GB 估约 11 到 12 GB。设计文档写的是约 11 到 16 GB。</p>
+</div></details>
+
+<h3 id="c-vsi">7.4 第二开发集和可选的 ScanNet++</h3>
+<p>CA-1M 的开发集只有 5 个视频。为了多一些调流程的场景，我们加一份<b>第二开发集</b>：VSI-Bench 里的 ScanNet++ 部分。</p>
+<ul>
+<li><b>规模</b>：50 个验证场景，1,119 个框，43 类，平均每个场景 22.4 个框。视频约 1 GB，不用申请。</li>
+<li><b>小物体</b>：最长边小于 0.5 m 的 314 个（28.1%），其中小于 0.2 m 的 60 个。有鼠标 33、杯子 15、电话 15、鞋 15、植物 10、插线板 10 等；显示器 70 个，多数落在 M 档。</li>
+<li><b>限制</b>：视频是 640×480，没有相机位姿，只能用 L 档家具加地面对齐，只评 XS、S、M 三档。所以<b>只用来调流程，不进结果表</b>。</li>
+</ul>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 250" width="760" role="img" aria-label="CA-1M 抽样和 VSI 的 ScanNet++ 部分各尺寸档占比对比">
+<g font-size="12">
+<text x="20" y="20" font-size="13" font-weight="700">各档占比：穷举标注和精选标注差在哪</text>
+<rect x="160" y="34" width="12" height="12" rx="2" class="f1 stroke"/>
+<text x="178" y="45">CA-1M 抽样：6 个视频，1,173 个框，穷举</text>
+<rect x="160" y="54" width="12" height="12" rx="2" class="f3 stroke"/>
+<text x="178" y="65">VSI 的 ScanNet++ 部分：50 个场景，1,119 个框，精选类别</text>
+<text x="150" y="104" text-anchor="end">XS（&lt; 0.2 m）</text>
+<rect x="160" y="85" width="137.6" height="14" rx="2" class="f1 stroke"/>
+<text x="303.6" y="96">22.9%（269）</text>
+<rect x="160" y="101" width="32.2" height="14" rx="2" class="f3 stroke"/>
+<text x="198.2" y="112">5.4%（60）</text>
+<text x="150" y="142" text-anchor="end">S（0.2–0.5 m）</text>
+<rect x="160" y="123" width="185.7" height="14" rx="2" class="f1 stroke"/>
+<text x="351.7" y="134">30.9%（363）</text>
+<rect x="160" y="139" width="136.2" height="14" rx="2" class="f3 stroke"/>
+<text x="302.2" y="150">22.7%（254）</text>
+<text x="150" y="180" text-anchor="end">M（0.5–1.5 m）</text>
+<rect x="160" y="161" width="145.8" height="14" rx="2" class="f1 stroke"/>
+<text x="311.8" y="172">24.3%（285）</text>
+<rect x="160" y="177" width="331.4" height="14" rx="2" class="f3 stroke"/>
+<text x="497.4" y="188">55.2%（618）</text>
+<text x="150" y="218" text-anchor="end">L（≥ 1.5 m）</text>
+<rect x="160" y="199" width="130.9" height="14" rx="2" class="f1 stroke"/>
+<text x="296.9" y="210">21.8%（256）</text>
+<rect x="160" y="215" width="100.3" height="14" rx="2" class="f3 stroke"/>
+<text x="266.3" y="226">16.7%（187）</text>
+<line x1="160" y1="80" x2="160" y2="236" class="stroke"/>
+</g></svg></div>
+<figcaption>CA-1M 抽样和 VSI 的 ScanNet++ 部分各档占比对比。CA-1M 这 6 个视频是从重叠视频里抽查的，可能含测试集，只用来看分布。VSI 的框是精选过的，小物体比例明显低：XS 只占 5.4%，CA-1M 抽样里是 22.9%。CA-1M 的 L 档含结构件，所以 L 档那一行两边不能直接比。</figcaption></figure>
+<p>VSI 的框少小物体，是论文自己说的：精选类别时去掉了罕见类和特别小的物体。原文是 <q>we exclude both rare categories and those with extremely small object sizes</q>。</p>
+<div class="box plain">
+<span class="box-label">可选：官方 ScanNet++（测形状）</span>
+<p>CA-1M 只有框，测不了形状。官方 ScanNet++ 有激光 mesh 上的逐物体标注，能裁出每个物体的真值网格，可以评 Chamfer 这类形状指标。</p>
+<ul>
+<li>申请要教授和申请人<b>手写签名</b>，审批一般 4 到 7 天。</li>
+<li>11/2 前批下来，才加 5 个场景测形状；只下 mesh、标注、位姿，约 3 到 4 GB。</li>
+<li>批不下来不影响主线，形状只做定性展示（设计文档第 2 节"非目标"）。</li>
+</ul>
+</div>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<p>VSI 的 ScanNet++ 视频和官方 ScanNet++ 是同一批房间，但 VSI 的是 640×480 的重采样版，没有位姿和深度。拿它调出来的阈值，不能直接当成在官方数据上的结论。</p>
+</div>
+
+<h3 id="c-input">7.5 输入视频怎么来，"高清帧"是什么</h3>
+<p>AHa-3D 要的是一段视频。我们用 CA-1M 的帧按 10 fps 合成 mp4（每个场景一个 <code>input.mp4</code>），原始 .mov 不下载（每个约 0.9 GB，硬盘只剩约 65 GB）。</p>
+<div class="arch">
+<div class="arch-title">输入视频和高清帧：同一批帧，两种分辨率</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 300" width="760" role="img" aria-label="CA-1M 帧合成 mp4 交给 Pi3X，Pi3X 抽 32 帧缩到 574×434；高清帧是同样 32 个帧号的原图，配上 Pi3X 的位姿和放大的点图">
+<defs><marker id="c-m9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1 4"><rect x="10" y="30" width="140" height="60" rx="8" class="f0 stroke"/><text x="80" y="54" text-anchor="middle" font-weight="700">CA-1M RGB 帧</text><text x="80" y="74" text-anchor="middle">1024×768 · 10 fps</text></g>
+<g data-s="1"><path d="M150,60 L198,60" class="arrow" marker-end="url(#c-m9)"/><text x="175" y="52" text-anchor="middle">拼帧</text>
+<rect x="200" y="30" width="130" height="60" rx="8" class="f0 stroke"/><text x="265" y="54" text-anchor="middle" font-weight="700">合成 input.mp4</text><text x="265" y="74" text-anchor="middle">10 fps，不下 .mov</text></g>
+<g data-s="2"><path d="M330,60 L378,60" class="arrow" marker-end="url(#c-m9)"/><text x="354" y="52" text-anchor="middle">视频</text>
+<rect x="380" y="30" width="150" height="60" rx="8" class="f1 stroke"/><text x="455" y="50" text-anchor="middle" font-weight="700">Pi3X</text><text x="455" y="68" text-anchor="middle">均匀抽 32 帧</text><text x="455" y="85" text-anchor="middle">缩到 574×434</text></g>
+<g data-s="3"><path d="M530,60 L578,60" class="arrow" marker-end="url(#c-m9)"/><text x="554" y="52" text-anchor="middle">输出</text>
+<rect x="580" y="30" width="170" height="60" rx="8" class="f1 stroke"/><text x="665" y="54" text-anchor="middle" font-weight="700">每帧位姿 + 点图</text><text x="665" y="74" text-anchor="middle">交给 AHa-3D 往下走</text></g>
+<g data-s="4"><path d="M80,90 L80,168" class="arrow" marker-end="url(#c-m9)"/><text x="88" y="134">原图</text>
+<path d="M440,90 L160,168" class="arrow dash" marker-end="url(#c-m9)"/><text x="372" y="104" text-anchor="end">32 个帧号</text>
+<rect x="10" y="170" width="190" height="70" rx="8" class="f3 stroke"/><text x="105" y="192" text-anchor="middle" font-weight="700">高清帧</text><text x="105" y="211" text-anchor="middle">同样那 32 个帧号</text><text x="105" y="229" text-anchor="middle">换成 1024×768 原图</text></g>
+<g data-s="5"><path d="M620,90 L440,168" class="arrow dash" marker-end="url(#c-m9)"/><text x="572" y="128">位姿、点图</text>
+<path d="M200,205 L248,205" class="arrow" marker-end="url(#c-m9)"/><text x="224" y="197" text-anchor="middle">原图</text>
+<rect x="250" y="170" width="240" height="70" rx="8" class="f3 stroke"/><text x="370" y="192" text-anchor="middle" font-weight="700">配上几何</text><text x="370" y="211" text-anchor="middle">位姿：用 Pi3X 估的</text><text x="370" y="229" text-anchor="middle">深度：Pi3X 点图放大到原图</text></g>
+<g data-s="6"><path d="M490,205 L538,205" class="arrow" marker-end="url(#c-m9)"/><text x="514" y="197" text-anchor="middle">图+几何</text>
+<rect x="540" y="170" width="210" height="70" rx="8" class="f2 stroke"/><text x="645" y="192" text-anchor="middle" font-weight="700">用在哪</text><text x="645" y="211" text-anchor="middle">Boxer 清单（A2 起）</text><text x="645" y="229" text-anchor="middle">SAM 3D 的裁剪和 pointmap</text>
+<rect x="10" y="258" width="740" height="32" rx="8" class="f4 stroke"/><text x="380" y="279" text-anchor="middle" class="lbl-accent">真值传感器数据（ARKit 位姿、激光深度、RT.json）一律不进流程，只给评测</text></g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>合成视频</b>。把 CA-1M 的帧按原顺序拼成 10 fps 的 <code>input.mp4</code>。CA-1M 本来就是约 10 fps，所以一帧对一帧，不丢不补。</li>
+<li><b>Pi3X 抽帧</b>。从整段视频里均匀抽 32 帧，必须包含首帧和尾帧；每帧缩到 25.5 万像素以内，宽高取 14 的倍数，也就是 574×434。</li>
+<li><b>流程往下走</b>。Pi3X 输出每帧的相机位姿和近似米制的点图，AHa-3D 后面的环节都用它。所有实验组共用这一份。</li>
+<li><b>高清帧</b>。就是 Pi3X 用的那 32 帧，换成 1024×768 的原图。帧号相同，只是分辨率高。</li>
+<li><b>配上几何</b>。位姿用 Pi3X 估的；深度用 Pi3X 的点图放大到原图尺寸，SAM 3D 要的 <code>pointmap</code> 也从这里来。</li>
+<li><b>用在哪，以及不用什么</b>。高清帧给 A2 起的 Boxer 清单和 SAM 3D 的裁剪用。CA-1M 的真值传感器数据一律不进流程，所以流程始终是"单目视频进来"。</li>
+</ol>
+</div>
+<div class="box key">
+<span class="box-label">必记</span>
+<ul>
+<li>高清帧 = Pi3X 那 32 帧的 1024×768 原图，位姿和深度都来自 Pi3X。</li>
+<li>漏斗"看得见"那一关的帧集合因此不变，只是多算一个分辨率。</li>
+<li>高清帧消融（A3v 改用降采样帧）只改分辨率，不改帧数。</li>
+</ul>
+</div>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<p>"高清帧"不等于"更多帧"。帧号和 Pi3X 用的完全一样。只在 32 帧之间出现过的物体，高清帧也帮不上忙，它在漏斗第 ① 关照样会丢。</p>
+</div>
+
+<h3 id="c-selfshot">7.6 自拍视频的要求</h3>
+<p>最后的演示要用 2 到 3 段我们自己拍的房间视频，只做定性展示（设计文档目标 G5）。拍法有几条硬要求，主要是为了让 AHa-3D 能吃进去。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 260" width="760" role="img" aria-label="拍摄示意：房间俯视图里沿虚线慢慢绕一圈，手机横拿朝向房间中间，桌上留几样小东西；右边列出五条要求">
+<defs><marker id="c-m10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="20" y="20" width="400" height="220" rx="6" class="f0 stroke"/>
+<text x="30" y="38">房间俯视图</text>
+<rect x="30" y="195" width="90" height="37" rx="4" class="f6 stroke"/><text x="75" y="218" text-anchor="middle">沙发</text>
+<rect x="350" y="205" width="62" height="27" rx="4" class="f6 stroke"/><text x="381" y="223" text-anchor="middle">柜子</text>
+<rect x="180" y="100" width="120" height="60" rx="4" class="f3 stroke"/><text x="240" y="150" text-anchor="middle">桌子</text>
+<circle cx="200" cy="116" r="5" class="f4 stroke"/><rect x="214" y="110" width="18" height="12" rx="1" class="f1 stroke"/><circle cx="280" cy="118" r="6" class="f5 stroke"/>
+<text x="306" y="122">← 小东西</text>
+<ellipse cx="240" cy="130" rx="160" ry="92" class="arrow-blue dash" fill="none"/>
+<path d="M226,38 L242,38" class="arrow-blue" marker-end="url(#c-m10)"/>
+<path d="M254,222 L238,222" class="arrow-blue" marker-end="url(#c-m10)"/>
+<rect x="72" y="125" width="16" height="10" rx="2" class="f1 stroke"/><path d="M88,130 L128,130" class="arrow" marker-end="url(#c-m10)"/>
+<rect x="392" y="125" width="16" height="10" rx="2" class="f1 stroke"/><path d="M392,130 L352,130" class="arrow" marker-end="url(#c-m10)"/>
+<text x="450" y="44" font-weight="700">① 手机横拍</text>
+<text x="450" y="74" font-weight="700">② 30 到 60 秒</text>
+<text x="450" y="104" font-weight="700">③ 慢慢绕房间走一圈</text>
+<text x="450" y="134" font-weight="700">④ 一个镜头到底，不剪辑</text>
+<text x="472" y="152">AHa-3D 只接受连续镜头</text>
+<text x="450" y="182" font-weight="700">⑤ 桌上留杯子、书、台灯</text>
+<text x="472" y="200">别收拾得太干净</text>
+<text x="450" y="232">只做定性展示，拍 2 到 3 段</text>
+</g></svg></div>
+<figcaption>拍摄示意。蓝色虚线是行走路线，绕房间一圈；两个小方块是横拿的手机，箭头是镜头朝向，始终对着房间中间。桌上留几样小东西，才看得出小物体建得怎样。</figcaption></figure>
+<ul>
+<li><b>手机横拍</b>，30 到 60 秒，慢慢绕房间走一圈。</li>
+<li><b>一个镜头到底</b>。AHa-3D 要求输入是一个连续镜头，它不做剪辑检测。</li>
+<li><b>桌上留一些小东西</b>，比如杯子、书、台灯。这是演示的重点。</li>
+</ul>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<p>自拍视频没有真值，不进任何结果表，只看效果。另外 Pi3X 只抽 32 帧，拍得太长，相邻两帧隔得更远；30 到 60 秒正好让 32 帧把房间铺满（按我们的理解）。</p>
+</div>
+<p class="src">设计文档第 2、8 节；03 号笔记 0、1.2、1.3、1.4、1.5 节；VSI-Bench 论文（arXiv 2412.14171）；AHa-3D 深挖笔记里 reconstruct.py 的抽帧规则。</p>

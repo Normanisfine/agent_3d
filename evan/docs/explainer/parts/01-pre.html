@@ -1,0 +1,1070 @@
+<!-- ================================================================ -->
+<h2 id="pre"><span class="num">1</span>前置知识</h2>
+<p>这一章把后面反复出现的九个概念从头讲一遍。每节按"大白话、真实机制、例子和数字、容易搞错的地方"的顺序走，最后用一句话收尾。</p>
+<p>熟悉的小节可以跳过。全章用同一只杯子当例子：直径 8 cm、高 10 cm，放在 2 米外的桌上。</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-cam">1.1 相机：内参和位姿</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>拍照可以想成从一个小孔往外看。小孔后面一段距离放着底片，外面的东西沿直线穿过小孔，落在底片上。</p>
+<ul>
+<li><b>内参</b>描述相机自己：底片离小孔多远（焦距），底片的中心在哪。人走到哪儿，内参都不变。</li>
+<li><b>位姿</b>描述拍这一张时，相机站在房间哪里、朝哪个方向。手机绕房间走一圈，每一帧的位姿都不一样。</li>
+</ul>
+</div>
+<p><b>相机坐标系</b>以相机中心为原点。按 OpenCV 的约定，Z 轴朝镜头看的方向，X 朝右，Y 朝下。一个点的 Z 值，就是它在镜头正前方多远，也叫深度。</p>
+<p><b>针孔投影</b>把相机坐标 (X, Y, Z) 变成像素坐标 (u, v)，公式只有两行。</p>
+<pre><code>u = f·X/Z + cx
+v = f·Y/Z + cy</code></pre>
+<ul>
+<li>f 是焦距，单位是<b>像素</b>。</li>
+<li>(cx, cy) 是主点，也就是光轴穿过画面的位置，通常接近画面中心。</li>
+<li>这三个数排成 3×3 的<b>内参矩阵</b> <code>K = [[f, 0, cx], [0, f, cy], [0, 0, 1]]</code>。</li>
+</ul>
+<p>关键在除以 Z。同一个杯子离得越远，Z 越大，在画面里就越小。</p>
+<p><b>位姿</b>写成一个 4×4 矩阵。AHa-3D 存的是 <b>c2w</b>（camera to world），它把相机坐标下的点变到世界坐标，世界坐标系 Z 朝上。反过来要把世界里的点投到某一帧，先乘 c2w 的逆，再套上面的公式。</p>
+<p>Pi3X 从视频里同时估出每一帧的 K 和 c2w，AHa-3D 把它们写进 <code>cameras.json</code>。单位一栏写的是估计的米、没有标定，原文是 <q>predicted metres; uncalibrated</q>。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 290" width="760" role="img" aria-label="左：针孔模型侧视图，物体上一点沿直线穿过相机中心落在成像平面上；右：房间俯视图里每一帧相机的位置和朝向">
+<defs><marker id="a-m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="16" y="22" font-weight="700">内参：针孔怎样把 3D 点拍成像素</text>
+<rect x="40" y="148" width="26" height="24" rx="3" class="f1 stroke"/>
+<circle cx="70" cy="160" r="4" class="accent"/>
+<text x="52" y="196" text-anchor="middle" font-size="11">相机中心</text>
+<path d="M70,160 L420,160" class="arrow dash"/>
+<text x="420" y="176" text-anchor="end" font-size="11">光轴（Z 方向）</text>
+<path d="M160,70 L160,230" class="arrow" stroke-width="2"/>
+<text x="160" y="62" text-anchor="middle" font-size="11">成像平面</text>
+<rect x="360" y="96" width="34" height="64" rx="3" class="f3 stroke"/>
+<text x="400" y="88" font-size="11">物体上一点</text>
+<text x="400" y="104" font-size="11" class="shape">(X, Y, Z)</text>
+<path d="M377,96 L70,160" class="arrow-blue"/>
+<circle cx="160" cy="141.2" r="3.5" class="accent"/>
+<text x="154" y="132" text-anchor="end" font-size="11">像点 v</text>
+<path d="M352,96 L352,160" class="arrow"/>
+<text x="340" y="132" text-anchor="end" font-size="11">Y</text>
+<path d="M70,222 L377,222 M70,216 L70,228 M377,216 L377,228" class="arrow"/>
+<text x="290" y="216" text-anchor="middle" font-size="11">深度 Z</text>
+<path d="M70,246 L160,246 M70,240 L70,252 M160,240 L160,252" class="arrow"/>
+<text x="115" y="266" text-anchor="middle" font-size="11">f（焦距，单位像素）</text>
+<text x="16" y="284" font-size="12" class="shape">v − cy = f·Y/Z</text>
+
+<text x="460" y="22" font-weight="700">位姿：每一帧相机站在哪、朝哪</text>
+<rect x="466" y="40" width="280" height="200" rx="6" class="f6 stroke"/>
+<rect x="600" y="60" width="110" height="40" rx="4" class="f3 stroke"/>
+<text x="640" y="85" text-anchor="middle" font-size="11">书桌</text>
+<circle cx="690" cy="72" r="5" class="f1 stroke"/>
+<path d="M498,206 L560,184 L640,186 L712,204" class="arrow dash"/>
+<polygon points="498,206 527.0,198.4 511.7,179.3" class="f5 stroke"/>
+<polygon points="560,184 587.5,172.0 569.5,155.5" class="f5 stroke"/>
+<polygon points="640,186 655.9,160.6 631.8,157.2" class="f5 stroke"/>
+<polygon points="712,204 711.6,174.0 689.5,184.2" class="f5 stroke"/>
+<path d="M482,100 L512,100" class="arrow" marker-end="url(#a-m3)"/>
+<path d="M482,100 L482,70" class="arrow" marker-end="url(#a-m3)"/>
+<text x="516" y="104" font-size="11">X</text>
+<text x="488" y="70" font-size="11">Y</text>
+<text x="476" y="122" font-size="10.5">Z 朝上</text>
+<text x="740" y="232" text-anchor="end" font-size="10.5">房间俯视图</text>
+<text x="466" y="260" font-size="11">每个楔形是一帧的位姿：位置加朝向</text>
+<text x="466" y="278" font-size="11">存成 4×4 矩阵 c2w（相机到世界）</text>
+</g>
+</svg></div>
+<figcaption>左图是针孔模型的侧视图。物体上一点沿直线穿过相机中心，落在离中心 f 远的成像平面上。落点离光轴 f·Y/Z，加上主点 cy 就是像素坐标 v，u 同理。右图是位姿：手机沿虚线走，每个楔形是一帧相机的位置和朝向。</figcaption>
+</figure>
+
+<div class="box calc">
+<span class="box-label">估算 · 2 米外的杯子在画面里有多大</span>
+<p>杯子直径 8 cm、高 10 cm，离相机 2 m。另外假设相机水平视角 60°，这只是为了算数量级，真实值以 Pi3X 估出的 K 为准。</p>
+<ol>
+<li>Pi3X 用的帧：1024×768 的原图等比缩到 25.5 万像素以内，宽高再取 14 的倍数（Pi3X 的主干按 14×14 像素切块），约 574×434（574 × 434 = 249,116）。</li>
+<li>焦距 f = (574 ÷ 2) ÷ tan 30° = 287 ÷ 0.577 ≈ 497 像素。</li>
+<li>杯子在画面里高 497 × 0.10 ÷ 2 ≈ 25 像素，宽 497 × 0.08 ÷ 2 ≈ 20 像素。</li>
+<li>换成 1024 宽的原图，f ≈ 512 ÷ 0.577 ≈ 887，杯子高约 44 像素，是前者的 1.78 倍。</li>
+</ol>
+<p>提案里"2 米外 10 cm 的杯子只占二十来个像素"就是这么来的。项目里的"高清帧"也是这个道理：同样 32 帧，换回 1024×768 的原图（<a href="#data">第 7 章</a>）。</p>
+</div>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>c2w 和 w2c 别用反</b>。c2w 把相机坐标变到世界坐标，它的逆 w2c 才是把世界点变回相机。用反了，物体会跑到完全错的位置。</li>
+<li><b>不同软件的相机轴不一样</b>。OpenCV 的相机朝 +Z 看、Y 朝下；Blender 的相机朝自己的 −Z 看、Y 朝上。同一个 4×4 矩阵换软件时，要先把轴转过来。</li>
+<li><b>f 的单位是像素</b>，和镜头上标的毫米焦距是两回事。图片缩小一半，f 也跟着减半。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>内参管"怎么拍成像素"，位姿管"在哪拍、朝哪拍"；<code>u = f·X/Z + cx</code>，离得越远东西越小。</p>
+</div>
+<p class="src">AHa-3D 的输入输出格式见 deep-aha3d.json（task_input、task_output）；proposal.tex「Motivation」</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-depth">1.2 深度、点云和米制</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>深度图也是一张照片，只是每个像素记的是"这里离镜头几米"。</p>
+<p>把每个像素沿着它的视线往外推这么远，就落在一个 3D 点上。整张图的点合在一起，就是<b>点云</b>。<b>米制</b>的意思是单位真的是米。</p>
+</div>
+<p><b>反投影</b>就是把 1.1 节的投影公式倒过来用。知道像素 (u, v) 和深度 Z，就能解出这个点在相机坐标下的位置，再乘 c2w 进世界坐标。</p>
+<pre><code>X = (u − cx)·Z / f
+Y = (v − cy)·Z / f
+世界坐标 = c2w · [X, Y, Z, 1]ᵀ</code></pre>
+<p><b>点图</b>（pointmap）是更直接的存法，每个像素直接存一个 3D 点。Pi3X 输出的就是每帧的点图、置信度和相机。</p>
+<p>AHa-3D 再把各帧融合成一张网格。做法叫 <b>TSDF</b>（截断符号距离场）：把空间切成边长 3 cm 的<b>体素</b>（3D 里的小方格，相当于立体的像素），每格记下离最近表面多远，最后从这些距离里抽出表面。</p>
+<p><b>米制</b>指单位是真实的米。只靠单目视频，尺度在原理上定不下来：整间房放大一倍、相机也离远一倍，拍出来一模一样。</p>
+<p>Pi3X 靠学到的常识估出一个大致的米，所以只能叫"近似米制"。</p>
+<p>项目里用到点云的地方有四处。</p>
+<ul>
+<li><b>agent 量尺寸</b>。<code>measure.py</code> 让 agent 在帧上挑像素，从点图里读出 3D 点再算距离。端点置信度要不低于 0.5，3×3 像素块的 3D 跨度不能超过 0.12 m，否则拒绝。</li>
+<li><b>SAM 3D 生成</b>。可以把 Pi3X 的点图喂给它，喂了米制点图，它输出的位置和尺寸才是米制。</li>
+<li><b>干净对照</b>。取 SAM 3 掩码里的点，拟合一个有向框（<a href="#a-box">1.4 节</a>）。</li>
+<li><b>评测</b>。CA-1M 自带激光渲染的深度，只用来判断遮挡，不进流程。</li>
+</ul>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 270" width="760" role="img" aria-label="左：像素沿视线按深度推出去变成 3D 点；右：整体尺度差 10% 时，3 米外的杯子被推开 30 厘米，远超判定圈">
+<defs><marker id="a-m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="16" y="22" font-weight="700">反投影：像素加深度，推出一个 3D 点</text>
+<rect x="14" y="140" width="22" height="20" rx="3" class="f1 stroke"/>
+<circle cx="40" cy="150" r="3.5" class="accent"/>
+<text x="26" y="180" text-anchor="middle" font-size="11">相机</text>
+<rect x="104" y="105" width="12" height="18" class="f0 stroke"/>
+<rect x="104" y="123" width="12" height="18" class="f3 stroke"/>
+<rect x="102" y="121" width="16" height="22" class="arrow-red"/>
+<rect x="104" y="141" width="12" height="18" class="f0 stroke"/>
+<rect x="104" y="159" width="12" height="18" class="f0 stroke"/>
+<rect x="104" y="177" width="12" height="18" class="f0 stroke"/>
+<text x="110" y="96" text-anchor="middle" font-size="11">一列像素</text>
+<path d="M40,150 L230,52.3 M40,150 L270,150 M40,150 L250,204 M40,150 L230,247.7" class="arrow" stroke-width="1"/>
+<path d="M40,150 L250,96" class="arrow-blue"/>
+<circle cx="230" cy="52.3" r="3.5" class="ink3"/>
+<circle cx="250" cy="96" r="4" class="accent"/>
+<circle cx="270" cy="150" r="3.5" class="ink3"/>
+<circle cx="250" cy="204" r="3.5" class="ink3"/>
+<circle cx="230" cy="247.7" r="3.5" class="ink3"/>
+<text x="260" y="92" font-size="11">Z = 2.0 m</text>
+<text x="290" y="132" font-size="11">每个像素推出一个点</text>
+<text x="290" y="150" font-size="11">合起来就是点云</text>
+<text x="290" y="196" font-size="11" class="shape">X = (u − cx)·Z/f</text>
+<text x="290" y="214" font-size="11" class="shape">Y = (v − cy)·Z/f</text>
+
+<text x="450" y="22" font-weight="700">尺度差 10%：远处的物体被推开</text>
+<path d="M464,64 L476,76 M464,76 L476,64" class="arrow" stroke-width="2"/>
+<text x="470" y="94" text-anchor="middle" font-size="11">对齐中心</text>
+<path d="M470,70 L667,70" class="arrow"/>
+<text x="570" y="62" text-anchor="middle" font-size="11">3 m</text>
+<path d="M673,70 L687,70" class="arrow-red"/>
+<rect x="667" y="67" width="6" height="6" class="f1 stroke"/>
+<rect x="687" y="67" width="6" height="6" class="f3 stroke"/>
+<text x="690" y="54" text-anchor="middle" font-size="11" class="lbl-accent">多出 0.3 m</text>
+<text x="660" y="90" text-anchor="middle" font-size="10.5">真值</text>
+<text x="700" y="90" text-anchor="middle" font-size="10.5">建出</text>
+<rect x="520" y="110" width="230" height="148" rx="8" class="f0 stroke"/>
+<text x="530" y="128" font-size="11">放大看杯子附近（1 cm = 2.5 px）</text>
+<rect x="575" y="177.5" width="20" height="25" fill="none" class="stroke"/>
+<circle cx="585" cy="190" r="9.4" class="arrow-green"/>
+<circle cx="585" cy="190" r="18.9" class="arrow-blue dash"/>
+<rect x="650" y="177.5" width="20" height="25" class="f3 stroke"/>
+<path d="M587,158 L658,158" class="arrow-red" marker-start="url(#a-m4)" marker-end="url(#a-m4)"/>
+<text x="622" y="152" text-anchor="middle" font-size="11" class="lbl-accent">30 cm</text>
+<text x="585" y="228" text-anchor="middle" font-size="10.5">真值杯子</text>
+<text x="660" y="228" text-anchor="middle" font-size="10.5">建出来的杯子</text>
+<text x="635" y="248" text-anchor="middle" font-size="10.5">绿圈：严格线 3.8 cm；蓝虚圈：宽松线 7.5 cm</text>
+</g>
+</svg></div>
+<figcaption>左图：一列像素里，红框高亮的那格深度是 2.0 m，沿视线推出去就得到红色实心点；每个像素都这样推，就得到点云。右图：整体尺度大了 10%，离对齐中心 3 m 的杯子被推到 3.3 m。放大看，30 cm 的偏移远超严格线（中心差 3.8 cm）和宽松线（7.5 cm）。</figcaption>
+</figure>
+
+<div class="box calc">
+<span class="box-label">手算 · 反投影一个像素，再看尺度误差有多伤</span>
+<p><b>反投影</b>。沿用 1.1 节的数，f ≈ 497，cx = 287，cy = 217。像素 (400, 217) 处的深度是 2.0 m。</p>
+<ul>
+<li>X = (400 − 287) × 2.0 ÷ 497 ≈ 0.45 m，Y = (217 − 217) × 2.0 ÷ 497 = 0，Z = 2.0 m。</li>
+<li>这个点在镜头正前方 2 米、往右 45 厘米。</li>
+</ul>
+<p><b>尺度误差</b>。假设整个重建大了 10%，把它简化成从对齐中心往外的整体放大。离中心越远，被推得越远。</p>
+<ol>
+<li>离对齐中心 3 m 的杯子被推到 3 × 1.1 = 3.3 m，挪开 0.3 m，约 30 cm。</li>
+<li>杯子 8×8×10 cm，半对角线 r = ½ × √(0.08² + 0.08² + 0.10²) ≈ 0.075 m。</li>
+<li>按大小归一化的中心距离 d̂ = 0.30 ÷ 0.075 ≈ 4.0。严格判据要 d̂ ≤ 0.5，也就是中心差在 3.8 cm 以内；宽松门槛是 d̂ ≤ 1.0。</li>
+<li>两道线都没过，形状再完美的杯子也被判成"漏了"。</li>
+</ol>
+<p>所以评测的主口径用 <b>Sim(3)</b> 对齐（旋转、平移加一个整体缩放），顺带把尺度修正掉。另报一个 <b>SE(3)</b> 版本（只有旋转和平移，不带缩放，尺度固定为 1），专门体现 Pi3X 自己的尺度误差（<a href="#eval">第 8 章</a>）。</p>
+</div>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>深度 Z 是沿光轴的距离</b>，和点到相机中心的直线距离不同。画面边上的点，两者差得最多。</li>
+<li><b>点云密不代表尺度准</b>。Pi3X 的点云可以很密、形状很像，整体却大了或小了一圈。</li>
+<li><b>小物体在点图里只有几百个点</b>。上面那只杯子在 Pi3X 帧里约 20×25 像素，边缘那一圈的点还最不可靠。</li>
+<li><b>Pi3X 的几何可能也沾了同源</b>。它的前身 π³ 训练时用过 ARKitScenes（π³ 论文 §3.4），CA-1M 的视频就来自 ARKitScenes，所以几何的绝对精度可能偏乐观。Pi3X 本身用没用过还没核实。所有组共用同一份感知，组间比较不受影响。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>像素、深度、内参三样一起，反投影成相机坐标下的点，再乘 c2w 进世界；单目估出的米只是近似，整体差 10%，3 米外的杯子就被推出判定圈。</p>
+</div>
+<p class="src">deep-aha3d.json（Observe、Measure 两段）；03 号笔记第 2.5 节；设计文档第 9.2、9.4 节</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-seg">1.3 分割和掩码</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>拿荧光笔把照片里的杯子涂满，别的地方不涂。涂了的格子记 1，没涂的记 0，这张 0/1 表就是杯子的<b>掩码</b>。</p>
+<p>SAM 3 是一个会听指令涂色的助手。你说"杯子"，它就把每个杯子各涂一张；你没提到的东西，它不涂。</p>
+</div>
+<p><b>掩码</b>（mask）是一张和原图一样大的表，每个像素只有 0 或 1。<b>分割</b>就是算出这张表。分割有两种粒度。</p>
+<ul>
+<li><b>语义分割</b>只分类别，所有杯子涂成一块。</li>
+<li><b>实例分割</b>还分个体，1 号杯子和 2 号杯子各一张掩码。</li>
+</ul>
+<p><b>SAM 3</b> 能按文字提示做实例分割。给它 "cup"，画面里每个杯子各出一张掩码。</p>
+<p>AHa-3D 默认只给 SAM 3 五个提示词：person、glass、mirror、floor、wall。它逐帧分割，阈值 0.3，同一类的实例合成一张，也不跨帧追踪。这些掩码主要拿来拟合地面和墙。</p>
+<p>仓库里有物体级的 SAM 3 工具，但默认流程不会调用。原文是 <q>not invoked automatically by the shared scene workflow</q>。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 300" width="760" role="img" aria-label="原图里的杯子经 SAM 3 按提示词 cup 分割成一张 0/1 掩码；下方是 AHa-3D 默认的 5 个提示词，cup 不在其中">
+<defs><marker id="a-m5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="16" y="24" font-weight="700">原图（示意）</text>
+<rect x="16" y="34" width="214" height="160" rx="6" class="f6 stroke"/>
+<rect x="36" y="130" width="176" height="12" class="f3 stroke"/>
+<path d="M48,142 L48,186 M200,142 L200,186" class="arrow"/>
+<rect x="56" y="116" width="54" height="14" class="f5 stroke"/>
+<rect x="150" y="104" width="20" height="26" rx="2" class="f1 stroke"/>
+<path d="M170,110 Q180,110 180,117 Q180,124 170,124" class="arrow"/>
+<path d="M196,130 L196,82" class="arrow"/>
+<polygon points="184,82 208,82 202,66 190,66" class="f3 stroke"/>
+<text x="160" y="98" text-anchor="middle" font-size="10.5">杯子</text>
+<path d="M232,114 L298,114" class="arrow" marker-end="url(#a-m5)"/>
+<text x="265" y="104" text-anchor="middle" font-size="11" font-weight="700">SAM 3</text>
+<text x="265" y="132" text-anchor="middle" font-size="10.5">提示词</text>
+<text x="265" y="148" text-anchor="middle" font-size="10.5">“cup”</text>
+<text x="300" y="24" font-weight="700">掩码：和原图一样大的 0/1 表</text>
+<rect x="300" y="34" width="214" height="160" rx="6" class="ink3 stroke"/>
+<rect x="434" y="104" width="20" height="26" class="f0"/>
+<rect x="454" y="110" width="8" height="14" class="f0"/>
+<text x="444" y="122" text-anchor="middle" font-size="11" font-weight="700">1</text>
+<text x="540" y="24" font-weight="700">放大：每格一个像素</text>
+<rect x="566" y="46" width="26" height="26" class="ink3 stroke"/><rect x="592" y="46" width="26" height="26" class="ink3 stroke"/><rect x="618" y="46" width="26" height="26" class="ink3 stroke"/><rect x="644" y="46" width="26" height="26" class="ink3 stroke"/><rect x="670" y="46" width="26" height="26" class="ink3 stroke"/><rect x="696" y="46" width="26" height="26" class="ink3 stroke"/><rect x="566" y="72" width="26" height="26" class="ink3 stroke"/><rect x="592" y="72" width="26" height="26" class="ink3 stroke"/><rect x="618" y="72" width="26" height="26" class="f0 stroke"/><rect x="644" y="72" width="26" height="26" class="f0 stroke"/><rect x="670" y="72" width="26" height="26" class="f0 stroke"/><rect x="696" y="72" width="26" height="26" class="ink3 stroke"/><rect x="566" y="98" width="26" height="26" class="ink3 stroke"/><rect x="592" y="98" width="26" height="26" class="ink3 stroke"/><rect x="618" y="98" width="26" height="26" class="f0 stroke"/><rect x="644" y="98" width="26" height="26" class="f0 stroke"/><rect x="670" y="98" width="26" height="26" class="f0 stroke"/><rect x="696" y="98" width="26" height="26" class="f0 stroke"/><rect x="566" y="124" width="26" height="26" class="ink3 stroke"/><rect x="592" y="124" width="26" height="26" class="ink3 stroke"/><rect x="618" y="124" width="26" height="26" class="f0 stroke"/><rect x="644" y="124" width="26" height="26" class="f0 stroke"/><rect x="670" y="124" width="26" height="26" class="f0 stroke"/><rect x="696" y="124" width="26" height="26" class="ink3 stroke"/><rect x="566" y="150" width="26" height="26" class="ink3 stroke"/><rect x="592" y="150" width="26" height="26" class="ink3 stroke"/><rect x="618" y="150" width="26" height="26" class="f0 stroke"/><rect x="644" y="150" width="26" height="26" class="f0 stroke"/><rect x="670" y="150" width="26" height="26" class="f0 stroke"/><rect x="696" y="150" width="26" height="26" class="ink3 stroke"/>
+<text x="631" y="90" text-anchor="middle" font-weight="700">1</text><text x="657" y="90" text-anchor="middle" font-weight="700">1</text><text x="683" y="90" text-anchor="middle" font-weight="700">1</text><text x="631" y="116" text-anchor="middle" font-weight="700">1</text><text x="657" y="116" text-anchor="middle" font-weight="700">1</text><text x="683" y="116" text-anchor="middle" font-weight="700">1</text><text x="709" y="116" text-anchor="middle" font-weight="700">1</text><text x="631" y="142" text-anchor="middle" font-weight="700">1</text><text x="657" y="142" text-anchor="middle" font-weight="700">1</text><text x="683" y="142" text-anchor="middle" font-weight="700">1</text><text x="631" y="168" text-anchor="middle" font-weight="700">1</text><text x="657" y="168" text-anchor="middle" font-weight="700">1</text><text x="683" y="168" text-anchor="middle" font-weight="700">1</text>
+<text x="644" y="196" text-anchor="middle" font-size="11" class="shape">第 2 行 = 0 0 1 1 1 0</text>
+<rect x="8" y="212" width="744" height="80" rx="8" class="f6 stroke"/>
+<text x="20" y="234" font-weight="700">AHa-3D 默认交给 SAM 3 的提示词只有 5 个</text>
+<rect x="20" y="246" width="62" height="24" rx="5" class="f2 stroke"/>
+<text x="51" y="262" text-anchor="middle" font-size="11" class="shape">person</text>
+<rect x="88" y="246" width="54" height="24" rx="5" class="f2 stroke"/>
+<text x="115" y="262" text-anchor="middle" font-size="11" class="shape">glass</text>
+<rect x="148" y="246" width="62" height="24" rx="5" class="f2 stroke"/>
+<text x="179" y="262" text-anchor="middle" font-size="11" class="shape">mirror</text>
+<rect x="216" y="246" width="52" height="24" rx="5" class="f2 stroke"/>
+<text x="242" y="262" text-anchor="middle" font-size="11" class="shape">floor</text>
+<rect x="274" y="246" width="46" height="24" rx="5" class="f2 stroke"/>
+<text x="297" y="262" text-anchor="middle" font-size="11" class="shape">wall</text>
+<path d="M326,258 L356,258" class="arrow" marker-end="url(#a-m5)"/>
+<text x="362" y="262" font-size="11">同类合成一张掩码，主要用来找地面和墙</text>
+<rect x="572" y="246" width="46" height="24" rx="5" class="f4 stroke"/>
+<text x="595" y="262" text-anchor="middle" font-size="11" class="shape">cup</text>
+<text x="626" y="262" font-size="11" class="lbl-accent">不在名单里，没有掩码</text>
+</g>
+</svg></div>
+<figcaption>上排：SAM 3 按提示词 "cup" 把杯子分出来，得到一张和原图一样大的 0/1 表。右边放大成像素格，标 1 的格子就是杯子。下排：AHa-3D 默认的五个提示词都是人和房间结构，杯子没被点名，默认流程里就没有它的掩码。</figcaption>
+</figure>
+
+<p>我们在三个地方要用到物体级的掩码。</p>
+<ul>
+<li><b>干净对照</b>。SAM 3 实例掩码加 Pi3X 点云，拟合每个物体的有向框，用来和 Boxer 的清单比。</li>
+<li><b>生成</b>。SAM 3D 要整张图加这个物体的掩码，它直接把图乘上掩码，掩码画歪了生成也跟着歪。<code>gen3d_request</code> 在最好那一帧的掩码不足约 200 像素时，直接返回 too_small。</li>
+<li><b>剪影匹配</b>。拿掩码和模型投影出的轮廓比重合度（<a href="#a-reg">1.6 节</a>）。</li>
+</ul>
+
+<div class="box calc">
+<span class="box-label">估算 · 杯子的掩码有几个像素</span>
+<p>沿用 1.1 节的假设（Pi3X 帧约 574×434，f ≈ 497），按外接矩形估面积。</p>
+<ul>
+<li>2 m 外：约 20 × 25 ≈ 500 像素。过得了漏斗"看得见"的 100 像素门槛，也够生成工具的 200 像素下限。</li>
+<li>4 m 外：边长减半，约 10 × 12.4 ≈ 120 像素。还算看得见，生成工具却会返回 too_small（A3 实际在高清帧上生成，这正是高清帧消融要量的情况）。</li>
+<li>同样 4 m，换成 1024×768 的高清帧（f ≈ 887）：约 17.7 × 22.2 ≈ 390 像素，又够生成了。</li>
+</ul>
+</div>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>SAM 3 只分你点名的东西</b>。AHa-3D 的默认名单里没有任何物体类别，所以 A0、A1 的物体清单全靠 agent 看帧来定。</li>
+<li><b>同一个杯子在不同帧是不同的掩码</b>。AHa-3D 默认不做跨帧关联，要把多帧的掩码对到同一个物体上，得另外做。</li>
+<li><b>掩码面积跟着分辨率变</b>。同一个杯子，帧越小面积越小。漏斗里"看得见"按各组实际用到的帧算：A0、A1 按约 574×434 算；P0 和 A2 起用同样 32 帧的 1024×768 原图，按原图算。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>掩码是和图一样大的 0/1 表；SAM 3 按文字提示分割，没点名的不分；AHa-3D 默认只点名 5 类，杯子不在其中。</p>
+</div>
+<p class="src">deep-aha3d.json（Observe：semantic.py）；01 号笔记第 1.2 节第 6 条；设计文档第 6、9.5 节</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-box">1.4 3D 框（有向包围盒）</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>给每件东西套一个刚好装下它的纸箱。纸箱放在哪、多大、转了多少度，这几个数就说清了这件东西在房间里占的地方。</p>
+<p>验房时不看杯子长什么样，只看纸箱摆得对不对。</p>
+</div>
+<p><b>有向包围盒</b>（oriented bounding box，OBB）用三组数描述。</p>
+<ul>
+<li><b>中心</b> c = (x, y, z)，3 个数。</li>
+<li><b>尺寸</b> (l, w, h)，长、宽、高，3 个数。</li>
+<li><b>朝向</b>。只绕竖直轴转时是 1 个角，叫 <b>yaw</b>（偏航角）。</li>
+</ul>
+<p>合起来 3 + 3 + 1 = <b>7 自由度</b>。如果允许任意转动，朝向要 3 个角（yaw 加俯仰、侧倾），就是 <b>9 自由度</b>。</p>
+<p>家具和桌面上的东西大多正放，只绕竖直轴转。CA-1M 的世界坐标框存了完整的 3×3 旋转和 8 个角点，Z 朝上。</p>
+<p>抽查 6 个视频共 1,173 个框，带俯仰或侧倾的只有 24 个，约 2%。CA-1M 论文训练和评测也用重力对齐的 7 自由度框。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 270" width="760" role="img" aria-label="左：有向包围盒的轴测图，标出中心、长宽高；右：俯视图里 yaw 是长边和 X 轴的夹角">
+<defs><marker id="a-m7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="16" y="22" font-weight="700">有向包围盒：中心、长宽高、朝向</text>
+<polygon points="124.4,128.7 188.1,229.7 188.1,163.2 124.4,62.2" class="f1 stroke" fill-opacity="0.45"/>
+<polygon points="275.6,211.3 188.1,229.7 188.1,163.2 275.6,144.8" class="f3 stroke" fill-opacity="0.45"/>
+<polygon points="211.9,43.8 275.6,144.8 188.1,163.2 124.4,62.2" class="f6 stroke" fill-opacity="0.45"/>
+<path d="M211.9,110.3 L211.9,43.8 M211.9,110.3 L275.6,211.3 M211.9,110.3 L124.4,128.7" class="arrow dash" stroke-width="1"/>
+<path d="M200,103.5 L200,170" class="arrow-red dash" stroke-width="1"/>
+<circle cx="200" cy="136.8" r="4" class="accent"/>
+<path d="M196,134 L86,96" class="arrow" stroke-width="1"/>
+<text x="20" y="92" font-size="11">中心 c</text>
+<text x="20" y="108" font-size="11" class="shape">(x, y, z)</text>
+<text x="140" y="200" text-anchor="end" font-size="11">长 l</text>
+<text x="236" y="246" font-size="11">宽 w</text>
+<text x="282" y="182" font-size="11">高 h</text>
+<path d="M340,215 L340,172" class="arrow" marker-end="url(#a-m7)"/>
+<path d="M340,215 L372,233" class="arrow" marker-end="url(#a-m7)"/>
+<path d="M340,215 L308,233" class="arrow" marker-end="url(#a-m7)"/>
+<text x="346" y="178" font-size="11">Z（朝上）</text>
+<text x="378" y="244" font-size="11">Y</text>
+<text x="300" y="244" text-anchor="end" font-size="11">X</text>
+
+<text x="450" y="22" font-weight="700">俯视图：yaw 是绕竖直轴转的角</text>
+<path d="M575,135 L712,135" class="arrow dash"/>
+<path d="M575,135 L575,44" class="arrow dash"/>
+<text x="716" y="139" font-size="11">X</text>
+<text x="580" y="50" font-size="11">Y</text>
+<polygon points="525,198.1 655.5,137.2 625,71.9 494.5,132.8" class="f1 stroke"/>
+<circle cx="575" cy="135" r="3.5" class="accent"/>
+<path d="M575,135 L674.7,88.5" class="arrow-blue" marker-end="url(#a-m7)"/>
+<path d="M675,135 A100,100 0 0,0 665.6,92.7" class="arrow-red"/>
+<text x="684" y="114" font-size="12" class="lbl-accent">θ（yaw）</text>
+<text x="450" y="222">7 自由度 = 中心 3 + 尺寸 3 + yaw 1</text>
+<text x="450" y="242">9 自由度 = 中心 3 + 尺寸 3 + 旋转 3（多了俯仰、侧倾）</text>
+<text x="450" y="262" font-size="11">CA-1M 抽查 1,173 个框，带俯仰或侧倾的只有 24 个</text>
+</g>
+</svg></div>
+<figcaption>左图是一个转过一定角度的半透明盒子，灰虚线是背面被挡住的棱。红点是盒子正中心，落在顶面中心和底面中心连线（红虚线）的中点。右图从正上方看同一个盒子，蓝箭头是长边方向，它和世界 X 轴的夹角 θ 就是 yaw。</figcaption>
+</figure>
+
+<p><b>分档看最长边</b>。项目按真值框的最长边分四档：XS 小于 0.2 m，S 0.2–0.5 m，M 0.5–1.5 m，L 1.5 m 以上。</p>
+<p>上面那 1,173 个框里，XS 占 22.9%，S 占 30.9%，M 占 24.3%，L 占 21.8%。L 档里有墙、门框这类结构件，评测前要去掉。</p>
+<p>项目里的框有三个来源。</p>
+<ul>
+<li><b>真值</b>。CA-1M 的标注，每个视频约 125 个框，不分类别。</li>
+<li><b>预测</b>。从最终 .blend 里每个语义根节点导出世界坐标的有向框（<a href="#a-bpy">1.8 节</a>）。</li>
+<li><b>清单</b>，有两种。
+<ul>
+<li>Boxer 是开放词汇的 3D 框检测器，分两步出框。先用 OWLv2 按文字提示在图上找 2D 框（也可以直接喂外部的 2D 框），再结合相机位姿、内参和重力方向（深度可选）把 2D 框抬成 3D 框。</li>
+<li>干净对照取 SAM 3 掩码里的点，做主成分分析（PCA：找出这团点散得最开的几个方向，当作框的轴），再沿这些轴量出框的大小。</li>
+</ul></li>
+</ul>
+
+<div class="box calc">
+<span class="box-label">手算 · 几样东西落在哪一档</span>
+<ul>
+<li>杯子 8×8×10 cm：最长边 0.10 m，XS。半对角线 ½ × √(0.08² + 0.08² + 0.10²) ≈ 0.075 m，1.2 节和 1.9 节都用到它。</li>
+<li>一本书 24×17×3 cm：最长边 0.24 m，S。</li>
+<li>一张书桌 1.6×0.8×0.75 m：最长边 1.6 m，L。</li>
+</ul>
+</div>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>框不等于形状</b>。一只杯子和同样大小的方块，框一模一样。CA-1M 只有框，所以我们只评位置和大小，形状只做定性展示。</li>
+<li><b>长宽和 yaw 绑在一起</b>。长宽对调、再转 90°，是同一个框。比较朝向时要考虑这种等价；圆杯子这类对称物体，朝向本来就没有意义。</li>
+<li><b>分档只看最长边</b>。台灯再细，高过 0.5 m 就进 M 档。显示器多数也在 M 档，别拿它当小物体的例子。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>3D 框 = 中心 3 + 尺寸 3 + yaw 1 = 7 个数；CA-1M 的框几乎都只绕竖直轴转；按最长边分 XS、S、M、L 四档。</p>
+</div>
+<p class="src">03 号笔记第 1.3 节（CA-1M 抽样）；设计文档第 6、8、9.3 节</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-gen3d">1.5 图生 3D 和"规范空间"</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>给工厂寄一张杯子照片，工厂寄回一个杯子模型，连看不到的背面都补好了。</p>
+<p>多数工厂寄回的是"标准件"：统一缩到一个小盒子里、摆正。它原来在你家桌上的哪个位置、朝哪边、有多大，工厂一概不管，得你自己摆。</p>
+<p>SAM 3D 这家工厂会顺手附一张摆放说明，写着该转多少、挪多少、放大多少。</p>
+</div>
+<p><b>图生 3D</b>：输入一张图和物体的掩码（或去掉背景的裁剪图），模型生成完整的网格。看不到的部分，靠训练时学到的先验来猜。</p>
+<p><b>规范空间</b>（canonical space）是生成器自己的标准坐标系。Hunyuan3D、TRELLIS 这类模型输出的网格缩放进单位大小的盒子；02 号笔记推断它们一般是正放的，但朝前的方向、真实尺寸和位置都不知道。</p>
+<p>要把这样的网格放进房间，还得自己求大约 7 个数：平移 3 个、yaw 1 个、尺寸 1 到 3 个，外加"哪条轴朝上"这个离散的歧义。这一步交给 <code>place_mesh</code>（<a href="#a-reg">1.6 节</a>）。</p>
+<p><b>SAM 3D Objects</b> 走的是另一条路。它吃整张图加掩码，还可以加 Pi3X 的点图；输出网格的同时，直接给出相机坐标下的旋转 R、平移 t、尺度 s。再乘上 Pi3X 给的 c2w，就到了世界坐标。</p>
+<p>它发布的代码里，<code>refine_scale</code> 把三个轴的尺度取平均。也就是说尺度只有一个数，是<b>各向同性</b>的。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 286" width="760" role="img" aria-label="对比：规范空间生成器只给形状，位置朝向尺寸要自己配准；SAM 3D 直接给相机坐标下的 R、t、s，乘上 c2w 就进世界坐标">
+<defs><marker id="a-m8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="8" y="24" font-weight="700">规范空间：Hunyuan3D-2、TRELLIS 只给形状</text>
+<rect x="8" y="36" width="130" height="70" rx="8" class="f6 stroke"/>
+<text x="73" y="56" text-anchor="middle" font-weight="700">输入</text>
+<text x="73" y="74" text-anchor="middle" font-size="11">物体裁剪图</text>
+<text x="73" y="90" text-anchor="middle" font-size="11">背景去掉</text>
+<path d="M138,71 L168,71" class="arrow" marker-end="url(#a-m8)"/>
+<rect x="170" y="36" width="150" height="70" rx="8" class="f1 stroke"/>
+<text x="245" y="56" text-anchor="middle" font-weight="700">生成网格</text>
+<text x="245" y="74" text-anchor="middle" font-size="11">缩放进单位盒子</text>
+<text x="245" y="90" text-anchor="middle" font-size="11">一般正放（推断）</text>
+<path d="M320,71 L350,71" class="arrow" marker-end="url(#a-m8)"/>
+<rect x="352" y="36" width="200" height="70" rx="8" class="f4 stroke"/>
+<text x="452" y="56" text-anchor="middle" font-weight="700">还要我们自己求</text>
+<text x="452" y="74" text-anchor="middle" font-size="11">位置 3 + 朝向 1 + 尺寸 1–3</text>
+<text x="452" y="90" text-anchor="middle" font-size="11">外加哪条轴朝上</text>
+<path d="M552,71 L582,71" class="arrow" marker-end="url(#a-m8)"/>
+<rect x="584" y="36" width="168" height="70" rx="8" class="f0 stroke"/>
+<text x="668" y="56" text-anchor="middle" font-weight="700"><tspan class="shape">place_mesh</tspan> 配准</text>
+<text x="668" y="74" text-anchor="middle" font-size="11">ICP + 剪影搜索</text>
+<text x="668" y="90" text-anchor="middle" font-size="11">得到世界坐标</text>
+<text x="8" y="126" font-size="11">Hunyuan3D-2mini 只生成形状，官方 6 GB 显存，开发阶段在笔记本上跑</text>
+
+<text x="8" y="152" font-weight="700">相机系联合预测：SAM 3D Objects 顺手给出摆法</text>
+<rect x="8" y="164" width="130" height="86" rx="8" class="f6 stroke"/>
+<text x="73" y="184" text-anchor="middle" font-weight="700">输入</text>
+<text x="73" y="202" text-anchor="middle" font-size="11">整张图 + 掩码</text>
+<text x="73" y="218" text-anchor="middle" font-size="11">+ Pi3X 点图</text>
+<text x="73" y="234" text-anchor="middle" font-size="11">给了点图才是米</text>
+<path d="M138,207 L168,207" class="arrow" marker-end="url(#a-m8)"/>
+<rect x="170" y="164" width="150" height="86" rx="8" class="f1 stroke"/>
+<text x="245" y="184" text-anchor="middle" font-weight="700">网格 + R、t、s</text>
+<text x="245" y="202" text-anchor="middle" font-size="11">都在相机坐标系</text>
+<text x="245" y="218" text-anchor="middle" font-size="11">s 只有一个数</text>
+<text x="245" y="234" text-anchor="middle" font-size="11">（三轴取平均）</text>
+<path d="M320,207 L350,207" class="arrow" marker-end="url(#a-m8)"/>
+<rect x="352" y="164" width="200" height="86" rx="8" class="f2 stroke"/>
+<text x="452" y="184" text-anchor="middle" font-weight="700">只需乘上 c2w</text>
+<text x="452" y="202" text-anchor="middle" font-size="11">Pi3X 已经给了每帧位姿</text>
+<text x="452" y="218" text-anchor="middle" font-size="11">相机系 → 世界系</text>
+<text x="452" y="234" text-anchor="middle" font-size="11">再交给 <tspan class="shape">place_mesh</tspan> 微调</text>
+<rect x="584" y="164" width="168" height="86" rx="8" class="f0 stroke"/>
+<text x="668" y="184" text-anchor="middle" font-weight="700">代价</text>
+<text x="668" y="202" text-anchor="middle" font-size="11">官方要 ≥ 32 GB 显存</text>
+<text x="668" y="218" text-anchor="middle" font-size="11">A100 上约 13 秒一个</text>
+<text x="668" y="234" text-anchor="middle" font-size="11">12 GB 笔记本跑不了</text>
+<text x="8" y="274" font-size="11">正式实验把 SAM 3D 部署在 Betty；11/2 前装不通，就改用 Hunyuan3D-2mini 加我们的配准</text>
+</g>
+</svg></div>
+<figcaption>两条路的差别在第三格。上排只拿到形状，位置、朝向、尺寸都要我们自己求（红格）。下排生成时就带着相机坐标下的 R、t、s，乘上 c2w 就到了世界坐标，再交给 <code>place_mesh</code> 微调（绿格）。右下角的代价格是单独的备注，下排的模型大得多，本地跑不动。</figcaption>
+</figure>
+
+<p>几个有出处的数字。</p>
+<ul>
+<li><b>形状</b>。在真实、杂乱、带遮挡的物体上，SAM 3D 的 Chamfer 是 0.0400，Hunyuan3D-2.0 是 0.0866，TRELLIS 是 0.0902，越小越好（SAM 3D 论文表 2）。</li>
+<li><b>位姿</b>。比的是 3D IoU（两个框重叠体积的比例，见 <a href="#a-evalwords">1.9 节</a>）。SAM 3D 自己预测的位姿是 0.4254；Hunyuan3D-2.0 生成后再用 FoundationPose（NVIDIA 的物体位姿估计模型，给定网格估 6 自由度位姿）估位姿，只有 0.2937。出处是同一论文表 3，测试集 SA-3DAO（论文用的真实场景物体测试集，只给 RGB）。</li>
+<li><b>算力</b>。SAM 3D 官方要求至少 32 GB 显存；在 A100 上约 13 秒一个物体，进程占 22 GB。Hunyuan3D-2mini 只生成形状，官方要 6 GB。</li>
+</ul>
+<p>所以正式实验把 SAM 3D 部署在 Betty 上，用课程额度。Yifan 的笔记本只有 12 GB，先用 Hunyuan3D-2mini 在本地把 <code>gen3d_request</code> 和 <code>place_mesh</code> 写通。</p>
+<p>fal 上的 SAM 3D 自费不超过 10 美元，只用来核对位姿的坐标约定。11/2 前 Betty 装不通，正式实验就改用本地 Hunyuan3D-2mini 加我们的配准。</p>
+<p>AHa-3D 作者自己试过 SAM 3D Objects 和 TRELLIS.2，做完又搁置了，生成适配器没有随仓库发布，原因没公开。</p>
+
+<div class="box detail">
+<span class="box-label">生成器实际看到多少像素</span>
+<p>生成器都会把物体裁出来，再缩放到固定大小。一个 60×60 像素的杯子，按 02 号笔记读预处理代码后的推算如下。</p>
+<ul>
+<li>TRELLIS：裁出约 72 像素，放大约 7 倍到 518。</li>
+<li>TRELLIS.2：放大约 17 倍到 1024。</li>
+<li>SAM 3D：物体那一路放大约 8 倍到 518。</li>
+</ul>
+<p>放大不会凭空多出细节，模型真正拿到的信息就是那 60 个像素宽的一块。所以小物体要尽量从高清帧上裁。</p>
+</div>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>各向同性的尺度修不了比例</b>。生成的瓶子如果比真瓶子矮胖，一个统一的 s 只能整体放大缩小。照 GRASE 的做法，<code>place_mesh</code> 的剪影搜索把长宽高三个尺寸分开调，可以再修一次。</li>
+<li><b>订阅跑不了生成模型</b>。ChatGPT 和 Claude Max 订阅只能驱动 agent。3D 生成要么在 Betty、笔记本上自己跑，要么在 fal 上按次付费。</li>
+<li><b>生成得好看不等于摆得准</b>。评测只看框的位置和大小，摆歪了的漂亮网格照样算建坏了。</li>
+<li><b>许可</b>。Hunyuan3D 的许可排除欧盟、英国、韩国；按我们的理解不影响美国的课程项目。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>规范空间的生成器只给形状，位置、朝向、尺寸要自己配准；SAM 3D 直接给相机系下的 R、t、s，但尺度是一个数（各向同性），而且要 32 GB 显存。</p>
+</div>
+<p class="src">02 号笔记第 1.2、3、4.1 节；设计文档第 6 节；01 号笔记第 1.2 节第 5 条</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-reg">1.6 配准：ICP 和剪影匹配</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>配准就像把一张透明描图纸盖在照片上，来回挪、转、放大缩小，直到两边的线对上。</p>
+<ul>
+<li><b>ICP</b> 是拿点对点去对：每个观测点找描图纸上最近的点，再整体挪一下，让大家都更近。</li>
+<li><b>剪影匹配</b>是比影子：把模型投到截图上，看投出的轮廓和掩码重合了多少，再一点一点试着调。</li>
+</ul>
+</div>
+<p><b>ICP</b>（iterative closest point，迭代最近点）反复做两件事：先配对，再求一个让配对点整体最贴近的旋转 R 和平移 t。</p>
+<pre><code>E(R, t) = Σᵢ ‖R·mᵢ + t − oᵢ‖²</code></pre>
+<p>oᵢ 是第 i 个观测点，mᵢ 是模型上离它最近的点。固定配对时，最小化 E 的 R 和 t 可以直接用公式一步算出。挪完以后最近点会变，所以要重新配对，一轮一轮做下去。</p>
+
+<div class="arch">
+<div class="arch-title">ICP：配对、整体挪动、再配对</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 226" width="760" role="img" aria-label="ICP 三个阶段：起点时模型偏离观测点，每个观测点连到最近的模型点，求 R 和 t 把模型整体挪过去，重复到收敛">
+<defs><marker id="a-m6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="16" y="22" font-weight="700">① 起点</text>
+<text x="268" y="22" font-weight="700">② 配对</text>
+<text x="520" y="22" font-weight="700">③ 挪过去，再重复</text>
+<rect x="8" y="30" width="240" height="188" rx="8" class="f6 stroke"/>
+<rect x="260" y="30" width="240" height="188" rx="8" class="f6 stroke"/>
+<rect x="512" y="30" width="240" height="188" rx="8" class="f6 stroke"/>
+<!-- P1 -->
+<g data-s="1"><circle cx="70.8" cy="80.0" r="3" class="ink3"/><circle cx="68.9" cy="94.0" r="3" class="ink3"/><circle cx="70.6" cy="108.0" r="3" class="ink3"/><circle cx="69.6" cy="122.0" r="3" class="ink3"/><circle cx="71.2" cy="136.0" r="3" class="ink3"/><circle cx="69.3" cy="150.0" r="3" class="ink3"/><circle cx="90.0" cy="150.3" r="3" class="ink3"/><circle cx="110.0" cy="149.0" r="3" class="ink3"/><circle cx="130.0" cy="150.9" r="3" class="ink3"/><circle cx="150.0" cy="149.5" r="3" class="ink3"/><circle cx="170.0" cy="150.4" r="3" class="ink3"/></g>
+<g data-s="2"><polygon points="101.0,75.2 195.0,41.0 219.0,106.8 125.0,141.0" fill="none" class="stroke dash"/><circle cx="101.0" cy="75.2" r="3.5" class="f0 stroke"/><circle cx="119.8" cy="68.4" r="3.5" class="f0 stroke"/><circle cx="138.6" cy="61.5" r="3.5" class="f0 stroke"/><circle cx="157.4" cy="54.7" r="3.5" class="f0 stroke"/><circle cx="176.2" cy="47.9" r="3.5" class="f0 stroke"/><circle cx="195.0" cy="41.0" r="3.5" class="f0 stroke"/><circle cx="201.0" cy="57.5" r="3.5" class="f0 stroke"/><circle cx="207.0" cy="73.9" r="3.5" class="f0 stroke"/><circle cx="213.0" cy="90.3" r="3.5" class="f0 stroke"/><circle cx="219.0" cy="106.8" r="3.5" class="f0 stroke"/><circle cx="200.2" cy="113.6" r="3.5" class="f0 stroke"/><circle cx="181.4" cy="120.5" r="3.5" class="f0 stroke"/><circle cx="162.6" cy="127.3" r="3.5" class="f0 stroke"/><circle cx="143.8" cy="134.1" r="3.5" class="f0 stroke"/><circle cx="125.0" cy="141.0" r="3.5" class="f0 stroke"/><circle cx="119.0" cy="124.5" r="3.5" class="f0 stroke"/><circle cx="113.0" cy="108.1" r="3.5" class="f0 stroke"/><circle cx="107.0" cy="91.7" r="3.5" class="f0 stroke"/></g>
+<!-- P2 -->
+<g data-s="3"><path d="M322.8,80.0 L353.0,75.2 M320.9,94.0 L353.0,75.2 M322.6,108.0 L359.0,91.7 M321.6,122.0 L365.0,108.1 M323.2,136.0 L371.0,124.5 M321.3,150.0 L371.0,124.5 M342.0,150.3 L377.0,141.0 M362.0,149.0 L377.0,141.0 M382.0,150.9 L377.0,141.0 M402.0,149.5 L395.8,134.1 M422.0,150.4 L414.6,127.3" class="arrow-blue" stroke-width="1.2"/><polygon points="353.0,75.2 447.0,41.0 471.0,106.8 377.0,141.0" fill="none" class="stroke dash"/><circle cx="353.0" cy="75.2" r="3.5" class="f0 stroke"/><circle cx="371.8" cy="68.4" r="3.5" class="f0 stroke"/><circle cx="390.6" cy="61.5" r="3.5" class="f0 stroke"/><circle cx="409.4" cy="54.7" r="3.5" class="f0 stroke"/><circle cx="428.2" cy="47.9" r="3.5" class="f0 stroke"/><circle cx="447.0" cy="41.0" r="3.5" class="f0 stroke"/><circle cx="453.0" cy="57.5" r="3.5" class="f0 stroke"/><circle cx="459.0" cy="73.9" r="3.5" class="f0 stroke"/><circle cx="465.0" cy="90.3" r="3.5" class="f0 stroke"/><circle cx="471.0" cy="106.8" r="3.5" class="f0 stroke"/><circle cx="452.2" cy="113.6" r="3.5" class="f0 stroke"/><circle cx="433.4" cy="120.5" r="3.5" class="f0 stroke"/><circle cx="414.6" cy="127.3" r="3.5" class="f0 stroke"/><circle cx="395.8" cy="134.1" r="3.5" class="f0 stroke"/><circle cx="377.0" cy="141.0" r="3.5" class="f0 stroke"/><circle cx="371.0" cy="124.5" r="3.5" class="f0 stroke"/><circle cx="365.0" cy="108.1" r="3.5" class="f0 stroke"/><circle cx="359.0" cy="91.7" r="3.5" class="f0 stroke"/><circle cx="322.8" cy="80.0" r="3" class="ink3"/><circle cx="320.9" cy="94.0" r="3" class="ink3"/><circle cx="322.6" cy="108.0" r="3" class="ink3"/><circle cx="321.6" cy="122.0" r="3" class="ink3"/><circle cx="323.2" cy="136.0" r="3" class="ink3"/><circle cx="321.3" cy="150.0" r="3" class="ink3"/><circle cx="342.0" cy="150.3" r="3" class="ink3"/><circle cx="362.0" cy="149.0" r="3" class="ink3"/><circle cx="382.0" cy="150.9" r="3" class="ink3"/><circle cx="402.0" cy="149.5" r="3" class="ink3"/><circle cx="422.0" cy="150.4" r="3" class="ink3"/></g>
+<g data-s="4"><path d="M412.0,91.0 L376.0,113.0" class="arrow-red" marker-end="url(#a-m6)"/></g>
+<!-- P3 -->
+<g data-s="4 5"><polygon points="574.0,80.0 674.0,80.0 674.0,150.0 574.0,150.0" fill="none" class="stroke dash"/><circle cx="574.0" cy="80.0" r="3.5" class="f0 stroke"/><circle cx="594.0" cy="80.0" r="3.5" class="f0 stroke"/><circle cx="614.0" cy="80.0" r="3.5" class="f0 stroke"/><circle cx="634.0" cy="80.0" r="3.5" class="f0 stroke"/><circle cx="654.0" cy="80.0" r="3.5" class="f0 stroke"/><circle cx="674.0" cy="80.0" r="3.5" class="f0 stroke"/><circle cx="674.0" cy="97.5" r="3.5" class="f0 stroke"/><circle cx="674.0" cy="115.0" r="3.5" class="f0 stroke"/><circle cx="674.0" cy="132.5" r="3.5" class="f0 stroke"/><circle cx="674.0" cy="150.0" r="3.5" class="f0 stroke"/><circle cx="654.0" cy="150.0" r="3.5" class="f0 stroke"/><circle cx="634.0" cy="150.0" r="3.5" class="f0 stroke"/><circle cx="614.0" cy="150.0" r="3.5" class="f0 stroke"/><circle cx="594.0" cy="150.0" r="3.5" class="f0 stroke"/><circle cx="574.0" cy="150.0" r="3.5" class="f0 stroke"/><circle cx="574.0" cy="132.5" r="3.5" class="f0 stroke"/><circle cx="574.0" cy="115.0" r="3.5" class="f0 stroke"/><circle cx="574.0" cy="97.5" r="3.5" class="f0 stroke"/><circle cx="574.8" cy="80.0" r="3" class="ink3"/><circle cx="572.9" cy="94.0" r="3" class="ink3"/><circle cx="574.6" cy="108.0" r="3" class="ink3"/><circle cx="573.6" cy="122.0" r="3" class="ink3"/><circle cx="575.2" cy="136.0" r="3" class="ink3"/><circle cx="573.3" cy="150.0" r="3" class="ink3"/><circle cx="594.0" cy="150.3" r="3" class="ink3"/><circle cx="614.0" cy="149.0" r="3" class="ink3"/><circle cx="634.0" cy="150.9" r="3" class="ink3"/><circle cx="654.0" cy="149.5" r="3" class="ink3"/><circle cx="674.0" cy="150.4" r="3" class="ink3"/></g>
+<g data-s="1"><text x="16" y="192" font-size="11">实心点：观测（只看到两面）</text></g>
+<g data-s="2"><text x="16" y="208" font-size="11">空心点：生成的完整模型</text></g>
+<g data-s="3"><text x="268" y="192" font-size="11">蓝线：每个观测点连最近的模型点</text></g>
+<g data-s="4"><text x="268" y="208" font-size="11" class="lbl-accent">红箭头：求一个 R、t 整体挪过去</text></g>
+<g data-s="5"><text x="520" y="192" font-size="11">重复配对、再挪，误差不再变小就停</text>
+<text x="520" y="208" font-size="11" class="lbl-accent">起点太远会配错，停在错的位置</text></g>
+</g>
+</svg></div>
+<ol class="arch-steps">
+<li><b>观测点</b>。相机只看到物体的左面和下面（实心点），这些点来自 Pi3X 的点云，背面是空的。</li>
+<li><b>模型的起点</b>。生成的网格是完整的（空心点），先放在一个初始位姿上，比如 SAM 3D 给的位姿，或者 3D 框。这里故意让它偏了一些、还转了 20°。</li>
+<li><b>配对</b>。每个观测点找模型上离它最近的点（蓝线）。起点偏的时候，有些配对是错的，比如左面的观测点连到了模型的左上角。</li>
+<li><b>求 R、t</b>。在这组配对下，算一个让距离平方和 E 最小的旋转和平移，把模型整体挪过去（红箭头）。</li>
+<li><b>重复到收敛</b>。挪完重新配对、再挪，直到 E 几乎不再变小。GRASE 的设置是阈值 1e-5、最多 25 轮。起点太远时，错的配对会把模型带到一个错的位置，算法也会停下来，以为自己对齐了。</li>
+</ol>
+</div>
+
+<p><b>剪影匹配</b>换了一个比较方式。把模型按某一帧的相机渲染出轮廓，和这一帧的掩码比重合度。</p>
+<pre><code>IoU = 交集面积 / 并集面积</code></pre>
+<p>GRASE 用的这个目标要先渲染出轮廓、再数像素算 IoU，不可微，没法顺着梯度走。它的做法是<b>有界坐标搜索</b>。</p>
+<ul>
+<li>一次只动一个参数，往两边各试一步，变好就挪过去。</li>
+<li>一层一层把步子缩小。</li>
+<li>参数只在一个有限范围里找。</li>
+</ul>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 260" width="760" role="img" aria-label="左：掩码和模型剪影两个矩形重叠，IoU 等于交集除以并集；右：有界坐标搜索三层，步长逐层减半，逼近最好的位置">
+<defs><marker id="a-m9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="16" y="22" font-weight="700">剪影重合度 IoU</text>
+<rect x="40" y="50" width="120" height="120" class="f1 stroke"/>
+<rect x="70" y="50" width="108" height="120" class="f3 stroke" fill-opacity="0.6"/>
+<text x="115" y="114" text-anchor="middle" font-size="11">交集</text>
+<path d="M40,184 L70,184 M40,178 L40,190 M70,178 L70,190" class="arrow"/>
+<text x="55" y="204" text-anchor="middle" font-size="10.5">偏移</text>
+<rect x="196" y="60" width="12" height="12" class="f1 stroke"/>
+<text x="214" y="71" font-size="11">掩码：400 像素</text>
+<rect x="196" y="84" width="12" height="12" class="f3 stroke"/>
+<text x="214" y="95" font-size="11">模型剪影：360 像素</text>
+<text x="196" y="124" font-size="11">交集 300，并集 460</text>
+<text x="196" y="148" font-weight="700" class="shape">IoU = 300/460 ≈ 0.65</text>
+<text x="196" y="176" font-size="11">20×20 的掩码偏 5 像素</text>
+<text x="196" y="194" font-size="11">IoU 就从 1 掉到 0.6</text>
+
+<text x="400" y="22" font-weight="700">有界坐标搜索：一次只动一个参数</text>
+<path d="M490,56 L740,56 M490,50 L490,62 M740,50 L740,62" class="arrow"/>
+<text x="615" y="44" text-anchor="middle" font-size="11">可调范围：位置约 ±0.18 × 最长边</text>
+<path d="M626,70 L626,172" class="arrow-green dash"/>
+<text x="482" y="100" text-anchor="end" font-size="11">第 1 层，步长 1</text>
+<text x="482" y="132" text-anchor="end" font-size="11">第 2 层，步长 0.5</text>
+<text x="482" y="164" text-anchor="end" font-size="11">第 3 层，步长 0.25</text>
+<path d="M490,96 L740,96 M490,128 L740,128 M490,160 L740,160" class="stroke" stroke-width="0.8"/>
+<!-- 第 1 层：起点 580，左试 520 更差，右试 640 更好被选中 -->
+<circle cx="580" cy="96" r="7" class="f0"/><circle cx="580" cy="96" r="7" class="arrow-blue"/>
+<circle cx="520" cy="96" r="4" class="f0 stroke"/>
+<circle cx="640" cy="96" r="4.5" class="accent"/>
+<path d="M589,96 L633,96" class="arrow" marker-end="url(#a-m9)"/>
+<path d="M640,103 L640,119" class="arrow" marker-end="url(#a-m9)"/>
+<!-- 第 2 层：起点 640，两边 610、670 都更差，原地不动 -->
+<circle cx="610" cy="128" r="4" class="f0 stroke"/>
+<circle cx="640" cy="128" r="7" class="f0"/><circle cx="640" cy="128" r="7" class="arrow-blue"/>
+<circle cx="640" cy="128" r="3.5" class="accent"/>
+<circle cx="670" cy="128" r="4" class="f0 stroke"/>
+<path d="M640,137 L640,151" class="arrow" marker-end="url(#a-m9)"/>
+<!-- 第 3 层：起点 640，左试 625 更好被选中，右试 655 更差 -->
+<circle cx="640" cy="160" r="7" class="f0"/><circle cx="640" cy="160" r="7" class="arrow-blue"/>
+<circle cx="625" cy="160" r="4.5" class="accent"/>
+<circle cx="655" cy="160" r="4" class="f0 stroke"/>
+<text x="615" y="192" text-anchor="middle" font-size="11">绿线：真正最好的位置（事先不知道）</text>
+<text x="400" y="212" font-size="11">蓝圈是本层起点，红色实心点是选中的，灰色空心点试过但更差</text>
+<text x="400" y="230" font-size="11">每层 4 遍，轮流试位置、yaw、三个尺寸</text>
+<text x="400" y="248" font-size="11">步长 1、0.5、0.25 按 GRASE 的归一化单位</text>
+</g>
+</svg></div>
+<figcaption>左图用两个矩形代替杯子的掩码和模型剪影，偏移那段就是没重合的部分。右图里蓝色空心圈是本层起点，红色实心点是选中的，灰色空心点试过但更差。第 1 层往右更好，挪过去；第 2 层步子减半，两边都更差，原地不动；第 3 层再减半，往左挪一点，已很接近绿线。</figcaption>
+</figure>
+
+<div class="box calc">
+<span class="box-label">手算 · 剪影 IoU 和验收线</span>
+<ol>
+<li>掩码 400 像素，模型渲染出的剪影 360 像素，两者重叠 300 像素。</li>
+<li>并集 = 400 + 360 − 300 = 460，IoU = 300 ÷ 460 ≈ 0.65。</li>
+<li><code>place_mesh</code> 的剪影验收线是 max(0.6, 方块版 IoU + 0.03)，IoU 取多帧平均。假设同一个物体用方块代替时 IoU 是 0.55，线就是 max(0.6, 0.58) = 0.6，这一项过了。</li>
+<li>另外还有三项：观测点到网格的 Chamfer ≤ max(1.5 cm, 0.1 × 最长边)；尺寸在框的 0.75 到 1.25 倍之间；穿进支撑面不超过 1 cm。四项都过才保留网格，否则退回方块。</li>
+</ol>
+<p>再看小物体有多敏感。20×20 像素的掩码，同样大小的剪影偏 5 像素，交集 15 × 20 = 300，并集 800 − 300 = 500，IoU = 0.6，正好压在验收线上。</p>
+</div>
+
+<details><summary>深入：GRASE 的剪影搜索参数</summary><div class="inner">
+<p>GRASE 附录 A.3 和表 3 的设置，我们的 <code>place_mesh</code> 照它实现。</p>
+<ul>
+<li><b>要调的参数</b>：水平位置 2 个、绕支撑面法向的 yaw、三个尺寸；底面高度由支撑面决定。</li>
+<li><b>目标函数</b>：各视角 (1 − 掩码 IoU) 加边界距离的平均，加最差视角一项，加点到面距离一项；后三项的权重是 0.4、0.35、0.12（边界、最差视角、点云）。</li>
+<li><b>搜索</b>：不求导，有界坐标搜索，3 层，每层 4 遍，三层的步长依次是 1、0.5、0.25。这是归一化后的单位。位置范围只有 ±0.18 × 最长边，步长 1 若按米算会直接跳出范围；按我们的理解是相对可调范围的比例，实现前对照原 PDF 核实。</li>
+<li><b>范围</b>：位置约 ±0.18 × 最长初始边，yaw ±0.45 rad，尺寸 0.75 到 1.25 倍。</li>
+<li><b>ICP</b>：收敛阈值 1e-5，最多 25 轮；每次内层求解约 50 次函数评估。</li>
+</ul>
+<p>这些常数是从 PDF 抽出的文字里读的，排版有错位，实现前要对照原 PDF 再核一遍。</p>
+</div></details>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>ICP 要一个好起点</b>。起点差太远，最近点会配错，算法停在错的位置还以为收敛了。所以 <code>place_mesh</code> 先用 SAM 3D 给的位姿或 3D 框当起点。</li>
+<li><b>一个视角的剪影管不住前后</b>。物体沿视线前后挪一点，剪影几乎不变，所以 IoU 要多帧平均，还要配合点云那一项。</li>
+<li><b>验收是和方块比</b>。网格的剪影 IoU 要比同一位置的方块高 0.03 以上，才算"生成值得"。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>ICP 拿点贴点、求 R 和 t，起点要好；剪影匹配比轮廓重合度，用有界坐标搜索一步步试；<code>place_mesh</code> 先 ICP 再剪影搜索，最后四项验收不过就退回方块。</p>
+</div>
+<p class="src">grase-reading.md（附录 A.3、表 3）；设计文档第 6 节（<code>place_mesh</code> 验收条件）</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-agent">1.7 agent、harness 和驱动模型</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>还是那支装修队。</p>
+<ul>
+<li><b>agent</b> 是包工头。它会看图纸、会叫师傅来量、自己也动手，干完一步看一眼结果，再决定下一步。</li>
+<li><b>harness</b> 是装修公司的工具箱和规章。能用哪些工具、每一步要交什么检查、什么时候算完工，都写在里面。</li>
+<li><b>驱动模型</b>是包工头的脑子。同一套工具箱和规章，可以换一个人来当包工头。</li>
+</ul>
+</div>
+<p><b>agent</b> 是在循环里调用工具的大模型。它读截图或工具输出，想下一步，调一个工具（运行命令、写 bpy 脚本、渲染一张图），读结果，再想。直到满足停止条件为止。</p>
+<p><b>harness</b> 是包在模型外面的一切：工具、提示词和技能文件、检查步骤、停止规则、轮数和时间上限。AHa-3D 本身就是一个 harness。</p>
+<p><b>驱动模型</b>是循环里那个大模型。作者用的是 GPT-6 Astra，推理强度 medium。</p>
+
+<div class="arch">
+<div class="arch-title">agent 的循环和 harness 的边界</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 300" width="760" role="img" aria-label="agent 循环：看截图、想、调工具、看结果、再想；外框是 harness，装着工具箱和规则；驱动模型像插件一样可以换">
+<defs><marker id="a-m10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="5">
+<rect x="8" y="54" width="744" height="240" rx="12" class="f6 stroke dash"/>
+<text x="20" y="76" font-weight="700">harness 的边界：工具箱、规则、检查流程</text>
+</g>
+<g data-s="6">
+<rect x="280" y="4" width="200" height="42" rx="8" class="f5 stroke"/>
+<text x="380" y="22" text-anchor="middle" font-weight="700">驱动模型（可换）</text>
+<text x="380" y="39" text-anchor="middle" font-size="11">GPT-6 Astra、Sol，或 Opus 5.5</text>
+</g>
+<g data-s="2 6"><path d="M380,46 L380,86" class="arrow" marker-end="url(#a-m10)"/></g>
+<g data-s="1">
+<rect x="96" y="140" width="130" height="44" rx="8" class="f1 stroke"/>
+<text x="161" y="160" text-anchor="middle" font-weight="700">① 看</text>
+<text x="161" y="177" text-anchor="middle" font-size="11">截图、叠加图</text>
+<path d="M226,150 L318,112" class="arrow" marker-end="url(#a-m10)"/>
+</g>
+<g data-s="2">
+<rect x="320" y="88" width="120" height="44" rx="8" class="f1 stroke"/>
+<text x="380" y="108" text-anchor="middle" font-weight="700">② 想</text>
+<text x="380" y="125" text-anchor="middle" font-size="11">量哪里、改哪个</text>
+</g>
+<g data-s="3">
+<path d="M440,112 L532,148" class="arrow" marker-end="url(#a-m10)"/>
+<text x="500" y="118" font-size="11">决定下一步</text>
+<rect x="534" y="140" width="130" height="44" rx="8" class="f1 stroke"/>
+<text x="599" y="160" text-anchor="middle" font-weight="700">③ 调工具</text>
+<text x="599" y="177" text-anchor="middle" font-size="11">跑命令、写 bpy</text>
+<path d="M599,184 L599,224" class="arrow dash" marker-end="url(#a-m10)"/>
+</g>
+<g data-s="3 5">
+<rect x="470" y="226" width="270" height="58" rx="8" class="f0 stroke"/>
+<text x="482" y="245" font-weight="700">工具箱</text>
+<text x="482" y="262" font-size="10.5" class="shape">measure.py  roomkit.py  source_fit</text>
+<text x="482" y="277" font-size="10.5" class="shape">check_placement  review_images</text>
+</g>
+<g data-s="4">
+<path d="M534,174 L442,222" class="arrow" marker-end="url(#a-m10)"/>
+<text x="458" y="196" text-anchor="end" font-size="11">读输出</text>
+<rect x="320" y="224" width="120" height="44" rx="8" class="f1 stroke"/>
+<text x="380" y="244" text-anchor="middle" font-weight="700">④ 看结果</text>
+<text x="380" y="261" text-anchor="middle" font-size="11">数值、报告、渲染</text>
+<path d="M380,224 L380,134" class="arrow-blue" marker-end="url(#a-m10)"/>
+<text x="388" y="184" font-size="11" class="shape">再想</text>
+</g>
+<g data-s="5">
+<rect x="20" y="226" width="270" height="58" rx="8" class="f0 stroke"/>
+<text x="32" y="245" font-weight="700">规则</text>
+<text x="32" y="262" font-size="11">提示词和技能文件、Stop hook</text>
+<text x="32" y="277" font-size="11">审查门、我们加的轮数和墙钟上限</text>
+</g>
+</g>
+</svg></div>
+<ol class="arch-steps">
+<li><b>看</b>。agent 先看材料：视频帧、参考视角的叠加图，或者上一轮渲染出的场景截图。</li>
+<li><b>想</b>。驱动模型决定下一步，比如在哪一帧挑两个像素量书桌的宽，或者哪个物体歪了要改。</li>
+<li><b>调工具</b>。执行命令或写 bpy 脚本。常用的有 <code>measure.py</code> 量尺寸、<code>roomkit.py</code> 搭东西、<code>source_fit</code> 算掩码重合度、<code>check_placement</code> 查物理，最后由 <code>codex exec --image</code> 起一个只读审查员。</li>
+<li><b>看结果，再想</b>。读工具的输出，比如测量值、<code>report.json</code>、叠加图，回到第 2 步。循环到审查员给出 accepted，或者撞上轮数、时间上限为止。</li>
+<li><b>harness 的边界</b>。外框里是工具箱和规则。审查门、物理检查、Stop hook（agent 想收工时先跑的检查，重建没完成就不让它停）都是 AHa-3D 自带的，在所有实验组里保持一样。轮数和墙钟上限是我们加的，所有组用同一套。各组改的是提示词、物体清单和新增的生成工具（<a href="#arms">第 4 章</a>）。</li>
+<li><b>驱动可换</b>。主实验用 Codex CLI 驱动 GPT-6，订阅里有 Astra 就用 Astra，没有就用 Sol。开发调试和 5 个场景的复跑，用 headless Claude Code 驱动 Opus 5.5。</li>
+</ol>
+</div>
+
+<p>驱动模型对结果影响很大。Agentic RSR（arXiv 2610.10479）的 v2 版在同一个 harness、18 个 Blender 场景上比较了八个驱动。</p>
+<p>这个 harness 叫 DSH，论文里的全称是 DeepSeek Harness。论文特意说明它和表里测的 DeepSeek 模型是两回事。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 700 290" width="700" role="img" aria-label="Agentic RSR v2 表 3：同一个 DSH harness 下，Opus 5.5 和 Fable 5.1 通过 18 个场景，GPT-6 Astra 和 Sonnet 5.5 各 15 个，GPT-6.1 Sol 12 个，GPT-5.6 Sol 4 个，Kimi K3 和 DeepSeek V4.1 Flash 都是 0 个">
+<g font-size="12">
+<text x="8" y="18" font-weight="700">Agentic RSR v2 表 3：同一个 DSH harness，18 个 Blender 场景的通过数</text>
+<path d="M180,26 L180,236" class="arrow"/>
+<text x="170" y="44" text-anchor="end">Claude Opus 5.5</text>
+<rect x="180" y="30" width="360" height="20" rx="3" class="f1 stroke"/>
+<text x="546" y="44">18/18</text>
+<text x="170" y="70" text-anchor="end">Claude Fable 5.1</text>
+<rect x="180" y="56" width="360" height="20" rx="3" class="f1 stroke"/>
+<text x="546" y="70">18/18</text>
+<text x="170" y="96" text-anchor="end" font-weight="700">GPT-6 Astra</text>
+<rect x="180" y="82" width="300" height="20" rx="3" class="f3 stroke"/>
+<text x="486" y="96" font-weight="700">15/18</text>
+<text x="530" y="96" font-size="11" class="lbl-accent">v1 Codex harness 下是 18/18</text>
+<text x="170" y="122" text-anchor="end">Claude Sonnet 5.5</text>
+<rect x="180" y="108" width="300" height="20" rx="3" class="f1 stroke"/>
+<text x="486" y="122">15/18</text>
+<text x="170" y="148" text-anchor="end">GPT-6.1 Sol</text>
+<rect x="180" y="134" width="240" height="20" rx="3" class="f1 stroke"/>
+<text x="426" y="148">12/18</text>
+<text x="170" y="174" text-anchor="end">GPT-5.6 Sol</text>
+<rect x="180" y="160" width="80" height="20" rx="3" class="f1 stroke"/>
+<text x="266" y="174">4/18</text>
+<text x="170" y="200" text-anchor="end">Kimi K3</text>
+<text x="188" y="200" class="lbl-accent">0/18</text>
+<text x="170" y="226" text-anchor="end">DeepSeek V4.1 Flash</text>
+<text x="188" y="226" class="lbl-accent">0/18</text>
+<path d="M220,191 L224,191 L224,229 L220,229" class="arrow" stroke-width="1"/>
+<text x="230" y="213" font-size="11">这两个连所需的工具调用都没走通</text>
+<text x="8" y="258" font-size="11">GPT-6 Astra 是 AHa-3D 作者用的驱动。红字是 v1 的数，两批的 harness 和轮数预算都不同，</text>
+<text x="8" y="276" font-size="11">作者说这种跨批比较分不开模型和 harness 的影响。</text>
+</g>
+</svg></div>
+<figcaption>同一个 harness 只换驱动，通过数从 18/18 一路掉到 0/18。GPT-6 Astra 在 v1 的 Codex harness 里是 18/18，但两批预算不同，分不开是驱动还是 harness 的影响。所以我们全程固定驱动和 harness，换驱动只作为单独的复跑实验。</figcaption>
+</figure>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>主实验不换驱动</b>。AHa-3D 是在 GPT-6 Astra 上调出来的，换驱动会破坏"复现作者设置"这个前提。额度不够时宁可少跑场景。</li>
+<li><b>Opus 5.5 只是"能跑"</b>。README 说它能驱动这个仓库，但没充分测过。原文是 <q>Opus 5.5 can also drive this repository based on initial experiments, but it has not been fully tested</q>。</li>
+<li><b>审查员写死了 Codex</b>。审查步骤调的是 <code>codex exec --image</code>。Claude 驱动时要加一个转发 shim（冒充 <code>codex</code> 命令的小脚本，把审查请求转给 Claude），之前的会话里做过。</li>
+<li><b>同一组跑两次结果也不同</b>。大模型有随机性，所以 A1 和 A3v 在 5 个场景上各重复一次，专门量这个噪声。</li>
+<li><b>订阅不按次计费</b>。成本轴要靠 token 日志，按官方 API 价格折成"API 等价美元"。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>agent 是在循环里看、想、调工具的大模型；harness 是它外面的工具和规则；驱动是循环里那个模型。同一 harness 换驱动，通过数能从 18/18 掉到 0/18，所以主实验全程固定驱动。</p>
+</div>
+<p class="src">deep-aha3d.json（pipeline、verification_loop）；04 号笔记第 0、3.3 节（Agentic RSR arXiv 2610.10479 v1、v2）；设计文档第 7 节</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-bpy">1.8 Blender 和 bpy</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>Blender 是一个免费的 3D 软件，平时用鼠标拖。<b>bpy</b> 是它的 Python 接口，一行代码就能放一个方块、挪一个位置。</p>
+<p>agent 没有鼠标，所以它写 bpy 脚本。好处是场景完全可编辑，每个物体都是独立的对象。</p>
+</div>
+<p>Blender 里的东西组织成一棵树，每个对象可以有父对象。<b>Empty</b> 是没有几何形状的对象，常拿来当一组东西的"把手"。</p>
+<p>AHa-3D 规定，每个物体是一个<b>语义根节点</b>：一个 Empty，带着几个自定义属性，下面挂可替换的子网格。</p>
+<ul>
+<li><code>instance_id</code>：这个物体的编号，全场景唯一。</li>
+<li><code>semantic_class</code>：类别，用斜杠路径写，比如 furniture/... 这样。</li>
+<li><code>support_id</code>：按字面理解，记的是它放在哪个物体上。</li>
+</ul>
+<p>评测正是靠这个结构。<code>export_model.py</code> 按 <code>instance_id</code> 把子网格分组，我们再给每个根节点算一个世界坐标的有向框。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 256" width="760" role="img" aria-label="场景树：场景下面挂两个语义根节点（书桌和杯子），每个根节点是带 instance_id 的 Empty，下面挂网格；导出时按 instance_id 分组，每个根节点一个 3D 框">
+<defs><marker id="a-m11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="20" y="110" width="100" height="40" rx="8" class="f6 stroke"/>
+<text x="70" y="128" text-anchor="middle" font-weight="700">场景</text>
+<text x="70" y="144" text-anchor="middle" font-size="11">Scene</text>
+<path d="M120,130 L145,130 M145,72 L145,192 M145,72 L168,72 M145,192 L168,192" class="arrow"/>
+<rect x="170" y="40" width="220" height="64" rx="8" class="f1 stroke"/>
+<text x="182" y="60" font-weight="700">desk_01（Empty）</text>
+<text x="182" y="78" font-size="10.5" class="shape">instance_id = 12</text>
+<text x="182" y="95" font-size="10.5" class="shape">semantic_class = furniture/desk</text>
+<rect x="170" y="150" width="220" height="84" rx="8" class="f1 stroke"/>
+<text x="182" y="170" font-weight="700">cup_03（Empty）</text>
+<text x="182" y="188" font-size="10.5" class="shape">instance_id = 17</text>
+<text x="182" y="205" font-size="10.5" class="shape">semantic_class = tableware/cup</text>
+<text x="182" y="222" font-size="10.5" class="shape">support_id = 12</text>
+<path d="M300,150 L300,108" class="arrow-blue dash" marker-end="url(#a-m11)"/>
+<text x="308" y="132" font-size="10.5">放在书桌上</text>
+<path d="M390,72 L415,72 M415,50 L415,86 M415,50 L438,50 M415,86 L438,86" class="arrow"/>
+<path d="M390,192 L415,192 M415,174 L415,210 M415,174 L438,174 M415,210 L438,210" class="arrow"/>
+<rect x="440" y="36" width="120" height="28" rx="6" class="f0 stroke"/>
+<text x="500" y="54" text-anchor="middle" font-size="11">top（Mesh）</text>
+<rect x="440" y="72" width="120" height="28" rx="6" class="f0 stroke"/>
+<text x="500" y="90" text-anchor="middle" font-size="11">leg ×4（Mesh）</text>
+<rect x="440" y="160" width="120" height="28" rx="6" class="f0 stroke"/>
+<text x="500" y="178" text-anchor="middle" font-size="11">body（Mesh）</text>
+<rect x="440" y="196" width="120" height="28" rx="6" class="f0 stroke"/>
+<text x="500" y="214" text-anchor="middle" font-size="11">handle（Mesh）</text>
+<path d="M562,68 L598,108" class="arrow" marker-end="url(#a-m11)"/>
+<path d="M562,192 L598,172" class="arrow" marker-end="url(#a-m11)"/>
+<rect x="600" y="80" width="150" height="120" rx="8" class="f3 stroke"/>
+<text x="675" y="102" text-anchor="middle" font-weight="700" class="shape">export_model.py</text>
+<text x="675" y="124" text-anchor="middle" font-size="11">按 instance_id 分组</text>
+<text x="675" y="144" text-anchor="middle" font-size="11">每个根节点</text>
+<text x="675" y="162" text-anchor="middle" font-size="11">→ 一个世界坐标 3D 框</text>
+<text x="675" y="182" text-anchor="middle" font-size="11">→ 交给评测</text>
+<text x="20" y="250" font-size="11">名字和取值是示意；instance_id、semantic_class、support_id 这三个属性名是 AHa-3D 真实用的</text>
+</g>
+</svg></div>
+<figcaption>一个房间的场景树。每个物体是一个带 instance_id 的 Empty，下面挂真正有形状的网格。杯子的 support_id 指向书桌。导出时按 instance_id 分组，每个根节点算一个世界坐标的 3D 框，拿去和真值比。</figcaption>
+</figure>
+
+<p>下面这段 bpy 建一个杯子大小的方块，并挂到它自己的根节点下。AHa-3D 的 agent 实际调用的是 <code>roomkit.py</code> 里的 <code>box()</code> 等函数，它们在底层做的是同类的事。</p>
+<pre><code>import bpy
+
+# 1. 建一个边长 1 m 的方块，再按米缩放成杯子大小
+bpy.ops.mesh.primitive_cube_add(size=1, location=(1.2, 0.4, 0.80))
+cup = bpy.context.object
+cup.scale = (0.08, 0.08, 0.10)      # 长、宽、高，单位米
+
+# 2. 建一个 Empty 当语义根节点（放在原点），写上编号
+root = bpy.data.objects.new("cup_03", None)   # None 表示没有几何，就是 Empty
+bpy.context.collection.objects.link(root)
+root["instance_id"] = 17
+cup.parent = root</code></pre>
+<p>桌面高 0.75 m，杯子高 0.10 m，所以杯子中心放在 0.80 m。Blender 的长度单位默认是米，Z 朝上。</p>
+<p>AHa-3D 要求 Blender 必须是 <b>5.2.1</b>，因为它 41 MB 的资产库是用这个版本保存的。</p>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>方块默认边长是 2 m</b>。<code>primitive_cube_add</code> 不写 <code>size=1</code> 的话，方块边长是 2 m，同样的 scale 会建出 16×16×20 cm 的"杯子"。</li>
+<li><b>小物体要挂在自己的根节点下</b>。placement 检查只对带 instance_id 的根节点做稳定性仿真，没有的只查碰撞和支撑；评测也按根节点导出框。agent 新建的小物体不挂根节点，就可能算不进去。</li>
+<li><b>版本要对</b>。资产库是 5.2.1 保存的，换别的版本可能读不对。做人体动作要另装 Blender 4.5，我们用不到。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>bpy 用代码建物体；AHa-3D 的每个物体是一个带 instance_id 的 Empty 根节点加子网格，评测从根节点导出 3D 框；Blender 必须是 5.2.1。</p>
+</div>
+<p class="src">deep-aha3d.json（scene_representation、Build、task_output）；设计文档第 3、9.1 节</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h3 id="a-evalwords">1.9 评测里的几个词</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>验房要用到四件工具。</p>
+<ul>
+<li><b>IoU</b> 量两个纸箱重叠了多少。</li>
+<li><b>匈牙利配对</b>把"建出来的"和"真值"一一对上号，一个真值只认一个。</li>
+<li><b>bootstrap</b> 把验过的房子重新抽几遍，看结论稳不稳。</li>
+<li><b>帕累托前沿</b>找出"又便宜又好"的那几家，被别人全面压过的不用再看。</li>
+</ul>
+</div>
+<p><b>IoU</b>（交并比）= 交集体积 ÷ 并集体积，1 是完全重合，0 是不挨着。判据 I 要求 IoU3D ≥ 0.25，另报 0.5。</p>
+<p>小物体在 IoU 下很吃亏，所以还有判据 D：按大小归一化的中心距离 <code>d̂ = ‖c_pred − c_gt‖ / r_gt</code> ≤ 0.5，r_gt 是真值框半对角线长，并且最长边之比在 0.67 到 1.5 之间。两套判据分开报。</p>
+<p><b>匈牙利算法</b>在一对一的约束下，让配对的总代价最小。代价就是 d̂。配对不看类别，因为 CA-1M 有 48% 的框类别只写了 "object"。</p>
+<p><b>bootstrap</b> 对 15 个测试场景有放回地重抽，每抽一次重算一遍指标，看结果晃多少，得出 95% 置信区间。比较两组时，同一个真值物体在两组的结局两两配对再算差值。</p>
+<p><b>帕累托前沿</b>：在成本和精度两个维度上，没有被别的做法"又便宜又准"同时压过的那些点。结论写成前沿，不写"哪种最好"。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 500" width="760" role="img" aria-label="四格图：两个框的 IoU；匈牙利一对一配对和贪心配对的对比；bootstrap 有放回重抽场景；帕累托前沿散点示意">
+<defs><marker id="a-m12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="8" y="8" width="366" height="236" rx="10" class="f6 stroke"/>
+<text x="20" y="30" font-weight="700">① IoU：重叠的体积占多少</text>
+<rect x="60" y="56" width="96" height="96" class="f1 stroke"/>
+<rect x="60" y="56" width="72" height="96" class="f3"/>
+<rect x="36" y="56" width="96" height="96" fill="none" class="stroke dash" stroke-width="1.5"/>
+<text x="96" y="108" text-anchor="middle" font-size="11">交集</text>
+<text x="96" y="172" text-anchor="middle" font-size="10.5">虚线真值，实线预测</text>
+<text x="176" y="66" font-size="11">俯视，杯子 8×8 cm、高 10 cm</text>
+<text x="176" y="86" font-size="11">预测往右偏了 2 cm</text>
+<text x="176" y="110" font-size="11">交集 6×8×10 = 480 cm³</text>
+<text x="176" y="130" font-size="11">并集 640 + 640 − 480 = 800</text>
+<text x="176" y="154" font-weight="700">IoU = 480/800 = 0.60</text>
+<text x="176" y="182" font-size="11" class="lbl-accent">偏到 4.8 cm 就只剩 0.25</text>
+<text x="176" y="204" font-size="11">2 m 长的沙发偏同样 4.8 cm</text>
+<text x="176" y="222" font-size="11">IoU 还有约 0.95</text>
+
+<rect x="386" y="8" width="366" height="236" rx="10" class="f6 stroke"/>
+<text x="398" y="30" font-weight="700">② 匈牙利：一对一，总代价最小</text>
+<path d="M434,70 L506,70 M434,118 L506,118" class="arrow-red dash"/>
+<path d="M434,70 L506,118 M434,118 L506,70 M434,166 L506,166" class="arrow-green"/>
+<circle cx="420" cy="70" r="14" class="f1 stroke"/>
+<circle cx="420" cy="118" r="14" class="f1 stroke"/>
+<circle cx="420" cy="166" r="14" class="f1 stroke"/>
+<circle cx="520" cy="70" r="14" class="f3 stroke"/>
+<circle cx="520" cy="118" r="14" class="f3 stroke"/>
+<circle cx="520" cy="166" r="14" class="f3 stroke"/>
+<text x="420" y="74" text-anchor="middle" font-size="11">P1</text>
+<text x="420" y="122" text-anchor="middle" font-size="11">P2</text>
+<text x="420" y="170" text-anchor="middle" font-size="11">P3</text>
+<text x="520" y="74" text-anchor="middle" font-size="11">G1</text>
+<text x="520" y="122" text-anchor="middle" font-size="11">G2</text>
+<text x="520" y="170" text-anchor="middle" font-size="11">G3</text>
+<text x="572" y="71" text-anchor="middle" font-size="10.5">d̂</text>
+<text x="606" y="71" text-anchor="middle" font-size="11">G1</text>
+<text x="650" y="71" text-anchor="middle" font-size="11">G2</text>
+<text x="694" y="71" text-anchor="middle" font-size="11">G3</text>
+<text x="572" y="91" text-anchor="middle" font-size="11">P1</text>
+<text x="572" y="113" text-anchor="middle" font-size="11">P2</text>
+<text x="572" y="135" text-anchor="middle" font-size="11">P3</text>
+<rect x="584" y="76" width="44" height="22" class="f4 stroke"/>
+<rect x="628" y="76" width="44" height="22" class="f2 stroke"/>
+<rect x="672" y="76" width="44" height="22" class="f0 stroke"/>
+<rect x="584" y="98" width="44" height="22" class="f2 stroke"/>
+<rect x="628" y="98" width="44" height="22" class="f4 stroke"/>
+<rect x="672" y="98" width="44" height="22" class="f0 stroke"/>
+<rect x="584" y="120" width="44" height="22" class="f0 stroke"/>
+<rect x="628" y="120" width="44" height="22" class="f0 stroke"/>
+<rect x="672" y="120" width="44" height="22" class="f2 stroke"/>
+<text x="606" y="91" text-anchor="middle" font-size="11">0.2</text>
+<text x="650" y="91" text-anchor="middle" font-size="11">0.3</text>
+<text x="694" y="91" text-anchor="middle" font-size="11">2.0</text>
+<text x="606" y="113" text-anchor="middle" font-size="11">0.3</text>
+<text x="650" y="113" text-anchor="middle" font-size="11">1.5</text>
+<text x="694" y="113" text-anchor="middle" font-size="11">2.0</text>
+<text x="606" y="135" text-anchor="middle" font-size="11">2.0</text>
+<text x="650" y="135" text-anchor="middle" font-size="11">2.0</text>
+<text x="694" y="135" text-anchor="middle" font-size="11">0.4</text>
+<text x="398" y="200" font-size="11">绿线：匈牙利的配对；红虚线：贪心的配对</text>
+<text x="398" y="218" font-size="11" class="lbl-accent">贪心先拿最小的 0.2，总代价 2.1，P2–G2 超出宽松线</text>
+<text x="398" y="236" font-size="11">匈牙利总代价 1.0，三对都 ≤ 0.5</text>
+
+<rect x="8" y="256" width="366" height="236" rx="10" class="f6 stroke"/>
+<text x="20" y="278" font-weight="700">③ bootstrap：反复抽场景，看结果晃多少</text>
+<text x="20" y="298" font-size="11">原来的 15 个测试场景</text>
+<rect x="20" y="306" width="20" height="20" class="f1 stroke"/><text x="30" y="320" text-anchor="middle" font-size="10">1</text>
+<rect x="42" y="306" width="20" height="20" class="f1 stroke"/><text x="52" y="320" text-anchor="middle" font-size="10">2</text>
+<rect x="64" y="306" width="20" height="20" class="f1 stroke"/><text x="74" y="320" text-anchor="middle" font-size="10">3</text>
+<rect x="86" y="306" width="20" height="20" class="f1 stroke"/><text x="96" y="320" text-anchor="middle" font-size="10">4</text>
+<rect x="108" y="306" width="20" height="20" class="f1 stroke"/><text x="118" y="320" text-anchor="middle" font-size="10">5</text>
+<rect x="130" y="306" width="20" height="20" class="f1 stroke"/><text x="140" y="320" text-anchor="middle" font-size="10">6</text>
+<rect x="152" y="306" width="20" height="20" class="f1 stroke"/><text x="162" y="320" text-anchor="middle" font-size="10">7</text>
+<rect x="174" y="306" width="20" height="20" class="f1 stroke"/><text x="184" y="320" text-anchor="middle" font-size="10">8</text>
+<rect x="196" y="306" width="20" height="20" class="f1 stroke"/><text x="206" y="320" text-anchor="middle" font-size="10">9</text>
+<rect x="218" y="306" width="20" height="20" class="f1 stroke"/><text x="228" y="320" text-anchor="middle" font-size="10">10</text>
+<rect x="240" y="306" width="20" height="20" class="f1 stroke"/><text x="250" y="320" text-anchor="middle" font-size="10">11</text>
+<rect x="262" y="306" width="20" height="20" class="f1 stroke"/><text x="272" y="320" text-anchor="middle" font-size="10">12</text>
+<rect x="284" y="306" width="20" height="20" class="f1 stroke"/><text x="294" y="320" text-anchor="middle" font-size="10">13</text>
+<rect x="306" y="306" width="20" height="20" class="f1 stroke"/><text x="316" y="320" text-anchor="middle" font-size="10">14</text>
+<rect x="328" y="306" width="20" height="20" class="f1 stroke"/><text x="338" y="320" text-anchor="middle" font-size="10">15</text>
+<path d="M180,328 L180,348" class="arrow" marker-end="url(#a-m12)"/>
+<text x="190" y="343" font-size="11">有放回地抽 15 个</text>
+<rect x="20" y="352" width="20" height="20" class="f4 stroke"/><text x="30" y="366" text-anchor="middle" font-size="10">3</text>
+<rect x="42" y="352" width="20" height="20" class="f4 stroke"/><text x="52" y="366" text-anchor="middle" font-size="10">3</text>
+<rect x="64" y="352" width="20" height="20" class="f3 stroke"/><text x="74" y="366" text-anchor="middle" font-size="10">7</text>
+<rect x="86" y="352" width="20" height="20" class="f3 stroke"/><text x="96" y="366" text-anchor="middle" font-size="10">1</text>
+<rect x="108" y="352" width="20" height="20" class="f3 stroke"/><text x="118" y="366" text-anchor="middle" font-size="10">12</text>
+<rect x="130" y="352" width="20" height="20" class="f4 stroke"/><text x="140" y="366" text-anchor="middle" font-size="10">9</text>
+<rect x="152" y="352" width="20" height="20" class="f4 stroke"/><text x="162" y="366" text-anchor="middle" font-size="10">9</text>
+<rect x="174" y="352" width="20" height="20" class="f3 stroke"/><text x="184" y="366" text-anchor="middle" font-size="10">15</text>
+<rect x="196" y="352" width="20" height="20" class="f3 stroke"/><text x="206" y="366" text-anchor="middle" font-size="10">2</text>
+<rect x="218" y="352" width="20" height="20" class="f4 stroke"/><text x="228" y="366" text-anchor="middle" font-size="10">6</text>
+<rect x="240" y="352" width="20" height="20" class="f4 stroke"/><text x="250" y="366" text-anchor="middle" font-size="10">6</text>
+<rect x="262" y="352" width="20" height="20" class="f3 stroke"/><text x="272" y="366" text-anchor="middle" font-size="10">11</text>
+<rect x="284" y="352" width="20" height="20" class="f3 stroke"/><text x="294" y="366" text-anchor="middle" font-size="10">4</text>
+<rect x="306" y="352" width="20" height="20" class="f3 stroke"/><text x="316" y="366" text-anchor="middle" font-size="10">14</text>
+<rect x="328" y="352" width="20" height="20" class="f3 stroke"/><text x="338" y="366" text-anchor="middle" font-size="10">8</text>
+<text x="20" y="390" font-size="11">重复了 3、6、9，缺了 5、10、13</text>
+<text x="20" y="408" font-size="11">每抽一次，重算一遍 A3v − A1 的召回差</text>
+<path d="M60,470 L340,470" class="arrow"/>
+<rect x="102" y="464" width="16" height="6" class="f1 stroke"/>
+<rect x="122" y="456" width="16" height="14" class="f1 stroke"/>
+<rect x="142" y="444" width="16" height="26" class="f1 stroke"/>
+<rect x="162" y="432" width="16" height="38" class="f1 stroke"/>
+<rect x="182" y="426" width="16" height="44" class="f1 stroke"/>
+<rect x="202" y="434" width="16" height="36" class="f1 stroke"/>
+<rect x="222" y="446" width="16" height="24" class="f1 stroke"/>
+<rect x="242" y="458" width="16" height="12" class="f1 stroke"/>
+<rect x="262" y="465" width="16" height="5" class="f1 stroke"/>
+<path d="M120,424 L120,470 M262,424 L262,470" class="arrow-blue dash"/>
+<text x="270" y="440" font-size="11">95% 区间</text>
+<path d="M80,430 L80,470" class="arrow-red dash"/>
+<text x="80" y="484" text-anchor="middle" font-size="10.5">0</text>
+<text x="200" y="486" text-anchor="middle" font-size="11">区间不含 0，才算有差别</text>
+
+<rect x="386" y="256" width="366" height="236" rx="10" class="f6 stroke"/>
+<text x="398" y="278" font-weight="700">④ 帕累托前沿（示意，非数据）</text>
+<path d="M430,450 L430,296" class="arrow" marker-end="url(#a-m12)"/>
+<path d="M430,450 L738,450" class="arrow" marker-end="url(#a-m12)"/>
+<text x="436" y="304" font-size="11">小物体召回</text>
+<text x="736" y="468" text-anchor="end" font-size="11">成本（API 等价美元）</text>
+<path d="M455,425 L495,385 L560,352 L660,332" class="arrow-blue dash"/>
+<circle cx="455" cy="425" r="5" class="accent"/>
+<circle cx="495" cy="385" r="5" class="accent"/>
+<circle cx="560" cy="352" r="5" class="accent"/>
+<circle cx="660" cy="332" r="5" class="accent"/>
+<circle cx="540" cy="410" r="5" class="f0 stroke"/>
+<circle cx="620" cy="395" r="5" class="f0 stroke"/>
+<circle cx="700" cy="360" r="5" class="f0 stroke"/>
+<text x="440" y="320" font-size="11">红色实心点连成前沿：找不到又便宜又准的对手</text>
+<text x="520" y="438" font-size="11">灰色空心点被压住：总有点更便宜也更准</text>
+</g>
+</svg></div>
+<figcaption>① 8 cm 的杯子往旁边偏 2 cm，IoU 就只剩 0.60。② 贪心先拿全表最小的 0.2，把 P2 逼到 1.5 的远配对上；匈牙利整体看，三对都在 0.5 以内。③ 有放回地抽场景，有的抽到两次、有的没抽到，重算很多次得到差值的分布。④ 红色实心点是前沿，灰色空心点被压住，位置只是示意。</figcaption>
+</figure>
+
+<div class="box calc">
+<span class="box-label">手算 · IoU 和贪心配对</span>
+<p><b>IoU</b>。杯子 8×8×10 cm，体积 640 cm³。预测往一侧偏 s cm，交集是 (8 − s)×8×10。</p>
+<ul>
+<li>s = 2：交集 480，并集 1280 − 480 = 800，IoU = 0.60。</li>
+<li>s = 4：交集 320，并集 960，IoU ≈ 0.33。</li>
+<li>s = 4.8：交集 256，并集 1024，IoU = 0.25，刚好压线；再偏一点就不过判据 I。</li>
+<li>对照：2×0.9×0.8 m 的沙发顺长边偏 4.8 cm，重叠比例 (2 − 0.048) ÷ 2 = 0.976，IoU = 0.976 ÷ (2 − 0.976) ≈ 0.95。</li>
+</ul>
+<p><b>匈牙利对贪心</b>。用图里那张 3×3 的 d̂ 表。</p>
+<ul>
+<li>贪心：先拿最小的 P1–G1 = 0.2；剩下 P2、P3 对 G2、G3，再拿 P3–G3 = 0.4；P2 只能配 G2 = 1.5。总代价 2.1，P2–G2 超过宽松线 1.0，G2 会被判成"漏了"。</li>
+<li>匈牙利：P1–G2 = 0.3，P2–G1 = 0.3，P3–G3 = 0.4，总代价 1.0。三对都 ≤ 0.5，都能进严格判据 D 的距离线。</li>
+</ul>
+</div>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>bootstrap 按场景抽</b>，不按物体抽。同一个场景里的物体互相关联（同一段视频、同一次重建），按物体抽会把区间算得太窄。</li>
+<li><b>区间要和噪声地板一起看</b>。组间差距小于同一组跑两次的差距，区间再窄也不下结论。</li>
+<li><b>阈值是我们定的初值</b>。0.25、0.5、0.67–1.5 这些数 10/20 前定死，之后不改。定之前只在开发集上做两项合理性检查：真值对真值，以及检测器直接输出的框对真值；不拿任何 agent 组的输出来调。</li>
+</ul>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>IoU 量重叠，对小物体很苛刻，所以另有 d̂ 判据；匈牙利让一对一配对的总代价最小；bootstrap 按场景重抽算置信区间；结论画成成本-精度的帕累托前沿。</p>
+</div>
+<p class="src">设计文档第 9.3–9.6 节</p>

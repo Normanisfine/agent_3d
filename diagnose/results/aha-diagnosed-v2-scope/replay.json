@@ -1,0 +1,129 @@
+{
+  "results": [
+    {
+      "attempt": "fit_openings-0001-0",
+      "corrected_scope": false,
+      "ok": false,
+      "error": "Isolated Blender failed (1); see /tmp/aha-openings-scope-replay-20261116/fit_openings-0001-0-original/blender-request.log\ncould not get a list of mounted file-systems\nBlender 4.5.14 LTS (hash 62c1db4208e8 built 2026-09-15 01:31:19)\nRead blend: \"/work/input.blend\"\nTraceback (most recent call last):\n  File \"/runner.py\", line 215, in <module>\n    main()\n  File \"/runner.py\", line 200, in main\n    raise ValueError('Unauthorized semantic writes: '+', '.join(scope['unauthorized_changed_ids']))\nValueError: Unauthorized semantic writes: room_walls, wall_wainscoting\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\n\nError: script failed, file: '/runner.py', exiting.\n\nBlender quit\n",
+      "seconds": 2.9689684550103266,
+      "build_code_unchanged": true,
+      "changed_ids": [
+        "door_cabinet_side",
+        "door_fireplace_side",
+        "room_walls",
+        "wall_wainscoting",
+        "window_cabinet_side",
+        "window_fireplace_side"
+      ],
+      "unauthorized_changed_ids": [
+        "room_walls",
+        "wall_wainscoting"
+      ],
+      "folder": "/tmp/aha-openings-scope-replay-20261116/fit_openings-0001-0-original",
+      "visual_quality_validated": false
+    },
+    {
+      "attempt": "fit_openings-0001-0",
+      "corrected_scope": true,
+      "ok": true,
+      "error": null,
+      "seconds": 3.284171294013504,
+      "build_code_unchanged": true,
+      "changed_ids": [
+        "door_cabinet_side",
+        "door_fireplace_side",
+        "room_walls",
+        "wall_wainscoting",
+        "window_cabinet_side",
+        "window_fireplace_side"
+      ],
+      "unauthorized_changed_ids": [],
+      "folder": "/tmp/aha-openings-scope-replay-20261116/fit_openings-0001-0-corrected",
+      "visual_quality_validated": false
+    },
+    {
+      "attempt": "fit_openings-0001-1",
+      "corrected_scope": false,
+      "ok": false,
+      "error": "Isolated Blender failed (1); see /tmp/aha-openings-scope-replay-20261116/fit_openings-0001-1-original/blender-request.log\ncould not get a list of mounted file-systems\nBlender 4.5.14 LTS (hash 62c1db4208e8 built 2026-09-15 01:31:19)\nRead blend: \"/work/input.blend\"\nTraceback (most recent call last):\n  File \"/runner.py\", line 215, in <module>\n    main()\n  File \"/runner.py\", line 200, in main\n    raise ValueError('Unauthorized semantic writes: '+', '.join(scope['unauthorized_changed_ids']))\nValueError: Unauthorized semantic writes: room_walls, wall_wainscoting\n\nError: script failed, file: '/runner.py', exiting.\n\nBlender quit\n",
+      "seconds": 2.5686944729823153,
+      "build_code_unchanged": true,
+      "changed_ids": [
+        "door_cabinet_side",
+        "door_fireplace_side",
+        "room_walls",
+        "wall_wainscoting",
+        "window_cabinet_side",
+        "window_fireplace_side"
+      ],
+      "unauthorized_changed_ids": [
+        "room_walls",
+        "wall_wainscoting"
+      ],
+      "folder": "/tmp/aha-openings-scope-replay-20261116/fit_openings-0001-1-original",
+      "visual_quality_validated": false
+    },
+    {
+      "attempt": "fit_openings-0001-1",
+      "corrected_scope": true,
+      "ok": true,
+      "error": null,
+      "seconds": 2.9331164159812033,
+      "build_code_unchanged": true,
+      "changed_ids": [
+        "door_cabinet_side",
+        "door_fireplace_side",
+        "room_walls",
+        "wall_wainscoting",
+        "window_cabinet_side",
+        "window_fireplace_side"
+      ],
+      "unauthorized_changed_ids": [],
+      "folder": "/tmp/aha-openings-scope-replay-20261116/fit_openings-0001-1-corrected",
+      "visual_quality_validated": false
+    },
+    {
+      "attempt": "fit_openings-0001-2",
+      "corrected_scope": false,
+      "ok": false,
+      "error": "Isolated Blender failed (1); see /tmp/aha-openings-scope-replay-20261116/fit_openings-0001-2-original/blender-request.log\ncould not get a list of mounted file-systems\nBlender 4.5.14 LTS (hash 62c1db4208e8 built 2026-09-15 01:31:19)\nRead blend: \"/work/input.blend\"\nTraceback (most recent call last):\n  File \"/runner.py\", line 215, in <module>\n    main()\n  File \"/runner.py\", line 200, in main\n    raise ValueError('Unauthorized semantic writes: '+', '.join(scope['unauthorized_changed_ids']))\nValueError: Unauthorized semantic writes: room_walls, wall_wainscoting\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\nInfo: Applied modifier was not first, result may not be as expected\n\nError: script failed, file: '/runner.py', exiting.\n\nBlender quit\n",
+      "seconds": 2.568652980000479,
+      "build_code_unchanged": true,
+      "changed_ids": [
+        "door_cabinet_side",
+        "door_fireplace_side",
+        "room_walls",
+        "wall_wainscoting",
+        "window_cabinet_side",
+        "window_fireplace_side"
+      ],
+      "unauthorized_changed_ids": [
+        "room_walls",
+        "wall_wainscoting"
+      ],
+      "folder": "/tmp/aha-openings-scope-replay-20261116/fit_openings-0001-2-original",
+      "visual_quality_validated": false
+    },
+    {
+      "attempt": "fit_openings-0001-2",
+      "corrected_scope": true,
+      "ok": true,
+      "error": null,
+      "seconds": 2.9826961279904936,
+      "build_code_unchanged": true,
+      "changed_ids": [
+        "door_cabinet_side",
+        "door_fireplace_side",
+        "room_walls",
+        "wall_wainscoting",
+        "window_cabinet_side",
+        "window_fireplace_side"
+      ],
+      "unauthorized_changed_ids": [],
+      "folder": "/tmp/aha-openings-scope-replay-20261116/fit_openings-0001-2-corrected",
+      "visual_quality_validated": false
+    }
+  ],
+  "hosted_calls": 0,
+  "scope_change": "Explicit writes for room_walls and wall_wainscoting; not a relaxed validator."
+}

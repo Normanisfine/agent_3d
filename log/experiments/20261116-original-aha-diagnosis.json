@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20261116-original-aha-diagnosis",
+  "status": "completed",
+  "logged_at_utc": "2026-11-16T22:30:30.210906+00:00",
+  "variant": "historical-original-aha",
+  "scene_id": "FloorPlan209",
+  "split": "development",
+  "output_directory": "diagnose/results/original-profile-20261116-v2",
+  "evaluation_artifact": "diagnose/results/identity-ablation-20261116/identity-ablation.json",
+  "validation": "Original baseline reproduced; identity-only ablation; five diagnosis tests passed.",
+  "model_calls_launched": 0,
+  "total_cost_usd": null,
+  "cost_complete": false,
+  "findings": {
+    "original_wall_seconds": 2526.419,
+    "identity_D_correct_before_after": [
+      8,
+      14
+    ],
+    "identity_I_correct_before_after": [
+      7,
+      11
+    ],
+    "geometry_changed": false,
+    "corrected_main_input_tokens": 18230987,
+    "corrected_main_output_tokens": 80492
+  },
+  "notes": [
+    "Retrospective log of the diagnosis completed earlier in this conversation.",
+    "Timing buckets overlap; unknown device and controller attribution remain unknown.",
+    "Identity score gain is not a visual quality improvement. No small-model capability claim."
+  ]
+}

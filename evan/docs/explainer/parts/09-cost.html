@@ -1,0 +1,384 @@
+<h2 id="cost"><span class="num">9</span>算力、驱动和花费</h2>
+<p>这个项目有三个钱袋子，用途分得很死。</p>
+<ul>
+<li><b>两份订阅</b>。Yifan 的 ChatGPT 订阅和 Claude Max，各每月 100 美元。只能用来驱动 agent。</li>
+<li><b>Betty 课程额度</b>。每人约 50 美元，三人约 150 美元。跑感知和正式的 SAM 3D 生成。</li>
+<li><b>自掏腰包</b>。最多 10 美元，只用于 fal 上的 SAM 3D 核对。</li>
+</ul>
+<p>没有额外的 API 预算。所以成本没法直接看账单，要自己记 token 再折算（<a href="#b-dollars">9.4 节</a>）。</p>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>订阅像健身房年卡：不按次收费，但有“每段时间最多来几次”的隐形上限，次数用完就得等。Betty 像按小时计费的共享厨房，课程替我们付了一笔押金。fal 像外卖，单价便宜，但我们只点 10 美元的，用来尝尝味道对不对。</p>
+</div>
+
+<h3 id="b-where">9.1 什么跑在哪</h3>
+<p>分工的原则：要看图、要渲染的 agent 循环留在笔记本上；吃显存的模型放 Betty；订阅只管“大脑”。</p>
+<div class="arch">
+<div class="arch-title">四个地方，箭头上是传的东西</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 340" width="760" role="img" aria-label="什么跑在哪：笔记本居中，左上订阅，左下 fal，右边 Betty，箭头标出传的数据">
+<defs><marker id="b-m9a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="290" y="60" width="200" height="240" rx="10" class="f1 stroke"/>
+<text x="390" y="84" text-anchor="middle" font-size="13" font-weight="700">笔记本</text>
+<text x="390" y="104" text-anchor="middle">RTX 5070 Ti 12 GB</text>
+<text x="302" y="130">· agent：Codex / Claude Code</text>
+<text x="302" y="154">· Blender 5.2.1（渲染、物理）</text>
+<text x="302" y="178">· Hunyuan3D-2mini（开发用）</text>
+<text x="302" y="202">· place_mesh、评测脚本</text>
+<text x="302" y="226">· 硬盘只剩约 65 GB</text>
+<text x="302" y="280">不跑正式感知（显存不够）</text>
+</g>
+<g data-s="2">
+<rect x="10" y="16" width="190" height="120" rx="10" class="f5 stroke"/>
+<text x="105" y="38" text-anchor="middle" font-weight="700">订阅（只驱动 agent）</text>
+<text x="105" y="60" text-anchor="middle">ChatGPT → GPT-6</text>
+<text x="105" y="78" text-anchor="middle">（主实验）</text>
+<text x="105" y="98" text-anchor="middle">Claude Max → Opus 5.5</text>
+<text x="105" y="118" text-anchor="middle">（开发、5 场景复跑）</text>
+<path d="M288,82 L202,82" class="arrow" marker-end="url(#b-m9a)"/>
+<text x="245" y="75" text-anchor="middle">提示词、截图</text>
+<path d="M202,118 L288,118" class="arrow" marker-end="url(#b-m9a)"/>
+<text x="245" y="111" text-anchor="middle">回复、工具调用</text>
+</g>
+<g data-s="3">
+<rect x="580" y="16" width="170" height="310" rx="10" class="f2 stroke"/>
+<text x="665" y="38" text-anchor="middle" font-weight="700">PARCC Betty</text>
+<text x="665" y="58" text-anchor="middle">B200，每卡 180 GB</text>
+<text x="665" y="78" text-anchor="middle">整卡 1 美元/小时</text>
+<text x="665" y="98" text-anchor="middle">mig45 切片 0.25 美元/小时</text>
+<text x="665" y="118" text-anchor="middle">（补贴价）</text>
+<text x="665" y="138" text-anchor="middle">课程额度每人约 50 美元</text>
+<text x="665" y="166" text-anchor="middle">Pi3X、SAM 3、Boxer</text>
+<text x="665" y="186" text-anchor="middle">干净对照、SAM 3D</text>
+<text x="665" y="214" text-anchor="middle">MIG 切片没有图形接口</text>
+<text x="665" y="234" text-anchor="middle">不跑 Blender</text>
+<text x="665" y="262" text-anchor="middle">计算节点能否上网未明</text>
+<text x="665" y="282" text-anchor="middle">→ 权重在登录节点</text>
+<text x="665" y="302" text-anchor="middle">预先下载</text>
+<path d="M492,84 L578,84" class="arrow" marker-end="url(#b-m9a)"/>
+<text x="535" y="77" text-anchor="middle">mp4 视频</text>
+<path d="M578,120 L492,120" class="arrow" marker-end="url(#b-m9a)"/>
+<text x="535" y="113" text-anchor="middle">bundle/、清单</text>
+</g>
+<g data-s="4">
+<path d="M492,200 L578,200" class="arrow" marker-end="url(#b-m9a)"/>
+<text x="535" y="193" text-anchor="middle">生成请求</text>
+<path d="M578,236 L492,236" class="arrow" marker-end="url(#b-m9a)"/>
+<text x="535" y="229" text-anchor="middle">网格 mesh.glb</text>
+</g>
+<g data-s="5">
+<rect x="10" y="226" width="166" height="100" rx="10" class="f4 stroke"/>
+<text x="93" y="248" text-anchor="middle" font-weight="700">fal（自费 ≤ 10 美元）</text>
+<text x="93" y="270" text-anchor="middle">SAM 3D，每次 0.02 美元</text>
+<text x="93" y="290" text-anchor="middle">约 500 次封顶</text>
+<text x="93" y="310" text-anchor="middle">只核对位姿约定</text>
+<path d="M288,250 L178,250" class="arrow" marker-end="url(#b-m9a)"/>
+<text x="233" y="243" text-anchor="middle">图像 + 掩码 + 点图</text>
+<path d="M178,286 L288,286" class="arrow" marker-end="url(#b-m9a)"/>
+<text x="233" y="279" text-anchor="middle">网格 + 位姿</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>笔记本</b>（RTX 5070 Ti 12 GB，Ubuntu 24.04）。跑 agent 的命令行工具、Blender 5.2.1、开发期的 Hunyuan3D-2mini、<code>place_mesh</code> 和评测脚本。默认分辨率的 Pi3X 和 SAM 3D 都跑不动。</li>
+<li><b>订阅</b>。ChatGPT 订阅登录 Codex CLI，驱动 GPT-6 跑主实验；Claude Max 登录 headless Claude Code，驱动 Opus 5.5 做开发和 5 个场景的复跑。</li>
+<li><b>Betty 跑感知</b>。GPU 是 B200（每卡 180 GB），另有 90 GB 和 45 GB 两种 MIG 切片。Pi3X、SAM 3、Boxer、干净对照都在这里按场景算一次，结果拷回笔记本。走 SSH 加 Slurm，要连 Penn 的 VPN。</li>
+<li><b>Betty 跑生成</b>。正式实验的 SAM 3D 部署在 mig45 切片上（约 22 GB）。<code>gen3d_request</code> 从笔记本提交请求，网格拷回来给 <code>place_mesh</code>。</li>
+<li><b>fal（托管 API）</b>。SAM 3D 一次 0.02 美元，10 美元约 500 次。只用来在 Betty 装通之前，拿几个已知物体核对 SAM 3D 返回的位姿是什么坐标约定。</li>
+</ol>
+</div>
+<div class="box calc"><span class="box-label">算例 · Betty 额度够跑多少</span>
+<p>PARCC 的 FY27 价格表：整卡 B200 补贴价 1.00 美元/小时、非补贴价 4.51；mig45 补贴价 0.25、非补贴价 1.13。</p>
+<ul>
+<li>每人 50 美元，按补贴价：mig45 能跑 50 / 0.25 = 200 小时，整卡 50 小时。</li>
+<li>按非补贴价：mig45 约 50 / 1.13 ≈ 44 小时，整卡约 11 小时。</li>
+<li>感知（估算，调研笔记 04 的假设）：每个场景约 0.5 GPU·小时，20 个场景约 10 小时。mig45 上补贴价 2.5 美元，非补贴价约 11.3 美元。</li>
+</ul>
+<p>课程的 50 美元按哪档价格扣，公开文档没写，要问课程。不管哪档，只跑感知都很宽裕；剩下的给 SAM 3D 和可能的训练加分项。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>Blender 不上 Betty</b>。NVIDIA 的 MIG 文档写明切片不支持任何图形接口（OpenGL、Vulkan），而 AHa-3D 的预览渲染用 Workbench 和 EEVEE，都要图形上下文。整卡能不能用没核实。</li>
+<li><b>计算节点能不能上网没写清</b>。文档只有一句 <q>egress restricted</q>。所以权重先在登录节点或一个短的 CPU 作业里下好，GPU 作业离线跑。</li>
+<li><b>登录节点不许跑重活</b>。规矩是 <q>edit, sync, submit, not train</q>，算东西要走 <code>srun</code> 或 <code>sbatch</code>。</li>
+</ul>
+</div>
+<p class="src">设计文档第 3、6、7、13 节；调研笔记 04 第 1.1–1.8、1.10 节（PARCC 系统页、费率页、Slurm 页、NVIDIA MIG 文档）。</p>
+
+<h3 id="b-driver">9.2 驱动模型怎么选，为什么全程不换</h3>
+<p><b>驱动模型</b>就是扮演 agent 的那个大模型。AHa-3D 的 harness（工具和流程）不变，换的只是“谁在想”。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 196" width="760" role="img" aria-label="两条驱动路线：Codex 加 GPT-6 是 AHa-3D 原生，审查直接能用，但要补 Stop hook 配置；Claude Code 加 Opus 5.5 需要转发 shim，也要补 Stop hook">
+<defs><marker id="b-m9b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="10" y="24" font-size="13" font-weight="700">主实验：Codex CLI + GPT-6（AHa-3D 原生）</text>
+<rect x="10" y="36" width="160" height="48" rx="8" class="f1 stroke"/>
+<text x="90" y="56" text-anchor="middle" font-weight="700">Codex CLI</text>
+<text x="90" y="74" text-anchor="middle">ChatGPT 订阅登录</text>
+<path d="M170,60 L198,60" class="arrow" marker-end="url(#b-m9b)"/>
+<rect x="200" y="36" width="180" height="48" rx="8" class="f1 stroke"/>
+<text x="290" y="56" text-anchor="middle" font-weight="700">GPT-6 Astra</text>
+<text x="290" y="74" text-anchor="middle">订阅里没有就用 Sol</text>
+<path d="M380,60 L408,60" class="arrow" marker-end="url(#b-m9b)"/>
+<rect x="410" y="36" width="180" height="48" rx="8" class="f2 stroke"/>
+<g font-size="14"><text x="500" y="56" text-anchor="middle" class="shape">codex exec --image</text></g>
+<text x="500" y="74" text-anchor="middle">审查员直接能用</text>
+<path d="M590,60 L608,60" class="arrow" marker-end="url(#b-m9b)"/>
+<rect x="610" y="36" width="140" height="48" rx="8" class="f3 stroke"/>
+<text x="680" y="56" text-anchor="middle" font-weight="700">要补：</text>
+<text x="680" y="74" text-anchor="middle">Stop hook 配置</text>
+<text x="10" y="118" font-size="13" font-weight="700">开发和复跑：Claude Code + Opus 5.5</text>
+<rect x="10" y="130" width="160" height="48" rx="8" class="f5 stroke"/>
+<text x="90" y="150" text-anchor="middle" font-weight="700">Claude Code</text>
+<text x="90" y="168" text-anchor="middle">Max 订阅登录</text>
+<path d="M170,154 L198,154" class="arrow" marker-end="url(#b-m9b)"/>
+<rect x="200" y="130" width="180" height="48" rx="8" class="f5 stroke"/>
+<text x="290" y="150" text-anchor="middle" font-weight="700">Opus 5.5</text>
+<text x="290" y="168" text-anchor="middle">README：能驱动，没充分测</text>
+<path d="M380,154 L408,154" class="arrow" marker-end="url(#b-m9b)"/>
+<rect x="410" y="130" width="180" height="48" rx="8" class="f4 stroke"/>
+<g font-size="14"><text x="500" y="150" text-anchor="middle" class="shape">codex exec</text></g>
+<text x="500" y="168" text-anchor="middle">→ 转发 shim → Claude</text>
+<path d="M590,154 L608,154" class="arrow" marker-end="url(#b-m9b)"/>
+<rect x="610" y="130" width="140" height="48" rx="8" class="f4 stroke"/>
+<text x="680" y="150" text-anchor="middle" font-weight="700">要补：</text>
+<text x="680" y="168" text-anchor="middle">shim、Stop hook</text>
+</g></svg></div>
+<figcaption>审查这一步两条路不同。AHa-3D 的审查写死成 <code>codex exec --image</code>，Codex 驱动时直接能用；Claude 驱动时要一个转发 shim，把这条命令转给 Claude，之前的会话里做过。Stop hook 的配置文件 <code>.codex/hooks.json</code> 没随仓库发布，两条路都要补，补法对所有组一样。</figcaption></figure>
+<p><b>为什么主实验用 GPT-6</b>。Codex 是 AHa-3D 原生的驱动方式，作者博客用的就是 GPT-6 Astra（推理强度 medium）。这样最接近复现作者的设置。</p>
+<p><b>为什么还要 Claude</b>。开发调试用得多，Claude Max 的额度可以分担；5 个场景的复跑回答“换一家模型，结论还成立吗”。</p>
+<p>AHa-3D 的 README 说 Opus 5.5 初步实验能驱动，但没充分测过，原文是 <q>Opus 5.5 can also drive this repository based on initial experiments, but it has not been fully tested</q>。</p>
+<p>公开证据能参考的是 Agentic RSR（arXiv 2610.10479），它在 18 个 Blender 场景上比过一批模型。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 336" width="760" role="img" aria-label="Agentic RSR 各模型通过的场景数横条图：v2 表 3 在 DSH harness 下，v1 表 4 在 Codex harness 下">
+<g font-size="12">
+<text x="10" y="22" font-size="13" font-weight="700">Agentic RSR：18 个 Blender 场景里通过的个数</text>
+<text x="10" y="48">v2 表 3（DSH harness，所有模型同一套）</text>
+<text x="540" y="48" text-anchor="middle">18 = 全过</text>
+<path d="M540,56 L540,256" class="arrow dash"/>
+<text x="170" y="70" text-anchor="end">Claude Opus 5.5</text>
+<rect x="180" y="58" width="360" height="16" class="f5 stroke"/>
+<text x="546" y="70">18/18</text>
+<text x="170" y="96" text-anchor="end">Claude Fable 5.1</text>
+<rect x="180" y="84" width="360" height="16" class="f5 stroke"/>
+<text x="546" y="96">18/18</text>
+<text x="170" y="122" text-anchor="end">GPT-6 Astra</text>
+<rect x="180" y="110" width="300" height="16" class="f1 stroke"/>
+<text x="486" y="122">15/18</text>
+<text x="170" y="148" text-anchor="end">Claude Sonnet 5.5</text>
+<rect x="180" y="136" width="300" height="16" class="f5 stroke"/>
+<text x="486" y="148">15/18</text>
+<text x="170" y="174" text-anchor="end">GPT-6.1 Sol</text>
+<rect x="180" y="162" width="240" height="16" class="f1 stroke"/>
+<text x="426" y="174">12/18</text>
+<text x="170" y="200" text-anchor="end">GPT-5.6 Sol</text>
+<rect x="180" y="188" width="80" height="16" class="f1 stroke"/>
+<text x="266" y="200">4/18</text>
+<text x="170" y="226" text-anchor="end">Kimi K3</text>
+<text x="186" y="226">0/18</text>
+<text x="170" y="252" text-anchor="end">DeepSeek V4.1 Flash</text>
+<text x="186" y="252">0/18</text>
+<text x="10" y="284">v1 表 4（Codex harness）</text>
+<text x="170" y="306" text-anchor="end">GPT-6 Astra</text>
+<rect x="180" y="294" width="360" height="16" class="f1 stroke"/>
+<text x="546" y="306">18/18</text>
+<text x="170" y="330" text-anchor="end">GPT-5.6 Sol</text>
+<rect x="180" y="318" width="200" height="16" class="f1 stroke"/>
+<text x="386" y="330">10/18</text>
+</g></svg></div>
+<figcaption>每个场景 20 像素。紫色是 Anthropic 的 Claude 系列（Opus、Fable、Sonnet），蓝色是 OpenAI 的 GPT 系列；Kimi K3 和 DeepSeek V4.1 Flash 一个都没过，所以没有条。同一个 GPT-6 Astra，在 Codex 原生的 harness 里 18/18，在 DSH harness 里 15/18：harness 和模型是绑在一起的。作者自己也说这是“在这套流程里”的表现，不是通用排名。</figcaption></figure>
+<div class="box detail"><span class="box-label">为什么全程不换驱动</span>
+<ul>
+<li><b>组间比较要求同一个驱动</b>。A1 和 A3v 之间的差，必须只来自“加没加生成”，不能混进“换了个模型”。</li>
+<li><b>削减顺序里没有“换驱动”这一项</b>。额度不够时砍场景、砍组、砍重复，驱动不换。换驱动会破坏“复现作者设置”这个前提。</li>
+<li><b>推理强度也固定</b>。设计文档要求所有组同一个推理强度，具体档位没写死；作者博客用的是 medium。</li>
+<li><b>Claude 复跑是另一张表</b>。它和主实验分开报，不混进同一个比较。</li>
+</ul>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>便宜模型在长任务上可能撑不住</b>。Haiku 5.5 跑 office48 只用了 5.7 分钟、67 轮，结果粗糙，验收在第一关没过；它在 BVB 榜上分数却不差。BVB 是几分钟的短任务，榜单分数不能直接搬。</li>
+<li><b>不要引错表号</b>。“Astra 18/18 对 GPT-5.6 Sol 10/18”是 v1 的表 4；v2 把它挪到了附录表 9（Codex harness），新加的表 3 换成了 DSH harness。</li>
+</ul>
+</div>
+<p class="src">设计文档第 7 节；调研笔记 04 第 2.2、3.2、3.3 节（Agentic RSR v1、v2；AHa-3D README 第 109 行）。</p>
+
+<h3 id="b-quota">9.3 第 1 周先量额度</h3>
+<p>订阅不按次收费，但有用量上限。一次 AHa-3D 运行吃掉多少额度，没人知道。所以第 1 周（10 月 14 日到 19 日）先在 office48 上用两个驱动各跑一次，量出来再定能跑多少次。</p>
+<div class="arch">
+<div class="arch-title">量额度：跑两次 → 记五样 → 定计划和上限</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 232" width="760" role="img" aria-label="量额度流程：office48 用两个驱动各跑一次，记录 token、耗时、轮数、额度占比，据此决定计划和上限">
+<defs><marker id="b-m9c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="10" y="20" width="190" height="60" rx="8" class="f1 stroke"/>
+<text x="105" y="42" text-anchor="middle" font-weight="700">office48</text>
+<text x="105" y="64" text-anchor="middle">Codex + GPT-6</text>
+<rect x="10" y="110" width="190" height="60" rx="8" class="f5 stroke"/>
+<text x="105" y="132" text-anchor="middle" font-weight="700">office48</text>
+<text x="105" y="154" text-anchor="middle">Claude Code + Opus 5.5</text>
+</g>
+<g data-s="2">
+<path d="M200,50 L248,60" class="arrow" marker-end="url(#b-m9c)"/>
+<path d="M200,140 L248,130" class="arrow" marker-end="url(#b-m9c)"/>
+<rect x="250" y="20" width="250" height="150" rx="8" class="f3 stroke"/>
+<text x="375" y="42" text-anchor="middle" font-weight="700">每次记下</text>
+<text x="264" y="66">· token：输入、缓存、输出</text>
+<text x="264" y="90">· 墙钟时间、轮数</text>
+<text x="264" y="114">· 占当期订阅额度的比例</text>
+<text x="264" y="138">· 按官方价折成美元</text>
+<text x="264" y="160">· 场景质量（粗看）</text>
+</g>
+<g data-s="3">
+<path d="M500,60 L548,50" class="arrow-green" marker-end="url(#b-m9c)"/>
+<path d="M500,130 L548,140" class="arrow-red" marker-end="url(#b-m9c)"/>
+<rect x="550" y="20" width="200" height="60" rx="8" class="f2 stroke"/>
+<text x="650" y="42" text-anchor="middle" font-weight="700">额度够：按原计划</text>
+<text x="650" y="64" text-anchor="middle">Claude 复跑 25 次</text>
+<rect x="550" y="110" width="200" height="60" rx="8" class="f4 stroke"/>
+<text x="650" y="132" text-anchor="middle" font-weight="700">不够：按削减顺序砍</text>
+<text x="650" y="154" text-anchor="middle">不换驱动</text>
+<path d="M375,170 L375,188" class="arrow" marker-end="url(#b-m9c)"/>
+<rect x="10" y="190" width="740" height="32" rx="8" class="f6 stroke"/>
+<text x="380" y="211" text-anchor="middle">同时定上限：墙钟、轮数的初值 = A1 在开发集上中位数 × 2，所有组共用</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>跑两次</b>。office48 就是作者博客里的那间办公室，有现成的 token 账单可以对照。两个驱动各跑一次，都用正式实验的设置。</li>
+<li><b>记五样</b>。token 分输入、缓存、输出三类记；墙钟时间和轮数；这一次占当期订阅额度的比例；按官方 API 价折成的美元；顺便粗看场景质量，确认没跑崩。</li>
+<li><b>定计划</b>。额度够就按原计划跑（Claude 复跑 5 组 × 5 场景 = 25 次）；不够就按削减顺序砍（<a href="#b-dollars">9.4 节</a>），驱动不换。同时定下墙钟和轮数上限：初值是 A1 在开发集上的中位数乘 2。</li>
+</ol>
+</div>
+<p>下面这张表第 1 周填。具体从哪里读 token 和额度占比（CLI 的会话记录还是订阅后台），由 Yifan 跑的时候确认。</p>
+<div class="table-wrap"><table>
+<tr><th>驱动</th><th>输入 / 缓存 / 输出 token</th><th>墙钟</th><th>轮数</th><th>占当期额度</th><th>API 等价美元</th></tr>
+<tr><td>Codex + GPT-6（Astra 或 Sol）</td><td>待填</td><td>待填</td><td>待填</td><td>待填</td><td>待填</td></tr>
+<tr><td>Claude Code + Opus 5.5</td><td>待填</td><td>待填</td><td>待填</td><td>待填</td><td>待填</td></tr>
+<tr><td>参考：作者那次（GPT-6 Astra）</td><td>共 9,803,567，其中缓存 9,551,232</td><td>没公布</td><td>没公布</td><td>不适用</td><td>约 12–22</td></tr>
+<tr><td>参考：我们之前的 Haiku 5.5</td><td>没记细分</td><td>5.7 分钟</td><td>67</td><td>没记</td><td>约 0.56</td></tr>
+</table></div>
+<div class="box calc"><span class="box-label">算法 · 一个订阅周期能跑几次</span>
+<p>设一次 office48 运行占当期额度的比例是 q，一个 CA-1M 场景比 office48 多花的倍数是 k，那么一个周期最多约 ⌊1 / (q × k)⌋ 次。</p>
+<ul>
+<li>q 由第 1 周实测。</li>
+<li>k 按我们的理解大于 1：office48 是 10 秒的片段，CA-1M 每个视频约 125 个真值物体，认真建小物体的组会多转很多圈。k 要在开发集的前几个场景上量。</li>
+<li>把 11 月 9 日前剩下的周期数乘上去，就是主实验能用的总次数，和 9.4 节的计划次数比。</li>
+</ul>
+</div>
+<p class="src">设计文档第 5 节（运行上限）、第 7 节；调研笔记 04 第 3.2 节；deep-aha3d.json 的 cost_compute。</p>
+
+<h3 id="b-dollars">9.4 成本口径和运行次数</h3>
+<p>结论要画成“成本对精度”的曲线，成本轴就得有一个统一口径。设计文档定的是 <b>API 等价美元</b>。</p>
+<pre><code>API 等价美元 = Σ（各类 token 数 × 该模型的官方 API 单价）+ fal 生成费</code></pre>
+<p>订阅按月付费，这个数并不是我们真花出去的钱。它只用来在各组之间、各模型之间做同一把尺子的比较。</p>
+<div class="table-wrap"><table>
+<tr><th>模型</th><th>输入</th><th>缓存输入</th><th>输出</th><th>备注</th></tr>
+<tr><td>GPT-6 Astra</td><td>10</td><td>1.00</td><td>50</td><td>缓存写入 12.5；单次输入超过 272K 时输入和缓存 ×2、输出 ×1.5</td></tr>
+<tr><td>GPT-6.1 Sol</td><td>2</td><td>0.10</td><td>10</td><td>订阅里没有 Astra 时用它</td></tr>
+<tr><td>Claude Opus 5.5</td><td>4</td><td>0.20</td><td>20</td><td>5 分钟缓存写入 5</td></tr>
+</table></div>
+<p class="src">单位：美元每百万 token，标准档、短上下文。调研笔记 04 第 3.1、3.2 节（OpenAI、Anthropic 官方价格页，10 月 14 日）。</p>
+<div class="box calc"><span class="box-label">算例 · 作者那次 office48 按这个口径折多少</span>
+<ul>
+<li>缓存输入 9,551,232 × 1 / 10⁶ = 9.55 美元。</li>
+<li>剩下 252,335 token 分不清输入输出：全按输入 2.52 美元，全按输出 12.62 美元。</li>
+<li>合计 12.07 到 22.17 美元。这就是 2.4 节那个“12 到 22 美元”的来历。</li>
+<li>同样的 token 量按 Opus 5.5 的价：缓存 9,551,232 × 0.20 / 10⁶ = 1.91，剩下的 1.01 到 5.05，合计 2.92 到 6.96 美元。</li>
+</ul>
+<p>所以每次运行都必须把三类 token 分开记，不然算出来就是一个很宽的区间。</p>
+</div>
+<p>计划的运行次数如下。P0 不调大模型，几乎不花额度，不算在内。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 160" width="760" role="img" aria-label="计划运行次数堆叠条：主实验 75、A4 5、重复 10、高清消融 5、Claude 复跑 10 到 25，合计 105 到 120">
+<g font-size="12">
+<text x="20" y="22" font-size="13" font-weight="700">计划的 agent 运行次数（每次 5 像素；P0 不调大模型，不在内）</text>
+<rect x="20" y="40" width="375" height="40" class="f1 stroke"/>
+<text x="207.5" y="65" text-anchor="middle">主实验 75</text>
+<rect x="395" y="40" width="25" height="40" class="f4 stroke"/>
+<text x="407.5" y="65" text-anchor="middle">5</text>
+<rect x="420" y="40" width="50" height="40" class="f3 stroke"/>
+<text x="445" y="65" text-anchor="middle">重复 10</text>
+<rect x="470" y="40" width="25" height="40" class="f2 stroke"/>
+<text x="482.5" y="65" text-anchor="middle">5</text>
+<rect x="495" y="40" width="50" height="40" class="f5 stroke"/>
+<text x="520" y="65" text-anchor="middle">复跑 10</text>
+<rect x="545" y="40" width="75" height="40" class="f5 stroke dash"/>
+<text x="582.5" y="65" text-anchor="middle">+15</text>
+<text x="630" y="65" font-weight="700">合计 105–120</text>
+<text x="407.5" y="98" text-anchor="middle">A4</text>
+<text x="482.5" y="98" text-anchor="middle">高清消融</text>
+<text x="582.5" y="98" text-anchor="middle">额度够才跑</text>
+<text x="20" y="126">主实验 = A0、A1、A2、A3r、A3v 五组 × 15 个测试场景；A4 和高清消融各 5 个场景</text>
+<text x="20" y="148">重复 = A1、A3v 各在 5 个场景上再跑一次；Claude 复跑额度够 5 组 × 5 场景 = 25 次，不够只跑 A1、A3v 共 10 次</text>
+</g></svg></div>
+<figcaption>75 + 5 + 10 + 5 + 10 = 105，Claude 复跑跑满 25 次时是 120。虚线那一段要看第 1 周量出来的额度。第二次重复用来估计“同一组跑两次差多少”，组间差距比它小的不下结论。</figcaption></figure>
+<div class="box detail"><span class="box-label">额度不够时的削减顺序（设计文档第 5 节）</span>
+<ol>
+<li>A0 缩到 5 个场景。</li>
+<li>Claude 复跑只保留 A1 和 A3v。</li>
+<li>第二次重复缩到 3 个场景。</li>
+<li>取消 A4。</li>
+<li>测试场景从 15 个减到 10 个，驱动不换。按物体配对比较，10 个场景仍有上千个真值物体。</li>
+<li>去掉 A3r，只留 A3v。P0 已经代表了“按规则、不用大模型”这一端。</li>
+</ol>
+<p>第 5、6 步是推荐写进去的，用户还没有明确确认。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>Betty 和 fal 的钱另算</b>。API 等价美元只管 agent 的 token；fal 的生成费另外加进成本轴；Betty 的 GPU 小时单独记，不混进同一个数。</li>
+<li><b>失败的运行也有成本</b>。撞上限、跑崩、重跑的 token 都要记，各组失败率单独报。</li>
+</ul>
+</div>
+<p class="src">设计文档第 5、7、9.6、9.7 节；deep-aha3d.json 的 cost_compute（office48 token 数）。</p>
+
+<h3 id="b-disk">9.5 硬盘和存储</h3>
+<p>笔记本硬盘只剩约 65 GB，这条约束直接决定了“什么数据不下”。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 252" width="760" role="img" aria-label="存储分配图：笔记本 65 GB 里放 CA-1M、VSI、可选的 ScanNet++，不下原始 mov；Betty 上 home、项目目录和节点本地 tmp 的配额">
+<g font-size="12">
+<text x="20" y="22" font-size="13" font-weight="700">笔记本硬盘剩约 65 GB（每 GB 8 像素）</text>
+<rect x="20" y="34" width="520" height="30" class="f0 stroke"/>
+<rect x="20" y="34" width="88" height="30" class="f1 stroke"/>
+<rect x="108" y="34" width="40" height="30" class="f1 stroke dash"/>
+<rect x="148" y="34" width="8" height="30" class="f2 stroke"/>
+<rect x="156" y="34" width="32" height="30" class="f3 stroke dash"/>
+<text x="364" y="54" text-anchor="middle">剩约 44 GB：环境、bundle、.blend</text>
+<rect x="556" y="34" width="160" height="30" class="f4 stroke dash"/>
+<text x="636" y="54" text-anchor="middle" class="lbl-accent">不下 .mov（≈ 20 GB）</text>
+<rect x="20" y="78" width="12" height="12" class="f1 stroke"/>
+<text x="38" y="88">CA-1M 的 22 个视频：11–16 GB（帧、位姿、深度、框）</text>
+<rect x="20" y="100" width="12" height="12" class="f2 stroke"/>
+<text x="38" y="110">VSI-Bench 的 ScanNet++ 部分：视频约 1 GB</text>
+<rect x="20" y="122" width="12" height="12" class="f3 stroke dash"/>
+<text x="38" y="132">官方 ScanNet++ 5 个场景（批下来才下）：3–4 GB</text>
+<rect x="20" y="144" width="12" height="12" class="f4 stroke dash"/>
+<text x="38" y="154">不下：ARKitScenes 原始 .mov，22 × 约 0.9 GB ≈ 20 GB</text>
+<text x="20" y="186" font-size="13" font-weight="700">Betty 上的空间</text>
+<rect x="20" y="196" width="230" height="48" rx="8" class="f2 stroke"/>
+<text x="135" y="216" text-anchor="middle" font-weight="700">home 50 GB</text>
+<text x="135" y="234" text-anchor="middle">25 万 inode，可能先用完</text>
+<rect x="270" y="196" width="230" height="48" rx="8" class="f2 stroke"/>
+<text x="385" y="216" text-anchor="middle" font-weight="700">项目目录 50 GB</text>
+<text x="385" y="234" text-anchor="middle">也是 25 万 inode</text>
+<rect x="520" y="196" width="230" height="48" rx="8" class="f3 stroke"/>
+<text x="635" y="216" text-anchor="middle" font-weight="700">节点本地 /tmp 约 500 GB</text>
+<text x="635" y="234" text-anchor="middle">运行时写这里，完了打包拷走</text>
+</g></svg></div>
+<figcaption>上面一条按比例画笔记本剩余空间：实线是确定要下的，虚线是范围的上沿或可选项。“剩约 44 GB”是估算，按 65 − 16 − 1 − 4 取各项上限算。条外那个红色虚线框是我们决定不下的原始视频，下了就要再吃掉约 20 GB。下面三格是 Betty 的配额。</figcaption></figure>
+<ul>
+<li><b>不下原始 .mov</b>。ARKitScenes 的原始视频每个约 0.9 GB，22 个约 20 GB。我们用 CA-1M 的帧按 10 fps 合成 mp4，就不需要它。</li>
+<li><b>大文件放 Betty</b>。模型权重和中间结果都放 Betty；笔记本只放评测数据和最终的 .blend。</li>
+<li><b>inode 可能比容量先用完</b>。inode 是“文件个数”的配额，Betty 的 home 是 50 GB、25 万个。AHa-3D 每次运行会生成大量帧和中间文件，所以作业时写到节点本地的 <code>/tmp/$USER</code>，结束后打成 tar 包拷回。</li>
+<li><b>节点本地盘要自己清</b>。<code>/tmp/$USER</code> 约 500 GB，同一节点上的人共用，用完要拷走并删除。</li>
+</ul>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>bundle 还是要拷回笔记本</b>。agent 的测量和叠图工具在笔记本上读 <code>bundle/</code>。单个 bundle 多大，第一个场景跑完就量，再看 20 个场景放不放得下（设计文档没算这一笔，按我们的理解要预留）。</li>
+<li><b>ScanNet++ 不是一定会下</b>。要教授手签，11 月 2 日前批下来才加 5 个场景做形状指标。</li>
+</ul>
+</div>
+<div class="box key"><span class="box-label">必记结论</span>
+<ul>
+<li>订阅只驱动 agent；3D 模型在 Betty 和笔记本上跑；fal 只花 10 美元做核对。</li>
+<li>主实验 Codex 加 GPT-6，Claude 加 Opus 5.5 做开发和复跑，全程不换驱动。</li>
+<li>第 1 周先量额度，再定墙钟和轮数上限。</li>
+<li>成本轴是 API 等价美元，每次运行都要分三类记 token。</li>
+<li>计划 105 到 120 次 agent 运行；额度不够按削减顺序砍。</li>
+</ul>
+</div>
+<p class="src">设计文档第 3、8、13 节（硬盘、数据量）；调研笔记 04 第 1.5 节（PARCC 存储页）。</p>

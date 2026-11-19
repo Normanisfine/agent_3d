@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20261116-aha-diagnosed-offline-validation",
+  "status": "completed",
+  "logged_at_utc": "2026-11-16T22:30:30.210906+00:00",
+  "variant": "aha_diagnosed",
+  "scene_id": "FloorPlan209-seed-plus-fixtures",
+  "split": "integration-fixture",
+  "output_directory": "diagnose/results/aha-diagnosed-validation-20261116",
+  "raw_artifacts": "/tmp/aha-diagnosed-smoke-20261116-v2",
+  "evaluation_artifact": "diagnose/results/aha-diagnosed-validation-20261116/evaluation.json",
+  "code_hashes": "diagnose/results/aha-diagnosed-validation-20261116/code-hashes.json",
+  "validation": {
+    "unit_and_regression_tests_passed": 33,
+    "committed": 4,
+    "fallbacks": 0,
+    "review_receipts": 4,
+    "old_objects_preserved": true
+  },
+  "model_calls_launched": 0,
+  "total_cost_usd": null,
+  "cost_complete": false,
+  "notes": [
+    "Real isolated Blender; fixture model judgments and mock focus evidence.",
+    "No live full-room quality/cost comparison. No model or GPU rate inferred.",
+    "First integration check also passed; v2 reran after review failure handling changes.",
+    "Native final review and rendering are unchanged; this validates pre-commit architecture only."
+  ]
+}

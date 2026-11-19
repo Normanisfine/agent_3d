@@ -1,0 +1,260 @@
+{
+  "architecture": "aha",
+  "checked_at": "2026-11-15T23:38:47.147948+00:00",
+  "required_ready": true,
+  "all_tools_ready": false,
+  "checks": [
+    {
+      "component": "blender",
+      "level": "execution",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "BLENDER_OK 4.5.14 LTS\nBlender 4.5.14 LTS (hash 62c1db4208e8 built 2026-09-15 01:31:19)\n\nBlender quit\n",
+      "stderr": ""
+    },
+    {
+      "component": "codex_cli",
+      "level": "execution",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "codex-cli 0.169.0\n",
+      "stderr": ""
+    },
+    {
+      "component": "claude_cli",
+      "level": "execution",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "2.1.325 (Claude Code)\n",
+      "stderr": ""
+    },
+    {
+      "component": "aha_python",
+      "level": "import",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "AHA_IMPORT_OK\n",
+      "stderr": ""
+    },
+    {
+      "component": "aha_reference_meshing",
+      "level": "import",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "MESH_RUNTIME_OK\n",
+      "stderr": ""
+    },
+    {
+      "component": "generated_code_isolation",
+      "level": "execution",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "Blender 4.5.14 LTS (hash 62c1db4208e8 built 2026-09-15 01:31:19)\n\nBlender quit\n",
+      "stderr": "could not get a list of mounted file-systems\n"
+    },
+    {
+      "component": "pi3x",
+      "level": "cuda_tensor_and_import",
+      "repo": "/home/mj/dl_project/agen3d/external/pi3",
+      "python": "/home/mj/dl_project/agen3d/.venvs/pi3x-clean/bin/python",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "Warning, cannot find cuda-compiled version of RoPE2D, using a slow pytorch version instead\nIMPORT_OK 2.7.1+cu128\n",
+      "stderr": ""
+    },
+    {
+      "component": "pi3x_checkpoint",
+      "level": "sizes_only",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "component": "sam3",
+      "level": "cuda_tensor_and_import",
+      "repo": "/home/mj/dl_project/agen3d/external/sam3",
+      "python": "/home/mj/dl_project/agen3d/.venvs/sam3-clean/bin/python",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "IMPORT_OK 2.7.1+cu128\n",
+      "stderr": "/home/mj/dl_project/agen3d/.venvs/sam3-clean/lib/python3.11/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n"
+    },
+    {
+      "component": "sam3_checkpoint",
+      "level": "sizes_only",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "component": "hunyuan-shape",
+      "level": "cuda_tensor_and_import",
+      "repo": "/home/mj/dl_project/agen3d/external/hunyuan3d-2.1",
+      "python": "/home/mj/dl_project/agen3d/.venvs/hunyuan/bin/python",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "IMPORT_OK 2.7.1+cu128\n",
+      "stderr": ""
+    },
+    {
+      "component": "hunyuan-shape_checkpoint",
+      "level": "sizes_only",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "component": "sam3d",
+      "level": "cuda_tensor_and_import",
+      "repo": "/home/mj/dl_project/agen3d/external/sam-3d-objects",
+      "python": "/home/mj/dl_project/agen3d/.venvs/sam3d/bin/python",
+      "ok": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/home/mj/dl_project/agen3d/.venvs/sam3d/bin/python'"
+    },
+    {
+      "component": "sam3d_checkpoint",
+      "level": "sizes_only",
+      "ok": false,
+      "failures": [
+        {
+          "file": "checkpoints/pipeline.yaml",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_decoder_gs.ckpt",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_decoder_gs.yaml",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_decoder_gs_4.ckpt",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_decoder_gs_4.yaml",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_decoder_mesh.ckpt",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_decoder_mesh.yaml",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_encoder.ckpt",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_encoder.yaml",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_generator.ckpt",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/slat_generator.yaml",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/ss_decoder.ckpt",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/ss_decoder.yaml",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/ss_encoder.ckpt",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/ss_encoder.yaml",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/ss_generator.ckpt",
+          "problem": "missing"
+        },
+        {
+          "file": "checkpoints/ss_generator.yaml",
+          "problem": "missing"
+        }
+      ]
+    },
+    {
+      "component": "hispatial",
+      "level": "cuda_tensor_and_import",
+      "repo": "/home/mj/dl_project/agen3d/external/hispatial",
+      "python": "/home/mj/dl_project/agen3d/.venvs/hispatial/bin/python",
+      "ok": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/home/mj/dl_project/agen3d/.venvs/hispatial/bin/python'"
+    },
+    {
+      "component": "hispatial_checkpoint",
+      "level": "sizes_only",
+      "ok": false,
+      "failures": [
+        {
+          "file": "config.json",
+          "problem": "missing"
+        },
+        {
+          "file": "preprocessor_config.json",
+          "problem": "missing"
+        },
+        {
+          "file": "special_tokens_map.json",
+          "problem": "missing"
+        },
+        {
+          "file": "tokenizer.json",
+          "problem": "missing"
+        },
+        {
+          "file": "tokenizer_config.json",
+          "problem": "missing"
+        },
+        {
+          "file": "weights.pt",
+          "problem": "missing"
+        }
+      ]
+    },
+    {
+      "component": "gpu",
+      "level": "driver",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "NVIDIA GeForce RTX 5090, 32607 MiB\n",
+      "stderr": ""
+    },
+    {
+      "component": "preparation_sam3_import",
+      "level": "subprocess_import",
+      "ok": true,
+      "exit_code": 0,
+      "stdout": "AHA_SAM3_IMPORT_OK\n",
+      "stderr": "/home/mj/dl_project/agen3d/.venvs/sam3-clean/lib/python3.11/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers\n  warnings.warn(f\"Importing from {__name__} is deprecated, please import via timm.layers\", FutureWarning)\n"
+    },
+    {
+      "component": "preparation_input",
+      "level": "exists",
+      "ok": true,
+      "path": "/home/mj/dl_project/agen3d/datasets/ai2thor/FloorPlan209/reference/original_camera_rgb.mp4"
+    },
+    {
+      "component": "worker_credentials",
+      "level": "presence_only",
+      "ok": true
+    }
+  ],
+  "not_tested": [
+    "hosted model authentication/inference",
+    "model checkpoint inference",
+    "source-specific AHA layout acceptance",
+    "end-to-end reconstruction quality"
+  ],
+  "note": "Optional specialists are reported separately; no models downloaded or paid calls made."
+}

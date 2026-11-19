@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+"""Stand-in for `codex exec`, used only by AHa-3D's visual-review gate.
+
+AHa-3D's src/aha3d/workflow/review_contract.py runs
+  codex exec --output-schema S --ephemeral --sandbox read-only --skip-git-repo-check
+             --output-last-message OUT --image P1 --image P2 ... -
+with the prompt on stdin, and expects OUT to hold the reviewer's JSON.
+This shim forwards the same request to Claude Code in print mode: the reviewer
+gets only the Read tool, opens every image (so the pixels really reach the
+model), and answers under the same JSON schema. AHa-3D itself is not modified.
+
+Env: AHA_REVIEW_CLAUDE_BIN (Claude Code binary), AHA_REVIEW_MODEL (default claude-haiku-5-5).
+"""
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+
+def parse(argv):
+    if not argv or argv[0] != 'exec':
+        sys.exit('codex shim: only `codex exec` is supported')
+    opts = {'images': []}
+    it = iter(argv[1:])
+    for arg in it:
+        if arg == '--output-schema':
+            opts['schema'] = next(it)
+        elif arg == '--output-last-message':
+            opts['out'] = next(it)
+        elif arg == '--image':
+            opts['images'].append(next(it))
+        elif arg == '--sandbox':
+            next(it)
+        elif arg in ('--ephemeral', '--skip-git-repo-check', '-'):
+            pass
+        else:
+            sys.exit(f'codex shim: unexpected argument {arg!r}')
+    if 'out' not in opts:
+        sys.exit('codex shim: --output-last-message is required')
+    return opts
+
+
+def main():
+    opts = parse(sys.argv[1:])
+    prompt = sys.stdin.read()
+    images = [str(Path(p).resolve()) for p in opts['images']]
+    listing = '\n'.join(f'{i + 1}. {p}' for i, p in enumerate(images))
+    full_prompt = (
+        'You are a visual reviewer. First open every image below with the Read tool, '
+        'in this order, and look at each one before judging:\n' + listing + '\n\n'
+        'The image order above is the "attached images in the supplied ID order" that the request refers to.\n\n'
+        + prompt)
+    cmd = [os.environ.get('AHA_REVIEW_CLAUDE_BIN', 'claude'), '-p', full_prompt,
+           '--model', os.environ.get('AHA_REVIEW_MODEL', 'claude-haiku-5-5'),
+           '--tools', 'Read', '--allowedTools', 'Read',
+           '--output-format', 'json', '--no-session-persistence']
+    for d in sorted({str(Path(p).parent) for p in images}):
+        cmd += ['--add-dir', d]
+    if 'schema' in opts:
+        cmd += ['--json-schema', Path(opts['schema']).read_text()]
+    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=590)
+    if proc.returncode != 0:
+        sys.stderr.write(proc.stdout[-2000:] + proc.stderr[-2000:])
+        sys.exit(proc.returncode)
+    envelope = json.loads(proc.stdout)
+    review = envelope.get('structured_output')
+    if review is None:
+        text = envelope.get('result', '').strip()
+        if text.startswith('```'):
+            text = text.strip('`').removeprefix('json').strip()
+        review = json.loads(text)
+    Path(opts['out']).write_text(json.dumps(review, indent=2))
+
+
+if __name__ == '__main__':
+    main()

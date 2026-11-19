@@ -1,0 +1,524 @@
+<h2 id="steps"><span class="num">10</span>一步一步做</h2>
+<p>整个项目拆成 11 步，编号 S1 到 S11。每一步写清负责人、时间、要做的事和"做完的标志"，达到标志再往下走。</p>
+<p>同一周里不同人的步骤可以并行。真正要排队的只有几处，先看依赖图，再看每一步的卡片。</p>
+
+<h3 id="d-dag">10.1 依赖图：哪一步要等哪一步</h3>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>像装修一个房子。水电（S1 环境）、量尺寸（S3 数据）、买材料（S4 感知）可以同时开工；贴瓷砖（S9 主实验）得等前面几样都到位才能动。</p>
+<p>图里每个方块是一步，箭头上写的是交过去的东西。泳道按人分，跨三条泳道的长方块是三个人一起做的步骤。</p>
+</div>
+<div class="arch">
+<div class="arch-title">S1–S11 依赖图：三条泳道，箭头上是交接的文件</div>
+<div class="svg-wrap"><svg viewBox="0 0 770 372" width="770" role="img" aria-label="S1 到 S11 的依赖图，按 Yifan、Mingjian、Yujing 三条泳道排列">
+<defs><marker id="d-m10a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="0" y="34" width="770" height="110" class="f6"/>
+<rect x="0" y="254" width="770" height="110" class="f6"/>
+<text x="4" y="86" font-weight="700">Yifan</text><text x="4" y="104">agent</text>
+<text x="4" y="196" font-weight="700">Mingjian</text><text x="4" y="214">感知生成</text>
+<text x="4" y="306" font-weight="700">Yujing</text><text x="4" y="324">数据评测</text>
+<text x="113" y="24" text-anchor="middle" class="shape">10/14–10/19</text>
+<text x="231" y="24" text-anchor="middle" class="shape">10/20 前</text>
+<text x="349" y="24" text-anchor="middle" class="shape">10/20–11/02</text>
+<text x="467" y="24" text-anchor="middle" class="shape">10/27–11/09</text>
+<text x="585" y="24" text-anchor="middle" class="shape">11/10–11/16</text>
+<text x="703" y="24" text-anchor="middle" class="shape">11/17–12/07</text>
+<g data-s="1">
+<rect x="62" y="44" width="102" height="40" rx="6" class="f1 stroke"/><text x="113" y="60" text-anchor="middle" font-weight="700">S1 搭本地环境</text><text x="113" y="77" text-anchor="middle">AHa-3D 和驱动</text>
+<rect x="62" y="96" width="102" height="40" rx="6" class="f1 stroke"/><text x="113" y="112" text-anchor="middle" font-weight="700">S2 量额度</text><text x="113" y="129" text-anchor="middle">两个驱动各一次</text>
+<path d="M113,84 L113,95" class="arrow" marker-end="url(#d-m10a)"/>
+<rect x="62" y="168" width="102" height="40" rx="6" class="f3 stroke"/><text x="113" y="184" text-anchor="middle" font-weight="700">S4 Betty 感知</text><text x="113" y="201" text-anchor="middle">20 个场景</text>
+<rect x="62" y="262" width="102" height="40" rx="6" class="f2 stroke"/><text x="113" y="278" text-anchor="middle" font-weight="700">S3 备数据</text><text x="113" y="295" text-anchor="middle">22 个视频</text>
+<rect x="62" y="314" width="102" height="40" rx="6" class="f2 stroke"/><text x="113" y="330" text-anchor="middle" font-weight="700">S5 评测脚本</text><text x="113" y="347" text-anchor="middle">真值对真值</text>
+<path d="M113,302 L113,313" class="arrow" marker-end="url(#d-m10a)"/>
+<path d="M88,262 L88,209" class="arrow" marker-end="url(#d-m10a)"/><text x="94" y="240">帧和 mp4</text>
+</g>
+<g data-s="2">
+<rect x="180" y="284" width="102" height="40" rx="6" class="f2 stroke"/><text x="231" y="300" text-anchor="middle" font-weight="700">S6 定死</text><text x="231" y="317" text-anchor="middle">测试集、阈值</text>
+<path d="M164,282 L179,295" class="arrow" marker-end="url(#d-m10a)"/>
+<path d="M164,334 L179,316" class="arrow" marker-end="url(#d-m10a)"/>
+</g>
+<g data-s="3">
+<rect x="298" y="44" width="102" height="60" rx="6" class="f1 stroke"/><text x="349" y="68" text-anchor="middle" font-weight="700">S7 基线跑通</text><text x="349" y="86" text-anchor="middle">A0、A1 开发集</text>
+<path d="M164,54 L297,54" class="arrow" marker-end="url(#d-m10a)"/><text x="231" y="47" text-anchor="middle">装好的 AHa-3D</text>
+<path d="M164,176 L230,176 L230,74 L297,74" class="arrow" marker-end="url(#d-m10a)"/><text x="170" y="170" class="shape">bundle/</text>
+<path d="M282,296 L290,296 M164,346 L290,346 L290,94 L297,94" class="arrow-green" marker-end="url(#d-m10a)"/><text x="296" y="240">评测脚本、两个配置</text>
+<text x="318" y="120" class="lbl-accent" font-weight="700">10/26 中期检查</text>
+</g>
+<g data-s="4">
+<rect x="298" y="168" width="102" height="40" rx="6" class="f3 stroke"/><text x="349" y="184" text-anchor="middle" font-weight="700">S8 生成工具</text><text x="349" y="201" text-anchor="middle" class="lbl-accent">11/2 闸门</text>
+<path d="M164,196 L297,196" class="arrow" marker-end="url(#d-m10a)"/><text x="231" y="212" text-anchor="middle">掩码、点图、清单</text>
+</g>
+<g data-s="5">
+<rect x="416" y="44" width="102" height="312" rx="8" class="f5 stroke"/>
+<text x="467" y="64" text-anchor="middle" font-weight="700">S9 主实验</text>
+<text x="467" y="98" text-anchor="middle">A0–A3v</text><text x="467" y="116" text-anchor="middle">15 个测试场景</text>
+<text x="467" y="196" text-anchor="middle">P0</text><text x="467" y="214" text-anchor="middle">两种清单各一遍</text>
+<text x="467" y="298" text-anchor="middle">打分</text><text x="467" y="316" text-anchor="middle">漏斗、分档表</text>
+<path d="M400,66 L415,66" class="arrow" marker-end="url(#d-m10a)"/>
+<path d="M400,188 L415,188" class="arrow" marker-end="url(#d-m10a)"/>
+<path d="M282,316 L415,316" class="arrow" marker-end="url(#d-m10a)"/><text x="350" y="310" text-anchor="middle" class="shape">splits·thresholds</text>
+<path d="M164,130 L415,130" class="arrow" marker-end="url(#d-m10a)"/><text x="340" y="124" text-anchor="middle">额度表</text>
+</g>
+<g data-s="6">
+<rect x="534" y="44" width="102" height="312" rx="8" class="f5 stroke"/>
+<text x="585" y="64" text-anchor="middle" font-weight="700">S10 补充实验</text>
+<text x="585" y="98" text-anchor="middle">A4、第二次重复</text><text x="585" y="116" text-anchor="middle">Claude 复跑</text>
+<text x="585" y="186" text-anchor="middle">高清帧消融</text><text x="585" y="204" text-anchor="middle">Hunyuan 小对比</text><text x="585" y="222" text-anchor="middle">训练加分项</text>
+<text x="585" y="298" text-anchor="middle">拍演示视频</text><text x="585" y="316" text-anchor="middle">整理图表</text>
+<rect x="652" y="44" width="102" height="312" rx="8" class="f5 stroke"/>
+<text x="703" y="64" text-anchor="middle" font-weight="700">S11 报告展示</text>
+<text x="703" y="106" text-anchor="middle">分节写</text>
+<text x="703" y="206" text-anchor="middle">分节写</text>
+<text x="703" y="298" text-anchor="middle">主笔报告</text><text x="703" y="316" text-anchor="middle">11/23 初稿</text><text x="703" y="334" text-anchor="middle">12/7 终稿</text>
+<path d="M518,244 L533,244" class="arrow" marker-end="url(#d-m10a)"/>
+<path d="M636,244 L651,244" class="arrow" marker-end="url(#d-m10a)"/>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>第一周五件事并行</b>（10/14–10/19）。Yifan 搭环境（S1），装好后量额度（S2）；Yujing 备数据（S3），有了真值框就写评测脚本（S5）；Mingjian 拿到 Yujing 的帧和 mp4 就在 Betty 上跑感知（S4）。</li>
+<li><b>10/20 前定死</b>（S6）。测试集名单和各项阈值写进两个配置文件提交，之后不改。它要等 S3 的视频名单和 S5 的评测脚本。</li>
+<li><b>基线跑通</b>（S7）。A0、A1 在 3 个开发场景上无人值守跑完。它要等三样东西：S1 装好的 AHa-3D，S4 算好的感知结果 <code>bundle/</code>，以及 S5 的评测脚本和 S6 定死的两个配置（绿线，打分要用）。10/26 中期检查交这一步的数字。</li>
+<li><b>生成工具</b>（S8）。Mingjian 用 S4 的掩码、点图和清单写通两个生成工具，部署 SAM 3D。11/2 是它的闸门，过不了就换方案（第 13 章）。</li>
+<li><b>主实验</b>（S9）。四路输入汇合：S7 的提示词和 harness，S8 的工具，S6 定死的测试集和阈值，S2 的额度表（决定能跑几次）。</li>
+<li><b>补充实验和报告</b>（S10、S11）。主实验跑完才做补充实验，两者的结果一起进报告。</li>
+</ol>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li>图上的列只表示大致先后。S8 从 10/20 做到 11/02，和 S7、S9 都有重叠，准确日期以第 12 章的甘特图为准。</li>
+<li>S4 不用等 S3 全部做完。拿到第一批场景的帧就能先跑，数据和感知可以流水线式推进。</li>
+</ul>
+</div>
+
+<h3 id="d-apply">10.2 今天就要发出去的申请</h3>
+<p>有五样东西要等别人批或开通。它们不花多少力气，但等待时间不归我们控制，所以第一天就发。</p>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>就像装修前去物业办开工证。填表五分钟，批下来可能要一周；不先去办，师傅到了也进不了门。</p>
+</div>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 300" width="770" role="img" aria-label="五个申请：申请什么、要等多久、卡住哪一步、最晚什么时候要用上">
+<defs><marker id="d-m10b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="110" y="22" text-anchor="middle" font-weight="700">申请什么（谁办）</text>
+<text x="350" y="22" text-anchor="middle" font-weight="700">要等多久</text>
+<text x="560" y="22" text-anchor="middle" font-weight="700">卡住哪一步</text>
+<text x="705" y="22" text-anchor="middle" font-weight="700">最晚</text>
+<rect x="10" y="36" width="200" height="42" rx="6" class="f3 stroke"/><text x="110" y="53" text-anchor="middle" font-weight="700">HF：SAM 3 权重</text><text x="110" y="70" text-anchor="middle">Mingjian · 人工审批</text>
+<path d="M210,57 L489,57" class="arrow dash" marker-end="url(#d-m10b)"/><text x="350" y="50" text-anchor="middle">审批时间不定</text>
+<rect x="490" y="36" width="140" height="42" rx="6" class="f0 stroke"/><text x="560" y="53" text-anchor="middle">S1、S4、S7</text><text x="560" y="70" text-anchor="middle">Observe 一步就要它</text>
+<text x="705" y="53" text-anchor="middle" class="lbl-accent">立即</text><text x="705" y="70" text-anchor="middle" class="lbl-accent">S7 前必须到位</text>
+<rect x="10" y="90" width="200" height="42" rx="6" class="f3 stroke"/><text x="110" y="107" text-anchor="middle" font-weight="700">HF：SAM 3D Objects</text><text x="110" y="124" text-anchor="middle">Mingjian · 人工审批</text>
+<path d="M210,111 L489,111" class="arrow dash" marker-end="url(#d-m10b)"/><text x="350" y="104" text-anchor="middle">审批时间不定</text>
+<rect x="490" y="90" width="140" height="42" rx="6" class="f0 stroke"/><text x="560" y="107" text-anchor="middle">S8 在 Betty</text><text x="560" y="124" text-anchor="middle">部署 SAM 3D</text>
+<text x="705" y="115" text-anchor="middle" class="lbl-accent">11/2 闸门</text>
+<rect x="10" y="144" width="200" height="42" rx="6" class="f2 stroke"/><text x="110" y="161" text-anchor="middle" font-weight="700">ScanNet++ 申请表</text><text x="110" y="178" text-anchor="middle">Yujing · 教授手签</text>
+<path d="M210,165 L489,165" class="arrow dash" marker-end="url(#d-m10b)"/><text x="350" y="158" text-anchor="middle">约 4–7 天（用户反馈）</text>
+<rect x="490" y="144" width="140" height="42" rx="6" class="f0 stroke"/><text x="560" y="161" text-anchor="middle">可选的形状评测</text><text x="560" y="178" text-anchor="middle">5 个场景</text>
+<text x="705" y="169" text-anchor="middle" class="lbl-accent">11/2 前</text>
+<rect x="10" y="198" width="200" height="42" rx="6" class="f1 stroke"/><text x="110" y="215" text-anchor="middle" font-weight="700">Betty 账号</text><text x="110" y="232" text-anchor="middle">三人 · PI 加进项目</text>
+<path d="M210,219 L489,219" class="arrow" marker-end="url(#d-m10b)"/><text x="350" y="212" text-anchor="middle">加进项目后最多 1 小时</text>
+<rect x="490" y="198" width="140" height="42" rx="6" class="f0 stroke"/><text x="560" y="215" text-anchor="middle">S4、S8</text><text x="560" y="232" text-anchor="middle">所有 GPU 作业</text>
+<text x="705" y="223" text-anchor="middle">第一周</text>
+<rect x="10" y="252" width="200" height="42" rx="6" class="f4 stroke"/><text x="110" y="269" text-anchor="middle" font-weight="700">fal 账号（自费）</text><text x="110" y="286" text-anchor="middle">谁出待定 · 上限 10 美元</text>
+<path d="M210,273 L489,273" class="arrow" marker-end="url(#d-m10b)"/><text x="350" y="266" text-anchor="middle">SAM 3D 每次约 0.02 美元</text>
+<rect x="490" y="252" width="140" height="42" rx="6" class="f0 stroke"/><text x="560" y="269" text-anchor="middle">S8 核对位姿</text><text x="560" y="286" text-anchor="middle">5 个物体</text>
+<text x="705" y="277" text-anchor="middle">第一周</text>
+</g></svg></div>
+<figcaption>五个申请各自卡住哪一步。虚线箭头表示等待时间不归我们控制。红字是最晚期限：SAM 3 最急，AHa-3D 的 Observe 一步本身就要用它，S7 之前必须到位；SAM 3D 和 ScanNet++ 都必须在 11/2 前到位，否则走退路。</figcaption></figure>
+<ul>
+<li><b>SAM 3 和 SAM 3D Objects</b>：Hugging Face 上两个模型都是人工审批（<code>gated: manual</code>）。没有 SAM 3，AHa-3D 的 Observe 一步就跑不起来，S1、S4、S7 全卡住，干净对照的掩码也没了；没有 SAM 3D，正式实验的生成器就没了。</li>
+<li><b>先查 SAM 3 的权限</b>：Yifan 之前在这台笔记本上跑过 AHa-3D 的 SAM 3，他的 HF 账号可能已经有权限。先查一下，没有再申请。</li>
+<li><b>ScanNet++</b>：申请表要教授手签。批下来才加 5 个场景的形状指标，11/2 前没批就不做。</li>
+<li><b>Betty</b>：导师（PI）在 ColdFront 里把人加进项目，新账号最多一小时生效。登录要在 Penn 校园网或 GlobalProtect VPN 上，认证三选二（Kerberos、SSH key、Duo）。</li>
+<li><b>fal</b>：自费上限 10 美元，由谁出还没定。只用来核对 SAM 3D 的位姿坐标约定。按每次 0.02 美元算，10 美元约 500 次，核 5 个物体绰绰有余。</li>
+</ul>
+<div class="box calc"><span class="box-label">算例 · fal 的 10 美元够用几次</span>
+<p>fal 上 SAM 3D Objects 标价每次 0.02 美元（02 号笔记）。10 ÷ 0.02 = 500 次。核对位姿约定只需要 5 个物体，就算每个物体试 10 种设置也只用 50 次，即 1 美元。</p>
+</div>
+<p class="src">设计文档第 3、6、8 节；04 号笔记 §1.2（Betty 账号和认证）；03 号笔记 §0（ScanNet++ 审批约 4–7 天，来自 issue 里的用户反馈）；02 号笔记（fal 价格）。</p>
+
+<h3 id="d-week1">10.3 S1、S2：搭环境和量额度（Yifan）</h3>
+<p>第一周 Yifan 要在笔记本上把 AHa-3D 原样跑通，并量出"跑一次花掉多少订阅额度"。后面所有实验的规模都由这个数决定。</p>
+<div class="arch">
+<div class="arch-title">笔记本上装什么，额度怎么量</div>
+<div class="svg-wrap"><svg viewBox="0 0 770 300" width="770" role="img" aria-label="笔记本上的环境：Blender、AHa-3D、三个 Python 环境、两种驱动和转发 shim，以及量额度的流程">
+<defs><marker id="d-m10c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="10" width="470" height="280" rx="10" class="f6 stroke"/>
+<text x="20" y="30" font-weight="700">Yifan 的笔记本</text><text x="130" y="30">Ubuntu 24.04 · RTX 5070 Ti 12 GB · 剩约 65 GB</text>
+<g data-s="1">
+<rect x="24" y="44" width="200" height="56" rx="6" class="f1 stroke"/><text x="124" y="66" text-anchor="middle" font-weight="700">Blender 5.2.1</text><text x="124" y="86" text-anchor="middle">版本写死，只能在 Linux 上</text>
+<rect x="264" y="44" width="200" height="56" rx="6" class="f1 stroke"/><text x="364" y="66" text-anchor="middle" font-weight="700">AHa-3D</text><text x="364" y="86" text-anchor="middle" class="shape">固定提交 82f4b11</text>
+</g>
+<g data-s="2">
+<rect x="24" y="114" width="136" height="40" rx="6" class="f2 stroke"/><text x="92" y="139" text-anchor="middle">Pi3X 环境</text>
+<rect x="176" y="114" width="136" height="40" rx="6" class="f2 stroke"/><text x="244" y="139" text-anchor="middle">SAM 3 环境</text>
+<rect x="328" y="114" width="136" height="40" rx="6" class="f2 stroke"/><text x="396" y="139" text-anchor="middle">Open3D 环境</text>
+</g>
+<g data-s="3">
+<rect x="24" y="170" width="200" height="56" rx="6" class="f3 stroke"/><text x="124" y="192" text-anchor="middle" font-weight="700">Codex CLI</text><text x="124" y="212" text-anchor="middle">ChatGPT 订阅 → GPT-6</text>
+<rect x="264" y="170" width="200" height="56" rx="6" class="f3 stroke"/><text x="364" y="192" text-anchor="middle" font-weight="700">Claude Code 无头模式</text><text x="364" y="212" text-anchor="middle">Max 订阅 → Opus 5.5</text>
+<rect x="264" y="238" width="200" height="46" rx="6" class="f4 stroke"/><text x="364" y="257" text-anchor="middle" font-weight="700">转发 shim</text><text x="364" y="275" text-anchor="middle" class="shape">codex exec → Claude</text>
+<path d="M364,238 L364,227" class="arrow" marker-end="url(#d-m10c)"/>
+<text x="124" y="257" text-anchor="middle">审查步骤写死了</text><text x="124" y="275" text-anchor="middle" class="shape">codex exec --image</text>
+<path d="M198,266 L263,266" class="arrow dash" marker-end="url(#d-m10c)"/>
+</g>
+<g data-s="4">
+<rect x="520" y="44" width="236" height="56" rx="6" class="f0 stroke"/><text x="638" y="66" text-anchor="middle" font-weight="700">office48 示例</text><text x="638" y="86" text-anchor="middle">两个驱动各跑一次</text>
+<path d="M480,72 L519,72" class="arrow" marker-end="url(#d-m10c)"/>
+<path d="M638,100 L638,133" class="arrow" marker-end="url(#d-m10c)"/>
+<rect x="520" y="134" width="236" height="62" rx="6" class="f0 stroke"/><text x="638" y="156" text-anchor="middle" font-weight="700">每次记录</text><text x="638" y="176" text-anchor="middle">token 数、耗时、占额度比例</text>
+<path d="M638,196 L638,229" class="arrow" marker-end="url(#d-m10c)"/>
+<rect x="520" y="230" width="236" height="56" rx="6" class="f2 stroke"/><text x="638" y="252" text-anchor="middle" font-weight="700">额度表</text><text x="638" y="272" text-anchor="middle">定运行次数，要不要先削减</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>Blender 和 AHa-3D</b>。Blender 必须是 5.2.1，AHa-3D 只能在 Linux 上跑。仓库固定在提交 82f4b11（或我们 fork 后的固定提交），所有实验组用同一个版本。</li>
+<li><b>三个 Python 环境</b>。按 AHa-3D 的安装文档，Pi3X、SAM 3、Open3D 各一个环境，互不干扰。本地只用它们跑通流程，正式的感知结果在 Betty 上算（S4）。</li>
+<li><b>两种驱动</b>。Codex CLI 用 ChatGPT 订阅登录驱动 GPT-6，这是主实验的驱动。Claude Code 的无头模式（<code>claude -p</code>）用 Max 订阅驱动 Opus 5.5，用于开发调试和复跑。AHa-3D 的审查步骤写死了 <code>codex exec --image</code>，在 Claude 那边要用转发 shim 把这条命令接过去。</li>
+<li><b>量额度</b>。office48 用两个驱动各跑一次，记 token 数、耗时、占当期额度的比例，汇成一张额度表。确认订阅里有没有 GPT-6 Astra，没有就用 Sol。</li>
+</ol>
+</div>
+<div class="box plain"><span class="box-label">S1 · 搭好本地环境</span>
+<p><span class="chip blue">负责 Yifan</span> <span class="chip">10/14–10/19</span></p>
+<ul>
+<li>克隆 AHa-3D，固定提交号；装 Blender 5.2.1。</li>
+<li>按安装文档建 Pi3X、SAM 3、Open3D 三个环境。</li>
+<li>Codex CLI 用 ChatGPT 账号登录；准备 Claude Code 的无头模式和转发审查的 shim（之前的会话里做过）。</li>
+</ul>
+<p><b>做完的标志</b>：作者的 office48 示例能无人值守地从头跑到出 .blend。</p>
+</div>
+<div class="box plain"><span class="box-label">S2 · 量额度</span>
+<p><span class="chip blue">负责 Yifan</span> <span class="chip">10/14–10/19</span></p>
+<ul>
+<li>office48 用 Codex + GPT-6 跑一次，用 Claude Code + Opus 5.5 跑一次。</li>
+<li>记录 token 数（输入、缓存、输出）、耗时、占当期订阅额度的比例。</li>
+<li>据此定每次运行的墙钟上限和轮数上限，所有组共用。初值取 A1 在开发集上中位数的 2 倍，等 S7 有了 A1 的数再定。</li>
+</ul>
+<p><b>做完的标志</b>：一张额度表，写清一次运行用掉多少额度。据此确定第 4 章的运行次数，以及第 13 章的削减顺序要不要提前启动。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<p>订阅不按次计费，额度表里的"花费"是 token 数按官方 API 价格换算出的"API 等价美元"。这是折算出来的成本单位，用来在各组之间比较。</p>
+</div>
+
+<h3 id="d-data">10.4 S3：准备数据（Yujing）</h3>
+<p>S3 把 CA-1M 的原始数据拆成两路：一路变成 AHa-3D 能吃的输入视频，一路变成只给评测用的真值。两路之间不许串。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 270" width="770" role="img" aria-label="CA-1M 数据拆成流程输入和评测真值两路">
+<defs><marker id="d-m10d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="70" width="170" height="130" rx="8" class="f3 stroke"/>
+<text x="95" y="92" text-anchor="middle" font-weight="700">CA-1M 一个视频</text>
+<text x="95" y="114" text-anchor="middle">1024×768 PNG</text>
+<text x="95" y="134" text-anchor="middle">注册过的位姿</text>
+<text x="95" y="154" text-anchor="middle">激光渲染深度</text>
+<text x="95" y="174" text-anchor="middle">约 125 个框</text>
+<path d="M180,100 L299,60" class="arrow" marker-end="url(#d-m10d)"/><text x="230" y="66" text-anchor="middle">只取帧</text>
+<rect x="300" y="30" width="190" height="56" rx="6" class="f1 stroke"/><text x="395" y="52" text-anchor="middle" font-weight="700">按 10 fps 合成 mp4</text><text x="395" y="72" text-anchor="middle">不下 .mov（每个约 0.9 GB）</text>
+<path d="M490,58 L599,58" class="arrow" marker-end="url(#d-m10d)"/>
+<rect x="600" y="30" width="160" height="56" rx="6" class="f1 stroke"/><text x="680" y="52" text-anchor="middle" font-weight="700">流程的输入</text><text x="680" y="72" text-anchor="middle">交给 AHa-3D</text>
+<path d="M180,172 L299,212" class="arrow" marker-end="url(#d-m10d)"/><text x="250" y="232" text-anchor="middle">框、位姿、深度</text>
+<rect x="300" y="184" width="190" height="56" rx="6" class="f2 stroke"/><text x="395" y="206" text-anchor="middle" font-weight="700">去掉结构件</text><text x="395" y="226" text-anchor="middle">墙、地面、天花板、门框</text>
+<path d="M490,212 L599,212" class="arrow" marker-end="url(#d-m10d)"/>
+<rect x="600" y="184" width="160" height="56" rx="6" class="f2 stroke"/><text x="680" y="206" text-anchor="middle" font-weight="700">评测真值</text><text x="680" y="226" text-anchor="middle">只给第 8 章用</text>
+<path d="M680,184 L680,87" class="arrow-red dash"/><text x="688" y="140" class="lbl-accent" font-weight="700">不许进流程</text>
+<rect x="300" y="110" width="190" height="50" rx="6" class="f0 stroke"/><text x="395" y="131" text-anchor="middle" font-weight="700">22 个视频 ID</text><text x="395" y="150" text-anchor="middle" class="shape">固定种子 → 5 / 15 / 2</text>
+<path d="M490,135 L540,135" class="arrow" marker-end="url(#d-m10d)"/><text x="546" y="139" class="shape">splits.json</text>
+</g></svg></div>
+<figcaption>一个 CA-1M 视频拆成两路。上路只取帧，合成 mp4 交给 AHa-3D；下路是框、位姿和激光深度，只给评测用。红色虚线表示两路之间不许串：真值传感器数据一旦进了流程，"单目视频进来"这个设定就破了。中间是开发、测试、备用三份名单。</figcaption></figure>
+<div class="box plain"><span class="box-label">S3 · 准备数据</span>
+<p><span class="chip green">负责 Yujing</span> <span class="chip">10/14–10/19</span></p>
+<ul>
+<li>下载 CA-1M 验证集里和 BVB-150 重叠的 22 个视频（约 11 到 16 GB），以及 VSI-Bench 的 ScanNet++ 部分（视频约 1 GB）和元数据。</li>
+<li>把 CA-1M 的帧按 10 fps 合成 mp4。不下 ARKitScenes 原始的 .mov，硬盘放不下。</li>
+<li>读出每个视频的真值框，去掉结构件（墙、地面、天花板、门框）。</li>
+<li>用固定种子把 22 个视频分成 5 个开发、15 个测试、2 个备用，写进 <code>configs/splits.json</code>。</li>
+<li>这周找教授在 ScanNet++ 申请表上签字并提交。</li>
+</ul>
+<p><b>做完的标志</b>：给任意一个场景 ID，都能拿到它的 mp4 和去掉结构件后的真值框列表。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<p>CA-1M 自带的 ARKit 位姿、激光深度、注册位姿一律不进流程。流程里用的位姿和深度都是 Pi3X 估出来的，CA-1M 的这些数据只在评测时用来对齐和判断遮挡。</p>
+</div>
+
+<h3 id="d-betty">10.5 S4：在 Betty 上跑感知（Mingjian）</h3>
+<p>感知结果每个场景只在 Betty 上算一次，所有实验组读同一份。这样感知的随机性不会混进组间差异。</p>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>七个施工队比手艺，测量员只派一个，量完的图纸复印七份发下去。谁建得好坏，就只看施工，不看测量。</p>
+</div>
+<div class="arch">
+<div class="arch-title">Betty 上的感知作业：登录节点下权重，计算节点离线跑</div>
+<div class="svg-wrap"><svg viewBox="0 0 770 290" width="770" role="img" aria-label="Betty 上的感知流程：登录节点预下载权重，Slurm 作业离线计算，结果拷回笔记本">
+<defs><marker id="d-m10e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="10" y="40" width="170" height="80" rx="8" class="f1 stroke"/><text x="95" y="62" text-anchor="middle" font-weight="700">登录节点</text><text x="95" y="82" text-anchor="middle">下载 Pi3X、SAM 3、</text><text x="95" y="100" text-anchor="middle">Boxer 的权重</text>
+<text x="95" y="30" text-anchor="middle">VPN + 三选二认证</text>
+</g>
+<g data-s="2">
+<path d="M180,80 L229,80" class="arrow" marker-end="url(#d-m10e)"/><text x="205" y="72" text-anchor="middle" class="shape">sbatch</text>
+<rect x="230" y="10" width="330" height="270" rx="10" class="f6 stroke"/>
+<text x="240" y="30" font-weight="700">计算节点（mig45 或整卡），离线运行</text>
+</g>
+<g data-s="3">
+<rect x="244" y="44" width="150" height="56" rx="6" class="f3 stroke"/><text x="319" y="66" text-anchor="middle" font-weight="700">Pi3X</text><text x="319" y="86" text-anchor="middle">32 帧 · 25.5 万像素</text>
+<rect x="404" y="44" width="142" height="56" rx="6" class="f3 stroke"/><text x="475" y="66" text-anchor="middle" font-weight="700">SAM 3</text><text x="475" y="86" text-anchor="middle">墙、地面等结构类</text>
+<path d="M319,100 L319,119" class="arrow" marker-end="url(#d-m10e)"/><path d="M475,100 L475,119" class="arrow" marker-end="url(#d-m10e)"/>
+<rect x="244" y="120" width="302" height="40" rx="6" class="f2 stroke"/><text x="395" y="145" text-anchor="middle" class="shape">bundle/</text>
+</g>
+<g data-s="4">
+<rect x="244" y="176" width="150" height="56" rx="6" class="f4 stroke"/><text x="319" y="198" text-anchor="middle" font-weight="700">Boxer</text><text x="319" y="218" text-anchor="middle">在高清帧上找框</text>
+<rect x="404" y="176" width="142" height="56" rx="6" class="f4 stroke"/><text x="475" y="198" text-anchor="middle" font-weight="700">干净对照</text><text x="475" y="218" text-anchor="middle">SAM 3 掩码+PCA</text>
+<path d="M319,160 L319,175" class="arrow" marker-end="url(#d-m10e)"/><path d="M475,160 L475,175" class="arrow" marker-end="url(#d-m10e)"/>
+<text x="319" y="256" text-anchor="middle" font-weight="700">清单（Boxer 版）</text><text x="475" y="256" text-anchor="middle" font-weight="700">清单（干净版）</text>
+</g>
+<g data-s="5">
+<path d="M560,145 L619,145" class="arrow" marker-end="url(#d-m10e)"/><text x="590" y="137" text-anchor="middle" class="shape">rsync</text>
+<rect x="620" y="100" width="140" height="90" rx="8" class="f0 stroke"/><text x="690" y="124" text-anchor="middle" font-weight="700">拷回笔记本</text><text x="690" y="146" text-anchor="middle">所有组共用</text><text x="690" y="166" text-anchor="middle">记峰值显存、耗时</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>登录节点只做准备</b>。Betty 的规矩是登录节点"编辑、同步、提交，不训练"。在这里把 Pi3X、SAM 3、Boxer 的权重预先下载好。计算节点能不能上网文档没写清，所以按"不能"准备。</li>
+<li><b>提交作业</b>。用 Slurm 提交到 45 GB 的 MIG 切片或整卡 B200。作业里设离线模式（<code>HF_HUB_OFFLINE=1</code>），只读本地权重。</li>
+<li><b>算共享的感知结果</b>。20 个场景（5 开发 + 15 测试）各跑一次 Pi3X 和 SAM 3，用作者默认的 25.5 万像素和 32 帧。得到相机、点云和结构类掩码，放进每个场景的 <code>bundle/</code>。</li>
+<li><b>算两份清单</b>。Boxer 在高清帧（同样 32 帧，换成 1024×768 原图）上找 3D 框；干净对照用 SAM 3 实例掩码加 Pi3X 点云拟合有向框（PCA）。两份都存成清单文件。</li>
+<li><b>拷回来</b>。结果拷回笔记本，所有组共用。顺手记下每个场景的峰值显存和耗时，后面估 Betty 额度要用。</li>
+</ol>
+</div>
+<div class="box plain"><span class="box-label">S4 · 在 Betty 上跑感知</span>
+<p><span class="chip amber">负责 Mingjian</span> <span class="chip">10/14–10/26</span></p>
+<ul>
+<li>开通 Betty 账号；今天在 Hugging Face 申请 SAM 3 和 SAM 3D Objects 的权限。</li>
+<li>登录节点预下载权重，计算作业离线跑。</li>
+<li>20 个场景各跑一次 Pi3X 和 SAM 3；再跑 Boxer 和干净对照，得到两份清单。</li>
+<li>结果拷回笔记本，记下峰值显存和耗时。</li>
+</ul>
+<p><b>做完的标志</b>：20 个场景都有 <code>bundle/</code> 和两份清单，并有每个场景的显存和耗时记录。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li>MIG 切片不支持 OpenGL 和 Vulkan，所以 Blender 的预览渲染不放 Betty。agent 循环和 Blender 留在笔记本上跑。</li>
+<li>笔记本也能跑 Pi3X，但只能到 10 到 15 万像素。正式结果一律用 Betty 上按默认 25.5 万像素算的那份，否则和作者设置对不上。</li>
+</ul>
+</div>
+<p class="src">设计文档第 4、6 节；04 号笔记 §1.2–1.6（登录节点规矩、MIG 不支持图形接口、出网限制）。</p>
+
+<h3 id="d-evalfreeze">10.6 S5、S6：评测脚本和定死测试集（Yujing）</h3>
+<p>评测脚本先拿"真值对真值"自测，再在开发集上定阈值。10/20 把测试集名单和阈值一起提交，之后谁也不改。</p>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>考试前先把标准答案当成考生的卷子批一遍，应该得满分；得不了满分，说明阅卷规则有 bug。然后把卷子封进信封，考完才拆。</p>
+</div>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 250" width="770" role="img" aria-label="左边是真值对真值的自测，右边是开发集调参、10/20 封存、测试集只跑不调">
+<defs><marker id="d-m10f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="170" y="22" text-anchor="middle" font-weight="700">S5 自测：真值当预测</text>
+<rect x="10" y="40" width="120" height="44" rx="6" class="f2 stroke"/><text x="70" y="67" text-anchor="middle">真值框</text>
+<rect x="10" y="150" width="120" height="44" rx="6" class="f2 stroke"/><text x="70" y="168" text-anchor="middle">同一份真值框</text><text x="70" y="186" text-anchor="middle">假装是预测</text>
+<path d="M130,62 L199,100" class="arrow" marker-end="url(#d-m10f)"/>
+<path d="M130,172 L199,134" class="arrow" marker-end="url(#d-m10f)"/>
+<rect x="200" y="80" width="130" height="74" rx="6" class="f1 stroke"/><text x="265" y="102" text-anchor="middle">对齐 → 匹配</text><text x="265" y="122" text-anchor="middle">→ 三种结局</text><text x="265" y="142" text-anchor="middle">→ 漏斗</text>
+<path d="M265,154 L265,199" class="arrow" marker-end="url(#d-m10f)"/>
+<rect x="190" y="200" width="150" height="40" rx="6" class="f0 stroke"/><text x="265" y="225" text-anchor="middle" font-weight="700">全部"建好了"</text>
+<text x="350" y="225" class="shape">F1 = 1</text>
+<text x="580" y="22" text-anchor="middle" font-weight="700">S6 封存：10/20 之后不改</text>
+<rect x="420" y="40" width="130" height="80" rx="6" class="f2 stroke"/><text x="485" y="62" text-anchor="middle" font-weight="700">开发集 5 个</text><text x="485" y="82" text-anchor="middle">看分布</text><text x="485" y="102" text-anchor="middle">调阈值、提示词</text>
+<rect x="610" y="40" width="150" height="80" rx="6" class="f4 stroke"/><text x="685" y="62" text-anchor="middle" font-weight="700">测试集 15 个</text><text x="685" y="82" text-anchor="middle">只跑、只打分</text><text x="685" y="102" text-anchor="middle">不回头调</text>
+<rect x="566" y="58" width="28" height="22" rx="3" class="f0 stroke"/><path d="M572,58 L572,50 Q580,40 588,50 L588,58" class="arrow"/>
+<text x="580" y="140" text-anchor="middle" class="lbl-accent" font-weight="700">10/20 提交</text>
+<path d="M485,120 L485,169" class="arrow" marker-end="url(#d-m10f)"/>
+<rect x="420" y="170" width="340" height="56" rx="6" class="f0 stroke"/><text x="590" y="192" text-anchor="middle" class="shape">configs/splits.json · configs/thresholds.json</text><text x="590" y="214" text-anchor="middle">两个文件一起提交，三人都看过</text>
+</g></svg></div>
+<figcaption>左边是 S5 的自测：同一份真值既当答案又当预测，整条评测链跑下来应该全部"建好了"，F1 为 1。右边是 S6 的封存：阈值和提示词只在 5 个开发场景上调，10/20 连同测试集名单一起提交，15 个测试场景只跑不调。</figcaption></figure>
+<div class="box plain"><span class="box-label">S5 · 写评测脚本</span>
+<p><span class="chip green">负责 Yujing</span> <span class="chip">10/14–10/26</span></p>
+<ul>
+<li>从 .blend 里导出每个语义根节点的世界坐标有向框（AHa-3D 自带 <code>export_model.py</code>，按 instance_id 分组）。</li>
+<li>实现整条链：相机轨迹对齐 → 按尺寸分档 → 匈牙利匹配 → 三种结局 → 漏斗 → bootstrap（各步含义见<a href="#eval">第 8 章</a>）。</li>
+<li>先用真值对真值跑一遍。</li>
+</ul>
+<p><b>做完的标志</b>：真值对真值全部通过（F1 = 1）；一条命令能出分档表和漏斗图。</p>
+</div>
+<div class="box plain"><span class="box-label">S6 · 定死阈值和测试集</span>
+<p><span class="chip green">负责 Yujing</span> <span class="chip">三人确认</span> <span class="chip red">10/20 前</span></p>
+<ul>
+<li>在开发集上看一遍距离和 IoU 的分布，确定<a href="#eval">第 8 章</a>各门槛的最终数值，写进 <code>configs/thresholds.json</code>。</li>
+<li>和 <code>splits.json</code> 一起提交，之后不改。</li>
+</ul>
+<p><b>做完的标志</b>：两个配置文件已提交，三人都看过。</p>
+</div>
+<div class="box key"><span class="box-label">必记</span>
+<p>设计文档把"看了测试集结果再去调阈值或提示词"列为反目标：技术上跑通了也算失败。10/20 之后发现阈值不合适，只能在报告里写明，不能改。</p>
+</div>
+
+<h3 id="d-midterm">10.7 S7：基线跑通，交中期检查</h3>
+<p>S7 是第一个"三个人的东西拼在一起"的节点：Yifan 的环境、Mingjian 的感知结果、Yujing 的评测脚本。10/26 的中期检查就交这一步的数字。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 230" width="770" role="img" aria-label="A0 和 A1 在 3 个开发场景上跑 6 次，打分后交中期检查；跑不完就走退路">
+<defs><marker id="d-m10g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="30" width="150" height="50" rx="6" class="f1 stroke"/><text x="85" y="52" text-anchor="middle" font-weight="700">A0 原版提示词</text><text x="85" y="70" text-anchor="middle">× 3 个开发场景</text>
+<rect x="10" y="100" width="150" height="50" rx="6" class="f1 stroke"/><text x="85" y="122" text-anchor="middle" font-weight="700">A1 认真版提示词</text><text x="85" y="140" text-anchor="middle">× 3 个开发场景</text>
+<path d="M160,55 L229,80" class="arrow" marker-end="url(#d-m10g)"/><path d="M160,125 L229,100" class="arrow" marker-end="url(#d-m10g)"/>
+<polygon points="300,50 370,90 300,130 230,90" class="f3 stroke"/><text x="300" y="86" text-anchor="middle">无人值守</text><text x="300" y="102" text-anchor="middle">跑完了？</text>
+<path d="M370,90 L439,90" class="arrow" marker-end="url(#d-m10g)"/><text x="404" y="82" text-anchor="middle">能</text>
+<rect x="440" y="62" width="150" height="56" rx="6" class="f2 stroke"/><text x="515" y="84" text-anchor="middle">Yujing 打分</text><text x="515" y="104" text-anchor="middle">第一版漏斗和分档</text>
+<path d="M590,90 L629,90" class="arrow" marker-end="url(#d-m10g)"/>
+<rect x="630" y="62" width="130" height="56" rx="6" class="f5 stroke"/><text x="695" y="84" text-anchor="middle" font-weight="700">10/26 交数字</text><text x="695" y="104" text-anchor="middle">中期检查</text>
+<path d="M300,130 L300,169" class="arrow-red" marker-end="url(#d-m10g)"/><text x="310" y="155" class="lbl-accent">不能</text>
+<rect x="190" y="170" width="350" height="50" rx="6" class="f4 stroke"/><text x="365" y="192" text-anchor="middle" font-weight="700">给 harness 打补丁，所有组一样</text><text x="365" y="210" text-anchor="middle">不许人工干预；砍掉 A4（第 13 章）</text>
+<path d="M540,195 L695,195 L695,119" class="arrow" marker-end="url(#d-m10g)"/>
+</g></svg></div>
+<figcaption>A0 和 A1 各在 3 个开发场景上跑一次，共 6 次。能无人值守跑完就直接打分交数字；跑不完不许人去点"继续"，只能给 harness 打补丁，补丁对所有组一样，补完再跑、再交。</figcaption></figure>
+<div class="box plain"><span class="box-label">S7 · 基线跑通，交中期检查</span>
+<p><span class="chip blue">Yifan 跑</span> <span class="chip green">Yujing 评</span> <span class="chip">10/20–10/26</span></p>
+<ul>
+<li>写好 A1 的"认真版"提示词：明确要求逐个建出所有看得见的小物体，只用代码和方块。</li>
+<li>A0 和 A1 在 3 个开发场景上无人值守跑完。</li>
+<li>出第一版分档数字和漏斗图。</li>
+<li>10/26 同时决定训练加分项（<a href="#train">第 14 章</a>）做不做。</li>
+</ul>
+<p><b>做完的标志</b>：10/26 中期检查有数字可交。AHa-3D 还是跑不完，就启用<a href="#risks">第 13 章</a>的退路。</p>
+</div>
+
+<h3 id="d-tools">10.8 S8：生成和摆放工具（Mingjian）</h3>
+<p>两个生成工具 <code>gen3d_request</code> 和 <code>place_mesh</code> 先用本地小模型写通，再换成正式的 SAM 3D。11/2 是这一步的闸门。</p>
+<div class="arch">
+<div class="arch-title">两个工具从本地开发到正式上线的路线</div>
+<div class="svg-wrap"><svg viewBox="0 0 770 270" width="770" role="img" aria-label="生成工具的开发路线：本地 Hunyuan 写通，fal 核对位姿，Betty 部署 SAM 3D，11/2 闸门，开发集校准和 P0">
+<defs><marker id="d-m10h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="10" y="30" width="200" height="74" rx="8" class="f1 stroke"/><text x="110" y="52" text-anchor="middle" font-weight="700">笔记本：Hunyuan3D-2mini</text><text x="110" y="72" text-anchor="middle">官方 6 GB 显存</text><text x="110" y="92" text-anchor="middle">晚上批量跑</text>
+<path d="M110,104 L110,139" class="arrow" marker-end="url(#d-m10h)"/>
+<rect x="10" y="140" width="200" height="74" rx="8" class="f2 stroke"/><text x="110" y="162" text-anchor="middle" font-weight="700">写通两个工具</text><text x="110" y="182" text-anchor="middle" class="shape">gen3d_request</text><text x="110" y="202" text-anchor="middle" class="shape">place_mesh</text>
+</g>
+<g data-s="2">
+<rect x="250" y="30" width="190" height="74" rx="8" class="f4 stroke"/><text x="345" y="52" text-anchor="middle" font-weight="700">fal 上的 SAM 3D</text><text x="345" y="72" text-anchor="middle">5 个物体</text><text x="345" y="92" text-anchor="middle">自费 ≤ 10 美元</text>
+<path d="M345,104 L345,139" class="arrow" marker-end="url(#d-m10h)"/>
+<rect x="250" y="140" width="190" height="74" rx="8" class="f0 stroke"/><text x="345" y="162" text-anchor="middle" font-weight="700">搞清位姿约定</text><text x="345" y="182" text-anchor="middle">旋转、平移、尺度</text><text x="345" y="202" text-anchor="middle">在哪个坐标系</text>
+</g>
+<g data-s="3">
+<rect x="470" y="30" width="130" height="74" rx="8" class="f3 stroke"/><text x="535" y="52" text-anchor="middle" font-weight="700">Betty 部署</text><text x="535" y="72" text-anchor="middle">SAM 3D · 约 22 GB</text><text x="535" y="92" text-anchor="middle">放 mig45 切片</text>
+<path d="M440,67 L469,67" class="arrow" marker-end="url(#d-m10h)"/>
+</g>
+<g data-s="4">
+<path d="M600,67 L639,67" class="arrow" marker-end="url(#d-m10h)"/>
+<polygon points="700,30 760,67 700,104 640,67" class="f4 stroke"/><text x="700" y="64" text-anchor="middle" font-weight="700">11/2</text><text x="700" y="80" text-anchor="middle">装通了？</text>
+<path d="M700,104 L700,139" class="arrow" marker-end="url(#d-m10h)"/><text x="708" y="126">能</text>
+<rect x="640" y="140" width="120" height="50" rx="6" class="f2 stroke"/><text x="700" y="162" text-anchor="middle">正式用 SAM 3D</text><text x="700" y="180" text-anchor="middle">可做训练加分项</text>
+<path d="M760,67 L766,67 L766,253 L761,253" class="arrow-red dash" marker-end="url(#d-m10h)"/><text x="758" y="222" text-anchor="end" class="lbl-accent">不能</text>
+<rect x="470" y="240" width="290" height="26" rx="6" class="f4 stroke"/><text x="615" y="258" text-anchor="middle">改用 Hunyuan + 我们的配准；不做训练</text>
+</g>
+<g data-s="5">
+<path d="M210,177 L249,177" class="arrow" marker-end="url(#d-m10h)"/>
+<path d="M440,177 L469,177" class="arrow" marker-end="url(#d-m10h)"/>
+<rect x="470" y="140" width="120" height="74" rx="6" class="f5 stroke"/><text x="530" y="162" text-anchor="middle">开发集上</text><text x="530" y="182" text-anchor="middle">校准验收门槛</text><text x="530" y="202" text-anchor="middle">跑 P0</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>本地先写通</b>。笔记本上的 Hunyuan3D-2mini 只要约 6 GB 显存，用它把两个工具的接口写通、调好。它和 Blender、IsaacLab 抢显卡，所以批量生成放在晚上跑。</li>
+<li><b>fal 上核对位姿约定</b>。SAM 3D 会同时给出物体的旋转、平移和尺度，但文档没写清在哪个坐标系。在 fal 上拿 5 个物体试，花费不超过 10 美元。</li>
+<li><b>Betty 部署</b>。SAM 3D 官方要求至少 32 GB 显存，本地 12 GB 跑不了。别人在 A100 上测得进程约 22 GB、约 13 秒一个物体（RecGen 论文），所以放进 45 GB 的 MIG 切片。</li>
+<li><b>11/2 闸门</b>。装通了，正式实验用 SAM 3D，训练加分项可以做。装不通（HF 审批慢，或 B200 的 sm_100 环境问题），改用本地 Hunyuan3D-2mini 加我们的配准，报告里注明，训练加分项不做。</li>
+<li><b>校准并跑 P0</b>。在开发集上校准验收门槛（剪影 IoU、Chamfer、尺寸三项，见<a href="#gen">第 6 章</a>），然后跑 P0，两种清单各一遍。</li>
+</ol>
+</div>
+<div class="box plain"><span class="box-label">S8 · 生成和摆放工具</span>
+<p><span class="chip amber">负责 Mingjian</span> <span class="chip">10/20–11/02</span> <span class="chip red">11/2 闸门</span></p>
+<ul>
+<li>第一周先在笔记本上装好 Hunyuan3D-2mini（设计文档把它排在 10/14–10/19）。</li>
+<li>用它写通 <code>gen3d_request</code> 和 <code>place_mesh</code>。</li>
+<li>在 fal 上用 SAM 3D 核对 5 个物体的位姿坐标约定，花费不超过 10 美元。</li>
+<li>在 Betty 上部署 SAM 3D；在开发集上校准验收门槛。</li>
+<li>跑 P0（Boxer 清单和干净清单各一遍）。</li>
+</ul>
+<p><b>做完的标志</b>：SAM 3D 在 Betty 上能批量跑；P0 在开发集上出了结果。11/2 前装不通就改用 Hunyuan 方案。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<p>Hunyuan3D-2mini 生成的网格在"规范空间"里：大小被缩成单位框，朝向随意，和房间里的位置无关。所以它离不开 <code>place_mesh</code> 的配准。SAM 3D 自带相机坐标下的位姿，这正是 11/2 之前要把它装通的原因。</p>
+</div>
+
+<h3 id="d-main">10.9 S9、S10：主实验和补充实验</h3>
+<p>主实验是 5 个 agent 组各跑 15 个测试场景，再加 P0。补充实验是 A4、第二次重复、Claude 复跑和几个消融。下图是 agent 运行次数的账。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 250" width="770" role="img" aria-label="agent 运行次数：主实验 75，A4 5，第二次重复 10，Claude 复跑 25 或 10，高清帧消融 5">
+<g font-size="12">
+<text x="10" y="22" font-weight="700">用途</text><text x="190" y="22" font-weight="700">agent 运行次数（条长按次数画）</text><text x="680" y="22" font-weight="700">谁跑</text>
+<line x1="190" y1="32" x2="190" y2="206" class="stroke"/>
+<text x="10" y="54">主实验 A0–A3v</text><text x="10" y="70" class="ink3">5 组 × 15 场景</text>
+<rect x="190" y="42" width="375" height="26" class="f1 stroke"/><text x="573" y="60" font-weight="700">75</text><text x="680" y="60">Yifan</text>
+<text x="10" y="94">A4 精修</text><text x="10" y="110" class="ink3">5 场景</text>
+<rect x="190" y="82" width="25" height="26" class="f5 stroke"/><text x="223" y="100" font-weight="700">5</text><text x="680" y="100">Yifan</text>
+<text x="10" y="134">第二次重复</text><text x="10" y="150" class="ink3">A1、A3v × 5</text>
+<rect x="190" y="122" width="50" height="26" class="f2 stroke"/><text x="248" y="140" font-weight="700">10</text><text x="680" y="140">Yifan</text>
+<text x="10" y="174">Claude 复跑</text><text x="10" y="190" class="ink3">5×5 或 2×5</text>
+<rect x="190" y="162" width="50" height="26" class="f3 stroke"/><rect x="240" y="162" width="75" height="26" class="f6 stroke dash"/><text x="323" y="180" font-weight="700">25 或 10</text><text x="680" y="180">Yifan</text>
+<text x="10" y="214">高清帧消融</text><text x="10" y="230" class="ink3">A3v × 5</text>
+<rect x="190" y="202" width="25" height="26" class="f4 stroke"/><text x="223" y="220" font-weight="700">5</text><text x="680" y="220">Mingjian</text>
+<text x="420" y="140" font-weight="700">合计 120 次</text><text x="420" y="160">额度不够时 105 次</text>
+</g></svg></div>
+<figcaption>五类 agent 运行的次数，条长按次数画。主实验占大头。Claude 复跑的虚线部分表示"额度够就是 25 次，不够只跑 A1 和 A3v 共 10 次"。P0 不调大模型，不算在这张账里。</figcaption></figure>
+<div class="box calc"><span class="box-label">算例 · 合计多少次</span>
+<p>75 + 5 + 10 + 25 + 5 = 120。Claude 复跑缩到 10 次时是 75 + 5 + 10 + 10 + 5 = 105。提案里写的 105–120 次就是这么来的。</p>
+</div>
+<div class="box plain"><span class="box-label">S9 · 主实验</span>
+<p><span class="chip blue">Yifan 跑 agent 组</span> <span class="chip amber">Mingjian 跑 P0</span> <span class="chip green">Yujing 评</span> <span class="chip">10/27–11/09</span></p>
+<ul>
+<li>写 A2 的清单格式和 A3 的路由逻辑：A3r 按 0.5 米规则，A3v 交给 agent 决定。</li>
+<li>15 个测试场景上跑 A0、A1、A2、A3r、A3v 和 P0。</li>
+<li>每次运行保存 token 日志和最终的 .blend；撞了上限重跑一次，还不行就拿最后保存的 .blend 打分，记为失败。</li>
+</ul>
+<p><b>做完的标志</b>：主实验的分档表、漏斗图、成本-精度图都出来了。</p>
+</div>
+<div class="box plain"><span class="box-label">S10 · 补充实验</span>
+<p><span class="chip">三人分头</span> <span class="chip">11/10–11/16</span></p>
+<ul>
+<li>Yifan：A4（5 个场景）、第二次重复（A1 和 A3v 各 5 个场景）、Claude 复跑。</li>
+<li>Mingjian：高清帧消融、Hunyuan 小对比（约 50 个 XS、S 档物体）、训练加分项（如果 10/26 决定做，并且 11/2 闸门过了）。</li>
+<li>Yujing：拍 2 到 3 段演示视频并跑出最终场景；整理所有图表。</li>
+</ul>
+<p><b>做完的标志</b>：报告需要的所有表和图都有了。</p>
+</div>
+
+<h3 id="d-write">10.10 S11：写报告和展示</h3>
+<p>报告的主图是漏斗图，然后是分档表和成本-精度图。下图写清每张图从哪些文件来，以及三个交付日期。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 250" width="770" role="img" aria-label="报告里的图表来自哪些文件，以及初稿、展示、终稿三个日期">
+<defs><marker id="d-m10i" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="90" y="20" text-anchor="middle" font-weight="700">来源文件</text><text x="380" y="20" text-anchor="middle" font-weight="700">报告里的图表</text><text x="665" y="20" text-anchor="middle" font-weight="700">交付</text>
+<rect x="10" y="32" width="160" height="34" rx="6" class="f2 stroke"/><text x="90" y="54" text-anchor="middle" class="shape">inventory.json</text>
+<rect x="10" y="80" width="160" height="34" rx="6" class="f2 stroke"/><text x="90" y="102" text-anchor="middle" class="shape">objects.json</text>
+<rect x="10" y="128" width="160" height="34" rx="6" class="f2 stroke"/><text x="90" y="150" text-anchor="middle" class="shape">run_log.json</text>
+<rect x="10" y="176" width="160" height="34" rx="6" class="f2 stroke"/><text x="90" y="198" text-anchor="middle">自拍视频的 .blend</text>
+<rect x="300" y="32" width="160" height="34" rx="6" class="f5 stroke"/><text x="380" y="54" text-anchor="middle" font-weight="700">漏斗图（主图）</text>
+<rect x="300" y="80" width="160" height="34" rx="6" class="f1 stroke"/><text x="380" y="102" text-anchor="middle">分档表</text>
+<rect x="300" y="128" width="160" height="34" rx="6" class="f1 stroke"/><text x="380" y="150" text-anchor="middle">成本-精度图</text>
+<rect x="300" y="176" width="160" height="34" rx="6" class="f1 stroke"/><text x="380" y="198" text-anchor="middle">定性演示</text>
+<path d="M170,49 L299,49" class="arrow" marker-end="url(#d-m10i)"/>
+<path d="M170,97 L299,53" class="arrow" marker-end="url(#d-m10i)"/>
+<path d="M170,97 L299,97" class="arrow" marker-end="url(#d-m10i)"/>
+<path d="M170,101 L299,141" class="arrow" marker-end="url(#d-m10i)"/>
+<path d="M170,145 L299,145" class="arrow" marker-end="url(#d-m10i)"/>
+<path d="M170,193 L299,193" class="arrow" marker-end="url(#d-m10i)"/>
+<rect x="580" y="32" width="170" height="40" rx="6" class="f0 stroke"/><text x="665" y="57" text-anchor="middle">11/23 初稿</text>
+<rect x="580" y="96" width="170" height="40" rx="6" class="f0 stroke"/><text x="665" y="121" text-anchor="middle">12/1 或 12/3 展示</text>
+<rect x="580" y="160" width="170" height="50" rx="6" class="f5 stroke"/><text x="665" y="181" text-anchor="middle" font-weight="700">12/7 终稿</text><text x="665" y="200" text-anchor="middle">NeurIPS 格式 8 页</text>
+<path d="M665,72 L665,95" class="arrow" marker-end="url(#d-m10i)"/><path d="M665,136 L665,159" class="arrow" marker-end="url(#d-m10i)"/>
+<path d="M460,49 L480,49 M460,97 L480,97 M460,145 L480,145 M460,193 L480,193 M480,49 L480,193" class="arrow"/><path d="M480,52 L579,52" class="arrow" marker-end="url(#d-m10i)"/><text x="530" y="44" text-anchor="middle">写进报告</text>
+<text x="380" y="238" text-anchor="middle">漏斗还要用 CA-1M 的激光深度判断"看得见"</text>
+</g></svg></div>
+<figcaption>报告的图表从三个约定文件和自拍视频来。漏斗图同时用清单（判断"检测到"）和场景导出的物体框（判断"建出来""摆准了"）。成本-精度图把运行日志里的成本和分档召回放在一起。文件格式见<a href="#team">第 11 章</a>。</figcaption></figure>
+<div class="box plain"><span class="box-label">S11 · 写报告和展示</span>
+<p><span class="chip green">Yujing 主笔</span> <span class="chip">三人分节</span> <span class="chip">11/17–12/07</span></p>
+<ul>
+<li>11/23 交初稿。主图是漏斗图，然后是分档表和成本-精度图。</li>
+<li>12/1（周二）或 12/3（周四）展示，用自拍视频的 Blender 结果做演示。</li>
+<li>12/7 交终稿：NeurIPS 格式，正文 8 页，参考文献不限页数。</li>
+</ul>
+<p><b>做完的标志</b>：终稿提交。</p>
+</div>
+<div class="box key"><span class="box-label">必记</span>
+<ul>
+<li>结论写成"成本-精度的帕累托前沿"，不写"哪种最好"。</li>
+<li>组间差距小于"同一组跑两次"的差距时，不下结论。</li>
+<li>Boxer 在 CA-1M 上属于同源，每张表都放干净对照并标注。</li>
+</ul>
+</div>
+<p class="src">设计文档第 5、9、11、12 节；课程仓库 03-final-project/README.md（各里程碑日期，终稿 NeurIPS 格式正文 8 页）。</p>

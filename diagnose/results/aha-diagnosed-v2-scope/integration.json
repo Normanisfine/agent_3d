@@ -1,0 +1,413 @@
+{
+  "ok": true,
+  "workers": 3,
+  "committed": 4,
+  "fallbacks": 0,
+  "bound_review_receipts": 4,
+  "old_objects_preserved": true,
+  "scene": "/tmp/aha-diagnosed-v2-offline-20261116/candidates/fixture_3-0003-0/scene.blend",
+  "wall_seconds": 4.8672832239826676,
+  "hosted_calls": 0,
+  "visual_review": "fixture responses with mock focus evidence",
+  "delivery_accepted": false,
+  "room_quality_validated": false,
+  "ledger": {
+    "categories": {
+      "local_compute": {
+        "calls": 15,
+        "accounted_usd": 0.0,
+        "known_actual_usd": 0.0,
+        "unknown_or_pending_calls": 15,
+        "wall_seconds": 6.218373723997502,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_input_tokens": 0
+      },
+      "codex_cli": {
+        "calls": 8,
+        "accounted_usd": 0.0,
+        "known_actual_usd": 0.0,
+        "unknown_or_pending_calls": 0,
+        "wall_seconds": 0.00507132796337828,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_input_tokens": 0
+      }
+    },
+    "budget_usd": 5.0,
+    "accounted_usd": 0,
+    "budget_exempt_calls": 23,
+    "known_actual_usd": 0.0,
+    "unknown_or_pending_calls": 15,
+    "charges": [
+      {
+        "label": "initial_inspection",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "initial_inspection",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.3144563950190786,
+          "billed_host_seconds": 0.3144586550188251
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": 0.0,
+        "state": "settled",
+        "detail": {
+          "usage": {
+            "fixture": true
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 0.0017849399882834405
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": 0.0,
+        "state": "settled",
+        "detail": {
+          "usage": {
+            "fixture": true
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 0.0005469699972309172
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": 0.0,
+        "state": "settled",
+        "detail": {
+          "usage": {
+            "fixture": true
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 0.0005754189915023744
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4144353330193553,
+          "billed_host_seconds": 0.14733105750929099
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41450735201942734,
+          "billed_host_seconds": 0.14433366799494252
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4147324119985569,
+          "billed_host_seconds": 0.1496499639955194
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4145303819968831,
+          "billed_host_seconds": 0.14208017050502048
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41457774298032746,
+          "billed_host_seconds": 0.14210352100296103
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41446682199602947,
+          "billed_host_seconds": 0.1460394604994993
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_merge",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_merge",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4646327999944333,
+          "billed_host_seconds": 0.4617255064949859
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41447104199323803,
+          "billed_host_seconds": 0.4144727819948457
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": 0.0,
+        "state": "settled",
+        "detail": {
+          "usage": {
+            "fixture": true
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 0.00041957999928854406
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_merge",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_merge",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4649122509872541,
+          "billed_host_seconds": 0.4649133310012985
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41456029200344346,
+          "billed_host_seconds": 0.4145620120107196
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": 0.0,
+        "state": "settled",
+        "detail": {
+          "usage": {
+            "fixture": true
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 0.0003732199838850647
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_merge",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_merge",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.46457425100379623,
+          "billed_host_seconds": 0.46457510101026855
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4145653629966546,
+          "billed_host_seconds": 0.4145675729960203
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": 0.0,
+        "state": "settled",
+        "detail": {
+          "usage": {
+            "fixture": true
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 0.0003486399946268648
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": 0.0,
+        "state": "settled",
+        "detail": {
+          "usage": {
+            "fixture": true
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 0.0006532690022140741
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.36442173400428146,
+          "billed_host_seconds": 0.3644233740051277
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4145295519847423,
+          "billed_host_seconds": 0.4145306019927375
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": 0.0,
+        "state": "settled",
+        "detail": {
+          "usage": {
+            "fixture": true
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 0.0003692900063470006
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      }
+    ]
+  }
+}

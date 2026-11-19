@@ -1,0 +1,45 @@
+{
+ "iou_strict": 0.25,
+ "dhat_strict": 0.5,
+ "size_ratio": [
+  0.67,
+  1.5
+ ],
+ "dhat_loose": 1.0,
+ "iou_loose": 0.1,
+ "visible_min_px": 100,
+ "bin_edges_m": [
+  0.2,
+  0.5,
+  1.5
+ ],
+ "structural_categories": [
+  "base board",
+  "baseboard",
+  "ceiling",
+  "door",
+  "door frame",
+  "door_frame",
+  "doorframe",
+  "floor",
+  "wall",
+  "window",
+  "window sill"
+ ],
+ "shell_max_thickness_m": 0.06,
+ "shell_min_length_m": 1.5,
+ "loose_size_ratio_max": 3.0,
+ "align_residual_max_m": 0.15,
+ "align_scale_range": [
+  0.7,
+  1.4
+ ],
+ "shell_keep_categories": [
+  "carpet",
+  "mat",
+  "rug"
+ ],
+ "match_mode": "greedy",
+ "strict_floor_m": 0.1,
+ "loose_abs_m": 0.3
+}

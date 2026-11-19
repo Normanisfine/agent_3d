@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scene": "{{SCENE_RUN}}",
+  "inputs": {"video": "scenes/{{SCENE_RUN}}/references/input.mp4"},
+  "preset": "whitebox",
+  "appearance": "whitebox",
+  "delivery": "stills",
+  "fidelity": {"mode": "major_objects"},
+  "interactive_demo": false,
+  "camera": "inspection",
+  "people": "none",
+  "cabinets": "none",
+  "objects": "none",
+  "variants": {"models": false, "materials": false}
+}

@@ -1,0 +1,69 @@
+{
+  "architecture": "aha",
+  "aha_repo": "/home/mj/dl_project/agen3d/external/aha-3d",
+  "blender": "/home/mj/dl_project/tools/blender/blender-4.5.14-linux-x64/blender",
+  "python": "/home/mj/dl_project/agen3d/.venv/bin/python",
+  "source_scene": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-003/candidates/build_windows_and_doors-0003-1/scene.blend",
+  "layout_spec": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-002/bootstrap/layout_spec.json",
+  "preparation": null,
+  "output": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-004",
+  "source_images": {
+    "source_000000": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-002/reference/source_views/source_000000_source.png",
+    "source_000062": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-002/reference/source_views/source_000062_source.png",
+    "source_000116": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-002/reference/source_views/source_000116_source.png",
+    "source_000177": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-002/reference/source_views/source_000177_source.png",
+    "source_000239": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-002/reference/source_views/source_000239_source.png"
+  },
+  "masks": {},
+  "supervisor": {
+    "backend": "codex",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium",
+    "base_url": "https://openrouter.ai/api/v1",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "provider": null,
+    "max_output_tokens": 12000,
+    "timeout_s": 600,
+    "call_reservation_usd": 0.25
+  },
+  "worker": {
+    "backend": "openrouter",
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "provider": "DeepInfra",
+    "max_output_tokens": 8000,
+    "timeout_s": 180,
+    "call_reservation_usd": 0.03
+  },
+  "judge": {
+    "backend": "codex",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium",
+    "base_url": "https://openrouter.ai/api/v1",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "provider": null,
+    "max_output_tokens": 1800,
+    "timeout_s": 600,
+    "call_reservation_usd": 0.25
+  },
+  "hunyuan": {
+    "python": "/home/mj/dl_project/agen3d/.venvs/hunyuan/bin/python",
+    "repo": "/home/mj/dl_project/agen3d/external/hunyuan3d-2.1",
+    "checkpoint": "model:hunyuan-shape",
+    "timeout_s": 600,
+    "reservation_usd": 0.15
+  },
+  "codex_budget_exempt": true,
+  "local_compute_budget_exempt": true,
+  "budget_usd": 4.97701205,
+  "judge_reserve_usd": 1.0,
+  "repair_reserve_usd": 1.0,
+  "max_takeovers": 3,
+  "max_generations": 2,
+  "timeout_s": 1200,
+  "host_hourly_usd": null,
+  "compute_reservation_usd": 0.1,
+  "instruction": "Reconstruct the complete observed room. Delegate routine tasks; directly rebuild seriously wrong structure or major objects. Preserve reviewed cameras. Continue from the supplied committed scene. The room shell and windows/doors are already built and locally reviewed. Preserve these objects and cameras; plan only remaining work, unless evidence shows a concrete defect requiring repair. Completed object IDs: [\"room_floor\", \"room_ceiling\", \"wall_windows\", \"wall_fireplace\", \"wall_tv\", \"wall_sideboard\", \"window_sideboard_side\", \"window_fireplace_side\", \"door_sideboard_end\", \"door_fireplace_end\", \"window_shutters\"]. Remaining work from prior plan: [{\"task_id\": \"build_seating\", \"object_ids\": [\"sofa_main\", \"armchair_adjacent\"], \"instruction\": \"Directly construct the major seating as two separate pieces: a three-seat dark olive-charcoal sofa and an adjacent matching armchair. Both face toward -X and the television, with backs toward the windows. Their long combined seating line runs along Y; the armchair is at the +Y end of the sofa. Start with the seating occupying approximately x=2.2 to 3.3, then fit silhouettes and spacing in all five images. Use low rectangular upholstered bases, thick rounded arms with sloping inner profiles, separate padded seat and back cushions, subtle seams and short dark feet. Keep the sofa back continuous behind three distinct cushions; the armchair has its own two arms and a single seat. Avoid a sectional, chaise or merged bench. Match the large rear silhouette in source_000177 and the front silhouette in source_000062.\", \"depends_on\": [\"build_room_shell\"], \"severity\": \"critical\"}, {\"task_id\": \"build_architectural_trim\", \"object_ids\": [\"wall_wainscoting\", \"baseboards\", \"ceiling_cornice\", \"wall_switch\"], \"instruction\": \"Delegate the white perimeter finish details: low rectangular recessed wall panels, continuous chair rail, baseboards, broad upper white frieze and layered crown molding with restrained narrow bead-like detail. Lower paneling reaches approximately z=0.7 to 0.8; fit its actual projected height to the images. Trim must stop cleanly at door and window casings and around the fireplace. Add the small pale switch plate on the fireplace wall beside its door, visible in source_000116. Avoid exaggerated molding thickness.\", \"depends_on\": [\"build_room_shell\", \"build_windows_and_doors\"], \"severity\": \"routine\"}, {\"task_id\": \"build_fireplace_and_mirror\", \"object_ids\": [\"fireplace_surround\", \"fireplace_insert\", \"fireplace_hearth\", \"mirror_above_fireplace\"], \"instruction\": \"Delegate the fireplace centered in the visible usable section of the -Y wall. Build a pale stone or painted-white surround with square pilasters, shallow fluting, round rosette details at the upper corners and a projecting mantel shelf. Inside the rectangular surround is a very dark iron insert with a prominent rounded arch and concentric trim, dark recessed opening and restrained grate detail. Add the broad flat charcoal hearth projecting onto the floor. Above the mantel place a horizontal rectangular mirror with a thin gold frame; its reflection must come from the room, not a duplicate painting or another opening. Fit proportions from source_000062 and source_000116. The fireplace is unlit.\", \"depends_on\": [\"build_room_shell\"], \"severity\": \"routine\"}, {\"task_id\": \"build_rug_and_coffee_table\", \"object_ids\": [\"rug_main\", \"coffee_table\"], \"instruction\": \"Delegate the large muted tan rectangular rug beneath the seating and coffee table, with a slightly darker border, subtle worn textile variation and minimal thickness. Place a medium warm reddish-brown rectangular wooden coffee table in front of the sofa toward -X, long axis parallel to the sofa along Y. Build a thick slab top, four square legs, apron and a full open lower shelf close to the floor. Use source_000116 for the side structure and source_000177 for overall spacing. Maintain visible walking clearance to the television wall and fireplace and a plausible gap between table and seating.\", \"depends_on\": [\"build_seating\"], \"severity\": \"routine\"}, {\"task_id\": \"build_sideboard_wall_furniture\", \"object_ids\": [\"sideboard\", \"side_table_statue\", \"side_table_plant\", \"landscape_painting\", \"television\"], \"instruction\": \"Delegate the long, low reddish-brown wooden sideboard against the +Y wall, with a flat top, subtle horizontal drawer divisions, small panel seams and short base supports. Above it hang the large dark-framed horizontal seascape: subdued green-blue sky and water, pale cloud bank and a dark sail-like form at the right. Add two small square wooden side tables: one beyond the sideboard toward the -X corner for the figurine, and one near the +X door/window corner for the plant. Mount the small horizontal television on the -X wall facing the sofa, with a thick silver-gray bezel, black reflective screen and slightly deeper lower frame. Do not add a television stand. Match source_000177 and source_000239 for arrangement.\", \"depends_on\": [\"build_room_shell\", \"build_seating\"], \"severity\": \"routine\"}, {\"task_id\": \"build_lamp_and_sideboard_details\", \"object_ids\": [\"floor_lamp\", \"vase_green\", \"vase_blue\", \"vase_silver\", \"plant_pot\", \"plant_leaves\", \"figurine\", \"sideboard_flat_item\", \"blue_floor_container\"], \"instruction\": \"Delegate the tall floor lamp between the sideboard and plant table. Include a dark square foot, slender warm-toned upright, stacked dark decorative discs below the shade and a cream pleated tapered shade with dark ribs and scalloped edges. Place three small rounded vessels together on the sideboard near the lamp, ordered green, blue-gray and silvery pale gray toward the lamp. Put a small white rounded pot with a few long upright green leaves on the plant table. Add the small dark standing figurine on the opposite side table and the thin turquoise item near that end of the sideboard. Add the blue rectangular floor container near the television-wall/sideboard-wall corner, with a pale marking and slight top rim as visible in source_000177. Its precise function is uncertain; preserve the observed shape rather than inventing mechanisms or labels.\", \"depends_on\": [\"build_sideboard_wall_furniture\"], \"severity\": \"routine\"}, {\"task_id\": \"build_seat_and_table_props\", \"object_ids\": [\"sofa_bolster\", \"sofa_newspaper\", \"sofa_small_card\", \"armchair_small_item\", \"laptop\", \"table_gold_dish\", \"table_red_item\", \"table_dark_small_item\"], \"instruction\": \"Delegate visible small props with consistent positions across views. On the sofa place a muted dusty-rose cylindrical bolster toward its -Y end, a folded gray-beige newspaper with restrained printed texture on the neighboring seat, and a small pale turquoise rectangular item toward the armchair end. Add the tiny tan item visible on the armchair without asserting its identity. On the coffee table place an open gray laptop with black screen, visible keyboard and trackpad, and a small pale geometric emblem on the back of its display. Orient the display toward the seating and match its hinge angle to the references. Include the shallow shiny yellow-gold dish, the narrow red rectangular item near a tabletop edge and the small dark loop-like item near the opposite edge. Match observed silhouettes and colors; exact identities, text and logos are uncertain.\", \"depends_on\": [\"build_seating\", \"build_rug_and_coffee_table\"], \"severity\": \"routine\"}, {\"task_id\": \"set_lighting_and_review\", \"object_ids\": [\"daylight_windows\", \"ceiling_downlights\", \"room_surface_finish\"], \"instruction\": \"Delegate lighting and final material integration. Use bright daylight entering through the +X windows to produce the strong rectangular mullion shadows across the floor and the elevated lamp-shaped shadows visible on the walls and ceiling. Add the small recessed ceiling lights seen in the references, with restrained emission and soft ambient fill. Keep upholstery matte, wood moderately satin, metal vessels reflective, mirror physically reflective and window glass bright but structured. Scheduler should render and compare the five supplied reference cameras source_000000, source_000062, source_000116, source_000177 and source_000239, checking wall topology, window spacing, separate seating silhouettes, furniture placement and prop visibility. Correct constructed geometry or lighting as needed while preserving every existing reviewed camera exactly. Do not infer a ceiling fan solely from ambiguous shadows or add unsupported hidden objects. Report residual uncertainty and actual verification results after execution.\", \"depends_on\": [\"build_architectural_trim\", \"build_fireplace_and_mirror\", \"build_lamp_and_sideboard_details\", \"build_seat_and_table_props\"], \"severity\": \"routine\"}]"
+}

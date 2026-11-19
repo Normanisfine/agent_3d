@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "model_root": "/path/to/shared/checkpoints",
+  "model_lock": "/path/to/shared/models.lock.json",
+  "repos": {
+    "sam3": "/path/to/shared/repos/sam3",
+    "pi3x": "/path/to/shared/repos/pi3",
+    "sam3d": "/path/to/shared/repos/sam-3d-objects",
+    "hunyuan": "/path/to/shared/repos/hunyuan3d-2.1",
+    "hispatial": "/path/to/shared/repos/hispatial"
+  },
+  "runtimes": {
+    "sam3": "/path/to/shared/envs/sam3/bin/python",
+    "pi3x": "/path/to/shared/envs/pi3x/bin/python",
+    "sam3d": "/path/to/shared/envs/sam3d/bin/python",
+    "hunyuan": "/path/to/shared/envs/hunyuan/bin/python",
+    "hispatial": "/path/to/shared/envs/hispatial/bin/python"
+  }
+}

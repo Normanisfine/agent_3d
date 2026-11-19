@@ -1,0 +1,25 @@
+{
+  "runs": [
+    {
+      "workers": 1,
+      "wall_seconds": 7.4865298150107265,
+      "scene": "/tmp/aha-next-eval-20261116-host/workers-1/candidates/fixture_3-0003-0/scene.blend",
+      "committed": 4,
+      "fallbacks": 0,
+      "scope_and_camera_validation": "real isolated Blender",
+      "model_calls": 4
+    },
+    {
+      "workers": 3,
+      "wall_seconds": 6.6201203069940675,
+      "scene": "/tmp/aha-next-eval-20261116-host/workers-3/candidates/fixture_1-wave-0002-merge/scene.blend",
+      "committed": 4,
+      "fallbacks": 0,
+      "scope_and_camera_validation": "real isolated Blender",
+      "model_calls": 4
+    }
+  ],
+  "speedup": 1.1308751907576828,
+  "synthetic_provider_delay_s": 1.0,
+  "limitations": "Offline fixture, stubbed visual review. Not an end-to-end quality or real API latency benchmark."
+}

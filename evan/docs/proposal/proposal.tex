@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{enumitem}
+\setmainfont{Liberation Serif}
+\titlespacing*{\section}{0pt}{4pt}{0pt}
+\titleformat*{\section}{\normalsize\bfseries}
+\setlength{\parskip}{0pt}
+\setlist{nosep, leftmargin=1.4em}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+{\large\bfseries Where does an agentic video-to-3D pipeline lose small objects?}\par\vspace{3pt}
+{\small Team 3Heads1GPU: Yifan Hu, Mingjian Li, Yujing Li}
+\end{center}
+\vspace{-8pt}
+
+\section*{Problem statement}
+LLM agents such as AHa-3D can now turn a phone video of a room into an editable Blender scene: the agent looks at the frames and writes code that builds each object. For \emph{small} objects such as cups, bottles, books and remotes, we ask three questions: (1) how many small objects does such a pipeline lose; (2) at which stage each one is lost: never visible in the frames the pipeline uses, never detected, never built, or built in the wrong place; and (3) when everything else is held fixed, which way of handling small objects gives the best accuracy for its cost. We limit the scope to static indoor rooms filmed in one continuous shot, and to geometry (each object's presence, position and size) rather than appearance.
+
+\section*{Motivation}
+AHa-3D reports no accuracy numbers, and its authors' demo task tells the agent to ``approximate small objects.'' Yet its scenes are meant for robot simulation, where small objects are what robots pick up. A popular fix is to send small objects to an image-to-3D generator, but the evidence is mixed: in GATOR, an agent modeling objects from scratch nearly matches generate-then-refine on ScanNet++ scenes, yet has almost twice its error on tabletop objects. Losses may start even earlier: AHa-3D uses 32 low-resolution frames, where a cup 2\,m away spans only about 20 pixels.
+
+\section*{Related work}
+GRASE (an ICLR 2027 submission) reconstructs rooms from video with an agent and generates small objects with \mbox{TRELLIS.2}. LIVIN sends every object without moving parts to the Rodin generator. GATOR generates every object and then lets an agent refine it. None of them reports recall by object size, traces where objects are lost, or compares small-object strategies inside one pipeline at matched cost. (LIVIN tests small clutter only for non-agentic methods given ground-truth inputs; GATOR never measures recall.)
+
+\section*{Approach}
+We keep one pipeline fixed: AHa-3D's tools and checking loop, a single reconstruction per scene (camera poses and point cloud from Pi3X, segmentation from SAM~3), the same driver model (GPT-6), and the same time and turn limits per run. We then change only how small objects are handled, one step at a time:
+\begin{enumerate}
+\item \textbf{AHa-3D as released}, with the authors' prompt.
+\item \textbf{A careful-prompt baseline}: the agent must build every visible small object, using code and simple shapes.
+\item \textbf{Plus an object list}: the Boxer detector lists objects found in full-resolution frames for the agent.
+\item \textbf{Plus generation}: small objects are generated with SAM 3D Objects, which also predicts their position and size. A generated mesh is kept only if it matches the video better than the simple-shape version. Either a size rule (under 0.5\,m) or the agent decides which objects to generate.
+\item \textbf{A pipeline with no agent}: detector boxes filled with generated meshes, testing whether small objects need an agent.
+\end{enumerate}
+An ablation repeats step 4 with the low-resolution frames to measure how much resolution alone matters.
+
+\section*{Evaluation}
+We use 20 videos from CA-1M, a set of real iPad room scans in which every object has an annotated 3D box (about 125 per video, many under 20\,cm): 5 for development and 15 for testing (test set fixed in advance). We align each reconstruction to the ground truth using the camera path, sort objects into four size bins by their longest side (under 0.2\,m, 0.2--0.5\,m, 0.5--1.5\,m, over 1.5\,m), and match predicted and true objects one to one. Each true object is then labeled \emph{correct}, \emph{misplaced} (built, but in the wrong place or size) or \emph{missed}. An object is correct if its 3D IoU with the true box is at least 0.25 (we also report a size-normalized center-distance criterion, fairer to tiny objects); it is visible if at least 100 of its pixels are unoccluded in some pipeline frame. A funnel figure shows, per method and size bin, how many objects survive each stage: visible, detected, built, correct. We report recall per bin with 95\% confidence intervals, repeat some runs to measure run-to-run noise, and log each run's cost in API-equivalent dollars. Success means we can say where small objects are lost and whether any method improves small-object recall beyond run-to-run noise without hurting large furniture. Our hypothesis is that most small objects are lost before the agent acts, at the visibility and detection stages; if so, the object list and full-resolution frames should help more than generation.
+
+\section*{Resources}
+\textbf{Data:} CA-1M (public; about 12\,GB, no application needed). \textbf{Models:} all public (SAM~3 and SAM~3D need Hugging Face access, requested). \textbf{Compute:} Penn's Betty GPU cluster (course allocation), a 12\,GB laptop GPU, and our ChatGPT and Claude subscriptions for the agents. \textbf{Milestones:} baseline results by Oct.~26, full comparison by Nov.~9, draft by Nov.~23.
+
+\end{document}

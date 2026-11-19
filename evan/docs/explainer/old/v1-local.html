@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>小物体去哪了</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* 版式：一本"测绘手册"。宽屏左侧固定目录，正文单栏约 40em；图放在淡网格底上，橙色只标"我们改动的部分"，青色只标"真值和评测"。 */
+:root {
+  --paper: #f4f6f6;
+  --surface: #ffffff;
+  --ink: #1b2227;
+  --muted: #56636c;
+  --rule: #d3dadd;
+  --grid: #e4e9eb;
+  --accent: #b9530f;
+  --accent-tint: #fbeadd;
+  --truth: #0d6e66;
+  --truth-tint: #dff1ee;
+  --code-bg: #eaeef0;
+  --font-display: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12171a; --surface: #192025; --ink: #e5eaec; --muted: #9babb4; --rule: #2b353b; --grid: #1d252a;
+    --accent: #f0904a; --accent-tint: #3a2414; --truth: #3cc9b6; --truth-tint: #0f2c29; --code-bg: #1f282d;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12171a; --surface: #192025; --ink: #e5eaec; --muted: #9babb4; --rule: #2b353b; --grid: #1d252a;
+  --accent: #f0904a; --accent-tint: #3a2414; --truth: #3cc9b6; --truth-tint: #0f2c29; --code-bg: #1f282d;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 0;
+}
+.shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 32px 80px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 1080px) {
+  .shell { grid-template-columns: 210px minmax(0, 1fr); gap: 48px; }
+}
+nav.toc { font-size: 14px; line-height: 1.5; }
+nav.toc details { border: 1px solid var(--rule); background: var(--surface); border-radius: 6px; padding: 10px 14px; }
+nav.toc summary { cursor: pointer; font-weight: 700; }
+nav.toc ol { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 4px; }
+nav.toc a { color: var(--muted); text-decoration: none; display: block; padding: 2px 0; }
+nav.toc a:hover, nav.toc a:focus-visible { color: var(--accent); }
+nav.toc .num { font-family: var(--font-mono); font-size: 12px; color: var(--muted); display: inline-block; width: 2.2em; }
+@media (min-width: 1080px) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; }
+  nav.toc details { border: 0; background: transparent; padding: 0; }
+  nav.toc summary { list-style: none; font-family: var(--font-display); font-size: 15px; margin-bottom: 4px; }
+  nav.toc summary::-webkit-details-marker { display: none; }
+}
+main { min-width: 0; }
+.prose { max-width: 42em; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.3; }
+h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 900; margin: 6px 0 14px; letter-spacing: 0.01em; }
+h2 { font-size: clamp(22px, 3vw, 28px); font-weight: 900; margin: 0 0 12px; }
+h3 { font-size: 18px; font-weight: 600; margin: 26px 0 8px; }
+p { margin: 0 0 14px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+strong { font-weight: 700; }
+code, .mono { font-family: var(--font-mono); font-size: 0.86em; }
+code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+pre { background: var(--code-bg); padding: 14px 16px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.6; margin: 0 0 16px; }
+pre code { background: none; padding: 0; font-size: inherit; }
+ul, ol { margin: 0 0 14px; padding-left: 1.4em; }
+li { margin-bottom: 4px; }
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+section.part { padding-block: 40px 8px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+section.part:first-of-type { border-top: 0; padding-top: 0; }
+.part-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; }
+.part-head .eyebrow { flex: none; }
+
+.hero { padding-bottom: 28px; }
+.hero .lede { font-size: 18px; max-width: 38em; }
+.questions { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; max-width: 44em; }
+.questions li { display: grid; grid-template-columns: 2.4em 1fr; gap: 8px; align-items: baseline; margin: 0; }
+.questions .q { font-family: var(--font-mono); font-weight: 600; color: var(--accent); }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 22px; font-size: 14px; color: var(--muted); }
+.facts b { color: var(--ink); font-family: var(--font-mono); font-weight: 600; margin-right: 6px; }
+
+.callout { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 18px; margin: 0 0 16px; max-width: 42em; }
+.callout.warn { border-color: var(--accent); background: var(--accent-tint); }
+.callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+details.deep { border: 1px dashed var(--rule); border-radius: 6px; padding: 10px 16px; margin: 0 0 16px; background: var(--surface); max-width: 42em; }
+details.deep > summary { cursor: pointer; font-size: 14px; color: var(--truth); font-weight: 500; }
+details.deep[open] > summary { margin-bottom: 8px; }
+details.deep p, details.deep li { font-size: 15px; }
+.math { font-family: var(--font-mono); font-size: 14px; background: var(--code-bg); padding: 8px 12px; border-radius: 4px; display: block; overflow-x: auto; margin: 0 0 12px; white-space: pre; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; margin: 8px 0 20px; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px 6px; min-width: 0; }
+.card h3 { margin-top: 0; font-size: 17px; }
+.card .why { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 8px; margin-top: 10px; }
+.card details.deep { border: 0; padding: 0; background: transparent; margin-bottom: 12px; }
+
+figure { margin: 8px 0 26px; }
+.fig-wrap { overflow-x: auto; background-color: var(--surface); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 24px 24px; border: 1px solid var(--rule); border-radius: 6px; padding: 12px; }
+.fig-wrap svg { display: block; width: 100%; min-width: 640px; height: auto; color: var(--ink); font-family: var(--font-body); }
+figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; max-width: 46em; }
+svg .box { fill: var(--surface); stroke: currentColor; stroke-width: 1.4; }
+svg .box-soft { fill: var(--surface); stroke: var(--rule); stroke-width: 1.4; }
+svg .acc { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 1.6; }
+svg .acc-text { fill: var(--accent); }
+svg .tru { fill: var(--truth-tint); stroke: var(--truth); stroke-width: 1.6; }
+svg .tru-text { fill: var(--truth); }
+svg .muted { fill: var(--muted); }
+svg .line { stroke: currentColor; stroke-width: 1.4; fill: none; }
+svg .line-acc { stroke: var(--accent); stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+svg .line-dash { stroke: currentColor; stroke-width: 1.2; fill: none; stroke-dasharray: 5 4; }
+svg .band-a { fill: var(--grid); }
+svg .band-b { fill: var(--surface); }
+svg text { fill: currentColor; }
+svg .t-title { font-size: 15px; font-weight: 700; }
+svg .t-body { font-size: 13px; }
+svg .t-small { font-size: 12px; }
+svg .t-mono { font-family: var(--font-mono); font-size: 12px; }
+
+.table-wrap { overflow-x: auto; margin: 4px 0 20px; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.6; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+th { font-weight: 700; background: var(--code-bg); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.arm { font-family: var(--font-mono); font-weight: 600; white-space: nowrap; }
+td.arm.new { color: var(--accent); }
+.tag { display: inline-block; font-size: 12px; font-family: var(--font-mono); padding: 0 6px; border-radius: 3px; border: 1px solid var(--rule); color: var(--muted); white-space: nowrap; }
+.tag.acc { border-color: var(--accent); color: var(--accent); }
+.tag.tru { border-color: var(--truth); color: var(--truth); }
+
+.steps { list-style: none; padding: 0; margin: 8px 0 20px; display: grid; gap: 14px; counter-reset: step; }
+.steps > li { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 18px 4px; margin: 0; counter-increment: step; display: grid; grid-template-columns: 3em minmax(0, 1fr); gap: 4px 12px; }
+.steps > li::before { content: "S" counter(step); font-family: var(--font-mono); font-weight: 600; color: var(--accent); font-size: 15px; padding-top: 2px; }
+.steps h3 { margin: 0 0 6px; font-size: 17px; }
+.steps .meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.steps .done { font-size: 14px; border-top: 1px solid var(--rule); padding-top: 8px; margin-top: 4px; }
+.steps .done b { color: var(--truth); }
+
+.people { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; margin: 8px 0 20px; }
+.person { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px 8px; min-width: 0; }
+.person h3 { margin: 0 0 2px; }
+.person .role { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+.person ul { font-size: 14px; padding-left: 1.2em; }
+
+.calc { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px; margin: 8px 0 24px; max-width: 46em; }
+.calc-controls { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-bottom: 14px; }
+.calc label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
+.calc input, .calc select { font: inherit; font-family: var(--font-mono); font-size: 15px; color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; padding: 6px 8px; width: 8.5em; }
+.calc table { font-variant-numeric: tabular-nums; }
+.calc td.num { font-family: var(--font-mono); text-align: right; white-space: nowrap; }
+.verdict { font-size: 13px; }
+.verdict.bad { color: var(--accent); font-weight: 700; }
+.verdict.mid { color: var(--muted); }
+.verdict.ok { color: var(--truth); font-weight: 700; }
+
+dl.gloss { display: grid; grid-template-columns: minmax(7em, max-content) minmax(0, 1fr); gap: 8px 18px; margin: 8px 0 20px; max-width: 46em; }
+dl.gloss dt { font-weight: 700; }
+dl.gloss dd { margin: 0; color: var(--ink); }
+@media (max-width: 560px) { dl.gloss { grid-template-columns: 1fr; gap: 2px; } dl.gloss dd { margin-bottom: 10px; } }
+.refs { font-size: 14px; }
+.refs li { margin-bottom: 6px; overflow-wrap: anywhere; }
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="shell">
+<nav class="toc" aria-label="目录">
+  <details open id="toc-details">
+    <summary>目录</summary>
+    <ol>
+      <li><a href="#why"><span class="num">01</span>在做什么</a></li>
+      <li><a href="#prereq"><span class="num">02</span>前置知识</a></li>
+      <li><a href="#aha3d"><span class="num">03</span>AHa-3D 怎么工作</a></li>
+      <li><a href="#arms"><span class="num">04</span>我们怎么改</a></li>
+      <li><a href="#funnel"><span class="num">05</span>漏斗：丢在哪</a></li>
+      <li><a href="#tools"><span class="num">06</span>工具和算力</a></li>
+      <li><a href="#data"><span class="num">07</span>数据</a></li>
+      <li><a href="#eval"><span class="num">08</span>评测</a></li>
+      <li><a href="#steps"><span class="num">09</span>一步一步做</a></li>
+      <li><a href="#team"><span class="num">10</span>分工与交接</a></li>
+      <li><a href="#timeline"><span class="num">11</span>时间线</a></li>
+      <li><a href="#risks"><span class="num">12</span>风险与退路</a></li>
+      <li><a href="#train"><span class="num">13</span>训练加分项</a></li>
+      <li><a href="#related"><span class="num">14</span>相关工作</a></li>
+      <li><a href="#glossary"><span class="num">15</span>术语表</a></li>
+      <li><a href="#refs"><span class="num">16</span>参考链接</a></li>
+    </ol>
+  </details>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="eyebrow">CIS 6220 期末项目 · 3Heads1GPU · 组内讲解 · 2026-10-14</div>
+  <h1>小物体去哪了</h1>
+  <p class="lede">用手机拍一段房间视频，让大模型 agent 把它搭成一个 Blender 场景。家具大多能搭出来，杯子、瓶子、书、遥控器这些小东西却常常没了。这个项目要量清楚它们丢了多少、丢在哪一步，以及怎么补最划算。</p>
+  <ul class="questions">
+    <li><span class="q">Q1</span><span>以 AHa-3D 为代表的"视频转 3D 的 agent"，按物体大小分档，各丢了多少物体？</span></li>
+    <li><span class="q">Q2</span><span>每个丢掉的物体，是卡在哪一关：画面里根本看不清、没被找到、没被建出来，还是建歪了？</span></li>
+    <li><span class="q">Q3</span><span>流程的其他部分全部固定，只换小物体的处理方式，哪几种做法在成本和精度上最划算？</span></li>
+  </ul>
+  <div class="facts">
+    <span><b>10/19</b>交提案</span>
+    <span><b>10/26</b>中期检查</span>
+    <span><b>11/23</b>交初稿</span>
+    <span><b>12/1·12/3</b>展示</span>
+    <span><b>12/7</b>交终稿</span>
+  </div>
+</header>
+
+<section class="part" id="why">
+  <div class="part-head"><span class="eyebrow">01</span><h2>这个项目在做什么，为什么值得做</h2></div>
+  <div class="prose">
+    <p><strong>起点是 AHa-3D。</strong>它是一个开源的 agent 系统：输入一段房间视频，大模型（作者用的是 GPT-6 Astra）一边看视频截图、一边写 Blender 脚本，把墙、家具、柜门一件件搭出来，再自己对比、修改。成品可以直接拿去做机器人仿真。</p>
+    <p><strong>它有两个空白，正好是我们的机会。</strong></p>
+    <ul>
+      <li><strong>没有任何定量结果。</strong>博客里只有几段对比视频，没有一个"搭得准不准"的数字。</li>
+      <li><strong>小物体是有意做粗的。</strong>作者博客里演示用的任务描述写的是 "approximate small objects"（这是一次对比实验的任务，不一定是发布版的默认提示词）。小物体从一个 108 项的资产库里挑，里面没有杯子、书、显示器。作者试过用 3D 生成模型（SAM 3D、TRELLIS.2）补小物体，做完又搁置了，没写原因。</li>
+    </ul>
+    <p><strong>"小物体交给 3D 生成模型"这个点子本身已经有人做了</strong>：GRASE、LIVIN、GATOR、LiteReality-Agent、CoDimRecon 都用到了（第 14 部分有对照表）。所以我们不把"用生成模型"当成自己的方法贡献。我们的贡献是<strong>把账算清楚</strong>：</p>
+    <ul>
+      <li>第一次按物体大小分档，给出这类系统的召回和摆放精度；</li>
+      <li>把每个丢掉的物体归到具体是哪一关丢的（第 5 部分的"漏斗"）；</li>
+      <li>在同一套流程、同一份感知结果下，公平比较几种小物体处理方式，同时报花了多少钱。</li>
+    </ul>
+    <p>还有一个让问题更有意思的事实。GATOR 给 GPT-6 每个物体 10 分钟从零写代码建模：在 ScanNet++ 上，几何误差（Chamfer 距离 0.033）只比"先生成再精修"（0.031）差一点；但在桌面小物体上是 0.016 对 0.009，差了将近一倍。整间房、固定预算下，生成到底划不划算，没人知道。所以<strong>"生成模型一定更好"不是前提，而是要检验的问题</strong>，哪种结果出来都算发现。</p>
+  </div>
+  <div class="callout">
+    <p><strong>我们不做的事</strong>：不训练主线模型（训练只是加分项，见第 13 部分）；不量化形状和外观好不好看（只做定性展示）；不做动态物体、人体、室外；不重新实现 GRASE 或 GATOR 的整套系统，只借它们的做法。</p>
+  </div>
+  <div class="callout warn">
+    <p><strong>算失败的情况</strong>（即使代码都跑通了）：</p>
+    <ul>
+      <li>实验组之间的差距还没有同一组跑两次的差距大，却写成了"某组更好"；</li>
+      <li>拿被评测的物体来做对齐，把要测的误差抵消掉了；</li>
+      <li>看了测试集结果再回头调阈值或提示词；</li>
+      <li>把 Boxer 在 CA-1M 上的好成绩当成泛化能力来报。它训练时见过 CA-1M。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="part" id="prereq">
+  <div class="part-head"><span class="eyebrow">02</span><h2>前置知识：先懂这九件事</h2></div>
+  <div class="prose">
+    <p>每张卡片先用一两句话讲清楚是什么，再说明它在项目里用在哪。公式和细节放在"深入"里，第一遍可以跳过。</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <h3>相机：内参和位姿</h3>
+      <p>一张照片要变成 3D，得先知道两件事。<strong>内参</strong>描述镜头本身：焦距多长、画面中心在哪。<strong>位姿</strong>（也叫外参）描述拍这张照片时，相机站在房间的哪个位置、朝哪个方向。</p>
+      <details class="deep"><summary>深入：针孔模型</summary>
+        <p>空间里一点 X（世界坐标）投到像素 (u, v)：</p>
+        <span class="math">[u, v, 1]ᵀ ∝ K · (R·X + t)
+K = [[f, 0, cx], [0, f, cy], [0, 0, 1]]</span>
+        <p>K 是内参，(R, t) 是位姿。AHa-3D 存的是相机到世界的 4×4 矩阵（c2w），Z 轴朝上。</p>
+      </details>
+      <p class="why">用在：Pi3X 从视频里同时估出每帧的内参和位姿；评测时拿它和 CA-1M 的真实相机轨迹对齐。</p>
+    </article>
+    <article class="card">
+      <h3>深度、点云和"米制"</h3>
+      <p>知道每个像素离相机多远（深度），再结合相机参数，就能把像素"反投影"成 3D 点，所有点合起来就是<strong>点云</strong>。<strong>米制</strong>的意思是单位真的是米。只靠单目视频估出来的尺度往往有偏差，所以叫"近似米制"。</p>
+      <details class="deep"><summary>深入：尺度误差为什么危险</summary>
+        <p>整体尺度差 10%，离对齐中心 3 米远的物体就会被挪开约 30 厘米。小物体的匹配门槛只有几厘米到十几厘米，所以尺度误差会直接把一个形状完美的杯子判成"建歪了"。这就是评测里要同时报"修正尺度"和"不修正尺度"两个版本的原因。</p>
+      </details>
+      <p class="why">用在：Pi3X 输出的点云是 agent 量尺寸的依据，也是 SAM 3D 生成时摆位置的依据。</p>
+    </article>
+    <article class="card">
+      <h3>分割和掩码</h3>
+      <p><strong>分割</strong>就是在图上把某个物体的像素圈出来。圈出来的结果叫<strong>掩码</strong>：一张黑白图，白色是物体。SAM 3 可以按文字提示（比如"cup"）分割，也能分出同一类里的不同个体。</p>
+      <p class="why">用在：AHa-3D 默认只分割人、玻璃、镜子、地面、墙；我们的干净对照用 SAM 3 分出每个物体，再配合点云拟合出 3D 框。生成模型也要靠掩码知道"生成哪个东西"。</p>
+    </article>
+    <article class="card">
+      <h3>3D 框（有向包围盒）</h3>
+      <p>用一个长方体把物体框住，描述它的<strong>中心位置</strong>（3 个数）、<strong>长宽高</strong>（3 个数）和<strong>朝向</strong>。家具一般只绕竖直轴转（1 个数，叫 yaw），所以常说 7 自由度；朝向允许任意转动时是 9 自由度。</p>
+      <details class="deep"><summary>深入：CA-1M 的框长什么样</summary>
+        <p>每个框有位置、尺寸、3×3 旋转矩阵和 8 个角点，坐标系 Z 朝上。抽查 1,173 个框，只有 24 个带俯仰或侧倾，其余都只绕竖直轴转。</p>
+      </details>
+      <p class="why">用在：真值就是 3D 框；我们从 Blender 场景里也导出每个物体的 3D 框，两边比。</p>
+    </article>
+    <article class="card">
+      <h3>图生 3D（生成模型）</h3>
+      <p>给一张物体的图（加掩码），生成模型直接"猜"出完整的 3D 网格，包括看不见的背面。大多数模型（比如 Hunyuan3D、TRELLIS）只输出一个<strong>摆在标准姿势、缩放到单位大小</strong>的网格（叫"规范空间"），它在房间里的位置、朝向和尺寸还得另外求。</p>
+      <details class="deep"><summary>深入：SAM 3D 为什么特别</summary>
+        <p>SAM 3D Objects 生成时会直接给出相机坐标下的旋转、平移和尺度，还能接收点图，并且专门训练过遮挡和小物体。代价是显存大：官方要求至少 32 GB，A100 上约 13 秒一个物体。注意它发布的代码把尺度取三个轴的平均（各向同性），细长物体可能还要我们再调一次尺寸。</p>
+      </details>
+      <p class="why">用在：A3、A4、P0 三类实验组用它补小物体。</p>
+    </article>
+    <article class="card">
+      <h3>配准：ICP 和剪影匹配</h3>
+      <p><strong>配准</strong>就是把一个模型挪到和观测对上的位置。<strong>ICP</strong> 反复找"模型上离观测点最近的点"，再算一个让它们整体最贴近的平移和旋转。<strong>剪影匹配</strong>把模型投到几张截图上，看投影出的轮廓和真实掩码重合了多少，再小步试探着调位置、朝向、尺寸。</p>
+      <details class="deep"><summary>深入：GRASE 的剪影搜索</summary>
+        <p>目标函数是各视角的 (1 − 掩码 IoU)，加边界距离、最差视角和点到面距离几项；不求导，用有界坐标搜索：3 层，每层 4 遍，步长 1、0.5、0.25。可调范围：位置约 ±0.18 × 最长边，yaw ±0.45 弧度，尺寸 0.75 到 1.25 倍。</p>
+      </details>
+      <p class="why">用在：<code>place_mesh</code> 工具先用生成模型给的位姿或 3D 框当起点，再做 ICP 和剪影搜索。</p>
+    </article>
+    <article class="card">
+      <h3>agent、harness 和驱动模型</h3>
+      <p><strong>agent</strong> 是会自己调用工具的大模型：它能运行命令、看图、写代码，根据结果决定下一步。<strong>harness</strong> 是包在外面的那一套：工具、规则、检查步骤、什么时候算完成。<strong>驱动模型</strong>是 agent 背后用的那个大模型。</p>
+      <details class="deep"><summary>深入：驱动模型会影响多少</summary>
+        <p>Agentic RSR 的新版论文在同一个 harness、18 个 Blender 场景上比较驱动模型：Claude Opus 5.5 18/18 通过，GPT-6 Astra 和 Sonnet 5.5 各 15/18，GPT-6.1 Sol 12/18。驱动不同，结果差得很多，所以我们全程固定驱动，换驱动只作为单独的复跑实验。</p>
+      </details>
+      <p class="why">用在：AHa-3D 就是一个 harness。主实验的驱动是 Codex CLI 上的 GPT-6，开发调试用 Claude Code 上的 Opus 5.5。</p>
+    </article>
+    <article class="card">
+      <h3>Blender 和 bpy</h3>
+      <p>Blender 是免费的 3D 软件。<strong>bpy</strong> 是它的 Python 接口：不用点鼠标，写脚本就能建物体、摆位置、渲染。AHa-3D 让 agent 写的就是 bpy 脚本，所以场景完全可编辑，每个物体都是独立的对象。</p>
+      <pre><code>import bpy
+bpy.ops.mesh.primitive_cube_add(size=1, location=(1.2, 0.4, 0.75))
+cup = bpy.context.object
+cup.scale = (0.08, 0.08, 0.10)   # 长宽高，单位米</code></pre>
+      <p class="why">用在：AHa-3D 要求 Blender 5.2.1 版本，因为它的资产库是用这个版本保存的。</p>
+    </article>
+    <article class="card">
+      <h3>评测里的四个词</h3>
+      <p><strong>IoU</strong>：两个框重叠体积除以合起来的总体积，1 是完全重合。<strong>匈牙利匹配</strong>：一对一配对预测和真值，让总误差最小。<strong>bootstrap</strong>：对场景反复有放回地抽样、重算指标，看结果会波动多少，得出置信区间。<strong>帕累托前沿</strong>：在"花钱"和"精度"两个维度上都没有被别的方法同时打败的那些方法。</p>
+      <p class="why">用在：第 8 部分的评测全用这几个工具。</p>
+    </article>
+  </div>
+</section>
+
+<section class="part" id="aha3d">
+  <div class="part-head"><span class="eyebrow">03</span><h2>AHa-3D 是怎么工作的</h2></div>
+  <div class="prose">
+    <p>整条流程分五段。前一段由工具自动完成，后四段由 agent 主导：它看截图、调工具、写脚本，直到审查员点头。</p>
+  </div>
+  <figure>
+    <div class="fig-wrap">
+      <svg viewBox="0 0 960 250" role="img" aria-label="AHa-3D 的流程：视频经过观察、测量、搭建、检查、审查五段变成 Blender 场景，检查发现不对时回到搭建修改">
+        <defs>
+          <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+        </defs>
+        <rect class="box-soft" x="10" y="70" width="96" height="64" rx="6"/>
+        <text class="t-title" x="58" y="98" text-anchor="middle">房间视频</text>
+        <text class="t-small muted" x="58" y="118" text-anchor="middle">一个连续镜头</text>
+
+        <rect class="box" x="130" y="60" width="140" height="84" rx="6"/>
+        <text class="t-title" x="200" y="86" text-anchor="middle">观察 Observe</text>
+        <text class="t-small" x="200" y="106" text-anchor="middle">Pi3X 估相机和点云</text>
+        <text class="t-small" x="200" y="124" text-anchor="middle">SAM 3 分地面和墙</text>
+
+        <rect class="box" x="294" y="60" width="120" height="84" rx="6"/>
+        <text class="t-title" x="354" y="86" text-anchor="middle">测量 Measure</text>
+        <text class="t-small" x="354" y="106" text-anchor="middle">在帧上挑点</text>
+        <text class="t-small" x="354" y="124" text-anchor="middle">量出米制尺寸</text>
+
+        <rect class="box" x="438" y="60" width="130" height="84" rx="6"/>
+        <text class="t-title" x="503" y="86" text-anchor="middle">搭建 Build</text>
+        <text class="t-small" x="503" y="106" text-anchor="middle">写 bpy 脚本</text>
+        <text class="t-small" x="503" y="124" text-anchor="middle">方块、柜子、资产库</text>
+
+        <rect class="box" x="592" y="60" width="140" height="84" rx="6"/>
+        <text class="t-title" x="662" y="86" text-anchor="middle">检查 Verify</text>
+        <text class="t-small" x="662" y="106" text-anchor="middle">轮廓叠回原视频</text>
+        <text class="t-small" x="662" y="124" text-anchor="middle">物理：碰撞、支撑、稳定</text>
+
+        <rect class="box" x="756" y="60" width="110" height="84" rx="6"/>
+        <text class="t-title" x="811" y="86" text-anchor="middle">审查 Gate</text>
+        <text class="t-small" x="811" y="106" text-anchor="middle">另一个只读模型</text>
+        <text class="t-small" x="811" y="124" text-anchor="middle">逐个物体打分</text>
+
+        <rect class="tru" x="886" y="76" width="66" height="52" rx="6"/>
+        <text class="t-title tru-text" x="919" y="108" text-anchor="middle">.blend</text>
+
+        <line class="line" x1="106" y1="102" x2="128" y2="102" marker-end="url(#a1)"/>
+        <line class="line" x1="270" y1="102" x2="292" y2="102" marker-end="url(#a1)"/>
+        <line class="line" x1="414" y1="102" x2="436" y2="102" marker-end="url(#a1)"/>
+        <line class="line" x1="568" y1="102" x2="590" y2="102" marker-end="url(#a1)"/>
+        <line class="line" x1="732" y1="102" x2="754" y2="102" marker-end="url(#a1)"/>
+        <line class="line" x1="866" y1="102" x2="884" y2="102" marker-end="url(#a1)"/>
+
+        <path class="line" d="M662 144 L662 176" />
+        <path class="line" d="M811 144 C811 220, 503 220, 503 148" marker-end="url(#a1)"/>
+        <text class="t-small" x="657" y="232" text-anchor="middle">检查发现对不上、会掉、会穿模，或审查不通过：回去改</text>
+
+        <text class="t-small muted" x="200" y="40" text-anchor="middle">工具自动完成</text>
+        <text class="t-small muted" x="580" y="40" text-anchor="middle">agent 主导（看图、调工具、写代码）</text>
+        <line class="line-dash" x1="294" y1="48" x2="866" y2="48"/>
+      </svg>
+    </div>
+    <figcaption>AHa-3D 的五段流程。搭建和检查之间的回路最费钱：作者公布的唯一一份账单里，47% 的 token 花在"对比渲染图和视频、修位置"上。</figcaption>
+  </figure>
+  <div class="prose">
+    <h3>几个会影响我们的细节</h3>
+    <ul>
+      <li><strong>Pi3X 只看 32 帧</strong>（可选 64 帧），从整段视频里均匀抽，每帧缩到 25.5 万像素以内，大约 574×434。小物体在这个分辨率下可能只剩十几二十个像素，第 5 部分有计算器。</li>
+      <li><strong>检查工具的门槛没有校准过。</strong>轮廓重合度低于 0.65 或边界偏差超过 12 像素就提醒 agent，代码注释原话是 "triage heuristics, not calibrated"。</li>
+      <li><strong>物理检查</strong>：穿进别的物体超过 5 毫米算碰撞；底下 2 厘米内没有支撑面算悬空；再用 Blender 刚体模拟 2 秒，看会不会倒。</li>
+      <li><strong>审查员写死成 <code>codex exec --image</code></strong>。用 Codex 驱动时直接能用；用 Claude 驱动时要加一个转发 shim，之前的会话里做过。</li>
+      <li><strong>只能在 Linux 上跑</strong>，Blender 必须是 5.2.1，输入必须是一个连续镜头，作者只在 96 GB 显存的机器上验证过。</li>
+      <li><strong>成本</strong>：按 API 价折算，作者 10 秒的 office48 视频跑一次约 12 到 22 美元。我们用订阅跑，账单不按次算，所以要自己记 token 再折算。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="part" id="arms">
+  <div class="part-head"><span class="eyebrow">04</span><h2>我们怎么改：七个实验组</h2></div>
+  <div class="prose">
+    <p>我们把流程归成四个环节：<strong>找物体 → 建形状 → 摆准 → 检查</strong>。每个实验组只在其中一两个环节上动手，其余全部保持一致，包括同一份感知结果（每个场景只算一次）、同一个驱动模型、同一个 AHa-3D 版本。这样两组之间的差别，就只能归因于改动的那一环。</p>
+  </div>
+  <figure>
+    <div class="fig-wrap">
+      <svg viewBox="0 0 980 420" role="img" aria-label="实验组示意：上面一行是基线 A1 的流程，下面橙色方框是各实验组替换或加入的步骤，最下面是完全不用 agent 的 P0 流水线">
+        <defs>
+          <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+          <marker id="a2o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+        </defs>
+        <text class="t-small muted" x="82" y="40" text-anchor="middle">输入</text>
+        <text class="t-small muted" x="243" y="40" text-anchor="middle">感知（所有组共用）</text>
+        <text class="t-body" x="404" y="40" text-anchor="middle" font-weight="700">① 找物体</text>
+        <text class="t-body" x="565" y="40" text-anchor="middle" font-weight="700">② 建形状</text>
+        <text class="t-body" x="726" y="40" text-anchor="middle" font-weight="700">③ 摆准</text>
+        <text class="t-body" x="887" y="40" text-anchor="middle" font-weight="700">④ 检查</text>
+
+        <rect class="box-soft" x="10" y="58" width="145" height="74" rx="6"/>
+        <text class="t-title" x="82" y="90" text-anchor="middle">房间视频</text>
+        <text class="t-small muted" x="82" y="110" text-anchor="middle">CA-1M 帧合成</text>
+
+        <rect class="box" x="171" y="58" width="145" height="74" rx="6"/>
+        <text class="t-title" x="243" y="84" text-anchor="middle">Pi3X + SAM 3</text>
+        <text class="t-small" x="243" y="104" text-anchor="middle">每个场景算一次</text>
+        <text class="t-small" x="243" y="121" text-anchor="middle">在 Betty 上</text>
+
+        <rect class="box" x="332" y="58" width="145" height="74" rx="6"/>
+        <text class="t-title" x="404" y="88" text-anchor="middle">agent 自己看帧</text>
+        <text class="t-mono muted" x="404" y="112" text-anchor="middle">A0 A1</text>
+
+        <rect class="box" x="493" y="58" width="145" height="74" rx="6"/>
+        <text class="t-title" x="565" y="88" text-anchor="middle">写代码、用方块搭</text>
+        <text class="t-mono muted" x="565" y="112" text-anchor="middle">A0 A1 A2</text>
+
+        <rect class="box" x="654" y="58" width="145" height="74" rx="6"/>
+        <text class="t-title" x="726" y="88" text-anchor="middle">改、渲染、对比</text>
+        <text class="t-mono muted" x="726" y="112" text-anchor="middle">A0–A3</text>
+
+        <rect class="box" x="815" y="58" width="145" height="74" rx="6"/>
+        <text class="t-title" x="887" y="84" text-anchor="middle">轮廓 + 物理</text>
+        <text class="t-small" x="887" y="104" text-anchor="middle">+ 审查员</text>
+        <text class="t-small muted" x="887" y="121" text-anchor="middle">所有组相同</text>
+
+        <line class="line" x1="155" y1="95" x2="169" y2="95" marker-end="url(#a2)"/>
+        <line class="line" x1="316" y1="95" x2="330" y2="95" marker-end="url(#a2)"/>
+        <line class="line" x1="477" y1="95" x2="491" y2="95" marker-end="url(#a2)"/>
+        <line class="line" x1="638" y1="95" x2="652" y2="95" marker-end="url(#a2)"/>
+        <line class="line" x1="799" y1="95" x2="813" y2="95" marker-end="url(#a2)"/>
+
+        <rect class="acc" x="332" y="200" width="145" height="80" rx="6"/>
+        <text class="t-title acc-text" x="404" y="228" text-anchor="middle">Boxer 清单</text>
+        <text class="t-small" x="404" y="248" text-anchor="middle">在高清帧上检测</text>
+        <text class="t-mono acc-text" x="404" y="268" text-anchor="middle">A2 起</text>
+
+        <rect class="acc" x="493" y="200" width="145" height="80" rx="6"/>
+        <text class="t-title acc-text" x="565" y="228" text-anchor="middle">SAM 3D 生成</text>
+        <text class="t-small" x="565" y="248" text-anchor="middle">过验收才保留</text>
+        <text class="t-mono acc-text" x="565" y="268" text-anchor="middle">A3r 规则 · A3v agent</text>
+
+        <rect class="acc" x="654" y="200" width="145" height="80" rx="6"/>
+        <text class="t-title acc-text" x="726" y="228" text-anchor="middle">逐个精修</text>
+        <text class="t-small" x="726" y="248" text-anchor="middle">每物体最多 3 轮</text>
+        <text class="t-mono acc-text" x="726" y="268" text-anchor="middle">A4</text>
+
+        <line class="line-acc" x1="404" y1="198" x2="404" y2="136" marker-end="url(#a2o)"/>
+        <text class="t-small acc-text" x="412" y="172">加一份清单</text>
+        <line class="line-acc" x1="565" y1="198" x2="565" y2="136" marker-end="url(#a2o)"/>
+        <text class="t-small acc-text" x="573" y="172">小物体换成生成</text>
+        <line class="line-acc" x1="726" y1="198" x2="726" y2="136" marker-end="url(#a2o)"/>
+        <text class="t-small acc-text" x="734" y="172">多一步精修</text>
+
+        <rect x="332" y="320" width="628" height="84" rx="8" class="line-dash" fill="none"/>
+        <text class="t-body" x="346" y="340" font-weight="700">P0：完全不用 agent</text>
+        <rect class="acc" x="350" y="352" width="140" height="40" rx="5"/>
+        <text class="t-small" x="420" y="377" text-anchor="middle">Boxer 框出所有物体</text>
+        <rect class="acc" x="520" y="352" width="140" height="40" rx="5"/>
+        <text class="t-small" x="590" y="377" text-anchor="middle">SAM 3D 逐个生成</text>
+        <rect class="acc" x="690" y="352" width="140" height="40" rx="5"/>
+        <text class="t-small" x="760" y="377" text-anchor="middle">自动摆放 + 验收</text>
+        <rect class="tru" x="860" y="352" width="86" height="40" rx="5"/>
+        <text class="t-small tru-text" x="903" y="377" text-anchor="middle">.blend</text>
+        <line class="line" x1="490" y1="372" x2="518" y2="372" marker-end="url(#a2)"/>
+        <line class="line" x1="660" y1="372" x2="688" y2="372" marker-end="url(#a2)"/>
+        <line class="line" x1="830" y1="372" x2="858" y2="372" marker-end="url(#a2)"/>
+        <path class="line" d="M243 132 L243 372 L348 372" marker-end="url(#a2)"/>
+        <text class="t-small muted" x="236" y="262" text-anchor="end">同一份感知结果</text>
+      </svg>
+    </div>
+    <figcaption>上面一行是基线 A1 的流程；橙色方框是各组在某个环节上换掉或加上的东西，一组比一组多改一点；最下面的 P0 完全不经过 agent。所有组都从同一份感知结果出发。</figcaption>
+  </figure>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>组</th><th>在前一组基础上改什么</th><th>回答什么问题</th><th>场景数</th></tr></thead>
+      <tbody>
+        <tr><td class="arm new">P0</td><td>不用大模型。Boxer 框出所有物体，每个框用 SAM 3D 生成并自动放进场景；过不了验收的，就用框本身当方块。</td><td>小物体到底需不需要 agent？</td><td>15</td></tr>
+        <tr><td class="arm">A0</td><td>AHa-3D 原样运行，用作者的提示词。</td><td>原版丢了多少？</td><td>15（额度不够时缩到 5）</td></tr>
+        <tr><td class="arm">A1</td><td>提示词明确要求逐个建出所有看得见的小物体，只用代码和方块。</td><td>公平的基线：认真做，但不加任何工具。</td><td>15</td></tr>
+        <tr><td class="arm new">A2</td><td>加一份物体清单：Boxer 在高清帧上检测，得到 3D 框和裁剪图，agent 要逐项处理，或说明为什么跳过。</td><td>漏掉是因为没找到吗？</td><td>15</td></tr>
+        <tr><td class="arm new">A3r</td><td>加生成：清单里估计最长边小于 0.5 米的物体，调用 SAM 3D 生成并摆放，过验收才保留，否则退回方块。</td><td>按尺寸规则生成有用吗？</td><td>15</td></tr>
+        <tr><td class="arm new">A3v</td><td>和 A3r 相同，只是由 agent 逐个决定生成还是写代码（它能看裁剪图和测量值）。</td><td>让 agent 自己判断，比规则好吗？</td><td>15</td></tr>
+        <tr><td class="arm new">A4</td><td>在 A3v 之后，agent 对每个生成物体再做"改、渲染、看"的精修，每个最多 3 轮。GATOR 的做法。</td><td>精修值不值这份钱？</td><td>5（加分项）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <h3>另外几项小实验</h3>
+    <ul>
+      <li><strong>BVB 重新打分</strong>：BVB 项目公开了别人跑出来的 .blend 结果，拿我们的评测脚本重新打分，当免费的额外基线。它们的坐标系和我们不同，对不齐就不报。</li>
+      <li><strong>高清帧消融</strong>：A3v 改用 Pi3X 降采样后的帧做清单和生成，跑 5 个场景，量出"用高清帧"单独贡献了多少。</li>
+      <li><strong>Hunyuan 小对比</strong>：用固定种子抽约 50 个小物体，比较"SAM 3D 自带的位姿"和"Hunyuan3D-2 只生成形状、再用我们的工具配准"，看谁摆得准。这是物体级实验，不进 agent 循环。</li>
+      <li><strong>第二次重复</strong>：A1 和 A3v 在 5 个场景上各多跑一次，用来估计同一组跑两次会差多少。</li>
+      <li><strong>Claude 复跑</strong>：用 Claude Opus 5.5 当驱动，在 5 个场景上重跑，证明结论不是某个驱动模型特有的。额度够就跑全部 5 个主实验组，不够只跑 A1 和 A3v。</li>
+    </ul>
+    <h3>每次运行的规则</h3>
+    <ul>
+      <li>所有组用同一个墙钟时间上限和同一个轮数上限。具体数值在第 1 周量完 office48 后定，初值取 A1 在开发集上中位数的 2 倍。</li>
+      <li>跑崩了或撞了上限，重跑一次；还不行就拿最后保存的 .blend 照常打分，记为失败。各组的失败率单独报，不剔除失败的运行。</li>
+    </ul>
+  </div>
+  <div class="callout">
+    <p><strong>订阅额度不够时，按这个顺序砍</strong>：</p>
+    <ol>
+      <li>A0 缩到 5 个场景</li>
+      <li>Claude 复跑只留 A1 和 A3v</li>
+      <li>第二次重复缩到 3 个场景</li>
+      <li>取消 A4</li>
+      <li>测试场景从 15 个减到 10 个</li>
+      <li>去掉 A3r</li>
+    </ol>
+    <p>原则是<strong>不换驱动模型</strong>：换了就和作者的设置不可比了。</p>
+  </div>
+</section>
+
+<section class="part" id="funnel">
+  <div class="part-head"><span class="eyebrow">05</span><h2>漏斗：每个小物体丢在哪一关</h2></div>
+  <div class="prose">
+    <p>对每一个真值物体，我们记录它最远走到了哪一关。每一关都会筛掉一部分物体，画出来就像一个漏斗。这张图是报告的主图：每个实验组、每个尺寸档各一根堆叠条形。</p>
+  </div>
+  <figure>
+    <div class="fig-wrap">
+      <svg viewBox="0 0 960 300" role="img" aria-label="漏斗示意：物体依次经过看得见、检测到、建出来、摆准了四关，每一关都有物体因为特定原因被筛掉">
+        <defs>
+          <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+        </defs>
+        <rect class="box" x="20" y="30" width="170" height="160" rx="6"/>
+        <text class="t-title" x="105" y="104" text-anchor="middle">① 看得见</text>
+        <text class="t-small muted" x="105" y="126" text-anchor="middle">不需要大模型就能算</text>
+
+        <rect class="box" x="265" y="50" width="170" height="120" rx="6"/>
+        <text class="t-title" x="350" y="104" text-anchor="middle">② 检测到</text>
+        <text class="t-small muted" x="350" y="126" text-anchor="middle">只有带清单的组</text>
+
+        <rect class="box" x="510" y="70" width="170" height="80" rx="6"/>
+        <text class="t-title" x="595" y="115" text-anchor="middle">③ 建出来</text>
+
+        <rect class="tru" x="755" y="85" width="170" height="50" rx="6"/>
+        <text class="t-title tru-text" x="840" y="115" text-anchor="middle">④ 摆准了</text>
+
+        <line class="line" x1="190" y1="110" x2="263" y2="110" marker-end="url(#a3)"/>
+        <line class="line" x1="435" y1="110" x2="508" y2="110" marker-end="url(#a3)"/>
+        <line class="line" x1="680" y1="110" x2="753" y2="110" marker-end="url(#a3)"/>
+
+        <text class="t-small" x="20" y="222">在这里丢：没被抽中的帧里才有；</text>
+        <text class="t-small" x="20" y="240">太小（不到约 100 像素）；被挡住</text>
+        <text class="t-small" x="265" y="222">在这里丢：检测器没框到，</text>
+        <text class="t-small" x="265" y="240">或者框到了但位置差太远</text>
+        <text class="t-small" x="510" y="222">在这里丢：agent 跳过了；</text>
+        <text class="t-small" x="510" y="240">生成失败又没退回方块；超时</text>
+        <text class="t-small" x="755" y="222">没过这一关就是"建坏了"：</text>
+        <text class="t-small" x="755" y="240">位置偏、尺寸错、朝向错</text>
+        <text class="t-small muted" x="20" y="282">方块高度只是示意，不是数据。A0、A1 没有清单，第 ② 关跳过。</text>
+      </svg>
+    </div>
+    <figcaption>四关依次筛掉物体。第 ① 关只看几何：在流程实际用到的那几帧里，用 CA-1M 的激光深度判断遮挡，至少有一帧可见面积不小于 100 像素才算看得见。这一关不用调大模型，算出来就是"不管 agent 多聪明都过不去的天花板"。</figcaption>
+  </figure>
+
+  <h3>小物体在画面里占几个像素</h3>
+  <div class="prose">
+    <p>第 ① 关为什么重要，用这个计算器一试就明白。改物体大小和距离，看它在不同分辨率下能占多少像素。</p>
+  </div>
+  <div class="calc" id="calc">
+    <div class="calc-controls">
+      <label for="c-size">物体大小（厘米）<input id="c-size" type="number" min="1" max="300" step="1" value="10"></label>
+      <label for="c-dist">离相机多远（米）<input id="c-dist" type="number" min="0.3" max="10" step="0.1" value="2"></label>
+      <label for="c-fov">水平视角（度）<input id="c-fov" type="number" min="30" max="120" step="1" value="60"></label>
+    </div>
+    <div class="table-wrap" style="margin-bottom:10px">
+      <table>
+        <thead><tr><th>画面</th><th>宽 × 高</th><th>物体跨度</th><th>约占面积</th><th>判定</th></tr></thead>
+        <tbody id="c-rows"></tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin:0">按针孔模型估算：跨度 = 焦距像素 × 大小 ÷ 距离；面积按正对相机的方块近似。视角 60° 是 iPad 主摄的量级，属于估计值。"看得见"的门槛是 100 像素面积；生成工具在掩码小于约 200 像素时会直接返回 too_small。</p>
+  </div>
+  <div class="prose">
+    <p>默认值下，10 厘米的杯子在 2 米外，在 AHa-3D 用的分辨率里只跨二十来个像素，换成 CA-1M 原帧能多出将近一倍。这就是 A2、A3 坚持在<strong>高清帧</strong>上找物体和裁剪的原因。如果漏斗显示大部分小物体卡在第 ① 关，那么最便宜的改进也许根本不在 agent 身上。</p>
+  </div>
+</section>
+
+<section class="part" id="tools">
+  <div class="part-head"><span class="eyebrow">06</span><h2>工具和算力：什么跑在哪</h2></div>
+  <figure>
+    <div class="fig-wrap">
+      <svg viewBox="0 0 960 330" role="img" aria-label="算力分工：笔记本跑 agent 和 Blender，订阅提供驱动模型，Betty 集群跑感知和正式的 SAM 3D 生成，fal 只用于少量核对">
+        <defs>
+          <marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+        </defs>
+        <rect class="box" x="330" y="96" width="300" height="160" rx="8"/>
+        <text class="t-title" x="480" y="124" text-anchor="middle">Yifan 的笔记本（5070 Ti 12 GB）</text>
+        <text class="t-body" x="350" y="154">agent：Codex CLI / Claude Code</text>
+        <text class="t-body" x="350" y="178">Blender 5.2.1（渲染、物理检查）</text>
+        <text class="t-body" x="350" y="202">Hunyuan3D-2mini（开发用，约 6 GB）</text>
+        <text class="t-body" x="350" y="226">评测脚本、Boxer（轻量）</text>
+
+        <rect class="box-soft" x="20" y="40" width="230" height="100" rx="8"/>
+        <text class="t-title" x="135" y="68" text-anchor="middle">订阅（驱动模型）</text>
+        <text class="t-body" x="36" y="96">ChatGPT 订阅 → GPT-6（主实验）</text>
+        <text class="t-body" x="36" y="120">Claude Max → Opus 5.5（开发）</text>
+
+        <rect class="box-soft" x="20" y="214" width="230" height="86" rx="8"/>
+        <text class="t-title" x="135" y="242" text-anchor="middle">fal（托管 API）</text>
+        <text class="t-body" x="36" y="268">SAM 3D，一次 0.02 美元</text>
+        <text class="t-body acc-text" x="36" y="290">自费上限 10 美元，只做核对</text>
+
+        <rect class="box" x="710" y="70" width="230" height="200" rx="8"/>
+        <text class="t-title" x="825" y="98" text-anchor="middle">PARCC Betty 集群</text>
+        <text class="t-body" x="726" y="126">B200，单卡 180 GB</text>
+        <text class="t-body" x="726" y="150">Pi3X（作者默认分辨率）</text>
+        <text class="t-body" x="726" y="174">SAM 3、Boxer、干净对照</text>
+        <text class="t-body" x="726" y="198">SAM 3D（正式实验）</text>
+        <text class="t-body muted" x="726" y="226">课程额度，每人约 50 美元</text>
+        <text class="t-body muted" x="726" y="250">没有图形接口，不跑 Blender</text>
+
+        <line class="line" x1="250" y1="100" x2="328" y2="140" marker-end="url(#a4)"/>
+        <line class="line" x1="328" y1="160" x2="250" y2="122" marker-end="url(#a4)"/>
+        <text class="t-small" x="262" y="96">回复、工具调用</text>
+        <text class="t-small" x="262" y="164">提示词、截图</text>
+
+        <line class="line" x1="328" y1="226" x2="252" y2="250" marker-end="url(#a4)"/>
+        <text class="t-small" x="256" y="230">掩码 + 点图</text>
+        <line class="line" x1="252" y1="272" x2="328" y2="248" marker-end="url(#a4)"/>
+        <text class="t-small" x="258" y="292">网格 + 位姿</text>
+
+        <line class="line" x1="708" y1="140" x2="632" y2="140" marker-end="url(#a4)"/>
+        <text class="t-small" x="670" y="132" text-anchor="middle">感知、清单</text>
+        <line class="line" x1="632" y1="210" x2="708" y2="210" marker-end="url(#a4)"/>
+        <text class="t-small" x="670" y="202" text-anchor="middle">帧、生成请求</text>
+        <line class="line" x1="708" y1="236" x2="632" y2="236" marker-end="url(#a4)"/>
+        <text class="t-small" x="670" y="256" text-anchor="middle">生成的网格</text>
+      </svg>
+    </div>
+    <figcaption>重活都放在 Betty 上，花的是课程额度；需要看图、渲染的 agent 循环留在笔记本上。订阅只负责驱动 agent，它们跑不了 3D 生成模型。自己掏的钱只有 fal 那最多 10 美元。</figcaption>
+  </figure>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>工具</th><th>做什么</th><th>跑在哪</th><th>要注意</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pi3X</strong></td><td>从视频估每帧相机和近似米制的点云</td><td>Betty</td><td>笔记本 12 GB 只能跑到 10 到 15 万像素，正式结果一律用 Betty 上作者默认的 25.5 万像素</td></tr>
+        <tr><td><strong>SAM 3</strong></td><td>按文字提示分割；给干净对照提供每个物体的掩码</td><td>Betty</td><td>Hugging Face 要申请权限</td></tr>
+        <tr><td><strong>Boxer</strong></td><td>开放词汇的 3D 框检测，给 A2、A3、A4、P0 做清单</td><td>Betty 或笔记本</td><td>训练时用过 CA-1M 训练集，每张表都标"同源"；只输出绕竖直轴的朝向</td></tr>
+        <tr><td><strong>干净对照</strong></td><td>SAM 3 掩码加 Pi3X 点云拟合出 3D 框</td><td>Betty</td><td>没有训练数据重叠的问题，用来检验 Boxer 的偏差</td></tr>
+        <tr><td><strong>SAM 3D Objects</strong></td><td>生成网格，同时给出位置、朝向、尺度</td><td>Betty（正式）、fal（核对）</td><td>约 22 GB 显存，A100 上约 13 秒一个；HF 权限要人工审批，今天就申请</td></tr>
+        <tr><td><strong>Hunyuan3D-2mini</strong></td><td>只生成形状，开发阶段先把两个工具写通；另做小对比</td><td>笔记本</td><td>晚上批量跑，避开 Blender 和 IsaacLab 抢显卡</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <h3>两个我们自己写的工具</h3>
+    <p>生成和摆放<strong>拆成两个工具</strong>：这样 agent 可以只重新摆放（比如换一个支撑面），不用重新生成；生成还可以异步批量提交，agent 同时去搭别的东西。</p>
+  </div>
+  <pre><code>gen3d_request(object_ids, backend="sam3d", n_candidates=2, frames="auto")
+  → 挑最清楚的帧，裁出物体，调用生成模型，清理网格（Z 朝上、单位米）
+  → 最好那一帧的掩码不到约 200 像素：直接返回 too_small
+
+place_mesh(object_id, candidate_id, init="backend_pose" 或 "obb")
+  → 起点：SAM 3D 给的位姿，或者 3D 框
+  → ICP 贴到点云上 → 多视角剪影搜索 → 验收
+  → 返回 status：accepted / rejected_fit / too_small / backend_error / timeout</code></pre>
+  <details class="deep"><summary>深入：验收条件（必须比方块好才保留）</summary>
+    <ul>
+      <li>多帧平均剪影 IoU ≥ max(0.6, 同一物体方块版的 IoU + 0.03)</li>
+      <li>观测点到网格的平均距离 ≤ max(1.5 厘米, 0.1 × 最长边)</li>
+      <li>尺寸在 3D 框的 0.75 到 1.25 倍之间</li>
+      <li>穿进支撑面不超过 1 厘米</li>
+    </ul>
+    <p>这些是初值，第 1 周用 10 个开发集物体校准。另一个 Blender agent（VIGA）加了 SAM 3D 之后图像指标反而下降，所以这道验收是必须的。</p>
+  </details>
+</section>
+
+<section class="part" id="data">
+  <div class="part-head"><span class="eyebrow">07</span><h2>数据</h2></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>用途</th><th>数据</th><th>规模</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tru">正式结果</span></td><td><strong>CA-1M</strong>（Apple）验证集里，和 BVB 测试集重叠的 22 个视频</td><td>5 个开发、15 个测试、2 个备用；约 11 到 16 GB</td><td>不用申请，直接下载。每个视频约 125 个框，不分类别，小物体多。每帧是 1024×768 的图（每秒 10 帧），带注册过的位姿和激光渲染深度</td></tr>
+        <tr><td><span class="tag">第二开发集</span></td><td><strong>VSI-Bench</strong> 里的 ScanNet++ 部分</td><td>50 个场景，1,119 个框</td><td>640×480，没有相机位姿，只用来调流程，不进结果表</td></tr>
+        <tr><td><span class="tag">可选</span></td><td>官方 <strong>ScanNet++</strong></td><td>5 个场景</td><td>有物体网格，能测形状；要教授手签，11/2 前批下来才加</td></tr>
+        <tr><td><span class="tag acc">演示</span></td><td>自己拍的房间视频</td><td>2 到 3 段</td><td>只做定性展示</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <h3>CA-1M 的几个事实</h3>
+    <ul>
+      <li>抽查 6 个视频共 1,173 个框，按我们的尺寸档分：XS 23%、S 31%、M 24%、L 22%。L 档里有墙、地面、门框这类结构件，评测前去掉。</li>
+      <li>48% 的框类别只写了 "object"，所以匹配不看类别。</li>
+      <li>只有 3D 框，没有物体网格，所以 CA-1M 上只测"在不在、准不准"，不测形状细节。</li>
+      <li>许可是 CC BY-NC-ND：只能做非商用研究，不能分发改过的数据。</li>
+      <li>这 22 个视频同时有 ARKitScenes 的 17 类家具框，大家具也能在同一批视频上比较。</li>
+    </ul>
+    <h3>输入视频怎么来</h3>
+    <ul>
+      <li>用 CA-1M 的帧按每秒 10 帧合成 mp4 交给 AHa-3D。不下载 ARKitScenes 原始的 .mov，每个约 0.9 GB，笔记本硬盘放不下。</li>
+      <li><strong>"高清帧"</strong>的意思是：Pi3X 用的那 32 帧，换成 1024×768 的原图。位姿用 Pi3X 估的，深度用 Pi3X 的点图放大到原图尺寸。</li>
+      <li>CA-1M 的 ARKit 位姿、激光深度一律不进入流程，只在评测时用。这样输入始终是"一段单目视频"，没有偷看真值。</li>
+    </ul>
+  </div>
+  <details class="deep"><summary>深入：22 个视频的 ID</summary>
+    <p class="mono" style="overflow-wrap:anywhere">42897538 42897647 42898849 42899617 42899698 42899712 42899725 42899729 44358442 44358451 45261121 45261575 45663164 47115469 47115525 47115543 47204552 47331068 47331262 47331319 47334239 47430475</p>
+    <p>它们是 CA-1M 验证集和 BVB-150 的交集（共 27 个），去掉了 5 个覆盖不到 80% 的视频。开发、测试、备用三组用固定种子划分，名单在 10/20 前写进 <code>configs/splits.json</code> 并提交，之后不再改。</p>
+  </details>
+  <div class="callout">
+    <p><strong>自己拍视频的要求</strong>：手机横拍，30 到 60 秒，慢慢绕房间走一圈，一个镜头到底不剪辑（AHa-3D 只接受连续镜头）。桌上留一些杯子、书、台灯这类小东西，别收拾得太干净。</p>
+  </div>
+</section>
+
+<section class="part" id="eval">
+  <div class="part-head"><span class="eyebrow">08</span><h2>评测：怎么判定"建好了"</h2></div>
+  <div class="prose">
+    <p>评测分五步：把重建结果对齐到真值 → 按大小分档 → 一对一配对 → 判定每个真值物体的结局 → 统计。</p>
+    <h3>1. 对齐：只用相机轨迹</h3>
+    <p>Pi3X 的坐标系和真值的坐标系不一样，要先对齐。我们只用<strong>相机轨迹</strong>来对齐：把 Pi3X 估出的每帧相机位置和 CA-1M 的真实相机位置对应起来，求一个整体的平移、旋转和缩放。<strong>绝不用被评测的物体来对齐</strong>，否则对齐这一步会把我们要测的误差悄悄吸收掉。</p>
+    <p>同时报两个版本：允许修正尺度（Sim(3)）和不修正尺度（尺度固定为 1）。后者能看出 Pi3X 自己的尺度误差有多大。</p>
+  </div>
+  <details class="deep"><summary>深入：Umeyama 对齐</summary>
+    <p>给定对应的相机中心 pᵢ（Pi3X）和 qᵢ（真值），求 s、R、t 使下式最小：</p>
+    <span class="math">Σᵢ ‖ qᵢ − (s·R·pᵢ + t) ‖²</span>
+    <p>Umeyama 算法有闭式解（SVD）。加重力约束时，R 只允许绕竖直轴转。VSI 开发集和 BVB 结果没有相机轨迹，只能退而用 L 档家具加地面来对齐，并且只给 XS、S、M 三档打分，表里会注明。</p>
+  </details>
+  <div class="prose">
+    <h3>2. 按大小分档</h3>
+    <p>按真值框的<strong>最长边</strong>分四档，每档都报真值物体的数量：</p>
+  </div>
+  <div class="table-wrap" style="max-width:42em">
+    <table>
+      <thead><tr><th>档</th><th>最长边</th><th>典型物体</th></tr></thead>
+      <tbody>
+        <tr><td class="arm">XS</td><td>&lt; 0.2 m</td><td>杯子、鼠标、遥控器、手机</td></tr>
+        <tr><td class="arm">S</td><td>0.2 – 0.5 m</td><td>书、台灯、键盘、花盆</td></tr>
+        <tr><td class="arm">M</td><td>0.5 – 1.5 m</td><td>椅子、床头柜、显示器、电视、小书架</td></tr>
+        <tr><td class="arm">L</td><td>≥ 1.5 m</td><td>沙发、床、餐桌、大柜子</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <h3>3. 一对一配对</h3>
+    <p>用匈牙利算法把预测物体和真值物体一对一配起来，不看类别。配对时的"距离"是按物体大小归一化后的中心距离：同样偏 10 厘米，对杯子是大错，对沙发不算什么。</p>
+    <h3>4. 每个真值物体的三种结局</h3>
+  </div>
+  <div class="table-wrap" style="max-width:42em">
+    <table>
+      <thead><tr><th>结局</th><th>条件</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tru">建好了</span></td><td>通过严格判据。有两套严格判据，分开各报一张表：I = 3D IoU ≥ 0.25（方便和前人比较）；D = 归一化中心距离 ≤ 0.5，且最长边之比在 0.67 到 1.5 之间（对小物体更稳）。</td></tr>
+        <tr><td><span class="tag acc">建坏了</span></td><td>没过严格判据，但在宽松门槛内：归一化中心距离 ≤ 1.0，或 3D IoU ≥ 0.1。</td></tr>
+        <tr><td><span class="tag">漏了</span></td><td>连宽松门槛都没进。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <details class="deep"><summary>深入：归一化中心距离和 3D IoU</summary>
+    <span class="math">d̂ = ‖ c_pred − c_gt ‖ / r_gt        r_gt = 真值框半对角线长
+IoU3D = 交集体积 / (预测体积 + 真值体积 − 交集体积)</span>
+    <p>为什么不只用 IoU：小物体的 3D IoU 对一点点偏移极其敏感，一个 8 厘米的杯子偏 3 厘米，IoU 就掉得很厉害。归一化中心距离对大小物体一视同仁。两套都报，读者可以自己对照。</p>
+    <p>精确率（建出来却匹配不上任何真值的物体）作为次要指标报。CA-1M 是穷举标注，这个数有意义。所有阈值都是初值，在开发集上看一遍分布后，10/20 前写进 <code>configs/thresholds.json</code>，之后不再改。</p>
+  </details>
+  <div class="prose">
+    <h3>5. 统计和成本</h3>
+    <ul>
+      <li><strong>配对比较</strong>：同一个真值物体在不同组里的结局两两对照，而不是只比总数。</li>
+      <li><strong>置信区间</strong>：按场景做 bootstrap，给出 95% 区间。</li>
+      <li><strong>噪声底线</strong>：A1 和 A3v 的第二次重复告诉我们同一组跑两次差多少。组间差距比这个小的，不下结论。</li>
+      <li><strong>成本</strong>：每次运行记录 token 数（输入、缓存、输出）、墙钟时间、生成费用，token 按官方 API 价格折算成"API 等价美元"。</li>
+      <li><strong>结论的写法</strong>：画出"成本-精度"的帕累托前沿，说哪几种做法最划算，而不是简单地说哪种最好。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="part" id="steps">
+  <div class="part-head"><span class="eyebrow">09</span><h2>一步一步做</h2></div>
+  <div class="prose">
+    <p>下面的步骤按先后顺序排；同一周里不同人负责的步骤可以并行。每一步都写了"做完的标志"，达到了再往下走。</p>
+  </div>
+  <ol class="steps">
+    <li><div>
+      <h3>搭好本地环境</h3>
+      <div class="meta"><span>负责：Yifan</span><span>10/14–10/19</span></div>
+      <ul>
+        <li>克隆 AHa-3D 到 <code>ubuntu_final_project/third_party/aha-3d</code>，固定一个提交号。</li>
+        <li>装 Blender 5.2.1；按 AHa-3D 文档建三个独立的 Python 环境（Pi3X、SAM 3、Open3D）。</li>
+        <li>Codex CLI 用 ChatGPT 账号登录；Claude Code 准备好 headless 模式（<code>claude -p</code>）和转发审查员的 shim。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：作者的 office48 示例能从头跑到出 .blend。</p>
+    </div></li>
+    <li><div>
+      <h3>量额度</h3>
+      <div class="meta"><span>负责：Yifan</span><span>10/14–10/19</span></div>
+      <ul>
+        <li>office48 用 Codex + GPT-6 跑一次，用 Claude Code + Opus 5.5 跑一次。</li>
+        <li>记录 token 数、耗时、占当期订阅额度的比例。确认订阅里有没有 GPT-6 Astra。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：一张表，写清"一次运行用掉多少额度"，据此确定第 4 部分的运行次数和削减顺序要不要提前启动。</p>
+    </div></li>
+    <li><div>
+      <h3>准备数据</h3>
+      <div class="meta"><span>负责：Yujing</span><span>10/14–10/19</span></div>
+      <ul>
+        <li>下载 22 个 CA-1M 视频，以及 VSI-Bench 的 ScanNet++ 元数据和视频。</li>
+        <li>把 CA-1M 的帧合成每秒 10 帧的 mp4；读出每个视频的真值框，去掉结构件。</li>
+        <li>用固定种子划分开发、测试、备用，写进 <code>configs/splits.json</code>。</li>
+        <li>请导师在 ScanNet++ 申请表上签字并提交。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：任意一个场景 ID，都能拿到它的 mp4 和真值框列表。</p>
+    </div></li>
+    <li><div>
+      <h3>在 Betty 上跑感知</h3>
+      <div class="meta"><span>负责：Mingjian</span><span>10/14–10/26</span></div>
+      <ul>
+        <li>开通 Betty 账号（VPN 加两种认证）；在登录节点预先下载 Pi3X、SAM 3、Boxer 的权重，计算作业离线跑。</li>
+        <li>今天就在 Hugging Face 申请 SAM 3 和 SAM 3D Objects 的权限。</li>
+        <li>对 20 个场景各跑一次 Pi3X（作者默认分辨率、32 帧）和 SAM 3，得到感知结果；再跑 Boxer 和干净对照，得到两份清单。</li>
+        <li>把结果拷回笔记本。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：20 个场景都有感知结果和两份清单，并记下了每个场景的峰值显存和耗时。</p>
+    </div></li>
+    <li><div>
+      <h3>写评测脚本</h3>
+      <div class="meta"><span>负责：Yujing</span><span>10/14–10/26</span></div>
+      <ul>
+        <li>从 .blend 里导出每个物体的 3D 框（AHa-3D 自带 <code>export_model.py</code>）。</li>
+        <li>实现：用相机轨迹对齐 → 分档 → 匈牙利匹配 → 三种结局 → 漏斗 → bootstrap。</li>
+        <li>先用"真值对真值"测一遍：所有物体都应该是"建好了"。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：真值对真值的测试全部通过，一条命令能出分档表和漏斗图。</p>
+    </div></li>
+    <li><div>
+      <h3>定死阈值和测试集</h3>
+      <div class="meta"><span>负责：Yujing（三人确认）</span><span>10/20 前</span></div>
+      <ul>
+        <li>在开发集上看一遍距离和 IoU 的分布，确定第 8 部分各门槛的最终数值，写进 <code>configs/thresholds.json</code>。</li>
+        <li>和 <code>splits.json</code> 一起提交，之后不再改。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：两个配置文件已提交，三人都看过。</p>
+    </div></li>
+    <li><div>
+      <h3>基线跑通，交中期检查</h3>
+      <div class="meta"><span>负责：Yifan 跑，Yujing 评</span><span>10/20–10/26</span></div>
+      <ul>
+        <li>A0 和 A1 在 3 个开发场景上无人值守跑完；写好 A1 的"认真版"提示词。</li>
+        <li>出第一版分档数字和漏斗图。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：10/26 中期检查有数字可交。如果 AHa-3D 还是跑不完，就启用第 12 部分的退路。</p>
+    </div></li>
+    <li><div>
+      <h3>生成和摆放工具</h3>
+      <div class="meta"><span>负责：Mingjian</span><span>10/20–11/02</span></div>
+      <ul>
+        <li>先用本地 Hunyuan3D-2mini 把 <code>gen3d_request</code> 和 <code>place_mesh</code> 写通。</li>
+        <li>在 fal 上用 SAM 3D 核对 5 个物体的位姿坐标约定，花费不超过 10 美元。</li>
+        <li>在 Betty 上部署 SAM 3D；用 10 个开发集物体校准验收门槛。</li>
+        <li>跑 P0（两种清单各一遍）。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：SAM 3D 在 Betty 上能批量跑；P0 在开发集上出了结果。11/2 前装不通就改用 Hunyuan 方案。</p>
+    </div></li>
+    <li><div>
+      <h3>主实验</h3>
+      <div class="meta"><span>负责：Yifan 跑 agent 组，Mingjian 跑 P0，Yujing 评</span><span>10/27–11/09</span></div>
+      <ul>
+        <li>写 A2 的清单格式和 A3 的路由逻辑（A3r 按 0.5 米规则，A3v 交给 agent）。</li>
+        <li>15 个测试场景上跑 A0 到 A3v 和 P0。</li>
+        <li>每次运行保存 token 日志和最终 .blend。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：主实验的分档表、漏斗图、成本-精度图都出来了。</p>
+    </div></li>
+    <li><div>
+      <h3>补充实验</h3>
+      <div class="meta"><span>三人分头</span><span>11/10–11/16</span></div>
+      <ul>
+        <li>Yifan：A4、第二次重复、Claude 复跑。</li>
+        <li>Mingjian：高清帧消融、Hunyuan 小对比、训练加分项（如果 10/26 决定做）。</li>
+        <li>Yujing：拍演示视频并跑出最终场景；整理所有图表。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：报告需要的所有表和图都有了。</p>
+    </div></li>
+    <li><div>
+      <h3>写报告和展示</h3>
+      <div class="meta"><span>Yujing 主笔，三人分节</span><span>11/17–12/07</span></div>
+      <ul>
+        <li>11/23 交初稿。主图是漏斗图，然后是分档表和成本-精度图。</li>
+        <li>12/1 或 12/3 展示，用自拍视频的 Blender 结果做演示。</li>
+        <li>12/7 交终稿：NeurIPS 格式，正文 8 页。</li>
+      </ul>
+      <p class="done"><b>做完的标志</b>：终稿提交。</p>
+    </div></li>
+  </ol>
+</section>
+
+<section class="part" id="team">
+  <div class="part-head"><span class="eyebrow">10</span><h2>分工与交接</h2></div>
+  <div class="people">
+    <div class="person">
+      <h3>Yifan</h3>
+      <div class="role">agent 和驱动</div>
+      <ul>
+        <li>装 AHa-3D 和 Blender 5.2.1</li>
+        <li>接 Codex 和 Claude 两种驱动，量额度</li>
+        <li>A0 到 A4 的提示词和路由逻辑</li>
+        <li>记录每次运行的 token 日志</li>
+      </ul>
+    </div>
+    <div class="person">
+      <h3>Mingjian</h3>
+      <div class="role">感知和生成</div>
+      <ul>
+        <li>申请 SAM 3 和 SAM 3D 权限，部署到 Betty</li>
+        <li>在 Betty 上批量跑 Pi3X、SAM 3、Boxer、干净对照</li>
+        <li><code>gen3d_request</code>、<code>place_mesh</code>、P0</li>
+        <li>Hunyuan 小对比、高清帧消融、训练加分项</li>
+      </ul>
+    </div>
+    <div class="person">
+      <h3>Yujing</h3>
+      <div class="role">数据和评测</div>
+      <ul>
+        <li>下载 CA-1M 和 VSI，合成输入视频</li>
+        <li>划分数据集，定阈值</li>
+        <li>评测脚本：对齐、匹配、结局、漏斗、bootstrap</li>
+        <li>拍演示视频，出图，主笔报告</li>
+      </ul>
+    </div>
+  </div>
+  <figure>
+    <div class="fig-wrap">
+      <svg viewBox="0 0 960 300" role="img" aria-label="三人之间交接的文件：Yujing 提供视频和配置，Mingjian 提供感知结果、清单和生成工具，Yifan 产出场景文件和运行日志交给 Yujing 评测">
+        <defs>
+          <marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+        </defs>
+        <rect class="box" x="20" y="110" width="240" height="80" rx="8"/>
+        <text class="t-title" x="140" y="144" text-anchor="middle">Mingjian</text>
+        <text class="t-small muted" x="140" y="166" text-anchor="middle">感知和生成</text>
+        <rect class="box" x="360" y="110" width="240" height="80" rx="8"/>
+        <text class="t-title" x="480" y="144" text-anchor="middle">Yifan</text>
+        <text class="t-small muted" x="480" y="166" text-anchor="middle">agent 和驱动</text>
+        <rect class="tru" x="700" y="110" width="240" height="80" rx="8"/>
+        <text class="t-title tru-text" x="820" y="144" text-anchor="middle">Yujing</text>
+        <text class="t-small muted" x="820" y="166" text-anchor="middle">数据和评测</text>
+
+        <line class="line" x1="260" y1="138" x2="358" y2="138" marker-end="url(#a5)"/>
+        <text class="t-mono" x="309" y="84" text-anchor="middle">bundle/</text>
+        <text class="t-mono" x="309" y="100" text-anchor="middle">inventory.json</text>
+        <line class="line" x1="260" y1="166" x2="358" y2="166" marker-end="url(#a5)"/>
+        <text class="t-small" x="309" y="206" text-anchor="middle">两个生成工具</text>
+
+        <line class="line" x1="600" y1="150" x2="698" y2="150" marker-end="url(#a5)"/>
+        <text class="t-mono" x="649" y="84" text-anchor="middle">scene.blend</text>
+        <text class="t-mono" x="649" y="100" text-anchor="middle">run_log.json</text>
+
+        <path class="line" d="M820 110 C820 30, 140 30, 140 108" marker-end="url(#a5)"/>
+        <text class="t-mono" x="480" y="26" text-anchor="middle">mp4 · splits.json · thresholds.json</text>
+
+        <path class="line" d="M140 190 C140 280, 820 280, 820 192" marker-end="url(#a5)"/>
+        <text class="t-mono" x="480" y="270" text-anchor="middle">inventory.json（漏斗第 ② 关）· P0 的结果</text>
+      </svg>
+    </div>
+    <figcaption>三人之间靠文件交接。格式先定下来，各自就能并行开工：感知结果和清单从 Mingjian 流向 Yifan，场景和运行日志从 Yifan 流向 Yujing，视频和配置从 Yujing 发给大家。</figcaption>
+  </figure>
+  <div class="prose">
+    <p>提案三人一起改，由一人代表全组上传；文档里要写队名和三个人的名字。</p>
+  </div>
+</section>
+
+<section class="part" id="timeline">
+  <div class="part-head"><span class="eyebrow">11</span><h2>时间线和闸门</h2></div>
+  <figure>
+    <div class="fig-wrap">
+      <svg viewBox="0 0 960 150" role="img" aria-label="10 月 14 日到 12 月 7 日的时间轴，按比例标出六个阶段和七个关键日期">
+        <rect class="band-a" x="40" y="52" width="96" height="30"/>
+        <rect class="band-b" x="136" y="52" width="112" height="30"/>
+        <rect class="band-a" x="248" y="52" width="224" height="30"/>
+        <rect class="band-b" x="472" y="52" width="112" height="30"/>
+        <rect class="band-a" x="584" y="52" width="112" height="30"/>
+        <rect class="band-b" x="696" y="52" width="224" height="30"/>
+        <rect x="40" y="52" width="880" height="30" fill="none" stroke="currentColor" stroke-width="1"/>
+        <text class="t-small" x="88" y="72" text-anchor="middle">提案</text>
+        <text class="t-small" x="192" y="72" text-anchor="middle">跑通基线</text>
+        <text class="t-small" x="360" y="72" text-anchor="middle">主实验</text>
+        <text class="t-small" x="528" y="72" text-anchor="middle">补充实验</text>
+        <text class="t-small" x="640" y="72" text-anchor="middle">初稿</text>
+        <text class="t-small" x="808" y="72" text-anchor="middle">展示与终稿</text>
+        <text class="t-mono muted" x="40" y="40" text-anchor="start">10/14</text>
+        <text class="t-mono muted" x="920" y="40" text-anchor="end">12/07</text>
+
+        <g class="acc-text">
+          <circle cx="128" cy="82" r="5" fill="var(--accent)"/>
+          <circle cx="240" cy="82" r="5" fill="var(--accent)"/>
+          <circle cx="352" cy="82" r="5" fill="var(--accent)"/>
+          <circle cx="464" cy="82" r="5" fill="var(--accent)"/>
+          <circle cx="688" cy="82" r="5" fill="var(--accent)"/>
+          <circle cx="832" cy="82" r="5" fill="var(--accent)"/>
+          <circle cx="912" cy="82" r="5" fill="var(--accent)"/>
+        </g>
+        <text class="t-small" x="128" y="108" text-anchor="middle">10/19 交提案</text>
+        <text class="t-small" x="240" y="130" text-anchor="middle">10/26 中期检查</text>
+        <text class="t-small" x="352" y="108" text-anchor="middle">11/2 生成工具闸门</text>
+        <text class="t-small" x="464" y="130" text-anchor="middle">11/9 主实验完成</text>
+        <text class="t-small" x="688" y="108" text-anchor="middle">11/23 初稿</text>
+        <text class="t-small" x="832" y="130" text-anchor="middle">12/1·12/3 展示</text>
+        <text class="t-small" x="920" y="108" text-anchor="end">12/7 终稿</text>
+      </svg>
+    </div>
+    <figcaption>按日期比例画的时间轴，橙点是关键日期。最紧的是开头两周：提案和中期检查只隔一周。</figcaption>
+  </figure>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>时间</th><th>任务</th><th>闸门</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">10/14–10/19</td><td>交提案；装 AHa-3D；量额度；下载数据；评测脚本雏形；申请 ScanNet++、SAM 3、SAM 3D 权限；本地装 Hunyuan3D-2mini</td><td>10/19 提案交出</td></tr>
+        <tr><td class="mono">10/20–10/26</td><td>定死测试集和阈值；Betty 上算好 20 个场景的感知结果；A0、A1 在 3 个开发场景跑通；第一版漏斗图</td><td><strong>10/26 中期检查</strong>交这批数字；决定训练加分项做不做</td></tr>
+        <tr><td class="mono">10/27–11/09</td><td>两个生成工具在开发集上校准；A2、A3r、A3v、P0 在 15 个测试场景上跑</td><td>11/2 SAM 3D 要在 Betty 上能跑；11/9 主实验跑完</td></tr>
+        <tr><td class="mono">11/10–11/16</td><td>A4、第二次重复、Claude 复跑、高清帧消融、Hunyuan 小对比、训练加分项</td><td>—</td></tr>
+        <tr><td class="mono">11/17–11/23</td><td>写初稿</td><td>11/23 交初稿</td></tr>
+        <tr><td class="mono">11/24–12/07</td><td>准备展示、演示视频、终稿</td><td>12/1 或 12/3 展示；12/7 终稿</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="part" id="risks">
+  <div class="part-head"><span class="eyebrow">12</span><h2>风险与退路</h2></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>风险</th><th>怎么办</th></tr></thead>
+      <tbody>
+        <tr><td>AHa-3D 无人值守跑不完（审查门、停止钩子、路径问题）</td><td>之前的会话里用 Haiku 5.5 跑通过一次 office48（67 轮）。10/26 还跑不完，就给 harness 打补丁（审查改用转发 shim、放宽停止钩子），补丁对包括 A0 在内的所有组一样，写进报告，结论里称"打过补丁的 AHa-3D"。不允许人工干预。同时砍掉 A4。</td></tr>
+        <tr><td>订阅额度不够</td><td>按第 4 部分的削减顺序缩减，结论按实际样本量写。</td></tr>
+        <tr><td>小物体全卡在"看得见"这一关，各组差不多</td><td>这本身就是一个发现：瓶颈在上游，不在 agent。高清帧消融会给出具体数字。</td></tr>
+        <tr><td>Boxer 见过 CA-1M，A2 的结果偏乐观</td><td>每张表都放干净对照并标注；P0 用两种清单各跑一遍，量出偏差对下游的影响。</td></tr>
+        <tr><td>Betty 上的 SAM 3D 在 11/2 前装不通（权限审批慢，或 B200 的环境问题）</td><td>正式实验改用本地 Hunyuan3D-2mini 加我们的配准，报告里注明；训练加分项不做。</td></tr>
+        <tr><td>Betty 的计算节点不能上网</td><td>权重在登录节点预先下载，计算作业离线跑；Colab 当备用。</td></tr>
+        <tr><td>笔记本硬盘只剩约 65 GB</td><td>不下载原始 .mov；权重和中间结果放 Betty；本地只放评测数据和最终的 .blend。</td></tr>
+        <tr><td>两个月内有人发表同样的评测</td><td>提案和报告里写"据 2026 年 10 月的检索"，把贡献落在漏斗分析和公平比较上。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="part" id="train">
+  <div class="part-head"><span class="eyebrow">13</span><h2>训练加分项（10/26 决定做不做）</h2></div>
+  <div class="prose">
+    <h3>默认方案：路由小分类器</h3>
+    <p>训练一个小网络，替代 agent 做"这个物体该生成还是写代码"的判断。</p>
+    <ul>
+      <li><strong>输入</strong>：只用推理时拿得到的东西。最好那一帧的掩码像素数、看得见的帧数、估计尺寸、类别文字的嵌入、SAM 3D 的置信度、方块版的剪影 IoU。</li>
+      <li><strong>标签</strong>：同一个物体，用方块和用生成，哪个摆得更准（对照真值）。</li>
+      <li><strong>训练数据</strong>：用 P0 的方式（不调大模型）在 CA-1M 验证集里<strong>另外 85 个</strong>不在那 22 个里的视频上批量生成，全部在 Betty 上跑；规模够大还可以扩展到 CA-1M 训练集。</li>
+      <li><strong>评估</strong>：作为第三种路由 A3c，在 5 个测试场景上和 A3r、A3v 比较。</li>
+      <li><strong>前提</strong>：Betty 上的 SAM 3D 在 11/2 前装通。</li>
+    </ul>
+    <h3>备选和以后</h3>
+    <ul>
+      <li><strong>备选</strong>：在 CA-1M 训练集的小物体上微调 Boxer，提高"找物体"的召回，用 Betty 的 B200 跑。想要一个真正的大规模训练任务时改做这个。Boxer 已经在 CA-1M 上训练过，提升可能有限。</li>
+      <li><strong>写进未来工作</strong>：把真值框故意挪歪后渲染出叠加图，训练一个"验收器"来替代大模型自检。这是 GRASE 论文里写的未来方向。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="part" id="related">
+  <div class="part-head"><span class="eyebrow">14</span><h2>相关工作：别人做了什么，没测什么</h2></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>工作</th><th>输入</th><th>小物体或难建的物体怎么处理</th><th>测了什么</th><th>没测什么</th></tr></thead>
+      <tbody>
+        <tr><td><strong>AHa-3D</strong></td><td>单目视频</td><td>资产库里挑；演示任务写的是 "approximate small objects"；试过生成后搁置</td><td>只有定性视频和一份 token 账单</td><td>任何定量指标</td></tr>
+        <tr><td><strong>GRASE</strong><br><span class="tag">ICLR 2027 在审</span></td><td>单目视频</td><td>小件一律用 TRELLIS.2 生成；大件默认用方块，VLM 认为形状太差时改为生成</td><td>Replica、Imaginarium 上的 Chamfer、F-score、实例 mIoU 等</td><td>路由消融、按尺寸分档、成本</td></tr>
+        <tr><td><strong>LIVIN</strong><br><span class="mono">2610.12069</span></td><td>家庭扫描</td><td>按能不能开合分流：能开合的由 agent 写 Blender 代码，其余（包括大家具）全部用 Rodin 生成</td><td>小杂物子集的召回（但只评了非 agent 方法，且给了真值掩码和深度）</td><td>路由策略的定量比较；自家流程的小物体召回</td></tr>
+        <tr><td><strong>GATOR</strong><br><span class="mono">2610.11215</span></td><td>随手拍的图片</td><td>不路由：所有物体先生成，再由 agent 精修，每个物体 10 分钟</td><td>物体级几何和位姿，和"从零建模"等做了同等时间的对比</td><td>场景级召回、按尺寸分档</td></tr>
+        <tr><td><strong>LiteReality-Agent</strong><br><span class="mono">2610.01863</span></td><td>RGB-D 扫描</td><td>结构化或能开合的走程序化建模，外形复杂的走 TRELLIS.2；小物体单独一步添加</td><td>采集视角上的评测</td><td>路由消融、小物体指标</td></tr>
+        <tr><td><strong>CoDimRecon</strong><br><span class="mono">2609.36024</span></td><td>多视角图片</td><td>每个物体先用 SAM 3D 做参考，再用方块重建；容器里的小物体另做补全</td><td>ScanNet++、Replica 上的 Chamfer、F1</td><td>小物体补全没有单独评</td></tr>
+        <tr><td><strong>HARMONY</strong><br><span class="mono">2609.26793</span></td><td>单张图片</td><td>全部用 Hunyuan3D-2 生成，装饰物最后放</td><td>归一化后的几何指标</td><td>小物体指标、米制精度</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>结论：在"单目视频 → 整个房间 → agent 建模"这个设定下，据 2026 年 10 月的检索，还没有工作按物体大小报告召回和精度，把损失拆到每一步，或者在同一套流程里比较不同的小物体处理方式。这三点就是我们的贡献。</p>
+  </div>
+</section>
+
+<section class="part" id="glossary">
+  <div class="part-head"><span class="eyebrow">15</span><h2>术语表</h2></div>
+  <dl class="gloss">
+    <dt>位姿 / 外参</dt><dd>相机在房间里的位置和朝向。</dd>
+    <dt>内参</dt><dd>镜头本身的参数：焦距、画面中心。</dd>
+    <dt>点云 / 点图</dt><dd>一堆 3D 点；点图是"每个像素对应一个 3D 点"的图。</dd>
+    <dt>米制</dt><dd>单位真的是米。单目估出来的尺度只是近似米制。</dd>
+    <dt>掩码</dt><dd>标出某个物体所占像素的黑白图。</dd>
+    <dt>3D 框（OBB）</dt><dd>包住物体的有向长方体：中心、长宽高、朝向。</dd>
+    <dt>规范空间</dt><dd>生成模型输出网格时用的标准姿势和单位大小，和房间里的真实位置无关。</dd>
+    <dt>ICP</dt><dd>迭代最近点，把模型挪到贴合点云的位置的经典算法。</dd>
+    <dt>剪影</dt><dd>模型投到图上的轮廓，用来和真实掩码比重合度。</dd>
+    <dt>agent / harness</dt><dd>会自己调用工具的大模型 / 包在它外面的工具和规则。</dd>
+    <dt>驱动模型</dt><dd>agent 背后实际干活的大模型，比如 GPT-6 或 Claude Opus 5.5。</dd>
+    <dt>bpy</dt><dd>Blender 的 Python 接口。</dd>
+    <dt>IoU3D</dt><dd>两个 3D 框重叠体积占合并体积的比例。</dd>
+    <dt>匈牙利匹配</dt><dd>让总误差最小的一对一配对方法。</dd>
+    <dt>Sim(3) / Umeyama</dt><dd>带缩放的整体平移旋转 / 求它的闭式算法。</dd>
+    <dt>bootstrap</dt><dd>反复有放回地抽样重算，估计结果的波动范围。</dd>
+    <dt>帕累托前沿</dt><dd>在成本和精度上没被别人同时打败的那些方法。</dd>
+    <dt>同源 / 污染</dt><dd>被测模型训练时见过测试数据的来源，成绩会偏高。</dd>
+    <dt>消融</dt><dd>只去掉或换掉一个部件，看结果变多少，以此判断这个部件的贡献。</dd>
+    <dt>召回 / 精确率</dt><dd>真值物体里被建好的比例 / 建出来的物体里对得上真值的比例。</dd>
+  </dl>
+</section>
+
+<section class="part" id="refs">
+  <div class="part-head"><span class="eyebrow">16</span><h2>参考链接</h2></div>
+  <ul class="refs">
+    <li>AHa-3D 博客 <a href="https://kevinxu02.github.io/real2sim-indoor-site/">kevinxu02.github.io/real2sim-indoor-site</a> · 代码 <a href="https://github.com/KevinXu02/aha-3d">github.com/KevinXu02/aha-3d</a></li>
+    <li>GATOR <a href="https://arxiv.org/abs/2610.11215">arXiv 2610.11215</a> · LIVIN <a href="https://arxiv.org/abs/2610.12069">arXiv 2610.12069</a> · LiteReality-Agent <a href="https://arxiv.org/abs/2610.01863">arXiv 2610.01863</a> · CoDimRecon <a href="https://arxiv.org/abs/2609.36024">arXiv 2609.36024</a> · HARMONY <a href="https://arxiv.org/abs/2609.26793">arXiv 2609.26793</a></li>
+    <li>GRASE（ICLR 2027 在审，OpenReview 页面对自动化访问有人机验证，需要手动打开）<a href="https://openreview.net/forum?id=NjJOSWydaG">openreview.net/forum?id=NjJOSWydaG</a></li>
+    <li>Agentic RSR <a href="https://arxiv.org/abs/2610.10479">arXiv 2610.10479</a> · BVB <a href="https://arxiv.org/abs/2609.15478">arXiv 2609.15478</a></li>
+    <li>CA-1M <a href="https://arxiv.org/abs/2412.04458">arXiv 2412.04458</a> · <a href="https://github.com/apple/ml-cubifyanything">github.com/apple/ml-cubifyanything</a></li>
+    <li>VSI-Bench <a href="https://arxiv.org/abs/2412.14171">arXiv 2412.14171</a> · <a href="https://github.com/vision-x-nyu/thinking-in-space">github.com/vision-x-nyu/thinking-in-space</a> · <a href="https://huggingface.co/datasets/nyu-visionx/VSI-Bench">huggingface.co/datasets/nyu-visionx/VSI-Bench</a></li>
+    <li>ScanNet++ <a href="https://arxiv.org/abs/2308.11417">arXiv 2308.11417</a></li>
+    <li>Boxer <a href="https://arxiv.org/abs/2604.05212">arXiv 2604.05212</a> · <a href="https://github.com/facebookresearch/boxer">github.com/facebookresearch/boxer</a></li>
+    <li>SAM 3D Objects <a href="https://arxiv.org/abs/2511.16624">arXiv 2511.16624</a> · <a href="https://github.com/facebookresearch/sam-3d-objects">github.com/facebookresearch/sam-3d-objects</a></li>
+    <li>Hunyuan3D-2 <a href="https://github.com/Tencent-Hunyuan/Hunyuan3D-2">github.com/Tencent-Hunyuan/Hunyuan3D-2</a> · Pi3 / Pi3X <a href="https://github.com/yyfz/Pi3">github.com/yyfz/Pi3</a></li>
+    <li>PARCC 入门文档 <a href="https://parcc.upenn.edu/training/getting-started/">parcc.upenn.edu/training/getting-started</a></li>
+  </ul>
+  <footer>
+    设计文档原件：<code>ubuntu_final_project/docs/design.md</code>；调研笔记：<code>ubuntu_final_project/docs/research/notes/</code>（Yifan 的电脑上）。方案有变时先改设计文档，再同步这一页。
+  </footer>
+</section>
+</main>
+</div>
+
+<script>
+(function () {
+  var frames = [
+    { name: "AHa-3D 用的分辨率（Pi3X 默认）", w: 574, h: 434 },
+    { name: "CA-1M 原帧（我们的“高清帧”）", w: 1024, h: 768 },
+    { name: "ARKitScenes 原始视频", w: 1920, h: 1440 }
+  ];
+  var sizeEl = document.getElementById("c-size");
+  var distEl = document.getElementById("c-dist");
+  var fovEl = document.getElementById("c-fov");
+  var rows = document.getElementById("c-rows");
+  function verdict(area) {
+    if (area < 100) return ['<span class="verdict bad">过不了“看得见”</span>'];
+    if (area < 200) return ['<span class="verdict mid">看得见，但生成会被判 too_small</span>'];
+    return ['<span class="verdict ok">可以送去生成</span>'];
+  }
+  function update() {
+    var s = parseFloat(sizeEl.value) / 100;
+    var d = parseFloat(distEl.value);
+    var fov = parseFloat(fovEl.value) * Math.PI / 180;
+    if (!(s > 0) || !(d > 0) || !(fov > 0) || fov >= Math.PI) { rows.innerHTML = '<tr><td colspan="5">请输入正数（视角小于 180°）。</td></tr>'; return; }
+    var html = "";
+    frames.forEach(function (f) {
+      var focal = (f.w / 2) / Math.tan(fov / 2);
+      var span = focal * s / d;
+      var area = span * span;
+      html += "<tr><td>" + f.name + '</td><td class="num">' + f.w + " × " + f.h + '</td><td class="num">' + span.toFixed(0) + ' px</td><td class="num">' + area.toFixed(0) + " px²</td><td>" + verdict(area)[0] + "</td></tr>";
+    });
+    rows.innerHTML = html;
+  }
+  [sizeEl, distEl, fovEl].forEach(function (el) { el.addEventListener("input", update); });
+  update();
+
+  var toc = document.getElementById("toc-details");
+  try {
+    if (window.matchMedia("(max-width: 1079px)").matches) toc.removeAttribute("open");
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>

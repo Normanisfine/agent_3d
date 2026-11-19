@@ -1,0 +1,117 @@
+<h2 id="related"><span class="num">15</span>相关工作</h2>
+<p>2026 年 9 到 10 月出了一批同类工作，它们都用到了"小物体或难建的物体交给生成模型"。所以这个做法已经有人做过，不能算我们的贡献。</p>
+<p>我们的贡献在评测：按尺寸测召回、把损失拆到每一步、在同一流程同样预算下比较几种做法。这一章先看别人怎么处理小物体，再看各自测了什么、没测什么。</p>
+
+<h3 id="d-compare">15.1 七个工作对照：小物体走哪条路</h3>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>七家装修公司处理小摆件的办法各不相同：有的去家具城买现成的（生成），有的自己钉（代码搭方块），有的从仓库里挑（资产库）。但几乎没有一家统计过"交房时到底少了几个摆件"。</p>
+</div>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 316" width="770" role="img" aria-label="七个相关工作和我们的方案中，小物体和大件分别走生成、代码方块、资产库哪条路">
+<g font-size="12">
+<text x="10" y="22" font-weight="700">工作</text>
+<text x="230" y="22" text-anchor="middle" font-weight="700">生成模型</text>
+<text x="320" y="22" text-anchor="middle" font-weight="700">代码 / 方块</text>
+<text x="410" y="22" text-anchor="middle" font-weight="700">资产库</text>
+<text x="460" y="22" font-weight="700">要点</text>
+<line x1="10" y1="32" x2="760" y2="32" class="stroke"/>
+<text x="10" y="56" font-weight="700">AHa-3D</text>
+<text x="230" y="56" text-anchor="middle" class="lbl-accent">试过后搁置</text>
+<circle cx="312" cy="52" r="6" class="ink3"/><circle cx="328" cy="52" r="6" class="f0 stroke"/>
+<circle cx="402" cy="52" r="6" class="ink3"/><circle cx="418" cy="52" r="6" class="f0 stroke"/>
+<text x="460" y="56">对比实验里写 approximate small objects</text>
+<text x="10" y="88" font-weight="700">GRASE</text>
+<circle cx="222" cy="84" r="6" class="ink3"/><circle cx="238" cy="84" r="6" class="f0 stroke"/>
+<circle cx="328" cy="84" r="6" class="f0 stroke"/>
+<text x="460" y="88">小件一律 TRELLIS.2；大件默认方块</text>
+<text x="10" y="120" font-weight="700">LIVIN</text>
+<circle cx="222" cy="116" r="6" class="ink3"/><circle cx="238" cy="116" r="6" class="f0 stroke"/>
+<circle cx="328" cy="116" r="6" class="f0 stroke"/>
+<text x="460" y="120">按能不能开合分流；不能开合的全给 Rodin</text>
+<text x="10" y="152" font-weight="700">GATOR</text>
+<circle cx="222" cy="148" r="6" class="ink3"/><circle cx="238" cy="148" r="6" class="f0 stroke"/>
+<text x="460" y="152">全部先生成，agent 再精修；物体级</text>
+<text x="10" y="184" font-weight="700">LiteReality-Agent</text>
+<circle cx="238" cy="180" r="6" class="f0 stroke"/>
+<circle cx="328" cy="180" r="6" class="f0 stroke"/>
+<text x="460" y="184">按类型分；小物体单独一步由 agent 添加</text>
+<text x="10" y="216" font-weight="700">CoDimRecon</text>
+<circle cx="222" cy="212" r="6" class="ink3"/>
+<circle cx="312" cy="212" r="6" class="ink3"/><circle cx="328" cy="212" r="6" class="f0 stroke"/>
+<text x="460" y="216">先生成参考再用方块重建；容器里的另补</text>
+<text x="10" y="248" font-weight="700">HARMONY</text>
+<circle cx="222" cy="244" r="6" class="ink3"/><circle cx="238" cy="244" r="6" class="f0 stroke"/>
+<text x="460" y="248">全部 Hunyuan3D-2；装饰物最后放</text>
+<rect x="4" y="262" width="760" height="30" rx="6" class="f5 stroke"/>
+<text x="10" y="282" font-weight="700">我们</text>
+<circle cx="222" cy="277" r="6" class="ink3"/><circle cx="312" cy="277" r="6" class="ink3"/>
+<text x="460" y="282">同一流程、同样预算下比较几种走法</text>
+<circle cx="16" cy="306" r="6" class="ink3"/><text x="28" y="310">小物体走这条路</text>
+<circle cx="146" cy="306" r="6" class="f0 stroke"/><text x="158" y="310">大件走这条路</text>
+</g></svg></div>
+<figcaption>每一行是一个工作，实心点表示小物体走这一列，空心点表示大件走这一列。几乎每家都有一条"小物体进生成模型"的路；区别在谁来决定、按什么决定。最后一行是我们：在同一流程里把这几种走法放在一起比，自己不新增走法。</figcaption></figure>
+<div class="table-wrap"><table>
+<thead><tr><th>工作</th><th>输入</th><th>小物体或难建的物体怎么处理</th><th>测了什么</th><th>没测什么</th></tr></thead>
+<tbody>
+<tr><td><b>AHa-3D</b><br><span class="small muted">博客 + 开源仓库</span></td><td>单目视频</td><td>从 108 项的资产库里挑，或由 agent 用脚本从基本体搭；资产库里没有杯子、书、显示器。试过 SAM 3D Objects 和 TRELLIS.2 生成，做完后搁置</td><td>三个房间的对比视频，一个房间（office48）的 token 账单</td><td>任何定量指标；作者把消融部分标为占位</td></tr>
+<tr><td><b>GRASE</b><br><span class="small muted">ICLR 2027 在审</span></td><td>单目视频</td><td>VLM 列清单并分大小件。小件一律用 TRELLIS.2 生成（每个物体 3 个候选，VLM 挑）；大件默认用方块，VLM 认为形状太差时改为生成</td><td>8 个 Replica、15 个 Imaginarium 场景上的 CD、NC、F@5cm、实例 mIoU 和图像指标</td><td>路由消融、按尺寸分档、成本</td></tr>
+<tr><td><b>LIVIN</b><br><span class="mono small">2610.12069</span></td><td>平面图、带位姿的多视角图像和米制扫描</td><td>agent 给每个实例打"能不能开合"和"家具还是小物体"两组标签，<b>按能不能开合分流</b>。能开合的由 agent 写 Blender 代码；不能开合的（包括大家具）全部先用 GPT-Image-2 清理参考图，再交给 Rodin 生成。"家具还是小物体"只决定摆放顺序</td><td>小杂物子集（306 条物体-视图记录）的覆盖率、3D 框召回、F-score</td><td>小杂物子集只评了非 agent 方法，且给了真值掩码、深度和标定；没有路由策略的定量比较</td></tr>
+<tr><td><b>GATOR</b><br><span class="mono small">2610.11215</span></td><td>一到十张随手拍的图片</td><td>不路由：所有物体先用微调过的 TRELLIS.2 生成，再由 GPT-6 Astra 精修，每个物体 10 分钟预算</td><td>物体级几何和位姿；和"GPT-6 从零写代码建模"做了同预算对比，还有时间-质量曲线</td><td>场景级清单和召回、按尺寸分档、按物体选择分支</td></tr>
+<tr><td><b>LiteReality-Agent</b><br><span class="mono small">2610.01863</span></td><td>RGB-D 扫描</td><td>结构化或能开合的走程序化建模，外形复杂的静态物体走 TRELLIS.2；小物体在单独一步里由 agent 添加</td><td>在采集视角上评测</td><td>路由消融、小物体指标</td></tr>
+<tr><td><b>CoDimRecon</b><br><span class="mono small">2609.36024</span></td><td>多视角图片</td><td>每个物体先用 SAM 3D 生成参考网格，agent 再参照它用方块重建；容器里漏掉的小物体另做一遍补全</td><td>ScanNet++、Replica 上的 Chamfer、F1、NC</td><td>小物体补全原文写明 <q>not a separately evaluated component</q></td></tr>
+<tr><td><b>HARMONY</b><br><span class="mono small">2609.26793</span></td><td>单张图片</td><td>所有物体都用 Hunyuan3D-2 生成，装饰物最后放，由 VLM 判断放在哪件家具上</td><td>归一化后的几何指标（Front3D）、外观指标、用户研究</td><td>小物体指标、米制精度</td></tr>
+</tbody></table></div>
+<div class="box detail"><span class="box-label">GATOR 的两组数字要一起看</span>
+<p>GATOR 给 GPT-6 Astra 每个物体 10 分钟从零写代码建模，再和"先生成再精修"比。距离都按物体直径归一化，越小越好。</p>
+<ul>
+<li>ScanNet++ 的 229 个目标上，从零建模 Chamfer 0.033，先生成再精修 0.031，差得不多。</li>
+<li>桌面物体上是 0.016 对 0.009，差了将近一倍。</li>
+</ul>
+<p>两组放在一起说明：生成划不划算，取决于物体类型和预算。整间房、固定预算下生成值不值，是我们要检验的开放问题，事先不能当成前提。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li>"approximate small objects" 出自 AHa-3D 博客里一次对比实验（workflow ablation）的任务描述，原文是 <q>They should match the walls and major furniture and approximate small objects.</q> 它不一定是发布版的默认提示词，引用时要写清出处。</li>
+<li>LIVIN 按"能不能开合"分流，和物体大小无关。大衣柜这种不能开合的大家具也交给 Rodin 生成。</li>
+<li>LIVIN 确实单独评过小杂物，但评的是非 agent 方法，而且给了真值掩码和深度。它不能当"agent 流程的小物体召回"来引用。</li>
+</ul>
+</div>
+<p class="src">01 号笔记 §1.2、§2.1、§3.1–3.2；GRASE 阅读笔记；AHa-3D 博客 sections/workflow.html。</p>
+
+<h3 id="d-map">15.2 定位图：我们站在哪</h3>
+<p>把各工作按两个维度摆开：横轴看评测有没有按尺寸分档、测不测召回，纵轴看是不是 agent 做整间房的重建。右上角是空的。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 330" width="770" role="img" aria-label="定位示意图：横轴是评测是否按尺寸分档、是否测召回，纵轴是是否 agentic 的整屋重建；右上角只有我们">
+<defs><marker id="d-m15a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="570" y="44" width="170" height="70" rx="8" class="f2 stroke dash"/>
+<line x1="80" y1="270" x2="745" y2="270" class="stroke"/><line x1="80" y1="270" x2="80" y2="25" class="stroke"/>
+<text x="10" y="18" font-weight="700">↑ agent 做整间房的重建</text>
+<text x="745" y="290" text-anchor="end" font-weight="700">评测按尺寸分档、测召回 →</text>
+<text x="84" y="290" class="ink3">只有定性或整体指标</text>
+<text x="10" y="264" class="ink3">物体级</text>
+<circle cx="113" cy="57" r="7" class="f1 stroke"/><text x="125" y="61" font-weight="700">AHa-3D</text><text x="125" y="77" class="ink3">没有定量指标</text>
+<circle cx="245" cy="65" r="7" class="f1 stroke"/><text x="257" y="69" font-weight="700">GRASE</text>
+<circle cx="199" cy="103" r="7" class="f1 stroke"/><text x="211" y="107" font-weight="700">LiteReality-Agent</text>
+<circle cx="291" cy="131" r="7" class="f1 stroke"/><text x="303" y="135" font-weight="700">CoDimRecon</text>
+<circle cx="172" cy="176" r="7" class="f1 stroke"/><text x="184" y="180" font-weight="700">HARMONY</text><text x="184" y="196" class="ink3">单张图片</text>
+<circle cx="480" cy="140" r="7" class="f3 stroke"/><text x="492" y="144" font-weight="700">LIVIN</text><text x="492" y="160" class="ink3">评过小杂物，但只评非 agent 方法</text><text x="492" y="176" class="ink3">并给了真值输入；只有一档</text>
+<circle cx="290" cy="226" r="7" class="f3 stroke"/><text x="302" y="230" font-weight="700">GATOR</text><text x="302" y="246" class="ink3">物体级，目标给定</text><text x="302" y="262" class="ink3">不测召回</text>
+<polygon points="600,50 605,62 618,62 608,70 612,82 600,74 588,82 592,70 582,62 595,62" class="f4 stroke"/>
+<text x="732" y="72" text-anchor="end" font-weight="700" class="lbl-accent">我们</text>
+<text x="732" y="90" text-anchor="end">漏斗 + 分尺寸召回</text>
+<text x="732" y="106" text-anchor="end" class="ink3">这一角原本是空的</text>
+<path d="M140,36 L598,36 L598,47" class="arrow-green dash" marker-end="url(#d-m15a)"/><text x="300" y="29" text-anchor="middle">同一设定，补上分尺寸的评测</text>
+<text x="10" y="318" class="ink3">示意图，位置是定性的，按 2026 年 10 月的检索</text>
+</g></svg></div>
+<figcaption>定位示意图，点的位置只表示相对关系，没有刻度。左上一簇是 agent 整屋重建的工作，评测都停在整体指标；LIVIN 往右走了一步，但评的是非 agent 方法；GATOR 在下方，是物体级的。右上角虚线框按 2026 年 10 月的检索还是空的，我们以 AHa-3D 为基线往右补。</figcaption></figure>
+<div class="box key"><span class="box-label">必记 · 还空着的四个位置（据 2026 年 10 月的检索）</span>
+<ol>
+<li>在"单目视频 → 整个房间 → agent 建模"这个设定下，没有人按物体大小报告召回和摆放精度。</li>
+<li>没有人把损失拆到流程的每一步：看不见、没检测到、没建、没摆准。</li>
+<li>没有人在同一套流程、同样预算下比较几种小物体处理方式。GATOR 只在物体级、单图上比过分支。</li>
+<li>没有人给出场景级的成本-精度曲线。</li>
+</ol>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<p>"没人做过"只在检索范围内成立。检索覆盖到 arXiv 10-12 的公告和 ICLR 2027 的部分投稿，两个月内很可能出现"GRASE 或 GATOR 加评测"的后续工作。所以提案和报告里都写"据 2026 年 10 月的检索"。</p>
+</div>
+<p class="src">设计文档第 1 节；01 号笔记 §0、§3.2、§6。</p>

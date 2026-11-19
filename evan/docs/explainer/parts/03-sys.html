@@ -1,0 +1,392 @@
+<h2 id="sys"><span class="num">3</span>我们的系统架构</h2>
+<p>上一章是 AHa-3D 本身。这一章把它放进我们的整套系统里：什么在哪台机器上跑、文件怎么流、哪些东西所有实验组必须一样。</p>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>把整个项目想成一场厨艺比赛。</p>
+<ul>
+<li><b>备料只做一次</b>。Betty 集群像中央厨房，把每个场景的“食材”（相机、点云、掩码、物体清单）一次备好，分装给所有参赛组。</li>
+<li><b>各组在同一个灶台上做</b>。笔记本上的 AHa-3D 是灶台，同一把刀、同一口锅、同样的时限。</li>
+<li><b>评委只看成品</b>。评测脚本拿真值（标准答案）打分，标准答案从头到尾不进厨房。</li>
+</ul>
+</div>
+
+<h3 id="b-components">3.1 组件架构：两台机器之间只传文件</h3>
+<p>重活放在 Betty（学校的 GPU 集群，课程额度付费），要看图、要渲染的 agent 循环留在 Yifan 的笔记本上。两边之间只传文件。</p>
+<p>Betty 的 B200 可以整卡用，也可以切成 MIG 切片用。MIG 是 NVIDIA 把一张大卡切成几块互相隔离的小卡；mig45 就是其中一块 45 GB 显存的切片，补贴价约是整卡的四分之一。</p>
+<div class="arch">
+<div class="arch-title">谁在哪跑，箭头上是传的文件</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 476" width="760" role="img" aria-label="组件架构图：Betty 上的感知、清单和生成，笔记本上的 AHa-3D harness、Blender、我们的工具、P0 流水线和评测脚本，箭头标出传递的文件">
+<defs><marker id="b-m3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="36" width="220" height="430" rx="12" class="f0 stroke dash"/>
+<text x="120" y="58" text-anchor="middle" font-size="13" font-weight="700">PARCC Betty（B200）</text>
+<rect x="390" y="36" width="360" height="430" rx="12" class="f0 stroke dash"/>
+<text x="570" y="58" text-anchor="middle" font-size="13" font-weight="700">笔记本（RTX 5070 Ti 12 GB）</text>
+<g data-s="1">
+<rect x="34" y="70" width="184" height="42" rx="6" class="f1 stroke"/>
+<text x="126" y="87" text-anchor="middle" font-weight="700">Pi3X + SAM 3</text>
+<text x="126" y="105" text-anchor="middle">32 帧，每帧 25.5 万像素</text>
+<path d="M126,112 L126,138" class="arrow" marker-end="url(#b-m3a)"/>
+<text x="134" y="130">位姿 + 点图</text>
+<rect x="34" y="140" width="184" height="42" rx="6" class="f3 stroke"/>
+<text x="126" y="157" text-anchor="middle" font-weight="700">Boxer 清单</text>
+<text x="126" y="175" text-anchor="middle">同样 32 帧，1024×768 原图</text>
+<rect x="34" y="290" width="184" height="42" rx="6" class="f5 stroke"/>
+<text x="126" y="307" text-anchor="middle" font-weight="700">干净对照清单</text>
+<text x="126" y="325" text-anchor="middle">SAM 3 掩码 + 点云拟合框</text>
+<path d="M218,91 L402,91" class="arrow" marker-end="url(#b-m3a)"/>
+<g font-size="14"><text x="310" y="84" text-anchor="middle" class="shape">bundle/</text></g>
+<path d="M218,154 L402,154" class="arrow" marker-end="url(#b-m3a)"/>
+<g font-size="14"><text x="310" y="147" text-anchor="middle" class="shape">inventory.json</text></g>
+</g>
+<g data-s="2">
+<rect x="404" y="70" width="332" height="100" rx="6" class="f1 stroke"/>
+<text x="570" y="92" text-anchor="middle" font-weight="700">AHa-3D harness（原有工具和检查不改）</text>
+<text x="570" y="114" text-anchor="middle">agent：Codex CLI + GPT-6（主实验）</text>
+<text x="570" y="134" text-anchor="middle">或 Claude Code + Opus 5.5（开发、复跑）</text>
+<text x="570" y="154" text-anchor="middle">每次运行记 token，写 run_log.json</text>
+</g>
+<g data-s="3">
+<path d="M663,170 L663,194" class="arrow" marker-end="url(#b-m3a)"/>
+<text x="671" y="187">bpy 脚本</text>
+<rect x="590" y="196" width="146" height="66" rx="6" class="f6 stroke"/>
+<text x="663" y="216" text-anchor="middle" font-weight="700">Blender 5.2.1</text>
+<text x="663" y="236" text-anchor="middle">后台跑 bpy 脚本</text>
+<g font-size="14"><text x="663" y="254" text-anchor="middle" class="shape">scene.blend</text></g>
+</g>
+<g data-s="4">
+<path d="M482,170 L482,194" class="arrow" marker-end="url(#b-m3a)"/>
+<text x="490" y="187">A3、A4 调用</text>
+<rect x="404" y="196" width="156" height="66" rx="6" class="f3 stroke"/>
+<text x="482" y="216" text-anchor="middle" font-weight="700">我们的工具</text>
+<g font-size="14"><text x="482" y="236" text-anchor="middle" class="shape">gen3d_request</text></g>
+<g font-size="14"><text x="482" y="254" text-anchor="middle" class="shape">place_mesh</text></g>
+<rect x="34" y="196" width="184" height="66" rx="6" class="f2 stroke"/>
+<text x="126" y="216" text-anchor="middle" font-weight="700">SAM 3D Objects</text>
+<text x="126" y="236" text-anchor="middle">生成网格 + 相机系位姿</text>
+<text x="126" y="254" text-anchor="middle">mig45 切片，约 22 GB</text>
+<path d="M402,214 L220,214" class="arrow" marker-end="url(#b-m3a)"/>
+<text x="310" y="207" text-anchor="middle">帧 + 掩码 + 点图</text>
+<path d="M220,248 L402,248" class="arrow" marker-end="url(#b-m3a)"/>
+<g font-size="14"><text x="310" y="241" text-anchor="middle" class="shape">gen/…/mesh.glb</text></g>
+</g>
+<g data-s="5">
+<rect x="404" y="290" width="216" height="72" rx="6" class="f4 stroke"/>
+<text x="512" y="310" text-anchor="middle" font-weight="700">P0 流水线（不经 agent）</text>
+<text x="512" y="330" text-anchor="middle">每个框：生成 → 摆放 → 验收</text>
+<text x="512" y="350" text-anchor="middle">写 scene.blend 和 objects.json</text>
+<path d="M218,311 L402,311" class="arrow" marker-end="url(#b-m3a)"/>
+<g font-size="14"><text x="310" y="304" text-anchor="middle" class="shape">inventory_clean.json</text></g>
+<path d="M34,170 L22,170 L22,350 L402,350" class="arrow" marker-end="url(#b-m3a)"/>
+<g font-size="14"><text x="310" y="343" text-anchor="middle" class="shape">inventory.json</text></g>
+<path d="M440,290 L440,264" class="arrow" marker-end="url(#b-m3a)"/>
+<text x="448" y="282">调用</text>
+</g>
+<g data-s="6">
+<path d="M663,262 L663,396" class="arrow" marker-end="url(#b-m3a)"/>
+<g font-size="14"><text x="655" y="279" text-anchor="end" class="shape">scene.blend</text></g>
+<path d="M440,362 L440,396" class="arrow" marker-end="url(#b-m3a)"/>
+<g font-size="14"><text x="448" y="384" class="shape">export/objects.json</text></g>
+<rect x="404" y="398" width="332" height="56" rx="6" class="f2 stroke"/>
+<text x="570" y="420" text-anchor="middle" font-weight="700">评测脚本：导出、对齐、匹配、三种结局、漏斗</text>
+<text x="570" y="440" text-anchor="middle">还读 run_log.json 和两份清单，写 results/</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>Betty 上的感知</b>。每个场景跑一次 Pi3X 和 SAM 3（作者默认的 32 帧、25.5 万像素），产出 <code>bundle/</code>。Boxer 在同样 32 帧的 1024×768 原图上检测，位姿和点图用 Pi3X 估的，产出 <code>inventory.json</code>。干净对照产出第二份清单 <code>inventory_clean.json</code>。</li>
+<li><b>AHa-3D harness</b>。在笔记本上运行，原有工具和检查都不改，agent 由驱动模型扮演。主实验是 Codex CLI 加 GPT-6，开发和 5 个场景的复跑用 Claude Code 加 Opus 5.5。每次运行写一份 <code>run_log.json</code>。</li>
+<li><b>Blender</b>。agent 写的 bpy 脚本在 Blender 5.2.1 后台运行，存成 <code>scene.blend</code>。Blender 只在笔记本上跑，因为 Betty 的 MIG 切片不支持图形接口。</li>
+<li><b>我们写的工具</b>。A3、A4 运行中由 agent 调 <code>gen3d_request</code>，把帧、掩码、点图交给 Betty 上的 SAM 3D，网格缓存到 <code>gen/</code> 下（图里简写）。<code>place_mesh</code> 把网格配准进场景。细节在 <a href="#gen">第 6 章</a>。</li>
+<li><b>P0 流水线</b>。不经过 agent，也不调大模型。它用 Boxer 清单和干净对照清单各跑一遍，对每个框调同一套工具生成、摆放，过不了验收就用方块。最后自己写 <code>scene.blend</code> 和 <code>export/objects.json</code>。</li>
+<li><b>评测脚本</b>。从 agent 组的 <code>scene.blend</code> 导出每个物体的世界坐标框，写进 <code>export/objects.json</code>；P0 那一组直接用它自己写的。然后和 CA-1M 真值对齐、匹配，判三种结局，画漏斗，写进 <code>results/</code>。两份清单在“检测到”那一关也要读。评测细节在 <a href="#eval">第 8 章</a>。</li>
+</ol>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>订阅只能驱动 agent</b>。ChatGPT 和 Claude Max 订阅给的是对话模型，跑不了 Pi3X、SAM 3D 这类 3D 模型。3D 模型只能在 Betty、笔记本或 fal 上跑。</li>
+<li><b>SAM 3D 在笔记本上跑不了</b>。官方要求至少 32 GB 显存，笔记本只有 12 GB。正式实验部署在 Betty；11 月 2 日前装不通，就改用笔记本上的 Hunyuan3D-2mini 加我们的配准。</li>
+</ul>
+</div>
+<p class="src">设计文档第 3、6、7 节；调研笔记 04 第 1.8、1.10 节。</p>
+
+<h3 id="b-flow">3.2 一个场景从头到尾</h3>
+<p>拿一个 CA-1M 场景走一遍。关键是第 2 步只做一次，第 3 步才按实验组分叉。</p>
+<div class="arch">
+<div class="arch-title">一个场景的七步：数据 → 感知 → 分叉 → 运行 → 生成 → 导出 → 评测</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 396" width="760" role="img" aria-label="一个场景的逐步流程：数据准备、感知只算一次、七个实验组读同一份、agent 运行、生成与摆放（P0 不经 agent 直接进这一步）、导出、评测；框的颜色表示负责人">
+<defs><marker id="b-m3b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="10" y="50" width="160" height="80" rx="8" class="f2 stroke"/>
+<text x="90" y="72" text-anchor="middle" font-weight="700">① 数据（Yujing）</text>
+<text x="90" y="94" text-anchor="middle">CA-1M 帧 → 10 fps mp4</text>
+<text x="90" y="114" text-anchor="middle">splits.json 定死</text>
+<path d="M170,90 L198,90" class="arrow" marker-end="url(#b-m3b)"/>
+<g font-size="14"><text x="184" y="82" text-anchor="middle" class="shape">mp4</text></g>
+</g>
+<g data-s="2">
+<rect x="200" y="36" width="200" height="108" rx="8" class="f3 stroke"/>
+<text x="300" y="58" text-anchor="middle" font-weight="700">② 感知（Mingjian）</text>
+<text x="300" y="78" text-anchor="middle">Betty 上每个场景只算一次</text>
+<text x="300" y="98" text-anchor="middle">Pi3X + SAM 3 → bundle/</text>
+<text x="300" y="116" text-anchor="middle">Boxer → inventory.json</text>
+<text x="300" y="134" text-anchor="middle">干净对照 → 第二份清单</text>
+</g>
+<g data-s="3">
+<text x="476" y="26" text-anchor="middle" font-weight="700">③ 各组读同一份</text>
+<path d="M400,90 L438,47" class="arrow"/>
+<path d="M400,90 L438,73" class="arrow"/>
+<path d="M400,90 L438,99" class="arrow"/>
+<path d="M400,90 L438,125" class="arrow"/>
+<path d="M400,90 L438,151" class="arrow"/>
+<path d="M400,90 L438,177" class="arrow"/>
+<path d="M400,90 L438,203" class="arrow"/>
+<rect x="440" y="36" width="72" height="22" rx="5" class="f6 stroke"/><text x="476" y="52" text-anchor="middle">A0</text>
+<rect x="440" y="62" width="72" height="22" rx="5" class="f6 stroke"/><text x="476" y="78" text-anchor="middle">A1</text>
+<rect x="440" y="88" width="72" height="22" rx="5" class="f6 stroke"/><text x="476" y="104" text-anchor="middle">A2</text>
+<rect x="440" y="114" width="72" height="22" rx="5" class="f6 stroke"/><text x="476" y="130" text-anchor="middle">A3r</text>
+<rect x="440" y="140" width="72" height="22" rx="5" class="f6 stroke"/><text x="476" y="156" text-anchor="middle">A3v</text>
+<rect x="440" y="166" width="72" height="22" rx="5" class="f6 stroke"/><text x="476" y="182" text-anchor="middle">A4</text>
+<rect x="440" y="192" width="72" height="22" rx="5" class="f6 stroke"/><text x="476" y="208" text-anchor="middle">P0</text>
+<path d="M512,47 L526,47 M512,73 L526,73 M512,99 L526,99 M512,125 L526,125 M512,151 L526,151 M512,177 L526,177 M526,47 L526,177" class="arrow"/>
+<path d="M526,99 L548,99" class="arrow" marker-end="url(#b-m3b)"/>
+</g>
+<g data-s="4">
+<rect x="550" y="36" width="200" height="114" rx="8" class="f1 stroke"/>
+<text x="650" y="58" text-anchor="middle" font-weight="700">④ agent 运行（Yifan）</text>
+<text x="650" y="78" text-anchor="middle">笔记本上的 AHa-3D</text>
+<text x="650" y="96" text-anchor="middle">Codex / Claude 驱动</text>
+<text x="650" y="114" text-anchor="middle">同一墙钟、同一轮数上限</text>
+<text x="650" y="134" text-anchor="middle">→ scene.blend、run_log.json</text>
+</g>
+<g data-s="5">
+<path d="M600,152 L600,180" class="arrow" marker-start="url(#b-m3b)" marker-end="url(#b-m3b)"/>
+<text x="608" y="171">A3、A4 运行中调用</text>
+<rect x="550" y="182" width="170" height="68" rx="8" class="f3 stroke"/>
+<text x="635" y="202" text-anchor="middle" font-weight="700">⑤ 生成与摆放（Mingjian）</text>
+<text x="635" y="222" text-anchor="middle">gen3d_request → SAM 3D</text>
+<text x="635" y="240" text-anchor="middle">place_mesh → 验收门</text>
+<path d="M512,203 L548,203" class="arrow" marker-end="url(#b-m3b)"/>
+<text x="494" y="232" text-anchor="middle" class="lbl-accent">P0：不经 agent</text>
+</g>
+<g data-s="6">
+<path d="M736,150 L736,288" class="arrow" marker-end="url(#b-m3b)"/>
+<g font-size="14"><text x="728" y="272" text-anchor="end" class="shape">scene.blend</text></g>
+<rect x="550" y="290" width="200" height="72" rx="8" class="f2 stroke"/>
+<text x="650" y="310" text-anchor="middle" font-weight="700">⑥ 导出（Yujing）</text>
+<g font-size="14"><text x="650" y="330" text-anchor="middle" class="shape">export_model.py</text></g>
+<text x="650" y="350" text-anchor="middle">→ export/objects.json</text>
+<path d="M600,250 L600,276 L470,276 L470,288" class="arrow" marker-end="url(#b-m3b)"/>
+<text x="592" y="266" text-anchor="end">P0 直接写 export/objects.json</text>
+</g>
+<g data-s="7">
+<path d="M550,326 L512,326" class="arrow" marker-end="url(#b-m3b)"/>
+<rect x="200" y="290" width="310" height="72" rx="8" class="f2 stroke"/>
+<text x="355" y="310" text-anchor="middle" font-weight="700">⑦ 评测（Yujing）</text>
+<text x="355" y="330" text-anchor="middle">Sim(3) 对齐 → 匈牙利匹配 → 三种结局 → 漏斗</text>
+<text x="355" y="350" text-anchor="middle">→ results/：每组、每档、bootstrap</text>
+<path d="M90,130 L90,326 L198,326" class="arrow dash" marker-end="url(#b-m3b)"/>
+<text x="98" y="230">真值只给评测</text>
+</g>
+<text x="10" y="386">框的颜色表示负责人</text>
+<rect x="130" y="375" width="12" height="12" class="f1 stroke"/><text x="148" y="386">Yifan</text>
+<rect x="200" y="375" width="12" height="12" class="f3 stroke"/><text x="218" y="386">Mingjian</text>
+<rect x="290" y="375" width="12" height="12" class="f2 stroke"/><text x="308" y="386">Yujing</text>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>数据（Yujing）</b>。把 CA-1M 的帧按 10 fps 合成 mp4 交给 AHa-3D，不下原始 .mov。22 个视频用固定种子分成 5 个开发、15 个测试、2 个备用，10 月 20 日前写进 <code>configs/splits.json</code>，之后不改。</li>
+<li><b>感知（Mingjian，Betty）</b>。Pi3X、SAM 3、Boxer、干净对照，每个场景<b>只算一次</b>，结果打包拷回笔记本。</li>
+<li><b>分叉</b>。七个实验组都读第 2 步的同一份结果，感知的随机性因此不会混进组间差异。P0 不调大模型，绕过第 4 步，直接进第 5 步。</li>
+<li><b>agent 运行（Yifan，笔记本）</b>。每组每场景一次运行。所有组同一个墙钟上限、同一个轮数上限；跑崩或撞上限就重跑一次，还不行就拿最后存下的 .blend 打分，记为失败。</li>
+<li><b>生成与摆放（Mingjian 的工具）</b>。A3、A4 运行中由 agent 调用，P0 对每个框自动调用。生成在 Betty 上，配准在笔记本上，过不了验收门就退回方块。</li>
+<li><b>导出（Yujing）</b>。用 AHa-3D 的 <code>export_model.py</code> 按 <code>instance_id</code> 分组，导出每个语义根节点的世界坐标有向框，写进 <code>export/objects.json</code>。P0 直接写这个文件，不用导出。</li>
+<li><b>评测（Yujing）</b>。只用相机轨迹做 Sim(3) 对齐，匈牙利一对一匹配，每个真值物体判成“建好了 / 建坏了 / 漏了”，画漏斗，按场景 bootstrap 出置信区间。CA-1M 的真值只在这一步出现。</li>
+</ol>
+</div>
+<div class="box detail"><span class="box-label">生成为什么不在 agent 的循环里卡住（按我们的理解）</span>
+<p><code>gen3d_request</code> 按“帧、掩码、后端、种子”缓存结果。P0 本来就要对每个 Boxer 框生成一遍，所以 A3 组请求同一个物体时，有可能直接命中缓存，不必等 Betty 排队。</p>
+<p>能不能命中，取决于 A3 选的帧和掩码是否和 P0 一样。这一点设计文档没写，留给 Mingjian 实现时定。</p>
+<p>设计文档也还没写两条和缓存有关的记账规则，我们建议这样定。</p>
+<ul>
+<li><b>命中缓存时，成本仍按一次生成记账</b>。不然排在 P0 后面跑的生成组白占便宜，成本轴就不公平了。</li>
+<li><b>墙钟上限扣不扣等待生成的时间，和运行上限一起定</b>。不管怎么定，所有生成组用同一条规则。</li>
+</ul>
+</div>
+<p class="src">设计文档第 4、5、8、9 节。</p>
+
+<h3 id="b-fair">3.3 “公平比较”的不变量</h3>
+<p>我们要说“A2 比 A1 好”，就得保证两组之间只差“有没有清单”这一处。下面这张表列出所有必须一样的东西。</p>
+<div class="table-wrap"><table>
+<tr><th>不变量</th><th>具体是什么</th><th>为什么</th></tr>
+<tr><td>感知结果</td><td>每个场景在 Betty 上算一次 Pi3X 和 SAM 3（25.5 万像素、32 帧），所有组读同一份</td><td>Pi3X 和 SAM 3 有随机性，重算会把这部分差异混进组间比较</td></tr>
+<tr><td>AHa-3D 版本</td><td>提交 82f4b11，或我们 fork 后的固定提交</td><td>代码变了，结果就不可比</td></tr>
+<tr><td>Blender</td><td>5.2.1</td><td>资产库用它保存</td></tr>
+<tr><td>驱动模型和推理强度</td><td>主实验同一个模型、同一个推理强度，全程不换</td><td>换驱动会破坏“复现作者设置”这个前提（<a href="#cost">第 9 章</a>）</td></tr>
+<tr><td>墙钟和轮数上限</td><td>所有组同一个值。第 1 周用 office48 只量额度；等 A1 在 3 个开发场景上跑出耗时和轮数的中位数（10/20–10/26 那周），取中位数的 2 倍，10/26 前写进 <code>configs/run_caps.json</code></td><td>“同样预算”就是靠这两个上限定义的</td></tr>
+<tr><td>失败规则</td><td>崩了或撞上限重跑一次；还不行拿最后的 .blend 打分，记失败。失败率每组单独报，配对比较不剔除</td><td>防止某组靠“失败的不算”占便宜</td></tr>
+<tr><td>原有功能</td><td>可开合柜子、物理检查、审查门在所有组里照旧</td><td>只比小物体处理方式</td></tr>
+<tr><td>补丁</td><td>如需打补丁，对包括 A0 在内的所有组一样；不允许人工干预</td><td>人上手帮忙就无法复现</td></tr>
+</table></div>
+<p>还有一条更根本的：<b>真值传感器数据不进流程</b>。CA-1M 带了激光深度和注册过的相机位姿，这些东西太准了，放进流程就不再是“单目视频进来”。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 316" width="760" role="img" aria-label="数据分隔图：左边是进流程的数据，右边是只给评测的真值数据，中间一道墙；Pi3X 的位姿和点图标注了同源风险">
+<defs><marker id="b-m3c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker><marker id="b-m3d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker></defs>
+<g font-size="12">
+<text x="185" y="24" text-anchor="middle" font-size="13" font-weight="700">进流程（所有组一样）</text>
+<text x="585" y="24" text-anchor="middle" font-size="13" font-weight="700">只给评测</text>
+<rect x="20" y="40" width="330" height="32" rx="6" class="f2 stroke"/>
+<text x="185" y="61" text-anchor="middle">视频：CA-1M 帧按 10 fps 合成的 mp4</text>
+<rect x="20" y="80" width="330" height="32" rx="6" class="f2 stroke"/>
+<text x="185" y="101" text-anchor="middle">Pi3X 用的 32 帧，每帧约 574×434</text>
+<rect x="20" y="120" width="330" height="32" rx="6" class="f3 stroke"/>
+<text x="185" y="141" text-anchor="middle" font-weight="700">高清帧：同样 32 帧的 1024×768 原图</text>
+<rect x="20" y="160" width="330" height="48" rx="6" class="f2 stroke"/>
+<text x="185" y="180" text-anchor="middle">位姿、点图：Pi3X 估的（点图放大到原图尺寸）</text>
+<text x="185" y="199" text-anchor="middle" class="lbl-accent">（前身 π³ 训练用过 ARKitScenes，绝对精度可能偏乐观）</text>
+<rect x="20" y="216" width="330" height="32" rx="6" class="f2 stroke"/>
+<text x="185" y="237" text-anchor="middle">SAM 3 掩码；Boxer 清单（表里标“同源”）</text>
+<path d="M185,248 L185,270" class="arrow" marker-end="url(#b-m3c)"/>
+<rect x="60" y="272" width="250" height="34" rx="6" class="f1 stroke"/>
+<text x="185" y="294" text-anchor="middle">agent、工具、P0（所有组）</text>
+<rect x="380" y="36" width="10" height="270" class="f4 stroke"/>
+<path d="M420,141 L394,141" class="arrow-red dash" marker-end="url(#b-m3d)"/>
+<text x="362" y="146" class="lbl-accent">✗</text>
+<rect x="420" y="40" width="330" height="32" rx="6" class="f4 stroke"/>
+<text x="585" y="61" text-anchor="middle">CA-1M 注册过的相机位姿</text>
+<rect x="420" y="80" width="330" height="32" rx="6" class="f4 stroke"/>
+<text x="585" y="101" text-anchor="middle">激光渲染的深度</text>
+<rect x="420" y="120" width="330" height="32" rx="6" class="f4 stroke"/>
+<text x="585" y="141" text-anchor="middle">ARKit 原始位姿</text>
+<rect x="420" y="160" width="330" height="32" rx="6" class="f4 stroke"/>
+<text x="585" y="181" text-anchor="middle">真值 3D 框（每个视频约 125 个）</text>
+<path d="M585,192 L585,270" class="arrow" marker-end="url(#b-m3c)"/>
+<text x="593" y="236">只在评测里读</text>
+<rect x="440" y="272" width="290" height="34" rx="6" class="f1 stroke"/>
+<text x="585" y="294" text-anchor="middle">评测：对齐、判断看得见、匹配</text>
+</g></svg></div>
+<figcaption>左边的东西所有组都能用，右边的只给评测脚本。中间那道墙不让真值漏进流程：注册位姿用来做 Sim(3) 对齐，激光深度用来判断漏斗里“看得见”那一关，真值框用来匹配。“高清帧”虽然分辨率高，但帧、位姿、深度全来自 Pi3X 这一边。</figcaption></figure>
+<div class="box detail"><span class="box-label">“高清帧”到底是什么</span>
+<ul>
+<li><b>帧</b>。就是 Pi3X 用的那 32 帧，只是换成 CA-1M 的 1024×768 原图，没有多加帧。</li>
+<li><b>位姿</b>。用 Pi3X 估的，不用 ARKit 的。</li>
+<li><b>深度</b>。把 Pi3X 的点图放大到原图尺寸。SAM 3D 要的 <code>pointmap</code> 也从这里来。</li>
+<li><b>谁用</b>。A2 起的 Boxer 检测和 A3 起的生成裁剪。高清帧消融就是把 A3v 换回 Pi3X 降采样后的帧，在 5 个场景上重跑。</li>
+</ul>
+</div>
+<div class="box calc"><span class="box-label">估算 · 换成高清帧，小物体多出几个像素</span>
+<p>算法：两种分辨率的边长比，按 1024 / 574 和 768 / 434 算。</p>
+<ul>
+<li>横向放大 1024 / 574 = 1.78 倍，纵向 768 / 434 = 1.77 倍，面积放大约 3.16 倍。</li>
+<li>一个在 Pi3X 帧里宽 20 像素的杯子，高清帧里约 20 × 1.78 = 36 像素宽。</li>
+<li>一块 100 像素的掩码，高清帧里约 100 × 3.16 = 316 像素。生成工具的门槛是约 200 像素（<a href="#gen">第 6 章</a>），换帧前过不了，换帧后能过。</li>
+</ul>
+<p>帧数没变，所以漏斗“看得见”这一关用的帧集合不变，只是多算一个分辨率。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>Boxer 是“同源”的</b>。Boxer 训练时用过 CA-1M 的训练集，在 CA-1M 上测会偏乐观。所以每张表都标“同源”，并放干净对照（SAM 3 掩码加 Pi3X 点云拟合框）。</li>
+<li><b>干净对照的范围有限</b>。只在“检测到”这一关比较两种清单，P0 两种清单各跑一遍；agent 组只用 Boxer 清单，不重跑干净版。</li>
+<li><b>不能用被评测的物体做对齐</b>。对齐只用相机轨迹，否则会把要测的误差抵消掉。</li>
+<li><b>Pi3X 这一侧也可能沾了同源</b>。它的前身 π³ 训练时用过 ARKitScenes（π³ 论文 §3.4），CA-1M 的视频就是 ARKitScenes；Pi3X 本身的训练集是否相同没核实。所以几何精度的绝对值可能偏乐观，报告里注明。所有组共用同一份感知结果，组间比较不受影响。</li>
+</ul>
+</div>
+<p class="src">设计文档第 2 节（反目标）、第 4、5、8、9.2、13、15 节。</p>
+
+<h3 id="b-files">3.4 文件约定</h3>
+<p>设计文档第 15b 节定了一套文件约定，各章和三人交接都按它来。代码结构，以及这张表以外的配置和日志细节，留给执行的人定。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 510" width="760" role="img" aria-label="目录树：scenes、configs、perception、gen、runs、results 六个目录下的文件，右侧按负责人上色标出谁写">
+<g font-size="12">
+<text x="20" y="20" font-weight="700">路径</text>
+<text x="272" y="20" font-weight="700">内容</text>
+<text x="658" y="20" text-anchor="middle" font-weight="700">谁写</text>
+<path d="M30,54 L30,92 M30,68 L44,68 M30,92 L44,92" class="arrow"/>
+<path d="M30,134 L30,196 M30,148 L44,148 M30,172 L44,172 M30,196 L44,196" class="arrow"/>
+<path d="M30,238 L30,300 M30,252 L44,252 M30,276 L44,276 M30,300 L44,300" class="arrow"/>
+<path d="M30,342 L30,356 M30,356 L44,356" class="arrow"/>
+<path d="M30,398 L30,460 M30,412 L44,412 M30,436 L44,436 M30,460 L44,460" class="arrow"/>
+<g font-size="14">
+<text x="20" y="48" class="shape">scenes/&lt;scene_id&gt;/</text>
+<text x="48" y="72" class="shape">input.mp4</text>
+<text x="48" y="96" class="shape">gt/boxes.json</text>
+<text x="20" y="128" class="shape">configs/</text>
+<text x="48" y="152" class="shape">splits.json</text>
+<text x="48" y="176" class="shape">thresholds.json</text>
+<text x="48" y="200" class="shape">run_caps.json</text>
+<text x="20" y="232" class="shape">perception/&lt;scene_id&gt;/</text>
+<text x="48" y="256" class="shape">bundle/</text>
+<text x="48" y="280" class="shape">inventory.json</text>
+<text x="48" y="304" class="shape">inventory_clean.json</text>
+<text x="20" y="336" class="shape">gen/&lt;scene_id&gt;/&lt;object_id&gt;/c&lt;k&gt;/</text>
+<text x="48" y="360" class="shape">mesh.glb、placement.json</text>
+<text x="20" y="392" class="shape">runs/&lt;arm&gt;/&lt;scene_id&gt;/&lt;seed&gt;/</text>
+<text x="48" y="416" class="shape">scene.blend</text>
+<text x="48" y="440" class="shape">run_log.json</text>
+<text x="48" y="464" class="shape">export/objects.json</text>
+<text x="20" y="496" class="shape">results/</text>
+</g>
+<text x="272" y="48">每个场景一份</text>
+<text x="272" y="72">CA-1M 帧按 10 fps 合成的输入视频</text>
+<text x="272" y="96">去掉结构件后的真值框（只给评测）</text>
+<text x="272" y="128">三个配置文件，到期提交后不改</text>
+<text x="272" y="152">开发、测试、备用名单，10/20 前提交</text>
+<text x="272" y="176">评测和“看得见”的门槛，10/20 前提交</text>
+<text x="272" y="200">墙钟和轮数上限，10/26 前提交</text>
+<text x="272" y="232">感知结果，每个场景只算一次</text>
+<text x="272" y="256">Pi3X 和 SAM 3 的结果（bundle 格式）</text>
+<text x="272" y="280">Boxer 清单（agent 组用这一份）</text>
+<text x="272" y="304">干净对照清单（只用于“检测到”和 P0）</text>
+<text x="272" y="336">生成缓存，各组共用</text>
+<text x="272" y="360">网格和摆放结果（PlacementResult）</text>
+<text x="272" y="392">每次运行一个目录</text>
+<text x="272" y="416">最终场景</text>
+<text x="272" y="440">token、墙钟、轮数、失败原因、fal 费用</text>
+<text x="272" y="464">每个物体的 3D 框（从 .blend 导出）</text>
+<text x="272" y="496">分档表、漏斗图、成本-精度图、bootstrap</text>
+<rect x="568" y="59" width="180" height="18" rx="5" class="f2 stroke"/><text x="658" y="72" text-anchor="middle">Yujing</text>
+<rect x="568" y="83" width="180" height="18" rx="5" class="f2 stroke"/><text x="658" y="96" text-anchor="middle">Yujing</text>
+<rect x="568" y="139" width="180" height="18" rx="5" class="f2 stroke"/><text x="658" y="152" text-anchor="middle">Yujing</text>
+<rect x="568" y="163" width="180" height="18" rx="5" class="f2 stroke"/><text x="658" y="176" text-anchor="middle">Yujing</text>
+<rect x="568" y="187" width="180" height="18" rx="5" class="f1 stroke"/><text x="658" y="200" text-anchor="middle">Yifan</text>
+<rect x="568" y="243" width="180" height="18" rx="5" class="f3 stroke"/><text x="658" y="256" text-anchor="middle">Mingjian</text>
+<rect x="568" y="267" width="180" height="18" rx="5" class="f3 stroke"/><text x="658" y="280" text-anchor="middle">Mingjian</text>
+<rect x="568" y="291" width="180" height="18" rx="5" class="f3 stroke"/><text x="658" y="304" text-anchor="middle">Mingjian</text>
+<rect x="568" y="347" width="180" height="18" rx="5" class="f3 stroke"/><text x="658" y="360" text-anchor="middle">Mingjian 的工具</text>
+<rect x="568" y="403" width="82" height="18" rx="5" class="f1 stroke"/><text x="609" y="416" text-anchor="middle">Yifan</text>
+<rect x="656" y="403" width="92" height="18" rx="5" class="f3 stroke"/><text x="702" y="416" text-anchor="middle">P0：Mingjian</text>
+<rect x="568" y="427" width="82" height="18" rx="5" class="f1 stroke"/><text x="609" y="440" text-anchor="middle">Yifan</text>
+<rect x="656" y="427" width="92" height="18" rx="5" class="f3 stroke"/><text x="702" y="440" text-anchor="middle">P0：Mingjian</text>
+<rect x="568" y="451" width="82" height="18" rx="5" class="f2 stroke"/><text x="609" y="464" text-anchor="middle">Yujing 脚本</text>
+<rect x="656" y="451" width="92" height="18" rx="5" class="f3 stroke"/><text x="702" y="464" text-anchor="middle">P0：Mingjian</text>
+<rect x="568" y="483" width="180" height="18" rx="5" class="f2 stroke"/><text x="658" y="496" text-anchor="middle">Yujing</text>
+</g></svg></div>
+<figcaption>目录树照设计文档第 15b 节。颜色表示谁写这个文件，蓝色是 Yifan（agent 和驱动），黄色是 Mingjian（感知和生成），绿色是 Yujing（数据和评测）。<code>runs/</code> 下 P0 那一组的场景和日志由 Mingjian 写，<code>export/objects.json</code> 也由 P0 直接写；其他组的 <code>export/objects.json</code> 由 Yujing 的评测脚本从 .blend 导出。3.1 节的图里把生成缓存简写成 <code>gen/…/mesh.glb</code>。</figcaption></figure>
+<div class="table-wrap"><table>
+<tr><th>文件</th><th>谁写</th><th>谁读</th><th>内容</th></tr>
+<tr><td><code>scenes/&lt;scene_id&gt;/input.mp4</code></td><td>Yujing</td><td>Mingjian、Yifan</td><td>CA-1M 帧按 10 fps 合成的输入视频</td></tr>
+<tr><td><code>scenes/&lt;scene_id&gt;/gt/boxes.json</code></td><td>Yujing</td><td>只有评测</td><td>去掉结构件后的真值框（还有相机轨迹、激光深度，都只给评测）</td></tr>
+<tr><td><code>configs/splits.json</code></td><td>Yujing</td><td>所有人</td><td>开发、测试、备用场景名单，10/20 前提交</td></tr>
+<tr><td><code>configs/thresholds.json</code></td><td>Yujing</td><td>所有人</td><td>评测和“看得见”的各项门槛，10/20 前提交</td></tr>
+<tr><td><code>configs/run_caps.json</code></td><td>Yifan</td><td>Yifan</td><td>每次运行的墙钟和轮数上限，10/26 前提交</td></tr>
+<tr><td><code>perception/&lt;scene_id&gt;/bundle/</code></td><td>Mingjian</td><td>Yifan、Yujing</td><td>Pi3X 和 SAM 3 的感知结果（AHa-3D 的 bundle 格式）</td></tr>
+<tr><td><code>perception/&lt;scene_id&gt;/inventory.json</code></td><td>Mingjian</td><td>Yifan、Yujing</td><td>Boxer 清单（agent 组用这一份）</td></tr>
+<tr><td><code>perception/&lt;scene_id&gt;/inventory_clean.json</code></td><td>Mingjian</td><td>Yujing</td><td>干净对照清单（只用于“检测到”这一关和 P0）</td></tr>
+<tr><td><code>gen/&lt;scene_id&gt;/&lt;object_id&gt;/c&lt;k&gt;/mesh.glb</code></td><td>Mingjian 的工具</td><td>agent、Yujing</td><td>生成的网格和 <code>placement.json</code>（PlacementResult）</td></tr>
+<tr><td><code>runs/&lt;arm&gt;/&lt;scene_id&gt;/&lt;seed&gt;/scene.blend</code></td><td>Yifan（P0 由 Mingjian）</td><td>Yujing</td><td>最终场景</td></tr>
+<tr><td><code>runs/&lt;arm&gt;/&lt;scene_id&gt;/&lt;seed&gt;/run_log.json</code></td><td>Yifan（P0 由 Mingjian）</td><td>Yujing</td><td>token、墙钟、轮数、失败原因、fal 费用</td></tr>
+<tr><td><code>runs/&lt;arm&gt;/&lt;scene_id&gt;/&lt;seed&gt;/export/objects.json</code></td><td>Yujing 的评测脚本</td><td>评测</td><td>用 AHa-3D 的 <code>export_model.py</code> 从 .blend 导出的每个物体的 3D 框；P0 直接写这个文件</td></tr>
+<tr><td><code>results/</code></td><td>Yujing</td><td>所有人</td><td>分档表、漏斗图、成本-精度图、bootstrap 结果</td></tr>
+</table></div>
+<details><summary>几个文件里面具体有什么（AHa-3D 代码里核实过的格式）</summary><div class="inner">
+<ul>
+<li><b><code>bundle/</code></b>。Pi3X 的 <code>inputs.npz</code>（帧、帧号、时间戳）和 <code>predictions.npz</code>（点图、置信度、相机位姿、内参）；<code>cameras.json</code>（OpenCV 约定，世界系 Z 朝上）；SAM 3 的 <code>masks.npz</code>；TSDF 网格；地面和墙对齐后的相机。</li>
+<li><b><code>mesh.glb</code></b>。清理过的网格，Z 朝上、单位米、原点在底面中心。按（帧、掩码、后端、种子）缓存，多个候选分 <code>c1</code>、<code>c2</code>。</li>
+<li><b><code>scene.blend</code></b>。每个物体是一个带 <code>instance_id</code> 的根节点，导出脚本按它分组。</li>
+<li><b><code>run_log.json</code></b>。token 分输入、缓存、输出三类记，再按 API 价折成美元（设计文档第 9.7 节）。我们还建议记是否重跑、生成和摆放的每个决定，方便事后分析（设计文档没要求）。</li>
+</ul>
+</div></details>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>名字撞车</b>。AHa-3D 的 X-Ray 工具 <code>object_outline</code> 也会写一个 <code>objects.json</code>，内容是逐物体轮廓。所以我们的导出放在 <code>export/</code> 子目录里，免得被覆盖或读错。</li>
+<li><b>bundle 要拷回笔记本</b>。agent 的测量和叠图工具在笔记本上跑，读的就是 <code>bundle/</code>。每个场景的 bundle 有多大，第 1 周跑完第一个场景再量（见 <a href="#cost">第 9 章</a>的硬盘一节）。</li>
+<li><b>run_log 要从第一次运行就记</b>。订阅不按次计费，事后补不回来。成本轴全靠它。</li>
+</ul>
+</div>
+<p class="src">设计文档第 8、9.1、9.7、15b、16 节；deep-aha3d.json 的 task_output 和 reusable_components；调研笔记 02 第 7.2 节（缓存键和 mesh.glb 约定）。</p>

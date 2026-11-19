@@ -1,0 +1,50 @@
+{
+  "status": "recovered_token_usage_not_billing",
+  "model": "gpt-6-astra",
+  "session_source": "/home/mj/.codex/sessions/2026/10/22/rollout-2026-10-22T19-36-13-01a165f8-e5e3-7be2-87f4-0d5892de3331.jsonl",
+  "scope": "Original FloorPlan209 reconstruction turn through handoff; excludes later VoMP and Isaac work",
+  "start_utc": "2026-10-22T23:36:15.819Z",
+  "last_usage_utc": "2026-10-23T00:18:22.236Z",
+  "observed_wall_seconds": 2526.417,
+  "main_agent_usage": {
+    "input_tokens": 17980381,
+    "cached_input_tokens": 17660672,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 74538,
+    "reasoning_output_tokens": 23765,
+    "total_tokens": 18054919,
+    "uncached_input_tokens": 319709
+  },
+  "separate_reviewer_log_counters": [
+    {
+      "log": "/home/mj/dl_project/repos/aha-3d/runs/ai2thor_floorplan209/capture/layout_review_v5.log",
+      "reported_tokens_used": 66820,
+      "model": "gpt-6-astra"
+    },
+    {
+      "log": "/home/mj/dl_project/repos/aha-3d/runs/ai2thor_floorplan209/capture/preview_review_v5.log",
+      "reported_tokens_used": 23132,
+      "model": "gpt-6-astra"
+    },
+    {
+      "log": "/home/mj/dl_project/repos/aha-3d/runs/ai2thor_floorplan209/capture/layout_review_v8.log",
+      "reported_tokens_used": 50854,
+      "model": "gpt-6-astra"
+    },
+    {
+      "log": "/home/mj/dl_project/repos/aha-3d/runs/ai2thor_floorplan209/capture/reviewer_connection_probe.log",
+      "reported_tokens_used": 9095,
+      "model": "gpt-6-astra"
+    }
+  ],
+  "actual_cost_usd": null,
+  "api_equivalent_usd": null,
+  "gpu_seconds": null,
+  "limitations": [
+    "Cached input is a subset of input; reasoning is a subset of output: do not add twice.",
+    "Reviewer text counters lack input/cache/output breakdown; not added to main-session totals.",
+    "Automatic approval-review overhead excluded from method-agent usage.",
+    "Observed wall interval includes capture, tools, inference, rendering and waiting; not GPU active time.",
+    "No invoice, historical pricing or subscription quota attribution established."
+  ]
+}

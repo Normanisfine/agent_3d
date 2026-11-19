@@ -1,0 +1,229 @@
+<h2 id="risks"><span class="num">13</span>风险与退路</h2>
+<p>两个闸门各有一条事先写好的退路：10/26 看 AHa-3D 能不能自己跑完，11/2 看 SAM 3D 在 Betty 上装没装通。退路提前定死，到时候照着走，不临时商量。</p>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>出门前先想好"下雨了走哪条路"。真下雨时不用站在路口争论，按预案拐弯就行。预案写在纸上，三个人看的是同一张纸。</p>
+</div>
+
+<h3 id="d-gate1026">13.1 10/26 闸门：AHa-3D 能不能无人值守跑完</h3>
+<p>"无人值守"指一次运行从开始到出 .blend，中间没有任何人插手。AHa-3D 的审查门、Stop hook、路径问题都可能让它卡住。</p>
+<div class="arch">
+<div class="arch-title">10/26 的决策：跑不完就打补丁，绝不人工干预</div>
+<div class="svg-wrap"><svg viewBox="0 0 770 300" width="770" role="img" aria-label="10/26 决策图：能跑完就交数字，跑不完就给 harness 打补丁并砍掉 A4，禁止人工干预">
+<defs><marker id="d-m13a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="10" y="110" width="150" height="60" rx="8" class="f1 stroke"/><text x="85" y="134" text-anchor="middle" font-weight="700">10/26 中期检查</text><text x="85" y="154" text-anchor="middle">A0、A1 × 3 场景</text>
+<path d="M160,140 L199,140" class="arrow" marker-end="url(#d-m13a)"/>
+<polygon points="200,140 290,90 380,140 290,190" class="f3 stroke"/><text x="290" y="136" text-anchor="middle">能无人值守</text><text x="290" y="154" text-anchor="middle">跑完吗？</text>
+</g>
+<g data-s="2">
+<path d="M290,90 L290,51 L469,51" class="arrow-green" marker-end="url(#d-m13a)"/><text x="298" y="72" class="ink3">能</text>
+<rect x="470" y="22" width="290" height="58" rx="8" class="f2 stroke"/><text x="615" y="45" text-anchor="middle" font-weight="700">交数字，按计划进主实验</text><text x="615" y="66" text-anchor="middle">同时决定训练加分项做不做</text>
+</g>
+<g data-s="3">
+<path d="M380,140 L469,140" class="arrow" marker-end="url(#d-m13a)"/><text x="425" y="132" text-anchor="middle" class="ink3">不能</text>
+<rect x="470" y="110" width="290" height="60" rx="8" class="f3 stroke"/><text x="615" y="134" text-anchor="middle" font-weight="700">给 harness 打补丁</text><text x="615" y="155" text-anchor="middle">审查改用转发 shim、放宽 Stop hook 等</text>
+</g>
+<g data-s="4">
+<path d="M540,170 L540,199" class="arrow" marker-end="url(#d-m13a)"/>
+<rect x="470" y="200" width="140" height="56" rx="8" class="f1 stroke"/><text x="540" y="222" text-anchor="middle">补丁所有组一样</text><text x="540" y="242" text-anchor="middle">含 A0，写进报告</text>
+</g>
+<g data-s="5">
+<path d="M690,170 L690,199" class="arrow" marker-end="url(#d-m13a)"/>
+<rect x="620" y="200" width="140" height="56" rx="8" class="f4 stroke"/><text x="690" y="222" text-anchor="middle" font-weight="700">砍掉 A4</text><text x="690" y="242" text-anchor="middle">省出时间和额度</text>
+</g>
+<g data-s="6">
+<path d="M290,190 L290,219" class="arrow-red dash" marker-end="url(#d-m13a)"/>
+<rect x="110" y="220" width="320" height="56" rx="8" class="f4 stroke"/><text x="270" y="243" text-anchor="middle" class="lbl-accent" font-weight="700">禁止：人工干预</text><text x="270" y="263" text-anchor="middle">运行中不许人去点继续、补提示、改文件</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>问题</b>。10/26 中期检查时，A0、A1 能不能在 3 个开发场景上无人值守跑完？</li>
+<li><b>能</b>：交第一批数字，按计划进入主实验。训练加分项做不做也在这天定。</li>
+<li><b>不能</b>：给 harness（包在模型外面的工具和规则）打补丁。比如审查步骤改用转发 shim，放宽 Stop hook（agent 想停下时触发的检查）。</li>
+<li><b>补丁的规矩</b>：对包括 A0 在内的所有组完全一样，写进报告，结论里称"打过补丁的 AHa-3D"。</li>
+<li><b>砍掉 A4</b>：按我们的理解，修补丁花掉的时间和额度从 A4 里出。</li>
+<li><b>禁止人工干预</b>：不管卡在哪，运行中都不许人去点"继续"、补一句提示或手改文件。</li>
+</ol>
+</div>
+<div class="box trap"><span class="box-label">容易搞错 · 打补丁和人工干预差在哪</span>
+<ul>
+<li>补丁是一段代码改动，每次运行、每个组都一样，别人拿到我们的补丁能复现同样的结果。</li>
+<li>人工干预是人在某一次运行里临时出手，每次出手的时机和内容都不一样，没法复现，也没法和别的组公平比较。</li>
+<li>所以补丁可以，干预不行。这是设计文档"我自己定的"第 12 条。</li>
+</ul>
+</div>
+<div class="box detail"><span class="box-label">为什么不太担心</span>
+<p>之前用 Haiku 5.5 跑通过一次 office48，用了 67 轮。真跑不完，退路是给 harness 打补丁，所有组用同一份补丁；除了砍掉加分的 A4，其余实验组一个不减。</p>
+</div>
+
+<h3 id="d-gate1102">13.2 11/2 闸门：SAM 3D 装没装通，ScanNet++ 批没批</h3>
+<p>11/2 同时看两件事。它们互不影响，各有各的退路。</p>
+<div class="arch">
+<div class="arch-title">11/2 的两个决策</div>
+<div class="svg-wrap"><svg viewBox="0 0 770 300" width="770" role="img" aria-label="11/2 决策图：SAM 3D 装通与否决定生成器和训练加分项，ScanNet++ 批没批决定加不加形状指标">
+<defs><marker id="d-m13b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="310" y="10" width="150" height="34" rx="8" class="f5 stroke"/><text x="385" y="32" text-anchor="middle" font-weight="700">11/2 闸门</text>
+<path d="M330,44 L215,77" class="arrow" marker-end="url(#d-m13b)"/><path d="M440,44 L555,77" class="arrow" marker-end="url(#d-m13b)"/>
+<polygon points="80,124 190,76 300,124 190,172" class="f3 stroke"/><text x="190" y="120" text-anchor="middle">SAM 3D 在 Betty</text><text x="190" y="138" text-anchor="middle">装通了？</text>
+<polygon points="470,124 580,76 690,124 580,172" class="f2 stroke"/><text x="580" y="120" text-anchor="middle">ScanNet++</text><text x="580" y="138" text-anchor="middle">批下来了？</text>
+</g>
+<g data-s="2">
+<path d="M190,172 L190,186 L95,186 L95,203" class="arrow-green" marker-end="url(#d-m13b)"/><text x="103" y="200" class="ink3">能</text>
+<rect x="10" y="204" width="170" height="56" rx="8" class="f2 stroke"/><text x="95" y="226" text-anchor="middle" font-weight="700">正式用 SAM 3D</text><text x="95" y="246" text-anchor="middle">训练加分项可以做</text>
+</g>
+<g data-s="3">
+<path d="M190,186 L285,186 L285,203" class="arrow-red" marker-end="url(#d-m13b)"/><text x="293" y="200" class="ink3">不能</text>
+<rect x="200" y="204" width="170" height="56" rx="8" class="f4 stroke"/><text x="285" y="226" text-anchor="middle" font-weight="700">改用 Hunyuan3D-2mini</text><text x="285" y="246" text-anchor="middle">加我们的配准，不做训练</text>
+<text x="190" y="286" text-anchor="middle" class="ink3">装不通的原因可能是 HF 审批慢，或 B200（sm_100）环境问题</text>
+</g>
+<g data-s="4">
+<path d="M580,172 L580,186 L485,186 L485,203" class="arrow-green" marker-end="url(#d-m13b)"/><text x="493" y="200" class="ink3">批了</text>
+<rect x="400" y="204" width="170" height="56" rx="8" class="f2 stroke"/><text x="485" y="226" text-anchor="middle" font-weight="700">加形状指标</text><text x="485" y="246" text-anchor="middle">官方 ScanNet++ 5 个场景</text>
+</g>
+<g data-s="5">
+<path d="M580,186 L675,186 L675,203" class="arrow" marker-end="url(#d-m13b)"/><text x="683" y="200" class="ink3">没批</text>
+<rect x="590" y="204" width="170" height="56" rx="8" class="f6 stroke"/><text x="675" y="226" text-anchor="middle" font-weight="700">不报形状指标</text><text x="675" y="246" text-anchor="middle">形状只做定性展示</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>两个问题</b>。SAM 3D 能不能在 Betty 上批量跑？ScanNet++ 的申请批下来没有？两件事互不影响。</li>
+<li><b>SAM 3D 装通了</b>：正式实验用 SAM 3D 生成，它同时给出网格和相机坐标下的位姿。训练加分项（<a href="#train">第 14 章</a>）的前提也满足了。</li>
+<li><b>没装通</b>：正式实验改用本地 Hunyuan3D-2mini 生成形状，位置和尺度靠我们的 <code>place_mesh</code> 配准，报告里注明。训练加分项不做。</li>
+<li><b>ScanNet++ 批了</b>：在官方 ScanNet++ 的 5 个场景上补形状指标（下载 mesh、标注、位姿约 3 到 4 GB）。</li>
+<li><b>没批</b>：不报形状指标。CA-1M 只有框，形状只做定性展示，这本来就是设计文档的非目标之一。</li>
+</ol>
+</div>
+<div class="box key"><span class="box-label">必记</span>
+<ul>
+<li>训练加分项要同时满足两个条件：10/26 决定做，11/2 SAM 3D 在 Betty 上装通。</li>
+<li>fal 上的 SAM 3D 只用来核对位姿约定。Betty 装不通时的退路是本地 Hunyuan3D-2mini。</li>
+</ul>
+</div>
+
+<h3 id="d-risktable">13.3 风险表：每个风险落在流程哪一段</h3>
+<p>设计文档第 13 节列了十个风险。先看它们分别落在流程的哪一段，再看对策表。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 220" width="770" role="img" aria-label="十个风险按编号标在流程的各段上">
+<defs><marker id="d-m13c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="60" width="96" height="50" rx="8" class="f2 stroke"/><text x="58" y="90" text-anchor="middle">数据</text>
+<rect x="126" y="60" width="96" height="50" rx="8" class="f3 stroke"/><text x="174" y="90" text-anchor="middle">感知 Betty</text>
+<rect x="242" y="60" width="96" height="50" rx="8" class="f3 stroke"/><text x="290" y="90" text-anchor="middle">清单</text>
+<rect x="358" y="60" width="96" height="50" rx="8" class="f1 stroke"/><text x="406" y="90" text-anchor="middle">agent 运行</text>
+<rect x="474" y="60" width="96" height="50" rx="8" class="f3 stroke"/><text x="522" y="90" text-anchor="middle">生成</text>
+<rect x="590" y="60" width="76" height="50" rx="8" class="f2 stroke"/><text x="628" y="90" text-anchor="middle">评测</text>
+<rect x="686" y="60" width="76" height="50" rx="8" class="f2 stroke"/><text x="724" y="90" text-anchor="middle">报告</text>
+<path d="M106,85 L125,85" class="arrow" marker-end="url(#d-m13c)"/><path d="M222,85 L241,85" class="arrow" marker-end="url(#d-m13c)"/><path d="M338,85 L357,85" class="arrow" marker-end="url(#d-m13c)"/><path d="M454,85 L473,85" class="arrow" marker-end="url(#d-m13c)"/><path d="M570,85 L589,85" class="arrow" marker-end="url(#d-m13c)"/><path d="M666,85 L685,85" class="arrow" marker-end="url(#d-m13c)"/>
+<circle cx="58" cy="34" r="12" class="f4 stroke"/><text x="58" y="39" text-anchor="middle" font-weight="700">8</text><text x="58" y="138" text-anchor="middle">硬盘 65 GB</text>
+<circle cx="144" cy="34" r="12" class="f4 stroke"/><text x="144" y="39" text-anchor="middle" font-weight="700">7</text>
+<circle cx="174" cy="34" r="12" class="f4 stroke"/><text x="174" y="39" text-anchor="middle" font-weight="700">10</text>
+<circle cx="204" cy="34" r="12" class="f4 stroke"/><text x="204" y="39" text-anchor="middle" font-weight="700">3</text><text x="174" y="138" text-anchor="middle">断网、看不见</text><text x="174" y="154" text-anchor="middle">π³ 同源</text>
+<circle cx="290" cy="34" r="12" class="f4 stroke"/><text x="290" y="39" text-anchor="middle" font-weight="700">4</text><text x="290" y="138" text-anchor="middle">Boxer 同源</text>
+<circle cx="390" cy="34" r="12" class="f4 stroke"/><text x="390" y="39" text-anchor="middle" font-weight="700">1</text>
+<circle cx="422" cy="34" r="12" class="f4 stroke"/><text x="422" y="39" text-anchor="middle" font-weight="700">2</text><text x="406" y="138" text-anchor="middle">跑不完、额度</text>
+<circle cx="506" cy="34" r="12" class="f4 stroke"/><text x="506" y="39" text-anchor="middle" font-weight="700">5</text>
+<circle cx="538" cy="34" r="12" class="f4 stroke"/><text x="538" y="39" text-anchor="middle" font-weight="700">6</text><text x="522" y="138" text-anchor="middle">位姿、装不通</text>
+<circle cx="724" cy="34" r="12" class="f4 stroke"/><text x="724" y="39" text-anchor="middle" font-weight="700">9</text><text x="724" y="138" text-anchor="middle">被抢先</text>
+<path d="M216,110 L216,172 L628,172 L628,111" class="arrow dash" marker-end="url(#d-m13c)"/><text x="406" y="166" text-anchor="middle">风险 3：小物体卡在"看得见"，组间差不多</text>
+<text x="406" y="196" text-anchor="middle" class="ink3">这一条本身就是发现：瓶颈在上游，高清帧消融会给出数字</text>
+</g></svg></div>
+<figcaption>十个风险按编号标在流程上，编号和下表一致。设计文档把 π³ 同源排在第 5 条，这里为了不改旧编号记作第 10 条。感知一段压着三个风险，agent 运行和生成两段各压着两个。风险 3 比较特殊：它发生在上游（帧里根本看不见），但要到评测时才显出来，而且它被当成一种可能的发现来报。</figcaption></figure>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>风险</th><th>对策</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>AHa-3D 无人值守跑不完（审查门、Stop hook、路径问题）</td><td>之前的会话已经跑通过一次 office48（Haiku 5.5，67 轮）；10/26 闸门有退路（13.1 节）</td></tr>
+<tr><td>2</td><td>订阅额度不够</td><td>按削减顺序缩减（13.4 节）；结论按实际样本量写</td></tr>
+<tr><td>3</td><td>小物体全卡在"看得见"这一关，组间差不多</td><td>这本身就是一个发现（瓶颈在上游）；高清帧消融会给出数字</td></tr>
+<tr><td>4</td><td>Boxer 同源导致 A2 偏乐观</td><td>每张表都放干净对照并标注；P0 用两种清单各跑一遍，量出同源对下游的影响</td></tr>
+<tr><td>5</td><td>fal 上 SAM 3D 的位姿坐标约定不明</td><td>第 1 周在 fal 上拿 5 个物体核对（10 美元上限之内）</td></tr>
+<tr><td>6</td><td>Betty 上的 SAM 3D 在 11/2 前装不通（HF 审批慢，或 B200 的 sm_100 环境问题）</td><td>正式实验改用本地 Hunyuan3D-2mini 加我们的配准，报告里注明；训练加分项不做（13.2 节）</td></tr>
+<tr><td>7</td><td>Betty 计算节点不能上网</td><td>权重在登录节点预先下载，计算作业离线跑；Colab 备用</td></tr>
+<tr><td>8</td><td>本地硬盘只剩约 65 GB</td><td>不下 .mov；权重和中间结果放 Betty；本地只放评测数据和最终的 .blend</td></tr>
+<tr><td>9</td><td>两个月内有人发表同样的评测</td><td>提案和报告里写"据 2026-10 的检索"，把贡献落在漏斗和公平比较上</td></tr>
+<tr><td>10</td><td>Pi3X 的前身 π³ 训练时用过 ARKitScenes 和 ScanNet++（π³ 论文 §3.4），CA-1M 的视频就是 ARKitScenes 拍的；Pi3X 本身的训练集是否相同，没有核实</td><td>报告里注明几何精度的绝对值可能偏乐观。所有实验组共用同一份感知结果，组间比较不受影响。可选的 ScanNet++ 形状评测和 VSI 开发集（也是 ScanNet++ 的视频）同样受影响</td></tr>
+</tbody></table></div>
+<p class="src">设计文档第 12、13、15 节。</p>
+
+<h3 id="d-cut">13.4 额度不够时先砍什么</h3>
+<p>如果 S2 量出来的额度撑不住全部 120 次 agent 运行，就按下面的顺序一步步砍，砍到够为止。原则是<b>不换驱动</b>，因为换驱动会破坏"复现作者设置"这个前提。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 300" width="770" role="img" aria-label="额度不够时按顺序削减，每一步之后剩下的 agent 运行次数，按用途堆叠">
+<g font-size="12">
+<rect x="10" y="8" width="14" height="14" rx="3" class="f1 stroke"/><text x="30" y="20">主实验</text>
+<rect x="88" y="8" width="14" height="14" rx="3" class="f2 stroke"/><text x="108" y="20">第二次重复</text>
+<rect x="190" y="8" width="14" height="14" rx="3" class="f3 stroke"/><text x="210" y="20">Claude 复跑</text>
+<rect x="305" y="8" width="14" height="14" rx="3" class="f5 stroke"/><text x="325" y="20">A4</text>
+<rect x="361" y="8" width="14" height="14" rx="3" class="f0 stroke"/><text x="381" y="20">高清帧消融（空心）</text>
+<line x1="20" y1="230" x2="766" y2="230" class="stroke"/>
+<rect x="42.0" y="132.5" width="60" height="97.5" class="f1 stroke"/>
+<rect x="42.0" y="119.5" width="60" height="13.0" class="f2 stroke"/>
+<rect x="42.0" y="87.0" width="60" height="32.5" class="f3 stroke"/>
+<rect x="42.0" y="80.5" width="60" height="6.5" class="f5 stroke"/>
+<rect x="42.0" y="74.0" width="60" height="6.5" class="f0 stroke"/>
+<text x="72.0" y="68.0" text-anchor="middle" font-weight="700">120</text>
+<text x="72.0" y="248" text-anchor="middle" font-weight="700">全量</text>
+<text x="72.0" y="266" text-anchor="middle">照计划</text>
+<rect x="146.0" y="145.5" width="60" height="84.5" class="f1 stroke"/>
+<rect x="146.0" y="132.5" width="60" height="13.0" class="f2 stroke"/>
+<rect x="146.0" y="100.0" width="60" height="32.5" class="f3 stroke"/>
+<rect x="146.0" y="93.5" width="60" height="6.5" class="f5 stroke"/>
+<rect x="146.0" y="87.0" width="60" height="6.5" class="f0 stroke"/>
+<text x="176.0" y="81.0" text-anchor="middle" font-weight="700">110</text>
+<text x="176.0" y="248" text-anchor="middle" font-weight="700">①</text>
+<text x="176.0" y="266" text-anchor="middle">A0 缩到 5 场景</text>
+<rect x="250.0" y="145.5" width="60" height="84.5" class="f1 stroke"/>
+<rect x="250.0" y="132.5" width="60" height="13.0" class="f2 stroke"/>
+<rect x="250.0" y="119.5" width="60" height="13.0" class="f3 stroke"/>
+<rect x="250.0" y="113.0" width="60" height="6.5" class="f5 stroke"/>
+<rect x="250.0" y="106.5" width="60" height="6.5" class="f0 stroke"/>
+<text x="280.0" y="100.5" text-anchor="middle" font-weight="700">95</text>
+<text x="280.0" y="248" text-anchor="middle" font-weight="700">②</text>
+<text x="280.0" y="266" text-anchor="middle">Claude 复跑 2 组</text>
+<rect x="354.0" y="145.5" width="60" height="84.5" class="f1 stroke"/>
+<rect x="354.0" y="137.7" width="60" height="7.8" class="f2 stroke"/>
+<rect x="354.0" y="124.7" width="60" height="13.0" class="f3 stroke"/>
+<rect x="354.0" y="118.2" width="60" height="6.5" class="f5 stroke"/>
+<rect x="354.0" y="111.7" width="60" height="6.5" class="f0 stroke"/>
+<text x="384.0" y="105.7" text-anchor="middle" font-weight="700">91</text>
+<text x="384.0" y="248" text-anchor="middle" font-weight="700">③</text>
+<text x="384.0" y="266" text-anchor="middle">重复 3 场景</text>
+<rect x="458.0" y="145.5" width="60" height="84.5" class="f1 stroke"/>
+<rect x="458.0" y="137.7" width="60" height="7.8" class="f2 stroke"/>
+<rect x="458.0" y="124.7" width="60" height="13.0" class="f3 stroke"/>
+<rect x="458.0" y="118.2" width="60" height="6.5" class="f0 stroke"/>
+<text x="488.0" y="112.2" text-anchor="middle" font-weight="700">86</text>
+<text x="488.0" y="248" text-anchor="middle" font-weight="700">④</text>
+<text x="488.0" y="266" text-anchor="middle">取消 A4</text>
+<rect x="562.0" y="171.5" width="60" height="58.5" class="f1 stroke"/>
+<rect x="562.0" y="163.7" width="60" height="7.8" class="f2 stroke"/>
+<rect x="562.0" y="150.7" width="60" height="13.0" class="f3 stroke"/>
+<rect x="562.0" y="144.2" width="60" height="6.5" class="f0 stroke"/>
+<text x="592.0" y="138.2" text-anchor="middle" font-weight="700">66</text>
+<text x="592.0" y="248" text-anchor="middle" font-weight="700">⑤</text>
+<text x="592.0" y="266" text-anchor="middle">测试缩到 10 场景</text>
+<text x="592.0" y="284" text-anchor="middle" class="lbl-accent">用户未确认</text>
+<rect x="666.0" y="184.5" width="60" height="45.5" class="f1 stroke"/>
+<rect x="666.0" y="176.7" width="60" height="7.8" class="f2 stroke"/>
+<rect x="666.0" y="163.7" width="60" height="13.0" class="f3 stroke"/>
+<rect x="666.0" y="157.2" width="60" height="6.5" class="f0 stroke"/>
+<text x="696.0" y="151.2" text-anchor="middle" font-weight="700">56</text>
+<text x="696.0" y="248" text-anchor="middle" font-weight="700">⑥</text>
+<text x="696.0" y="266" text-anchor="middle">去掉 A3r</text>
+<text x="696.0" y="284" text-anchor="middle" class="lbl-accent">用户未确认</text>
+</g></svg></div>
+<figcaption>每砍一步之后还剩多少次 agent 运行，按用途堆叠。前四步砍的都是"附加项"，主实验只少了 A0 的 10 次；第 5 步开始动测试场景数，第 6 步去掉一个实验组。第 5、6 步是设计文档按推荐写的，用户还没明确确认。</figcaption></figure>
+<div class="box calc"><span class="box-label">算例 · 每一步剩多少（估算，按设计文档第 5 节的次数逐步累积）</span>
+<ol>
+<li>A0 缩到 5 个场景：主实验 5 + 4 × 15 = 65；合计 65 + 5 + 10 + 25 + 5 = 110。</li>
+<li>Claude 复跑只保留 A1 和 A3v：25 → 10；合计 95。</li>
+<li>第二次重复缩到 3 个场景：2 组 × 3 = 6；合计 91。</li>
+<li>A4 取消：合计 86。</li>
+<li>测试场景 15 → 10：主实验 5 + 4 × 10 = 45；合计 45 + 6 + 10 + 5 = 66。</li>
+<li>去掉 A3r：主实验 5 + 3 × 10 = 35；合计 56。</li>
+</ol>
+<p>P0 不调大模型，不在这张账里。第 5 步之后按物体配对比较，10 个场景仍有上千个真值物体（设计文档第 5 节）。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<p>去掉 A3r 之后，"按规则、不用大模型"这一端由 P0 代表，所以对比的两端还在。砍组的顺序是为了尽量保住"同一套流程下比较几种做法"这个主问题。</p>
+</div>

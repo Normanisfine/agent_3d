@@ -1,0 +1,361 @@
+<h2 id="arms"><span class="num">4</span>七个实验组</h2>
+<p>这一章讲我们到底比什么。一共七个实验组：P0 和 A0 到 A4（A3 分成 A3r、A3v 两个）。它们跑在同一套流程上，每组只改其中一环。</p>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>把 agent 想成装修队的包工头：会看图纸，会叫师傅，自己也会动手。我们想知道它在"摆小东西"这件事上差在哪。</p>
+<p>做法像试菜。同一口锅、同一份食材、同一个厨师，每次只换一样调料。味道变了，才能说是那样调料的功劳。</p>
+<p>A0 到 A4 一组比一组多加一样东西。P0 干脆不请包工头，用一条自动流水线把东西摆上去，看看包工头到底值不值这份钱。</p>
+</div>
+<p>为了让"只改一环"成立，下面这些东西在所有组里完全一样（设计文档第 4 节）。</p>
+<ul>
+<li><b>同一份感知结果</b>。每个场景的 Pi3X 和 SAM 3 结果只在 Betty 上算一次，按作者默认的 25.5 万像素、32 帧。所有组读同一份，感知的随机性就混不进组间差异。</li>
+<li><b>同一个软件版本</b>。AHa-3D 提交 82f4b11（或我们 fork 后的固定提交），Blender 5.2.1。</li>
+<li><b>同一个驱动</b>。同一个驱动模型、同一个推理强度，第 9 章细讲（<a href="#cost">算力、驱动和花费</a>）。</li>
+<li><b>其余功能原样保留</b>。可开合柜子、物理检查、审查门在所有组里都不动。</li>
+</ul>
+<p>AHa-3D 的五个阶段怎么归成"找物体、建形状、摆准、检查"四个环节，见第 2、3 章（<a href="#aha">AHa-3D 是怎么工作的</a>、<a href="#sys">我们的系统架构</a>）。</p>
+
+<h3 id="c-arms-map">4.1 七组在同一条流程上各改哪一环</h3>
+<p>先看全局。上面一行是所有 agent 组共用的骨架，下面每一行是一个实验组。点"下一步"，每步亮一组，同时亮出它改动的那一环。</p>
+<div class="arch">
+<div class="arch-title">七个实验组：同一条流程，每组只改亮起来的那一环</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 425" width="760" role="img" aria-label="实验组逐步图：上面一行是共用感知加四个环节，下面每行是一个实验组改动的位置，最下面是不经过 agent 的 P0 流水线">
+<defs><marker id="c-m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<path d="M690,44 L690,24 L535,24 L535,40" class="arrow" marker-end="url(#c-m1)"/>
+<text x="612" y="16" text-anchor="middle">审查没过：回去改</text>
+<rect x="20" y="44" width="100" height="68" rx="8" class="f6 stroke"/>
+<text x="70" y="68" text-anchor="middle" font-weight="700" font-size="13">共用感知</text>
+<text x="70" y="86" text-anchor="middle">Pi3X + SAM 3</text>
+<text x="70" y="103" text-anchor="middle">每场景算一次</text>
+<rect x="175" y="44" width="100" height="68" rx="8" class="f1 stroke"/>
+<text x="225" y="68" text-anchor="middle" font-weight="700" font-size="13">① 找物体</text>
+<text x="225" y="86" text-anchor="middle">agent 自己看帧</text>
+<text x="225" y="103" text-anchor="middle">数出要建什么</text>
+<rect x="330" y="44" width="100" height="68" rx="8" class="f1 stroke"/>
+<text x="380" y="68" text-anchor="middle" font-weight="700" font-size="13">② 建形状</text>
+<text x="380" y="86" text-anchor="middle">写 bpy 代码</text>
+<text x="380" y="103" text-anchor="middle">方块和资产库</text>
+<rect x="485" y="44" width="100" height="68" rx="8" class="f1 stroke"/>
+<text x="535" y="68" text-anchor="middle" font-weight="700" font-size="13">③ 摆准</text>
+<text x="535" y="86" text-anchor="middle">改、渲染、对比</text>
+<text x="535" y="103" text-anchor="middle">调位置和尺寸</text>
+<rect x="640" y="44" width="100" height="68" rx="8" class="f1 stroke"/>
+<text x="690" y="68" text-anchor="middle" font-weight="700" font-size="13">④ 检查</text>
+<text x="690" y="86" text-anchor="middle">轮廓 + 物理</text>
+<text x="690" y="103" text-anchor="middle">Codex 审查门</text>
+<path d="M120,78 L173,78" class="arrow" marker-end="url(#c-m1)"/><text x="147" y="71" text-anchor="middle">点云</text>
+<path d="M275,78 L328,78" class="arrow" marker-end="url(#c-m1)"/><text x="302" y="71" text-anchor="middle">尺寸</text>
+<path d="M430,78 L483,78" class="arrow" marker-end="url(#c-m1)"/><text x="457" y="71" text-anchor="middle">物体</text>
+<path d="M585,78 L638,78" class="arrow" marker-end="url(#c-m1)"/><text x="612" y="71" text-anchor="middle">场景</text>
+<rect data-s="3" x="171" y="40" width="108" height="76" rx="10" class="stroke dash" fill="none"/>
+<rect data-s="2 4 5" x="326" y="40" width="108" height="76" rx="10" class="stroke dash" fill="none"/>
+<rect data-s="4 6" x="481" y="40" width="108" height="76" rx="10" class="stroke dash" fill="none"/>
+<rect data-s="6" x="636" y="40" width="108" height="76" rx="10" class="stroke dash" fill="none"/>
+<g data-s="1"><path d="M175,118 L175,124 L740,124 L740,118" class="arrow"/><text x="457" y="141" text-anchor="middle">agent 循环（GPT-6 驱动），提示词决定它做多细</text></g>
+<g data-s="1"><text x="20" y="172" font-weight="700">A0 原版</text><rect x="175" y="156" width="565" height="24" rx="12" class="f6 stroke"/><text x="457" y="172" text-anchor="middle">作者原版提示词，原样运行；四环都不改</text></g>
+<g data-s="2"><text x="20" y="204" font-weight="700">A1 认真版</text><rect x="300" y="188" width="160" height="24" rx="12" class="f3 stroke"/><text x="380" y="204" text-anchor="middle">提示词：逐个建出小物体</text></g>
+<g data-s="3"><text x="20" y="236" font-weight="700">A2 加清单</text><rect x="175" y="220" width="100" height="24" rx="12" class="f1 stroke"/><text x="225" y="236" text-anchor="middle">+ Boxer 清单</text></g>
+<g data-s="4"><text x="20" y="268" font-weight="700">A3r 按规则</text><rect x="310" y="252" width="290" height="24" rx="12" class="f2 stroke"/><text x="455" y="268" text-anchor="middle">规则：最长边 &lt; 0.5 m 走生成 + place_mesh</text></g>
+<g data-s="5"><text x="20" y="300" font-weight="700">A3v 大模型定</text><rect x="300" y="284" width="160" height="24" rx="12" class="f5 stroke"/><text x="380" y="300" text-anchor="middle">agent 自己定生成还是搭</text></g>
+<g data-s="6"><text x="20" y="332" font-weight="700">A4 精修</text><rect x="470" y="316" width="275" height="24" rx="12" class="f4 stroke"/><text x="607" y="332" text-anchor="middle">+ 精修：改、渲染、看，每物体 ≤ 3 轮</text></g>
+<g data-s="7">
+<rect x="16" y="40" width="108" height="76" rx="10" class="stroke dash" fill="none"/>
+<path d="M110,112 L110,382 L146,382" class="arrow" marker-end="url(#c-m1)"/>
+<text x="20" y="378" font-weight="700">P0 无 agent</text><text x="20" y="396">不调大模型</text>
+<rect x="140" y="350" width="605" height="64" rx="10" class="stroke dash" fill="none"/>
+<rect x="150" y="360" width="110" height="44" rx="6" class="f3 stroke"/><text x="205" y="378" text-anchor="middle">Boxer 找框</text><text x="205" y="396" text-anchor="middle">每个物体一个框</text>
+<rect x="280" y="360" width="110" height="44" rx="6" class="f3 stroke"/><text x="335" y="378" text-anchor="middle">SAM 3D 生成</text><text x="335" y="396" text-anchor="middle">每个框一个网格</text>
+<rect x="410" y="360" width="110" height="44" rx="6" class="f3 stroke"/><text x="465" y="378" text-anchor="middle" class="shape">place_mesh</text><text x="465" y="396" text-anchor="middle">自动摆进场景</text>
+<rect x="540" y="360" width="110" height="44" rx="6" class="f3 stroke"/><text x="595" y="378" text-anchor="middle">过不了验收</text><text x="595" y="396" text-anchor="middle">就用框当方块</text>
+<rect x="670" y="360" width="68" height="44" rx="6" class="f2 stroke"/><text x="704" y="378" text-anchor="middle">.blend</text><text x="704" y="396" text-anchor="middle">拿去评测</text>
+<path d="M260,382 L278,382" class="arrow" marker-end="url(#c-m1)"/><path d="M390,382 L408,382" class="arrow" marker-end="url(#c-m1)"/><path d="M520,382 L538,382" class="arrow" marker-end="url(#c-m1)"/><path d="M650,382 L668,382" class="arrow" marker-end="url(#c-m1)"/>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>A0 原版</b>。作者的提示词原样运行，四环都不动，只是把 AHa-3D 放到我们的数据上。它回答"原版到底丢了多少"。</li>
+<li><b>A1 认真版</b>。只改提示词，明确要求逐个建出所有看得见的小物体，只用代码和方块。改的是"建形状"这一环。这是<b>公平基线</b>，后面各组都和它比。</li>
+<li><b>A2 加清单</b>。"找物体"不再全靠 agent 自己看。Boxer 在高清帧（1024×768 原图）上检测，得到每个物体的 3D 框和 2D 裁剪图，作为待建清单交给 agent。agent 要逐项处理，或者说明为什么跳过。</li>
+<li><b>A3r 按规则生成</b>。清单里估计最长边小于 0.5 m 的物体（XS、S 两档）调 <code>gen3d_request</code> 生成网格，再用 <code>place_mesh</code> 放进场景。过验收才保留，否则退回方块。动了"建形状"和"摆准"两环。</li>
+<li><b>A3v 大模型决定</b>。和 A3r 一样走生成支路，只是"哪个物体走生成"交给 agent 逐个决定，它可以看裁剪图和测量值。只动"建形状"。</li>
+<li><b>A4 GATOR 式精修</b>。在 A3v 上加一步：生成的物体被接受后，agent 再做"改、渲染、看"，每个物体最多 3 轮。动"摆准"和"检查"。只跑 5 个场景，是加分项。</li>
+<li><b>P0 无 agent 流水线</b>。从同一份感知结果出发，完全绕开 agent：Boxer 找框，每个框用 SAM 3D 生成并自动摆放，过不了验收的就用框本身当方块。不调大模型，几乎免费。</li>
+</ol>
+</div>
+<p>图里的四个环节名来自设计文档第 4 节。实验组和环节的对应关系照抄设计文档第 5 节的表。</p>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>A0 的提示词里不一定有 "approximate small objects"</b>。那句话出自 AHa-3D 博客里一次对比实验的任务描述，不一定是发布版的默认提示词。A0 用的是发布版本身。</li>
+<li><b>公平基线是 A1</b>。A0 只回答"原版丢多少"。拿 A3 和 A0 比，差距里混着"提示词有没有要求建小物体"这一项，说不清是生成的功劳。</li>
+<li><b>P0 也读同一份感知结果</b>。它和 agent 组的差别只在"有没有包工头"，所以能回答"小物体到底需不需要 agent"。</li>
+</ul>
+</div>
+
+<h3 id="c-arms-table">4.2 七组对照表</h3>
+<p>下表是设计文档第 5 节的表加一列"回答什么问题"。每一组都在前一组的基础上改，所以相邻两组一比，就知道新加的那样东西值多少。</p>
+<div class="table-wrap"><table>
+<tr><th>组</th><th>在前一组基础上改什么</th><th>对应环节</th><th>回答什么问题</th><th>场景数</th></tr>
+<tr><td><b>P0</b></td><td>不用大模型。Boxer 找框，每个框用 SAM 3D 生成并自动放进场景（<code>place_mesh</code>），过不了验收的用框本身（方块）代替</td><td>全部</td><td>小物体到底需不需要 agent？</td><td>15</td></tr>
+<tr><td><b>A0</b></td><td>AHa-3D 作者的提示词，原样运行</td><td>无</td><td>原版丢了多少？</td><td>15（额度不够时缩到 5）</td></tr>
+<tr class="hl"><td><b>A1</b></td><td>提示词明确要求逐个建出所有看得见的小物体，只用代码和方块</td><td>建形状</td><td>公平基线：认真做、不加工具，能做到哪？</td><td>15</td></tr>
+<tr><td><b>A2</b></td><td>加物体清单：Boxer 在高清帧上检测出 3D 框和 2D 裁剪图，agent 逐项处理或说明为什么跳过</td><td>找物体</td><td>漏掉是因为没找到吗？</td><td>15</td></tr>
+<tr><td><b>A3r</b></td><td>加生成：估计最长边 &lt; 0.5 m 的调 <code>gen3d_request</code> 生成，<code>place_mesh</code> 摆放，过验收才保留，否则退回方块</td><td>建形状、摆准</td><td>按尺寸规则生成，划算吗？</td><td>15</td></tr>
+<tr><td><b>A3v</b></td><td>同 A3r，改由 agent 逐个决定生成还是用代码搭（能看裁剪图和测量值）</td><td>建形状</td><td>让 agent 自己挑，比规则好吗？</td><td>15</td></tr>
+<tr><td><b>A4</b></td><td>A3v 加 GATOR 式精修：生成物体被接受后，"改、渲染、看"，每个物体最多 3 轮</td><td>摆准、检查</td><td>精修值不值这份钱？</td><td>5（加分项）</td></tr>
+</table></div>
+<p>下面这张图把"谁和谁比"画出来。实线箭头是"多加一样东西"，箭头上写加了什么；虚线是不在同一条链上、但也要直接对照的两对。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 265" width="760" role="img" aria-label="实验组之间的对照关系：A0 到 A1 到 A2，A2 分叉到 A3r 和 A3v，A3v 再到 A4；P0 和 A3v 对照，A3r 和 A3v 对照">
+<defs><marker id="c-m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="103" width="84" height="44" rx="8" class="f6 stroke"/><text x="52" y="122" text-anchor="middle" font-weight="700" font-size="13">A0</text><text x="52" y="139" text-anchor="middle">原版</text>
+<rect x="180" y="103" width="84" height="44" rx="8" class="f1 stroke"/><text x="222" y="122" text-anchor="middle" font-weight="700" font-size="13">A1</text><text x="222" y="139" text-anchor="middle">认真版</text>
+<rect x="350" y="103" width="84" height="44" rx="8" class="f1 stroke"/><text x="392" y="122" text-anchor="middle" font-weight="700" font-size="13">A2</text><text x="392" y="139" text-anchor="middle">加清单</text>
+<rect x="520" y="33" width="84" height="44" rx="8" class="f2 stroke"/><text x="562" y="52" text-anchor="middle" font-weight="700" font-size="13">A3r</text><text x="562" y="69" text-anchor="middle">按规则</text>
+<rect x="520" y="173" width="84" height="44" rx="8" class="f5 stroke"/><text x="562" y="192" text-anchor="middle" font-weight="700" font-size="13">A3v</text><text x="562" y="209" text-anchor="middle">agent 定</text>
+<rect x="670" y="173" width="84" height="44" rx="8" class="f4 stroke"/><text x="712" y="192" text-anchor="middle" font-weight="700" font-size="13">A4</text><text x="712" y="209" text-anchor="middle">精修</text>
+<rect x="10" y="203" width="84" height="44" rx="8" class="f3 stroke"/><text x="52" y="222" text-anchor="middle" font-weight="700" font-size="13">P0</text><text x="52" y="239" text-anchor="middle">无 agent</text>
+<path d="M94,125 L178,125" class="arrow" marker-end="url(#c-m2)"/><text x="136" y="117" text-anchor="middle" class="shape">+认真提示词</text>
+<path d="M264,125 L348,125" class="arrow" marker-end="url(#c-m2)"/><text x="306" y="117" text-anchor="middle" class="shape">+Boxer 清单</text>
+<path d="M434,115 L518,62" class="arrow" marker-end="url(#c-m2)"/><text x="478" y="82" text-anchor="end" class="shape">+生成，规则定</text>
+<path d="M434,135 L518,188" class="arrow" marker-end="url(#c-m2)"/><text x="478" y="178" text-anchor="end" class="shape">+生成，agent 定</text>
+<path d="M604,195 L668,195" class="arrow" marker-end="url(#c-m2)"/><text x="636" y="187" text-anchor="middle" class="shape">+精修</text>
+<path d="M562,79 L562,171" class="arrow-red dash" marker-start="url(#c-m2)" marker-end="url(#c-m2)"/><text x="572" y="121">规则 vs agent</text><text x="572" y="137">谁更会挑</text>
+<path d="M94,225 L518,200" class="arrow-red dash" marker-start="url(#c-m2)" marker-end="url(#c-m2)"/><text x="300" y="238" text-anchor="middle">对照 A3v：小物体要不要 agent</text>
+</g></svg></div>
+<figcaption>七组的对照关系。沿实线每走一步只多一样东西，相邻两组的差就是那样东西的贡献。两条红色虚线是另外两组直接对照：A3r 对 A3v 看"谁来挑生成"，P0 对 A3v 看"要不要 agent"。</figcaption></figure>
+<div class="box key">
+<span class="box-label">必记</span>
+<ul>
+<li>A0 → A1 → A2 → A3 → A4 每步只多一样东西；P0 是不经过 agent 的另一端。</li>
+<li>主实验 5 组（A0、A1、A2、A3r、A3v）各 15 个测试场景；A4 只跑 5 个，是加分项。</li>
+<li>A3r 和 A3v 的生成支路完全一样，只差"谁决定走生成"。</li>
+</ul>
+</div>
+
+<h3 id="c-route">4.3 A3r 和 A3v：谁来决定"生成还是搭"</h3>
+<p>A3r 和 A3v 共用同一条生成支路。两组唯一的区别是清单里每一项进来以后，由谁决定它走哪条路。</p>
+<ul>
+<li><b>A3r 按规则</b>。估计最长边小于 0.5 m（XS、S 两档）的走生成，其余照旧用代码搭。规则是设计文档第 15 节"我自己定的"第 1 条，用户可以否决。</li>
+<li><b>A3v 大模型决定</b>。agent 看这一项的裁剪图和测量值，逐个决定生成还是用代码搭。</li>
+</ul>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 330" width="760" role="img" aria-label="A3r 和 A3v 的路由对比：左边是按尺寸规则的判断，右边是 agent 判断，两边都通向同一条生成支路或用代码搭">
+<defs><marker id="c-m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="250" y="10" width="260" height="46" rx="8" class="f6 stroke"/>
+<text x="380" y="29" text-anchor="middle" font-weight="700" font-size="13">清单里的一项</text>
+<text x="380" y="47" text-anchor="middle">3D 框 + 裁剪图 + 估计尺寸</text>
+<text x="20" y="96" font-weight="700" font-size="13">A3r 按规则</text>
+<text x="740" y="96" text-anchor="end" font-weight="700" font-size="13">A3v 大模型决定</text>
+<path d="M320,56 L200,97" class="arrow" marker-end="url(#c-m3)"/>
+<path d="M440,56 L560,97" class="arrow" marker-end="url(#c-m3)"/>
+<polygon points="190,100 300,140 190,180 80,140" class="f3 stroke"/>
+<text x="190" y="136" text-anchor="middle">估计最长边</text>
+<text x="190" y="154" text-anchor="middle">&lt; 0.5 m ？</text>
+<rect x="460" y="100" width="220" height="80" rx="8" class="f5 stroke"/>
+<text x="570" y="126" text-anchor="middle">agent 看裁剪图和测量值</text>
+<text x="570" y="145" text-anchor="middle">自己判断</text>
+<text x="570" y="164" text-anchor="middle">生成，还是用代码搭</text>
+<text x="380" y="145" text-anchor="middle" class="lbl-accent" font-weight="700">← 两组只差这一步 →</text>
+<rect x="20" y="230" width="170" height="60" rx="8" class="f6 stroke"/>
+<text x="105" y="256" text-anchor="middle" font-weight="700">用代码和方块搭</text>
+<text x="105" y="276" text-anchor="middle">最长边 ≥ 0.5 m 的物体</text>
+<rect x="250" y="220" width="260" height="100" rx="8" class="f2 stroke"/>
+<text x="380" y="240" text-anchor="middle" font-weight="700">生成支路（两组完全一样）</text>
+<text x="380" y="259" text-anchor="middle">gen3d_request 生成网格</text>
+<text x="380" y="277" text-anchor="middle">place_mesh 配准、摆放</text>
+<text x="380" y="295" text-anchor="middle">过验收 → 留下网格</text>
+<text x="380" y="313" text-anchor="middle">不过 → 退回方块</text>
+<rect x="570" y="230" width="170" height="60" rx="8" class="f6 stroke"/>
+<text x="655" y="256" text-anchor="middle" font-weight="700">用代码和方块搭</text>
+<text x="655" y="276" text-anchor="middle">agent 选了搭的物体</text>
+<path d="M135,160 L108,228" class="arrow" marker-end="url(#c-m3)"/><text x="114" y="196" text-anchor="end">否</text>
+<path d="M190,180 L300,218" class="arrow" marker-end="url(#c-m3)"/><text x="252" y="192" text-anchor="middle">是</text>
+<path d="M520,180 L462,218" class="arrow" marker-end="url(#c-m3)"/><text x="482" y="196" text-anchor="end">生成</text>
+<path d="M640,180 L652,228" class="arrow" marker-end="url(#c-m3)"/><text x="652" y="204">代码</text>
+</g></svg></div>
+<figcaption>左边是规则，右边是 agent。两边进来的东西一样（清单的一项），出去的两条路也一样。中间那条生成支路连验收门槛都相同，所以两组的差别只能来自"挑谁去生成"这一步。</figcaption></figure>
+<div class="box detail">
+<span class="box-label">生成支路里发生什么</span>
+<p><code>gen3d_request</code> 异步提交生成，按"帧、掩码、后端、种子"缓存结果。最好那一帧的掩码小于约 200 像素时，直接返回 <code>too_small</code>，这一项退回方块。</p>
+<p><code>place_mesh</code> 先用后端给的位姿或有向框做初始化，再做 ICP 和剪影坐标搜索，最后验收。验收要同时满足四条（设计文档第 6 节）。</p>
+<ul>
+<li>多帧平均剪影 IoU ≥ max(0.6, 方块版 IoU + 0.03)，也就是必须比方块好。</li>
+<li>观测点到网格的 Chamfer ≤ max(1.5 cm, 0.1 × 最长边)。</li>
+<li>尺寸在框的 0.75 到 1.25 倍之间。</li>
+<li>穿进支撑面不超过 1 cm。</li>
+</ul>
+<p>这两个工具第 6 章细讲（<a href="#gen">生成与摆放工具</a>）。</p>
+</div>
+<div class="box grandma">
+<span class="box-label">举个例子（按我们的理解）</span>
+<p>清单里有一本书，估计最长边 0.3 m。A3r 的规则一看小于 0.5 m，就送去生成。A3v 的 agent 看了裁剪图，可能觉得书就是个长方块，直接用代码搭更省事。</p>
+<p>反过来，一盆形状复杂的小植物，两组大概都会送去生成。到底哪种挑法更划算，正是 A3r 对 A3v 要量的东西。</p>
+</div>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<p>规则用的是<b>估计的</b>最长边，来自清单里的 3D 框。评测分档用的是<b>真值</b>框的最长边（<a href="#eval">第 8 章</a>）。两者可能不一致，一个真值 0.45 m 的物体可能被估成 0.55 m，于是 A3r 不会生成它。</p>
+</div>
+
+<h3 id="c-extra">4.4 额外实验</h3>
+<p>主实验之外还有几项小实验。它们各回答一个具体的疑问，花的额度也差得很远，先看运行次数。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 270" width="760" role="img" aria-label="各项实验要跑几次 agent 的横向条形图">
+<g font-size="12">
+<text x="20" y="20" font-size="13" font-weight="700">每项要跑几次 agent（设计文档第 5 节的运行表）</text>
+<rect x="470" y="9" width="12" height="12" rx="2" class="f1 stroke"/>
+<text x="488" y="20">GPT-6 驱动（主驱动）</text>
+<rect x="630" y="9" width="12" height="12" rx="2" class="f5 stroke"/>
+<text x="648" y="20">Claude 驱动</text>
+<text x="236" y="54" text-anchor="end">主实验 A0–A3v（5 组 × 15 场景）</text>
+<rect x="246" y="42" width="450" height="16" rx="3" class="f1 stroke"/>
+<text x="702" y="54" font-weight="700">75</text>
+<text x="236" y="84" text-anchor="end">A4 精修（5 场景，加分项）</text>
+<rect x="246" y="72" width="30" height="16" rx="3" class="f1 stroke"/>
+<text x="282" y="84" font-weight="700">5</text>
+<text x="236" y="114" text-anchor="end">第二次重复（A1、A3v 各 5 场景）</text>
+<rect x="246" y="102" width="60" height="16" rx="3" class="f1 stroke"/>
+<text x="312" y="114" font-weight="700">10</text>
+<text x="236" y="144" text-anchor="end">Claude 复跑（5 组 × 5 场景）</text>
+<rect x="246" y="132" width="60" height="16" rx="3" class="f5 stroke"/>
+<rect x="306" y="132" width="90" height="16" rx="3" class="stroke dash" fill="none"/>
+<text x="402" y="144">25（额度不够时 10 次：只跑 A1、A3v）</text>
+<text x="236" y="174" text-anchor="end">高清帧消融（A3v，5 场景）</text>
+<rect x="246" y="162" width="30" height="16" rx="3" class="f1 stroke"/>
+<text x="282" y="174" font-weight="700">5</text>
+<text x="236" y="204" text-anchor="end">BVB 重新打分</text>
+<text x="246" y="204">0 次：拿现成的 .blend 重新打分</text>
+<text x="236" y="234" text-anchor="end">Hunyuan 小对比</text>
+<text x="246" y="234">0 次：约 50 个物体，物体级，不进 agent 循环</text>
+<line x1="246" y1="34" x2="246" y2="240" class="stroke"/>
+<text x="246" y="260" font-weight="700">合计 105 到 120 次 agent 运行（崩溃重跑另算），和英文提案一致</text>
+</g></svg></div>
+<figcaption>每项要跑几次 agent（设计文档第 5 节的运行表）。主实验 75 次占大头，Claude 复跑按额度分两档，BVB 和 Hunyuan 两项不跑 agent。除 Claude 复跑外都用主驱动，这一点是按我们的理解。</figcaption></figure>
+<div class="table-wrap"><table>
+<tr><th>实验</th><th>怎么做</th><th>回答什么</th><th>规模</th></tr>
+<tr><td><b>BVB 重新打分</b></td><td>BVB（Blender-VideoBench，arXiv 2609.15478）公开了各配置跑出的 .blend，用我们的评测脚本重新打分。输入是 VSI 的 640×480 视频，坐标系不同，只能用 L 档家具加地面对齐（<a href="#eval">第 8 章</a>），对不齐就不报</td><td>免费的额外基线</td><td>不跑 agent</td></tr>
+<tr><td><b>高清帧消融</b></td><td>A3v 改用 Pi3X 降采样后的帧做清单和生成。只改分辨率，不改帧数（<a href="#data">第 7 章</a>）</td><td>"用高清帧"单独贡献多少</td><td>5 个场景</td></tr>
+<tr><td><b>Hunyuan 小对比</b></td><td>从测试场景用固定种子抽 XS、S 档物体，比两种摆法：SAM 3D 自带的位姿，对比 Hunyuan3D-2 只生成形状、再用 <code>place_mesh</code> 配准</td><td>谁摆得准；物体级，不进 agent 循环</td><td>约 50 个物体</td></tr>
+<tr><td><b>第二次重复</b></td><td>A1 和 A3v 各多跑一次</td><td>同一组跑两次差多少（噪声底线，<a href="#eval">第 8 章</a>）</td><td>各 5 个场景</td></tr>
+<tr><td><b>Claude 复跑</b></td><td>headless Claude Code（Opus 5.5）当驱动重跑。额度够跑 5 组，不够只跑 A1 和 A3v</td><td>按我们的理解：结论换了驱动还在不在</td><td>25 次或 10 次</td></tr>
+<tr><td><b>干净对照</b></td><td>SAM 3 实例掩码加 Pi3X 点云拟合有向框，做一份没有同源问题的清单（<code>inventory_clean.json</code>，Boxer 清单是 <code>inventory.json</code>）。"检测到"这一关两种清单都比；P0 两种清单各跑一遍；agent 组只用 Boxer 清单</td><td>Boxer 的同源优势有多大</td><td>P0 多跑一遍</td></tr>
+</table></div>
+<p>干净对照的来由：Boxer 训练时用过 CA-1M 训练集，在 CA-1M 上测属于"同源"，结果偏乐观。每张表都要标出这一点。</p>
+<div class="box calc">
+<span class="box-label">手算 · 一共多少次 agent 运行</span>
+<p>额度够时：75（主实验）+ 5（A4）+ 10（第二次重复）+ 25（Claude 复跑）+ 5（高清帧消融）= <b>120</b>。</p>
+<p>Claude 复跑只跑 10 次时：75 + 5 + 10 + 10 + 5 = <b>105</b>。英文提案写的 "105–120 agent runs" 就是这两个数。</p>
+<p>P0 不调大模型，不算在里面；跑崩后的重跑也另算。</p>
+</div>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<p>P0 用干净清单跑一遍，是为了量"同源"对下游各关的影响。agent 组不重跑干净版，所以 A2 以后各组表里的检测数字都要标"Boxer，同源"。</p>
+</div>
+
+<h3 id="c-rules">4.5 每次运行的规则和削减顺序</h3>
+<p>"同样预算"在这个项目里有具体含义（设计文档第 15 节第 10 条）：所有组用同一个墙钟上限、同一个轮数上限，外加同一套失败处理规则。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 200" width="760" role="img" aria-label="单次运行的流程：开跑，崩了或撞上限就重跑一次，还不行就拿最后保存的 .blend 打分并记为失败">
+<defs><marker id="c-m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="162" y="20" width="432" height="38" rx="8" class="f2 stroke"/><text x="378" y="44" text-anchor="middle" font-weight="700">照常打分（正常结束）</text>
+<rect x="6" y="100" width="130" height="60" rx="8" class="f6 stroke"/><text x="71" y="120" text-anchor="middle" font-weight="700">开跑</text><text x="71" y="138" text-anchor="middle">同一墙钟、轮数上限</text><text x="71" y="154" text-anchor="middle">初值：A1 中位数×2</text>
+<polygon points="232,98 302,130 232,162 162,130" class="f3 stroke"/><text x="232" y="127" text-anchor="middle">崩了或</text><text x="232" y="144" text-anchor="middle">撞上限？</text>
+<rect x="328" y="105" width="100" height="50" rx="8" class="f4 stroke"/><text x="378" y="134" text-anchor="middle" font-weight="700">重跑一次</text>
+<polygon points="524,98 594,130 524,162 454,130" class="f3 stroke"/><text x="524" y="127" text-anchor="middle">还是</text><text x="524" y="144" text-anchor="middle">不行？</text>
+<rect x="620" y="100" width="134" height="60" rx="8" class="f4 stroke"/><text x="687" y="124" text-anchor="middle">最后保存的 .blend</text><text x="687" y="144" text-anchor="middle">照常打分，记失败</text>
+<path d="M136,130 L160,130" class="arrow" marker-end="url(#c-m4)"/>
+<path d="M302,130 L326,130" class="arrow" marker-end="url(#c-m4)"/><text x="314" y="122" text-anchor="middle">是</text>
+<path d="M428,130 L452,130" class="arrow" marker-end="url(#c-m4)"/>
+<path d="M594,130 L618,130" class="arrow" marker-end="url(#c-m4)"/><text x="606" y="122" text-anchor="middle">是</text>
+<path d="M232,98 L232,60" class="arrow" marker-end="url(#c-m4)"/><text x="240" y="84">否</text>
+<path d="M524,98 L524,60" class="arrow" marker-end="url(#c-m4)"/><text x="532" y="84">否</text>
+<text x="380" y="190" text-anchor="middle">每组的失败率单独报；失败的运行照常进配对比较，不剔除</text>
+</g></svg></div>
+<figcaption>一次运行的完整规则。第 1 周用 office48 只量额度，不定上限。上限要等 A1 在 3 个开发场景上跑出耗时和轮数的中位数（10/20–10/26 那周），各取 2 倍，10/26 前写进 <code>configs/run_caps.json</code>。失败的运行不删，拿它最后保存的 .blend 照常打分。</figcaption></figure>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>像考试：所有人同一个时长、同一张答题卡。中途电脑死机可以重考一次；再死机，就按交上来的那份卷子判分，并记一笔"没考完"。</p>
+<p>不能因为某组老死机就把它的卷子扔掉，那样会让爱死机的组看起来更好。</p>
+</div>
+<p>订阅额度可能不够跑完全部计划。设计文档预先定了<b>削减顺序</b>，额度不够时从上往下砍。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 310" width="760" role="img" aria-label="额度不够时的六步削减顺序，画成逐级下降的阶梯">
+<g font-size="12">
+<text x="20" y="20" font-size="13" font-weight="700">agent 运行数（估算：只数调大模型的运行，不含崩溃重跑）</text>
+<rect x="60" y="50" width="88" height="200" rx="3" class="f2 stroke"/>
+<text x="104" y="68" text-anchor="middle" font-size="13" font-weight="700">120</text>
+<text x="104" y="270" text-anchor="middle">起点</text>
+<text x="104" y="288" text-anchor="middle">全部照计划</text>
+<rect x="160" y="66.7" width="88" height="183.3" rx="3" class="f1 stroke"/>
+<text x="204" y="84.7" text-anchor="middle" font-size="13" font-weight="700">110</text>
+<rect x="160" y="50" width="88" height="16.7" rx="3" class="arrow-red dash" fill="none"/>
+<text x="204" y="44" text-anchor="middle" class="lbl-accent" font-weight="700">−10</text>
+<path d="M148,50 L160,50" class="arrow dash"/>
+<text x="204" y="270" text-anchor="middle">① A0</text>
+<text x="204" y="288" text-anchor="middle">缩到 5 场景</text>
+<rect x="260" y="91.7" width="88" height="158.3" rx="3" class="f1 stroke"/>
+<text x="304" y="109.7" text-anchor="middle" font-size="13" font-weight="700">95</text>
+<rect x="260" y="66.7" width="88" height="25" rx="3" class="arrow-red dash" fill="none"/>
+<text x="304" y="60.7" text-anchor="middle" class="lbl-accent" font-weight="700">−15</text>
+<path d="M248,66.7 L260,66.7" class="arrow dash"/>
+<text x="304" y="270" text-anchor="middle">② Claude 复跑</text>
+<text x="304" y="288" text-anchor="middle">只留 A1、A3v</text>
+<rect x="360" y="98.3" width="88" height="151.7" rx="3" class="f1 stroke"/>
+<text x="404" y="116.3" text-anchor="middle" font-size="13" font-weight="700">91</text>
+<rect x="360" y="91.7" width="88" height="6.7" rx="3" class="arrow-red dash" fill="none"/>
+<text x="404" y="85.7" text-anchor="middle" class="lbl-accent" font-weight="700">−4</text>
+<path d="M348,91.7 L360,91.7" class="arrow dash"/>
+<text x="404" y="270" text-anchor="middle">③ 第二次重复</text>
+<text x="404" y="288" text-anchor="middle">缩到 3 场景</text>
+<rect x="460" y="106.7" width="88" height="143.3" rx="3" class="f1 stroke"/>
+<text x="504" y="124.7" text-anchor="middle" font-size="13" font-weight="700">86</text>
+<rect x="460" y="98.3" width="88" height="8.3" rx="3" class="arrow-red dash" fill="none"/>
+<text x="504" y="92.3" text-anchor="middle" class="lbl-accent" font-weight="700">−5</text>
+<path d="M448,98.3 L460,98.3" class="arrow dash"/>
+<text x="504" y="270" text-anchor="middle">④ 取消 A4</text>
+<text x="504" y="288" text-anchor="middle">省 5 次</text>
+<rect x="560" y="140" width="88" height="110" rx="3" class="f1 stroke"/>
+<text x="604" y="158" text-anchor="middle" font-size="13" font-weight="700">66</text>
+<rect x="560" y="106.7" width="88" height="33.3" rx="3" class="arrow-red dash" fill="none"/>
+<text x="604" y="100.7" text-anchor="middle" class="lbl-accent" font-weight="700">−20</text>
+<path d="M548,106.7 L560,106.7" class="arrow dash"/>
+<text x="604" y="270" text-anchor="middle">⑤ 测试场景</text>
+<text x="604" y="288" text-anchor="middle">15 → 10</text>
+<rect x="660" y="156.7" width="88" height="93.3" rx="3" class="f1 stroke"/>
+<text x="704" y="174.7" text-anchor="middle" font-size="13" font-weight="700">56</text>
+<rect x="660" y="140" width="88" height="16.7" rx="3" class="arrow-red dash" fill="none"/>
+<text x="704" y="134" text-anchor="middle" class="lbl-accent" font-weight="700">−10</text>
+<path d="M648,140 L660,140" class="arrow dash"/>
+<text x="704" y="270" text-anchor="middle">⑥ 去掉 A3r</text>
+<text x="704" y="288" text-anchor="middle">只留 A3v</text>
+<line x1="50" y1="250" x2="752" y2="250" class="stroke"/>
+<text x="752" y="44" text-anchor="end" class="lbl-accent" font-weight="700">原则：一直用同一个驱动模型</text>
+</g></svg></div>
+<figcaption>六步削减顺序画成阶梯。每级的数是砍完后剩下的 agent 运行数，红色虚线框是这一步砍掉的部分。数字是估算，算法见下面的手算框。</figcaption></figure>
+<div class="box calc">
+<span class="box-label">手算 · 阶梯上的数怎么来</span>
+<p>只数调大模型的 agent 运行，不含崩溃重跑。起点 120 = 75 + 5 + 10 + 25 + 5（4.4 节）。</p>
+<ul>
+<li>① A0 从 15 个场景减到 5 个：−10，剩 110。</li>
+<li>② Claude 复跑从 25 次减到 10 次：−15，剩 95。</li>
+<li>③ 第二次重复从 2 × 5 减到 2 × 3：−4，剩 91。</li>
+<li>④ 取消 A4：−5，剩 86。</li>
+<li>⑤ A1、A2、A3r、A3v 各从 15 减到 10：−20，剩 66。假设 A0 的 5 个场景就在这 10 个之内。</li>
+<li>⑥ 去掉 A3r 的 10 次：剩 56。</li>
+</ul>
+</div>
+<ol>
+<li>A0 缩到 5 个场景。</li>
+<li>Claude 复跑只保留 A1 和 A3v。</li>
+<li>第二次重复缩到 3 个场景。</li>
+<li>取消 A4。</li>
+<li>测试场景从 15 个减到 10 个，驱动不换。按物体配对比较，10 个场景仍有上千个真值物体。</li>
+<li>去掉 A3r，只留 A3v。P0 已经代表了"按规则、不用大模型"这一端。</li>
+</ol>
+<div class="box key">
+<span class="box-label">必记</span>
+<ul>
+<li>原则是<b>不换驱动</b>。换驱动会破坏"复现作者设置"这个前提，宁可少跑场景。</li>
+<li>第 5、6 步是设计文档按推荐写的，用户还没明确确认。</li>
+<li>结论按实际跑到的样本量写，砍了多少就在报告里说多少。</li>
+</ul>
+</div>
+<p class="src">设计文档第 4、5、6、15 节；英文提案 Approach 与 Resources 段；BVB 来自 deep-bvb 笔记。</p>

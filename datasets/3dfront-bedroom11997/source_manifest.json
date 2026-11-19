@@ -1,0 +1,406 @@
+{
+  "source": "https://huggingface.co/datasets/huanngzh/3D-Front",
+  "room_id": "fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997",
+  "dataset": "3D-FRONT, MIDI test split (not AI2-THOR)",
+  "scope": "Room meshes and all room render modalities; surface point-cloud archive not included",
+  "selected_view": "0005",
+  "comparison_input_sha256_verified": true,
+  "files": [
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997.glb",
+      "bytes": 3999420,
+      "sha256": "efbbc23874492e747b09d0a41f6304cfaba49c7fa6a7365a9c9a4a1bf4d5e4a2",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997_full.glb",
+      "bytes": 4007268,
+      "sha256": "cf2eba5a830cb2e78d6adc23963862e6a6f9070fe708b7d0bff08c36ee23d39a",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/Cabinet_Shelf_Desk_27afe8b6-b7a6-4b44-a916-788b9aa27ed1_2.glb",
+      "bytes": 476268,
+      "sha256": "1140b60408fda063ee62879cfc7921b4044f19ec25a9bbfc9d45d620f76db652",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/Bed_00acb313-c507-4372-addf-508755c6e98b_1.glb",
+      "bytes": 1219964,
+      "sha256": "35970a97efc8b3e5a145273959c4fd80a83a177e8d2f3778810df5e5f238e6e3",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/Cabinet_Shelf_Desk_5921e731-07e7-42be-9b2b-b7e7025de569_5.glb",
+      "bytes": 1184556,
+      "sha256": "d797c0c4e0d18f01981e15fc310af80572b856ddb308a275fb8a924393c7b3ca",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/wall.glb",
+      "bytes": 2552,
+      "sha256": "b26fbde9c7c0c3659bbbc85f5bf5619a4915db9b8834040bd7f27e305ce3d5cb",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/Cabinet_Shelf_Desk_27afe8b6-b7a6-4b44-a916-788b9aa27ed1_3.glb",
+      "bytes": 476268,
+      "sha256": "c1c3d9ca76a5540f8b4a8e3faa44f40c40532b6eed9a5cb7162631dc04bb0fbb",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/Cabinet_Shelf_Desk_311ff139-b90e-42cb-9ef6-bb95f6567ca7_4.glb",
+      "bytes": 1063268,
+      "sha256": "9e3258843f7d3b5838d9fa02e82e43807ff3c1eaa28cb2a2f7107b1b8272306a",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/others.glb",
+      "bytes": 4428,
+      "sha256": "c12241982d9b0bf1152f156cc95afa18f9318cfadfc262cecd972ff1949b9144",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-SCENE/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/ceil.glb",
+      "bytes": 1592,
+      "sha256": "4b4786b807caad1e6e2d3cabf8a98b4be0b1b09fdcfaba4f87f8500c5e151cb5",
+      "archive": "3D-FRONT-TEST-SCENE.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0001.exr",
+      "bytes": 53232,
+      "sha256": "686109ce7e72bb91dbdd84d93c4348fb8e88594e0b53ca169c9ca8d0b9630242",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0002.webp",
+      "bytes": 28970,
+      "sha256": "0b5542422265bb2728cf08738e21a4acad4d8ec64ccc3a2429a856ba39d07a53",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0002.webp",
+      "bytes": 72686,
+      "sha256": "65cddbdf22a0a2921924a45f3b77d8cac4942bb5c1a8c64033dab4b0cb7e6462",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0000.webp",
+      "bytes": 122708,
+      "sha256": "58e547180b6660aa20213056e0f09e96add843318990dc77409d8bbad034798c",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0000.webp",
+      "bytes": 34674,
+      "sha256": "bbe421fc91fe24416c7ae9357113ffb68d5df9f0ecdb5674ba217255bbe5c495",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0009.webp",
+      "bytes": 104582,
+      "sha256": "1454637690978e13d14406675ab929f6015464fa68c243d5b5c75474244d483b",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0005.png",
+      "bytes": 3793,
+      "sha256": "bc2a82c4056e467543ca03043bb395e1d599b41218ec35f63b20b36d6198ecec",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0010.webp",
+      "bytes": 45562,
+      "sha256": "7ef6331410f4ac739a7df9661289a3ba9b11d5e5b15b2765f486c4c3f4e41d10",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0003.png",
+      "bytes": 4974,
+      "sha256": "bd017282dbcc8aab4ecb56af14280bb7c38f3297c4e9b21814ed4b287ee73bc8",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0009.exr",
+      "bytes": 105584,
+      "sha256": "37b2084376ce07ed0c38dc008d596bdbeffe46039729bad516f1730594d68ae3",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0006.png",
+      "bytes": 5693,
+      "sha256": "7a90548bd4cc502eb2964229cc2532a24e4fc48e0cadd90e169f81afb929b78d",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0008.exr",
+      "bytes": 79134,
+      "sha256": "2b1dc6db1a3062be92bafc5f1971692bc186419cfcb3e64edd764e38a94f1ba5",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0004.webp",
+      "bytes": 23274,
+      "sha256": "35c22b9d7faf97b77f55c866ee09e0f57b024f289c0c9c98dea2663a4c80baed",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0008.webp",
+      "bytes": 119216,
+      "sha256": "ccf76d364348c04b7ed1ea66323fc0a8e8b9f9755ad6553e276ffaaef5e1e4db",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0010.exr",
+      "bytes": 107172,
+      "sha256": "e26272c1244cab1ce0f61ca72ba8bc76593fd03ce5323558e428565ccfb43588",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0007.exr",
+      "bytes": 101480,
+      "sha256": "1d311ca0a56eab9a2738babf8467a5f24b6f7b6f284fe5ceffc7830c4b0ba98b",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0001.png",
+      "bytes": 5350,
+      "sha256": "a6f6040049f248471b6d917c5ed160fc84ef657b20803fff74fc500413a0fc48",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0004.webp",
+      "bytes": 74810,
+      "sha256": "54d495dfdc39b13c96e24cc39c671b280bce4d4657a8c54f479d4f7accc41d5d",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0001.webp",
+      "bytes": 78726,
+      "sha256": "a95aaaf8805848effd76d28d9c6a9b259b95cc7337ec768e75a9b6717e6dfd60",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0010.webp",
+      "bytes": 107942,
+      "sha256": "eb1cacdc79a8fa0552aa85aef17d19ef9f3559f8f8f4cb5eed5207cbd77d29f0",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0001.webp",
+      "bytes": 87388,
+      "sha256": "e219f94f542203cfd12b9e1fcc0709928dfc403ea40b2209f63bbeda8ebe420d",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0006.webp",
+      "bytes": 133254,
+      "sha256": "73035820797e5fe4fcaf696481c121ec275d5e3cab11ce4ca27d569de46acaba",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0003.webp",
+      "bytes": 128012,
+      "sha256": "35be2052685197b3bd4b9ad0c535125c68ad316ca15f86c7b59247ff917eddfc",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0006.webp",
+      "bytes": 39226,
+      "sha256": "9b852e9ae4e9d3699b575defe9ec0294a748add1824f43742c08520f3ac03d81",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0000.exr",
+      "bytes": 46788,
+      "sha256": "e5dd0f44cc54aaf26775be6cb80818c33c197890fa21b5940389aa3584fb36ca",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0005.exr",
+      "bytes": 50326,
+      "sha256": "f3b5d4f74282dec1e826590f63e158285166381a0d1b48dfcd60e67e5f18705d",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0007.webp",
+      "bytes": 82226,
+      "sha256": "4e3d02fb2c44b920a5a1328fd60d113451aa3188615a383c55dd8c00c9236a39",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0005.webp",
+      "bytes": 66020,
+      "sha256": "84a02eba76ea31a7294ce0d91af0b053d7c876e79fec05bea8870a87ec13b3ae",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0004.png",
+      "bytes": 4938,
+      "sha256": "1ef5b19512032d7812ab189f0bff17b1b5a35696d5f9ea36bca0bd46659887d9",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0006.exr",
+      "bytes": 95935,
+      "sha256": "2a90a5afebdc669a043d2ea6e2dd0c3eb7aab0c6969c7d12b25e3a3611c7162c",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0008.webp",
+      "bytes": 78952,
+      "sha256": "6487dd67abec51aa0b81e3e9389849802c1ead63aa2dc85ab1d64237cd5d2df4",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0000.png",
+      "bytes": 5022,
+      "sha256": "24f153fc252198d978dac5129b5f28ec3d5a0d4908ba1497cb3b956867e72ace",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0010.webp",
+      "bytes": 124520,
+      "sha256": "daba99bc37f9bb45fe2402d65b262fa22eb91f52cc2d90d371c4842afbeda95a",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0003.webp",
+      "bytes": 85622,
+      "sha256": "c2d25917043150f8789a0d3367a3de37213cbcf7551585d233b7a44b8f178c57",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0008.webp",
+      "bytes": 28402,
+      "sha256": "fc29d11f6aa5356275ba31a5fb7c9604d2646a7d3f556ee8f2bf53bf684634a7",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0007.webp",
+      "bytes": 90094,
+      "sha256": "999c1dada42f40087d260a044d3078f1a326c65d039d5a65c36850391daac217",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0004.exr",
+      "bytes": 69773,
+      "sha256": "73c84bf0364a28126d0e4c2620fb90e52dfb3aa2bde6d34cf65d35b49d93f872",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0004.webp",
+      "bytes": 129302,
+      "sha256": "da344f22f187e37fad0862c41abc91d79c3d1be1fbd767ff5c22e8f525204300",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0002.webp",
+      "bytes": 88050,
+      "sha256": "9e3934ce23c710058da70dcdfcc729f61a24ef793978526fa3bb1c11053d3ed8",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0003.webp",
+      "bytes": 28614,
+      "sha256": "3be9f946a14fca3e6e609eea59a93350165567181595de2dd583ee006750fee8",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0005.webp",
+      "bytes": 157694,
+      "sha256": "d5ff953ba331f308627ac1605619652ddea83cee96dcf9dc7e961d8747eb3aa6",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0001.webp",
+      "bytes": 25114,
+      "sha256": "10c4aeabce80c492bd801aff420ac2ad0bb87447a26964e0888dbb56ffdeabf4",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0009.webp",
+      "bytes": 27934,
+      "sha256": "00274f229dfab42d577765a5a3dd4002b3ecef2ee2e19dfeba9264bfd3b5607c",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0002.png",
+      "bytes": 5600,
+      "sha256": "ad643106482b7868520105dcc5f564857ad9576732a61b0299bfffc77b2f3321",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/rerender_0009.webp",
+      "bytes": 163532,
+      "sha256": "dec23be03c312c8e3926171f6d32966fa7097f5b31e43036dc9156a92c20494a",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0005.webp",
+      "bytes": 20862,
+      "sha256": "76c9294fae131b2005db28a9d99c9d46ad166e455213f3c0beab7f8be8cdf78b",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0003.exr",
+      "bytes": 56735,
+      "sha256": "87a9eac7187bd13bb5a75282245b4d942a032283176073113e2f2d08e0728f9e",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0009.png",
+      "bytes": 5391,
+      "sha256": "0f8f72cb4971b30f84a6afece32374bb2e9c2d8f1553e5429f2f884c01e47ff8",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0007.png",
+      "bytes": 5486,
+      "sha256": "2653ed2f51a7b649de3d026da38c55ca05f186448fc370bdce0d058d9ac84fac",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/normal_0007.webp",
+      "bytes": 33334,
+      "sha256": "e4dc26a44fb35e68823c6650a82a00be69213d7555c8ad5b87b4168a36e3106e",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/meta.json",
+      "bytes": 18900,
+      "sha256": "13546be697efc2594755d5a4d7642a053969e49053fbfda518f6cf07ef7a1e90",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0006.webp",
+      "bytes": 104098,
+      "sha256": "6b25820c18becd4d478520e80a84b590ad54955c0694677661edefc7d5410147",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/render_0000.webp",
+      "bytes": 70250,
+      "sha256": "c2abda68b28f5bc338a5ff27a6a81d65dd45691628d455afc5a8ba7219a31c15",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/depth_0002.exr",
+      "bytes": 59140,
+      "sha256": "97067cba8641a51bbf47d52db14c1d39f06006ff6171166336fff8aa912bd97c",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0010.png",
+      "bytes": 5988,
+      "sha256": "87d67ec918c148aa78b4d4b075269218fde9f16393ddda251a0714270475704a",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    },
+    {
+      "path": "3D-FRONT-TEST-RENDER/fd987ee8-eeac-4d95-a947-306db2feada5/MasterBedroom-11997/semantic_0008.png",
+      "bytes": 4345,
+      "sha256": "62b6f72446b58bca712423034dc2ffa7f79859579e08cb3066b9c381347275a1",
+      "archive": "3D-FRONT-TEST-RENDER.tar.gz"
+    }
+  ]
+}

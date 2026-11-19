@@ -1,0 +1,51 @@
+{
+  "variant": "v1",
+  "input": "../../datasets/ai2thor/FloorPlan209/reference",
+  "scene_id": "FloorPlan209",
+  "dataset_kind": "ai2thor",
+  "output": "../../recon/ai2thor_floorplan209/v1",
+  "aha_repo": "../../external/aha-3d",
+  "blender": "../../../tools/blender/blender-4.5.14-linux-x64/blender",
+  "frames": 16,
+  "segmentation_views": 8,
+  "repair_rounds": 1,
+  "budget_usd": 3,
+  "judge_reserve_usd": 0.75,
+  "gpu_hourly_usd": null,
+  "cpu_hourly_usd": null,
+  "models": {
+    "planner": {
+      "backend": "codex",
+      "call_reservation_usd": 0.25,
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium"
+    },
+    "judge": {
+      "backend": "codex",
+      "call_reservation_usd": 0.25,
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium"
+    },
+    "cheap": {
+      "backend": "openrouter",
+      "model": "mistralai/mistral-small-3.2-24b-instruct",
+      "call_reservation_usd": 0.03,
+      "provider": "DeepInfra"
+    }
+  },
+  "services": {
+    "sam3": {
+      "python": "../../.venvs/sam3-clean/bin/python",
+      "repo": "../../external/sam3",
+      "checkpoint": "model:sam3",
+      "reservation_usd": 0.05
+    },
+    "pi3x": {
+      "python": "../../.venvs/pi3x-clean/bin/python",
+      "repo": "../../external/pi3",
+      "checkpoint": "model:pi3x",
+      "reservation_usd": 0.15
+    }
+  },
+  "evaluation_dataset": "../../datasets/ai2thor/FloorPlan209"
+}

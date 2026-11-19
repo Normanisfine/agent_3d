@@ -1,0 +1,851 @@
+{
+ "chosen": [],
+ "rows": [
+  {
+   "scene": "47331319",
+   "item": "b081",
+   "category": "trash can",
+   "bin": "XS",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.45536429760550134,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.6484893492871809,
+    "sil_iou_min": 0.5776918117343649,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 4.213911387911911,
+    "primitive_sil_iou": 0.6059083020793431,
+    "inlier_ratio": 0.25462962962962965,
+    "size_ratio": [
+     0.9132902231949316,
+     1.5223716671242102,
+     0.1998048780487805
+    ],
+    "penetration_m": 1.2020757723066105e-05,
+    "up_index": 1
+   },
+   "longest": 0.13603223392760277,
+   "gen_dhat": 0.6251947351857586,
+   "gen_D": "misplaced"
+  },
+  {
+   "scene": "47331319",
+   "item": "b081",
+   "category": "trash can",
+   "bin": "XS",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.45536429760550134,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.5256665460005351,
+    "sil_iou_min": 0.4431057563587684,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 2.857597334611555,
+    "primitive_sil_iou": 0.6059083020793431,
+    "inlier_ratio": 0.31555555555555553,
+    "size_ratio": [
+     0.7642466225441856,
+     1.598930417831023,
+     1.283674839909484
+    ],
+    "penetration_m": 0.00019603120460888468,
+    "up_index": 2
+   },
+   "longest": 0.14287317698392443,
+   "gen_dhat": 0.4960146562447274,
+   "gen_D": "misplaced"
+  },
+  {
+   "scene": "47331262",
+   "item": "b033",
+   "category": "toy",
+   "bin": "XS",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.3039536315125283,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.5727724274416369,
+    "sil_iou_min": 0.41104014598540145,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 0.9973939279487013,
+    "primitive_sil_iou": 0.47841721647236896,
+    "inlier_ratio": 0.7737975951903807,
+    "size_ratio": [
+     0.8425560489176945,
+     0.9685886454113589,
+     1.2437500000000004
+    ],
+    "penetration_m": 0.0,
+    "up_index": 2
+   },
+   "longest": 0.12874755859375003,
+   "gen_dhat": 0.21601273515760386,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "47331262",
+   "item": "b033",
+   "category": "toy",
+   "bin": "XS",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.3039536315125283,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.2545232971375711,
+    "sil_iou_min": 0.18861386138613861,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 1.9451690469807745,
+    "primitive_sil_iou": 0.47841721647236896,
+    "inlier_ratio": 0.3785070140280561,
+    "size_ratio": [
+     0.12880503144654087,
+     0.739875107091249,
+     1.25
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.12939453125,
+   "gen_dhat": 0.5513744716818826,
+   "gen_D": "misplaced"
+  },
+  {
+   "scene": "47331319",
+   "item": "b079",
+   "category": "box",
+   "bin": "XS",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.23171797318588097,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.2578706069334275,
+    "sil_iou_min": 0.22859483818107332,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 1.5746979535527068,
+    "primitive_sil_iou": 0.28590334217050034,
+    "inlier_ratio": 0.7366548042704626,
+    "size_ratio": [
+     0.056574585635359116,
+     1.2499997530880314,
+     0.7083607590175234
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.2502440911943813,
+   "gen_dhat": 1.1325654421070592,
+   "gen_D": "missed"
+  },
+  {
+   "scene": "47331319",
+   "item": "b079",
+   "category": "box",
+   "bin": "XS",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.23171797318588097,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.27729354967975256,
+    "sil_iou_min": 0.26852772942054215,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 0.7246568876960284,
+    "primitive_sil_iou": 0.28590334217050034,
+    "inlier_ratio": 1.0,
+    "size_ratio": [
+     0.24946596874797478,
+     1.2569088640146648,
+     1.2735757773043588
+    ],
+    "penetration_m": 0.0,
+    "up_index": 4
+   },
+   "longest": 0.25162726281543585,
+   "gen_dhat": 1.4564357911607217,
+   "gen_D": "missed"
+  },
+  {
+   "scene": "47331319",
+   "item": "b051",
+   "category": "lamp",
+   "bin": "XS",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.41413788935239987,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.5522493166763368,
+    "sil_iou_min": 0.5460122699386503,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 3.4580382461536106,
+    "primitive_sil_iou": 0.7457265624699173,
+    "inlier_ratio": 0.2012962962962963,
+    "size_ratio": [
+     0.10138613861386139,
+     1.1562009175049492,
+     2.185490660696495
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.11516845076709456,
+   "gen_dhat": 0.39188197276392944,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "47331319",
+   "item": "b051",
+   "category": "lamp",
+   "bin": "XS",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.41413788935239987,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.572255564451379,
+    "sil_iou_min": 0.5361663652802894,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 3.40431360578282,
+    "primitive_sil_iou": 0.7457265624699173,
+    "inlier_ratio": 0.22925925925925925,
+    "size_ratio": [
+     0.11442347509319006,
+     1.1562001268670703,
+     2.298245124482527
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.11516837201214958,
+   "gen_dhat": 0.2678269234048135,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "47115469",
+   "item": "b020",
+   "category": "jar",
+   "bin": "XS",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.2812098445233586,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.40958598593674767,
+    "sil_iou_min": 0.1728012474012474,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 1.7311199082399955,
+    "primitive_sil_iou": 0.3870498345117302,
+    "inlier_ratio": 0.5255555555555556,
+    "size_ratio": [
+     0.48293348872158587,
+     1.5312199765003887,
+     1.2740489234898817
+    ],
+    "penetration_m": 0.0,
+    "up_index": 3
+   },
+   "longest": 0.1794398409961393,
+   "gen_dhat": 0.64054383435036,
+   "gen_D": "misplaced"
+  },
+  {
+   "scene": "47115469",
+   "item": "b020",
+   "category": "jar",
+   "bin": "XS",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.2812098445233586,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.4241409028371686,
+    "sil_iou_min": 0.1319149860502192,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 1.6994154321916533,
+    "primitive_sil_iou": 0.3870498345117302,
+    "inlier_ratio": 0.49166666666666664,
+    "size_ratio": [
+     0.08641350210970464,
+     1.250219055553911,
+     1.0017334458662226
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.14651004557272396,
+   "gen_dhat": 0.7165727121572258,
+   "gen_D": "misplaced"
+  },
+  {
+   "scene": "47115469",
+   "item": "b014",
+   "category": "trash can",
+   "bin": "S",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.6396158774962616,
+   "box_D": "misplaced",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.1496117207303974,
+    "sil_iou_min": 0.07529613157894736,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 5.538485054275667,
+    "primitive_sil_iou": 0.24901921707554467,
+    "inlier_ratio": 0.04834123222748815,
+    "size_ratio": [
+     0.0943778801843318,
+     1.249999381565362,
+     0.20954193547368063
+    ],
+    "penetration_m": 0.0,
+    "up_index": 4
+   },
+   "longest": 0.13732903361924143,
+   "gen_dhat": 0.22344896692156457,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "47115469",
+   "item": "b014",
+   "category": "trash can",
+   "bin": "S",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.6396158774962616,
+   "box_D": "misplaced",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.21806770304385883,
+    "sil_iou_min": 0.08854343195266273,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 4.710824174493499,
+    "primitive_sil_iou": 0.24901921707554467,
+    "inlier_ratio": 0.08530805687203792,
+    "size_ratio": [
+     0.0943778801843318,
+     1.2499990293852634,
+     0.4424698278307915
+    ],
+    "penetration_m": 0.0,
+    "up_index": 4
+   },
+   "longest": 0.13732899492758022,
+   "gen_dhat": 0.19614533634381556,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "47331319",
+   "item": "b034",
+   "category": "cup",
+   "bin": "S",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.07756930328175052,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.8023801110211553,
+    "sil_iou_min": 0.733754512635379,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 3.239560893996601,
+    "primitive_sil_iou": 0.6225027726504359,
+    "inlier_ratio": 0.31981481481481483,
+    "size_ratio": [
+     0.06440251572327044,
+     1.0241084225546215,
+     1.1400043512977207
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.21263753036900845,
+   "gen_dhat": 0.06970529175384393,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "47331319",
+   "item": "b034",
+   "category": "cup",
+   "bin": "S",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.07756930328175052,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.7962557425816911,
+    "sil_iou_min": 0.727313366115333,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 3.58337399392755,
+    "primitive_sil_iou": 0.6225027726504359,
+    "inlier_ratio": 0.27870370370370373,
+    "size_ratio": [
+     0.06440251572327044,
+     1.0056382658831127,
+     1.152254276663261
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.21492242855730748,
+   "gen_dhat": 0.13573255497419215,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "45261575",
+   "item": "b009",
+   "category": "stool",
+   "bin": "S",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.8106651002222773,
+   "box_D": "misplaced",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.647384065820748,
+    "sil_iou_min": 0.6239818418815528,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 2.7953694984147917,
+    "primitive_sil_iou": 0.46910164777330143,
+    "inlier_ratio": 0.6562962962962963,
+    "size_ratio": [
+     1.2071667546384304,
+     0.8113592837544057,
+     1.5787949033603337
+    ],
+    "penetration_m": 0.0016898304305639211,
+    "up_index": 2
+   },
+   "longest": 0.35021562833930403,
+   "gen_dhat": 0.5073962975694858,
+   "gen_D": "misplaced"
+  },
+  {
+   "scene": "45261575",
+   "item": "b009",
+   "category": "stool",
+   "bin": "S",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.8106651002222773,
+   "box_D": "misplaced",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.48947061612802445,
+    "sil_iou_min": 0.4109279716882937,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 2.646689827817984,
+    "primitive_sil_iou": 0.46910164777330143,
+    "inlier_ratio": 0.9207407407407407,
+    "size_ratio": [
+     1.7218278380649579,
+     1.1833528369726365,
+     2.266500341734782
+    ],
+    "penetration_m": 0.0002294909172184112,
+    "up_index": 2
+   },
+   "longest": 0.510783158146392,
+   "gen_dhat": 0.38320511532228074,
+   "gen_D": "misplaced"
+  },
+  {
+   "scene": "47331319",
+   "item": "b042",
+   "category": "cutting board",
+   "bin": "S",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.13870306566630503,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.5777291448037815,
+    "sil_iou_min": 0.5592148620449803,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 1.2853783389365674,
+    "primitive_sil_iou": 0.36955561574809853,
+    "inlier_ratio": 1.0,
+    "size_ratio": [
+     0.38989855072201623,
+     1.194192925304317,
+     1.3677284685292719
+    ],
+    "penetration_m": 0.0,
+    "up_index": 1
+   },
+   "longest": 0.450009833696118,
+   "gen_dhat": 0.5357943184588848,
+   "gen_D": "misplaced"
+  },
+  {
+   "scene": "47331319",
+   "item": "b042",
+   "category": "cutting board",
+   "bin": "S",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.13870306566630503,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.4428635904860334,
+    "sil_iou_min": 0.41584464419089806,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 0.851770485684061,
+    "primitive_sil_iou": 0.36955561574809853,
+    "inlier_ratio": 1.0,
+    "size_ratio": [
+     0.9779629426481831,
+     0.8762025212472119,
+     2.176752435903398
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.33018094691031386,
+   "gen_dhat": 0.19504528205518396,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "45261575",
+   "item": "b023",
+   "category": "tissue box",
+   "bin": "S",
+   "candidate": 0,
+   "gen_status": "ok",
+   "box_dhat": 0.38566041237277915,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.5069729029760931,
+    "sil_iou_min": 0.4127541589648798,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 1.86717627569356,
+    "primitive_sil_iou": 0.4091718481817385,
+    "inlier_ratio": 0.5414375490966221,
+    "size_ratio": [
+     0.4832948996245156,
+     1.1747632102310905,
+     1.0486384951008707
+    ],
+    "penetration_m": 0.0,
+    "up_index": 4
+   },
+   "longest": 0.1869984406910818,
+   "gen_dhat": 0.4996535621867045,
+   "gen_D": "correct"
+  },
+  {
+   "scene": "45261575",
+   "item": "b023",
+   "category": "tissue box",
+   "bin": "S",
+   "candidate": 1,
+   "gen_status": "ok",
+   "box_dhat": 0.38566041237277915,
+   "box_D": "correct",
+   "status": "rejected_fit",
+   "fit": {
+    "sil_iou_mean": 0.5574884572601618,
+    "sil_iou_min": 0.5014615997874037,
+    "n_views": 3,
+    "chamfer_obs2mesh_cm": 1.0547266105430302,
+    "primitive_sil_iou": 0.4091718481817385,
+    "inlier_ratio": 0.839159465828751,
+    "size_ratio": [
+     0.9081164117776458,
+     1.172873640060898,
+     1.2292138216427582
+    ],
+    "penetration_m": 0.0,
+    "up_index": 0
+   },
+   "longest": 0.18669765950188122,
+   "gen_dhat": 0.4571296116275017,
+   "gen_D": "correct"
+  }
+ ],
+ "grid": [
+  {
+   "sil_iou_min": 0.4,
+   "sil_margin": 0.0,
+   "chamfer_rel": 0.1,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.4,
+   "sil_margin": 0.0,
+   "chamfer_rel": 0.2,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.4,
+   "sil_margin": 0.03,
+   "chamfer_rel": 0.1,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.4,
+   "sil_margin": 0.03,
+   "chamfer_rel": 0.2,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.4,
+   "sil_margin": 0.05,
+   "chamfer_rel": 0.1,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.4,
+   "sil_margin": 0.05,
+   "chamfer_rel": 0.2,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.4,
+   "sil_margin": 0.1,
+   "chamfer_rel": 0.1,
+   "n_pass": 1,
+   "n_worse": 0,
+   "mean_gain_dhat": -0.07146919925472256
+  },
+  {
+   "sil_iou_min": 0.4,
+   "sil_margin": 0.1,
+   "chamfer_rel": 0.2,
+   "n_pass": 1,
+   "n_worse": 0,
+   "mean_gain_dhat": -0.07146919925472256
+  },
+  {
+   "sil_iou_min": 0.5,
+   "sil_margin": 0.0,
+   "chamfer_rel": 0.1,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.5,
+   "sil_margin": 0.0,
+   "chamfer_rel": 0.2,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.5,
+   "sil_margin": 0.03,
+   "chamfer_rel": 0.1,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.5,
+   "sil_margin": 0.03,
+   "chamfer_rel": 0.2,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.5,
+   "sil_margin": 0.05,
+   "chamfer_rel": 0.1,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.5,
+   "sil_margin": 0.05,
+   "chamfer_rel": 0.2,
+   "n_pass": 2,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.008235848550100941
+  },
+  {
+   "sil_iou_min": 0.5,
+   "sil_margin": 0.1,
+   "chamfer_rel": 0.1,
+   "n_pass": 1,
+   "n_worse": 0,
+   "mean_gain_dhat": -0.07146919925472256
+  },
+  {
+   "sil_iou_min": 0.5,
+   "sil_margin": 0.1,
+   "chamfer_rel": 0.2,
+   "n_pass": 1,
+   "n_worse": 0,
+   "mean_gain_dhat": -0.07146919925472256
+  },
+  {
+   "sil_iou_min": 0.6,
+   "sil_margin": 0.0,
+   "chamfer_rel": 0.1,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.6,
+   "sil_margin": 0.0,
+   "chamfer_rel": 0.2,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.6,
+   "sil_margin": 0.03,
+   "chamfer_rel": 0.1,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.6,
+   "sil_margin": 0.03,
+   "chamfer_rel": 0.2,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.6,
+   "sil_margin": 0.05,
+   "chamfer_rel": 0.1,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.6,
+   "sil_margin": 0.05,
+   "chamfer_rel": 0.2,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.6,
+   "sil_margin": 0.1,
+   "chamfer_rel": 0.1,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.6,
+   "sil_margin": 0.1,
+   "chamfer_rel": 0.2,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.7,
+   "sil_margin": 0.0,
+   "chamfer_rel": 0.1,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.7,
+   "sil_margin": 0.0,
+   "chamfer_rel": 0.2,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.7,
+   "sil_margin": 0.03,
+   "chamfer_rel": 0.1,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.7,
+   "sil_margin": 0.03,
+   "chamfer_rel": 0.2,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.7,
+   "sil_margin": 0.05,
+   "chamfer_rel": 0.1,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.7,
+   "sil_margin": 0.05,
+   "chamfer_rel": 0.2,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.7,
+   "sil_margin": 0.1,
+   "chamfer_rel": 0.1,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  },
+  {
+   "sil_iou_min": 0.7,
+   "sil_margin": 0.1,
+   "chamfer_rel": 0.2,
+   "n_pass": 0,
+   "n_worse": 0,
+   "mean_gain_dhat": 0.0
+  }
+ ],
+ "best": {
+  "sil_iou_min": 0.5,
+  "sil_margin": 0.05,
+  "chamfer_rel": 0.1,
+  "n_pass": 2,
+  "n_worse": 0,
+  "mean_gain_dhat": 0.008235848550100941
+ }
+}

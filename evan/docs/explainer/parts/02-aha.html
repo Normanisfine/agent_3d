@@ -1,0 +1,486 @@
+<h2 id="aha"><span class="num">2</span>AHa-3D 是怎么工作的</h2>
+<p>AHa-3D 是我们的基线。它把一段普通的房间视频变成一个 Blender 场景，场景里每件家具都是能单独挪动的物体。</p>
+<p>它自己不训练任何模型。作者给大模型 agent 配了一套工具，让它一边测量、一边写建模代码、一边自己检查。</p>
+<ul>
+<li><b>形式</b>。一篇博客加一个开源仓库（Apache-2.0），没有论文。</li>
+<li><b>驱动</b>。博客里用 GPT-6 Astra，推理强度 medium，跑在 Codex CLI 里。</li>
+<li><b>版本</b>。仓库 HEAD 是 <code>82f4b11</code>，9 月 29 日之后没有新提交（10 月 14 日核对）。</li>
+<li><b>定量结果</b>。没有任何精度数字（只有对比视频和一张 token 表）。博客的消融部分，作者自己标成了占位。</li>
+</ul>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>把 agent 想成装修队的包工头。业主只给了一段手机视频，要他在空地上把房间原样搭出来。</p>
+<ul>
+<li>他先请测量队（Pi3X、SAM 3）把视频过一遍，拿到每个机位在哪、房子大概多大。</li>
+<li>他自己拿尺子在照片上量（measure.py），再亲自动手搭（写 Blender 脚本）。</li>
+<li>搭完把成品按原机位拍下来，和视频叠在一起比（叠加图），再推一推看会不会倒（物理检查）。</li>
+<li>最后请监理（另开的一个只读 Codex 会话）验收，监理不签字就返工。</li>
+</ul>
+<p>这一章讲包工头每一步具体干什么，以及他对桌上的小东西有多马虎。</p>
+</div>
+
+<h3 id="b-pipeline">2.1 五段流程：观察、测量、搭建、检查、审查</h3>
+<p>整条流程分五段。第一段是一条命令自动跑完的；测量、搭建、检查由 agent 主导，它看图、调工具、写脚本；审查交给另开的一个会话，审查员点头才算完。</p>
+<p>先认识几个名词，下面的图里都会出现。</p>
+<ul>
+<li><b>Pi3X</b>。一个前馈 3D 重建模型。喂进一组视频帧，一次算出每帧的相机位姿和每个像素的 3D 坐标（点图）。</li>
+<li><b>SAM 3</b>。Meta 的分割模型。给一个文字提示（如 floor），它把图里对应的区域涂出来，这块区域叫掩码。</li>
+<li><b>RANSAC</b>。一种拟合方法。反复随机抽几个点拟合平面，留下最多点支持的那个，所以不怕杂点。</li>
+<li><b>TSDF</b>。把很多帧的深度融合成一张表面网格的老方法。AHa-3D 用 3 cm 的体素格子。</li>
+<li><b>bpy</b>。Blender 的 Python 接口。agent 写的“建模代码”就是 bpy 脚本。</li>
+</ul>
+<div class="arch">
+<div class="arch-title">AHa-3D：从一段视频到一个能交给仿真器的 .blend</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 350" width="760" role="img" aria-label="AHa-3D 五段流程逐步图：视频经观察、测量、搭建、检查、审查变成 .blend，检查对不上或审查不通过都回到搭建">
+<defs><marker id="b-m2a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker><marker id="b-m2r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="8" y="44" width="84" height="106" rx="8" class="f6 stroke"/>
+<text x="50" y="92" text-anchor="middle" font-size="13" font-weight="700">房间视频</text>
+<text x="50" y="114" text-anchor="middle">一个连续镜头</text>
+<path d="M92,58 L118,58" class="arrow" marker-end="url(#b-m2a)"/>
+<g font-size="14"><text x="106" y="34" text-anchor="middle" class="shape">mp4</text></g>
+<rect x="120" y="44" width="198" height="106" rx="8" class="f1 stroke"/>
+<text x="219" y="66" text-anchor="middle" font-size="13" font-weight="700">① 观察 Observe</text>
+<text x="219" y="88" text-anchor="middle">Pi3X：32 帧 → 相机 + 点云</text>
+<text x="219" y="106" text-anchor="middle">SAM 3：地面、墙、人等 5 类</text>
+<text x="219" y="124" text-anchor="middle">RANSAC：拟合地面和墙</text>
+<text x="219" y="142" text-anchor="middle">TSDF：3 cm 体素融合成网格</text>
+</g>
+<g data-s="2">
+<path d="M318,58 L344,58" class="arrow" marker-end="url(#b-m2a)"/>
+<g font-size="14"><text x="332" y="34" text-anchor="middle" class="shape">bundle/</text></g>
+<rect x="346" y="44" width="160" height="106" rx="8" class="f2 stroke"/>
+<text x="426" y="66" text-anchor="middle" font-size="13" font-weight="700">② 测量 Measure</text>
+<g font-size="14"><text x="426" y="88" text-anchor="middle" class="shape">measure.py</text></g>
+<text x="426" y="106" text-anchor="middle">在帧上挑两个像素点</text>
+<text x="426" y="124" text-anchor="middle">读回米制长度、高度</text>
+<text x="426" y="142" text-anchor="middle">端点不可靠会被拒</text>
+</g>
+<g data-s="3">
+<path d="M506,58 L532,58" class="arrow" marker-end="url(#b-m2a)"/>
+<g font-size="14"><text x="520" y="34" text-anchor="middle" class="shape">measurements.json</text></g>
+<rect x="534" y="44" width="218" height="106" rx="8" class="f3 stroke"/>
+<text x="643" y="66" text-anchor="middle" font-size="13" font-weight="700">③ 搭建 Build</text>
+<text x="643" y="88" text-anchor="middle">agent 写 bpy 脚本</text>
+<text x="643" y="106" text-anchor="middle">RoomKit：box、cabinet</text>
+<text x="643" y="124" text-anchor="middle">place_asset（资产库 108 项）</text>
+<text x="643" y="142" text-anchor="middle">一个物体 = 一个根节点</text>
+</g>
+<g data-s="4">
+<path d="M600,150 L600,212" class="arrow" marker-end="url(#b-m2a)"/>
+<g font-size="14"><text x="606" y="186" class="shape">scene.blend</text></g>
+<rect x="480" y="214" width="272" height="92" rx="8" class="f4 stroke"/>
+<text x="616" y="234" text-anchor="middle" font-size="13" font-weight="700">④ 检查 Verify</text>
+<text x="616" y="254" text-anchor="middle">叠加图：模型轮廓画回原视频帧</text>
+<text x="616" y="272" text-anchor="middle">source_fit：IoU &lt; 0.65 或偏 &gt; 12 px</text>
+<text x="616" y="290" text-anchor="middle">物理：穿透 &gt; 5 mm、悬空、掉落</text>
+<path d="M700,214 L700,152" class="arrow" marker-end="url(#b-m2a)"/>
+<text x="706" y="180">对不上</text>
+<text x="706" y="198">回去改</text>
+</g>
+<g data-s="5">
+<path d="M480,260 L432,260" class="arrow" marker-end="url(#b-m2a)"/>
+<text x="455" y="250" text-anchor="middle">证据图</text>
+<rect x="230" y="214" width="200" height="92" rx="8" class="f5 stroke"/>
+<text x="330" y="234" text-anchor="middle" font-size="13" font-weight="700">⑤ 审查 Gate</text>
+<g font-size="14"><text x="330" y="254" text-anchor="middle" class="shape">codex exec --image</text></g>
+<text x="330" y="272" text-anchor="middle">另开一个只读会话</text>
+<text x="330" y="290" text-anchor="middle">结论：accepted 或 rejected</text>
+<path d="M330,214 L330,196 L548,196 L548,152" class="arrow-red" marker-end="url(#b-m2r)"/>
+<text x="340" y="188" class="lbl-accent">审查不通过（rejected）</text>
+</g>
+<g data-s="6">
+<path d="M230,260 L182,260" class="arrow" marker-end="url(#b-m2a)"/>
+<text x="206" y="252" text-anchor="middle">通过</text>
+<rect x="40" y="226" width="140" height="68" rx="8" class="f2 stroke"/>
+<text x="110" y="252" text-anchor="middle" font-size="13" font-weight="700">.blend 场景</text>
+<text x="110" y="274" text-anchor="middle">物体能单独挪、开柜门</text>
+</g>
+<text x="380" y="334" text-anchor="middle">观察由一条命令跑完；测量、搭建、检查都是 agent 自己动手；审查另开一个会话</text>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>观察（Observe）</b>。一条命令跑完。Pi3X 均匀抽 32 帧，每帧缩到不超过 255,000 像素，估出相机和点云。SAM 3 分出地面、墙等五类，RANSAC 拟合地面和墙，再融合成 3 cm 的 TSDF 网格。agent 只负责执行和目视检查。</li>
+<li><b>测量（Measure）</b>。agent 在某一帧上挑像素点，写进一个 spec 文件，调 <code>measure.py</code> 读回米制数字。量法有水平距离、三维距离、中位高度、竖直距离四种，不可靠的端点会被拒绝。</li>
+<li><b>搭建（Build）</b>。agent 写 bpy 脚本，调 RoomKit 的函数。<code>box</code> 搭方块，<code>cabinet</code> 搭带门和抽屉的柜子，<code>place_asset</code> 从资产库（108 项）放现成模型。每个物体是一个带 <code>instance_id</code> 的根节点。</li>
+<li><b>检查（Verify）</b>。先导出几何，再把模型轮廓画回原视频帧（叠加图）。可选的 <code>source_fit</code> 拿剪影和 SAM 3 掩码比 IoU，低于 0.65 或边界偏差超过 12 px 就提醒。物理检查看穿透、悬空和 2 秒掉落。对不上就回第 3 步。</li>
+<li><b>审查（Gate）</b>。调 <code>codex exec --image</code>，另开一个只读的 Codex 会话。审查员按 JSON 格式逐个物体写观察，结论只有 accepted 或 rejected，rejected 就回去改。</li>
+<li><b>交付</b>。通过以后得到 .blend。每个物体能单独挪，柜门抽屉能开合，可以直接放进仿真器。博客后面还有人体动作、机器人动作和外观美化，我们都不用。</li>
+</ol>
+</div>
+<div class="box detail"><span class="box-label">观察和测量的细节（代码里核实过）</span>
+<ul>
+<li><b>抽帧</b>。默认 32 帧，可选 64，均匀抽取，一定包含首帧和尾帧。</li>
+<li><b>分辨率</b>。每帧整体缩放到不超过 255,000 像素，宽高都取 14 的倍数。4:3 的画面约 574×434。</li>
+<li><b>SAM 3</b>。只按 person、glass、mirror、floor、wall 五个词分割，阈值 0.3，同类的所有实例并成一块。</li>
+<li><b>摆正</b>。RANSAC 拟合以后，地面法向对齐 +Z、地面高度为 0、主墙对齐 X 轴。另外渲 3 到 5 张原视角参考图。</li>
+<li><b>测量端点</b>。置信度低于 0.5，或者 3×3 像素块在 3D 里跨度超过 0.12 m，这个点被拒。</li>
+<li><b>面测量</b>。<code>measure_mesh</code> 在帧上圈一个多边形，对 TSDF 表面拟合平面，支撑点少于 20 个就拒绝。</li>
+</ul>
+</div>
+<div class="box detail"><span class="box-label">检查和审查的细节（代码里核实过）</span>
+<ul>
+<li><b>两种叠加图</b>。<code>quick_check</code> 用光线求交，画考虑遮挡的可见轮廓；完整版 X-Ray 不管遮挡，逐物体画剪影，还渲俯视、正视、侧视。</li>
+<li><b>source_fit 的门槛</b>。IoU 0.65、边界 12 px。这两个数是分诊用的经验值，没有校准过，代码注释原文是 <q>triage heuristics, not calibrated</q>。</li>
+<li><b>物理检查</b>。穿进别的物体超过 5 mm 算碰撞；底部往下 2 cm 内没有支撑面算悬空；刚体模拟 60 fps 跑 2 秒，每个物体默认 1 kg、摩擦 0.5，一次最多 40 个。</li>
+<li><b>谁能进仿真</b>。只有闭合、体积和凸包相差不超过 2% 的部件。椅子、书架这类凹形物体会被跳过，只记原因。</li>
+<li><b>审查</b>。只读沙箱（<code>--sandbox read-only</code>），超时 600 秒，结论必须覆盖每个物体 ID。</li>
+<li><b>会话层</b>。Codex 的 Stop hook 在重建没完成时返回 <code>decision: block</code>，不让 agent 结束会话。</li>
+</ul>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>“米制”只是近似</b>。<code>cameras.json</code> 的单位字段写明这是模型预测的米数、没有校准，原文是 <q>predicted metres; uncalibrated</q>。就算用一个已知长度做了尺度校正，<code>measure.py</code> 的输出里 <code>physical_accuracy_validated</code> 仍是 False。</li>
+<li><b>SAM 3 在这里不分物体</b>。观察阶段只分五类结构和人，每类的所有实例并成一块。物体级的 SAM 3 工具是可选的，共享流程不会自动调用。所以<b>流程里没有自动的物体清单</b>，要建哪些东西全凭 agent 看帧决定。</li>
+<li><b>审查和 Codex 绑死</b>。审查员写死成 <code>codex exec --image</code>，Stop hook 的配置文件 <code>.codex/hooks.json</code> 没有随仓库发布。换别的驱动要自己补（见 <a href="#cost">第 9 章</a>）。</li>
+</ul>
+</div>
+<p class="src">AHa-3D 仓库 <code>tools/layout_inspection/</code>、<code>scripts/measure.py</code>、<code>src/aha3d/blender/placement_check.py</code>、<code>tools/review_images.py</code>（提交 82f4b11）；深挖笔记 deep-aha3d.json 的 pipeline 和 verification_loop 两节。</p>
+
+<h3 id="b-loop">2.2 agent 的一轮循环里到底发生什么</h3>
+<p>上一节的第 2 到第 4 步不是各跑一次。agent 会反复转圈：量一点、搭一点、看一眼、改一点。</p>
+<p>下面这张时序图把一圈拆成七个动作。左边是 agent 在想什么，中间箭头是它交给工具的东西，右边是落到磁盘上的文件。</p>
+<div class="arch">
+<div class="arch-title">一圈循环：看帧 → 量 → 写 → 导出 → 叠图 → 读数 → 改</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 480" width="760" role="img" aria-label="agent 一轮循环的时序图：agent 和工具之间来回传的文件，测量、叠加图、物理检查的结果用虚线箭头回到 agent，改完回到写脚本">
+<defs><marker id="b-m2b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker><marker id="b-m2c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker></defs>
+<g font-size="12">
+<rect x="150" y="14" width="160" height="40" rx="8" class="f1 stroke"/>
+<text x="230" y="39" text-anchor="middle" font-size="13" font-weight="700">agent（GPT-6 Astra）</text>
+<rect x="430" y="14" width="180" height="40" rx="8" class="f2 stroke"/>
+<text x="520" y="39" text-anchor="middle" font-size="13" font-weight="700">工具脚本 + Blender</text>
+<text x="690" y="39" text-anchor="middle" font-size="13" font-weight="700">磁盘上的文件</text>
+<line x1="230" y1="54" x2="230" y2="472" class="arrow dash"/>
+<line x1="520" y1="54" x2="520" y2="472" class="arrow dash"/>
+<g data-s="1">
+<text x="218" y="100" text-anchor="end">① 看帧</text>
+<path d="M518,96 L234,96" class="arrow" marker-end="url(#b-m2b)"/>
+<text x="375" y="89" text-anchor="middle">3–5 张参考视角图（PNG）</text>
+<text x="532" y="100">参考图（观察阶段生成）</text>
+</g>
+<g data-s="2">
+<text x="218" y="144" text-anchor="end">② 量尺寸</text>
+<path d="M232,140 L516,140" class="arrow" marker-end="url(#b-m2b)"/>
+<text x="375" y="133" text-anchor="middle">spec.json：帧号 + 像素坐标</text>
+<g font-size="14"><text x="532" y="144" class="shape">measurements.json</text></g>
+<path d="M516,156 L234,156" class="arrow dash" marker-end="url(#b-m2b)"/>
+<text x="375" y="172" text-anchor="middle">读回 measurements.json：米制长度、高度</text>
+</g>
+<g data-s="3">
+<text x="218" y="214" text-anchor="end">③ 写 bpy 脚本</text>
+<path d="M232,210 L516,210" class="arrow" marker-end="url(#b-m2b)"/>
+<text x="375" y="203" text-anchor="middle">bpy 脚本（调 RoomKit 函数）</text>
+<g font-size="14"><text x="532" y="214" class="shape">scene.blend</text></g>
+</g>
+<g data-s="4">
+<text x="218" y="258" text-anchor="end">④ 导出几何</text>
+<path d="M232,254 L516,254" class="arrow" marker-end="url(#b-m2b)"/>
+<text x="375" y="247" text-anchor="middle">blender -b … export_model.py</text>
+<g font-size="14"><text x="532" y="258" class="shape">model.npz、model.json</text></g>
+</g>
+<g data-s="5">
+<text x="218" y="302" text-anchor="end">⑤ 画叠加图</text>
+<path d="M232,298 L516,298" class="arrow" marker-end="url(#b-m2b)"/>
+<text x="375" y="291" text-anchor="middle">quick_check：挑几帧画轮廓</text>
+<g font-size="14"><text x="532" y="302" class="shape">*_overlay.png</text></g>
+<path d="M516,314 L234,314" class="arrow dash" marker-end="url(#b-m2b)"/>
+<text x="375" y="330" text-anchor="middle">读回 *_overlay.png：agent 自己看图找错位</text>
+</g>
+<g data-s="6">
+<text x="218" y="376" text-anchor="end">⑥ 读数字</text>
+<path d="M232,372 L516,372" class="arrow" marker-end="url(#b-m2b)"/>
+<text x="375" y="365" text-anchor="middle">source_fit、check-placement</text>
+<g font-size="14"><text x="532" y="376" class="shape">source_fit.json、report.json</text></g>
+<path d="M516,388 L234,388" class="arrow dash" marker-end="url(#b-m2b)"/>
+<text x="375" y="404" text-anchor="middle">读回 report.json：穿透、悬空、不稳的清单</text>
+</g>
+<g data-s="7">
+<text x="218" y="454" text-anchor="end">⑦ 决定怎么改</text>
+<text x="375" y="454" text-anchor="middle">改尺寸、位置还是朝向，改完重跑同一个视角</text>
+<path d="M138,450 L16,450 L16,210 L132,210" class="arrow-red" marker-end="url(#b-m2c)"/>
+<text x="24" y="322" class="lbl-accent">改完</text>
+<text x="24" y="340" class="lbl-accent">回到 ③</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>看帧</b>。agent 打开观察阶段生成的参考视角图，决定这一圈处理哪几个物体。量尺寸和画叠加图都在 Pi3X 那 32 帧上做（约 574×434）；agent 一开始也会看原视频。</li>
+<li><b>量尺寸</b>。在某帧上挑两个像素点，写成 spec 文件交给 <code>measure.py</code>，读回米数（虚线箭头）。比如桌面左前角和右前角，量出桌宽。</li>
+<li><b>写 bpy 脚本</b>。按量出来的数调 RoomKit 的 <code>box</code>、<code>cabinet</code>、<code>place_asset</code>，Blender 在后台跑脚本，存成 .blend。</li>
+<li><b>导出几何</b>。<code>blender -b</code> 后台跑 <code>export_model.py</code>，得到所有三角面和“每个面属于哪个物体”。</li>
+<li><b>画叠加图</b>。<code>quick_check</code> 用光线求交，把模型的可见轮廓画回视频帧。叠加图回到 agent 手里，它自己看图找错位。</li>
+<li><b>读数字</b>。可选的 <code>source_fit</code> 给每个物体的掩码 IoU 和边界偏差；<code>check-placement</code> 把穿透、悬空、不稳写进 <code>report.json</code>，agent 要自己去读。</li>
+<li><b>决定怎么改</b>。agent 判断问题出在尺寸、位置还是朝向，改脚本，回到第 3 步，再从同一个视角重看。转到它觉得够好，再交给审查员。</li>
+</ol>
+</div>
+<p>第 2 步的 spec 文件长下面这样。字段名照代码，坐标和结果是编的，只为演示。</p>
+<pre><code>{"landmarks": [
+   {"id": "L1", "label": "桌面左前角", "source_frame": 12, "pixel_uv": [212, 301]},
+   {"id": "L2", "label": "桌面右前角", "source_frame": 12, "pixel_uv": [398, 296]}],
+ "measurements": [
+   {"id": "M1", "label": "桌宽", "kind": "horizontal_distance", "points": ["L1", "L2"]}]}
+→ measurements.json 里多一行：M1 = 1.38 m（演示数字）</code></pre>
+<div class="box detail"><span class="box-label">验证一共四层</span>
+<ol>
+<li><b>数值检查</b>。测量工具拒绝不可靠的端点；source_fit 给 IoU 和边界距离；物理检查给穿透、悬空、不稳三类问题。</li>
+<li><b>图像检查</b>。叠加图和 X-Ray 由 agent 自己看。</li>
+<li><b>结构化审查</b>。另一个只读会话逐个物体写观察，结论只有 accepted 或 rejected。</li>
+<li><b>会话层</b>。Stop hook 在重建没完成时不让 agent 收工。</li>
+</ol>
+<p>几何准不准，除了可选的 source_fit 没有现成的数值指标，主要靠 agent 看图；物理检查的报告要 agent 自己去读。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>agent 看图判断几何不一定靠谱</b>。Agentic RSR（arXiv 2610.10479）v1 的消融里，去掉数值反馈后，通过视觉检查的场景从 18/18 掉到 6/18。那是别人的系统，但说明“只看图”有风险。</li>
+<li><b>检查用的帧就是建模时看过的帧</b>。agent 对着同一批帧改到“看起来对”，不代表从别的角度也对。所以我们的评测用 CA-1M 的真值 3D 框，不用 AHa-3D 自己的检查分数（见 <a href="#eval">第 8 章</a>）。</li>
+</ul>
+</div>
+<p class="src">深挖笔记 deep-aha3d.json 的 reusable_components（measure.py 的 spec 字段、quick_check 用法）和 verification_loop；Agentic RSR v1 表 4。</p>
+
+<h3 id="b-small">2.3 小物体在 AHa-3D 里怎么处理</h3>
+<p>从公开材料看，AHa-3D 对小物体的要求本来就放得很低。证据有四条，都在 10 月 14 日抓原文核对过。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 312" width="760" role="img" aria-label="一只杯子在 AHa-3D 里的去向：没被看到就漏了，看到了先查资产库，库里没有就用方块近似或跳过，审查也不拦；生成模型路线试过后搁置">
+<defs><marker id="b-m2d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="118" width="140" height="64" rx="8" class="f6 stroke"/>
+<text x="80" y="144" text-anchor="middle">一只 10 cm 的杯子</text>
+<text x="80" y="166" text-anchor="middle">2 m 外只有约 20 像素</text>
+<path d="M150,150 L188,150" class="arrow" marker-end="url(#b-m2d)"/>
+<rect x="190" y="104" width="180" height="92" rx="8" class="f3 stroke"/>
+<text x="280" y="130" text-anchor="middle">agent 看帧时</text>
+<text x="280" y="150" text-anchor="middle">注意到它了吗？</text>
+<text x="280" y="172" text-anchor="middle">（流程里没有物体清单）</text>
+<path d="M370,150 L408,150" class="arrow" marker-end="url(#b-m2d)"/>
+<text x="389" y="142" text-anchor="middle">看到</text>
+<path d="M280,196 L280,224" class="arrow" marker-end="url(#b-m2d)"/>
+<text x="288" y="214">没看到</text>
+<rect x="190" y="226" width="180" height="74" rx="8" class="f4 stroke"/>
+<text x="280" y="252" text-anchor="middle" font-size="13" font-weight="700">漏了</text>
+<text x="280" y="276" text-anchor="middle">没有任何环节提醒 agent</text>
+<rect x="410" y="104" width="170" height="92" rx="8" class="f3 stroke"/>
+<text x="495" y="140" text-anchor="middle">资产库 108 项里</text>
+<text x="495" y="162" text-anchor="middle">有现成的吗？</text>
+<path d="M495,104 L495,53 L610,53" class="arrow" marker-end="url(#b-m2d)"/>
+<text x="503" y="80">有</text>
+<rect x="612" y="10" width="140" height="86" rx="8" class="f2 stroke"/>
+<text x="682" y="32" text-anchor="middle" font-weight="700">有：place_asset</text>
+<text x="682" y="54" text-anchor="middle">花瓶、蜡烛、餐具、</text>
+<text x="682" y="74" text-anchor="middle">植物、挂画、台灯</text>
+<path d="M580,157 L610,157" class="arrow" marker-end="url(#b-m2d)"/>
+<text x="595" y="150" text-anchor="middle">没有</text>
+<rect x="612" y="118" width="140" height="78" rx="8" class="f4 stroke"/>
+<text x="682" y="140" text-anchor="middle" font-weight="700">没有：方块近似</text>
+<text x="682" y="160" text-anchor="middle">或者干脆跳过</text>
+<text x="682" y="180" text-anchor="middle">杯子、书、遥控器</text>
+<path d="M682,196 L682,224" class="arrow dash" marker-end="url(#b-m2d)"/>
+<rect x="612" y="226" width="140" height="74" rx="8" class="f6 stroke dash"/>
+<text x="682" y="248" text-anchor="middle">审查员也不拦</text>
+<text x="682" y="268" text-anchor="middle">approximate by scope</text>
+<text x="682" y="288" text-anchor="middle">记为 nonblocking</text>
+<path d="M495,196 L495,224" class="arrow dash" marker-end="url(#b-m2d)"/>
+<text x="503" y="214">作者试过</text>
+<rect x="410" y="226" width="170" height="74" rx="8" class="f6 stroke dash"/>
+<text x="495" y="248" text-anchor="middle" font-weight="700">生成模型（作者试点）</text>
+<text x="495" y="268" text-anchor="middle">SAM 3D、TRELLIS.2</text>
+<text x="495" y="288" text-anchor="middle">做完后搁置，未发布</text>
+</g></svg></div>
+<figcaption>一只杯子在 AHa-3D 里的三条去路。没被 agent 注意到就直接漏掉；注意到了先查资产库，库里没有杯子，只能用方块近似或跳过，审查员也把小摆件记为不拦路的问题。虚线框是作者试过又搁置的生成路线。“约 20 像素”是提案里的估算，第 5 章有逐档计算。</figcaption></figure>
+<ol>
+<li><b>对比实验的任务描述只要求近似</b>。博客对比实验（Workflow ablation）交给两个 Astra agent 的要求是：墙和大家具要对上，小物体近似即可。原文是 <q>They should match the walls and major furniture and approximate small objects.</q> 注意这是那次对比实验的任务描述，<b>不一定是发布版的默认提示词</b>。</li>
+<li><b>精度模式允许它随意</b>。仓库 <code>docs/LAYOUT_INSPECTION.md</code> 定义了四档精度。“主要物体”（Major objects）档说桌面和柜顶的小摆件可以不准，除非用户点名，原文是 <q>Small tabletop/cabinet-top decor may vary unless user-flagged</q>。只有最严的 Precise 档才要求核对小物体。</li>
+<li><b>审查员不拦</b>。博客公开的审查样例里有一条不确定项，说小摆件、叶子形状、靠垫轮廓按范围只做近似，等级是不拦路（nonblocking）。原文是 <q>Small decor, leaf shapes and individual cushion contours are approximate by scope</q>。另一份逐项复核记录有 21 项，全是建筑构件、家具、灯和植物，没有杯子、书这类条目。</li>
+<li><b>资产库里没有常见桌面物体</b>。注册资产 108 项，小物体只有蜡烛、植物、瓷瓶、餐具、挂画、水龙头和台灯。杯子、书、显示器、键盘、遥控器都没有，“书”和“电视”只以材质名出现。博客图集说有 251 个物体资产，仓库只注册了 108 项。</li>
+</ol>
+<div class="box detail"><span class="box-label">生成模型这条路，作者试过又放下了</span>
+<p>仓库 <code>docs/OBJECT_GENERATION.md</code> 第一段说，早先做过一次物体生成试点（SAM 3D Objects 和 TRELLIS.2），做完后搁置，生成适配器没有随这次发布。原文是 <q>an earlier object-generation pilot (SAM 3D Objects and TRELLIS.2) was completed and then deferred; its generation adapters are not included in this release.</q></p>
+<p>同一文件说生成网格适合复杂的静态家具和摆件，原文是 <q>Generated meshes are candidates for complex static furniture and decor</q>。未发布引用列表里的文件名显示，试点大约在 9 月 9 日。<b>搁置原因没有公开。</b></p>
+<p>博客的局限一节也承认，很小的物体和结构复杂的物体难以准确重建，原文是 <q>very small objects and objects with complex structures remain difficult to reconstruct accurately</q>。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>拿 A0 当小物体基线不公平</b>。从公开材料看，AHa-3D 对小物体的要求本来就放得很低，A0 小物体差是意料之中。所以我们另设 A1“认真版”，提示词明确要求逐个建出看得见的小物体，作为公平基线（见 <a href="#arms">第 4 章</a>）。</li>
+<li><b>“加个生成模型”本身不是我们的贡献</b>。作者自己试过，GRASE、LIVIN、GATOR 等也都做了。我们要回答的是这条被搁置的路线在整间房、同样预算下值不值。</li>
+<li><b>显示器不算小物体的例子</b>。资产库里没有显示器是事实，但显示器多数落在 M 档（0.5–1.5 m）。讲小物体时用杯子、瓶子、书、遥控器、鼠标、台灯。</li>
+</ul>
+</div>
+<div class="box key"><span class="box-label">必记结论</span>
+<ul>
+<li>AHa-3D 没有物体清单，小物体要靠 agent 自己看见。</li>
+<li>库里没有杯子和书，看见了也只能拿方块凑或者跳过。</li>
+<li>生成路线作者试过、搁置了，原因不明。我们量的就是它值不值。</li>
+</ul>
+</div>
+<p class="src">博客 sections/workflow.html、sections/limitations.html、media/structured-review.json、media/review.md；仓库 docs/LAYOUT_INSPECTION.md、assets/INDEX.md、docs/OBJECT_GENERATION.md、docs/omitted_references.json；调研笔记 01 第 1.2 节。</p>
+
+<h3 id="b-cost">2.4 成本和运行条件</h3>
+<p>AHa-3D 只公开了一次运行的 token 账单：office48，一段 10.1 秒的办公室视频。下图把这次运行按阶段拆开。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 176" width="760" role="img" aria-label="office48 一次运行的 token 分阶段堆叠条：对照原视角、修布局、检查场景占 47%">
+<g font-size="12">
+<text x="20" y="24" font-size="13" font-weight="700">office48 一次运行（有 harness，GPT-6 Astra，medium）</text>
+<rect x="20" y="38" width="23.38" height="44" class="f6 stroke"/>
+<rect x="43.38" y="38" width="113.21" height="44" class="f1 stroke"/>
+<rect x="156.59" y="38" width="51.19" height="44" class="f2 stroke"/>
+<rect x="207.78" y="38" width="283.47" height="44" class="f4 stroke"/>
+<rect x="491.25" y="38" width="128.75" height="44" class="f5 stroke"/>
+<text x="99.99" y="65" text-anchor="middle">1.85M</text>
+<text x="182.18" y="65" text-anchor="middle">0.84M</text>
+<text x="349.52" y="65" text-anchor="middle" font-weight="700">4.63M · 47%</text>
+<text x="555.62" y="65" text-anchor="middle">2.10M</text>
+<text x="630" y="65" font-weight="700">9.80M 合计</text>
+<rect x="20" y="110" width="12" height="12" class="f6 stroke"/>
+<text x="38" y="120">准备、读说明、看原视频 0.38M（3.9%）</text>
+<rect x="20" y="132" width="12" height="12" class="f1 stroke"/>
+<text x="38" y="142">Pi3X 参考、相机和房间测量 1.85M（18.9%）</text>
+<rect x="20" y="154" width="12" height="12" class="f2 stroke"/>
+<text x="38" y="164">初始房间、家具、材质建模 0.84M（8.5%）</text>
+<rect x="400" y="110" width="12" height="12" class="f4 stroke"/>
+<text x="418" y="120" class="lbl-accent">对照原视角、修布局、检查场景 4.63M（47.2%）</text>
+<rect x="400" y="132" width="12" height="12" class="f5 stroke"/>
+<text x="418" y="142">收集证据、交付 2.10M（21.5%）</text>
+<text x="400" y="164">缓存输入 9,551,232，占 97%（按低价计费）</text>
+</g></svg></div>
+<figcaption>条的长度和 token 数成正比，从左到右是时间顺序。最大的一块是 2.2 节那个循环：对照原视角、修布局、检查场景，463 万 token，约占 47%。阶段名译自博客 Workflow ablation 的表，五段之和等于合计 9,803,567。</figcaption></figure>
+<div class="box calc"><span class="box-label">算例 · 这次运行折合多少美元</span>
+<p>总量 9,803,567 token，其中缓存输入 9,551,232，剩下 252,335 不知道是输入还是输出。GPT-6 Astra 短上下文的官方价：输入 10、缓存输入 1、输出 50 美元每百万 token。</p>
+<ul>
+<li>缓存部分：9,551,232 × 1 / 10⁶ = 9.55 美元。</li>
+<li>剩下的全按输入算：252,335 × 10 / 10⁶ = 2.52 美元，合计 <b>12.07 美元</b>。</li>
+<li>全按输出算：252,335 × 50 / 10⁶ = 12.62 美元，合计 <b>22.17 美元</b>。</li>
+</ul>
+<p>所以一次约 12 到 22 美元。单次调用如果超过 272K 输入，要按长上下文价，最坏约 38 美元。</p>
+<p>同样的 token 量按 Claude Opus 5.5 的价算是 2.92 到 6.96 美元。不同模型的分词和步数都不同，这个数只能看量级。</p>
+</div>
+<p>运行条件也很挑。下表左边是作者的要求，右边是我们这边的对应。</p>
+<div class="table-wrap"><table>
+<tr><th>条件</th><th>AHa-3D 的要求或作者的环境</th><th>我们这边</th></tr>
+<tr><td>操作系统</td><td>只能在 Linux 上跑，默认解释器路径是 Linux 布局</td><td>笔记本是 Ubuntu 24.04</td></tr>
+<tr><td>Blender</td><td>必须 5.2.1，资产库用它保存，文档要求别换旧版本</td><td>装同一版本</td></tr>
+<tr><td>输入</td><td>一个连续镜头，不做剪辑检测</td><td>CA-1M 的帧按 10 fps 合成 mp4（见 <a href="#data">第 7 章</a>）</td></tr>
+<tr><td>显卡</td><td>作者文档记录在 96 GB 的 RTX PRO 6000 上无界面渲染成功，其他显卡没说明（MACHINE.md 写的目标是 24 GB 卡，但没测过）；Pi3X 和 SAM 3 必须有 CUDA</td><td>笔记本 12 GB 只能把 Pi3X 跑到 10 到 15 万像素，所以正式感知放到 Betty</td></tr>
+<tr><td>审查</td><td>写死 <code>codex exec --image</code>，文档按 Codex CLI 0.154 核对</td><td>Codex 原生可用；Claude 驱动要一个转发 shim</td></tr>
+<tr><td>Stop hook</td><td><code>.codex/hooks.json</code> 没有发布</td><td>需要自己补；补丁对所有组一样</td></tr>
+</table></div>
+<p>之前的会话里，我们在笔记本上用 Claude Haiku 5.5 驱动，跑完过一次 office48。下图把它和作者那次放在一起看量级。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 186" width="760" role="img" aria-label="作者那次和我们 Haiku 5.5 那次的对比：Blender 对象数 401 对 159，API 等价美元 12 到 22 对约 0.56">
+<g font-size="12">
+<text x="20" y="22" font-size="13" font-weight="700">Blender 对象数</text>
+<text x="20" y="50">作者那次（GPT-6 Astra）</text>
+<rect x="20" y="58" width="300" height="20" class="f1 stroke"/>
+<text x="326" y="73">401</text>
+<text x="20" y="104">我们那次（Haiku 5.5）</text>
+<rect x="20" y="112" width="119" height="20" class="f5 stroke"/>
+<text x="145" y="127">159</text>
+<text x="400" y="22" font-size="13" font-weight="700">API 等价美元（按官方价折算）</text>
+<text x="400" y="50">作者那次（office48）</text>
+<rect x="400" y="58" width="144.8" height="20" class="f1 stroke"/>
+<rect x="544.8" y="58" width="121.2" height="20" class="f6 stroke dash"/>
+<text x="672" y="73">12–22</text>
+<text x="400" y="104">我们那次（office48）</text>
+<rect x="400" y="112" width="6.7" height="20" class="f5 stroke"/>
+<text x="412" y="127">约 0.56</text>
+<text x="20" y="166">Haiku 5.5：5.7 分钟、67 轮，验收在第一关没过</text>
+<text x="400" y="166">实线到 12.07，虚线到 22.17（输入输出比例不明）</text>
+</g></svg></div>
+<figcaption>左边按同一比例画对象数，右边按同一比例画美元（每美元 12 像素）。两次的模型、结果质量都不同，这张图只说明量级：便宜模型跑得快、花得少，但场景粗糙，验收在第一关就没过。401 和 159 都是 Blender 对象数，不是语义物体数。</figcaption></figure>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>401 不是 401 件家具</b>。office48 白模的 README 写的是 401 个对象，里面有墙、梁、窗、门、桌椅和道具，算的是 Blender 对象数，不是语义实例数。我们的评测按语义根节点算。</li>
+<li><b>便宜模型的榜单分数不能直接搬过来</b>。Haiku 5.5 在 BVB 榜上分数不差，但 AHa-3D 是几十轮的长任务，对持续执行和自检要求更高。驱动怎么选见 <a href="#cost">第 9 章</a>。</li>
+</ul>
+</div>
+<p class="src">博客 sections/workflow.html 的 token 表；OpenAI 价格页（deep-aha3d.json 的 cost_compute 节重算）；仓库 README、MACHINE.md、docs/RENDERING.md、docs/install/blender.md；调研笔记 04 第 1.8、3.2、3.3 节（无界面渲染、Haiku 实测）；设计文档第 3、13 节。</p>
+
+<h3 id="b-keep">2.5 我们保留什么、改什么</h3>
+<p>原则是尽量不碰 AHa-3D。它的工具、物理检查、审查门、可开合柜子在所有实验组里都原样保留，这样“和作者设置一样”这个前提才站得住。</p>
+<p>我们只在“小物体怎么处理”这一点上加东西。设计文档把流程归成四个环节：找物体、建形状、摆准、检查，所有改动都落在这四个环节里。</p>
+<div class="arch">
+<div class="arch-title">灰色原样保留，彩色是各实验组加上去的</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 324" width="760" role="img" aria-label="保留与改动对比：AHa-3D 五段原样保留为灰色，A1 改提示词、A2 加清单、A3 加生成和摆放、A4 加精修、P0 另起无 agent 流水线">
+<defs><marker id="b-m2e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<text x="12" y="22">AHa-3D 原版五段：灰色 = 原样保留（工具、物理检查、审查门、可开合柜子）</text>
+<rect x="12" y="34" width="136" height="56" rx="8" class="f6 stroke"/>
+<text x="80" y="56" text-anchor="middle" font-weight="700">观察</text>
+<text x="80" y="78" text-anchor="middle">Pi3X、SAM 3</text>
+<path d="M148,62 L160,62" class="arrow" marker-end="url(#b-m2e)"/>
+<rect x="162" y="34" width="136" height="56" rx="8" class="f6 stroke"/>
+<text x="230" y="56" text-anchor="middle" font-weight="700">测量</text>
+<text x="230" y="78" text-anchor="middle">measure.py</text>
+<path d="M298,62 L310,62" class="arrow" marker-end="url(#b-m2e)"/>
+<rect x="312" y="34" width="136" height="56" rx="8" class="f6 stroke"/>
+<text x="380" y="56" text-anchor="middle" font-weight="700">搭建</text>
+<text x="380" y="78" text-anchor="middle">bpy + RoomKit</text>
+<path d="M448,62 L460,62" class="arrow" marker-end="url(#b-m2e)"/>
+<rect x="462" y="34" width="136" height="56" rx="8" class="f6 stroke"/>
+<text x="530" y="56" text-anchor="middle" font-weight="700">检查</text>
+<text x="530" y="78" text-anchor="middle">叠加图、物理检查</text>
+<path d="M598,62 L610,62" class="arrow" marker-end="url(#b-m2e)"/>
+<rect x="612" y="34" width="136" height="56" rx="8" class="f6 stroke"/>
+<text x="680" y="56" text-anchor="middle" font-weight="700">审查</text>
+<text x="680" y="78" text-anchor="middle">Codex 只读审查</text>
+</g>
+<g data-s="2">
+<rect x="12" y="134" width="200" height="76" rx="8" class="f4 stroke"/>
+<text x="112" y="156" text-anchor="middle" font-weight="700">A1 起：改提示词</text>
+<text x="112" y="178" text-anchor="middle">要求逐个建出</text>
+<text x="112" y="200" text-anchor="middle">看得见的小物体</text>
+<path d="M112,134 L112,112 L340,112 L340,92" class="arrow" marker-end="url(#b-m2e)"/>
+</g>
+<g data-s="3">
+<rect x="226" y="134" width="224" height="76" rx="8" class="f3 stroke"/>
+<text x="338" y="156" text-anchor="middle" font-weight="700">A2 起：物体清单</text>
+<text x="338" y="178" text-anchor="middle">Boxer 在 1024×768 高清帧上检测</text>
+<text x="338" y="200" text-anchor="middle">清单交给 agent 逐项处理</text>
+<path d="M400,134 L400,92" class="arrow" marker-end="url(#b-m2e)"/>
+</g>
+<g data-s="4">
+<rect x="464" y="134" width="284" height="76" rx="8" class="f3 stroke"/>
+<text x="606" y="156" text-anchor="middle" font-weight="700">A3 起：生成 + 摆放</text>
+<g font-size="14"><text x="606" y="178" text-anchor="middle" class="shape">gen3d_request → place_mesh</text></g>
+<text x="606" y="200" text-anchor="middle">过验收门才留，否则退回方块</text>
+<path d="M520,134 L520,112 L430,112 L430,92" class="arrow" marker-end="url(#b-m2e)"/>
+<path d="M560,134 L560,92" class="arrow" marker-end="url(#b-m2e)"/>
+</g>
+<g data-s="5">
+<rect x="464" y="228" width="284" height="62" rx="8" class="f4 stroke"/>
+<text x="606" y="250" text-anchor="middle" font-weight="700">A4（5 个场景）：再精修</text>
+<text x="606" y="272" text-anchor="middle">每个生成物体最多 3 轮 改、渲染、看</text>
+<path d="M606,228 L606,212" class="arrow" marker-end="url(#b-m2e)"/>
+</g>
+<g data-s="6">
+<rect x="12" y="228" width="438" height="62" rx="8" class="f5 stroke"/>
+<text x="231" y="250" text-anchor="middle" font-weight="700">P0 无 agent 流水线（不经过上面的 harness）</text>
+<text x="231" y="272" text-anchor="middle">Boxer 框 → SAM 3D 生成 → place_mesh 自动摆，过不了用方块</text>
+</g>
+<rect x="12" y="300" width="12" height="12" class="f6 stroke"/>
+<text x="30" y="310">原样保留</text>
+<rect x="110" y="300" width="12" height="12" class="f3 stroke"/>
+<text x="128" y="310">新加的工具</text>
+<rect x="220" y="300" width="12" height="12" class="f4 stroke"/>
+<text x="238" y="310">改提示词或循环</text>
+<rect x="350" y="300" width="12" height="12" class="f5 stroke"/>
+<text x="368" y="310">另起的对照流水线</text>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>保留</b>。AHa-3D 的五段、全部工具、物理检查、审查门、可开合柜子，所有组一模一样。A0 就是原版，作者的提示词原样运行。</li>
+<li><b>A1 改提示词</b>。明确要求逐个建出所有看得见的小物体，只用代码和方块。这是公平基线，改的是“建形状”环节。</li>
+<li><b>A2 加清单</b>。Boxer 在原始高清帧上检测，得到每个物体的 3D 框和 2D 裁剪图，作为待建清单交给 agent。agent 要逐项处理，或者说明为什么跳过。改的是“找物体”环节。</li>
+<li><b>A3 加生成和摆放</b>。清单里的物体可以调 <code>gen3d_request</code> 生成网格，用 <code>place_mesh</code> 摆进场景，过了验收门才保留。A3r 按规则选（估计最长边小于 0.5 m 的生成），A3v 让 agent 逐个决定。</li>
+<li><b>A4 加精修</b>。生成的物体被接受后，agent 再做 GATOR 式的“改、渲染、看”，每个物体最多 3 轮。只跑 5 个场景，是加分项。</li>
+<li><b>P0 另起一条流水线</b>。完全不用大模型。Boxer 找框，每个框交给 SAM 3D 生成，<code>place_mesh</code> 自动摆，过不了验收就用框本身。它说明“按规则、不用大模型”这一端能做到多好。</li>
+</ol>
+</div>
+<div class="box plain"><span class="box-label">另外几条对所有组都一样的规矩</span>
+<ul>
+<li><b>感知只算一次</b>。每个场景的 Pi3X 和 SAM 3 结果在 Betty 上算好，所有组读同一份（<a href="#sys">第 3 章</a>）。</li>
+<li><b>打补丁也要一样</b>。10 月 26 日如果 AHa-3D 还不能无人值守跑完，就给 harness 打补丁，比如审查改用转发 shim、放宽 Stop hook。补丁对所有组一样（包括 A0），报告里称“打过补丁的 AHa-3D”。</li>
+<li><b>不允许人工干预</b>。跑的过程中不能有人上手帮 agent 改。</li>
+</ul>
+</div>
+<div class="box key"><span class="box-label">必记结论</span>
+<ul>
+<li>灰色部分一律不动，所有组共享。</li>
+<li>每个实验组只比前一组多改一处：A1 改提示词，A2 加清单，A3 加生成，A4 加精修。</li>
+<li>各组的具体设计和场景数在 <a href="#arms">第 4 章</a>，生成和摆放工具在 <a href="#gen">第 6 章</a>。</li>
+</ul>
+</div>
+<p class="src">设计文档第 4、5、12 节。</p>

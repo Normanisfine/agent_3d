@@ -1,0 +1,448 @@
+<h2 id="funnel"><span class="num">5</span>漏斗：小物体丢在哪一关</h2>
+<p>漏斗是这个项目的主图（设计文档 9.5 节）。对每一个真值物体，我们记录它最远走到了哪一关。每一关都会筛掉一些物体，画出来像一个越来越窄的漏斗。</p>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>把漏斗想成机场的几道安检。乘客（真值物体）要依次过：进航站楼、过安检、到登机口、坐对座位。</p>
+<p>最后没坐上飞机的人，卡在哪道关原因完全不同。卡在航站楼门口，是根本没进来；卡在安检，是被拦下了；到了登机口没上，是自己耽误了。</p>
+<p>漏斗图就是把"每道关拦下了多少人"画出来。哪道关拦得最多，改进就该花在哪里。</p>
+</div>
+
+<h3 id="c-gates">5.1 四道关</h3>
+<p>四道关依次是看得见、检测到、建出来、摆准了。点"下一步"一关一关看，每关下面写着物体在这里丢掉的常见原因。</p>
+<div class="arch">
+<div class="arch-title">漏斗：一个真值物体最远走到哪一关</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 300" width="760" role="img" aria-label="漏斗逐步图：看得见、检测到、建出来、摆准了四道关，每道关下面列出在这里丢掉的原因">
+<defs><marker id="c-m5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1 5">
+<rect x="25" y="55" width="140" height="140" rx="8" class="f5 stroke"/>
+<text x="95" y="105" text-anchor="middle" font-weight="700" font-size="13">① 看得见</text>
+<text x="95" y="125" text-anchor="middle">≥ 100 像素可见</text>
+<text x="95" y="143" text-anchor="middle">按激光深度判遮挡</text>
+<text x="95" y="161" text-anchor="middle">不调大模型</text>
+</g>
+<g data-s="1">
+<text x="25" y="222" class="lbl-accent" font-weight="700">在这里丢</text>
+<text x="25" y="242">只出现在没抽中的帧</text>
+<text x="25" y="260">太小：不到 100 像素</text>
+<text x="25" y="278">被别的东西挡住</text>
+</g>
+<g data-s="2">
+<path d="M165,125 L213,125" class="arrow" marker-end="url(#c-m5)"/><text x="190" y="117" text-anchor="middle">过关的</text>
+<rect x="215" y="70" width="140" height="110" rx="8" class="f1 stroke"/>
+<text x="285" y="112" text-anchor="middle" font-weight="700" font-size="13">② 检测到</text>
+<text x="285" y="132" text-anchor="middle">清单里有框对上</text>
+<text x="285" y="150" text-anchor="middle">只有带清单的组</text>
+<text x="215" y="222" class="lbl-accent" font-weight="700">在这里丢</text>
+<text x="215" y="242">检测器没框到</text>
+<text x="215" y="260">框偏出宽松门槛</text>
+<text x="215" y="278">同源偏乐观，看干净对照</text>
+</g>
+<g data-s="3">
+<path d="M95,55 L95,36 L475,36 L475,83" class="arrow dash" marker-end="url(#c-m5)"/>
+<text x="285" y="29" text-anchor="middle">A0、A1 没有清单，跳过 ②</text>
+<path d="M355,125 L403,125" class="arrow" marker-end="url(#c-m5)"/><text x="380" y="117" text-anchor="middle">过关的</text>
+<rect x="405" y="85" width="140" height="80" rx="8" class="f3 stroke"/>
+<text x="475" y="121" text-anchor="middle" font-weight="700" font-size="13">③ 建出来</text>
+<text x="475" y="141" text-anchor="middle">场景里有物体对上</text>
+<text x="405" y="222" class="lbl-accent" font-weight="700">在这里丢</text>
+<text x="405" y="242">agent 跳过没建</text>
+<text x="405" y="260">撞上墙钟或轮数上限</text>
+<text x="405" y="278">建了但偏出宽松门槛</text>
+</g>
+<g data-s="4">
+<path d="M545,125 L593,125" class="arrow" marker-end="url(#c-m5)"/><text x="570" y="117" text-anchor="middle">过关的</text>
+<rect x="595" y="100" width="140" height="50" rx="8" class="f2 stroke"/>
+<text x="665" y="122" text-anchor="middle" font-weight="700" font-size="13">④ 摆准了</text>
+<text x="665" y="140" text-anchor="middle">过严格判据</text>
+<text x="595" y="222" class="lbl-accent" font-weight="700">在这里丢</text>
+<text x="595" y="242">位置偏、尺寸错</text>
+<text x="595" y="260">这类记为"建坏了"</text>
+</g>
+<g data-s="5">
+<path d="M170,52 L466,52" class="arrow-red dash"/><path d="M484,52 L740,52" class="arrow-red dash"/>
+<text x="740" y="45" text-anchor="end" class="lbl-accent" font-weight="700">后面几关都高不过 ①</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>① 看得见</b>。在该组实际用到的帧里（都是 Pi3X 那 32 帧），用 CA-1M 的激光深度判断遮挡，至少有一帧里可见面积 ≥ 100 像素（约 10×10）。A0、A1 按 574×434 算；P0、A2、A3、A4 在原图上找物体，按 1024×768 算。</li>
+<li><b>② 检测到</b>。清单里有一个框在宽松门槛内匹配上它。只有带清单的组有这一关（P0、A2、A3、A4）；A0、A1 没有清单，直接跳到第 ③ 关。</li>
+<li><b>③ 建出来</b>。最终场景里有物体在宽松门槛内匹配上它。A0、A1 没有第 ② 关，从 ① 直接到这里（上方虚线）。宽松门槛是 d̂ ≤ 1.0 或 IoU3D ≥ 0.1（<a href="#eval">第 8 章</a>）。</li>
+<li><b>④ 摆准了</b>。通过严格判据。判据 I 和判据 D 分开各报一张表（<a href="#eval">第 8 章</a>）。过了第 ③ 关却没过这一关的，就是"建坏了"。</li>
+<li><b>天花板</b>。第 ① 关只看几何，不调大模型就能算。它的高度就是这一组"不管 agent 多聪明都过不去的上限"，后面几关只会更低。A0、A1 的天花板按流程分辨率算，P0 和 A2 起按高清帧算。</li>
+</ol>
+</div>
+<div class="box detail">
+<span class="box-label">"看得见"具体怎么算（按我们的理解）</span>
+<p>对每个真值框、每一帧，把框投到这一帧上，再用 CA-1M 的激光渲染深度（512×384）判断哪些像素被前面的东西挡住，数剩下的像素。</p>
+<p>帧集合固定是 Pi3X 抽的那 32 帧，分辨率按该组实际用的算：A0、A1 是 574×434，P0、A2、A3、A4 是 1024×768。任何一帧数到 ≥ 100 像素，这个物体就算看得见。</p>
+<p>这一步只用真值数据，不碰 agent，所以用同一种分辨率的组结果完全一样。具体的投影和缩放细节由写评测脚本的人在开发集上定。</p>
+</div>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>漏斗记的是"最远走到哪一关"</b>。一个物体过了 ③ 没过 ④，它的记录是"最远到 ③"。每关的高度是累计过关的物体数，后一关只会更矮。</li>
+<li><b>A0、A1 没有第 ② 关</b>。它们没有清单，物体从 ① 直接到 ③。比较 A1 和 A2 时，看第 ③ 关的高度。</li>
+<li><b>天花板不是一样高</b>。每组按自己用到的帧算第 ① 关：A0、A1 按 574×434，P0 和 A2 起按 1024×768 原图，所以后者的天花板更高。漏斗图另画一条"流程分辨率下看得见"的参考线，两者之差就是高清帧带来的空间（设计文档 9.5 节）。</li>
+</ul>
+</div>
+
+<h3 id="c-pixels">5.2 小物体在画面里占几个像素</h3>
+<p>第 ① 关为什么要紧，算一算就明白。一个物体在画面里占多少像素，取决于三件事：它多大、离相机多远、画面分辨率多高。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 230" width="760" role="img" aria-label="针孔相机示意：物体发出的光线穿过相机中心落到成像面上，跨度等于焦距乘以物体大小除以距离">
+<defs><marker id="c-m6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<path d="M40,40 L40,190" class="arrow"/>
+<text x="20" y="30">成像面（宽 W 像素）</text>
+<path d="M120,115 L40,40" class="arrow dash"/><path d="M120,115 L40,190" class="arrow dash"/>
+<text x="72" y="100" text-anchor="middle">θ</text>
+<path d="M640,85 L40,119.6" class="arrow-blue"/><path d="M640,145 L40,110.4" class="arrow-blue"/>
+<rect x="36" y="110" width="8" height="10" rx="1" class="f4 stroke"/>
+<text x="32" y="119" text-anchor="end">跨度</text>
+<circle cx="120" cy="115" r="5" class="f0 stroke"/>
+<text x="128" y="140">相机中心</text>
+<rect x="636" y="85" width="8" height="60" rx="2" class="f3 stroke"/>
+<text x="652" y="112">物体大小 S</text>
+<text x="652" y="130">（比如 10 cm）</text>
+<path d="M40,200 L118,200" class="arrow" marker-start="url(#c-m6)" marker-end="url(#c-m6)"/>
+<text x="80" y="218" text-anchor="middle">f（像素）</text>
+<path d="M124,200 L640,200" class="arrow" marker-start="url(#c-m6)" marker-end="url(#c-m6)"/>
+<text x="383" y="218" text-anchor="middle">距离 D</text>
+<text x="440" y="30" class="shape">f = (W/2) ÷ tan(θ/2)</text>
+<text x="440" y="50" class="shape">跨度 = f × S ÷ D</text>
+<text x="440" y="70">面积 ≈ 跨度²（按正对相机的正方形估）</text>
+</g></svg></div>
+<figcaption>针孔相机示意（比例不准）。物体两端的光线穿过相机中心，落到成像面上，两点之间的距离就是跨度。θ 是水平视角，W 是画面宽度。同一个物体，画面越宽，f 越大，跨度也越大。</figcaption></figure>
+<p>把这三个式子做成下面的计算器。拖动滑块，看同一个物体在三种分辨率下各占多少像素、能不能过关。</p>
+<ul>
+<li><b>574×434</b>：AHa-3D 实际用的分辨率。Pi3X 把每帧缩到 25.5 万像素以内，宽高取 14 的倍数，1024×768 的帧就变成这个尺寸。A0、A1 的"看得见"按它算；高清帧消融也在这个尺寸上生成。</li>
+<li><b>1024×768</b>：CA-1M 的原帧，也就是我们的"高清帧"。P0 和 A2 起在它上面找物体和裁剪，A3 在它上面生成。</li>
+<li><b>1920×1440</b>：ARKitScenes 原始视频，我们不下载，放在这里作对照。</li>
+</ul>
+<div class="widget" data-widget="p-pixels"></div>
+<div class="box calc">
+<span class="box-label">手算 · 默认值（10 cm、2 m、60°）</span>
+<p>tan(60° ÷ 2) = tan 30° ≈ 0.5774。物体大小 0.10 m，距离 2 m。</p>
+<ul>
+<li><b>574 宽</b>：f = 287 ÷ 0.5774 ≈ 497.1 像素；跨度 = 497.1 × 0.10 ÷ 2 ≈ 24.9 像素；面积 ≈ 24.9² ≈ 618 像素²。</li>
+<li><b>1024 宽</b>：f = 512 ÷ 0.5774 ≈ 886.8；跨度 ≈ 44.3；面积 ≈ 1,966。</li>
+<li><b>1920 宽</b>：f = 960 ÷ 0.5774 ≈ 1,662.8；跨度 ≈ 83.1；面积 ≈ 6,912。</li>
+</ul>
+<p>三行都过了 200，默认值下都"可以送去生成"。把距离拉远，看 10 cm 的物体在多远处跌破两道门槛。</p>
+<ul>
+<li><b>574 宽</b>：面积跌破 200（跨度 &lt; √200 ≈ 14.1）在 497.1 × 0.10 ÷ 14.14 ≈ <b>3.52 m</b>；跌破 100（跨度 &lt; 10）在 497.1 × 0.10 ÷ 10 ≈ <b>4.97 m</b>。</li>
+<li><b>1024 宽</b>：886.8 × 0.10 ÷ 14.14 ≈ <b>6.27 m</b>；886.8 × 0.10 ÷ 10 ≈ <b>8.87 m</b>。</li>
+<li>5 cm 的物体，所有距离都减半，比如 574 宽时约 1.76 m 和 2.49 m。</li>
+</ul>
+<p>两道门槛各对应哪一行：</p>
+<ul>
+<li><b>too_small（200）</b>：A3 在 1024 宽上生成，10 cm 的物体 6.27 m 外才 too_small。574 宽的 3.52 m 只在高清帧消融里遇到。</li>
+<li><b>看得见（100）</b>：A0、A1 按 574 宽，4.97 m 外就过不了；P0 和 A2 起按 1024 宽，是 8.87 m。</li>
+</ul>
+<p><b>574×434 怎么来的</b>：1024×768 有 786,432 像素，缩放比例 √(255,000 ÷ 786,432) ≈ 0.569，得到约 583×437。</p>
+<p>宽高往下取 14 的倍数，就是 574×434（41 × 31 = 1,271 个 patch）。取整方式是按我们的理解，以 Pi3X 代码为准。</p>
+</div>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>这是最好情况</b>。面积按正对相机的正方形算。杯子是瘦高的圆柱，侧面还会被挡住一部分，真实可见面积通常更小。</li>
+<li><b>60° 是估计值</b>。它是 iPad 主摄量级的猜测，没有按 CA-1M 的内参核对。视角越大，f 越小，物体占的像素越少。</li>
+<li><b>两道门槛来源不同</b>。100 像素是"看得见"的门槛（设计文档 9.5 节）；200 像素是 <code>gen3d_request</code> 返回 too_small 的门槛（设计文档第 6 节）。两个都是我们定的初值。</li>
+</ul>
+</div>
+<p>默认值下，10 cm 的杯子在 2 m 外，在 AHa-3D 的分辨率里只有约 25 像素宽。这就是 A2、A3 坚持在高清帧上找物体和裁剪的原因。</p>
+
+<h3 id="c-mainfig">5.3 报告主图长什么样</h3>
+<p>报告的主图是一组堆叠条形：每个实验组、每个尺寸档各画一根。下面这张是<b>示意</b>，条的长度是随手画的，不代表我们预期的结果。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 446" width="760" role="img" aria-label="报告主图的示意：四个尺寸档各一个小图，每组一根堆叠条，长度是随手画的">
+<g font-size="12">
+<text x="20" y="20" class="lbl-accent" font-size="13" font-weight="700">示意，非数据：条的长度是随手画的，只用来说明图怎么读</text>
+<text x="20" y="50" font-size="13" font-weight="700">XS（&lt; 0.2 m） 档</text>
+<text x="54" y="72" text-anchor="end">P0</text>
+<rect x="60" y="60" width="42" height="16" rx="2" class="f2 stroke"/>
+<text x="81" y="72" text-anchor="middle" font-weight="700">④</text>
+<rect x="102" y="60" width="36" height="16" rx="2" class="f3 stroke"/>
+<text x="120" y="72" text-anchor="middle" font-weight="700">③</text>
+<rect x="138" y="60" width="48" height="16" rx="2" class="f1 stroke"/>
+<text x="162" y="72" text-anchor="middle" font-weight="700">②</text>
+<rect x="186" y="60" width="84" height="16" rx="2" class="f5 stroke"/>
+<text x="205.5" y="72" text-anchor="middle" font-weight="700">①</text>
+<rect x="270" y="60" width="90" height="16" rx="2" class="f6 stroke"/>
+<text x="315" y="72" text-anchor="middle" font-weight="700">没过</text>
+<text x="54" y="92" text-anchor="end">A0</text>
+<rect x="60" y="80" width="9" height="16" rx="2" class="f2 stroke"/>
+<rect x="69" y="80" width="15" height="16" rx="2" class="f3 stroke"/>
+<rect x="84" y="80" width="141" height="16" rx="2" class="f5 stroke"/>
+<rect x="225" y="80" width="135" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="112" text-anchor="end">A1</text>
+<rect x="60" y="100" width="24" height="16" rx="2" class="f2 stroke"/>
+<rect x="84" y="100" width="30" height="16" rx="2" class="f3 stroke"/>
+<rect x="114" y="100" width="111" height="16" rx="2" class="f5 stroke"/>
+<rect x="225" y="100" width="135" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="132" text-anchor="end">A2</text>
+<rect x="60" y="120" width="42" height="16" rx="2" class="f2 stroke"/>
+<rect x="102" y="120" width="45" height="16" rx="2" class="f3 stroke"/>
+<rect x="147" y="120" width="45" height="16" rx="2" class="f1 stroke"/>
+<rect x="192" y="120" width="78" height="16" rx="2" class="f5 stroke"/>
+<rect x="270" y="120" width="90" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="152" text-anchor="end">A3r</text>
+<rect x="60" y="140" width="57" height="16" rx="2" class="f2 stroke"/>
+<rect x="117" y="140" width="39" height="16" rx="2" class="f3 stroke"/>
+<rect x="156" y="140" width="36" height="16" rx="2" class="f1 stroke"/>
+<rect x="192" y="140" width="78" height="16" rx="2" class="f5 stroke"/>
+<rect x="270" y="140" width="90" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="172" text-anchor="end">A3v</text>
+<rect x="60" y="160" width="63" height="16" rx="2" class="f2 stroke"/>
+<rect x="123" y="160" width="36" height="16" rx="2" class="f3 stroke"/>
+<rect x="159" y="160" width="33" height="16" rx="2" class="f1 stroke"/>
+<rect x="192" y="160" width="78" height="16" rx="2" class="f5 stroke"/>
+<rect x="270" y="160" width="90" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="192" text-anchor="end">A4</text>
+<rect x="60" y="180" width="72" height="16" rx="2" class="f2 stroke"/>
+<rect x="132" y="180" width="30" height="16" rx="2" class="f3 stroke"/>
+<rect x="162" y="180" width="30" height="16" rx="2" class="f1 stroke"/>
+<rect x="192" y="180" width="78" height="16" rx="2" class="f5 stroke"/>
+<rect x="270" y="180" width="90" height="16" rx="2" class="f6 stroke"/>
+<path d="M225,56 L225,200" class="arrow-red dash"/>
+<text x="60" y="214" text-anchor="middle">0</text>
+<text x="360" y="214" text-anchor="middle">100%</text>
+<text x="400" y="50" font-size="13" font-weight="700">S（0.2–0.5 m） 档</text>
+<text x="434" y="72" text-anchor="end">P0</text>
+<rect x="440" y="60" width="81" height="16" rx="2" class="f2 stroke"/>
+<text x="480.5" y="72" text-anchor="middle" font-weight="700">④</text>
+<rect x="521" y="60" width="51" height="16" rx="2" class="f3 stroke"/>
+<text x="546.5" y="72" text-anchor="middle" font-weight="700">③</text>
+<rect x="572" y="60" width="51" height="16" rx="2" class="f1 stroke"/>
+<text x="597.5" y="72" text-anchor="middle" font-weight="700">②</text>
+<rect x="623" y="60" width="72" height="16" rx="2" class="f5 stroke"/>
+<text x="644" y="72" text-anchor="middle" font-weight="700">①</text>
+<rect x="695" y="60" width="45" height="16" rx="2" class="f6 stroke"/>
+<text x="717.5" y="72" text-anchor="middle" font-weight="700">没过</text>
+<text x="434" y="92" text-anchor="end">A0</text>
+<rect x="440" y="80" width="30" height="16" rx="2" class="f2 stroke"/>
+<rect x="470" y="80" width="30" height="16" rx="2" class="f3 stroke"/>
+<rect x="500" y="80" width="165" height="16" rx="2" class="f5 stroke"/>
+<rect x="665" y="80" width="75" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="112" text-anchor="end">A1</text>
+<rect x="440" y="100" width="60" height="16" rx="2" class="f2 stroke"/>
+<rect x="500" y="100" width="45" height="16" rx="2" class="f3 stroke"/>
+<rect x="545" y="100" width="120" height="16" rx="2" class="f5 stroke"/>
+<rect x="665" y="100" width="75" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="132" text-anchor="end">A2</text>
+<rect x="440" y="120" width="90" height="16" rx="2" class="f2 stroke"/>
+<rect x="530" y="120" width="57" height="16" rx="2" class="f3 stroke"/>
+<rect x="587" y="120" width="42" height="16" rx="2" class="f1 stroke"/>
+<rect x="629" y="120" width="66" height="16" rx="2" class="f5 stroke"/>
+<rect x="695" y="120" width="45" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="152" text-anchor="end">A3r</text>
+<rect x="440" y="140" width="102" height="16" rx="2" class="f2 stroke"/>
+<rect x="542" y="140" width="51" height="16" rx="2" class="f3 stroke"/>
+<rect x="593" y="140" width="36" height="16" rx="2" class="f1 stroke"/>
+<rect x="629" y="140" width="66" height="16" rx="2" class="f5 stroke"/>
+<rect x="695" y="140" width="45" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="172" text-anchor="end">A3v</text>
+<rect x="440" y="160" width="108" height="16" rx="2" class="f2 stroke"/>
+<rect x="548" y="160" width="48" height="16" rx="2" class="f3 stroke"/>
+<rect x="596" y="160" width="33" height="16" rx="2" class="f1 stroke"/>
+<rect x="629" y="160" width="66" height="16" rx="2" class="f5 stroke"/>
+<rect x="695" y="160" width="45" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="192" text-anchor="end">A4</text>
+<rect x="440" y="180" width="117" height="16" rx="2" class="f2 stroke"/>
+<rect x="557" y="180" width="42" height="16" rx="2" class="f3 stroke"/>
+<rect x="599" y="180" width="30" height="16" rx="2" class="f1 stroke"/>
+<rect x="629" y="180" width="66" height="16" rx="2" class="f5 stroke"/>
+<rect x="695" y="180" width="45" height="16" rx="2" class="f6 stroke"/>
+<path d="M665,56 L665,200" class="arrow-red dash"/>
+<text x="440" y="214" text-anchor="middle">0</text>
+<text x="740" y="214" text-anchor="middle">100%</text>
+<text x="20" y="232" font-size="13" font-weight="700">M（0.5–1.5 m） 档</text>
+<text x="54" y="254" text-anchor="end">P0</text>
+<rect x="60" y="242" width="138" height="16" rx="2" class="f2 stroke"/>
+<text x="129" y="254" text-anchor="middle" font-weight="700">④</text>
+<rect x="198" y="242" width="63" height="16" rx="2" class="f3 stroke"/>
+<text x="229.5" y="254" text-anchor="middle" font-weight="700">③</text>
+<rect x="261" y="242" width="33" height="16" rx="2" class="f1 stroke"/>
+<text x="277.5" y="254" text-anchor="middle" font-weight="700">②</text>
+<rect x="294" y="242" width="48" height="16" rx="2" class="f5 stroke"/>
+<text x="312" y="254" text-anchor="middle" font-weight="700">①</text>
+<rect x="342" y="242" width="18" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="274" text-anchor="end">A0</text>
+<rect x="60" y="262" width="135" height="16" rx="2" class="f2 stroke"/>
+<rect x="195" y="262" width="60" height="16" rx="2" class="f3 stroke"/>
+<rect x="255" y="262" width="75" height="16" rx="2" class="f5 stroke"/>
+<rect x="330" y="262" width="30" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="294" text-anchor="end">A1</text>
+<rect x="60" y="282" width="150" height="16" rx="2" class="f2 stroke"/>
+<rect x="210" y="282" width="60" height="16" rx="2" class="f3 stroke"/>
+<rect x="270" y="282" width="60" height="16" rx="2" class="f5 stroke"/>
+<rect x="330" y="282" width="30" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="314" text-anchor="end">A2</text>
+<rect x="60" y="302" width="168" height="16" rx="2" class="f2 stroke"/>
+<rect x="228" y="302" width="57" height="16" rx="2" class="f3 stroke"/>
+<rect x="285" y="302" width="24" height="16" rx="2" class="f1 stroke"/>
+<rect x="309" y="302" width="33" height="16" rx="2" class="f5 stroke"/>
+<rect x="342" y="302" width="18" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="334" text-anchor="end">A3r</text>
+<rect x="60" y="322" width="168" height="16" rx="2" class="f2 stroke"/>
+<rect x="228" y="322" width="57" height="16" rx="2" class="f3 stroke"/>
+<rect x="285" y="322" width="24" height="16" rx="2" class="f1 stroke"/>
+<rect x="309" y="322" width="33" height="16" rx="2" class="f5 stroke"/>
+<rect x="342" y="322" width="18" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="354" text-anchor="end">A3v</text>
+<rect x="60" y="342" width="171" height="16" rx="2" class="f2 stroke"/>
+<rect x="231" y="342" width="57" height="16" rx="2" class="f3 stroke"/>
+<rect x="288" y="342" width="21" height="16" rx="2" class="f1 stroke"/>
+<rect x="309" y="342" width="33" height="16" rx="2" class="f5 stroke"/>
+<rect x="342" y="342" width="18" height="16" rx="2" class="f6 stroke"/>
+<text x="54" y="374" text-anchor="end">A4</text>
+<rect x="60" y="362" width="174" height="16" rx="2" class="f2 stroke"/>
+<rect x="234" y="362" width="54" height="16" rx="2" class="f3 stroke"/>
+<rect x="288" y="362" width="21" height="16" rx="2" class="f1 stroke"/>
+<rect x="309" y="362" width="33" height="16" rx="2" class="f5 stroke"/>
+<rect x="342" y="362" width="18" height="16" rx="2" class="f6 stroke"/>
+<path d="M330,238 L330,382" class="arrow-red dash"/>
+<text x="60" y="396" text-anchor="middle">0</text>
+<text x="360" y="396" text-anchor="middle">100%</text>
+<text x="400" y="232" font-size="13" font-weight="700">L（≥ 1.5 m） 档</text>
+<text x="434" y="254" text-anchor="end">P0</text>
+<rect x="440" y="242" width="165" height="16" rx="2" class="f2 stroke"/>
+<text x="522.5" y="254" text-anchor="middle" font-weight="700">④</text>
+<rect x="605" y="242" width="75" height="16" rx="2" class="f3 stroke"/>
+<text x="642.5" y="254" text-anchor="middle" font-weight="700">③</text>
+<rect x="680" y="242" width="24" height="16" rx="2" class="f1 stroke"/>
+<text x="692" y="254" text-anchor="middle" font-weight="700">②</text>
+<rect x="704" y="242" width="30" height="16" rx="2" class="f5 stroke"/>
+<text x="717.5" y="254" text-anchor="middle" font-weight="700">①</text>
+<rect x="734" y="242" width="6" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="274" text-anchor="end">A0</text>
+<rect x="440" y="262" width="210" height="16" rx="2" class="f2 stroke"/>
+<rect x="650" y="262" width="60" height="16" rx="2" class="f3 stroke"/>
+<rect x="710" y="262" width="21" height="16" rx="2" class="f5 stroke"/>
+<rect x="731" y="262" width="9" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="294" text-anchor="end">A1</text>
+<rect x="440" y="282" width="210" height="16" rx="2" class="f2 stroke"/>
+<rect x="650" y="282" width="60" height="16" rx="2" class="f3 stroke"/>
+<rect x="710" y="282" width="21" height="16" rx="2" class="f5 stroke"/>
+<rect x="731" y="282" width="9" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="314" text-anchor="end">A2</text>
+<rect x="440" y="302" width="213" height="16" rx="2" class="f2 stroke"/>
+<rect x="653" y="302" width="57" height="16" rx="2" class="f3 stroke"/>
+<rect x="710" y="302" width="12" height="16" rx="2" class="f1 stroke"/>
+<rect x="722" y="302" width="12" height="16" rx="2" class="f5 stroke"/>
+<rect x="734" y="302" width="6" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="334" text-anchor="end">A3r</text>
+<rect x="440" y="322" width="213" height="16" rx="2" class="f2 stroke"/>
+<rect x="653" y="322" width="57" height="16" rx="2" class="f3 stroke"/>
+<rect x="710" y="322" width="12" height="16" rx="2" class="f1 stroke"/>
+<rect x="722" y="322" width="12" height="16" rx="2" class="f5 stroke"/>
+<rect x="734" y="322" width="6" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="354" text-anchor="end">A3v</text>
+<rect x="440" y="342" width="213" height="16" rx="2" class="f2 stroke"/>
+<rect x="653" y="342" width="57" height="16" rx="2" class="f3 stroke"/>
+<rect x="710" y="342" width="12" height="16" rx="2" class="f1 stroke"/>
+<rect x="722" y="342" width="12" height="16" rx="2" class="f5 stroke"/>
+<rect x="734" y="342" width="6" height="16" rx="2" class="f6 stroke"/>
+<text x="434" y="374" text-anchor="end">A4</text>
+<rect x="440" y="362" width="213" height="16" rx="2" class="f2 stroke"/>
+<rect x="653" y="362" width="57" height="16" rx="2" class="f3 stroke"/>
+<rect x="710" y="362" width="12" height="16" rx="2" class="f1 stroke"/>
+<rect x="722" y="362" width="12" height="16" rx="2" class="f5 stroke"/>
+<rect x="734" y="362" width="6" height="16" rx="2" class="f6 stroke"/>
+<path d="M731,238 L731,382" class="arrow-red dash"/>
+<text x="440" y="396" text-anchor="middle">0</text>
+<text x="740" y="396" text-anchor="middle">100%</text>
+<rect x="20" y="404" width="12" height="12" rx="2" class="f2 stroke"/>
+<text x="37" y="415">④ 最远到摆准了</text>
+<rect x="141.4" y="404" width="12" height="12" rx="2" class="f3 stroke"/>
+<text x="158.4" y="415">③ 最远到建出来</text>
+<rect x="262.8" y="404" width="12" height="12" rx="2" class="f1 stroke"/>
+<text x="279.8" y="415">② 最远到检测到</text>
+<rect x="384.2" y="404" width="12" height="12" rx="2" class="f5 stroke"/>
+<text x="401.2" y="415">① 最远到看得见</text>
+<rect x="505.6" y="404" width="12" height="12" rx="2" class="f6 stroke"/>
+<text x="522.6" y="415">没过：① 都没过</text>
+<text x="20" y="438">红色虚线：流程分辨率（574×434）下看得见的比例。A0、A1 的彩色段止于此；P0 和 A2 起按高清帧算，可以越过它。</text>
+</g></svg></div>
+<figcaption>示意，非数据。每根条是"某组、某档"的全部真值物体，按最远走到哪一关切成五段，每档第一根条上标了段名（M、L 档的"没过"段太窄，看图例）。A0、A1 没有清单，所以没有 ② 那段。红色虚线是"流程分辨率下看得见"的参考线，A0、A1 的彩色段止于这条线，P0 和 A2 起按高清帧算，可以越过它。</figcaption></figure>
+<p>读这张图分三步。</p>
+<ol>
+<li><b>先看灰色和红线</b>。灰色是第 ① 关就丢的，任何组都救不回来。A0、A1 的灰色从红线开始；P0 和 A2 起按高清帧算，越过红线的那截就是高清帧带来的空间。</li>
+<li><b>再看同一档里绿色怎么变</b>。从 A0 往下看，哪一步绿色明显变长，那一步加的东西就有用。</li>
+<li><b>最后看颜色从哪段挪到哪段</b>。A1 到 A2，如果紫色（只到 ①）变短、绿色和黄色变长，说明清单把"看得见却没建"的物体捞回来了。</li>
+</ol>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<p>堆叠条只能看比例。每档还要报真值物体的个数 N（设计文档 9.3 节），XS 档物体少时，一两个物体就能让比例跳好几个百分点。组间比较的置信区间见<a href="#eval">第 8 章</a>。</p>
+</div>
+
+<h3 id="c-read">5.4 怎么读漏斗：三种典型形状</h3>
+<p>漏斗最有用的地方，是告诉我们下一步该往哪里使劲。下面三种形状对应三种不同的结论。每个小图最左是全部真值物体，往右依次是过了 ①②③④ 的数量，红色虚线框是丢得最多的地方。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 270" width="760" role="img" aria-label="三种典型漏斗形状：卡在看得见、卡在检测到、卡在建出来或摆准">
+<g font-size="12">
+<text x="128" y="22" text-anchor="middle" font-size="13" font-weight="700">情形一：卡在 ① 看得见</text>
+<rect x="31" y="50" width="30" height="120" rx="3" class="f6 stroke"/>
+<text x="46" y="186" text-anchor="middle">全部</text>
+<rect x="73" y="128" width="30" height="42" rx="3" class="f1 stroke"/>
+<text x="88" y="186" text-anchor="middle">①</text>
+<rect x="73" y="50" width="30" height="78" rx="3" class="arrow-red dash" fill="none"/>
+<rect x="115" y="134" width="30" height="36" rx="3" class="f1 stroke"/>
+<text x="130" y="186" text-anchor="middle">②</text>
+<rect x="157" y="137.6" width="30" height="32.4" rx="3" class="f1 stroke"/>
+<text x="172" y="186" text-anchor="middle">③</text>
+<rect x="199" y="143.6" width="30" height="26.4" rx="3" class="f2 stroke"/>
+<text x="214" y="186" text-anchor="middle">④</text>
+<line x1="24" y1="170" x2="236" y2="170" class="stroke"/>
+<text x="128" y="210" text-anchor="middle" class="lbl-accent">瓶颈在上游：帧太少、分辨率太低</text>
+<text x="128" y="228" text-anchor="middle">agent 再聪明也救不回来</text>
+<text x="128" y="246" text-anchor="middle">方向：高清帧、更多帧、拍近一点</text>
+<text x="380" y="22" text-anchor="middle" font-size="13" font-weight="700">情形二：卡在 ② 检测到</text>
+<rect x="283" y="50" width="30" height="120" rx="3" class="f6 stroke"/>
+<text x="298" y="186" text-anchor="middle">全部</text>
+<rect x="325" y="68" width="30" height="102" rx="3" class="f1 stroke"/>
+<text x="340" y="186" text-anchor="middle">①</text>
+<rect x="367" y="128" width="30" height="42" rx="3" class="f1 stroke"/>
+<text x="382" y="186" text-anchor="middle">②</text>
+<rect x="367" y="68" width="30" height="60" rx="3" class="arrow-red dash" fill="none"/>
+<rect x="409" y="131.6" width="30" height="38.4" rx="3" class="f1 stroke"/>
+<text x="424" y="186" text-anchor="middle">③</text>
+<rect x="451" y="137.6" width="30" height="32.4" rx="3" class="f2 stroke"/>
+<text x="466" y="186" text-anchor="middle">④</text>
+<line x1="276" y1="170" x2="488" y2="170" class="stroke"/>
+<text x="380" y="210" text-anchor="middle" class="lbl-accent">找物体是瓶颈</text>
+<text x="380" y="228" text-anchor="middle">检测器在 ② 关丢得多</text>
+<text x="380" y="246" text-anchor="middle">方向：换更好的检测器，或对照干净清单</text>
+<text x="632" y="22" text-anchor="middle" font-size="13" font-weight="700">情形三：卡在 ③ 或 ④</text>
+<rect x="535" y="50" width="30" height="120" rx="3" class="f6 stroke"/>
+<text x="550" y="186" text-anchor="middle">全部</text>
+<rect x="577" y="68" width="30" height="102" rx="3" class="f1 stroke"/>
+<text x="592" y="186" text-anchor="middle">①</text>
+<rect x="619" y="74" width="30" height="96" rx="3" class="f1 stroke"/>
+<text x="634" y="186" text-anchor="middle">②</text>
+<rect x="661" y="122" width="30" height="48" rx="3" class="f1 stroke"/>
+<text x="676" y="186" text-anchor="middle">③</text>
+<rect x="661" y="74" width="30" height="48" rx="3" class="arrow-red dash" fill="none"/>
+<rect x="703" y="146" width="30" height="24" rx="3" class="f2 stroke"/>
+<text x="718" y="186" text-anchor="middle">④</text>
+<rect x="703" y="122" width="30" height="24" rx="3" class="arrow-red dash" fill="none"/>
+<line x1="528" y1="170" x2="740" y2="170" class="stroke"/>
+<text x="632" y="210" text-anchor="middle" class="lbl-accent">agent 或生成出了问题</text>
+<text x="632" y="228" text-anchor="middle">检测到了却没建，或建歪了</text>
+<text x="632" y="246" text-anchor="middle">方向：生成路由、配准验收、精修</text>
+</g></svg></div>
+<figcaption>三种典型的漏斗形状（示意）。同样是"最后摆准的不多"，丢在哪一关不同，改进方向完全不同。</figcaption></figure>
+<div class="table-wrap"><table>
+<tr><th>情形</th><th>漏斗长什么样</th><th>说明什么</th><th>往哪使劲</th></tr>
+<tr><td><b>一：卡在 ① 看得见</b></td><td>大部分小物体在该组用到的 32 帧里根本没有 100 像素</td><td>瓶颈在上游，agent 再聪明也救不回来。设计文档第 13 节把这种结果也算作一个发现</td><td>更多帧、更高分辨率、拍得更近；高清帧消融（<a href="#arms">第 4 章</a>）给出具体数字</td></tr>
+<tr><td><b>二：卡在 ② 检测到</b></td><td>看得见很多，但没被清单框到</td><td>检测器在第 ② 关丢得多，找物体是瓶颈</td><td>换更好的检测器，或对照干净清单看是不是 Boxer 的问题；也可以做 Boxer 微调（<a href="#train">第 14 章</a>）</td></tr>
+<tr><td><b>三：卡在 ③ 或 ④</b></td><td>找到了却没建，或建歪了</td><td>agent 或生成的问题</td><td>生成路由（A3r 对 A3v）、<code>place_mesh</code> 的配准和验收、精修（A4）值不值</td></tr>
+</table></div>
+<div class="box key">
+<span class="box-label">必记</span>
+<ul>
+<li>四关依次是看得见、检测到、建出来、摆准了；每个真值物体记"最远到哪一关"。</li>
+<li>看得见不调大模型，是每组的天花板：A0、A1 按流程分辨率算，P0 和 A2 起按高清帧算。</li>
+<li>只有带清单的组（P0、A2、A3、A4）有"检测到"这一关。</li>
+<li>漏斗的用处是指路：丢在哪一关，就往哪一关使劲。</li>
+</ul>
+</div>
+<p class="src">设计文档 9.3、9.5 节，第 6、13 节；AHa-3D 深挖笔记里 reconstruct.py 的 --pixel-limit 255000 和 14 倍数规则。</p>

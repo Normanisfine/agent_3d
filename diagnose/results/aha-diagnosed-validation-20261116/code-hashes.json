@@ -1,0 +1,9 @@
+{
+  "src/agen3d/multiagent/aha_diagnosed/__init__.py": "fb16bfcfa7e5994d618b2ef39876f3be469284e5c0b7ed959b87f17576e04f6e",
+  "src/agen3d/multiagent/aha_diagnosed/cli.py": "8482a70a06f967f6c2f228031b0b76c7e72306be4937ad939e9c04d816717eea",
+  "src/agen3d/multiagent/aha_diagnosed/contracts.py": "f75146bcf5519cf3a8ef2893798c0f0c99ac2ef0b7db8c0205f00a438e164615",
+  "src/agen3d/multiagent/aha_diagnosed/evaluate.py": "e46c3341e0427bf123434e7fa880322072645f8d404135cddf5acfaaa3f1a681",
+  "src/agen3d/multiagent/aha_diagnosed/evidence.py": "ca75858680e4c5fc9cb694892a155e18d3291b73e6dabdfd9286736d35481499",
+  "src/agen3d/multiagent/aha_diagnosed/runtime.py": "aee3b5733fa9937f911cbd539311f3b87b48e3fda0dd7fbb3a8864359cdcbf5f",
+  "src/agen3d/multiagent/aha_diagnosed/tests/test_diagnosed.py": "0fe8fd1e5c79dfbc527f6774c1515bde98eddbd0ad811555d985a0daf3cd4e20"
+}

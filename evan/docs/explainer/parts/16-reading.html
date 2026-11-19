@@ -1,0 +1,219 @@
+<h2 id="reading"><span class="num">16</span>必读论文与阅读清单</h2>
+<p>这一章列出开工前要读的论文和文档。每一条都给了可以点开的链接、为什么读、重点看哪几节、谁读、优先级。</p>
+<ul>
+<li><span class="chip red">必读</span> 不读就没法做自己那一块。</li>
+<li><span class="chip blue">推荐</span> 读了能少走弯路，或者写报告时要引用。</li>
+<li><span class="chip">参考</span> 遇到相关问题再翻。</li>
+</ul>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>不用每篇从头读到尾。先看摘要和第一张图，知道它在干什么；再直接跳到"重点看"那几节。一篇必读论文按这个读法，一到两小时够了。</p>
+</div>
+
+<h3 id="d-readmap">16.1 阅读路线图：先读什么后读什么</h3>
+<p>全组先读同一批五篇，读完再按角色分头。下图从左往右是建议的阅读顺序，颜色是优先级。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 316" width="770" role="img" aria-label="阅读路线图：全组先读五篇必读，再分三条线按角色读">
+<defs><marker id="d-m16a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="10" y="50" font-weight="700">全组</text><text x="10" y="66" class="ink3">10/19 前</text>
+<rect x="90" y="34" width="120" height="36" rx="6" class="f4 stroke"/><text x="150" y="57" text-anchor="middle">AHa-3D 博客+仓库</text>
+<rect x="228" y="34" width="80" height="36" rx="6" class="f4 stroke"/><text x="268" y="57" text-anchor="middle">GATOR</text>
+<rect x="326" y="34" width="80" height="36" rx="6" class="f4 stroke"/><text x="366" y="57" text-anchor="middle">GRASE</text>
+<rect x="424" y="34" width="80" height="36" rx="6" class="f4 stroke"/><text x="464" y="57" text-anchor="middle">LIVIN</text>
+<rect x="522" y="34" width="80" height="36" rx="6" class="f4 stroke"/><text x="562" y="57" text-anchor="middle">CA-1M</text>
+<path d="M210,52 L227,52" class="arrow" marker-end="url(#d-m16a)"/><path d="M308,52 L325,52" class="arrow" marker-end="url(#d-m16a)"/><path d="M406,52 L423,52" class="arrow" marker-end="url(#d-m16a)"/><path d="M504,52 L521,52" class="arrow" marker-end="url(#d-m16a)"/>
+<path d="M562,70 L562,86 L40,86 L40,268" class="arrow"/>
+<path d="M40,128 L89,128" class="arrow" marker-end="url(#d-m16a)"/><path d="M40,198 L89,198" class="arrow" marker-end="url(#d-m16a)"/><path d="M40,268 L89,268" class="arrow" marker-end="url(#d-m16a)"/>
+<text x="90" y="104" font-weight="700">Yifan · agent 和驱动</text><text x="250" y="104" class="ink3">10/26 前</text>
+<rect x="90" y="110" width="120" height="36" rx="6" class="f4 stroke"/><text x="150" y="133" text-anchor="middle">AGENTS.md、skills</text>
+<rect x="228" y="110" width="100" height="36" rx="6" class="f1 stroke"/><text x="278" y="133" text-anchor="middle">Agentic RSR</text>
+<rect x="346" y="110" width="140" height="36" rx="6" class="f1 stroke"/><text x="416" y="133" text-anchor="middle">LiteReality-Agent</text>
+<rect x="504" y="110" width="70" height="36" rx="6" class="f6 stroke"/><text x="539" y="133" text-anchor="middle">VIGA</text>
+<path d="M210,128 L227,128" class="arrow" marker-end="url(#d-m16a)"/><path d="M328,128 L345,128" class="arrow" marker-end="url(#d-m16a)"/><path d="M486,128 L503,128" class="arrow" marker-end="url(#d-m16a)"/>
+<text x="90" y="174" font-weight="700">Mingjian · 感知和生成</text><text x="264" y="174" class="ink3">10/26 前</text>
+<rect x="90" y="180" width="90" height="36" rx="6" class="f4 stroke"/><text x="135" y="203" text-anchor="middle">π³ / Pi3X</text>
+<rect x="196" y="180" width="70" height="36" rx="6" class="f1 stroke"/><text x="231" y="203" text-anchor="middle">SAM 3</text>
+<rect x="282" y="180" width="70" height="36" rx="6" class="f4 stroke"/><text x="317" y="203" text-anchor="middle">Boxer</text>
+<rect x="368" y="180" width="120" height="36" rx="6" class="f4 stroke"/><text x="428" y="203" text-anchor="middle">SAM 3D Objects</text>
+<rect x="504" y="180" width="115" height="36" rx="6" class="f4 stroke"/><text x="561" y="203" text-anchor="middle">Hunyuan3D 2.0</text>
+<rect x="635" y="180" width="120" height="36" rx="6" class="f1 stroke"/><text x="695" y="203" text-anchor="middle">φ-RIE、ReScene</text>
+<path d="M180,198 L195,198" class="arrow" marker-end="url(#d-m16a)"/><path d="M266,198 L281,198" class="arrow" marker-end="url(#d-m16a)"/><path d="M352,198 L367,198" class="arrow" marker-end="url(#d-m16a)"/><path d="M488,198 L503,198" class="arrow" marker-end="url(#d-m16a)"/><path d="M619,198 L634,198" class="arrow" marker-end="url(#d-m16a)"/>
+<text x="90" y="244" font-weight="700">Yujing · 数据和评测</text><text x="250" y="244" class="ink3">10/26 前</text>
+<rect x="90" y="250" width="110" height="36" rx="6" class="f1 stroke"/><text x="145" y="273" text-anchor="middle">ARKitScenes</text>
+<rect x="216" y="250" width="60" height="36" rx="6" class="f4 stroke"/><text x="246" y="273" text-anchor="middle">TIDE</text>
+<rect x="292" y="250" width="110" height="36" rx="6" class="f4 stroke"/><text x="347" y="273" text-anchor="middle">Umeyama 1991</text>
+<rect x="418" y="250" width="90" height="36" rx="6" class="f1 stroke"/><text x="463" y="273" text-anchor="middle">VSI-Bench</text>
+<rect x="524" y="250" width="100" height="36" rx="6" class="f1 stroke"/><text x="574" y="273" text-anchor="middle">Omni3D 等</text>
+<rect x="640" y="250" width="115" height="36" rx="6" class="f1 stroke"/><text x="697" y="273" text-anchor="middle">ScanNet++ 等</text>
+<path d="M200,268 L215,268" class="arrow" marker-end="url(#d-m16a)"/><path d="M276,268 L291,268" class="arrow" marker-end="url(#d-m16a)"/><path d="M402,268 L417,268" class="arrow" marker-end="url(#d-m16a)"/><path d="M508,268 L523,268" class="arrow" marker-end="url(#d-m16a)"/><path d="M624,268 L639,268" class="arrow" marker-end="url(#d-m16a)"/>
+<rect x="90" y="298" width="14" height="14" rx="3" class="f4 stroke"/><text x="110" y="310">必读</text>
+<rect x="160" y="298" width="14" height="14" rx="3" class="f1 stroke"/><text x="180" y="310">推荐</text>
+<rect x="230" y="298" width="14" height="14" rx="3" class="f6 stroke"/><text x="250" y="310">参考</text>
+</g></svg></div>
+<figcaption>建议的阅读顺序，颜色是优先级。第一行五篇全组都读，最好在 10/19 交提案前读完，提案的相关工作一节就靠它们。之后分三条线，每人先读和自己第一周任务直接相关的。</figcaption></figure>
+<p>分头读的起点：Yifan 先读 AGENTS.md，Mingjian 先读 π³ 和 Boxer，Yujing 先读 ARKitScenes 和 TIDE。图上的日期只是建议。</p>
+
+<h3 id="d-core">16.2 全组必读</h3>
+<p>这五篇决定了我们做什么、不做什么。下图先说明每篇管我们流程的哪一段，表格再给链接和重点。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 312" width="770" role="img" aria-label="四篇必读论文各自对应我们流程的哪几段，AHa-3D 是整条流程本身">
+<defs><marker id="d-m16b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="60" y="20" width="120" height="36" rx="6" class="f4 stroke"/><text x="120" y="43" text-anchor="middle" font-weight="700">GRASE</text>
+<rect x="240" y="20" width="120" height="36" rx="6" class="f4 stroke"/><text x="300" y="43" text-anchor="middle" font-weight="700">GATOR</text>
+<rect x="420" y="20" width="120" height="36" rx="6" class="f4 stroke"/><text x="480" y="43" text-anchor="middle" font-weight="700">LIVIN</text>
+<rect x="600" y="20" width="120" height="36" rx="6" class="f4 stroke"/><text x="660" y="43" text-anchor="middle" font-weight="700">CA-1M</text>
+<text x="120" y="76" text-anchor="middle">剪影搜索、大小件分流</text>
+<text x="300" y="76" text-anchor="middle">A4 精修、两组数字</text>
+<text x="480" y="76" text-anchor="middle">小物体评测的先例</text>
+<text x="660" y="76" text-anchor="middle">评测用的真值框</text>
+<path d="M110,86 L262,199" class="arrow-blue" marker-end="url(#d-m16b)"/><path d="M130,86 L508,199" class="arrow-blue" marker-end="url(#d-m16b)"/>
+<path d="M300,86 L520,199" class="arrow-green" marker-end="url(#d-m16b)"/><path d="M310,86 L625,199" class="arrow-green" marker-end="url(#d-m16b)"/>
+<path d="M470,86 L272,199" class="arrow" marker-end="url(#d-m16b)"/><path d="M490,86 L718,199" class="arrow" marker-end="url(#d-m16b)"/>
+<path d="M650,86 L60,199" class="arrow dash" marker-end="url(#d-m16b)"/><path d="M670,86 L728,199" class="arrow dash" marker-end="url(#d-m16b)"/>
+<rect x="10" y="200" width="96" height="36" rx="6" class="f2 stroke"/><text x="58" y="223" text-anchor="middle">数据</text>
+<rect x="116" y="200" width="96" height="36" rx="6" class="f3 stroke"/><text x="164" y="223" text-anchor="middle">感知</text>
+<rect x="222" y="200" width="96" height="36" rx="6" class="f3 stroke"/><text x="270" y="223" text-anchor="middle">清单</text>
+<rect x="328" y="200" width="110" height="36" rx="6" class="f1 stroke"/><text x="383" y="223" text-anchor="middle">agent 建场景</text>
+<rect x="454" y="200" width="120" height="36" rx="6" class="f3 stroke"/><text x="514" y="223" text-anchor="middle">生成与摆放</text>
+<rect x="584" y="200" width="86" height="36" rx="6" class="f1 stroke"/><text x="627" y="223" text-anchor="middle">检查</text>
+<rect x="680" y="200" width="80" height="36" rx="6" class="f2 stroke"/><text x="720" y="223" text-anchor="middle">评测</text>
+<path d="M116,246 L116,254 L670,254 L670,246" class="arrow"/>
+<rect x="223" y="266" width="340" height="38" rx="8" class="f4 stroke"/><text x="393" y="290" text-anchor="middle"><tspan font-weight="700">AHa-3D</tspan>：感知到检查的整条流程，就是我们的基线</text>
+<path d="M393,254 L393,265" class="arrow" marker-end="url(#d-m16b)"/>
+</g></svg></div>
+<figcaption>五篇必读各管哪一段。下排是我们的流程，AHa-3D 就是其中"感知到检查"这一整段。上面四篇各借一样东西：GRASE 的剪影搜索进了 <code>place_mesh</code>，GATOR 的精修就是 A4，LIVIN 是唯一单独评过小物体的场景级先例，CA-1M 提供评测的真值框。</figcaption></figure>
+<div class="table-wrap"><table>
+<thead><tr><th>论文（链接）</th><th>为什么读</th><th>重点看</th><th>谁读</th><th>优先级</th></tr></thead>
+<tbody>
+<tr><td><b>AHa-3D</b><br><a href="https://kevinxu02.github.io/real2sim-indoor-site/">博客</a> · <a href="https://github.com/KevinXu02/aha-3d">仓库</a><br><span class="small muted">没有论文</span></td><td>我们的基线，所有实验组都在它上面改</td><td>博客的 <a href="https://kevinxu02.github.io/real2sim-indoor-site/sections/workflow.html">Workflow ablation</a>（"approximate small objects" 的出处）和 <a href="https://kevinxu02.github.io/real2sim-indoor-site/sections/limitations.html">Limitations</a>；仓库的 README、<a href="https://github.com/KevinXu02/aha-3d/blob/main/docs/PIPELINE.md">docs/PIPELINE.md</a>、<a href="https://github.com/KevinXu02/aha-3d/blob/main/docs/OBJECT_GENERATION.md">docs/OBJECT_GENERATION.md</a>（生成试点被搁置）、<a href="https://github.com/KevinXu02/aha-3d/blob/main/docs/LAYOUT_INSPECTION.md">docs/LAYOUT_INSPECTION.md</a>（精度档位）、<a href="https://github.com/KevinXu02/aha-3d/blob/main/assets/INDEX.md">assets/INDEX.md</a>（108 项资产）</td><td>全组</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>GATOR</b><br><a href="https://arxiv.org/abs/2610.11215">arXiv 2610.11215</a><br><a href="https://research.nvidia.com/labs/lpr/gator/">项目页</a></td><td>"先生成再让 agent 精修"最强的先例；它的两组数字说明生成划不划算取决于物体类型</td><td>§3.5 Agent as Reconstruction Refiner；§4.3 Real-World Results（桌面 0.016 对 0.009，ScanNet++ 0.033 对 0.031）；§4.4 Framework Analysis（精修消融、时间-质量曲线）</td><td>全组</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>GRASE</b><br><a href="https://openreview.net/forum?id=NjJOSWydaG">OpenReview NjJOSWydaG</a><br><span class="small muted">ICLR 2027 在审；页面对自动访问有人机验证，要在浏览器里手动打开</span></td><td>和我们最直接撞车的工作：单目视频、agent、小件一律生成。我们的剪影坐标搜索照它实现</td><td>方法里的物体清单和大小件分流；附录 A.3（摆准：ICP → VLM 微调 → 轮廓坐标搜索）和表 3 常数；实验和局限（没有尺寸分档、路由消融、成本）</td><td>全组</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>LIVIN</b><br><a href="https://arxiv.org/abs/2610.12069">arXiv 2610.12069</a></td><td>唯一单独评过小物体的场景级先例；按"能不能开合"分流的代表</td><td>§4.1 Instance Recognition；§4.3 Object Generation and Placement；附录 B.2（两组标签）；§5 和 Table 2（检测召回，Boxer 0.417）；附录 D 的 clutter-focused evaluation（Table 8）</td><td>全组</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>CA-1M</b>（Cubify Anything）<br><a href="https://arxiv.org/abs/2412.04458">arXiv 2412.04458</a><br><a href="https://github.com/apple-aiml-research/ml-cubifyanything">仓库</a></td><td>我们评测用的数据：穷举、不分类别的 3D 框，小物体多</td><td>§3.1 Annotation of CA-1M；§3.2 Rendering CA-1M；§10 ARKitScenes（和原始数据的关系）；仓库的 <code>data/val.txt</code> 和数据许可</td><td>全组（Yujing 细读）</td><td><span class="chip red">必读</span></td></tr>
+</tbody></table></div>
+
+<h3 id="d-byrole">16.3 按角色分的清单</h3>
+<p>每个人的论文都对应自己负责的某个工具或文件。下图先把对应关系摆出来，读的时候带着"这篇要回答我哪一步的什么问题"去读。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 250" width="770" role="img" aria-label="三个人各自的论文对应到自己负责的工具或文件">
+<g font-size="12">
+<rect x="6" y="6" width="248" height="238" rx="10" class="f1 stroke"/>
+<rect x="261" y="6" width="248" height="238" rx="10" class="f3 stroke"/>
+<rect x="516" y="6" width="248" height="238" rx="10" class="f2 stroke"/>
+<text x="130" y="28" text-anchor="middle" font-weight="700">Yifan</text>
+<text x="385" y="28" text-anchor="middle" font-weight="700">Mingjian</text>
+<text x="640" y="28" text-anchor="middle" font-weight="700">Yujing</text>
+<text x="18" y="58" font-weight="700">AGENTS.md、skills</text><text x="30" y="76">→ A0–A4 的提示词</text>
+<text x="18" y="102" font-weight="700">Agentic RSR</text><text x="30" y="120">→ 驱动模型怎么选</text>
+<text x="18" y="146" font-weight="700">LiteReality-Agent</text><text x="30" y="164">→ 路由和质量门</text>
+<text x="18" y="190" font-weight="700">VIGA</text><text x="30" y="208">→ 写、渲染、看的循环</text>
+<text x="273" y="58" font-weight="700">π³ / Pi3X</text><text x="285" y="76" class="shape">→ bundle/</text>
+<text x="273" y="98" font-weight="700">SAM 3、Boxer</text><text x="285" y="116" class="shape">→ inventory.json</text>
+<text x="273" y="138" font-weight="700">SAM 3D、Hunyuan3D</text><text x="285" y="156" class="shape">→ gen3d_request</text>
+<text x="273" y="178" font-weight="700">φ-RIE、ReScene</text><text x="285" y="196" class="shape">→ place_mesh</text>
+<text x="273" y="218" font-weight="700">TRELLIS、TRELLIS.2</text><text x="285" y="236">→ 看懂别人用什么</text>
+<text x="528" y="58" font-weight="700">ARKitScenes、VSI</text><text x="540" y="76">→ 输入视频、开发集</text>
+<text x="528" y="98" font-weight="700">Umeyama 1991</text><text x="540" y="116">→ 相机轨迹对齐</text>
+<text x="528" y="138" font-weight="700">TIDE</text><text x="540" y="156">→ 三种结局的定义</text>
+<text x="528" y="178" font-weight="700">Omni3D、SceneActBench</text><text x="540" y="196">→ IoU3D、匈牙利匹配</text>
+<text x="528" y="218" font-weight="700">ScanNet++、Scan2CAD</text><text x="540" y="236">→ 可选的形状指标</text>
+</g></svg></div>
+<figcaption>三个人的论文分别落到自己的产出上。Mingjian 那一栏的等宽字就是他要交的文件和工具名。Yujing 那一栏从上到下大致就是评测脚本的执行顺序：先有视频，再对齐，再判结局。</figcaption></figure>
+
+<h4>Yifan · agent 和驱动</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>论文（链接）</th><th>为什么读</th><th>重点看</th><th>谁读</th><th>优先级</th></tr></thead>
+<tbody>
+<tr><td><b>AHa-3D 的 AGENTS.md 和 skills</b><br><a href="https://github.com/KevinXu02/aha-3d/blob/main/AGENTS.md">AGENTS.md</a> · <a href="https://github.com/KevinXu02/aha-3d/tree/main/.agents/skills">.agents/skills/</a></td><td>A0 就是这些说明原样运行；A1–A4 改的也是这里。要先知道小物体在原版说明里是怎么被降级的</td><td>AGENTS.md 全文；<a href="https://github.com/KevinXu02/aha-3d/blob/main/.agents/skills/indoor-scene-workflow/SKILL.md">indoor-scene-workflow</a>、<a href="https://github.com/KevinXu02/aha-3d/blob/main/.agents/skills/blender-roomkit/SKILL.md">blender-roomkit</a>、<a href="https://github.com/KevinXu02/aha-3d/blob/main/.agents/skills/pi3x-scene-reference/SKILL.md">pi3x-scene-reference</a> 三个 SKILL.md；<a href="https://github.com/KevinXu02/aha-3d/blob/main/TOOLS_AND_SKILLS.md">TOOLS_AND_SKILLS.md</a></td><td>Yifan</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>Agentic RSR</b><br><a href="https://arxiv.org/abs/2610.10479">arXiv 2610.10479</a></td><td>同一个 Blender harness 下比较了多个驱动模型，是"用哪个模型驱动"的公开证据</td><td>§3.1（反馈引导的 agent 重建）；§4.3 和 Table 3（DSH harness，18 个场景）；Table 9 和附录 C（历史 Codex harness 结果）。注意 v1、v2 的表号不同</td><td>Yifan</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>LiteReality-Agent</b><br><a href="https://arxiv.org/abs/2610.01863">arXiv 2610.01863</a></td><td>agent 整屋重建，按物体类型路由，小物体单独一步添加，还有质量门</td><td>§3.2 Scene Initialisation；§3.3 Agentic Authoring（证据工具、质量门）；附录 B.3</td><td>Yifan</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>VIGA</b><br><a href="https://arxiv.org/abs/2601.11109">arXiv 2601.11109</a> · <a href="https://github.com/Fugtemypt123/VIGA">仓库</a></td><td>"写代码、渲染、检查、再改"的 Blender agent；有技能库和防上下文膨胀的记忆</td><td>§3.1–3.3（交替推理、多模态记忆、技能库）；§4.2 BlenderBench</td><td>Yifan</td><td><span class="chip">参考</span></td></tr>
+</tbody></table></div>
+
+<h4>Mingjian · 感知和生成</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>论文（链接）</th><th>为什么读</th><th>重点看</th><th>谁读</th><th>优先级</th></tr></thead>
+<tbody>
+<tr><td><b>π³</b>（Pi3X 的论文）<br><a href="https://arxiv.org/abs/2507.13347">arXiv 2507.13347</a> · <a href="https://github.com/yyfz/Pi3">仓库</a> · <a href="https://huggingface.co/yyfz233/Pi3X">Pi3X 权重</a></td><td>AHa-3D 的 Observe 一步用它估相机和点云，<code>bundle/</code> 就是它的输出</td><td>§3.1 置换等变结构；§3.4 Model Training（训练数据里有 ARKitScenes 和 ScanNet++）；Pi3X 的模型卡</td><td>Mingjian</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>SAM 3</b><br><a href="https://arxiv.org/abs/2511.16719">arXiv 2511.16719</a> · <a href="https://github.com/facebookresearch/sam3">仓库</a> · <a href="https://huggingface.co/facebook/sam3">HF（人工审批）</a></td><td>按文字提示分割；干净对照的实例掩码靠它</td><td>§2 Promptable Concept Segmentation；§3 Model；附录 B Limitations；仓库的推理示例</td><td>Mingjian</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>Boxer</b><br><a href="https://arxiv.org/abs/2604.05212">arXiv 2604.05212</a> · <a href="https://github.com/facebookresearch/boxer">仓库</a></td><td>A2 起的清单都由它生成；它训练时用过 CA-1M，所以我们的表都标"同源"</td><td>§3（2D 检测 → BoxerNet 抬到 3D → 多视角融合）；§4 Training Dataset 和 Table 1（含 CA-1M）；§5.6 Limitations</td><td>Mingjian</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>SAM 3D Objects</b><br><a href="https://arxiv.org/abs/2511.16624">arXiv 2511.16624</a> · <a href="https://github.com/facebookresearch/sam-3d-objects">仓库</a> · <a href="https://huggingface.co/facebook/sam-3d-objects">HF（人工审批）</a></td><td>正式实验的生成器，同时给出相机坐标下的旋转、平移、尺度</td><td>§2.1 Problem Formulation（输入输出）；§4.1 和 Table 3（布局评测要点图）；仓库 <a href="https://github.com/facebookresearch/sam-3d-objects/blob/main/doc/setup.md">doc/setup.md</a>（显存要求）</td><td>Mingjian</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>Hunyuan3D 2.0</b><br><a href="https://arxiv.org/abs/2501.12202">arXiv 2501.12202</a> · <a href="https://github.com/Tencent-Hunyuan/Hunyuan3D-2">仓库</a> · <a href="https://huggingface.co/tencent/Hunyuan3D-2mini">2mini 权重</a></td><td>开发阶段的生成器，也是 11/2 装不通时的退路；输出在规范空间</td><td>§3 Generative 3D Shape Generation；仓库 README 里 2mini 的用法和低显存模式</td><td>Mingjian</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>φ-RIE</b><br><a href="https://arxiv.org/abs/2609.26795">arXiv 2609.26795</a></td><td>"规范空间生成器 + 自己配准"的现成配方，<code>place_mesh</code> 可以照抄</td><td>§III-C 1 Object candidates and registered assets（尺度初始化、偏航搜索、ICP、换朝上轴重试）；§IV-D Ablations</td><td>Mingjian</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>ReScene</b><br><a href="https://arxiv.org/abs/2606.28060">arXiv 2606.28060</a></td><td>SAM 3D 生成后再做 Sim(3) ICP，带接受门槛和失败回退，和我们的验收门思路一样</td><td>§3.3 Instance Registration（两阶段对齐、质量门、失败回退）；§4.2</td><td>Mingjian</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>TRELLIS</b> / <b>TRELLIS.2</b><br><a href="https://arxiv.org/abs/2412.01506">arXiv 2412.01506</a> · <a href="https://arxiv.org/abs/2512.14692">arXiv 2512.14692</a><br><a href="https://github.com/microsoft/TRELLIS">仓库</a> · <a href="https://github.com/microsoft/TRELLIS.2">仓库 .2</a></td><td>GRASE、GATOR、LiteReality-Agent 都用 TRELLIS.2，AHa-3D 的生成试点也用过；我们不用，但要看懂别人</td><td>TRELLIS §3（结构化潜变量）；TRELLIS.2 §3.1 O-Voxel；两个 README 的显存要求</td><td>Mingjian</td><td><span class="chip">参考</span></td></tr>
+</tbody></table></div>
+
+<h4>Yujing · 数据和评测</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>论文（链接）</th><th>为什么读</th><th>重点看</th><th>谁读</th><th>优先级</th></tr></thead>
+<tbody>
+<tr><td><b>CA-1M</b><br>见 16.2 节</td><td>评测数据本身</td><td>除 16.2 节列的几节外，再看 §7 CA-1M（补充样例和渲染）和仓库的数据加载代码</td><td>Yujing</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>ARKitScenes</b><br><a href="https://arxiv.org/abs/2111.08897">arXiv 2111.08897</a> · <a href="https://github.com/apple-aiml-research/ARKitScenes">仓库</a></td><td>CA-1M 的视频来自它；坐标约定和"为什么原始标注测不了小物体"（17 类，全是家具）都在这里</td><td>§3.1 Raw data acquisition；§3.2 Ground truth generation；§4.1 3D object detection</td><td>Yujing</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>TIDE</b><br><a href="https://arxiv.org/abs/2008.08115">arXiv 2008.08115</a> · <a href="https://github.com/dbolya/tide">仓库</a></td><td>我们的"建好了、建坏了、漏了"仿照它的双阈值错误拆分</td><td>§2.2 Defining Error Types；附录 0.B.1 Defining the Missed GT Oracle</td><td>Yujing</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>Umeyama 1991</b><br><a href="https://doi.org/10.1109/34.88573">DOI 10.1109/34.88573</a><br><span class="small muted">IEEE TPAMI 13(4):376–380，可能要校园网</span></td><td>相机轨迹做 Sim(3) 对齐的闭式解，评测第一步就用它</td><td>全文只有 5 页，重点是带尺度的最小二乘解；实现可以对照 <a href="https://github.com/MichaelGrupp/evo/blob/master/evo/main_ape.py">evo 的 main_ape.py</a>（<code>--align --correct_scale</code>）</td><td>Yujing</td><td><span class="chip red">必读</span></td></tr>
+<tr><td><b>VSI-Bench</b><br><a href="https://arxiv.org/abs/2412.14171">arXiv 2412.14171</a> · <a href="https://github.com/vision-x-nyu/thinking-in-space">仓库</a> · <a href="https://huggingface.co/datasets/nyu-visionx/VSI-Bench">HF 数据</a></td><td>第二开发集来自它；BVB 用的也是这些视频</td><td>§3.2 Benchmark Construction；附录 B.1（视频被重采样到 30 fps、640×480，ARKitScenes 还转正过）；仓库的 <code>data/meta_info</code></td><td>Yujing</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>Omni3D</b><br><a href="https://arxiv.org/abs/2207.10660">arXiv 2207.10660</a> · <a href="https://github.com/facebookresearch/omni3d">仓库</a></td><td>IoU3D 的算法细节；它指出 IoU3D 对小误差比 2D 敏感得多</td><td>§3 The Omni3D Benchmark；附录 A3（AP3D 阈值、IoU3D 细节）</td><td>Yujing</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>SceneActBench</b><br><a href="https://arxiv.org/abs/2607.22393">arXiv 2607.22393</a></td><td>agent 场景重建的评测协议，用匈牙利匹配加逐物体指标，但没按尺寸分档</td><td>§3.2 Layout、§3.5 Reconstruction（匈牙利匹配、F@5%）；附录 A.3</td><td>Yujing</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>ScanNet++</b><br><a href="https://arxiv.org/abs/2308.11417">arXiv 2308.11417</a> · <a href="https://kaldir.vc.in.tum.de/scannetpp/">官网和申请</a> · <a href="https://github.com/scannetpp/scannetpp">工具仓库</a></td><td>11/2 前批下来就补 5 个场景的形状指标；GATOR 也在它上面评</td><td>§3.3 iPhone Images and LiDAR；§3.5 Semantic Annotation；官网的申请流程（要教授手签）</td><td>Yujing</td><td><span class="chip blue">推荐</span></td></tr>
+<tr><td><b>Scan2CAD</b><br><a href="https://arxiv.org/abs/1811.11187">arXiv 1811.11187</a> · <a href="https://github.com/skanti/Scan2CAD">仓库</a></td><td>CAD 对齐文献的判据（平移、旋转、尺度三个门槛），L、M 档家具可以拿来和前人比</td><td>§4.3 Benchmark；附录 B Evaluation Metric</td><td>Yujing</td><td><span class="chip">参考</span></td></tr>
+</tbody></table></div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li>π³ 的训练数据里有 ARKitScenes 和 ScanNet++（§3.4）。CA-1M 的视频就是 ARKitScenes 拍的，所以感知这一步在我们的数据上可能偏乐观。Pi3X 是否沿用同样的训练集没有核实。</li>
+<li>SAM 3D Objects 论文的标题是 "SAM 3D: 3Dfy Anything in Images"，和分割用的 SAM 3（2511.16719）是两篇不同的论文，HF 上也是两个要分别申请的模型。</li>
+<li>调研笔记里曾把 arXiv 2606.02580 记成 VIGA。核对后，2606.02580 是 "Thinking in Blender"（SEIG），VIGA 是 2601.11109。两篇都和 Blender agent 有关，下面的参考表里都列了。</li>
+</ul>
+</div>
+
+<h3 id="d-ref">16.4 相关工作（参考）</h3>
+<p>这些不用开工前读，写报告的相关工作一节、或者遇到具体问题时再翻。下图按主题分成三堆。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 200" width="770" role="img" aria-label="参考论文按主题分三组：同类重建工作、评测和基准、几何和生成工具">
+<g font-size="12">
+<rect x="6" y="6" width="290" height="188" rx="10" class="f1 stroke"/>
+<rect x="306" y="6" width="220" height="188" rx="10" class="f2 stroke"/>
+<rect x="536" y="6" width="228" height="188" rx="10" class="f3 stroke"/>
+<text x="151" y="28" text-anchor="middle" font-weight="700">同类的重建工作</text>
+<text x="416" y="28" text-anchor="middle" font-weight="700">评测和基准</text>
+<text x="650" y="28" text-anchor="middle" font-weight="700">几何和生成工具</text>
+<rect x="18" y="44" width="122" height="28" rx="14" class="f0 stroke"/><text x="79" y="63" text-anchor="middle">HARMONY</text>
+<rect x="160" y="44" width="122" height="28" rx="14" class="f0 stroke"/><text x="221" y="63" text-anchor="middle">CoDimRecon</text>
+<rect x="18" y="82" width="122" height="28" rx="14" class="f0 stroke"/><text x="79" y="101" text-anchor="middle">Lucida</text>
+<rect x="160" y="82" width="122" height="28" rx="14" class="f0 stroke"/><text x="221" y="101" text-anchor="middle">Scenix</text>
+<rect x="18" y="120" width="122" height="28" rx="14" class="f0 stroke"/><text x="79" y="139" text-anchor="middle">AffordCraft</text>
+<rect x="160" y="120" width="122" height="28" rx="14" class="f0 stroke"/><text x="221" y="139" text-anchor="middle">Thinking in Blender</text>
+<rect x="18" y="158" width="122" height="28" rx="14" class="f0 stroke"/><text x="79" y="177" text-anchor="middle">ACDC</text>
+<rect x="318" y="44" width="196" height="28" rx="14" class="f0 stroke"/><text x="416" y="63" text-anchor="middle">BVB</text>
+<rect x="318" y="82" width="196" height="28" rx="14" class="f0 stroke"/><text x="416" y="101" text-anchor="middle">MetaScenes</text>
+<rect x="318" y="120" width="196" height="28" rx="14" class="f0 stroke"/><text x="416" y="139" text-anchor="middle">Why VLMs Miss Small Objects</text>
+<rect x="548" y="44" width="204" height="28" rx="14" class="f0 stroke"/><text x="650" y="63" text-anchor="middle">VGGT</text>
+<rect x="548" y="82" width="204" height="28" rx="14" class="f0 stroke"/><text x="650" y="101" text-anchor="middle">Pixal3D</text>
+<rect x="548" y="120" width="204" height="28" rx="14" class="f0 stroke"/><text x="650" y="139" text-anchor="middle">GenIA</text>
+<rect x="548" y="158" width="204" height="28" rx="14" class="f0 stroke"/><text x="650" y="177" text-anchor="middle">Scene-SAM3D</text>
+</g></svg></div>
+<figcaption>参考论文按主题分三堆。左边是和我们同类的重建或建模工作，写相关工作时引用；中间是评测和基准，设计评测时参考；右边是可以替换我们某个组件的工具。</figcaption></figure>
+<div class="table-wrap"><table>
+<thead><tr><th>论文（链接）</th><th>为什么读</th><th>重点看</th><th>谁读</th><th>优先级</th></tr></thead>
+<tbody>
+<tr><td><b>HARMONY</b><br><a href="https://arxiv.org/abs/2609.26793">arXiv 2609.26793</a> · <a href="https://cwchenwang.github.io/harmony/">项目页</a></td><td>单图到场景，所有物体用 Hunyuan3D-2 生成，装饰物最后放；它的基准里有 GPT-6 Astra 和 VIGA 的数字</td><td>表 1（Front3D 几何）、表 2（外观）</td><td>全组</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>CoDimRecon</b><br><a href="https://arxiv.org/abs/2609.36024">arXiv 2609.36024</a></td><td>agent 做过容器内小物体补漏，但原文说这一环没单独评</td><td>§3.1；附录 B.3 Small Object Completion</td><td>全组</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>BVB</b><br><a href="https://arxiv.org/abs/2609.15478">arXiv 2609.15478</a> · <a href="https://yoloytang.me/BVB/">排行榜</a></td><td>agent 视频转 Blender 的基准；它公开的 .blend 是我们的额外基线</td><td>评测协议；排行榜上各驱动模型的分数和每场景花费</td><td>Yujing、Yifan</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>Lucida</b><br><a href="https://arxiv.org/abs/2608.30821">arXiv 2608.30821</a></td><td>解析、生成、摆放三步的组合式场景建模；课程笔记里和它的摆放模块 GizmoAct 一起记</td><td>表 2（GizmoAct 和 SAM 3D 等的物体级位姿对比）；表 4</td><td>Mingjian</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>Scenix</b><br><a href="https://arxiv.org/abs/2608.07012">arXiv 2608.07012</a></td><td>反例：评召回时用类别过滤主动排除了灯、餐具、书等小装饰物</td><td>评测一节里的类别过滤</td><td>Yujing</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>AffordCraft</b><br><a href="https://arxiv.org/abs/2610.06643">arXiv 2610.06643</a> · <a href="https://github.com/AffordCraft/AffordCraft">仓库</a></td><td>检索、生成、agent 从零建三条路线在同一闸门、同一成本口径下的对比（单物体）</td><td>Table 1；§4.3（杂乱图像上"检测是瓶颈"）</td><td>全组</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>Thinking in Blender</b>（SEIG）<br><a href="https://arxiv.org/abs/2606.02580">arXiv 2606.02580</a></td><td>单图到可编辑 Blender 程序，分阶段细化几何、材质、构图和光照</td><td>方法一节的分阶段设计</td><td>Yifan</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>MetaScenes</b><br><a href="https://arxiv.org/abs/2505.02388">arXiv 2505.02388</a></td><td>真实扫描自动做仿真副本；表 3 比较了框启发式和 ACDC 式渲染比对的摆放</td><td>表 3</td><td>Mingjian</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>ACDC</b>（Digital Cousins）<br><a href="https://arxiv.org/abs/2410.07408">arXiv 2410.07408</a></td><td>从资产库检索"相似但不相同"的物体搭仿真场景；附录说明了部分观测下点云配准为什么难</td><td>附录 A.1</td><td>Mingjian</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>Why VLMs Miss Small Objects</b><br><a href="https://arxiv.org/abs/2610.09313">arXiv 2610.09313</a></td><td>解释大模型为什么漏看小物体（每个物体分到的视觉 token 太少），以及什么时候切块放大是安全的</td><td>摘要和切块规则</td><td>Yifan、Mingjian</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>VGGT</b><br><a href="https://arxiv.org/abs/2503.11651">arXiv 2503.11651</a> · <a href="https://github.com/facebookresearch/vggt">仓库</a></td><td>和 π³ 同类的前馈几何模型；它的评测用 Umeyama 对齐</td><td>评测一节</td><td>Mingjian、Yujing</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>Pixal3D</b><br><a href="https://arxiv.org/abs/2605.10922">arXiv 2605.10922</a> · <a href="https://github.com/TencentARC/Pixal3D">仓库</a></td><td>像素对齐的图生 3D，朝向和输入图对齐，是另一种可选生成器</td><td>表 1；场景管线一节</td><td>Mingjian</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>GenIA</b><br><a href="https://arxiv.org/abs/2610.12388">arXiv 2610.12388</a></td><td>测试时把 SAM 3D 的生成结果对齐到观测，可以当"生成后对齐"的现成候选</td><td>摘要</td><td>Mingjian</td><td><span class="chip">参考</span></td></tr>
+<tr><td><b>Scene-SAM3D</b><br><a href="https://arxiv.org/abs/2607.16805">arXiv 2607.16805</a></td><td>多视角下用 SAM 3D 生成场景资产，比较了渲染比对和 ICP 两种对齐</td><td>对齐方法和对 ICP 的对比</td><td>Mingjian</td><td><span class="chip">参考</span></td></tr>
+</tbody></table></div>
+<div class="box plain"><span class="box-label">链接怎么核实的</span>
+<ul>
+<li>arXiv 链接：用 arXiv API 批量取回标题，逐条和论文名对过；重点看的章节号对照了 arXiv HTML 版的目录。</li>
+<li>GitHub 链接：用 <code>gh api repos/&lt;owner&gt;/&lt;repo&gt;</code> 确认仓库存在。CA-1M 和 ARKitScenes 的仓库已经从 <code>apple/</code> 迁到 <code>apple-aiml-research/</code>，这里给的是新地址。</li>
+<li>Hugging Face、博客、项目页：确认能打开。Umeyama 1991 用 Crossref 核对了题目和卷期。</li>
+<li>GRASE 的 OpenReview 页面对自动访问有人机验证，没法自动核实内容，"重点看"来自 10-08 通读 PDF 的笔记。</li>
+</ul>
+</div>
+<p class="src">核实日期 2026-10-14。</p>

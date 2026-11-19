@@ -1,0 +1,48 @@
+{
+  "architecture": "aha",
+  "aha_repo": "../../external/aha-3d",
+  "blender": "../../../tools/blender/blender-4.5.14-linux-x64/blender",
+  "python": "../../.venv/bin/python",
+  "output": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan301/aha-20261116T004216Z",
+  "supervisor": {
+    "backend": "codex",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium",
+    "max_output_tokens": 12000,
+    "timeout_s": 600,
+    "call_reservation_usd": 0.25
+  },
+  "worker": {
+    "backend": "openrouter",
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "provider": "DeepInfra",
+    "max_output_tokens": 8000,
+    "timeout_s": 180,
+    "call_reservation_usd": 0.03
+  },
+  "judge": {
+    "backend": "codex",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium",
+    "timeout_s": 600,
+    "call_reservation_usd": 0.25
+  },
+  "hunyuan": null,
+  "budget_usd": 5,
+  "codex_budget_exempt": true,
+  "local_compute_budget_exempt": true,
+  "judge_reserve_usd": 1,
+  "repair_reserve_usd": 1,
+  "max_takeovers": 3,
+  "max_generations": 2,
+  "instruction": "Reconstruct the complete observed FloorPlan301 bedroom from RGB evidence. Use concise plans and responses, group related routine objects when appropriate, and avoid redundant model calls. Keep full visual evidence coverage and independent final review. Directly rebuild seriously wrong structure or major objects. Preserve reviewed cameras.",
+  "preparation": {
+    "input": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan301/aha-20261116T004216Z-input/source_rgb_v2.mp4",
+    "num_frames": 32,
+    "pixel_limit": 255000,
+    "timeout_s": 3600,
+    "reservation_usd": 0.5
+  },
+  "host_hourly_usd": null,
+  "compute_reservation_usd": 0.1
+}

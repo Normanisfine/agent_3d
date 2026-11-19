@@ -1,0 +1,332 @@
+<h2 id="eval"><span class="num">8</span>评测</h2>
+<p>这一章讲怎么给一个重建好的场景打分（设计文档第 9 节）。核心问题只有一个：每个真值物体，最后建好了、建坏了，还是漏了。</p>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>评测像阅卷。考生交上来的 .blend 是一张画在透明纸上的答卷，标准答案是另一张透明纸。</p>
+<p>先把两张纸叠对齐，再按大小把题目分组，一道真值题配一个答案，最后每道题判"对、半对、没答"。叠纸的时候只能对准纸的边框（相机轨迹），不能拿答案本身去对，否则错的也会被对成对的。</p>
+</div>
+
+<h3 id="c-pipe">8.1 评测流水线</h3>
+<p>从 .blend 到最后的图表一共六步。每一步的输入输出都写在箭头上。</p>
+<div class="arch">
+<div class="arch-title">评测流水线：从 .blend 到漏斗和前沿</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 290" width="760" role="img" aria-label="评测流水线六步：导出预测框、对齐、去结构件分档、匈牙利配对、三种结局、汇总">
+<defs><marker id="c-m11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1"><rect x="20" y="30" width="180" height="80" rx="8" class="f6 stroke"/><text x="110" y="54" text-anchor="middle" font-weight="700" font-size="13">① 导出预测框</text><text x="110" y="74" text-anchor="middle" class="shape">export_model.py</text><text x="110" y="94" text-anchor="middle" class="shape">→ export/objects.json</text></g>
+<g data-s="2"><text x="380" y="18" text-anchor="middle">输入：Pi3X 相机中心 + CA-1M 的 RT.json</text>
+<path d="M200,70 L288,70" class="arrow" marker-end="url(#c-m11)"/><text x="245" y="62" text-anchor="middle">预测框</text>
+<rect x="290" y="30" width="180" height="80" rx="8" class="f1 stroke"/><text x="380" y="54" text-anchor="middle" font-weight="700" font-size="13">② 对齐到真值坐标</text><text x="380" y="74" text-anchor="middle">相机轨迹 Sim(3) Umeyama</text><text x="380" y="94" text-anchor="middle">另报 SE(3)，不修尺度</text></g>
+<g data-s="3"><text x="650" y="18" text-anchor="middle">输入：world.gt 真值框</text>
+<path d="M470,70 L558,70" class="arrow" marker-end="url(#c-m11)"/><text x="515" y="62" text-anchor="middle">对齐后的框</text>
+<rect x="560" y="30" width="180" height="80" rx="8" class="f1 stroke"/><text x="650" y="54" text-anchor="middle" font-weight="700" font-size="13">③ 去结构件、分档</text><text x="650" y="74" text-anchor="middle">墙、地面、天花板、门框去掉</text><text x="650" y="94" text-anchor="middle">按最长边分 XS/S/M/L</text></g>
+<g data-s="4"><path d="M650,110 L650,188" class="arrow" marker-end="url(#c-m11)"/><text x="658" y="152">分好档的框</text>
+<rect x="560" y="190" width="180" height="80" rx="8" class="f3 stroke"/><text x="650" y="214" text-anchor="middle" font-weight="700" font-size="13">④ 一对一配对</text><text x="650" y="234" text-anchor="middle">匈牙利算法，不看类别</text><text x="650" y="254" text-anchor="middle">代价 d̂：归一化中心距</text></g>
+<g data-s="5"><path d="M560,230 L472,230" class="arrow" marker-end="url(#c-m11)"/><text x="516" y="222" text-anchor="middle">配对表</text>
+<rect x="290" y="190" width="180" height="80" rx="8" class="f3 stroke"/><text x="380" y="214" text-anchor="middle" font-weight="700" font-size="13">⑤ 每个真值物体的结局</text><text x="380" y="234" text-anchor="middle">建好了 / 建坏了 / 漏了</text><text x="380" y="254" text-anchor="middle">判据 I、D 各一张表</text></g>
+<g data-s="6"><path d="M290,230 L202,230" class="arrow" marker-end="url(#c-m11)"/><text x="246" y="222" text-anchor="middle">结局表</text>
+<rect x="20" y="190" width="180" height="80" rx="8" class="f2 stroke"/><text x="110" y="214" text-anchor="middle" font-weight="700" font-size="13">⑥ 汇总</text><text x="110" y="234" text-anchor="middle">漏斗、配对比较</text><text x="110" y="254" text-anchor="middle">bootstrap、成本-精度前沿</text></g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>导出预测框</b>。评测脚本用 AHa-3D 自带的 <code>export_model.py</code>，从最终的 .blend 里导出每个语义根节点（按 instance_id 分组）的世界坐标有向框，写成 <code>export/objects.json</code>。P0 不经过 .blend 导出，直接写这个文件。</li>
+<li><b>对齐</b>。Pi3X 的坐标系和 CA-1M 的不一样。把两边的相机中心对应起来，解一个 Sim(3)（尺度、旋转、平移），加重力约束；另报一个尺度固定为 1 的 SE(3) 版本。见 8.2 节。</li>
+<li><b>去结构件、分档</b>。墙、地面、天花板、门框这些结构件不算物体，先去掉。剩下的按真值框最长边分成 XS、S、M、L 四档，每档报真值物体的数量。见 8.3 节。</li>
+<li><b>一对一配对</b>。用匈牙利算法把预测和真值一对一配起来，不看类别（CA-1M 有 48% 的框只写 "object"）。代价是按大小归一化的中心距离 d̂。</li>
+<li><b>三种结局</b>。每个真值物体归为建好了、建坏了、漏了之一。两套严格判据 I 和 D 分开，各出一张表。见 8.4 节。</li>
+<li><b>汇总</b>。画漏斗（<a href="#funnel">第 5 章</a>），做组间配对比较、按场景 bootstrap 的 95% 区间，最后画成本-精度前沿。见 8.5 节。</li>
+</ol>
+</div>
+<div class="box detail">
+<span class="box-label">匈牙利算法是什么</span>
+<p>它解的是"一对一分配"问题：给一张代价表（行是真值，列是预测），找一种配法，让每个真值最多配一个预测、总代价最小。</p>
+<p>贪心地"每个真值挑最近的"会出问题：两个挨着的杯子可能抢同一个预测，另一个预测却没人要。匈牙利算法一次性看全局，不会出现这种情况。</p>
+</div>
+
+<h3 id="c-align">8.2 为什么只用相机轨迹对齐</h3>
+<p>重建出来的场景在 Pi3X 自己的坐标系里，和真值差一个整体的缩放、旋转、平移。打分前要先把它挪到真值坐标系里。</p>
+<p>挪的依据只能是<b>相机轨迹</b>，绝不能用被评测的物体。这是设计文档列的反目标之一。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 272" width="760" role="img" aria-label="两种对齐的对比：左边用相机轨迹对齐，轨迹重合，杯子的误差留着被量到；右边用物体对齐，杯子被拉到真值上看起来误差为零，代价是轨迹对不上">
+<defs><marker id="c-m12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="10" width="360" height="232" rx="12" class="f6 stroke"/>
+<text x="190" y="34" text-anchor="middle" font-weight="700" font-size="13">用相机轨迹对齐（我们的做法）</text>
+<rect x="120" y="120" width="140" height="30" rx="4" class="f3 stroke"/><text x="190" y="140" text-anchor="middle">桌子</text>
+<rect x="194" y="94" width="16" height="22" rx="2" class="f1 stroke"/>
+<rect x="172" y="94" width="16" height="22" rx="2" class="arrow dash"/>
+<text x="166" y="110" text-anchor="end">杯子</text>
+<path d="M180,86 L200,86" class="arrow-red" marker-end="url(#c-m12)"/>
+<text x="190" y="76" text-anchor="middle" class="lbl-accent">偏 3 cm 照样量得出来</text>
+<text x="190" y="182" text-anchor="middle">两条相机轨迹叠在一起</text>
+<circle cx="50" cy="226" r="5" class="f0 stroke"/><circle cx="100" cy="212" r="5" class="f0 stroke"/><circle cx="150" cy="203" r="5" class="f0 stroke"/><circle cx="200" cy="200" r="5" class="f0 stroke"/><circle cx="250" cy="203" r="5" class="f0 stroke"/><circle cx="300" cy="212" r="5" class="f0 stroke"/><circle cx="350" cy="226" r="5" class="f0 stroke"/>
+<rect x="50" y="220" width="6" height="6" class="f1 stroke"/><rect x="100" y="206" width="6" height="6" class="f1 stroke"/><rect x="150" y="197" width="6" height="6" class="f1 stroke"/><rect x="200" y="194" width="6" height="6" class="f1 stroke"/><rect x="250" y="197" width="6" height="6" class="f1 stroke"/><rect x="300" y="206" width="6" height="6" class="f1 stroke"/><rect x="350" y="220" width="6" height="6" class="f1 stroke"/>
+<rect x="390" y="10" width="360" height="232" rx="12" class="f6 stroke"/>
+<text x="570" y="34" text-anchor="middle" font-weight="700" font-size="13" class="lbl-accent">用被评测的物体对齐（不允许）</text>
+<rect x="500" y="120" width="140" height="30" rx="4" class="f3 stroke"/><text x="570" y="140" text-anchor="middle">桌子</text>
+<rect x="562" y="94" width="16" height="22" rx="2" class="f1 stroke"/>
+<rect x="562" y="94" width="16" height="22" rx="2" class="arrow dash"/>
+<text x="556" y="110" text-anchor="end">杯子</text>
+<text x="570" y="76" text-anchor="middle" class="lbl-accent">杯子被硬拉到真值上，误差看着是 0</text>
+<text x="570" y="168" text-anchor="middle">代价：相机轨迹对不上，可没人看</text>
+<circle cx="430" cy="226" r="5" class="f0 stroke"/><circle cx="480" cy="212" r="5" class="f0 stroke"/><circle cx="530" cy="203" r="5" class="f0 stroke"/><circle cx="580" cy="200" r="5" class="f0 stroke"/><circle cx="630" cy="203" r="5" class="f0 stroke"/><circle cx="680" cy="212" r="5" class="f0 stroke"/><circle cx="730" cy="226" r="5" class="f0 stroke"/>
+<rect x="441" y="205" width="6" height="6" class="f1 stroke"/><rect x="491" y="191" width="6" height="6" class="f1 stroke"/><rect x="541" y="182" width="6" height="6" class="f1 stroke"/><rect x="591" y="179" width="6" height="6" class="f1 stroke"/><rect x="641" y="182" width="6" height="6" class="f1 stroke"/><rect x="691" y="191" width="6" height="6" class="f1 stroke"/><rect x="741" y="205" width="6" height="6" class="f1 stroke"/>
+<circle cx="30" cy="258" r="5" class="f0 stroke"/><text x="40" y="262">真值相机（RT.json）</text>
+<rect x="172" y="255" width="6" height="6" class="f1 stroke"/><text x="184" y="262">Pi3X 相机</text>
+<rect x="270" y="251" width="10" height="14" rx="2" class="arrow dash"/><text x="286" y="262">真值框</text>
+<rect x="350" y="251" width="10" height="14" rx="2" class="f1 stroke"/><text x="366" y="262">预测框</text>
+</g></svg></div>
+<figcaption>示意。同一个重建结果，两种对齐法。左边按相机轨迹对齐，两条轨迹重合，杯子偏了 3 cm 就老老实实显示偏 3 cm。右边拿杯子自己去对齐，杯子被硬拉到真值上，误差"消失"了，真正的误差挪到了没人打分的相机轨迹上。</figcaption></figure>
+<p>具体做法是 Umeyama 算法：把 Pi3X 估的每帧相机中心 pᵢ 和 CA-1M 注册过的同一帧相机中心 qᵢ 配成对，求一个尺度 s、旋转 R、平移 t，让下面这个和最小。</p>
+<pre><code>min over s, R, t :   Σᵢ ‖ qᵢ − (s·R·pᵢ + t) ‖²
+
+pᵢ ：Pi3X 估的第 i 帧相机中心
+qᵢ ：同一帧在 CA-1M RT.json 里的相机中心（激光坐标系）
+s  ：尺度；SE(3) 版本固定 s = 1
+R  ：旋转；加重力约束（按我们的理解：只绕竖直轴转）
+t  ：平移</code></pre>
+<p>旋转不受限时，它有闭式解（用一次 SVD），不用迭代，相当于轨迹评测工具 evo 里的 <code>--align --correct_scale</code>。</p>
+<p>加了重力约束、只许绕竖直轴转时，旋转只剩一个角度，不能直接套那一步 SVD。按我们的理解，要改成只在水平面上求这个角（用 atan2），尺度和平移再跟着算，仍然是闭式解。</p>
+<div class="box detail">
+<span class="box-label">为什么还要报一个不修尺度的版本</span>
+<p>Pi3X 给的是"近似米制"的点云，尺度可能偏。Sim(3) 会把这个偏差修掉，SE(3) 不修，两个一比就看得出 Pi3X 自己的尺度误差。</p>
+<p>尺度误差会推着物体一起偏。03 号笔记的估算：全局尺度差 10% 时，离对齐中心 3 m 的物体会偏约 30 cm，形状再完美也算不上摆准。</p>
+</div>
+<div class="box calc">
+<span class="box-label">手算 · 尺度差 10% 推着物体走多远</span>
+<p>对齐中心在原点，一个物体的真实位置离原点 3 m。重建的尺度大了 10%，它就被放在 3 × 1.1 = 3.3 m 处。</p>
+<p>偏差 = 3.3 − 3 = 0.3 m = 30 cm。对 8 cm 的杯子来说，这已经远远超出宽松门槛（见 8.4 节，d̂ ≤ 1 大约是 7 cm）。</p>
+</div>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>VSI 开发集和 BVB 重新打分没有相机轨迹</b>。只能退而用 L 档家具加地面来对齐，所以 L 档自己不打分，只给 XS、S、M 三档打分，表里注明。</li>
+<li><b>帧对应是现成的</b>。输入 mp4 就是用 CA-1M 的帧合成的，Pi3X 抽到的每一帧都能找到对应的 CA-1M 帧（按我们的理解）。RT.json 只覆盖注册过的帧，没注册的帧不参与对齐。</li>
+</ul>
+</div>
+<p>这种"用轨迹对齐、再评物体"的做法有先例。SpatialLM 附录 C.3 先把 SLAM 估的相机轨迹对齐到真值轨迹，再评检测。</p>
+<p>原文是 <q>we align the estimated camera trajectory from MASt3R-SLAM to the ground-truth camera trajectory</q>。</p>
+
+<h3 id="c-bins">8.3 尺寸分档</h3>
+<p>按<b>真值框的最长边</b>分四档（设计文档 9.3 节）。每档都报真值物体的数量。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 175" width="760" role="img" aria-label="四个尺寸档：XS 小于 0.2 米，S 0.2 到 0.5 米，M 0.5 到 1.5 米，L 1.5 米以上，下面列出典型物体">
+<g font-size="12">
+<text x="200" y="36" text-anchor="middle" class="shape">0.2 m</text>
+<text x="380" y="36" text-anchor="middle" class="shape">0.5 m</text>
+<text x="560" y="36" text-anchor="middle" class="shape">1.5 m</text>
+<rect x="20" y="44" width="180" height="40" rx="4" class="f4 stroke"/><text x="110" y="62" text-anchor="middle" font-weight="700" font-size="13">XS</text><text x="110" y="78" text-anchor="middle">&lt; 0.2 m</text>
+<rect x="200" y="44" width="180" height="40" rx="4" class="f3 stroke"/><text x="290" y="62" text-anchor="middle" font-weight="700" font-size="13">S</text><text x="290" y="78" text-anchor="middle">0.2–0.5 m</text>
+<rect x="380" y="44" width="180" height="40" rx="4" class="f1 stroke"/><text x="470" y="62" text-anchor="middle" font-weight="700" font-size="13">M</text><text x="470" y="78" text-anchor="middle">0.5–1.5 m</text>
+<rect x="560" y="44" width="180" height="40" rx="4" class="f6 stroke"/><text x="650" y="62" text-anchor="middle" font-weight="700" font-size="13">L</text><text x="650" y="78" text-anchor="middle">≥ 1.5 m</text>
+<text x="110" y="106" text-anchor="middle">杯子、鼠标、遥控器</text>
+<text x="290" y="106" text-anchor="middle">书、台灯、小盆栽、水壶</text>
+<text x="470" y="106" text-anchor="middle">椅子、床头柜、显示器</text>
+<text x="470" y="124" text-anchor="middle" class="lbl-accent">显示器多在这一档</text>
+<text x="650" y="106" text-anchor="middle">沙发、床、餐桌、大柜子</text>
+<text x="650" y="124" text-anchor="middle" class="lbl-accent">墙、门框等结构件先去掉</text>
+<path d="M20,140 L20,146 L380,146 L380,140" class="arrow-blue"/>
+<text x="200" y="164" text-anchor="middle">小物体：XS + S，最长边 &lt; 0.5 m（A3r 的规则也划在这里）</text>
+</g></svg></div>
+<figcaption>四个档画成等宽，刻度不按比例。我们关心的小物体是左边两档；A3r 的生成规则用的也是 0.5 m 这条线。显示器多数落在 M 档，所以不拿它当小物体的例子。</figcaption></figure>
+<div class="table-wrap"><table>
+<tr><th>档</th><th>最长边</th><th>典型物体</th><th>CA-1M 抽样里的框数</th></tr>
+<tr><td><b>XS</b></td><td>&lt; 0.2 m</td><td>杯子、鼠标、遥控器</td><td>269</td></tr>
+<tr><td><b>S</b></td><td>0.2–0.5 m</td><td>书、台灯、小盆栽、水壶</td><td>363</td></tr>
+<tr><td><b>M</b></td><td>0.5–1.5 m</td><td>椅子、床头柜、显示器、小书架</td><td>285</td></tr>
+<tr><td><b>L</b></td><td>≥ 1.5 m</td><td>沙发、床、桌子、柜子</td><td>256（含结构件）</td></tr>
+</table></div>
+<div class="box detail">
+<span class="box-label">为什么按最长边，不按体积</span>
+<p>薄物体按体积分会偏得很厉害。显示器约 0.6 × 0.05 × 0.4 m，体积只有 0.012 m³，按体积会被归成小物体；地毯长 2 m，体积也很小（03 号笔记的例子）。</p>
+<p>03 号笔记没找到任何室内物体级重建论文按物体尺寸分档报 3D 指标，所以这套档是我们自己定义的，报告里要写明。</p>
+</div>
+
+<h3 id="c-outcome">8.4 三种结局</h3>
+<p>配对之后，每个真值物体都要归进三种结局之一。判断顺序是一棵小决策树，点"下一步"一层一层看。</p>
+<div class="arch">
+<div class="arch-title">一个真值物体的三种结局</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 292" width="760" role="img" aria-label="结局决策树：配上预测了吗，过严格判据吗，进宽松门槛吗，分别得到建好了、建坏了、漏了">
+<defs><marker id="c-m13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="20" y="120" width="130" height="50" rx="8" class="f6 stroke"/><text x="85" y="142" text-anchor="middle" font-weight="700">一个真值物体</text><text x="85" y="160" text-anchor="middle">已对齐、已分档</text>
+<path d="M150,145 L178,145" class="arrow" marker-end="url(#c-m13)"/>
+<polygon points="260,107 340,145 260,183 180,145" class="f3 stroke"/><text x="260" y="142" text-anchor="middle">配上预测了吗？</text><text x="260" y="160" text-anchor="middle">匈牙利一对一</text>
+</g>
+<g data-s="2">
+<path d="M340,145 L350,145 L350,55 L358,55" class="arrow" marker-end="url(#c-m13)"/><text x="355" y="104">是</text>
+<polygon points="450,17 540,55 450,93 360,55" class="f3 stroke"/><text x="450" y="52" text-anchor="middle">过严格判据？</text><text x="450" y="68" text-anchor="middle">I 或 D 各算一次</text>
+<path d="M540,55 L558,55" class="arrow" marker-end="url(#c-m13)"/><text x="549" y="47" text-anchor="middle">是</text>
+<rect x="560" y="10" width="190" height="90" rx="8" class="f2 stroke"/><text x="572" y="32" font-weight="700" font-size="13">建好了</text><text x="572" y="52">I：IoU3D ≥ 0.25</text><text x="572" y="70">D：d̂ ≤ 0.5 且</text><text x="572" y="88">最长边之比 0.67–1.5</text>
+</g>
+<g data-s="3">
+<path d="M450,93 L450,118" class="arrow" marker-end="url(#c-m13)"/><text x="458" y="110">否</text>
+<polygon points="450,120 530,158 450,196 370,158" class="f3 stroke"/><text x="450" y="162" text-anchor="middle">进宽松门槛？</text>
+<path d="M530,158 L558,158" class="arrow" marker-end="url(#c-m13)"/><text x="544" y="150" text-anchor="middle">是</text>
+<rect x="560" y="118" width="190" height="80" rx="8" class="f3 stroke"/><text x="572" y="140" font-weight="700" font-size="13">建坏了</text><text x="572" y="160">没过严格，但在宽松门槛内</text><text x="572" y="180">d̂ ≤ 1.0 或 IoU ≥ 0.1</text>
+</g>
+<g data-s="4">
+<path d="M260,183 L260,250 L558,250" class="arrow" marker-end="url(#c-m13)"/><text x="268" y="222">否</text>
+<path d="M450,196 L450,246" class="arrow" marker-end="url(#c-m13)"/><text x="458" y="226">否</text>
+<rect x="560" y="220" width="190" height="62" rx="8" class="f4 stroke"/><text x="572" y="242" font-weight="700" font-size="13">漏了</text><text x="572" y="260">没配上，或配上了但</text><text x="572" y="276">连宽松门槛都没进</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>配上了吗</b>。匈牙利算法给每个真值物体最多配一个预测，代价是 d̂ = ‖c_pred − c_gt‖ / r_gt，r_gt 是真值框的半对角线长。</li>
+<li><b>严格判据</b>。两套分开报。判据 I：IoU3D ≥ 0.25（另报 0.5），方便和前人比较。判据 D：d̂ ≤ 0.5，并且最长边之比在 0.67 到 1.5 之间。通过就是"建好了"。</li>
+<li><b>宽松门槛</b>。没过严格判据，但 d̂ ≤ 1.0 或 IoU3D ≥ 0.1，就是"建坏了"：东西建了，位置或尺寸不对。</li>
+<li><b>漏了</b>。根本没配上，或者配上了但连宽松门槛都没进。</li>
+</ol>
+</div>
+<p>为什么要两套判据？IoU 对小物体非常敏感，一点偏移就掉很多，而 d̂ 按物体大小归一化，大小物体一视同仁。3D-MOOD 也指出 IoU 对小物体和薄物体太苛刻，原文是 <q>too restrictive</q>。</p>
+<div class="box calc">
+<span class="box-label">手算 · 8 cm 的杯子偏 3 cm</span>
+<p><b>假设</b>：杯子当成边长 8 cm 的立方体；预测框和真值框一样大、都和坐标轴对齐；预测只沿一个轴偏了 3 cm。</p>
+<ul>
+<li><b>IoU3D</b>：重叠部分是 5 × 8 × 8 = 320 cm³；两个框各 512 cm³，并集 = 512 + 512 − 320 = 704 cm³。IoU = 320 ÷ 704 ≈ <b>0.455</b>，从 1 掉了一半多。</li>
+<li><b>d̂</b>：半对角线 r = √3 × 8 ÷ 2 ≈ 6.93 cm。d̂ = 3 ÷ 6.93 ≈ <b>0.433</b>。</li>
+<li><b>结论</b>：0.455 ≥ 0.25，过判据 I；0.433 ≤ 0.5 且边长比为 1，过判据 D。两套都算"建好了"。</li>
+</ul>
+<p>同样偏 3 cm，换成边长 2 m 的立方体：IoU = 197 ÷ 203 ≈ 0.970，d̂ ≈ 0.017。对大家具，3 cm 几乎没影响。</p>
+<p>反过来算门槛。沿一个轴偏 x cm 时 IoU = (8 − x) ÷ (8 + x)，d̂ = x ÷ 6.93。</p>
+<ul>
+<li>IoU 降到 0.25：x = 4.8 cm。</li>
+<li>d̂ 到 0.5：x ≈ 3.46 cm。</li>
+<li>d̂ 到 1.0：x ≈ 6.93 cm。这就是宽松门槛的边，因为 IoU ≥ 0.1 只撑到 x ≤ 6.55 cm，两者取"或"以宽的为准。</li>
+</ul>
+</div>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 168" width="760" role="img" aria-label="8 厘米立方体沿一个轴平移时，两套判据各在多少厘米处从建好了变成建坏了、再变成漏了">
+<g font-size="12">
+<text x="20" y="56">判据 I：IoU3D ≥ 0.25</text>
+<rect x="170" y="38" width="336" height="28" rx="3" class="f2 stroke"/>
+<rect x="506" y="38" width="149" height="28" rx="3" class="f3 stroke"/>
+<rect x="655" y="38" width="75" height="28" rx="3" class="f4 stroke"/>
+<text x="338" y="56" text-anchor="middle">建好了</text>
+<text x="580.5" y="56" text-anchor="middle">建坏了</text>
+<text x="692.5" y="56" text-anchor="middle">漏了</text>
+<text x="506" y="33" text-anchor="middle" class="shape">4.8</text>
+<text x="655" y="33" text-anchor="middle" class="shape">6.93</text>
+<text x="20" y="104">判据 D：d̂ ≤ 0.5</text>
+<rect x="170" y="86" width="242.5" height="28" rx="3" class="f2 stroke"/>
+<rect x="412.5" y="86" width="242.5" height="28" rx="3" class="f3 stroke"/>
+<rect x="655" y="86" width="75" height="28" rx="3" class="f4 stroke"/>
+<text x="291.2" y="104" text-anchor="middle">建好了</text>
+<text x="533.7" y="104" text-anchor="middle">建坏了</text>
+<text x="692.5" y="104" text-anchor="middle">漏了</text>
+<text x="412.5" y="128" text-anchor="middle" class="shape">3.46</text>
+<text x="655" y="128" text-anchor="middle" class="shape">6.93</text>
+<path d="M380,26 L380,124" class="arrow-blue dash"/>
+<text x="380" y="20" text-anchor="middle" font-weight="700">偏 3 cm：两套都算建好了</text>
+<line x1="170" y1="140" x2="730" y2="140" class="stroke"/>
+<line x1="170" y1="140" x2="170" y2="145" class="stroke"/>
+<text x="170" y="160" text-anchor="middle">0</text>
+<line x1="240" y1="140" x2="240" y2="145" class="stroke"/>
+<text x="240" y="160" text-anchor="middle">1</text>
+<line x1="310" y1="140" x2="310" y2="145" class="stroke"/>
+<text x="310" y="160" text-anchor="middle">2</text>
+<line x1="380" y1="140" x2="380" y2="145" class="stroke"/>
+<text x="380" y="160" text-anchor="middle">3</text>
+<line x1="450" y1="140" x2="450" y2="145" class="stroke"/>
+<text x="450" y="160" text-anchor="middle">4</text>
+<line x1="520" y1="140" x2="520" y2="145" class="stroke"/>
+<text x="520" y="160" text-anchor="middle">5</text>
+<line x1="590" y1="140" x2="590" y2="145" class="stroke"/>
+<text x="590" y="160" text-anchor="middle">6</text>
+<line x1="660" y1="140" x2="660" y2="145" class="stroke"/>
+<text x="660" y="160" text-anchor="middle">7</text>
+<line x1="730" y1="140" x2="730" y2="145" class="stroke"/>
+<text x="730" y="160" text-anchor="middle">8</text>
+<text x="20" y="160">中心偏移（cm）</text>
+</g></svg></div>
+<figcaption>还是那个 8 cm 立方体，沿一个轴越偏越远，两套判据各在哪里换结局。判据 D 比判据 I 更早判"建坏了"（3.46 cm 对 4.8 cm）；宽松门槛两套共用，偏到 6.93 cm 以外就是漏了。蓝色虚线是上面手算的 3 cm。</figcaption></figure>
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li><b>IoU 还看偏的方向，d̂ 不看</b>。同样偏 3 cm，如果沿体对角线偏（三个轴各偏约 1.73 cm），IoU 只有约 0.317，d̂ 仍是 0.433。</li>
+<li><b>阈值都是我们定的初值</b>。0.25、0.5、0.67–1.5、1.0、0.1 定死之前还没有任何 agent 运行，所以只在开发集上做两项合理性检查（设计文档 9.4 节）。
+<ul>
+<li>真值对真值：应该全部"建好了"。</li>
+<li>检测器直接输出的框（Boxer 和干净对照）对真值：看分布合不合理。</li>
+</ul>
+不拿任何 agent 组的输出来调阈值。10/20 前写进 <code>configs/thresholds.json</code>，之后不改。</li>
+<li><b>IoU3D 的计算</b>：03 号笔记建议用 <code>pytorch3d.ops.box3d_overlap</code>，输入是 8 个角点，顺序有规定，写脚本时要按文档排。</li>
+</ul>
+</div>
+
+<h3 id="c-stats">8.5 统计和成本</h3>
+<p>有了每个物体的结局，最后一步是比较各组，并且把钱算进去。设计文档 9.6、9.7 节定了四件事。</p>
+<ul>
+<li><b>配对比较</b>。同一个真值物体在不同组里的结局两两对照，不只比总数。</li>
+<li><b>按场景 bootstrap</b>。把 15 个测试场景有放回地重抽很多次，每次算一遍组间差，取中间 95% 作为置信区间。</li>
+<li><b>噪声底线</b>。A1 和 A3v 在 5 个场景上各跑第二次，量出"同一组跑两次差多少"。组间差距比它小的，不下结论。</li>
+<li><b>成本</b>。每次运行记 token 数（输入、缓存、输出）、按 API 价折算的美元、墙钟时间、fal 费用。</li>
+</ul>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 250" width="760" role="img" aria-label="统计示意：先按物体配对，再按场景有放回重抽得到置信区间，最后和噪声底线比">
+<defs><marker id="c-m14" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="125" y="22" text-anchor="middle" font-weight="700" font-size="13">① 配对：同一物体两组都看</text>
+<text x="30" y="48" font-weight="700">物体</text><text x="150" y="48" text-anchor="middle" font-weight="700">A1</text><text x="210" y="48" text-anchor="middle" font-weight="700">A3v</text>
+<text x="30" y="73">物体 1</text><rect x="128" y="58" width="44" height="20" rx="3" class="f4 stroke"/><text x="150" y="73" text-anchor="middle">漏</text><rect x="188" y="58" width="44" height="20" rx="3" class="f2 stroke"/><text x="210" y="73" text-anchor="middle">好</text>
+<text x="30" y="99">物体 2</text><rect x="128" y="84" width="44" height="20" rx="3" class="f2 stroke"/><text x="150" y="99" text-anchor="middle">好</text><rect x="188" y="84" width="44" height="20" rx="3" class="f2 stroke"/><text x="210" y="99" text-anchor="middle">好</text>
+<text x="30" y="125">物体 3</text><rect x="128" y="110" width="44" height="20" rx="3" class="f3 stroke"/><text x="150" y="125" text-anchor="middle">坏</text><rect x="188" y="110" width="44" height="20" rx="3" class="f2 stroke"/><text x="210" y="125" text-anchor="middle">好</text>
+<text x="30" y="151">物体 4</text><rect x="128" y="136" width="44" height="20" rx="3" class="f4 stroke"/><text x="150" y="151" text-anchor="middle">漏</text><rect x="188" y="136" width="44" height="20" rx="3" class="f4 stroke"/><text x="210" y="151" text-anchor="middle">漏</text>
+<text x="30" y="177">物体 5</text><rect x="128" y="162" width="44" height="20" rx="3" class="f2 stroke"/><text x="150" y="177" text-anchor="middle">好</text><rect x="188" y="162" width="44" height="20" rx="3" class="f3 stroke"/><text x="210" y="177" text-anchor="middle">坏</text>
+<text x="125" y="206" text-anchor="middle">结局相同的物体差为 0</text>
+<text x="125" y="224" text-anchor="middle">差别只来自结局不同的物体</text>
+<text x="380" y="22" text-anchor="middle" font-weight="700" font-size="13">② 按场景重抽（bootstrap）</text>
+<rect x="272" y="40" width="12" height="12" class="f1 stroke"/><rect x="286" y="40" width="12" height="12" class="f1 stroke"/><rect x="300" y="40" width="12" height="12" class="f1 stroke"/><rect x="314" y="40" width="12" height="12" class="f1 stroke"/><rect x="328" y="40" width="12" height="12" class="f1 stroke"/><rect x="342" y="40" width="12" height="12" class="f1 stroke"/><rect x="356" y="40" width="12" height="12" class="f1 stroke"/><rect x="370" y="40" width="12" height="12" class="f1 stroke"/><rect x="384" y="40" width="12" height="12" class="f1 stroke"/><rect x="398" y="40" width="12" height="12" class="f1 stroke"/><rect x="412" y="40" width="12" height="12" class="f1 stroke"/><rect x="426" y="40" width="12" height="12" class="f1 stroke"/><rect x="440" y="40" width="12" height="12" class="f1 stroke"/><rect x="454" y="40" width="12" height="12" class="f1 stroke"/><rect x="468" y="40" width="12" height="12" class="f1 stroke"/>
+<text x="380" y="68" text-anchor="middle">15 个测试场景</text>
+<path d="M380,74 L380,96" class="arrow" marker-end="url(#c-m14)"/><text x="388" y="90">有放回地抽 15 个</text>
+<rect x="272" y="102" width="12" height="12" class="f3 stroke"/><rect x="286" y="102" width="12" height="12" class="f3 stroke"/><rect x="300" y="102" width="12" height="12" class="f1 stroke"/><rect x="314" y="102" width="12" height="12" class="f1 stroke"/><rect x="328" y="102" width="12" height="12" class="f3 stroke"/><rect x="342" y="102" width="12" height="12" class="f3 stroke"/><rect x="356" y="102" width="12" height="12" class="f1 stroke"/><rect x="370" y="102" width="12" height="12" class="f1 stroke"/><rect x="384" y="102" width="12" height="12" class="f1 stroke"/><rect x="398" y="102" width="12" height="12" class="f3 stroke"/><rect x="412" y="102" width="12" height="12" class="f3 stroke"/><rect x="426" y="102" width="12" height="12" class="f1 stroke"/><rect x="440" y="102" width="12" height="12" class="f1 stroke"/><rect x="454" y="102" width="12" height="12" class="f1 stroke"/><rect x="468" y="102" width="12" height="12" class="f1 stroke"/>
+<text x="380" y="132" text-anchor="middle">换了颜色的格子：被抽到两次的场景</text>
+<text x="380" y="152" text-anchor="middle">每抽一次，算一个组间差</text>
+<rect x="300" y="209" width="18" height="6" class="f1 stroke"/><rect x="320" y="201" width="18" height="14" class="f1 stroke"/><rect x="340" y="189" width="18" height="26" class="f1 stroke"/><rect x="360" y="177" width="18" height="38" class="f1 stroke"/><rect x="380" y="175" width="18" height="40" class="f1 stroke"/><rect x="400" y="187" width="18" height="28" class="f1 stroke"/><rect x="420" y="201" width="18" height="14" class="f1 stroke"/><rect x="440" y="209" width="18" height="6" class="f1 stroke"/>
+<path d="M306,222 L306,228 L452,228 L452,222" class="arrow-red"/>
+<text x="380" y="244" text-anchor="middle" class="lbl-accent">中间 95% = 置信区间</text>
+<text x="635" y="22" text-anchor="middle" font-weight="700" font-size="13">③ 和噪声底线比</text>
+<text x="635" y="40" text-anchor="middle">噪声底线</text>
+<rect x="605" y="46" width="60" height="128" rx="4" class="f6 stroke"/>
+<path d="M635,46 L635,174" class="arrow dash"/><text x="640" y="170">0</text>
+<path d="M676,84 L736,84" class="arrow-green"/><path d="M676,78 L676,90" class="arrow-green"/><path d="M736,78 L736,90" class="arrow-green"/>
+<text x="706" y="104" text-anchor="middle">区间在外</text>
+<path d="M620,134 L700,134" class="arrow-red"/><path d="M620,128 L620,140" class="arrow-red"/><path d="M700,128 L700,140" class="arrow-red"/>
+<text x="706" y="156" text-anchor="middle">和底线重叠</text>
+<path d="M530,180 L745,180" class="arrow" marker-end="url(#c-m14)"/>
+<text x="635" y="198" text-anchor="middle">组间差（A3v − A1）</text>
+<text x="530" y="222">上：区间在底线外 → 可以下结论</text>
+<text x="530" y="240">下：和底线重叠 → 不下结论</text>
+</g></svg></div>
+<figcaption>统计三步（示意，格子里的结局和直方图都是随手画的）。① 同一个物体在两组的结局摆在一起比；② 以场景为单位有放回地重抽，得到组间差的分布，取中间 95%；③ 拿这个区间和"同组跑两次的差"比，越过底线才下结论。</figcaption></figure>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>为什么按场景重抽，不按物体？同一个房间里的物体不是互相独立的：光线差、视频晃，整个房间的物体一起遭殃。按场景抽，才能把"碰巧抽到几个好拍的房间"这种运气算进区间里。</p>
+</div>
+<p>最后的结论写成<b>成本-精度的帕累托前沿</b>，不评"哪种最好"。横轴是每个场景花的钱，纵轴是小物体召回。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 290" width="760" role="img" aria-label="帕累托前沿示意：横轴成本，纵轴小物体召回，绿色点连成前沿，灰色点被支配">
+<defs><marker id="c-m15" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<path d="M80,250 L732,250" class="arrow" marker-end="url(#c-m15)"/>
+<path d="M80,250 L80,26" class="arrow" marker-end="url(#c-m15)"/>
+<text x="88" y="28">小物体召回（摆准了的比例）</text>
+<text x="730" y="274" text-anchor="end">每场景成本（API 等价美元）</text>
+<text x="730" y="56" text-anchor="end" class="lbl-accent" font-weight="700" font-size="13">示意，非数据</text>
+<path d="M130,205 L230,150 L390,112 L560,95" class="arrow-green"/>
+<path d="M390,96 L390,128" class="arrow"/><path d="M374,112 L406,112" class="arrow"/>
+<circle cx="130" cy="205" r="7" class="f2 stroke"/><circle cx="230" cy="150" r="7" class="f2 stroke"/><circle cx="390" cy="112" r="7" class="f2 stroke"/><circle cx="560" cy="95" r="7" class="f2 stroke"/>
+<circle cx="310" cy="178" r="7" class="f6 stroke"/><circle cx="470" cy="140" r="7" class="f6 stroke"/><circle cx="650" cy="122" r="7" class="f6 stroke"/>
+<text x="300" y="86" text-anchor="middle">前沿：同样的钱，召回最高</text>
+<path d="M476,146 L500,180" class="arrow"/>
+<text x="505" y="195">被支配：左上方有点更便宜又更准</text>
+</g></svg></div>
+<figcaption>示意，非数据。每个点是一种做法：横坐标是它每个场景折算的 API 等价美元，纵坐标是小物体召回。绿色点连成前沿，没有别的点比它们又便宜又准；灰色点被支配。点上的十字表示两个方向都有置信区间。</figcaption></figure>
+<div class="box key">
+<span class="box-label">必记</span>
+<ul>
+<li>对齐只用相机轨迹（Sim(3) 加不修尺度的 SE(3)），绝不用被评测的物体。</li>
+<li>分档按真值框最长边：XS &lt; 0.2、S 0.2–0.5、M 0.5–1.5、L ≥ 1.5 m。</li>
+<li>每个真值物体归为建好了、建坏了、漏了；判据 I 和 D 各报一张表。</li>
+<li>组间差要越过"同组跑两次"的噪声底线才下结论；结论写成成本-精度前沿。</li>
+<li>精确率（多建出来、对不上真值的物体）作次要指标。CA-1M 是穷举标注，这个数有意义。</li>
+<li>所有阈值 10/20 前写进 <code>configs/thresholds.json</code> 定死。</li>
+</ul>
+</div>
+<p>订阅不按次计费，所以成本轴要靠自己记 token 日志再按官方 API 价换算；价格和额度见<a href="#cost">第 9 章</a>。</p>
+<p class="src">设计文档第 2、9 节；03 号笔记 2.2、2.3、2.5 节；SpatialLM 附录 C.3（arXiv 2506.07491）；3D-MOOD（arXiv 2507.23567）。</p>

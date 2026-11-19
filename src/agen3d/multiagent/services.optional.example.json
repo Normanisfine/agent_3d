@@ -1,0 +1,20 @@
+{
+  "sam3d": {
+    "python": "../../../.venvs/sam3d/bin/python",
+    "repo": "../../../external/sam-3d-objects",
+    "checkpoint": "model:sam3d",
+    "reservation_usd": 0.3
+  },
+  "hunyuan": {
+    "python": "../../../.venvs/hunyuan/bin/python",
+    "repo": "../../../external/hunyuan3d-2.1",
+    "checkpoint": "model:hunyuan-shape",
+    "reservation_usd": 0.3
+  },
+  "hispatial": {
+    "python": "../../../.venvs/hispatial/bin/python",
+    "repo": "../../../external/hispatial",
+    "checkpoint": "model:hispatial",
+    "reservation_usd": 0.1
+  }
+}

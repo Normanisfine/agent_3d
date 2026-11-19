@@ -1,0 +1,10 @@
+{
+  "dataset": "ai2thor",
+  "version": "5.0.0-f0825767cd50d69f666c7f282e54abfe58f1e917",
+  "scene": "FloorPlan301",
+  "split": "val",
+  "frames": [
+    {"id": "000000", "timestamp_s": 0.0, "path": "../../repos/aha-3d/references/ai2thor_bedroom/rgb_v2/000000.png"},
+    {"id": "000239", "timestamp_s": 11.95, "path": "../../repos/aha-3d/references/ai2thor_bedroom/rgb_v2/000239.png"}
+  ]
+}

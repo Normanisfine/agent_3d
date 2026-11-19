@@ -1,0 +1,160 @@
+<h2 id="train"><span class="num">14</span>训练加分项</h2>
+<p>主线不训练任何模型。训练只是加分项，10/26 决定做不做，而且要 11/2 前 SAM 3D 在 Betty 上装通才能做。</p>
+<p>默认做的是一个"路由小分类器"：替 agent 判断某个小物体该用生成的网格，还是用代码搭的方块。</p>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>包工头每遇到一个小摆件，都要想一想"是去店里买个现成的（生成），还是自己用木条钉一个（写代码搭方块）"。路由分类器像一张经验表，看几个指标就直接给答案，不用每次都请包工头动脑子。</p>
+</div>
+
+<h3 id="d-router">14.1 路由小分类器长什么样</h3>
+<p>它的输入是六个数（或向量），输出是二选一。关键限制是：只能用推理时拿得到的特征，真值一概不能当输入。</p>
+<div class="arch">
+<div class="arch-title">六个特征 → 小分类器 → 生成还是方块</div>
+<div class="svg-wrap"><svg viewBox="0 0 770 310" width="770" role="img" aria-label="路由小分类器的结构：六个推理时可得的特征拼接后输入小分类器，输出用生成的网格还是用方块">
+<defs><marker id="d-m14a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="10" y="16" width="250" height="34" rx="6" class="f1 stroke"/><text x="20" y="38">① 最好那帧的掩码像素数</text>
+<rect x="10" y="58" width="250" height="34" rx="6" class="f1 stroke"/><text x="20" y="80">② 看得见的帧数</text>
+<rect x="10" y="100" width="250" height="34" rx="6" class="f1 stroke"/><text x="20" y="122">③ 估计尺寸</text>
+<rect x="10" y="142" width="250" height="34" rx="6" class="f1 stroke"/><text x="20" y="164">④ 类别文字的嵌入向量</text>
+<text x="250" y="38" text-anchor="end" class="ink3">清单</text><text x="250" y="80" text-anchor="end" class="ink3">清单</text><text x="250" y="122" text-anchor="end" class="ink3">清单的框</text><text x="250" y="164" text-anchor="end" class="ink3">文本编码</text>
+</g>
+<g data-s="2">
+<rect x="10" y="184" width="250" height="34" rx="6" class="f4 stroke"/><text x="20" y="206">⑤ SAM 3D 的置信度</text>
+<rect x="10" y="226" width="250" height="34" rx="6" class="f4 stroke"/><text x="20" y="248">⑥ 方块版的剪影 IoU</text>
+<text x="250" y="206" text-anchor="end" class="ink3">生成之后</text><text x="250" y="248" text-anchor="end" class="ink3">方块摆好之后</text>
+</g>
+<g data-s="3">
+<path d="M260,33 L299,33 M260,75 L299,75 M260,117 L299,117 M260,159 L299,159 M260,201 L299,201 M260,243 L299,243" class="arrow"/>
+<rect x="300" y="16" width="26" height="244" rx="4" class="f6 stroke"/>
+<text x="313" y="280" text-anchor="middle">拼接</text>
+</g>
+<g data-s="4">
+<path d="M326,138 L379,138" class="arrow" marker-end="url(#d-m14a)"/>
+<rect x="380" y="98" width="160" height="80" rx="10" class="f5 stroke"/><text x="460" y="126" text-anchor="middle" font-weight="700">小分类器</text><text x="460" y="146" text-anchor="middle">例如小 MLP</text><text x="460" y="164" text-anchor="middle" class="ink3">结构执行时定</text>
+</g>
+<g data-s="5">
+<path d="M540,124 L599,86" class="arrow" marker-end="url(#d-m14a)"/><path d="M540,152 L599,190" class="arrow" marker-end="url(#d-m14a)"/>
+<rect x="600" y="56" width="160" height="56" rx="8" class="f2 stroke"/><text x="680" y="79" text-anchor="middle" font-weight="700">用生成的网格</text><text x="680" y="99" text-anchor="middle">SAM 3D + 配准</text>
+<rect x="600" y="164" width="160" height="56" rx="8" class="f3 stroke"/><text x="680" y="187" text-anchor="middle" font-weight="700">用方块</text><text x="680" y="207" text-anchor="middle">代码搭，框本身</text>
+</g>
+<g data-s="6">
+<rect x="380" y="240" width="380" height="52" rx="8" class="f0 stroke"/><text x="570" y="262" text-anchor="middle" class="lbl-accent" font-weight="700">⑤⑥ 要先把两种都做出来才拿得到</text><text x="570" y="281" text-anchor="middle">所以它省的是 agent 的思考，不省生成的算力</text>
+<path d="M260,222 L379,264" class="arrow-red dash" marker-end="url(#d-m14a)"/>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>四个"看一眼就有"的特征</b>。最好那一帧里掩码占多少像素、在几帧里看得见、估计的尺寸、类别文字的嵌入向量（把"杯子"这类词变成一串数）。前三个来自清单和感知结果。</li>
+<li><b>两个"做完才有"的特征</b>。SAM 3D 生成时给出的置信度，以及用方块摆好后的剪影 IoU（方块投到图上的轮廓和真实掩码重合多少）。</li>
+<li><b>拼接</b>。六个特征拼成一个向量。数值特征一般要先标准化，文字嵌入是一串数，直接接在后面。</li>
+<li><b>小分类器</b>。设计文档只说"路由小分类器"，没定结构。小 MLP 这类几层的小网络就够了，具体在执行时定。</li>
+<li><b>输出二选一</b>。用生成的网格（SAM 3D 生成再配准），还是用方块（就是清单里那个框本身，由代码搭出来）。</li>
+<li><b>容易忽略的一点</b>（按我们的理解）。特征 ⑤⑥ 要先把生成版和方块版都做出来才拿得到，所以分类器是在两样都做完之后挑一个。它替代的是 agent 的判断，省 token，不省生成的算力。</li>
+</ol>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<p>训练时手里有真值，很容易顺手把"离真值框多远"之类的量塞进特征。那样训练集上会很准，测试时却拿不到这个特征。设计文档的要求是"只用推理时拿得到的特征"，六个特征都满足这一条。</p>
+</div>
+
+<h3 id="d-labels">14.2 标签和训练数据从哪来</h3>
+<p>标签回答一个问题：同一个物体，方块和生成的网格，谁摆得更准？准不准对照真值框来判。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 300" width="770" role="img" aria-label="训练数据流水线：CA-1M 验证集另外 85 个视频，用 P0 方式在 Betty 上批量生成，每个物体做方块和生成两版，对照真值得到标签">
+<defs><marker id="d-m14b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="40" width="150" height="70" rx="8" class="f2 stroke"/><text x="85" y="62" text-anchor="middle" font-weight="700">CA-1M 验证集</text><text x="85" y="82" text-anchor="middle">107 − 22 = 85 个</text><text x="85" y="100" text-anchor="middle">不碰主实验视频</text>
+<path d="M160,75 L199,75" class="arrow" marker-end="url(#d-m14b)"/>
+<rect x="200" y="10" width="250" height="140" rx="10" class="f6 stroke"/><text x="210" y="30" font-weight="700">Betty 上按 P0 方式批量跑</text>
+<rect x="214" y="42" width="222" height="30" rx="6" class="f3 stroke"/><text x="325" y="62" text-anchor="middle">感知 → Boxer 清单</text>
+<path d="M270,72 L270,89" class="arrow" marker-end="url(#d-m14b)"/><path d="M380,72 L380,89" class="arrow" marker-end="url(#d-m14b)"/>
+<rect x="214" y="90" width="104" height="48" rx="6" class="f3 stroke"/><text x="266" y="110" text-anchor="middle">方块版</text><text x="266" y="128" text-anchor="middle">框本身</text>
+<rect x="332" y="90" width="104" height="48" rx="6" class="f4 stroke"/><text x="384" y="110" text-anchor="middle">生成版</text><text x="384" y="128" text-anchor="middle">SAM 3D+配准</text>
+<path d="M450,114 L499,114" class="arrow" marker-end="url(#d-m14b)"/><text x="474" y="106" text-anchor="middle">两版</text>
+<rect x="500" y="74" width="120" height="80" rx="8" class="f0 stroke"/><text x="560" y="98" text-anchor="middle" font-weight="700">对照真值框</text><text x="560" y="118" text-anchor="middle">谁摆得准？</text><text x="560" y="138" text-anchor="middle" class="ink3">如比 d̂</text>
+<path d="M620,114 L649,114" class="arrow" marker-end="url(#d-m14b)"/>
+<rect x="650" y="84" width="110" height="60" rx="8" class="f5 stroke"/><text x="705" y="108" text-anchor="middle" font-weight="700">标签</text><text x="705" y="128" text-anchor="middle">生成 / 方块</text>
+<path d="M325,150 L325,199" class="arrow" marker-end="url(#d-m14b)"/><text x="333" y="180">六个特征</text>
+<rect x="200" y="200" width="250" height="44" rx="8" class="f1 stroke"/><text x="325" y="218" text-anchor="middle" font-weight="700">训练样本</text><text x="325" y="236" text-anchor="middle">（特征向量，标签）</text>
+<path d="M705,144 L705,222 L451,222" class="arrow" marker-end="url(#d-m14b)"/>
+<text x="10" y="276" class="ink3">规模不够时可以扩展到 CA-1M 训练集（3,118 个视频），但那是 Boxer 训练时见过的场景</text>
+</g></svg></div>
+<figcaption>训练数据怎么造。用的是 CA-1M 验证集里不在主实验 22 个之内的另外 85 个视频，不调大模型，全部在 Betty 上跑。每个物体做方块版和生成版两份，各自对照真值框，摆得准的那一份就是标签；同时记下六个特征，合成一条训练样本。</figcaption></figure>
+<div class="box calc"><span class="box-label">算例 · 大概有多少样本、要多少 GPU 时间（估算）</span>
+<ul>
+<li>CA-1M 每个视频约 125 个框。85 × 125 = 10,625，这是真值框数的上限；去掉结构件、再看清单检出多少，实际样本会更少。</li>
+<li>SAM 3D 在 A100 上约 13 秒一个物体。按 10,625 个算：10,625 × 13 = 138,125 秒，约 38.4 小时。mig45 切片上的速度没测过，这只是量级。</li>
+<li>按 04 号笔记的 mig45 价格，补贴价每小时 0.25 美元约 9.6 美元，非补贴价每小时 1.13 美元约 43 美元。课程额度按哪档计费文档没写。</li>
+</ul>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li>训练用的 85 个视频不能和主实验的 22 个重叠，否则分类器在测试场景上"背过答案"。</li>
+<li>扩展到 CA-1M 训练集时要小心（按我们的理解）。Boxer 训练时见过那些场景，清单会比在新场景上准，特征的分布和测试时不一样。</li>
+<li>"谁摆得准"用哪个指标比，设计文档没定。图里写的 d̂（按大小归一化的中心距离，见<a href="#eval">第 8 章</a>）只是一个自然的选择。</li>
+</ul>
+</div>
+
+<h3 id="d-a3c">14.3 怎么评：A3c 和 A3r、A3v 比</h3>
+<p>分类器训好后当成第三种路由，记作 A3c，在 5 个测试场景上和 A3r、A3v 比。三组只差"谁来决定"这一个框，其余全部相同。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 250" width="770" role="img" aria-label="A3r、A3v、A3c 三种路由只在决定者这一步不同，前后流程相同">
+<defs><marker id="d-m14c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="90" width="130" height="60" rx="8" class="f3 stroke"/><text x="75" y="114" text-anchor="middle" font-weight="700">清单里一项</text><text x="75" y="134" text-anchor="middle">框 + 裁剪图</text>
+<path d="M140,120 L189,120" class="arrow" marker-end="url(#d-m14c)"/>
+<rect x="190" y="10" width="250" height="220" rx="10" class="f4 stroke dash"/><text x="315" y="30" text-anchor="middle" class="lbl-accent" font-weight="700">只有这里不同</text>
+<rect x="206" y="44" width="218" height="50" rx="6" class="f0 stroke"/><text x="214" y="64" font-weight="700">A3r 按规则</text><text x="214" y="83">最长边 &lt; 0.5 m 就生成</text>
+<rect x="206" y="104" width="218" height="50" rx="6" class="f0 stroke"/><text x="214" y="124" font-weight="700">A3v 大模型决定</text><text x="214" y="143">agent 看裁剪图和测量值</text>
+<rect x="206" y="164" width="218" height="50" rx="6" class="f5 stroke"/><text x="214" y="184" font-weight="700">A3c 分类器决定</text><text x="214" y="203">六个特征 → 小分类器</text>
+<path d="M440,120 L489,120" class="arrow" marker-end="url(#d-m14c)"/>
+<rect x="490" y="80" width="130" height="80" rx="8" class="f2 stroke"/><text x="555" y="104" text-anchor="middle">生成或方块</text><text x="555" y="124" text-anchor="middle">过验收才留</text><text x="555" y="144" text-anchor="middle">否则退回方块</text>
+<path d="M620,120 L649,120" class="arrow" marker-end="url(#d-m14c)"/>
+<rect x="650" y="90" width="110" height="60" rx="8" class="f1 stroke"/><text x="705" y="114" text-anchor="middle" font-weight="700">场景</text><text x="705" y="134" text-anchor="middle">5 个测试场景</text>
+</g></svg></div>
+<figcaption>三种路由的对比。左边的清单项和右边的验收、摆放、打分完全一样，只有虚线框里"由谁决定生成还是方块"这一步不同。这样分数的差别只能来自决定方式。</figcaption></figure>
+<ul>
+<li>A3r 和 A3v 是主实验的两个组（<a href="#arms">第 4 章</a>），在 15 个测试场景上都跑过，取同样 5 个场景的结果对比即可。</li>
+<li>A3c 多跑 5 个场景。比较方式和主实验一样：同一个真值物体在不同组的结局两两配对，按场景做 bootstrap。</li>
+<li>5 个场景的样本小，所以 A3c 的结论只当作加分项的探索，不进主结论。这是我们的理解，设计文档没有单独规定。</li>
+</ul>
+<div class="box key"><span class="box-label">必记</span>
+<ul>
+<li>前提有两个：10/26 决定做，11/2 前 Betty 上的 SAM 3D 装通。缺一个就不做。</li>
+<li>评估方式：作为 A3c，在 5 个测试场景上和 A3r、A3v 比。</li>
+<li>训练数据：P0 方式，CA-1M 验证集另外 85 个视频，全部在 Betty 上生成。</li>
+</ul>
+</div>
+
+<h3 id="d-alt">14.4 备选 (b) 和未来工作 (c)</h3>
+<p>路由分类器是默认方案 (a)。另外还有一个备选和一个写进未来工作的想法，下图把两者的机制并排画出来。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 270" width="770" role="img" aria-label="左：备选 (b) 在 CA-1M 训练集小物体上微调 Boxer；右：未来工作 (c) 用故意挪歪的真值框渲染叠加图训练验收器">
+<defs><marker id="d-m14d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="185" y="22" text-anchor="middle" font-weight="700">(b) 备选：微调 Boxer</text>
+<rect x="10" y="40" width="170" height="56" rx="8" class="f2 stroke"/><text x="95" y="62" text-anchor="middle">CA-1M 训练集</text><text x="95" y="82" text-anchor="middle">里的小物体</text>
+<path d="M180,68 L219,68" class="arrow" marker-end="url(#d-m14d)"/>
+<rect x="220" y="40" width="150" height="56" rx="8" class="f3 stroke"/><text x="295" y="62" text-anchor="middle" font-weight="700">微调 Boxer</text><text x="295" y="82" text-anchor="middle">Betty 的 B200</text>
+<path d="M295,96 L295,129" class="arrow" marker-end="url(#d-m14d)"/>
+<rect x="190" y="130" width="180" height="56" rx="8" class="f1 stroke"/><text x="280" y="152" text-anchor="middle">"检测到"这一关</text><text x="280" y="172" text-anchor="middle">小物体召回能否提高</text>
+<text x="10" y="216" class="ink3">Boxer 已经在 CA-1M 上训过，提升可能有限</text>
+<text x="10" y="236" class="ink3">适合想做一个真正大规模训练任务的时候</text>
+<line x1="392" y1="10" x2="392" y2="260" class="stroke dash"/>
+<text x="585" y="22" text-anchor="middle" font-weight="700">(c) 未来工作：训练验收器</text>
+<rect x="410" y="40" width="100" height="56" rx="8" class="f2 stroke"/><text x="460" y="62" text-anchor="middle">真值框</text><text x="460" y="82" text-anchor="middle">故意挪歪</text>
+<path d="M510,68 L539,68" class="arrow" marker-end="url(#d-m14d)"/>
+<rect x="540" y="40" width="100" height="56" rx="8" class="f3 stroke"/><text x="590" y="62" text-anchor="middle">渲染</text><text x="590" y="82" text-anchor="middle">叠加图</text>
+<path d="M640,68 L669,68" class="arrow" marker-end="url(#d-m14d)"/>
+<rect x="670" y="40" width="90" height="56" rx="8" class="f5 stroke"/><text x="715" y="62" text-anchor="middle">标签</text><text x="715" y="82" text-anchor="middle">挪了多少</text>
+<path d="M715,96 L715,129" class="arrow" marker-end="url(#d-m14d)"/>
+<rect x="560" y="130" width="200" height="56" rx="8" class="f1 stroke"/><text x="660" y="152" text-anchor="middle" font-weight="700">验收器</text><text x="660" y="172" text-anchor="middle">看叠加图判断摆没摆准</text>
+<path d="M560,158 L511,158" class="arrow" marker-end="url(#d-m14d)"/>
+<rect x="410" y="130" width="100" height="56" rx="8" class="f4 stroke"/><text x="460" y="152" text-anchor="middle">替代大模型</text><text x="460" y="172" text-anchor="middle">自检</text>
+<text x="410" y="216" class="ink3">标签是自己造的：挪多少是已知的，不用人标</text>
+<text x="410" y="236" class="ink3">GRASE 的未来工作也写了用学出来的几何判别器</text>
+</g></svg></div>
+<figcaption>左边是备选 (b)：在 CA-1M 训练集的小物体上微调 Boxer，目标是提高"检测到"那一关的召回。右边是写进未来工作的 (c)：把真值框故意挪歪后渲染出叠加图，挪了多少是已知的，可以直接当标签，训练一个看图判断"摆没摆准"的验收器，代替大模型自检。</figcaption></figure>
+<div class="box detail"><span class="box-label">两条路各自的取舍</span>
+<ul>
+<li><b>(b) 微调 Boxer</b>。用 Betty 的 B200 跑，是真正的大规模训练。Mingjian 想要一个这样的任务时改做 (b)。但 Boxer 本来就在 CA-1M 训练集上训过，提升可能有限；在 CA-1M 上评测仍然是同源。</li>
+<li><b>(c) 训练验收器</b>。现在 AHa-3D 的检查环节靠大模型看 X-Ray 叠加图和数值指标自检，审查门再由 Codex 只读审查。GRASE 把"用学出来的几何判别器替代一部分 VLM 验证"写成了未来工作，原文是 <q>replace part of the VLM-based verification with learned geometric critics to reduce cost and improve robustness</q>。</li>
+</ul>
+</div>
+<p class="src">设计文档第 2、10、12 节；GRASE 阅读笔记（未来工作原文）；03 号笔记 §1（CA-1M 验证集 107 个、训练集 3,118 个视频）；02 号笔记（SAM 3D 在 A100 上约 13 秒一个物体）；04 号笔记 §1.7（mig45 价格）。</p>

@@ -1,0 +1,1056 @@
+{
+  "kind": "exploratory identity-only ablation",
+  "mesh_sha256": "626fa1718395999a4b48c07695ad0799677a89e3ca0f68c7d5c1894242d0b247",
+  "geometry_edited": false,
+  "models_called": false,
+  "grouping_used_ground_truth": false,
+  "policy": "Split named mirror, vessels, pillow, shelf; assign side-table parts to nearest existing tabletop center.",
+  "limitations": "Handwritten scene-specific grouping; shelf is a benchmark-specific part/instance distinction. Does not establish shape fidelity, complete inventory, or generalization.",
+  "thresholds_sha256": "c0dd6aafa939389b78e9936699adc5b47a666634f6b0d4f65f516ed1134b98e1",
+  "alignment": {
+    "s": 0.9535704702465101,
+    "R": [
+      [
+        -0.999998358042762,
+        -0.0018121566653696635,
+        0.0
+      ],
+      [
+        0.0018121566653696635,
+        -0.999998358042762,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t": [
+      -2.0052199528974795,
+      -1.0036860656306175,
+      0.00591906801345643
+    ],
+    "n": 32,
+    "residual_median_m": 0.012520184631761442,
+    "residual_max_m": 0.03012500289108283,
+    "policy": "Evan gravity-constrained camera-center alignment; no object fitting",
+    "ok": true
+  },
+  "changes": [
+    {
+      "mesh_index": 64,
+      "mesh_name": "coffee lower shelf / coffee_table",
+      "old_group": "coffee_table",
+      "new_group": "coffee_shelf",
+      "new_category": "furniture/shelf"
+    },
+    {
+      "mesh_index": 80,
+      "mesh_name": "mirror panel / decor",
+      "old_group": "decor",
+      "new_group": "mirror",
+      "new_category": "furniture/mirror"
+    },
+    {
+      "mesh_index": 84,
+      "mesh_name": "side tabletop / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_0",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 85,
+      "mesh_name": "side table leg / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_0",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 86,
+      "mesh_name": "side table leg.001 / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_0",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 87,
+      "mesh_name": "side table leg.002 / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_0",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 88,
+      "mesh_name": "side table leg.003 / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_0",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 89,
+      "mesh_name": "side tabletop.001 / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_1",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 90,
+      "mesh_name": "side table leg.004 / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_1",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 91,
+      "mesh_name": "side table leg.005 / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_1",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 92,
+      "mesh_name": "side table leg.006 / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_1",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 93,
+      "mesh_name": "side table leg.007 / side_tables",
+      "old_group": "side_tables",
+      "new_group": "side_table_1",
+      "new_category": "furniture/sidetable"
+    },
+    {
+      "mesh_index": 136,
+      "mesh_name": "small sofa pillow / sofa",
+      "old_group": "sofa",
+      "new_group": "sofa_pillow",
+      "new_category": "furniture/pillow"
+    },
+    {
+      "mesh_index": 137,
+      "mesh_name": "sideboard vessel / decor",
+      "old_group": "decor",
+      "new_group": "vessel_137",
+      "new_category": "furniture/vase"
+    },
+    {
+      "mesh_index": 138,
+      "mesh_name": "sideboard vessel.001 / decor",
+      "old_group": "decor",
+      "new_group": "vessel_138",
+      "new_category": "furniture/vase"
+    },
+    {
+      "mesh_index": 139,
+      "mesh_name": "sideboard vessel.002 / decor",
+      "old_group": "decor",
+      "new_group": "vessel_139",
+      "new_category": "furniture/vase"
+    }
+  ],
+  "changes_by_gt": [
+    {
+      "gt_id": "Mirror|-03.40|+02.03|+00.00",
+      "category": "mirror",
+      "before": {
+        "gt_id": "Mirror|-03.40|+02.03|+00.00",
+        "category": "mirror",
+        "bin": "L",
+        "I": "missed",
+        "D": "missed",
+        "dhat": null,
+        "iou": null
+      },
+      "after": {
+        "gt_id": "Mirror|-03.40|+02.03|+00.00",
+        "category": "mirror",
+        "bin": "L",
+        "I": "correct",
+        "D": "correct",
+        "dhat": 0.11221160516638222,
+        "iou": 0.4377244685617861,
+        "pred_id": "mirror"
+      }
+    },
+    {
+      "gt_id": "Pillow|-04.28|+00.42|-01.74",
+      "category": "pillow",
+      "before": {
+        "gt_id": "Pillow|-04.28|+00.42|-01.74",
+        "category": "pillow",
+        "bin": "S",
+        "I": "missed",
+        "D": "missed",
+        "dhat": null,
+        "iou": null
+      },
+      "after": {
+        "gt_id": "Pillow|-04.28|+00.42|-01.74",
+        "category": "pillow",
+        "bin": "S",
+        "I": "misplaced",
+        "D": "correct",
+        "dhat": 0.43823843496301335,
+        "iou": 0.22745922115692233,
+        "pred_id": "sofa_pillow"
+      }
+    },
+    {
+      "gt_id": "Shelf|-02.48|+00.12|-02.49",
+      "category": "shelf",
+      "before": {
+        "gt_id": "Shelf|-02.48|+00.12|-02.49",
+        "category": "shelf",
+        "bin": "M",
+        "I": "missed",
+        "D": "missed",
+        "dhat": null,
+        "iou": null
+      },
+      "after": {
+        "gt_id": "Shelf|-02.48|+00.12|-02.49",
+        "category": "shelf",
+        "bin": "M",
+        "I": "misplaced",
+        "D": "correct",
+        "dhat": 0.12262346924973827,
+        "iou": 0.16386954645553528,
+        "pred_id": "coffee_shelf"
+      }
+    },
+    {
+      "gt_id": "SideTable|-05.43|+00.00|-05.12",
+      "category": "sidetable",
+      "before": {
+        "gt_id": "SideTable|-05.43|+00.00|-05.12",
+        "category": "sidetable",
+        "bin": "M",
+        "I": "missed",
+        "D": "missed",
+        "dhat": null,
+        "iou": null
+      },
+      "after": {
+        "gt_id": "SideTable|-05.43|+00.00|-05.12",
+        "category": "sidetable",
+        "bin": "M",
+        "I": "correct",
+        "D": "correct",
+        "dhat": 0.279081943412606,
+        "iou": 0.5175700734706203,
+        "pred_id": "side_table_1"
+      }
+    },
+    {
+      "gt_id": "SideTable|-02.02|+00.00|-05.08",
+      "category": "sidetable",
+      "before": {
+        "gt_id": "SideTable|-02.02|+00.00|-05.08",
+        "category": "sidetable",
+        "bin": "S",
+        "I": "missed",
+        "D": "missed",
+        "dhat": null,
+        "iou": null
+      },
+      "after": {
+        "gt_id": "SideTable|-02.02|+00.00|-05.08",
+        "category": "sidetable",
+        "bin": "S",
+        "I": "misplaced",
+        "D": "misplaced",
+        "dhat": 0.7852574039799144,
+        "iou": 0.13744007046861567,
+        "pred_id": "side_table_0"
+      }
+    },
+    {
+      "gt_id": "Vase|-04.22|+00.70|-05.05",
+      "category": "vase",
+      "before": {
+        "gt_id": "Vase|-04.22|+00.70|-05.05",
+        "category": "vase",
+        "bin": "S",
+        "I": "missed",
+        "D": "missed",
+        "dhat": null,
+        "iou": null
+      },
+      "after": {
+        "gt_id": "Vase|-04.22|+00.70|-05.05",
+        "category": "vase",
+        "bin": "S",
+        "I": "correct",
+        "D": "correct",
+        "dhat": 0.37935580205370456,
+        "iou": 0.3400829628482426,
+        "pred_id": "vessel_139"
+      }
+    },
+    {
+      "gt_id": "Vase|-03.90|+00.70|-05.10",
+      "category": "vase",
+      "before": {
+        "gt_id": "Vase|-03.90|+00.70|-05.10",
+        "category": "vase",
+        "bin": "S",
+        "I": "missed",
+        "D": "missed",
+        "dhat": null,
+        "iou": null
+      },
+      "after": {
+        "gt_id": "Vase|-03.90|+00.70|-05.10",
+        "category": "vase",
+        "bin": "S",
+        "I": "correct",
+        "D": "correct",
+        "dhat": 0.27608879218813154,
+        "iou": 0.42126552405725726,
+        "pred_id": "vessel_138"
+      }
+    }
+  ],
+  "results": {
+    "baseline": {
+      "rows": [
+        {
+          "gt_id": "ArmChair|-04.33|+00.00|-03.53",
+          "category": "armchair",
+          "bin": "M",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.013936802550260599,
+          "iou": 0.9319670503038278,
+          "pred_id": "armchair"
+        },
+        {
+          "gt_id": "Book|-02.53|+00.70|-05.12",
+          "category": "book",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Box|-02.36|+00.25|-01.65",
+          "category": "box",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "CoffeeTable|-02.47|+00.00|-02.49",
+          "category": "coffeetable",
+          "bin": "M",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.045569814503696744,
+          "iou": 0.7857984910754309,
+          "pred_id": "coffee_table"
+        },
+        {
+          "gt_id": "CreditCard|-02.23|+00.58|-03.05",
+          "category": "creditcard",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Drawer|-04.02|+00.48|-05.03",
+          "category": "drawer",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Drawer|-04.02|+00.17|-05.03",
+          "category": "drawer",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Drawer|-02.98|+00.48|-05.03",
+          "category": "drawer",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Drawer|-02.98|+00.17|-05.03",
+          "category": "drawer",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Dresser|-03.51|+00.00|-05.10",
+          "category": "dresser",
+          "bin": "L",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.06378376267246033,
+          "iou": 0.6774660513722861,
+          "pred_id": "sideboard"
+        },
+        {
+          "gt_id": "FloorLamp|-04.82|+00.00|-05.12",
+          "category": "floorlamp",
+          "bin": "L",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.019924278997428043,
+          "iou": 0.6994863110148362,
+          "pred_id": "floor_lamp"
+        },
+        {
+          "gt_id": "GarbageCan|-00.97|-00.03|-05.06",
+          "category": "garbagecan",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "HousePlant|-05.63|+00.48|-05.13",
+          "category": "houseplant",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "KeyChain|-04.21|+00.32|-03.65",
+          "category": "keychain",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Laptop|-02.57|+00.58|-02.51",
+          "category": "laptop",
+          "bin": "S",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.03780238893498434,
+          "iou": 0.8098009894725721,
+          "pred_id": "laptop"
+        },
+        {
+          "gt_id": "LightSwitch|-05.76|+01.33|+00.01",
+          "category": "lightswitch",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Mirror|-03.40|+02.03|+00.00",
+          "category": "mirror",
+          "bin": "L",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Newspaper|-04.24|+00.34|-02.16",
+          "category": "newspaper",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Painting|-03.37|+01.80|-05.39",
+          "category": "painting",
+          "bin": "L",
+          "I": "misplaced",
+          "D": "correct",
+          "dhat": 0.06364212941881792,
+          "iou": 0.14154548746071205,
+          "pred_id": "painting"
+        },
+        {
+          "gt_id": "Pen|-02.83|+00.70|-04.96",
+          "category": "pen",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Pillow|-04.28|+00.42|-01.74",
+          "category": "pillow",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "RemoteControl|-04.29|+00.33|-02.66",
+          "category": "remotecontrol",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Shelf|-02.48|+00.12|-02.49",
+          "category": "shelf",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "SideTable|-05.43|+00.00|-05.12",
+          "category": "sidetable",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "SideTable|-02.02|+00.00|-05.08",
+          "category": "sidetable",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Sofa|-04.36|+00.01|-02.09",
+          "category": "sofa",
+          "bin": "L",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.006038894245269338,
+          "iou": 0.9143866682537583,
+          "pred_id": "sofa"
+        },
+        {
+          "gt_id": "Statue|-02.02|+00.48|-05.09",
+          "category": "statue",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Television|-00.61|+01.67|-02.60",
+          "category": "television",
+          "bin": "M",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.021153455403362244,
+          "iou": 0.7406070300499706,
+          "pred_id": "television"
+        },
+        {
+          "gt_id": "Vase|-02.61|+00.58|-02.94",
+          "category": "vase",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Vase|-04.22|+00.70|-05.05",
+          "category": "vase",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Vase|-04.48|+00.70|-05.08",
+          "category": "vase",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Vase|-03.90|+00.70|-05.10",
+          "category": "vase",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Watch|-02.79|+00.58|-02.07",
+          "category": "watch",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "WateringCan|-07.99|+00.00|-04.63",
+          "category": "wateringcan",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        }
+      ],
+      "summary": {
+        "XS": {
+          "n": 6,
+          "recall_I": 0.0,
+          "misplaced_I": 0.0,
+          "missed_I": 1.0,
+          "recall_D": 0.0,
+          "misplaced_D": 0.0,
+          "missed_D": 1.0
+        },
+        "S": {
+          "n": 12,
+          "recall_I": 0.08333333333333333,
+          "misplaced_I": 0.0,
+          "missed_I": 0.9166666666666666,
+          "recall_D": 0.08333333333333333,
+          "misplaced_D": 0.0,
+          "missed_D": 0.9166666666666666
+        },
+        "M": {
+          "n": 11,
+          "recall_I": 0.2727272727272727,
+          "misplaced_I": 0.0,
+          "missed_I": 0.7272727272727273,
+          "recall_D": 0.2727272727272727,
+          "misplaced_D": 0.0,
+          "missed_D": 0.7272727272727273
+        },
+        "L": {
+          "n": 5,
+          "recall_I": 0.6,
+          "misplaced_I": 0.2,
+          "missed_I": 0.2,
+          "recall_D": 0.8,
+          "misplaced_D": 0.0,
+          "missed_D": 0.2
+        }
+      },
+      "n_pred": 13,
+      "overall": {
+        "correct_I": 7,
+        "misplaced_I": 1,
+        "missed_I": 26,
+        "correct_D": 8,
+        "misplaced_D": 0,
+        "missed_D": 26
+      }
+    },
+    "split_identity": {
+      "rows": [
+        {
+          "gt_id": "ArmChair|-04.33|+00.00|-03.53",
+          "category": "armchair",
+          "bin": "M",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.013936802550260599,
+          "iou": 0.9319670503038278,
+          "pred_id": "armchair"
+        },
+        {
+          "gt_id": "Book|-02.53|+00.70|-05.12",
+          "category": "book",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Box|-02.36|+00.25|-01.65",
+          "category": "box",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "CoffeeTable|-02.47|+00.00|-02.49",
+          "category": "coffeetable",
+          "bin": "M",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.045569814503696744,
+          "iou": 0.7857984910754309,
+          "pred_id": "coffee_table"
+        },
+        {
+          "gt_id": "CreditCard|-02.23|+00.58|-03.05",
+          "category": "creditcard",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Drawer|-04.02|+00.48|-05.03",
+          "category": "drawer",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Drawer|-04.02|+00.17|-05.03",
+          "category": "drawer",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Drawer|-02.98|+00.48|-05.03",
+          "category": "drawer",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Drawer|-02.98|+00.17|-05.03",
+          "category": "drawer",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Dresser|-03.51|+00.00|-05.10",
+          "category": "dresser",
+          "bin": "L",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.06378376267246033,
+          "iou": 0.6774660513722861,
+          "pred_id": "sideboard"
+        },
+        {
+          "gt_id": "FloorLamp|-04.82|+00.00|-05.12",
+          "category": "floorlamp",
+          "bin": "L",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.019924278997428043,
+          "iou": 0.6994863110148362,
+          "pred_id": "floor_lamp"
+        },
+        {
+          "gt_id": "GarbageCan|-00.97|-00.03|-05.06",
+          "category": "garbagecan",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "HousePlant|-05.63|+00.48|-05.13",
+          "category": "houseplant",
+          "bin": "M",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "KeyChain|-04.21|+00.32|-03.65",
+          "category": "keychain",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Laptop|-02.57|+00.58|-02.51",
+          "category": "laptop",
+          "bin": "S",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.03780238893498434,
+          "iou": 0.8098009894725721,
+          "pred_id": "laptop"
+        },
+        {
+          "gt_id": "LightSwitch|-05.76|+01.33|+00.01",
+          "category": "lightswitch",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Mirror|-03.40|+02.03|+00.00",
+          "category": "mirror",
+          "bin": "L",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.11221160516638222,
+          "iou": 0.4377244685617861,
+          "pred_id": "mirror"
+        },
+        {
+          "gt_id": "Newspaper|-04.24|+00.34|-02.16",
+          "category": "newspaper",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Painting|-03.37|+01.80|-05.39",
+          "category": "painting",
+          "bin": "L",
+          "I": "misplaced",
+          "D": "correct",
+          "dhat": 0.06364212941881792,
+          "iou": 0.14154548746071205,
+          "pred_id": "painting"
+        },
+        {
+          "gt_id": "Pen|-02.83|+00.70|-04.96",
+          "category": "pen",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Pillow|-04.28|+00.42|-01.74",
+          "category": "pillow",
+          "bin": "S",
+          "I": "misplaced",
+          "D": "correct",
+          "dhat": 0.43823843496301335,
+          "iou": 0.22745922115692233,
+          "pred_id": "sofa_pillow"
+        },
+        {
+          "gt_id": "RemoteControl|-04.29|+00.33|-02.66",
+          "category": "remotecontrol",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Shelf|-02.48|+00.12|-02.49",
+          "category": "shelf",
+          "bin": "M",
+          "I": "misplaced",
+          "D": "correct",
+          "dhat": 0.12262346924973827,
+          "iou": 0.16386954645553528,
+          "pred_id": "coffee_shelf"
+        },
+        {
+          "gt_id": "SideTable|-05.43|+00.00|-05.12",
+          "category": "sidetable",
+          "bin": "M",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.279081943412606,
+          "iou": 0.5175700734706203,
+          "pred_id": "side_table_1"
+        },
+        {
+          "gt_id": "SideTable|-02.02|+00.00|-05.08",
+          "category": "sidetable",
+          "bin": "S",
+          "I": "misplaced",
+          "D": "misplaced",
+          "dhat": 0.7852574039799144,
+          "iou": 0.13744007046861567,
+          "pred_id": "side_table_0"
+        },
+        {
+          "gt_id": "Sofa|-04.36|+00.01|-02.09",
+          "category": "sofa",
+          "bin": "L",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.006038894245269338,
+          "iou": 0.9143866682537583,
+          "pred_id": "sofa"
+        },
+        {
+          "gt_id": "Statue|-02.02|+00.48|-05.09",
+          "category": "statue",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Television|-00.61|+01.67|-02.60",
+          "category": "television",
+          "bin": "M",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.021153455403362244,
+          "iou": 0.7406070300499706,
+          "pred_id": "television"
+        },
+        {
+          "gt_id": "Vase|-02.61|+00.58|-02.94",
+          "category": "vase",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Vase|-04.22|+00.70|-05.05",
+          "category": "vase",
+          "bin": "S",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.37935580205370456,
+          "iou": 0.3400829628482426,
+          "pred_id": "vessel_139"
+        },
+        {
+          "gt_id": "Vase|-04.48|+00.70|-05.08",
+          "category": "vase",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "Vase|-03.90|+00.70|-05.10",
+          "category": "vase",
+          "bin": "S",
+          "I": "correct",
+          "D": "correct",
+          "dhat": 0.27608879218813154,
+          "iou": 0.42126552405725726,
+          "pred_id": "vessel_138"
+        },
+        {
+          "gt_id": "Watch|-02.79|+00.58|-02.07",
+          "category": "watch",
+          "bin": "XS",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        },
+        {
+          "gt_id": "WateringCan|-07.99|+00.00|-04.63",
+          "category": "wateringcan",
+          "bin": "S",
+          "I": "missed",
+          "D": "missed",
+          "dhat": null,
+          "iou": null
+        }
+      ],
+      "summary": {
+        "XS": {
+          "n": 6,
+          "recall_I": 0.0,
+          "misplaced_I": 0.0,
+          "missed_I": 1.0,
+          "recall_D": 0.0,
+          "misplaced_D": 0.0,
+          "missed_D": 1.0
+        },
+        "S": {
+          "n": 12,
+          "recall_I": 0.25,
+          "misplaced_I": 0.16666666666666666,
+          "missed_I": 0.5833333333333334,
+          "recall_D": 0.3333333333333333,
+          "misplaced_D": 0.08333333333333333,
+          "missed_D": 0.5833333333333334
+        },
+        "M": {
+          "n": 11,
+          "recall_I": 0.36363636363636365,
+          "misplaced_I": 0.09090909090909091,
+          "missed_I": 0.5454545454545454,
+          "recall_D": 0.45454545454545453,
+          "misplaced_D": 0.0,
+          "missed_D": 0.5454545454545454
+        },
+        "L": {
+          "n": 5,
+          "recall_I": 0.8,
+          "misplaced_I": 0.2,
+          "missed_I": 0.0,
+          "recall_D": 1.0,
+          "misplaced_D": 0.0,
+          "missed_D": 0.0
+        }
+      },
+      "n_pred": 19,
+      "overall": {
+        "correct_I": 11,
+        "misplaced_I": 4,
+        "missed_I": 19,
+        "correct_D": 14,
+        "misplaced_D": 1,
+        "missed_D": 19
+      }
+    }
+  }
+}

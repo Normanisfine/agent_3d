@@ -1,0 +1,469 @@
+<!-- ================================================================ -->
+<h2 id="ov"><span class="num">0</span>一页看懂这个项目</h2>
+<p>这一章把整个项目串一遍。读完以后，你应该能说清我们要回答的三个问题、整条流程分哪几步，以及这件事为什么值得做。</p>
+<p>每一块的细节都在后面的章节里，这里只给骨架和最关键的数字。</p>
+
+<h3 id="a-ov-pic">0.1 一支装修队：项目的整体样子</h3>
+<div class="box grandma">
+<span class="box-label">大白话</span>
+<p>想象你请了一支装修队。任务是照着一段手机拍的房间视频，在电脑里把这间房原样搭出来，每件家具、每个杯子都要是能单独搬动的东西。</p>
+<ul>
+<li><b>视频</b>就是房子的照片。手机绕房间慢慢走一圈，一个镜头拍到底。</li>
+<li><b>测量员</b>是 Pi3X 和 SAM 3。Pi3X 算出每张照片是站在哪儿、朝哪拍的，以及画面里每个点离镜头多远；SAM 3 把照片里的地面、墙这些东西用荧光笔圈出来。他们每个房间只量一次，量完的数据留给全队共用。</li>
+<li><b>包工头</b>是 agent，一个会用工具的大模型。它会看照片、会翻测量员留下的数据、自己在照片上量尺寸，也会写脚本搭家具，搭完还拿照片对一遍。</li>
+<li><b>定做小摆件的工厂</b>是 3D 生成模型。寄一张杯子照片过去，工厂寄回一个杯子的 3D 模型。包工头可以自己拿方块拼杯子，也可以下单给工厂。</li>
+<li><b>验房</b>是评测。拿激光扫描标出来的"真实户型图"（每件东西一个 3D 框），一件一件核对搭得对不对。</li>
+</ul>
+<p>我们关心的是杯子、瓶子、书、遥控器、鼠标、台灯这些小东西。它们到底丢了多少、丢在哪一步，还没有人量过。我们要把这两件事量清楚，再看花多少钱补最划算。</p>
+</div>
+<p>真实的流程如下。<b>共用感知</b>的意思是，每个场景的 Pi3X 和 SAM 3 结果只算一次，所有实验组读同一份，这样感知环节的随机性不会混进组间差异。</p>
+<p>agent 那一段跑在 AHa-3D 的 <b>harness</b> 里（套在大模型外面的工具和规则，见 <a href="#a-agent">1.7 节</a>）。驱动模型是 GPT-6，通过 <b>Codex CLI</b>（OpenAI 的命令行 agent 工具）调用。</p>
+<p>我们把 AHa-3D 原有的五个阶段归成四个环节：<b>找物体、建形状、摆准、检查</b>。所有改动都落在这四个环节里。</p>
+
+<div class="arch">
+<div class="arch-title">从一段房间视频到一张成本-精度图</div>
+<div class="svg-wrap"><svg viewBox="0 0 780 320" width="780" role="img" aria-label="项目总架构：视频经共用感知、agent 的四个环节变成 Blender 场景，再经对齐、配对、三种结局、漏斗、成本-精度五步评测">
+<defs><marker id="a-m0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="8" y="56" width="84" height="76" rx="8" class="f3 stroke"/>
+<text x="50" y="80" text-anchor="middle" font-weight="700">房间视频</text>
+<text x="50" y="98" text-anchor="middle" font-size="11">一个连续镜头</text>
+<text x="50" y="114" text-anchor="middle" font-size="11">CA-1M 帧合成</text>
+</g>
+<g data-s="2">
+<path d="M92,94 L132,94" class="arrow" marker-end="url(#a-m0)"/>
+<text x="112" y="86" text-anchor="middle" font-size="11">32 帧</text>
+<rect x="134" y="20" width="166" height="150" rx="10" class="f6 stroke"/>
+<text x="217" y="40" text-anchor="middle" font-weight="700">共用感知</text>
+<text x="217" y="56" text-anchor="middle" font-size="11">在 Betty 上每场景算一次</text>
+<rect x="144" y="66" width="146" height="44" rx="6" class="f1 stroke"/>
+<text x="217" y="84" text-anchor="middle" font-weight="700">Pi3X</text>
+<text x="217" y="101" text-anchor="middle" font-size="11">相机 K、c2w，点图</text>
+<rect x="144" y="118" width="146" height="44" rx="6" class="f1 stroke"/>
+<text x="217" y="136" text-anchor="middle" font-weight="700">SAM 3</text>
+<text x="217" y="153" text-anchor="middle" font-size="11">地面、墙等的掩码</text>
+</g>
+<g data-s="3 4 5 6">
+<rect x="340" y="20" width="432" height="150" rx="10" class="f6 stroke"/>
+<text x="556" y="40" text-anchor="middle" font-weight="700">agent 在 harness 里干活</text>
+<text x="556" y="56" text-anchor="middle" font-size="11">驱动模型 GPT-6，经 Codex CLI</text>
+</g>
+<g data-s="3">
+<path d="M300,95 L338,95" class="arrow" marker-end="url(#a-m0)"/>
+<text x="320" y="114" text-anchor="middle" font-size="11">相机</text>
+<text x="320" y="128" text-anchor="middle" font-size="11">点图</text>
+<text x="320" y="142" text-anchor="middle" font-size="11">掩码</text>
+<rect x="353" y="66" width="94" height="76" rx="6" class="f1 stroke"/>
+<text x="400" y="86" text-anchor="middle" font-weight="700">① 找物体</text>
+<text x="400" y="104" text-anchor="middle" font-size="11">看帧列清单</text>
+<text x="400" y="121" text-anchor="middle" font-size="11">A2 起加 Boxer</text>
+</g>
+<g data-s="4">
+<path d="M447,104 L457,104" class="arrow" marker-end="url(#a-m0)"/>
+<rect x="457" y="66" width="94" height="76" rx="6" class="f1 stroke"/>
+<text x="504" y="86" text-anchor="middle" font-weight="700">② 建形状</text>
+<text x="504" y="104" text-anchor="middle" font-size="11">写 bpy 脚本</text>
+<text x="504" y="121" text-anchor="middle" font-size="11">方块或生成</text>
+</g>
+<g data-s="5">
+<path d="M551,104 L561,104" class="arrow" marker-end="url(#a-m0)"/>
+<rect x="561" y="66" width="94" height="76" rx="6" class="f1 stroke"/>
+<text x="608" y="86" text-anchor="middle" font-weight="700">③ 摆准</text>
+<text x="608" y="104" text-anchor="middle" font-size="11">量尺寸、配准</text>
+<text x="608" y="121" text-anchor="middle" font-size="11" class="shape">place_mesh</text>
+</g>
+<g data-s="6">
+<path d="M655,104 L665,104" class="arrow" marker-end="url(#a-m0)"/>
+<rect x="665" y="66" width="94" height="76" rx="6" class="f1 stroke"/>
+<text x="712" y="86" text-anchor="middle" font-weight="700">④ 检查</text>
+<text x="712" y="104" text-anchor="middle" font-size="11">轮廓叠回帧</text>
+<text x="712" y="121" text-anchor="middle" font-size="11">物理、审查门</text>
+<path d="M712,142 L712,152 L504,152 L504,144" class="arrow-red" marker-end="url(#a-m0)"/>
+<text x="608" y="165" text-anchor="middle" font-size="11" class="lbl-accent">没通过就回到 ② 改</text>
+</g>
+<g data-s="7">
+<path d="M556,170 L556,190 L50,190 L50,210" class="arrow" marker-end="url(#a-m0)"/>
+<text x="300" y="184" text-anchor="middle" font-size="11">最终的 .blend</text>
+<rect x="8" y="212" width="104" height="80" rx="8" class="f3 stroke"/>
+<text x="60" y="236" text-anchor="middle" font-weight="700">Blender 场景</text>
+<text x="60" y="254" text-anchor="middle" font-size="11">.blend 文件</text>
+<text x="60" y="271" text-anchor="middle" font-size="11">每物体一个根节点</text>
+<path d="M112,252 L146,252" class="arrow" marker-end="url(#a-m0)"/>
+<text x="129" y="244" text-anchor="middle" font-size="11">3D 框</text>
+<rect x="148" y="200" width="624" height="112" rx="10" class="f6 stroke"/>
+<text x="460" y="218" text-anchor="middle" font-weight="700">评测：和 CA-1M 的真值框比</text>
+<rect x="162" y="228" width="108" height="72" rx="6" class="f2 stroke"/>
+<text x="216" y="248" text-anchor="middle" font-weight="700">对齐</text>
+<text x="216" y="266" text-anchor="middle" font-size="11">相机轨迹 Sim(3)</text>
+<text x="216" y="283" text-anchor="middle" font-size="11">不用被评物体</text>
+<path d="M270,264 L282,264" class="arrow" marker-end="url(#a-m0)"/>
+<rect x="284" y="228" width="108" height="72" rx="6" class="f2 stroke"/>
+<text x="338" y="248" text-anchor="middle" font-weight="700">配对</text>
+<text x="338" y="266" text-anchor="middle" font-size="11">匈牙利一对一</text>
+<text x="338" y="283" text-anchor="middle" font-size="11">不看类别</text>
+<path d="M392,264 L404,264" class="arrow" marker-end="url(#a-m0)"/>
+<rect x="406" y="228" width="108" height="72" rx="6" class="f2 stroke"/>
+<text x="460" y="248" text-anchor="middle" font-weight="700">三种结局</text>
+<text x="460" y="266" text-anchor="middle" font-size="11">建好、建坏、漏了</text>
+<text x="460" y="283" text-anchor="middle" font-size="11">判据 I 和 D 分开报</text>
+<path d="M514,264 L526,264" class="arrow" marker-end="url(#a-m0)"/>
+<rect x="528" y="228" width="108" height="72" rx="6" class="f2 stroke"/>
+<text x="582" y="248" text-anchor="middle" font-weight="700">漏斗</text>
+<text x="582" y="266" text-anchor="middle" font-size="11">最远走到哪一关</text>
+<text x="582" y="283" text-anchor="middle" font-size="11">看得见到摆准了</text>
+<path d="M636,264 L648,264" class="arrow" marker-end="url(#a-m0)"/>
+<rect x="650" y="228" width="108" height="72" rx="6" class="f2 stroke"/>
+<text x="704" y="248" text-anchor="middle" font-weight="700">成本-精度</text>
+<text x="704" y="266" text-anchor="middle" font-size="11">token 折成美元</text>
+<text x="704" y="283" text-anchor="middle" font-size="11">画帕累托前沿</text>
+</g>
+</g>
+</svg></div>
+<ol class="arch-steps">
+<li><b>房间视频进来</b>。输入是一个连续镜头的房间视频。正式实验用 CA-1M 的帧按 10 fps 合成 mp4。AHa-3D 从里面均匀抽 32 帧，每帧缩到 25.5 万像素以内。</li>
+<li><b>共用感知</b>。Pi3X 估出每帧的相机（内参 K 和位姿 c2w，见 <a href="#a-cam">1.1 节</a>）和近似米制的点图；SAM 3 分出地面、墙等的掩码。结果在 Betty 上算好（Penn 的 PARCC 计算集群，用课程额度，见 <a href="#cost">第 9 章</a>），所有实验组读同一份。</li>
+<li><b>① 找物体</b>。先决定要建哪些东西。A0、A1 全靠 agent 自己看帧；从 A2 开始，agent 多拿到一份物体清单，是 Boxer 在高清帧上检测出的 3D 框和裁剪图。</li>
+<li><b>② 建形状</b>。agent 写 bpy 脚本（Blender 的 Python 接口，见 <a href="#a-bpy">1.8 节</a>），用方块、程序化柜子和资产库搭。从 A3 开始，小物体可以调 <code>gen3d_request</code> 交给生成模型。</li>
+<li><b>③ 摆准</b>。把形状放到对的位置、朝向和大小。agent 用 <code>measure.py</code> 在帧上量尺寸；生成出来的网格交给 <code>place_mesh</code> 配准（ICP 加剪影搜索，见 <a href="#a-reg">1.6 节</a>）。</li>
+<li><b>④ 检查</b>。把场景的轮廓叠回视频帧（X-Ray），算掩码重合度；再查碰撞、支撑、稳定；最后由另一个只读的 Codex 会话当审查员，给出 accepted 或 rejected。没通过就回到 ② 改。</li>
+<li><b>出场景，再评测</b>。最终 .blend 里每个物体是一个语义根节点，导出它的世界坐标 3D 框。评测先用相机轨迹做 Sim(3) 对齐（旋转、平移加一个整体缩放，见 <a href="#a-depth">1.2 节</a>），再用匈牙利算法一对一配对（一种求配对的算法，让一对一配上的总代价最小，见 <a href="#a-evalwords">1.9 节</a>），把每个真值物体判成三种结局，画漏斗，最后和成本放在一起看（<a href="#eval">第 8 章</a>）。</li>
+</ol>
+</div>
+
+<div class="box trap">
+<span class="box-label">容易搞错</span>
+<ul>
+<li>Pi3X 和 SAM 3 在 AHa-3D 里只管"大结构"。默认的 SAM 3 只分 person、glass、mirror、floor、wall，<b>不会自动列出房间里有哪些物体</b>。在 A0、A1 里，物体清单完全靠 agent 看帧来定。</li>
+<li>"共用感知"是我们的设计决定。按我们的理解，作者的流程每次运行都会自己跑一遍参考构建；我们改成每个场景只算一次，是为了让组间差异只来自小物体的处理方式。</li>
+</ul>
+</div>
+<p class="src">设计文档第 4、6、8、9 节；AHa-3D 流程见 deep-aha3d.json（pipeline 各阶段）</p>
+
+<h3 id="a-ov-q">0.2 三个研究问题，以及各自怎么回答</h3>
+<p>整个项目只回答三个问题。每个问题对应一种测量和一张主图。</p>
+<ul>
+<li><b>Q1 丢多少</b>。以 AHa-3D 为代表的"视频转 3D 的 agent"，按物体大小分档，各丢了多少物体？</li>
+<li><b>Q2 丢在哪一关</b>。每个丢掉的物体，是画面里根本看不清、没被找到、没被建出来，还是建歪了？</li>
+<li><b>Q3 怎么补最划算</b>。流程的其他部分全部固定，只换小物体的处理方式，哪些做法落在成本-精度的前沿上？前沿上的做法，找不到别的做法比它又便宜又准（帕累托前沿，见 <a href="#a-evalwords">1.9 节</a>）。</li>
+</ul>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 290" width="760" role="img" aria-label="三个研究问题各自测什么、产出哪张图">
+<defs><marker id="a-m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="8" y="8" width="190" height="86" rx="8" class="f1 stroke"/>
+<text x="103" y="36" text-anchor="middle" font-weight="700" font-size="13">Q1 丢了多少</text>
+<text x="103" y="58" text-anchor="middle">按大小分档，</text>
+<text x="103" y="76" text-anchor="middle">各丢了多少物体</text>
+<path d="M198,51 L226,51" class="arrow" marker-end="url(#a-m1)"/>
+<rect x="228" y="8" width="270" height="86" rx="8" class="f0 stroke"/>
+<text x="363" y="32" text-anchor="middle">每个真值物体判成三种结局之一</text>
+<text x="363" y="54" text-anchor="middle">按最长边分 XS、S、M、L 四档</text>
+<text x="363" y="76" text-anchor="middle">每档报「建好了」的比例</text>
+<path d="M498,51 L526,51" class="arrow" marker-end="url(#a-m1)"/>
+<rect x="528" y="8" width="224" height="86" rx="8" class="f6 stroke"/>
+<text x="640" y="26" text-anchor="middle" font-size="11" font-weight="700">分档召回（示意）</text>
+<rect x="560" y="64" width="30" height="14" class="f1 stroke"/>
+<rect x="610" y="54" width="30" height="24" class="f1 stroke"/>
+<rect x="660" y="42" width="30" height="36" class="f1 stroke"/>
+<rect x="710" y="34" width="30" height="44" class="f1 stroke"/>
+<text x="575" y="90" text-anchor="middle" font-size="10">XS</text>
+<text x="625" y="90" text-anchor="middle" font-size="10">S</text>
+<text x="675" y="90" text-anchor="middle" font-size="10">M</text>
+<text x="725" y="90" text-anchor="middle" font-size="10">L</text>
+
+<rect x="8" y="102" width="190" height="86" rx="8" class="f1 stroke"/>
+<text x="103" y="130" text-anchor="middle" font-weight="700" font-size="13">Q2 丢在哪一关</text>
+<text x="103" y="152" text-anchor="middle">每个丢掉的物体，</text>
+<text x="103" y="170" text-anchor="middle">卡在哪一步</text>
+<path d="M198,145 L226,145" class="arrow" marker-end="url(#a-m1)"/>
+<rect x="228" y="102" width="270" height="86" rx="8" class="f0 stroke"/>
+<text x="363" y="126" text-anchor="middle">记录每个物体最远走到哪一关</text>
+<text x="363" y="148" text-anchor="middle">看得见 → 检测到 → 建出来 → 摆准了</text>
+<text x="363" y="170" text-anchor="middle">第一关只算几何，不调大模型</text>
+<path d="M498,145 L526,145" class="arrow" marker-end="url(#a-m1)"/>
+<rect x="528" y="102" width="224" height="86" rx="8" class="f6 stroke"/>
+<text x="640" y="120" text-anchor="middle" font-size="11" font-weight="700">漏斗（示意）</text>
+<rect x="600" y="128" width="140" height="10" class="f1 stroke"/>
+<rect x="600" y="141" width="108" height="10" class="f1 stroke"/>
+<rect x="600" y="154" width="80" height="10" class="f1 stroke"/>
+<rect x="600" y="167" width="56" height="10" class="f2 stroke"/>
+<text x="594" y="137" text-anchor="end" font-size="10">看得见</text>
+<text x="594" y="150" text-anchor="end" font-size="10">检测到</text>
+<text x="594" y="163" text-anchor="end" font-size="10">建出来</text>
+<text x="594" y="176" text-anchor="end" font-size="10">摆准了</text>
+
+<rect x="8" y="196" width="190" height="86" rx="8" class="f1 stroke"/>
+<text x="103" y="224" text-anchor="middle" font-weight="700" font-size="13">Q3 怎么补最划算</text>
+<text x="103" y="246" text-anchor="middle">哪些做法落在</text>
+<text x="103" y="264" text-anchor="middle">成本-精度前沿上</text>
+<path d="M198,239 L226,239" class="arrow" marker-end="url(#a-m1)"/>
+<rect x="228" y="196" width="270" height="86" rx="8" class="f0 stroke"/>
+<text x="363" y="220" text-anchor="middle">7 组同感知；6 个 agent 组同驱动、同上限</text>
+<text x="363" y="242" text-anchor="middle">成本 = token 折 API 美元 + 生成费</text>
+<text x="363" y="264" text-anchor="middle">比小物体召回，画帕累托前沿</text>
+<path d="M498,239 L526,239" class="arrow" marker-end="url(#a-m1)"/>
+<rect x="528" y="196" width="224" height="86" rx="8" class="f6 stroke"/>
+<text x="640" y="214" text-anchor="middle" font-size="11" font-weight="700">成本-精度（示意）</text>
+<path d="M560,262 L740,262" class="arrow"/>
+<path d="M560,262 L560,222" class="arrow"/>
+<path d="M585,252 L610,240 L650,232 L700,226" class="arrow-blue dash"/>
+<circle cx="585" cy="252" r="4" class="accent"/>
+<circle cx="610" cy="240" r="4" class="accent"/>
+<circle cx="650" cy="232" r="4" class="accent"/>
+<circle cx="700" cy="226" r="4" class="accent"/>
+<circle cx="632" cy="252" r="3.5" class="f0 stroke"/>
+<circle cx="690" cy="244" r="3.5" class="f0 stroke"/>
+<text x="740" y="275" text-anchor="end" font-size="10">成本 →</text>
+<text x="566" y="230" font-size="10">召回</text>
+</g>
+</svg></div>
+<figcaption>三个问题各对应一种测量，右栏三张小图只示意样子，不是数据。召回指真值物体里"建好了"的比例。Q3 小图里红色实心点连成前沿，灰色空心圈是被压住的做法。三张图在 <a href="#funnel">第 5 章</a>和 <a href="#eval">第 8 章</a>细讲。</figcaption>
+</figure>
+
+<p><b>怎么回答 Q1</b>。在 15 个 CA-1M 测试视频上，把每个真值物体判成"建好了、建坏了、漏了"三种结局之一，按真值框最长边分档（XS 小于 0.2 m，S 0.2–0.5 m，M 0.5–1.5 m，L 1.5 m 以上），每档报召回。</p>
+<p><b>怎么回答 Q2</b>。给每个真值物体记下它最远走到哪一关，每个实验组、每个尺寸档画一根堆叠条（<a href="#funnel">第 5 章</a>）。第一关"看得见"只用几何算，算出来就是"不管 agent 多聪明都过不去的天花板"。</p>
+<p><b>怎么回答 Q3</b>。七个实验组（<a href="#arms">第 4 章</a>）共用同一份感知；六个 agent 组还共用同一个驱动和同样的时间、轮数上限；P0 不用大模型。各组只换小物体的处理方式。</p>
+<p>成本用 token 日志按官方 API 价格折成美元，再加生成费。最后画帕累托前沿，不评"哪种最好"。</p>
+<p>另外还有两个目标。一是大家具（L 档）不能比 AHa-3D 原版差；二是用 2 到 3 段自己拍的视频做定性展示。</p>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>Q1 看分档召回，Q2 看漏斗，Q3 看成本-精度前沿。七组共用同一份感知；六个 agent 组还共用同一个驱动和同样的时间、轮数上限；P0 不用大模型。</p>
+</div>
+<p class="src">设计文档第 0、2、9 节；proposal.tex「Problem statement」</p>
+
+<h3 id="a-ov-why">0.3 为什么值得做</h3>
+<p>理由有四条。前两条说明 AHa-3D 本身留了空白，后两条说明我们的贡献落在哪儿。</p>
+<p><b>第一，AHa-3D 没有公布任何精度数字</b>。它是一篇技术博客加一个开源仓库，用 GPT-6 Astra 驱动，把房间视频变成 Blender 场景。</p>
+<p>博客只有并排对比视频和一张 token 表，没有任何精度数字。作者把消融（拿掉或换掉一个部件，看结果变多少）一节自己标成了占位。截至 10 月 14 日，仓库停在提交 82f4b11，没有评测脚本。</p>
+<p><b>第二，从公开材料看，AHa-3D 对小物体的要求本来就放得很低</b>。证据有四条，出处要分清。</p>
+<ul>
+<li>博客里一次对比实验（workflow ablation）给 agent 的任务，要求对上墙和主要家具，小物体近似即可。原文是 <q>They should match the walls and major furniture and approximate small objects.</q></li>
+<li>仓库的精度档说明里，"Major objects"档写着桌面和柜顶的小摆设可以有出入。原文是 <q>Small tabletop/cabinet-top decor may vary unless user-flagged</q>。默认用的是哪一档，我们没有核实。</li>
+<li>资产库注册了 108 项，有蜡烛、花瓶、植物、餐具、挂画，没有杯子、书、遥控器这类常见的桌面物体。</li>
+<li>作者试过用 SAM 3D Objects 和 TRELLIS.2 生成物体，做完又搁置了，原因没公开。原文是 <q>completed and then deferred</q>。</li>
+</ul>
+<p>第一条的出处要说准。"approximate small objects" 只出自那次对比实验的任务描述，<b>不一定是发布版的默认提示词</b>。所以 A0 原样跑作者的提示词，A1 另写一版"认真建小物体"的提示词当公平基线。</p>
+<p><b>第三，"小物体交给生成模型"这个做法已经有人做了</b>，所以它不是我们的贡献。下图列出五篇近期工作各自做了什么。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 276" width="760" role="img" aria-label="五篇相关工作和我们的对比：大家都把小物体交给生成模型，但按大小报召回、拆到每一关、同预算比较做法这三格空着">
+<g font-size="12">
+<rect x="298" y="6" width="115" height="22" rx="4" class="f6 stroke"/>
+<text x="355.5" y="21" text-anchor="middle">大家都做了</text>
+<rect x="413" y="6" width="345" height="22" rx="4" class="f3 stroke"/>
+<text x="585.5" y="21" text-anchor="middle" font-weight="700">没人量过的三件事（我们的贡献）</text>
+<text x="16" y="50" font-weight="700">工作</text>
+<text x="223" y="50" text-anchor="middle" font-weight="700">设定</text>
+<text x="355.5" y="50" text-anchor="middle" font-weight="700">小物体交给生成</text>
+<text x="470.5" y="50" text-anchor="middle" font-weight="700">按大小报召回</text>
+<text x="585.5" y="50" text-anchor="middle" font-weight="700">拆到每一关</text>
+<text x="700.5" y="50" text-anchor="middle" font-weight="700">同预算比做法</text>
+<path d="M8,62 L758,62" class="arrow"/>
+<path d="M8,96 L758,96 M8,130 L758,130 M8,164 L758,164 M8,198 L758,198" class="stroke" stroke-width="0.6"/>
+<text x="16" y="84" font-weight="700">GRASE</text>
+<text x="223" y="84" text-anchor="middle">单目视频，整间房</text>
+<text x="355.5" y="84" text-anchor="middle">✓ 小件全部生成</text>
+<text x="470.5" y="84" text-anchor="middle">✗</text>
+<text x="585.5" y="84" text-anchor="middle">✗</text>
+<text x="700.5" y="84" text-anchor="middle">✗</text>
+<text x="16" y="118" font-weight="700">LIVIN</text>
+<text x="223" y="118" text-anchor="middle">多视角加扫描，整屋</text>
+<text x="355.5" y="118" text-anchor="middle">✓ 非铰接全生成</text>
+<text x="470.5" y="118" text-anchor="middle" font-size="11">部分：给了真值输入</text>
+<text x="585.5" y="118" text-anchor="middle">✗</text>
+<text x="700.5" y="118" text-anchor="middle">✗ 只有定性图</text>
+<text x="16" y="152" font-weight="700">GATOR</text>
+<text x="223" y="152" text-anchor="middle">1–10 张图，单物体</text>
+<text x="355.5" y="152" text-anchor="middle">✓ 先生成再精修</text>
+<text x="470.5" y="152" text-anchor="middle">✗ 目标是给定的</text>
+<text x="585.5" y="152" text-anchor="middle">✗</text>
+<text x="700.5" y="145" text-anchor="middle" font-size="11">部分：物体级、</text>
+<text x="700.5" y="159" text-anchor="middle" font-size="11">1–10 张图</text>
+<text x="16" y="186" font-weight="700">LiteReality-Agent</text>
+<text x="223" y="186" text-anchor="middle">RGB-D 输入</text>
+<text x="355.5" y="186" text-anchor="middle">✓ 复杂静态物体</text>
+<text x="470.5" y="186" text-anchor="middle">✗</text>
+<text x="585.5" y="186" text-anchor="middle">✗</text>
+<text x="700.5" y="186" text-anchor="middle">✗</text>
+<text x="16" y="220" font-weight="700">CoDimRecon</text>
+<text x="223" y="220" text-anchor="middle">多视角 RGB</text>
+<text x="355.5" y="220" text-anchor="middle" font-size="11">✓ 补容器里的小物体</text>
+<text x="470.5" y="220" text-anchor="middle">✗ 没单独评</text>
+<text x="585.5" y="220" text-anchor="middle">✗</text>
+<text x="700.5" y="220" text-anchor="middle">✗</text>
+<rect x="8" y="232" width="750" height="34" rx="6" class="f2 stroke"/>
+<text x="16" y="254" font-weight="700">我们</text>
+<text x="223" y="254" text-anchor="middle">单目视频，整间房</text>
+<text x="355.5" y="254" text-anchor="middle">借用，不算贡献</text>
+<text x="470.5" y="254" text-anchor="middle" font-weight="700">✓</text>
+<text x="585.5" y="254" text-anchor="middle" font-weight="700">✓</text>
+<text x="700.5" y="254" text-anchor="middle" font-weight="700">✓</text>
+</g>
+</svg></div>
+<figcaption>左边一列大家都打了勾，右边三列几乎全空。LIVIN 只对别人的非 agentic 方法、在给定真值掩码和深度的条件下评过一档小物体。GATOR 的目标物体是给定的，所以不评召回；它比较分支也只在物体级，每个物体 1 到 10 张图。CoDimRecon 原文说它的小物体补全 <q>not a separately evaluated component</q>。详细对照见 <a href="#related">第 15 章</a>。</figcaption>
+</figure>
+
+<p>各家的分流方式也不一样，别记混。</p>
+<ul>
+<li><b>GRASE</b>（ICLR 2027 投稿）：大件用基本体搭，所有小件用 TRELLIS.2 生成。</li>
+<li><b>LIVIN</b>（arXiv 2610.12069）：按"能不能开合"分流。能开合的由 agent 写代码；<b>所有不能开合的物体，包括大家具，都交给 Rodin 生成</b>。</li>
+<li><b>GATOR</b>（arXiv 2610.11215）：每个物体都先生成，再交给 GPT-6 Astra 精修。</li>
+<li><b>LiteReality-Agent</b>（arXiv 2610.01863）：外观复杂、基本静止的物体走 TRELLIS.2。</li>
+<li><b>CoDimRecon</b>（arXiv 2609.36024）：容器里漏掉的小物体，用 SAM3D 补出来放回去。</li>
+</ul>
+<p>所以我们的贡献是<b>把账算清楚</b>，具体是三点。</p>
+<ol>
+<li>在"单目视频、整间房、agent 建模"这个设定下，第一次按物体大小分档，报召回和摆放精度。</li>
+<li>把每个丢掉的物体归到具体哪一关丢的，也就是漏斗。</li>
+<li>在同一套流程、同样预算下，比较几种小物体处理方式，同时报花了多少钱，画成本-精度曲线。</li>
+</ol>
+<p><b>第四，"生成一定更好"本身就没定论</b>。GATOR 给 GPT-6 Astra 每个物体 10 分钟，从零写代码建模，再和"先生成再精修"比。</p>
+<p>比的指标是 Chamfer 距离：两个形状上的点互相找最近点，取平均距离，越小越像。两组数字的结论不一样。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 700 210" width="700" role="img" aria-label="GATOR 的两组 Chamfer 数字：ScanNet++ 上只差约 6%，桌面物体上差了将近一倍">
+<g font-size="12">
+<text x="8" y="22" font-weight="700">ScanNet++ 场景物体（229 个目标）</text>
+<text x="200" y="46" text-anchor="end">GPT-6 从零写代码</text>
+<rect x="210" y="32" width="330" height="20" rx="3" class="f3 stroke"/>
+<text x="546" y="46">0.033</text>
+<text x="200" y="72" text-anchor="end">先生成再精修（GATOR）</text>
+<rect x="210" y="58" width="310" height="20" rx="3" class="f1 stroke"/>
+<text x="526" y="72">0.031</text>
+<text x="596" y="60" font-weight="700">只差约 6%</text>
+<text x="8" y="108" font-weight="700">桌面物体（LM-O、HB、HANDAL）</text>
+<text x="200" y="132" text-anchor="end">GPT-6 从零写代码</text>
+<rect x="210" y="118" width="160" height="20" rx="3" class="f3 stroke"/>
+<text x="376" y="132">0.016</text>
+<text x="200" y="158" text-anchor="end">先生成再精修（GATOR）</text>
+<rect x="210" y="144" width="90" height="20" rx="3" class="f1 stroke"/>
+<text x="306" y="158">0.009</text>
+<text x="440" y="140" font-weight="700" class="lbl-accent">差了将近一倍</text>
+<text x="440" y="158" font-size="11">GPT-6 的误差多 78%</text>
+<text x="8" y="196" font-size="11">Chamfer 距离，按参考物体直径归一化，越小越好。两边都是每个物体 10 分钟预算。</text>
+</g>
+</svg></div>
+<figcaption>同一篇论文、同样的预算，换一批物体，结论就变了。房间里的物体上两者几乎打平，桌面小物体上生成明显更好。整间房、固定预算下，生成到底划不划算，要我们自己量。</figcaption>
+</figure>
+
+<div class="box calc">
+<span class="box-label">验算 · 两组差距各是多少</span>
+<ul>
+<li>ScanNet++：0.033 ÷ 0.031 ≈ 1.06，GPT-6 从零建的误差只多约 6%。</li>
+<li>桌面物体：0.016 ÷ 0.009 ≈ 1.78，误差多 78%，接近一倍。</li>
+</ul>
+<p>只引其中一组都会误导人。引用时两组一起写。</p>
+</div>
+<div class="box key">
+<span class="box-label">一句话记住</span>
+<p>"小物体交给生成"已经有五篇工作做过，我们的贡献是第一次把账算清楚：按大小分档、拆到每一关、同预算比做法和成本。"生成更好"是待检验的问题，结果是正是负都写进报告。</p>
+</div>
+<p class="src">设计文档第 1 节；01 号笔记第 1.2、2.1、3.1 节；GATOR arXiv 2610.11215 表格（01 号笔记转录）</p>
+
+<h3 id="a-ov-scope">0.4 不做的事，以及哪些情况算失败</h3>
+<p>先划清边界。下面这些事我们明确不做。</p>
+<div class="box plain">
+<span class="box-label">不做的事</span>
+<ul>
+<li><b>不训练主线模型</b>。训练只是加分项，10/26 决定做不做（<a href="#train">第 14 章</a>）。</li>
+<li><b>不量化形状和外观的好坏</b>。CA-1M 只有框，形状只做定性展示；ScanNet++ 在 11/2 前批下来才补形状指标。</li>
+<li><b>不做动态物体、人体、室外</b>。</li>
+<li><b>不重新实现 GRASE 或 GATOR 的整套系统</b>。只借做法，比如 GATOR 式精修、GRASE 式剪影搜索。</li>
+</ul>
+</div>
+<p>还有四种情况，代码全跑通了也算失败。设计文档管它们叫"反目标"。下图把每一种画成一个小场景。</p>
+
+<figure>
+<div class="svg-wrap"><svg viewBox="0 0 760 236" width="760" role="img" aria-label="四种算失败的情况：差距小于噪声、拿被评物体对齐、看了测试集再调、把同源结果当泛化">
+<defs><marker id="a-m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="8" y="8" width="176" height="220" rx="10" class="f6 stroke"/>
+<text x="96" y="30" text-anchor="middle" font-weight="700">① 差距小于噪声</text>
+<text x="89" y="84" text-anchor="middle" font-size="11">同组跑两次</text>
+<rect x="56" y="90" width="66" height="28" class="f4 stroke"/>
+<path d="M24,118 L168,118" class="arrow" marker-end="url(#a-m2)"/>
+<circle cx="60" cy="118" r="4" class="f1 stroke"/>
+<circle cx="118" cy="118" r="4" class="f1 stroke"/>
+<circle cx="88" cy="118" r="4" class="f3 stroke"/>
+<text x="60" y="134" text-anchor="middle" font-size="10.5">A1</text>
+<text x="88" y="134" text-anchor="middle" font-size="10.5">A3v</text>
+<text x="118" y="134" text-anchor="middle" font-size="10.5">A1</text>
+<text x="168" y="134" text-anchor="end" font-size="10.5">召回</text>
+<text x="96" y="162" text-anchor="middle" font-size="11">A3v 落在噪声范围里</text>
+<text x="96" y="180" text-anchor="middle" font-size="11">差距说明不了问题</text>
+<text x="96" y="198" text-anchor="middle" font-size="11" class="lbl-accent">→ 不下结论</text>
+
+<rect x="196" y="8" width="176" height="220" rx="10" class="f6 stroke"/>
+<text x="284" y="30" text-anchor="middle" font-weight="700">② 拿被评物体对齐</text>
+<text x="255" y="62" text-anchor="middle" font-size="10.5">真值杯子</text>
+<rect x="240" y="70" width="30" height="36" rx="3" class="f0 stroke dash"/>
+<rect x="300" y="82" width="30" height="36" rx="3" class="f3 stroke"/>
+<text x="315" y="134" text-anchor="middle" font-size="10.5">建出来的</text>
+<path d="M298,100 L274,92" class="arrow-red" marker-end="url(#a-m2)"/>
+<text x="284" y="162" text-anchor="middle" font-size="11">对齐把它拉回原位</text>
+<text x="284" y="180" text-anchor="middle" font-size="11">误差被抵消成 0</text>
+<text x="284" y="198" text-anchor="middle" font-size="11" class="lbl-accent">→ 只用相机轨迹对齐</text>
+
+<rect x="384" y="8" width="176" height="220" rx="10" class="f6 stroke"/>
+<text x="472" y="30" text-anchor="middle" font-weight="700">③ 看了测试集再调</text>
+<rect x="398" y="60" width="64" height="56" rx="6" class="f1 stroke"/>
+<text x="430" y="82" text-anchor="middle" font-size="11" font-weight="700">开发集</text>
+<text x="430" y="100" text-anchor="middle" font-size="10.5">5 个场景</text>
+<rect x="482" y="60" width="64" height="56" rx="6" class="f4 stroke"/>
+<text x="514" y="82" text-anchor="middle" font-size="11" font-weight="700">测试集</text>
+<text x="514" y="100" text-anchor="middle" font-size="10.5">15 个场景</text>
+<path d="M430,140 L430,120" class="arrow-green" marker-end="url(#a-m2)"/>
+<path d="M514,140 L514,120" class="arrow-red dash" marker-end="url(#a-m2)"/>
+<text x="430" y="154" text-anchor="middle" font-size="10.5">只在这里调</text>
+<text x="514" y="154" text-anchor="middle" font-size="10.5" class="lbl-accent">不许回头调</text>
+<text x="472" y="180" text-anchor="middle" font-size="11">名单 10/20 前写进</text>
+<text x="472" y="198" text-anchor="middle" font-size="11" class="shape">splits.json</text>
+
+<rect x="572" y="8" width="176" height="220" rx="10" class="f6 stroke"/>
+<text x="660" y="30" text-anchor="middle" font-weight="700">④ 同源当泛化</text>
+<text x="660" y="48" text-anchor="middle" font-size="10.5">同一套采集和标注</text>
+<rect x="584" y="56" width="72" height="40" rx="6" class="f1 stroke"/>
+<text x="620" y="72" text-anchor="middle" font-size="11">CA-1M</text>
+<text x="620" y="88" text-anchor="middle" font-size="11">训练集</text>
+<rect x="664" y="56" width="72" height="40" rx="6" class="f3 stroke"/>
+<text x="700" y="72" text-anchor="middle" font-size="11">CA-1M</text>
+<text x="700" y="88" text-anchor="middle" font-size="11">验证集</text>
+<path d="M620,96 L620,116" class="arrow" marker-end="url(#a-m2)"/>
+<path d="M700,96 L700,116" class="arrow" marker-end="url(#a-m2)"/>
+<rect x="584" y="118" width="72" height="28" rx="6" class="f0 stroke"/>
+<text x="620" y="136" text-anchor="middle" font-size="11">Boxer 训练</text>
+<rect x="664" y="118" width="72" height="28" rx="6" class="f0 stroke"/>
+<text x="700" y="136" text-anchor="middle" font-size="11">我们评测</text>
+<text x="660" y="168" text-anchor="middle" font-size="11">Boxer 结果偏乐观</text>
+<text x="660" y="186" text-anchor="middle" font-size="11">每张表并列干净对照</text>
+<text x="660" y="204" text-anchor="middle" font-size="11" class="lbl-accent">SAM 3 + Pi3X 拟合框</text>
+</g>
+</svg></div>
+<figcaption>四种失败各自的机制。① 同一组跑两次的差距就是噪声，组间差距比它小就不能下结论。② 用被评的物体去对齐，对齐会把要测的误差吸收掉。③ 阈值和提示词只在开发集上调，测试集名单提前锁死。④ Boxer 训练时用过 CA-1M 训练集，在 CA-1M 上测属于同源，结果偏乐观。</figcaption>
+</figure>
+
+<div class="box trap">
+<span class="box-label">算失败的情况（反目标）</span>
+<ul>
+<li>实验组之间的差距小于同一组跑两次的差距，却写成了"某组更好"。A1 和 A3v 会在 5 个场景上各重复一次，专门用来量这个噪声。</li>
+<li>用被评测的物体去做对齐，把要测的误差抵消掉了。主口径只用相机轨迹做对齐。</li>
+<li>看了测试集结果再去调阈值或提示词。</li>
+<li>把 Boxer 在 CA-1M 上的结果当成泛化能力来报。所以每张表都放一个干净对照，用 SAM 3 实例掩码加 Pi3X 点云拟合有向框。它的检测部分没用 CA-1M 标注训练过；几何部分还有一处同源风险，见下一段。</li>
+</ul>
+</div>
+<p><b>干净对照的同源风险</b>。Pi3X 的前身 π³ 训练时用过 ARKitScenes 和 ScanNet++（π³ 论文 §3.4），CA-1M 的视频就来自 ARKitScenes。所以几何的绝对精度可能偏乐观。</p>
+<p>Pi3X 本身用没用过这些数据，还没核实。所有组共用同一份感知，组间比较不受影响。</p>
+
+<div class="box key">
+<span class="box-label">必须记住的 5 件事</span>
+<ol>
+<li><b>一句话</b>：以 AHa-3D 为基线，第一次定量测出小物体丢了多少、丢在哪一步；再在同一套流程、同样预算下比较几种小物体做法的成本和精度。</li>
+<li><b>四个环节</b>：找物体、建形状、摆准、检查。Pi3X 和 SAM 3 的结果每个场景只算一次，所有组共用。</li>
+<li><b>七个实验组</b>：P0 不用大模型；A0 是作者原版；A1 要求认真建小物体；A2 加物体清单；A3r、A3v 加生成（按规则或由 agent 决定）；A4 加 GATOR 式精修。</li>
+<li><b>评测</b>：相机轨迹对齐，匈牙利一对一配对，每个真值物体判成建好、建坏、漏了；按最长边分 XS、S、M、L 四档；漏斗是主图。</li>
+<li><b>结论怎么写</b>："生成更好"是待检验的问题；差距小于同组重复的差距就不下结论；结果写成成本-精度的帕累托前沿。</li>
+</ol>
+</div>
+<p class="src">设计文档第 2、5、9 节</p>

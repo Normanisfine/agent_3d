@@ -1,0 +1,42 @@
+[
+  {
+    "file": "recover_original_usage.py",
+    "source": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha3d_ori/cost/recover_usage.py",
+    "source_sha256": "b60343a58677eed72a1ce2eac7a0dff29b5f6fcd4755e7d3dc725cdc7a460f66"
+  },
+  {
+    "file": "diagnose_qwen_api.py",
+    "source": "/home/mj/dl_project/agen3d/scripts/diagnose_qwen_api.py",
+    "source_sha256": "117909c78d166c0312738068228b18932a7937e1c10fe40ceb5bd6ac79859012"
+  },
+  {
+    "file": "audit_aha_runtime.py",
+    "source": "/home/mj/dl_project/agen3d/scripts/audit_aha_runtime.py",
+    "source_sha256": "03fc37d7a053343e22ee250baf6a4e9c4476779d21e499b7664a761dfe4727c5"
+  },
+  {
+    "file": "audit_aha_reviews.py",
+    "source": "/home/mj/dl_project/agen3d/scripts/audit_aha_reviews.py",
+    "source_sha256": "d273a861334719c588826eb538c2d26e585f88c23d1e1d487eed8b68262fc188"
+  },
+  {
+    "file": "audit_run.py",
+    "source": "/home/mj/dl_project/agen3d/src/agen3d/multiagent/aha_next/audit.py",
+    "source_sha256": "512cb5d89da6440da3b7be28e27e8b2c6a78f609b1ba3f2a52f64599373115a8"
+  },
+  {
+    "file": "evidence/original_cost_summary.json",
+    "source": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha3d_ori/cost/cost_summary.json",
+    "source_sha256": "a16f2618b36815d78a91910f6c210007353da430c96c4e63ce14672e9b08dfaa"
+  },
+  {
+    "file": "evidence/pilot-audit.json",
+    "source": "/home/mj/dl_project/agen3d/src/agen3d/multiagent/aha_next/pilot-audit.json",
+    "source_sha256": "eb0ccbd4b2f6b47bb493298b103c2822b7af05ad4e8e2bce664b755cba0f8461"
+  },
+  {
+    "file": "evidence/offline-evaluation.json",
+    "source": "/home/mj/dl_project/agen3d/src/agen3d/multiagent/aha_next/offline-evaluation.json",
+    "source_sha256": "d79365112828d1ece78c8d8b577cedbdf351018dd078d355eb04a107b50fb274"
+  }
+]

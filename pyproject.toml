@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agen3d"
+version = "0.1.0"
+description = "Geometry verification and offline evaluation around AHa-3D"
+requires-python = ">=3.11"
+dependencies = ["numpy==1.26.4", "scipy==1.14.1", "pydantic==2.10.6", "Pillow==11.1.0"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.4", "ruff==0.9.10"]
+models = ["huggingface-hub==0.36.0"]
+reference = ["open3d==0.19.0", "opencv-python-headless==4.10.0.84"]
+
+[project.scripts]
+agen3d-aha = "agen3d.multiagent.aha.cli:main"
+agen3d-reconstruct = "agen3d.multiagent.pipeline.cli:main"
+agen3d = "agen3d.cli:main"
+agen3d-multi = "agen3d.multiagent.cli:main"
+agen3d-models = "agen3d.multiagent.models:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

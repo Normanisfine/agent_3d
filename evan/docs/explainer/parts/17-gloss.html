@@ -1,0 +1,56 @@
+<h2 id="gloss"><span class="num">17</span>术语表</h2>
+<p>全页出现的专有名词，按它们在流程里第一次出场的位置排列。先看下图找到术语属于哪一段，再查表里的白话解释。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 770 172" width="770" role="img" aria-label="术语按流程分段：感知、分割、清单、agent、生成与摆放、评测、结论各段用到哪些术语">
+<defs><marker id="d-m17a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="4" y="16" width="102" height="36" rx="6" class="f3 stroke"/><text x="55" y="39" text-anchor="middle" font-weight="700">Pi3X 感知</text>
+<rect x="114" y="16" width="102" height="36" rx="6" class="f3 stroke"/><text x="165" y="39" text-anchor="middle" font-weight="700">SAM 3 分割</text>
+<rect x="224" y="16" width="102" height="36" rx="6" class="f3 stroke"/><text x="275" y="39" text-anchor="middle" font-weight="700">清单</text>
+<rect x="334" y="16" width="102" height="36" rx="6" class="f1 stroke"/><text x="385" y="39" text-anchor="middle" font-weight="700">agent 建场景</text>
+<rect x="444" y="16" width="102" height="36" rx="6" class="f3 stroke"/><text x="495" y="39" text-anchor="middle" font-weight="700">生成与摆放</text>
+<rect x="554" y="16" width="102" height="36" rx="6" class="f2 stroke"/><text x="605" y="39" text-anchor="middle" font-weight="700">评测</text>
+<rect x="664" y="16" width="102" height="36" rx="6" class="f2 stroke"/><text x="715" y="39" text-anchor="middle" font-weight="700">结论</text>
+<path d="M106,34 L113,34" class="arrow" marker-end="url(#d-m17a)"/><path d="M216,34 L223,34" class="arrow" marker-end="url(#d-m17a)"/><path d="M326,34 L333,34" class="arrow" marker-end="url(#d-m17a)"/><path d="M436,34 L443,34" class="arrow" marker-end="url(#d-m17a)"/><path d="M546,34 L553,34" class="arrow" marker-end="url(#d-m17a)"/><path d="M656,34 L663,34" class="arrow" marker-end="url(#d-m17a)"/>
+<text x="55" y="80" text-anchor="middle">位姿、内参</text><text x="55" y="100" text-anchor="middle">点云、点图</text><text x="55" y="120" text-anchor="middle">米制</text><text x="55" y="140" text-anchor="middle">MIG 切片</text>
+<text x="165" y="80" text-anchor="middle">掩码</text>
+<text x="275" y="80" text-anchor="middle">OBB</text><text x="275" y="100" text-anchor="middle">7、9 自由度</text><text x="275" y="120" text-anchor="middle">高清帧</text><text x="275" y="140" text-anchor="middle">同源、污染</text>
+<text x="385" y="80" text-anchor="middle">agent</text><text x="385" y="100" text-anchor="middle">harness</text><text x="385" y="120" text-anchor="middle">驱动模型</text><text x="385" y="140" text-anchor="middle">token</text><text x="385" y="160" text-anchor="middle">bpy</text>
+<text x="495" y="80" text-anchor="middle">规范空间</text><text x="495" y="100" text-anchor="middle">配准、ICP</text><text x="495" y="120" text-anchor="middle">剪影 IoU</text><text x="495" y="140" text-anchor="middle">验收门</text>
+<text x="605" y="80" text-anchor="middle">Sim(3)、Umeyama</text><text x="605" y="100" text-anchor="middle">匈牙利匹配</text><text x="605" y="120" text-anchor="middle">IoU3D、d̂</text><text x="605" y="140" text-anchor="middle">召回、精确率</text><text x="605" y="160" text-anchor="middle">漏斗</text>
+<text x="715" y="80" text-anchor="middle">bootstrap</text><text x="715" y="100" text-anchor="middle">帕累托前沿</text><text x="715" y="120" text-anchor="middle">消融</text><text x="715" y="140" text-anchor="middle">API 等价美元</text>
+</g></svg></div>
+<figcaption>术语按流程分段。从左往右就是一个场景从视频变成结论的顺序：先估相机和点云，再分割、列清单，agent 建场景时调生成和摆放工具，最后评测、汇总成结论。表格按同样的顺序排，最后一条"闸门"是时间线里的词。</figcaption></figure>
+<div class="table-wrap"><table>
+<thead><tr><th>术语</th><th>白话解释</th></tr></thead>
+<tbody>
+<tr><td><b>位姿</b>（外参）</td><td>相机在房间里的位置和朝向，每一帧一个。Pi3X 从视频里估出来。</td></tr>
+<tr><td><b>内参</b></td><td>镜头本身的参数：焦距和画面中心。它决定一个 3D 点投到图上的哪个像素。</td></tr>
+<tr><td><b>点云 / 点图</b></td><td>点云是一堆 3D 点。点图是"每个像素对应一个 3D 点"的图，和照片一样大；SAM 3D 要的 pointmap 就是它。</td></tr>
+<tr><td><b>米制</b></td><td>单位真的是米。单目视频估出来的尺度只是近似米制，所以评测时要用相机轨迹把尺度对齐。</td></tr>
+<tr><td><b>MIG 切片</b></td><td>把一张 GPU 切成几张互不干扰的小卡。Betty 上有 45 GB 和 90 GB 两种，不支持 OpenGL 和 Vulkan。</td></tr>
+<tr><td><b>掩码</b></td><td>标出某个物体占了哪些像素的黑白图。</td></tr>
+<tr><td><b>清单</b></td><td>待建物体的列表，每项一个 3D 框加一张 2D 裁剪图。A2 起交给 agent 逐项处理，评测时也用它判断"检测到"。</td></tr>
+<tr><td><b>OBB</b>（有向包围盒）</td><td>包住物体的长方体，由中心、长宽高、朝向描述。清单、真值、评测用的都是它。</td></tr>
+<tr><td><b>7 / 9 自由度</b></td><td>描述一个框要几个数。9 个是中心 3 + 尺寸 3 + 任意旋转 3；7 个是只绕竖直轴转（旋转只剩 1 个）。CA-1M 的标注是 9 自由度，评测时转成重力对齐的 7 自由度。</td></tr>
+<tr><td><b>高清帧</b></td><td>Pi3X 用的那 32 帧换成 1024×768 的原图。位姿和深度仍然来自 Pi3X，所以只多了分辨率，帧还是那些帧。</td></tr>
+<tr><td><b>同源 / 污染</b></td><td>被测模型训练时见过测试数据或同一来源的数据，成绩会偏乐观。Boxer 训练时用过 CA-1M 训练集，所以每张表都放干净对照。</td></tr>
+<tr><td><b>agent</b></td><td>会自己调用工具、看结果、再决定下一步的大模型程序。像装修队的包工头：会看图纸、会叫师傅，自己也动手。</td></tr>
+<tr><td><b>harness</b></td><td>包在模型外面的那一层：提示词、工具、检查规则、什么时候停。AHa-3D 本质上就是一个 harness。</td></tr>
+<tr><td><b>驱动模型</b></td><td>agent 背后实际做判断的大模型。主实验是 GPT-6（经 Codex CLI），复跑用 Claude Opus 5.5。</td></tr>
+<tr><td><b>token</b></td><td>大模型读写文字和图片的计数单位。一次运行用了多少 token，决定它花了多少钱。</td></tr>
+<tr><td><b>bpy</b></td><td>Blender 的 Python 接口。agent 写的建模脚本就是 bpy 代码。</td></tr>
+<tr><td><b>规范空间</b></td><td>生成模型输出网格时用的标准姿势和单位大小，和房间里的真实位置无关。Hunyuan3D 的输出在这里，要配准才能放进场景。</td></tr>
+<tr><td><b>配准 / ICP</b></td><td>配准是把模型挪、转、缩放到和观测对上。ICP（迭代最近点）是经典做法：反复"找最近点、算变换"，需要一个不太差的初值。</td></tr>
+<tr><td><b>剪影 / 剪影 IoU</b></td><td>剪影是模型投到图上的轮廓。剪影 IoU 是它和真实掩码重合部分占两者合并部分的比例，越接近 1 越贴合。</td></tr>
+<tr><td><b>验收门</b></td><td><code>place_mesh</code> 的最后一关。剪影 IoU、Chamfer 距离、尺寸三项都过，才保留生成的网格，否则退回方块。</td></tr>
+<tr><td><b>Sim(3) / Umeyama</b></td><td>Sim(3) 是"旋转 + 平移 + 统一缩放"的整体变换；不缩放的版本叫 SE(3)。Umeyama 1991 给出了从对应点直接算 Sim(3) 的公式。我们用它把 Pi3X 的相机轨迹对齐到真值轨迹。</td></tr>
+<tr><td><b>匈牙利匹配</b></td><td>预测物体和真值物体一对一配对、让总代价最小的方法。每个真值最多配一个预测。</td></tr>
+<tr><td><b>IoU3D / d̂</b></td><td>IoU3D 是两个 3D 框重叠体积除以合并体积。d̂ 是中心距离除以真值框的半对角线长，小物体上比 IoU3D 稳。</td></tr>
+<tr><td><b>召回 / 精确率</b></td><td>召回：真值物体里有多少被建好了。精确率：建出来的物体里有多少对得上真值。</td></tr>
+<tr><td><b>漏斗</b></td><td>记录每个真值物体最远走到哪一关：看得见 → 检测到 → 建出来 → 摆准了。像安检通道的几道关，看人在哪一道被拦下。</td></tr>
+<tr><td><b>bootstrap</b></td><td>按场景有放回地反复抽样、重算结果，看结果能波动多大，从而给出 95% 置信区间。</td></tr>
+<tr><td><b>帕累托前沿</b></td><td>在成本和精度上没被别的方法同时打败的那些方法。结论写成这条线，不写"哪种最好"。</td></tr>
+<tr><td><b>消融</b></td><td>只去掉或换掉一个部件，看结果变多少，以此判断这个部件的贡献。比如高清帧消融只改分辨率。</td></tr>
+<tr><td><b>API 等价美元</b></td><td>订阅不按次收费，就把每次运行的 token 数按官方 API 价格换算成美元，当作成本轴。</td></tr>
+<tr><td><b>闸门</b></td><td>事先定好的检查日期。到那天必须交出一样东西或做一个决定，比如 10/26 看 AHa-3D 能不能自己跑完。</td></tr>
+</tbody></table></div>

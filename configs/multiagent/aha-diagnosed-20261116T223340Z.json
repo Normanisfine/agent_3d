@@ -1,0 +1,70 @@
+{
+  "architecture": "aha",
+  "parallelism": {
+    "enabled": true,
+    "max_builds": 4,
+    "max_model_calls": 4,
+    "memory_per_build_gib": 4.0,
+    "benchmark": true
+  },
+  "aha_repo": "/home/mj/dl_project/agen3d/external/aha-3d",
+  "blender": "/home/mj/dl_project/tools/blender/blender-4.5.14-linux-x64/blender",
+  "python": "/home/mj/dl_project/agen3d/.venv/bin/python",
+  "source_scene": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-20261116T004232Z/candidates/build_room_shell-0001-2/scene.blend",
+  "layout_spec": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-20261116T004232Z/bootstrap/layout_spec.json",
+  "preparation": null,
+  "output": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-diagnosed-20261116T223340Z",
+  "source_images": {
+    "source_000000": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-20261116T004232Z/reference/source_views/source_000000_source.png",
+    "source_000062": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-20261116T004232Z/reference/source_views/source_000062_source.png",
+    "source_000116": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-20261116T004232Z/reference/source_views/source_000116_source.png",
+    "source_000177": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-20261116T004232Z/reference/source_views/source_000177_source.png",
+    "source_000239": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-20261116T004232Z/reference/source_views/source_000239_source.png"
+  },
+  "masks": {},
+  "supervisor": {
+    "backend": "codex",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium",
+    "base_url": "https://openrouter.ai/api/v1",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "provider": null,
+    "max_output_tokens": 12000,
+    "timeout_s": 600,
+    "call_reservation_usd": 0.25
+  },
+  "worker": {
+    "backend": "openrouter",
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "provider": "DeepInfra",
+    "max_output_tokens": 8000,
+    "timeout_s": 180,
+    "call_reservation_usd": 0.03
+  },
+  "judge": {
+    "backend": "codex",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium",
+    "base_url": "https://openrouter.ai/api/v1",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "provider": null,
+    "max_output_tokens": 1800,
+    "timeout_s": 600,
+    "call_reservation_usd": 0.25
+  },
+  "hunyuan": null,
+  "codex_budget_exempt": true,
+  "local_compute_budget_exempt": true,
+  "budget_usd": 5.0,
+  "judge_reserve_usd": 1.0,
+  "repair_reserve_usd": 1.0,
+  "max_takeovers": 3,
+  "max_generations": 2,
+  "timeout_s": 1200,
+  "host_hourly_usd": null,
+  "compute_reservation_usd": 0.1,
+  "instruction": "Continue reconstructing the full observed FloorPlan209 room from the existing reviewed shell. Preserve correct shell objects and cameras. Enumerate separate physical instances, including repeated objects and visible accessories; do not collapse them into category groups. Declare source evidence and supports. Use minimal real dependencies and parallel-safe local tasks where possible. This variant uses strong construction and strong local review; cheap triage is disabled. Fit geometry to actual source RGB contours, including door casing boundaries. Do not create synthetic final-review construction tasks."
+}

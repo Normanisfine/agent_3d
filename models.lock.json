@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "models": {
+    "sam3": {
+      "repo_id": "facebook/sam3",
+      "revision": "3c879f39826c281e95690f02c7821c4de09afae7",
+      "entrypoint": "sam3.pt",
+      "files": {
+        "config.json": {
+          "size": 25843,
+          "git_blob_sha1": "3e600e765b0f1b4c52680aed9ad242c9a90f7ed1"
+        },
+        "sam3.pt": {
+          "size": 3450062241,
+          "sha256": "9999e2341ceef5e136daa386eecb55cb414446a00ac2b55eb2dfd2f7c3cf8c9e"
+        }
+      }
+    },
+    "pi3x": {
+      "repo_id": "yyfz233/Pi3X",
+      "revision": "bb1deea4d7423de5b30691739cb451a3f57dc1d5",
+      "entrypoint": "model.safetensors",
+      "files": {
+        "config.json": {
+          "size": 44,
+          "git_blob_sha1": "af97178eea175f1e20943b1eeab10234ef9665be"
+        },
+        "model.safetensors": {
+          "size": 5440325620,
+          "sha256": "69972d6e1c4492cb4d737a84fe940e357087d81c52f5c9b7c160b49c1f41669a"
+        }
+      }
+    },
+    "sam3d": {
+      "repo_id": "facebook/sam-3d-objects",
+      "revision": "2e73555018d2741ccd486e56c24fac41155a1dc6",
+      "entrypoint": "checkpoints/pipeline.yaml",
+      "files": {
+        "checkpoints/pipeline.yaml": {
+          "size": 3548,
+          "git_blob_sha1": "0703a2eb4045418f1d6e38053712105d03f90d88"
+        },
+        "checkpoints/slat_decoder_gs.ckpt": {
+          "size": 171476155,
+          "sha256": "f8077c36a06eaf890dd93cda1937411f793dea1eb80b3dd9329f2038ba84a111"
+        },
+        "checkpoints/slat_decoder_gs.yaml": {
+          "size": 576,
+          "git_blob_sha1": "10683b1bd592e1db70eb7070a3365b536ad0ba9e"
+        },
+        "checkpoints/slat_decoder_gs_4.ckpt": {
+          "size": 170269801,
+          "sha256": "731a0eceaa47945b52aa27f650d695b2aea9cc70945751e5609e5cb5b49f0186"
+        },
+        "checkpoints/slat_decoder_gs_4.yaml": {
+          "size": 575,
+          "git_blob_sha1": "ef89609e6f0cf5a12398a5d5f000687bf6693916"
+        },
+        "checkpoints/slat_decoder_mesh.ckpt": {
+          "size": 363726862,
+          "sha256": "85907b37b67d8ce5b099a96629bdcfbd873eb407dee6b3aa9a75deb15038db33"
+        },
+        "checkpoints/slat_decoder_mesh.yaml": {
+          "size": 300,
+          "git_blob_sha1": "74735a4b9ba1fbd76b8d1a56f27b6ebe63aeafc9"
+        },
+        "checkpoints/slat_encoder.ckpt": {
+          "size": 173263986,
+          "sha256": "6485623145535f42c8afa4cbb68ab9953e54e2f0c1cb1eaf95dcb41051e10181"
+        },
+        "checkpoints/slat_encoder.yaml": {
+          "size": 268,
+          "git_blob_sha1": "595fe5c60af4398e7b5ebbcec7b954364b51ae56"
+        },
+        "checkpoints/slat_generator.ckpt": {
+          "size": 4906537684,
+          "sha256": "91529bde8e7daa12d09618a66c319e3a5a6398db6b23b958cedcb1c3f28faabb"
+        },
+        "checkpoints/slat_generator.yaml": {
+          "size": 1986,
+          "git_blob_sha1": "859964b5e87666122a7137f6dc9934444d6182ca"
+        },
+        "checkpoints/ss_decoder.ckpt": {
+          "size": 147609242,
+          "sha256": "6dac1cd7b7fda5a38e0614fadae441f1794f80e39ea2981f1ac8aff0a7e99340"
+        },
+        "checkpoints/ss_decoder.yaml": {
+          "size": 244,
+          "git_blob_sha1": "7982f7ff6cdb4bebcad49404ba03476fa69f4c6b"
+        },
+        "checkpoints/ss_encoder.ckpt": {
+          "size": 119085402,
+          "sha256": "dcc47810ac568b11fe6e4821ea1c8d6b960dfbda3e5f68e94c19f44b3bf9e83b"
+        },
+        "checkpoints/ss_encoder.yaml": {
+          "size": 231,
+          "git_blob_sha1": "2a882b6ecbc1ba38853303eef3b79f8151303361"
+        },
+        "checkpoints/ss_generator.ckpt": {
+          "size": 6690136964,
+          "sha256": "225f40479e4cff4f39d6fa14c55be3abad1475bf55b61af3bec1e19ed2f6c146"
+        },
+        "checkpoints/ss_generator.yaml": {
+          "size": 5076,
+          "git_blob_sha1": "35df0ea780c4c6f6eaf490c1a828ad054d4f9f0b"
+        }
+      }
+    },
+    "hunyuan-shape": {
+      "repo_id": "tencent/Hunyuan3D-2.1",
+      "revision": "0b94677654c57bb9a6b6845cd7b704ccf551d327",
+      "entrypoint": ".",
+      "files": {
+        "hunyuan3d-dit-v2-1/config.yaml": {
+          "size": 2078,
+          "git_blob_sha1": "695b7d5c6ba96a7f1f849430da23b21c682d8116"
+        },
+        "hunyuan3d-dit-v2-1/model.fp16.ckpt": {
+          "size": 7366389768,
+          "sha256": "6b519fc7242f78e9b5f47ea4d55668fe3d944a2d27332f4ca68d29a6ff603f5e"
+        }
+      }
+    },
+    "hispatial": {
+      "repo_id": "lhzzzzzy/HiSpatial-3B",
+      "revision": "75a5e3d65351d7602c492aa91533f62b8a252604",
+      "entrypoint": ".",
+      "files": {
+        "config.json": {
+          "size": 2630,
+          "git_blob_sha1": "194e460e72deaa837570a699208af84abdb0c93a"
+        },
+        "preprocessor_config.json": {
+          "size": 425,
+          "git_blob_sha1": "77bc692dcae67acc343539d9f0659d7de3c302b1"
+        },
+        "special_tokens_map.json": {
+          "size": 733,
+          "git_blob_sha1": "f48cea75e45286da1529fb88a24e851bc1a3c882"
+        },
+        "tokenizer.json": {
+          "size": 34600820,
+          "sha256": "172fab587d68c56b63eb3620057c62dfd15e503079ff7fce584692e3fd5bf4da"
+        },
+        "tokenizer_config.json": {
+          "size": 242627,
+          "git_blob_sha1": "439958637ea48c4bca26b67ef2cef82860e1a4d6"
+        },
+        "weights.pt": {
+          "size": 14688317615,
+          "sha256": "bb89a5ef3fb635f5e54a24836fb79d358678ca65999c6fa3ff4e6239ba1a3756"
+        }
+      }
+    },
+    "moge": {
+      "repo_id": "Ruicheng/moge-2-vitl-normal",
+      "revision": "cb0e8bbd6b1e243589717c78e750b1ba4c093acf",
+      "entrypoint": "model.pt",
+      "files": {
+        "model.pt": {
+          "size": 1323815904,
+          "sha256": "280741fd09bc3f403ccff9967784c2a391b52d2c0742ae3efdb21d9f90cc1a01"
+        }
+      }
+    }
+  }
+}

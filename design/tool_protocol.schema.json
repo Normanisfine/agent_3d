@@ -1,0 +1,1276 @@
+{
+  "asset": [
+    {
+      "name": "read_scene",
+      "description": "Read canonical scene, version and open issues.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "read_budget",
+      "description": "Read measured/unknown charges and reservations.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_evidence",
+      "description": "Read registered JSON or attach a registered image next turn.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "title": "EvidenceArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "summarize_geometry",
+      "description": "Read object box, bounds and uncertainty; no inferred mass.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id"
+        ],
+        "title": "ObjectArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "check_geometry",
+      "description": "Check declared support gaps and duplicate tracks (box checks only).",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "make_primitive",
+      "description": "Write a fitted local box OBJ candidate, not an accepted asset.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id"
+        ],
+        "title": "ObjectArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "emit_issue",
+      "description": "Record an evidence-backed issue for review.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          },
+          "issue_type": {
+            "title": "Issue Type",
+            "type": "string"
+          },
+          "severity": {
+            "pattern": "^(low|medium|high)$",
+            "title": "Severity",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "suggested_action": {
+            "title": "Suggested Action",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id",
+          "issue_type",
+          "severity",
+          "evidence_ids",
+          "suggested_action"
+        ],
+        "title": "IssueArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "search_assets",
+      "description": "Search approved mesh evidence descriptions.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "AssetQuery",
+        "type": "object"
+      }
+    }
+  ],
+  "critic": [
+    {
+      "name": "read_scene",
+      "description": "Read canonical scene, version and open issues.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "read_budget",
+      "description": "Read measured/unknown charges and reservations.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_evidence",
+      "description": "Read registered JSON or attach a registered image next turn.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "title": "EvidenceArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "summarize_geometry",
+      "description": "Read object box, bounds and uncertainty; no inferred mass.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id"
+        ],
+        "title": "ObjectArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "check_geometry",
+      "description": "Check declared support gaps and duplicate tracks (box checks only).",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "compare_masks",
+      "description": "Compute source/render binary mask IoU at equal resolution.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "source_mask": {
+            "title": "Source Mask",
+            "type": "string"
+          },
+          "rendered_mask": {
+            "title": "Rendered Mask",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_mask",
+          "rendered_mask"
+        ],
+        "title": "CompareMasks",
+        "type": "object"
+      }
+    },
+    {
+      "name": "emit_issue",
+      "description": "Record an evidence-backed issue for review.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          },
+          "issue_type": {
+            "title": "Issue Type",
+            "type": "string"
+          },
+          "severity": {
+            "pattern": "^(low|medium|high)$",
+            "title": "Severity",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "suggested_action": {
+            "title": "Suggested Action",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id",
+          "issue_type",
+          "severity",
+          "evidence_ids",
+          "suggested_action"
+        ],
+        "title": "IssueArgs",
+        "type": "object"
+      }
+    }
+  ],
+  "geometry": [
+    {
+      "name": "read_scene",
+      "description": "Read canonical scene, version and open issues.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "read_budget",
+      "description": "Read measured/unknown charges and reservations.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_evidence",
+      "description": "Read registered JSON or attach a registered image next turn.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "title": "EvidenceArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "summarize_geometry",
+      "description": "Read object box, bounds and uncertainty; no inferred mass.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id"
+        ],
+        "title": "ObjectArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "check_geometry",
+      "description": "Check declared support gaps and duplicate tracks (box checks only).",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "compare_masks",
+      "description": "Compute source/render binary mask IoU at equal resolution.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "source_mask": {
+            "title": "Source Mask",
+            "type": "string"
+          },
+          "rendered_mask": {
+            "title": "Rendered Mask",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_mask",
+          "rendered_mask"
+        ],
+        "title": "CompareMasks",
+        "type": "object"
+      }
+    },
+    {
+      "name": "propose_transform",
+      "description": "Save bounded object transform proposal; never commits it.",
+      "arguments_schema": {
+        "$defs": {
+          "Box": {
+            "additionalProperties": false,
+            "properties": {
+              "center": {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Center",
+                "type": "array"
+              },
+              "extent": {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Extent",
+                "type": "array"
+              },
+              "rotation": {
+                "default": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ],
+                "items": {
+                  "maxItems": 3,
+                  "minItems": 3,
+                  "prefixItems": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "type": "array"
+                },
+                "title": "Rotation",
+                "type": "array"
+              }
+            },
+            "required": [
+              "center",
+              "extent"
+            ],
+            "title": "Box",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          },
+          "box": {
+            "$ref": "#/$defs/Box"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "object_id",
+          "box",
+          "reason",
+          "evidence_ids"
+        ],
+        "title": "TransformArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "fit_support",
+      "description": "Compute a bounded axis-aligned support correction and save proposal.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "object_id",
+          "evidence_ids"
+        ],
+        "title": "SupportFitArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "emit_issue",
+      "description": "Record an evidence-backed issue for review.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          },
+          "issue_type": {
+            "title": "Issue Type",
+            "type": "string"
+          },
+          "severity": {
+            "pattern": "^(low|medium|high)$",
+            "title": "Severity",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "suggested_action": {
+            "title": "Suggested Action",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id",
+          "issue_type",
+          "severity",
+          "evidence_ids",
+          "suggested_action"
+        ],
+        "title": "IssueArgs",
+        "type": "object"
+      }
+    }
+  ],
+  "inventory": [
+    {
+      "name": "read_scene",
+      "description": "Read canonical scene, version and open issues.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "read_budget",
+      "description": "Read measured/unknown charges and reservations.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_evidence",
+      "description": "Read registered JSON or attach a registered image next turn.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "title": "EvidenceArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "summarize_geometry",
+      "description": "Read object box, bounds and uncertainty; no inferred mass.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id"
+        ],
+        "title": "ObjectArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "check_geometry",
+      "description": "Check declared support gaps and duplicate tracks (box checks only).",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "propose_object",
+      "description": "Save new object hypothesis with observed evidence; not a scene commit.",
+      "arguments_schema": {
+        "$defs": {
+          "Box": {
+            "additionalProperties": false,
+            "properties": {
+              "center": {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Center",
+                "type": "array"
+              },
+              "extent": {
+                "maxItems": 3,
+                "minItems": 3,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Extent",
+                "type": "array"
+              },
+              "rotation": {
+                "default": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ],
+                "items": {
+                  "maxItems": 3,
+                  "minItems": 3,
+                  "prefixItems": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "type": "array"
+                },
+                "title": "Rotation",
+                "type": "array"
+              }
+            },
+            "required": [
+              "center",
+              "extent"
+            ],
+            "title": "Box",
+            "type": "object"
+          },
+          "ObjectState": {
+            "additionalProperties": false,
+            "properties": {
+              "object_id": {
+                "title": "Object Id",
+                "type": "string"
+              },
+              "box": {
+                "$ref": "#/$defs/Box"
+              },
+              "category": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Category"
+              },
+              "description": {
+                "default": "",
+                "title": "Description",
+                "type": "string"
+              },
+              "confidence": {
+                "default": 0.5,
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "title": "Confidence",
+                "type": "number"
+              },
+              "status": {
+                "default": "proposed",
+                "enum": [
+                  "proposed",
+                  "confirmed",
+                  "ambiguous",
+                  "rejected",
+                  "missing"
+                ],
+                "title": "Status",
+                "type": "string"
+              },
+              "mesh_source": {
+                "default": "primitive",
+                "enum": [
+                  "primitive",
+                  "retrieved",
+                  "generated"
+                ],
+                "title": "Mesh Source",
+                "type": "string"
+              },
+              "mesh_path": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Mesh Path"
+              },
+              "material": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Material"
+              },
+              "support_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Support Id"
+              },
+              "observations": {
+                "items": {
+                  "$ref": "#/$defs/Observation"
+                },
+                "title": "Observations",
+                "type": "array"
+              },
+              "uncertainty": {
+                "default": "unquantified",
+                "title": "Uncertainty",
+                "type": "string"
+              },
+              "provenance": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Provenance",
+                "type": "array"
+              },
+              "edit_history": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Edit History",
+                "type": "array"
+              }
+            },
+            "required": [
+              "object_id",
+              "box"
+            ],
+            "title": "ObjectState",
+            "type": "object"
+          },
+          "Observation": {
+            "additionalProperties": false,
+            "properties": {
+              "frame_id": {
+                "title": "Frame Id",
+                "type": "string"
+              },
+              "track_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Track Id"
+              },
+              "mask": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Mask"
+              },
+              "crop": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Crop"
+              }
+            },
+            "required": [
+              "frame_id"
+            ],
+            "title": "Observation",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "object": {
+            "$ref": "#/$defs/ObjectState"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "object",
+          "evidence_ids"
+        ],
+        "title": "ObjectProposalArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "emit_issue",
+      "description": "Record an evidence-backed issue for review.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          },
+          "issue_type": {
+            "title": "Issue Type",
+            "type": "string"
+          },
+          "severity": {
+            "pattern": "^(low|medium|high)$",
+            "title": "Severity",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "suggested_action": {
+            "title": "Suggested Action",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id",
+          "issue_type",
+          "severity",
+          "evidence_ids",
+          "suggested_action"
+        ],
+        "title": "IssueArgs",
+        "type": "object"
+      }
+    }
+  ],
+  "judge": [
+    {
+      "name": "read_scene",
+      "description": "Read canonical scene, version and open issues.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "read_budget",
+      "description": "Read measured/unknown charges and reservations.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_evidence",
+      "description": "Read registered JSON or attach a registered image next turn.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "title": "EvidenceArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "summarize_geometry",
+      "description": "Read object box, bounds and uncertainty; no inferred mass.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id"
+        ],
+        "title": "ObjectArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "check_geometry",
+      "description": "Check declared support gaps and duplicate tracks (box checks only).",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "compare_masks",
+      "description": "Compute source/render binary mask IoU at equal resolution.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "source_mask": {
+            "title": "Source Mask",
+            "type": "string"
+          },
+          "rendered_mask": {
+            "title": "Rendered Mask",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_mask",
+          "rendered_mask"
+        ],
+        "title": "CompareMasks",
+        "type": "object"
+      }
+    },
+    {
+      "name": "emit_issue",
+      "description": "Record an evidence-backed issue for review.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          },
+          "issue_type": {
+            "title": "Issue Type",
+            "type": "string"
+          },
+          "severity": {
+            "pattern": "^(low|medium|high)$",
+            "title": "Severity",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "suggested_action": {
+            "title": "Suggested Action",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id",
+          "issue_type",
+          "severity",
+          "evidence_ids",
+          "suggested_action"
+        ],
+        "title": "IssueArgs",
+        "type": "object"
+      }
+    }
+  ],
+  "physics": [
+    {
+      "name": "read_scene",
+      "description": "Read canonical scene, version and open issues.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "read_budget",
+      "description": "Read measured/unknown charges and reservations.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_evidence",
+      "description": "Read registered JSON or attach a registered image next turn.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "title": "EvidenceArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "summarize_geometry",
+      "description": "Read object box, bounds and uncertainty; no inferred mass.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id"
+        ],
+        "title": "ObjectArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "check_geometry",
+      "description": "Check declared support gaps and duplicate tracks (box checks only).",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "emit_issue",
+      "description": "Record an evidence-backed issue for review.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          },
+          "issue_type": {
+            "title": "Issue Type",
+            "type": "string"
+          },
+          "severity": {
+            "pattern": "^(low|medium|high)$",
+            "title": "Severity",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "suggested_action": {
+            "title": "Suggested Action",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id",
+          "issue_type",
+          "severity",
+          "evidence_ids",
+          "suggested_action"
+        ],
+        "title": "IssueArgs",
+        "type": "object"
+      }
+    }
+  ],
+  "planner": [
+    {
+      "name": "read_scene",
+      "description": "Read canonical scene, version and open issues.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "read_budget",
+      "description": "Read measured/unknown charges and reservations.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_evidence",
+      "description": "Read registered JSON or attach a registered image next turn.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id"
+        ],
+        "title": "EvidenceArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "summarize_geometry",
+      "description": "Read object box, bounds and uncertainty; no inferred mass.",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "title": "Object Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_id"
+        ],
+        "title": "ObjectArgs",
+        "type": "object"
+      }
+    },
+    {
+      "name": "check_geometry",
+      "description": "Check declared support gaps and duplicate tracks (box checks only).",
+      "arguments_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      }
+    }
+  ]
+}

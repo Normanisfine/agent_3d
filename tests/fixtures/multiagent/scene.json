@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "scene_id": "synthetic_protocol_demo",
+  "coordinate_frame": "RH_Z_UP_METRES",
+  "scale_mode": "estimated_scale",
+  "alignment_id": "synthetic-demo-only",
+  "objects": [
+    {
+      "object_id": "table_01",
+      "box": {
+        "center": [
+          0,
+          0,
+          0.4
+        ],
+        "extent": [
+          1,
+          1,
+          0.8
+        ]
+      },
+      "category": "table"
+    },
+    {
+      "object_id": "box_01",
+      "box": {
+        "center": [
+          0,
+          0,
+          0.95
+        ],
+        "extent": [
+          0.2,
+          0.2,
+          0.2
+        ]
+      },
+      "category": "box",
+      "support_id": "table_01"
+    }
+  ]
+}

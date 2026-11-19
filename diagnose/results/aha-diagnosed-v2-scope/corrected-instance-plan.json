@@ -1,0 +1,1095 @@
+{
+  "summary": "Plan construction of the observed living room around the reviewed shell, preserving all five existing structural roots and every camera. Enumerate furnishings, openings and accessories as separate physical instances; fit construction to the supplied RGB views.",
+  "tasks": [
+    {
+      "task_id": "fit_openings",
+      "object_ids": [
+        "window_cabinet_side",
+        "window_fireplace_side",
+        "door_cabinet_side",
+        "door_fireplace_side"
+      ],
+      "instruction": "Construct four distinct opening assemblies with separate roots. Use the unchanged supplied cameras to fit outer casing boundaries, inner reveals, door panel edges, window muntins and shutter silhouettes across source_000000, source_000062, source_000116 and source_000239. Windows occupy the approximately +X wall; doors occupy the adjoining cabinet and fireplace walls. Treat wall orientation as a placement hypothesis to confirm by projection. Fit each opening independently rather than duplicating dimensions blindly. Preserve reviewed room dimensions, floor, ceiling and crown. If existing wall or wainscot geometry occludes a verified opening, make only the required local cut or trim termination in those existing roots. No opaque window overlays over intact walls. Use source RGB contours rather than sparse point extrema to determine casing size. Preserve all cameras.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": false,
+      "reads_object_ids": [
+        "ceiling_cornices",
+        "room_ceiling",
+        "room_floor"
+      ],
+      "dependency_reason": "Existing shell supports are available. Opening construction and any necessary shell cuts are one exclusive operation.",
+      "edit_object_ids": [
+        "room_walls",
+        "wall_wainscoting"
+      ],
+      "edit_reason": "Cut or terminate the existing wall and wainscot at the four planned openings, as required by the recorded task instruction."
+    },
+    {
+      "task_id": "build_rug",
+      "object_ids": [
+        "area_rug"
+      ],
+      "instruction": "Fit the beige rug footprint and darker border to exposed corners in source_000000, source_000062 and source_000177. Keep it thin, seated on the existing floor and clear of the hearth region. Use local materials and baked geometry.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "room_floor"
+      ],
+      "dependency_reason": "Only the existing floor is required.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_fireplace",
+      "object_ids": [
+        "fireplace",
+        "fireplace_hearth"
+      ],
+      "instruction": "Build separate fireplace and hearth roots on the approximately -Y wall. Match source_000116 front contours and source_000062/source_000177 side depths: broad white shelf, narrow pilasters, upper circular ornaments, dark rectangular backing and nested rounded black opening. Construct the hearth first within this task to coordinate contact. Avoid adding unsupported fire, logs or chimney geometry. Preserve the wall and its materials.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "room_floor",
+        "room_walls",
+        "wall_wainscoting"
+      ],
+      "dependency_reason": "Both roots use existing shell supports and can be fitted together without other furnishings.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_sofa",
+      "object_ids": [
+        "sofa"
+      ],
+      "instruction": "Fit the sofa across all five views, including the broad rear contour in source_000177. Build the actual three-seat silhouette with divided cushions, thick rounded arms, low base and restrained upholstery seams. Position it facing the television wall, with its long axis approximately along Y. Fit source contours rather than a generic box. Materials are private to this root.",
+      "depends_on": [
+        "build_rug"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "area_rug",
+        "room_floor",
+        "room_walls"
+      ],
+      "dependency_reason": "The rug establishes the seating support surface; no dependency on the separate armchair or table is needed.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_armchair",
+      "object_ids": [
+        "armchair"
+      ],
+      "instruction": "Construct the separate matching chair beside the cabinet-side sofa end using source_000062 front contours and source_000177 rear contours. Match rounded arms, deep seat, back cushion and base. Derive placement directly from camera evidence and rug bounds. Use its own upholstery material; do not join it to the sofa.",
+      "depends_on": [
+        "build_rug"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "area_rug",
+        "room_floor",
+        "room_walls"
+      ],
+      "dependency_reason": "Requires only the rug support; its geometry and material are independent of the sofa.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_coffee_table",
+      "object_ids": [
+        "coffee_table"
+      ],
+      "instruction": "Construct the reddish wooden table with distinct tabletop thickness, four legs, apron and full lower shelf. Fit top corners in source_000062/source_000116 and shelf/leg silhouettes in source_000177. Position from RGB evidence on the rug without waiting for seating geometry.",
+      "depends_on": [
+        "build_rug"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "area_rug",
+        "room_floor"
+      ],
+      "dependency_reason": "The rug is the only newly constructed support.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_sideboard",
+      "object_ids": [
+        "sideboard"
+      ],
+      "instruction": "Fit the long cabinet along the approximately +Y wall using source_000239 and source_000177, with source_000000 constraining depth. Include low feet, thin top, segmented fronts and restrained wood grain. Maintain the observed floor and wainscot relationship.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "room_floor",
+        "room_walls",
+        "wall_wainscoting"
+      ],
+      "dependency_reason": "Supported entirely by existing shell geometry.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_plant_table",
+      "object_ids": [
+        "plant_side_table"
+      ],
+      "instruction": "Construct the small wooden plant table with square top, slender legs and observed lower rails. Fit its spacing against the cabinet-side door casing in source_000239 and source_000000, preserving the door clearance.",
+      "depends_on": [
+        "fit_openings"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "door_cabinet_side",
+        "room_floor",
+        "room_walls"
+      ],
+      "dependency_reason": "Final door casing is necessary placement context for this tightly adjacent table.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_figurine_table",
+      "object_ids": [
+        "figurine_side_table"
+      ],
+      "instruction": "Build the separate small square reddish wooden table visible in source_000239 and source_000177. Include four slender legs and low stretchers; locate it beside the opposite end of the cabinet using image evidence.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "room_floor",
+        "room_walls"
+      ],
+      "dependency_reason": "Existing shell and direct image evidence suffice; the cabinet need not be read.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_floor_lamp",
+      "object_ids": [
+        "floor_lamp"
+      ],
+      "instruction": "Construct the lamp's foot, thin upright, stacked dark disks, fluted cream shade, dark shade ribs and scalloped edges from source_000000/source_000239. Fit the distinctive shade contour and height. This task builds object-local visible geometry only; illumination is handled separately.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "room_floor",
+        "room_walls"
+      ],
+      "dependency_reason": "Lamp placement can be recovered directly against the existing shell.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_mirror",
+      "object_ids": [
+        "mantel_mirror"
+      ],
+      "instruction": "Fit the thin gold mirror frame above the fireplace using source_000116 and source_000062. Use a reflective surface with appropriate thickness, not a second room or duplicated furnishings. Match its offset above the completed mantel.",
+      "depends_on": [
+        "build_fireplace"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "fireplace",
+        "room_walls"
+      ],
+      "dependency_reason": "Mantel height and width provide required placement context.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_wall_art",
+      "object_ids": [
+        "landscape_painting"
+      ],
+      "instruction": "Fit the landscape painting and thick dark frame above the cabinet using source_000239 and source_000177. Reproduce the observed dark sea, green sky and pale horizon as a local image or local surface treatment; do not substitute a blank color panel.",
+      "depends_on": [
+        "build_sideboard"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "room_walls",
+        "sideboard"
+      ],
+      "dependency_reason": "The cabinet provides the observed horizontal alignment and vertical gap.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_television",
+      "object_ids": [
+        "wall_television"
+      ],
+      "instruction": "Construct the small wall-mounted television on the approximately -X wall. Fit source_000177 front silhouette and source_000116 oblique depth. Include gray bezel, thicker lower strip, black screen and subtle reflection without changing global render settings.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "room_walls",
+        "wall_wainscoting"
+      ],
+      "dependency_reason": "Uses existing wall support only.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_sideboard_accessories",
+      "object_ids": [
+        "vase_green",
+        "vase_blue",
+        "vase_silver",
+        "sideboard_flat_item"
+      ],
+      "instruction": "Create four separate roots. Model each vessel's observed body, neck and rim, retaining green, blue-gray and silver-gray finishes and their order. Fit their spacing near the lamp end of the cabinet across source_000000/source_000177/source_000239. Add the thin turquoise item at the opposite end. Each root has independent local geometry and materials.",
+      "depends_on": [
+        "build_sideboard"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "sideboard"
+      ],
+      "dependency_reason": "All four objects require the completed cabinet top for contact.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_potted_plant",
+      "object_ids": [
+        "plant_pot",
+        "houseplant"
+      ],
+      "instruction": "Create the white pot first, then the separately rooted plant using that pot's completed rim and interior as support. Fit sparse elongated leaves and their individual curves to source_000239 and source_000000. Keep all transforms baked and avoid external parenting between the two roots.",
+      "depends_on": [
+        "build_plant_table"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "plant_side_table"
+      ],
+      "dependency_reason": "The table must exist first; the pot-to-plant support dependency is resolved sequentially inside this task.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_figurine",
+      "object_ids": [
+        "standing_figurine"
+      ],
+      "instruction": "Construct a small dark standing human figurine, fitting the silhouette in source_000239 and its scale in source_000177. Keep detail restrained at the available resolution and place its base in contact with the table.",
+      "depends_on": [
+        "build_figurine_table"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "figurine_side_table"
+      ],
+      "dependency_reason": "Requires the figurine table's finished top.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_floor_bin",
+      "object_ids": [
+        "blue_floor_bin"
+      ],
+      "instruction": "Reproduce the blue upright container near the television-wall corner in source_000177. Fit visible width, height, top contour and pale emblem. Do not invent hidden lid mechanisms or readable branding.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "room_floor",
+        "room_walls",
+        "wall_wainscoting"
+      ],
+      "dependency_reason": "Existing floor and wall context suffice.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_sofa_accessories",
+      "object_ids": [
+        "sofa_bolster",
+        "sofa_newspaper",
+        "sofa_small_rectangular_item"
+      ],
+      "instruction": "Create three separate roots seated on the finished cushions. Fit the dusty rose rounded bolster with soft end seams, the folded newspaper with visible column-like print, and the small blue-green flat item. Use source_000239 for their relative positions and source_000000/source_000062/source_000116 to constrain height and orientation. Avoid unsupported readable text.",
+      "depends_on": [
+        "build_sofa"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "sofa"
+      ],
+      "dependency_reason": "All three objects require the sofa's finished cushion surfaces.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_armchair_accessory",
+      "object_ids": [
+        "armchair_small_item"
+      ],
+      "instruction": "Add the tiny tan cross-like seat object visible in source_000062 as its own root. Match visible extent and orientation; do not enlarge it or infer an unsupported detailed identity.",
+      "depends_on": [
+        "build_armchair"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "armchair"
+      ],
+      "dependency_reason": "Requires the completed chair seat.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_table_accessories",
+      "object_ids": [
+        "laptop",
+        "table_shallow_dish",
+        "table_red_item",
+        "table_dark_loop_item"
+      ],
+      "instruction": "Create four independent roots on the completed coffee table. Model the open laptop as one articulated-looking but baked assembly, matching screen angle, keyboard deck and lid emblem across opposite views. Add the shallow yellow-green dish, thin red marked rectangle and tiny dark oval/loop object. Resolve positions across source_000000/source_000062/source_000116 rather than mirroring one view. Keep uncertain accessories simple but contour-faithful.",
+      "depends_on": [
+        "build_coffee_table"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "coffee_table"
+      ],
+      "dependency_reason": "All four objects require the table's completed top surface.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_switch",
+      "object_ids": [
+        "wall_switch"
+      ],
+      "instruction": "Fit the small white switch plate visible beside the fireplace-side door in source_000116. Include shallow plate thickness and minimal switch detail, preserving the measured gap from the door casing.",
+      "depends_on": [
+        "fit_openings"
+      ],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "door_fireplace_side",
+        "room_walls"
+      ],
+      "dependency_reason": "The completed casing is required placement context.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "build_ceiling_fixtures",
+      "object_ids": [
+        "ceiling_downlight_01",
+        "ceiling_downlight_02",
+        "ceiling_downlight_03"
+      ],
+      "instruction": "Construct three separate small recessed ceiling fixture roots corresponding to the three visible spots in source_000177. Use the ceiling plane and unchanged camera projection to recover positions; cross-check visible spots in source_000000 and source_000062 before treating them as additional fixtures. Include small bright centers and subtle rims. Fit geometry flush without editing ceiling topology or global lighting.",
+      "depends_on": [],
+      "severity": "critical",
+      "parallel_safe": true,
+      "reads_object_ids": [
+        "ceiling_cornices",
+        "room_ceiling"
+      ],
+      "dependency_reason": "Existing ceiling support suffices; separate local fixture geometry does not require other objects.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    },
+    {
+      "task_id": "configure_observed_illumination",
+      "object_ids": [
+        "window_cabinet_side",
+        "window_fireplace_side",
+        "floor_lamp",
+        "ceiling_downlight_01",
+        "ceiling_downlight_02",
+        "ceiling_downlight_03"
+      ],
+      "instruction": "Perform exclusive lighting construction using the completed openings and luminaires. Fit daylight direction and softness to the window-grid shadows in source_000062/source_000239, and reproduce restrained ceiling and lamp illumination. Use plausible muted exterior light through glazing without inventing detailed unseen exterior architecture. Preserve all camera matrices, lenses and shell materials. Shadows near the lamp should follow constructed geometry; do not add a speculative ceiling fan. This is an illumination task, not a final-review task.",
+      "depends_on": [
+        "fit_openings",
+        "build_floor_lamp",
+        "build_ceiling_fixtures"
+      ],
+      "severity": "critical",
+      "parallel_safe": false,
+      "reads_object_ids": [
+        "room_ceiling",
+        "room_floor",
+        "room_walls"
+      ],
+      "dependency_reason": "Light placement and daylight transmission require finished opening and luminaire geometry; unrelated furnishings do not impose construction dependencies.",
+      "edit_object_ids": [],
+      "edit_reason": ""
+    }
+  ],
+  "scope_statement": "Use source_000000, source_000062, source_000116, source_000177 and source_000239 as evidence. Preserve existing reviewed architecture except for locally necessary opening corrections demonstrated by source contours. All tasks use strong construction and strong local review. Each listed physical object receives its own root, including objects constructed together in one task. Parallel-safe tasks must use object-local materials, baked modifiers and world-space placement without external parents or constraints. No execution or verification is claimed, and no final-review construction task is included.",
+  "instances": [
+    {
+      "instance_id": "room_floor",
+      "semantic_class": "architecture/floor",
+      "description": "Existing gray timber floor; preserve reviewed geometry and material.",
+      "kind": "structure",
+      "disposition": "preserve",
+      "source_image_ids": [
+        "source_000000",
+        "source_000116",
+        "source_000177"
+      ],
+      "support_id": null,
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "room_walls",
+      "semantic_class": "architecture/wall",
+      "description": "Existing warm tan room walls. Preserve reviewed envelope; permit only evidence-supported corrections at openings.",
+      "kind": "structure",
+      "disposition": "edit",
+      "source_image_ids": [
+        "source_000000",
+        "source_000116",
+        "source_000177"
+      ],
+      "support_id": null,
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "room_ceiling",
+      "semantic_class": "architecture/ceiling",
+      "description": "Existing white ceiling; preserve reviewed geometry.",
+      "kind": "structure",
+      "disposition": "preserve",
+      "source_image_ids": [
+        "source_000000",
+        "source_000177"
+      ],
+      "support_id": null,
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "ceiling_cornices",
+      "semantic_class": "architecture/cornice",
+      "description": "Existing continuous stepped perimeter crown treatment; retain as structural trim.",
+      "kind": "structure",
+      "disposition": "preserve",
+      "source_image_ids": [
+        "source_000000",
+        "source_000177"
+      ],
+      "support_id": null,
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "wall_wainscoting",
+      "semantic_class": "architecture/wainscoting",
+      "description": "Existing white lower-wall paneling and baseboards; preserve except where a verified opening requires local termination.",
+      "kind": "structure",
+      "disposition": "edit",
+      "source_image_ids": [
+        "source_000062",
+        "source_000116",
+        "source_000177"
+      ],
+      "support_id": null,
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "window_cabinet_side",
+      "semantic_class": "architecture/window",
+      "description": "Tall gridded window nearest the cabinet and plant table, including its white casing, recessed reveal, sill and visible shutter leaves.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000239"
+      ],
+      "support_id": "room_walls",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "window_fireplace_side",
+      "semantic_class": "architecture/window",
+      "description": "Second tall gridded window nearest the fireplace-side door; independently fitted casing, reveal, sill and shutter leaves.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000239"
+      ],
+      "support_id": "room_walls",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "door_cabinet_side",
+      "semantic_class": "architecture/door",
+      "description": "Closed white paneled door between the plant table and window-wall corner, including its own casing.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000239"
+      ],
+      "support_id": "room_walls",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "door_fireplace_side",
+      "semantic_class": "architecture/door",
+      "description": "Closed white paneled door between the window-wall corner and fireplace, including its own casing.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000062",
+        "source_000116"
+      ],
+      "support_id": "room_walls",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "fireplace",
+      "semantic_class": "fixture/fireplace",
+      "description": "White mantel and pilasters with circular upper ornaments, dark rectangular inset and rounded black fire opening.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000062",
+        "source_000116",
+        "source_000177"
+      ],
+      "support_id": "room_floor",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "fireplace_hearth",
+      "semantic_class": "fixture/hearth",
+      "description": "Broad low dark hearth slab projecting in front of the fireplace.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000062",
+        "source_000116",
+        "source_000177"
+      ],
+      "support_id": "room_floor",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "mantel_mirror",
+      "semantic_class": "decor/mirror",
+      "description": "Landscape rectangular mirror with narrow gold frame above the mantel.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000062",
+        "source_000116"
+      ],
+      "support_id": "room_walls",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "wall_television",
+      "semantic_class": "electronics/television",
+      "description": "Small wall-mounted black screen with gray bezel and thicker lower strip on the wall opposite the windows.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000116",
+        "source_000177"
+      ],
+      "support_id": "room_walls",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "area_rug",
+      "semantic_class": "furnishing/rug",
+      "description": "Large beige rectangular rug with darker border beneath the seating and coffee table.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000177"
+      ],
+      "support_id": "room_floor",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "sofa",
+      "semantic_class": "furniture/sofa",
+      "description": "Dark olive-charcoal three-seat sofa with three seat and back divisions, rounded bulky arms, low base and fully modeled rear silhouette.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000116",
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "area_rug",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "armchair",
+      "semantic_class": "furniture/armchair",
+      "description": "Separate matching upholstered armchair adjacent to the cabinet-side end of the sofa.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000177"
+      ],
+      "support_id": "area_rug",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "coffee_table",
+      "semantic_class": "furniture/coffee_table",
+      "description": "Rectangular reddish-brown wooden coffee table with four legs, apron and full lower shelf.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000116",
+        "source_000177"
+      ],
+      "support_id": "area_rug",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "sideboard",
+      "semantic_class": "furniture/sideboard",
+      "description": "Long low reddish wooden cabinet beneath the landscape painting, with segmented fronts and low feet.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "room_floor",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "plant_side_table",
+      "semantic_class": "furniture/side_table",
+      "description": "Small square wooden table next to the cabinet-side door, supporting the white plant pot.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000239"
+      ],
+      "support_id": "room_floor",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "figurine_side_table",
+      "semantic_class": "furniture/side_table",
+      "description": "Separate small square wooden table at the opposite end of the sideboard, supporting a standing figurine.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "room_floor",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "floor_lamp",
+      "semantic_class": "lighting/floor_lamp",
+      "description": "Tall slender floor lamp between sideboard and plant table, with stacked dark disks below a fluted cream shade.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "room_floor",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "landscape_painting",
+      "semantic_class": "decor/framed_art",
+      "description": "Wide dark-framed green-blue maritime landscape above the sideboard.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "room_walls",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "vase_green",
+      "semantic_class": "decor/vase",
+      "description": "Small green rounded vase, leftmost of the three sideboard vessels when facing the cabinet.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "sideboard",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "vase_blue",
+      "semantic_class": "decor/vase",
+      "description": "Small blue-gray glossy vase in the middle of the sideboard vessel trio.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "sideboard",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "vase_silver",
+      "semantic_class": "decor/vase",
+      "description": "Small silver-gray rounded vessel nearest the floor lamp.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "sideboard",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "sideboard_flat_item",
+      "semantic_class": "accessory/flat_item",
+      "description": "Thin pale turquoise rectangular item near the figurine-side end of the cabinet top; exact identity unresolved.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000239"
+      ],
+      "support_id": "sideboard",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "plant_pot",
+      "semantic_class": "decor/planter",
+      "description": "Small round white pot on the plant side table.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000239"
+      ],
+      "support_id": "plant_side_table",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "houseplant",
+      "semantic_class": "plant/houseplant",
+      "description": "Sparse upright and arching green leaves emerging from the white pot.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000239"
+      ],
+      "support_id": "plant_pot",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "standing_figurine",
+      "semantic_class": "decor/figurine",
+      "description": "Small dark standing human figurine on the separate side table.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000177",
+        "source_000239"
+      ],
+      "support_id": "figurine_side_table",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "blue_floor_bin",
+      "semantic_class": "accessory/bin",
+      "description": "Blue upright rectangular floor container with a light emblem, near the television-wall and sideboard-wall corner.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000177"
+      ],
+      "support_id": "room_floor",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "sofa_bolster",
+      "semantic_class": "textile/pillow",
+      "description": "One dusty rose rounded bolster resting on the fireplace-side sofa seat.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000116",
+        "source_000239"
+      ],
+      "support_id": "sofa",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "sofa_newspaper",
+      "semantic_class": "accessory/newspaper",
+      "description": "Folded pale newspaper with printed columns across the central sofa seat.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000116",
+        "source_000239"
+      ],
+      "support_id": "sofa",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "sofa_small_rectangular_item",
+      "semantic_class": "accessory/flat_item",
+      "description": "Small pale blue-green rectangular item on the sofa seat nearest the armchair.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000239"
+      ],
+      "support_id": "sofa",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "armchair_small_item",
+      "semantic_class": "accessory/small_item",
+      "description": "Tiny tan cross-like item on the armchair seat; preserve its visible silhouette without asserting identity.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000062"
+      ],
+      "support_id": "armchair",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "laptop",
+      "semantic_class": "electronics/laptop",
+      "description": "Open silver laptop on the coffee table, with dark screen, keyboard deck and small pale lid emblem.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000116",
+        "source_000177"
+      ],
+      "support_id": "coffee_table",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "table_shallow_dish",
+      "semantic_class": "accessory/dish",
+      "description": "Small shiny yellow-green shallow oval dish beside the laptop.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000116",
+        "source_000239"
+      ],
+      "support_id": "coffee_table",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "table_red_item",
+      "semantic_class": "accessory/rectangular_item",
+      "description": "Small flat red rectangular packet or card with pale markings near a table edge.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000062",
+        "source_000116"
+      ],
+      "support_id": "coffee_table",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "table_dark_loop_item",
+      "semantic_class": "accessory/small_item",
+      "description": "Small dark oval or loop-shaped item with a lighter inner area on the coffee table; identity uncertain.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000000",
+        "source_000116",
+        "source_000239"
+      ],
+      "support_id": "coffee_table",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "wall_switch",
+      "semantic_class": "fixture/switch",
+      "description": "Small white switch plate between the fireplace-side door and fireplace.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000116"
+      ],
+      "support_id": "room_walls",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "ceiling_downlight_01",
+      "semantic_class": "lighting/recessed_fixture",
+      "description": "First of three clearly visible ceiling downlights, ordered left to right in source_000177.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000177"
+      ],
+      "support_id": "room_ceiling",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "ceiling_downlight_02",
+      "semantic_class": "lighting/recessed_fixture",
+      "description": "Middle clearly visible ceiling downlight in source_000177.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000177"
+      ],
+      "support_id": "room_ceiling",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "ceiling_downlight_03",
+      "semantic_class": "lighting/recessed_fixture",
+      "description": "Rightmost clearly visible ceiling downlight in source_000177.",
+      "kind": "physical_object",
+      "disposition": "build",
+      "source_image_ids": [
+        "source_000177"
+      ],
+      "support_id": "room_ceiling",
+      "exclusion_reason": null,
+      "physical_instance_count": 1
+    },
+    {
+      "instance_id": "unresolved_ceiling_shadow_caster",
+      "semantic_class": "unresolved/shadow_caster",
+      "description": "Large ceiling and upper-wall shadows visible near the standing lamp.",
+      "kind": "physical_object",
+      "disposition": "exclude",
+      "source_image_ids": [
+        "source_000000",
+        "source_000239"
+      ],
+      "support_id": null,
+      "exclusion_reason": "No separate physical ceiling object is directly visible. Shadows may be cast by the standing lamp; do not invent a ceiling fan or hanging fixture.",
+      "physical_instance_count": 1
+    }
+  ],
+  "uncertainties": [
+    "Only source RGB images and the supplied inventory were assessed. Existing geometry has not been inspected or rendered here; preservation relies on the packet's reviewed-shell status.",
+    "World scale is predicted and uncalibrated. Sparse reference samples are placement context, not object bounds.",
+    "The approximately +X window wall, +Y cabinet wall, -Y fireplace wall and -X television wall should be confirmed by projection through the preserved cameras.",
+    "Window muntin counts, shutter angles and door casing boundaries require careful contour fitting. Their exact geometry should not be inferred from generic architectural templates.",
+    "Three ceiling fixtures are clearly visible together in source_000177. Cross-view correspondence is uncertain; do not automatically count spots in other views as new instances.",
+    "The small seat items, turquoise cabinet item, red table item and dark loop-shaped table item have uncertain identities. Their observed geometry and color remain in scope.",
+    "The blue floor container's exact function is uncertain; only its visible form is supported.",
+    "The pot and plant are planned as separate physical roots. Integral door hardware, window shutters, furniture cushions and laptop components remain parts of their respective assemblies.",
+    "No extra pillow is inferred from dark armchair recesses, and no separate ceiling fixture is inferred solely from large shadows.",
+    "Hidden room space, unseen furnishings and detailed exterior scenery are excluded because the supplied images do not establish them."
+  ]
+}

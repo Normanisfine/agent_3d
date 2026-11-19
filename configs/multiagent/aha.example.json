@@ -1,0 +1,34 @@
+{
+  "architecture": "aha",
+  "aha_repo": "../../external/aha-3d",
+  "blender": "../../../tools/blender/blender-4.5.14-linux-x64/blender",
+  "python": "../../.venv/bin/python",
+  "source_scene": "../../references/room/seed.blend",
+  "layout_spec": "../../references/room/layout_spec.json",
+  "source_images": {
+    "source_early": "../../references/room/source_early.png",
+    "source_middle": "../../references/room/source_middle.png",
+    "source_late": "../../references/room/source_late.png"
+  },
+  "output": "../../recon/room/aha-001",
+  "supervisor": {
+    "backend": "codex", "model": "gpt-6-astra", "reasoning_effort": "medium",
+    "max_output_tokens": 12000, "timeout_s": 600, "call_reservation_usd": 0.25
+  },
+  "worker": {
+    "backend": "openrouter", "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "provider": "DeepInfra", "max_output_tokens": 8000, "timeout_s": 180,
+    "call_reservation_usd": 0.03
+  },
+  "judge": {
+    "backend": "codex", "model": "gpt-6-astra", "reasoning_effort": "medium",
+    "timeout_s": 600, "call_reservation_usd": 0.25
+  },
+  "hunyuan": null,
+  "budget_usd": 5,
+  "judge_reserve_usd": 1,
+  "repair_reserve_usd": 1,
+  "max_takeovers": 3,
+  "max_generations": 2,
+  "instruction": "Reconstruct the complete observed room. Delegate routine tasks; directly rebuild seriously wrong structure or major objects. Preserve reviewed cameras."
+}

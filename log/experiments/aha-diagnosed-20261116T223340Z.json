@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "experiment_id": "aha-diagnosed-20261116T223340Z",
+  "status": "failed",
+  "variant": "aha_diagnosed",
+  "scene_id": "FloorPlan209",
+  "split": "development",
+  "started_at_utc": "2026-11-16T22:41:38.120756+00:00",
+  "finished_at_utc": "2026-11-16T22:49:18.758860+00:00",
+  "config_snapshot": "/home/mj/dl_project/agen3d/configs/multiagent/aha-diagnosed-20261116T223340Z.json",
+  "output_directory": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-diagnosed-20261116T223340Z",
+  "log_path": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-diagnosed-20261116T223340Z.log",
+  "source_scene_sha256": "c1646399b1baa7f8cf6f2b5619aa332c8056f6f1abb65959d8ef75400abf1a25",
+  "config_sha256": "72eea59daad6a79fca5058967c0327050f88c4cf351c7f67fb0a0b218bbc5b59",
+  "code_hashes": {
+    "src/agen3d/multiagent/aha_diagnosed/__init__.py": "fb16bfcfa7e5994d618b2ef39876f3be469284e5c0b7ed959b87f17576e04f6e",
+    "src/agen3d/multiagent/aha_diagnosed/cli.py": "8482a70a06f967f6c2f228031b0b76c7e72306be4937ad939e9c04d816717eea",
+    "src/agen3d/multiagent/aha_diagnosed/contracts.py": "f75146bcf5519cf3a8ef2893798c0f0c99ac2ef0b7db8c0205f00a438e164615",
+    "src/agen3d/multiagent/aha_diagnosed/evaluate.py": "e46c3341e0427bf123434e7fa880322072645f8d404135cddf5acfaaa3f1a681",
+    "src/agen3d/multiagent/aha_diagnosed/evidence.py": "ca75858680e4c5fc9cb694892a155e18d3291b73e6dabdfd9286736d35481499",
+    "src/agen3d/multiagent/aha_diagnosed/runtime.py": "aee3b5733fa9937f911cbd539311f3b87b48e3fda0dd7fbb3a8864359cdcbf5f"
+  },
+  "budget_usd": 5.0,
+  "codex_budget_exempt": true,
+  "local_compute_budget_exempt": true,
+  "cheap_triage": false,
+  "total_cost_usd": null,
+  "cost_complete": false,
+  "notes": [
+    "Live run explicitly requested by user. Fresh output; existing runs preserved.",
+    "Paid API cap retained; Codex CLI and local compute retain existing budget exemptions.",
+    "No evaluator ground truth supplied to construction.",
+    "Host launch was rejected before process creation. Experiment remains planned; no run output directory was created."
+  ],
+  "launch_status": "blocked_by_automatic_approval_review",
+  "launch_blocked_at_utc": "2026-11-16T22:35:00.940824+00:00",
+  "launch_block_reason": "Explicit approval required for transmitting FloorPlan209 imagery and derived reconstruction context to configured external model services.",
+  "model_calls_launched": 0,
+  "launcher_pid": 2370278,
+  "exit_code": 1,
+  "result_status": "blocked_construction",
+  "error": null,
+  "report_path": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-diagnosed-20261116T223340Z/report.json",
+  "cost_summary": {
+    "categories": {
+      "local_compute": {
+        "calls": 7,
+        "accounted_usd": 0.0,
+        "known_actual_usd": 0.0,
+        "unknown_or_pending_calls": 7,
+        "wall_seconds": 15.940808511979412,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_input_tokens": 0
+      },
+      "codex_cli": {
+        "calls": 4,
+        "accounted_usd": 0.0,
+        "known_actual_usd": 0.0,
+        "unknown_or_pending_calls": 4,
+        "wall_seconds": 417.69478341701324,
+        "input_tokens": 118334,
+        "output_tokens": 20047,
+        "cached_input_tokens": 26880
+      }
+    },
+    "budget_usd": 5.0,
+    "accounted_usd": 0,
+    "budget_exempt_calls": 11,
+    "known_actual_usd": 0,
+    "unknown_or_pending_calls": 11,
+    "charges": [
+      {
+        "label": "job_preflight",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "job_preflight",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 6.79723871598253,
+          "billed_host_seconds": 6.7972390959912445
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "capacity_calibration",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "capacity_calibration",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.8098346499900799,
+          "billed_host_seconds": 0.8098349700157996
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_preflight",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_preflight",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.26397014400572516,
+          "billed_host_seconds": 0.2639711840020027
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "initial_inspection",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "initial_inspection",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.3143664379895199,
+          "billed_host_seconds": 0.3143656780011952
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "plan",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 30315,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 7951,
+                "reasoning_output_tokens": 125
+              }
+            ]
+          },
+          "role": "plan",
+          "backend": "codex",
+          "wall_seconds": 162.39762492099544
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 29544,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 4107,
+                "reasoning_output_tokens": 639
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 85.8804382160015
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "failed",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 2.7186912470206153,
+          "billed_host_seconds": 2.7186946970177814
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28719,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 4114,
+                "reasoning_output_tokens": 838
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 86.46211245699669
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "failed",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 2.5688510070031043,
+          "billed_host_seconds": 2.5688536369998474
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 29756,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3875,
+                "reasoning_output_tokens": 848
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 82.95460782301961
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "failed",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 2.4678563099878374,
+          "billed_host_seconds": 2.4678578700113576
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      }
+    ]
+  },
+  "canonical_scene": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-20261116T004232Z/candidates/build_room_shell-0001-2/scene.blend",
+  "delivery_accepted": false
+}

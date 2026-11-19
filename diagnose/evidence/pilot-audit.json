@@ -1,0 +1,160 @@
+{
+  "source_run": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-parallel-20261116T012253Z",
+  "calls": [
+    {
+      "path": "calls/065d2997e7a648bfbfa333f19c923ed2.json",
+      "model": "qwen/qwen3-vl-30b-a3b-instruct",
+      "input_tokens": 28092,
+      "output_tokens": 2037,
+      "actual_usd": 0.005436,
+      "response_characters": 6783
+    },
+    {
+      "path": "calls/28f3b3179da343919ae208bcfbef4305.json",
+      "model": "gpt-6-astra",
+      "input_tokens": null,
+      "output_tokens": null,
+      "actual_usd": null,
+      "response_characters": 11987
+    },
+    {
+      "path": "calls/29f946d024dd4ebb917c54645e1e8e8d.json",
+      "model": "gpt-6-astra",
+      "input_tokens": null,
+      "output_tokens": null,
+      "actual_usd": null,
+      "response_characters": 3435
+    },
+    {
+      "path": "calls/6470aaa12d6c47d39f9b95505ee3baba.json",
+      "model": "gpt-6-astra",
+      "input_tokens": null,
+      "output_tokens": null,
+      "actual_usd": null,
+      "response_characters": 1037
+    },
+    {
+      "path": "calls/6fd3da84998f4f1181f0c24883c75c93.json",
+      "model": "gpt-6-astra",
+      "input_tokens": null,
+      "output_tokens": null,
+      "actual_usd": null,
+      "response_characters": 3391
+    },
+    {
+      "path": "calls/73a462724f224f3ab1741ea7a8756543.json",
+      "model": "gpt-6-astra",
+      "input_tokens": null,
+      "output_tokens": null,
+      "actual_usd": null,
+      "response_characters": 1168
+    },
+    {
+      "path": "calls/9e66063371d345e2a3007a983837e338.json",
+      "model": "gpt-6-astra",
+      "input_tokens": null,
+      "output_tokens": null,
+      "actual_usd": null,
+      "response_characters": 1101
+    },
+    {
+      "path": "parallel/wave-0001/construct_cabinet_corner_door/calls/d2250b89df2d44859a2f9f6457e50000.json",
+      "model": "qwen/qwen3-vl-30b-a3b-instruct",
+      "input_tokens": 27932,
+      "output_tokens": 8000,
+      "actual_usd": 0.0089898,
+      "response_characters": 14058
+    },
+    {
+      "path": "parallel/wave-0001/construct_fireplace/calls/94f1d6f2fdca4bc8ad1fb1587e7bfca1.json",
+      "model": "qwen/qwen3-vl-30b-a3b-instruct",
+      "input_tokens": 27999,
+      "output_tokens": 8000,
+      "actual_usd": 0.00899985,
+      "response_characters": 14326
+    },
+    {
+      "path": "parallel/wave-0001/construct_window_pair/calls/abcb01b6cd5648caa266229f299ee80e.json",
+      "model": "qwen/qwen3-vl-30b-a3b-instruct",
+      "input_tokens": 27980,
+      "output_tokens": 8000,
+      "actual_usd": 0.008997,
+      "response_characters": 14265
+    },
+    {
+      "path": "parallel/wave-0001/fit_door_fireplace_corner/calls/a570f4c98bc647f582b9f811c109bda6.json",
+      "model": "gpt-6-astra",
+      "input_tokens": null,
+      "output_tokens": null,
+      "actual_usd": null,
+      "response_characters": 3318
+    }
+  ],
+  "stages": {
+    "job_preflight": {
+      "count": 1,
+      "wall_seconds_sum": 6.601539684008458
+    },
+    "capacity_calibration": {
+      "count": 1,
+      "wall_seconds_sum": 0.759559400001308
+    },
+    "aha_preflight": {
+      "count": 1,
+      "wall_seconds_sum": 0.26387752099253703
+    },
+    "initial_inspection": {
+      "count": 1,
+      "wall_seconds_sum": 0.3144373719987925
+    },
+    "blender_build": {
+      "count": 4,
+      "wall_seconds_sum": 3.661895679993904
+    },
+    "blender_verify": {
+      "count": 4,
+      "wall_seconds_sum": 1.7085194679966662
+    },
+    "blender_merge": {
+      "count": 1,
+      "wall_seconds_sum": 0.5147106649965281
+    },
+    "aha_prepare": {
+      "count": 3,
+      "wall_seconds_sum": 72.61578703598934
+    }
+  },
+  "task_results": {
+    "fit_door_fireplace_corner": {
+      "status": "blocked_construction",
+      "reason": {
+        "candidate_revision": "1016d8de427bba177781d12937c8f8cefd293e35dcf60ce6c19272ff0d02d0f7",
+        "verdict": "repair",
+        "severity": "routine",
+        "observations": [
+          "The top view places the door near the wall corner with a shallow rectangular footprint.",
+          "In source_000116, the highlighted contour reaches approximately floor level, but the left clipping prevents reliable assessment of full width.",
+          "Source_000000 shows the assigned door only at the far right edge and cannot establish its complete silhouette.",
+          "The requested source_000062 is not attached. Full width and height verification remains uncertain; panel geometry cannot be verified from these contours."
+        ],
+        "defects": [
+          "In source_000116, visible white casing extends beyond the highlighted upper-right and right boundary. The candidate appears to omit part of the outer casing. Fit that actual trim boundary while preserving the surrounding shell; verify full dimensions against the unclipped source_000062 before acceptance."
+        ],
+        "reviewed_images": [
+          "object:object_001_top.png",
+          "object:object_001_source_000116.png",
+          "object:object_001_source_000000.png"
+        ]
+      }
+    }
+  },
+  "stopped": {
+    "status": "stopped_invalid_worker_outputs",
+    "reason": "Three routine workers echoed task packets and exhausted 8000 output tokens instead of returning Proposal JSON. Stop repeated invalid calls before transport repair.",
+    "terminated_groups": [
+      2154880,
+      2161158
+    ]
+  },
+  "limitations": "Stage sums may overlap; not elapsed time. Missing usage/cost remains null. No visual quality score inferred."
+}

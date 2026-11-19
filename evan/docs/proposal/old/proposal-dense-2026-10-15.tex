@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\titlespacing*{\section}{0pt}{3pt}{0pt}
+\titleformat*{\section}{\normalsize\bfseries}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+{\large\bfseries Where does an agentic video-to-3D pipeline lose small objects?}\par\vspace{3pt}
+{\small Team 3Heads1GPU: Yifan Hu, Mingjian Li, Yujing Li.}
+\end{center}
+\vspace{-10pt}
+
+\section*{Problem statement}
+LLM agents such as AHa-3D now turn a monocular room video into an editable Blender scene by writing code object by object. For small objects such as cups, bottles, books and remotes, we ask: how many does such a pipeline lose? At which stage is each one lost: never visible in the frames the pipeline uses, never detected, never built, or built in the wrong place? And with all else fixed, which small-object strategies lie on the cost--accuracy Pareto front?
+
+\section*{Motivation}
+AHa-3D, an open-source agent driven by GPT-6 Astra, reports no accuracy numbers, and its authors' demo task tells the agent to ``approximate small objects''. AHa-3D targets real-to-sim scenes for robots, and small objects are what robots manipulate. In GATOR (arXiv 2610.11215), GPT-6 Astra coding each object from scratch (10 min per object) nearly matches generate-then-refine on ScanNet++ (Chamfer 0.033 vs.\ 0.031) but trails it on tabletop objects (0.016 vs.\ 0.009), so whether generation pays off for a whole room on a fixed budget is open. Losses may also start earlier: AHa-3D reconstructs from 32 frames of about 0.25 megapixels, where a 10\,cm cup 2\,m away spans roughly 20 pixels.
+
+\section*{Related work}
+Agentic real-to-sim from video includes AHa-3D and GRASE (an ICLR 2027 submission). GRASE generates small objects with TRELLIS.2, LIVIN (arXiv 2610.12069) sends all non-articulated objects to Rodin, LiteReality-Agent and CoDimRecon add small objects, and GATOR generates every object and has the agent refine it. LIVIN scores a small-clutter subset, but only for non-agentic methods given ground-truth masks and depth; GATOR scores objects given as targets, so it omits recall. As of October 2026, we found no work on agentic whole-room reconstruction from video that reports size-stratified recall, attributes losses to stages, or compares small-object strategies in one system.
+
+\section*{Approach}
+We fix AHa-3D's harness (its tools and checking loop), one Pi3X reconstruction and SAM~3 segmentation per scene, the driver (GPT-6 Astra via Codex CLI, or Sol if Astra is unavailable; Claude Opus 5.5 replicates five scenes), and per-run time and turn caps. We vary only how small objects are handled. \textbf{P0} uses no agent: 3D boxes from the Boxer detector, filled with automatically placed SAM 3D Objects meshes. \textbf{A0} is AHa-3D as released. \textbf{A1} tells the agent to build every visible small object with code and primitives. \textbf{A2} adds a Boxer inventory computed on the same 32 frames at full 1024$\times$768 resolution; Boxer saw CA-1M training scenes, so detection and P0 are also reported with a leak-free SAM 3 inventory. \textbf{A3} adds SAM 3D Objects generation, keeping a mesh only if its silhouette fit beats the primitive's; a size rule ($<$0.5\,m, \textbf{A3r}) or the agent (\textbf{A3v}) picks what to generate. \textbf{A4}, on five scenes, adds GATOR-style render-and-refine. Ablations rerun A3v with Pi3X's downsampled frames and compare SAM 3D's pose with \mbox{Hunyuan3D-2} plus our registration on about 50 objects. An optional small router, trained on agent-free P0 runs over 85 other CA-1M scenes, predicts per object whether generation beats primitives.
+
+\section*{Evaluation}
+We use 22 CA-1M (arXiv 2412.04458) validation videos: ARKitScenes scans with exhaustive 3D boxes, about 125 per video, many under 0.2\,m (5 development, 15 test, 2 spare, split fixed in advance). We align each reconstruction with a similarity transform fit on the camera trajectory, never on the scored objects, and also report a no-scale version. Pi3X's predecessor $\pi^3$ trained on ARKitScenes, so absolute geometry may be optimistic, but every method shares it. We bin objects by longest side ($<$0.2, 0.2--0.5, 0.5--1.5, $\geq$1.5\,m). After one-to-one Hungarian matching, each ground-truth object is correct, misplaced or missed, under 3D IoU $\geq 0.25$ and, separately, under a size-normalized center distance. A funnel figure shows, per method and bin, how far each object got: visible, detected, built, correct. We compare methods on the same objects with 95\% scene-bootstrap intervals; a second run of A1 and A3v on five scenes sets the noise floor for any claim. Cost is API-equivalent dollars (tokens plus generation fees). Success means locating where small objects are lost and testing whether any method beats that noise on small-object recall without hurting large furniture.
+
+\section*{Resources}
+CA-1M needs no application; we are requesting ScanNet++ for shape metrics on five scenes. All code is public; SAM~3 and SAM~3D weights need Hugging Face approval (requested), and if SAM 3D fails on Betty by Nov.~2 we switch to \mbox{Hunyuan3D-2mini} plus our registration. Penn's Betty cluster (B200 GPUs, course-funded) runs perception and SAM~3D; a 12\,GB RTX 5070 Ti laptop runs the agent and Blender 5.2.1. Agents run on our ChatGPT and Claude subscriptions; out-of-pocket spending is capped at \$10. We plan 105--120 agent runs, cut in a preset order if needed.
+
+\end{document}

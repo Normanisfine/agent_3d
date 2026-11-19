@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-15",
+  "kind": "paper_build_not_experiment",
+  "status": "completed",
+  "source": "../paper/main.tex",
+  "output": "../paper/main.pdf",
+  "compiler": "pdfTeX 1.40.25 (TeX Live 2023/Debian)",
+  "bibliography": "BibTeX 0.99d",
+  "pages": 10,
+  "validation": [
+    "Successful pdflatex and BibTeX execution",
+    "Final compilation log contains no warnings or overfull/underfull boxes",
+    "All 10 rendered pages visually inspected"
+  ],
+  "experimental_results_generated": false,
+  "cost_usd": null,
+  "revision": "Retain only Evan's reconstruction evaluation; remove proposed alternative protocol and empty results table",
+  "blueprint_source": "../../idea/chat.md",
+  "blueprint_sha256": "68f347a72f443d4ad1f8932d270270d00079ad9f26a98f9f2c930cdd855d8e86"
+}

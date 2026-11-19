@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "proposed_not_run",
+  "seed": 6220,
+  "datasets": ["ai2thor", "ca1m"],
+  "initial_development_scenes_per_dataset": 3,
+  "expanded_scenes_per_dataset": 20,
+  "input_mode": "rgb_only",
+  "frames": 32,
+  "iou_thresholds": [0.1, 0.25, 0.5],
+  "min_visible_frames": 2,
+  "repair": {"max_steps": 3, "max_translation_m": 0.1},
+  "budget_usd_per_scene": null,
+  "pricing_date": null,
+  "variants": {
+    "B0": "Untouched AHa-3D",
+    "B1": "B0 with fixed reconstruction rubric",
+    "B2": "B1 with deterministic verification and bounded repair",
+    "B3": "B2 with routine judgments assigned to open VLM",
+    "B4": "B3 with confidence and budget-gated strong model"
+  },
+  "deferred": ["B5 generated assets", "B6 physics and robot evaluation"],
+  "note": "Planning configuration; no runner consumes these as measured or calibrated defaults. Set budget and prices before execution."
+}

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# agent 用的工具（见 src/smallobj/cli.py）
+source "$(dirname "$0")/../env.sh"
+exec "$PY" -m smallobj.cli gen3d-request "$@"

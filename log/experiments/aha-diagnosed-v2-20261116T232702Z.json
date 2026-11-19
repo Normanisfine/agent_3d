@@ -1,0 +1,1251 @@
+{
+  "schema_version": 1,
+  "experiment_id": "aha-diagnosed-v2-20261116T232702Z",
+  "status": "failed",
+  "variant": "aha_diagnosed_v2",
+  "scene_id": "FloorPlan209",
+  "split": "development",
+  "config_snapshot": "/home/mj/dl_project/agen3d/configs/multiagent/aha-diagnosed-v2-20261116T232702Z.json",
+  "output_directory": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-diagnosed-v2-20261116T232702Z",
+  "log_path": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-diagnosed-v2-20261116T232702Z.log",
+  "source_scene_sha256": "c1646399b1baa7f8cf6f2b5619aa332c8056f6f1abb65959d8ef75400abf1a25",
+  "config_sha256": "6d172faf239bc779ca6df6fbbce96749a1ea2ee4500ecdb5cccbbc414ff5a882",
+  "code_hashes": {
+    "src/agen3d/multiagent/aha_diagnosed_v2/__init__.py": "fb16bfcfa7e5994d618b2ef39876f3be469284e5c0b7ed959b87f17576e04f6e",
+    "src/agen3d/multiagent/aha_diagnosed_v2/runtime.py": "f7de34fc13bf43afeecf9e34c729c013bd21222f0f926fbd00249ec88f2a406b",
+    "src/agen3d/multiagent/aha_diagnosed_v2/evidence.py": "ca75858680e4c5fc9cb694892a155e18d3291b73e6dabdfd9286736d35481499",
+    "src/agen3d/multiagent/aha_diagnosed_v2/cli.py": "8482a70a06f967f6c2f228031b0b76c7e72306be4937ad939e9c04d816717eea",
+    "src/agen3d/multiagent/aha_diagnosed_v2/blender_worker.py": "6ed3be996891162e4f0e7d0ffe73b17e700eb0ba31924e80c2f4f29ec5564b22",
+    "src/agen3d/multiagent/aha_diagnosed_v2/contracts.py": "f9865bf6abe31d44aeb5f15d8fa921d96629194ce91d12c8a7993b14133bdd42",
+    "src/agen3d/multiagent/aha_diagnosed_v2/scheduling.py": "df1aa18877df394f3c13be81b4910bb8cd87b69991fff48579e795660b71f9f9",
+    "src/agen3d/multiagent/aha_diagnosed_v2/evaluate.py": "5173dd575a43fe2d2f00fe16082d5831244d9a5bcae2355f66400f6c273c2c45"
+  },
+  "budget_usd": 5.0,
+  "codex_budget_exempt": true,
+  "local_compute_budget_exempt": true,
+  "cheap_triage": false,
+  "total_cost_usd": null,
+  "cost_complete": false,
+  "notes": [
+    "User explicitly requested this v2 live run; prior external image/context transmission authorization persists.",
+    "Fresh output; previous code and runs preserved.",
+    "Explicit existing-root edits and separate ordering/success dependencies."
+  ],
+  "launch_status": "authorized",
+  "launch_block_reason": "Reviewer requires explicit authorization for FloorPlan209 imagery/context and configured external destinations; retained prior authorization receipt was not accepted as sufficient evidence.",
+  "model_calls_launched": 0,
+  "authorization": {
+    "recorded_at_utc": "2026-11-16T23:30:13.229359+00:00",
+    "user_reply": "yes",
+    "scope": "Send FloorPlan209 images and reconstruction context to configured external model services: Codex and OpenRouter if invoked; launch prepared v2 run."
+  },
+  "started_at_utc": "2026-11-16T23:30:16.392218+00:00",
+  "launcher_pid": 2387910,
+  "exit_code": 1,
+  "result_status": "blocked_construction",
+  "error": null,
+  "report_path": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-diagnosed-v2-20261116T232702Z/report.json",
+  "cost_summary": {
+    "categories": {
+      "local_compute": {
+        "calls": 34,
+        "accounted_usd": 0.0,
+        "known_actual_usd": 0.0,
+        "unknown_or_pending_calls": 34,
+        "wall_seconds": 212.98583167602192,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_input_tokens": 0
+      },
+      "codex_cli": {
+        "calls": 25,
+        "accounted_usd": 0.0,
+        "known_actual_usd": 0.0,
+        "unknown_or_pending_calls": 25,
+        "wall_seconds": 925.8614950620104,
+        "input_tokens": 636338,
+        "output_tokens": 36104,
+        "cached_input_tokens": 204288
+      }
+    },
+    "budget_usd": 5.0,
+    "accounted_usd": 0,
+    "budget_exempt_calls": 59,
+    "known_actual_usd": 0,
+    "unknown_or_pending_calls": 59,
+    "charges": [
+      {
+        "label": "job_preflight",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "job_preflight",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 6.7989709970133845,
+          "billed_host_seconds": 6.798970556992572
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "capacity_calibration",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "capacity_calibration",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.762782171019353,
+          "billed_host_seconds": 0.7627820810012054
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_preflight",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_preflight",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.2641611509898212,
+          "billed_host_seconds": 0.2641624310053885
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "initial_inspection",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "initial_inspection",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.31442042501294054,
+          "billed_host_seconds": 0.31442070499178953
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "plan",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 31759,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 7490,
+                "reasoning_output_tokens": 139
+              }
+            ]
+          },
+          "role": "plan",
+          "backend": "codex",
+          "wall_seconds": 154.26187833299628
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28390,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 317,
+                "reasoning_output_tokens": 111
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 13.207813018001616
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 29812,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 689,
+                "reasoning_output_tokens": 480
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 29.857139502011705
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 29824,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 570,
+                "reasoning_output_tokens": 354
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 20.855524223006796
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 26939,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1548,
+                "reasoning_output_tokens": 516
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 35.161075527983485
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.3644038070051465,
+          "billed_host_seconds": 0.36440533699351363
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4144732679997105,
+          "billed_host_seconds": 0.4144747979880776
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_prepare",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_prepare",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 24.756015110993758,
+          "billed_host_seconds": 24.756015891005518
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 19947,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 891,
+                "reasoning_output_tokens": 48
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 24.628129765013
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28453,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2014,
+                "reasoning_output_tokens": 877
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 55.662131585006136
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.36421005899319425,
+          "billed_host_seconds": 0.364209128980292
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41434083197964355,
+          "billed_host_seconds": 0.41434067199588753
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_prepare",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_prepare",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 23.08991837600479,
+          "billed_host_seconds": 23.08991963599692
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 19946,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 758,
+                "reasoning_output_tokens": 57
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 22.27834073000122
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28673,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2364,
+                "reasoning_output_tokens": 516
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 51.2229056340002
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28520,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1467,
+                "reasoning_output_tokens": 407
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 33.01108349999413
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.5644174949848093,
+          "billed_host_seconds": 0.5644169250153936
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41430641402257606,
+          "billed_host_seconds": 0.4143064540112391
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_merge",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_merge",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.46430224800133146,
+          "billed_host_seconds": 0.46430193798732944
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41446069499943405,
+          "billed_host_seconds": 0.4144602350133937
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_prepare",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_prepare",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 23.53810340099153,
+          "billed_host_seconds": 22.8480053414969
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.9657151649880689,
+          "billed_host_seconds": 0.482853787500062
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4144898040103726,
+          "billed_host_seconds": 0.20724535200861283
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 19227,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 873,
+                "reasoning_output_tokens": 39
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 26.877475521992892
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_merge",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_merge",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.46456723898882046,
+          "billed_host_seconds": 0.46456718898843974
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41429303598124534,
+          "billed_host_seconds": 0.4142933359835297
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_prepare",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_prepare",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 23.688410080998437,
+          "billed_host_seconds": 23.688411361014005
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 19255,
+                "cached_input_tokens": 13568,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 913,
+                "reasoning_output_tokens": 0
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 27.072606025001733
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 21042,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1064,
+                "reasoning_output_tokens": 46
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 31.276031915011117
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28832,
+                "cached_input_tokens": 14848,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1905,
+                "reasoning_output_tokens": 669
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 45.93195185699733
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.5648036199854687,
+          "billed_host_seconds": 0.5648044400149956
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4144117280084174,
+          "billed_host_seconds": 0.4144134980160743
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_prepare",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_prepare",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 23.502178340015234,
+          "billed_host_seconds": 23.50217901999713
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 20544,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 802,
+                "reasoning_output_tokens": 68
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 23.00602036199416
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 27735,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2371,
+                "reasoning_output_tokens": 516
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 50.805828539974755
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.6144747069920413,
+          "billed_host_seconds": 0.6144743270124309
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41443386001628824,
+          "billed_host_seconds": 0.41443369002081454
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_prepare",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_prepare",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 24.389690905984025,
+          "billed_host_seconds": 24.38969174597878
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 20560,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 895,
+                "reasoning_output_tokens": 0
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 23.796830492996378
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 21017,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1061,
+                "reasoning_output_tokens": 65
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 33.64966173100402
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28988,
+                "cached_input_tokens": 14848,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2647,
+                "reasoning_output_tokens": 1034
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 72.62644000901491
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.6647558550175745,
+          "billed_host_seconds": 0.6647574650123715
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.41442728199763224,
+          "billed_host_seconds": 0.4144293419958558
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_prepare",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_prepare",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 24.30425649700919,
+          "billed_host_seconds": 24.304257666983176
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 20555,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 928,
+                "reasoning_output_tokens": 0
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 28.41698632101179
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "covered_strong_review",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 21016,
+                "cached_input_tokens": 8960,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1167,
+                "reasoning_output_tokens": 52
+              }
+            ]
+          },
+          "role": "covered_strong_review",
+          "backend": "codex",
+          "wall_seconds": 31.82780590999755
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28742,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2702,
+                "reasoning_output_tokens": 516
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 59.78800007500104
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28803,
+                "cached_input_tokens": 14848,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 204,
+                "reasoning_output_tokens": 29
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 7.814260427985573
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "blender_build",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_build",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 2.0165520010050386,
+          "billed_host_seconds": 2.0165537010179833
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4646969279856421,
+          "billed_host_seconds": 0.4646982080012094
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_merge",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_merge",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.5145756220153999,
+          "billed_host_seconds": 0.5145775720011443
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "blender_verify",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "blender_verify",
+          "status": "complete",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 0.4143898629990872,
+          "billed_host_seconds": 0.41439193300902843
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "aha_prepare",
+        "reserved": 0.1,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "stage": "aha_prepare",
+          "status": "failed",
+          "hourly_usd": null,
+          "resource": "local host wall time (CPU/GPU together; no utilization estimate)",
+          "wall_seconds": 25.405422692012507,
+          "billed_host_seconds": 25.40542325199931
+        },
+        "budget_exempt": true,
+        "category": "local_compute"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28872,
+                "cached_input_tokens": 14848,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 213,
+                "reasoning_output_tokens": 38
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 11.489562988019316
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      },
+      {
+        "label": "strong_build",
+        "reserved": 0.25,
+        "actual": null,
+        "state": "unknown",
+        "detail": {
+          "usage": {
+            "cli": "codex",
+            "turns": [
+              {
+                "input_tokens": 28887,
+                "cached_input_tokens": 14848,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 251,
+                "reasoning_output_tokens": 97
+              }
+            ]
+          },
+          "role": "strong_build",
+          "backend": "codex",
+          "wall_seconds": 11.33601106799324
+        },
+        "budget_exempt": true,
+        "category": "codex_cli"
+      }
+    ]
+  },
+  "canonical_scene": "/home/mj/dl_project/agen3d/recon/ai2thor_floorplan209/aha-diagnosed-v2-20261116T232702Z/candidates/build_coffee_table-0005-1/scene.blend",
+  "delivery_accepted": false,
+  "finished_at_utc": "2026-11-16T23:47:23.128295+00:00"
+}

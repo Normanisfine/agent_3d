@@ -1,0 +1,12 @@
+{
+ "note": "10-26 在开发物体上校准后冻结（results/gate_calibration.md）",
+ "sil_iou_min": 0.5,
+ "sil_margin": 0.05,
+ "chamfer_min_m": 0.015,
+ "chamfer_rel": 0.1,
+ "size_ratio": [
+  0.75,
+  1.25
+ ],
+ "penetration_max_m": 0.01
+}

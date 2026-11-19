@@ -1,0 +1,534 @@
+<h2 id="gen"><span class="num">6</span>生成与摆放工具</h2>
+<p>A3、A4 和 P0 要把小物体从“一个方块”换成“一个生成出来的网格”。这件事分两半：先生成形状，再把形状摆到房间里正确的位置。</p>
+<p>我们为此写两个工具，<code>gen3d_request</code> 和 <code>place_mesh</code>。负责人是 Mingjian：先在笔记本上用 Hunyuan3D-2mini 写通、调好，正式实验换成 Betty 上的 SAM 3D。</p>
+<div class="box grandma"><span class="box-label">大白话</span>
+<p>像网购一件小家具。<code>gen3d_request</code> 是下单：照着照片订一件长得像的，订完不用守在门口等。<code>place_mesh</code> 是安装：把到货的家具对着照片挪到原位，挪完请人验收。</p>
+<p>验收标准很硬：装上去必须比原来那个纸箱占位（方块）更像照片，不然就退货，继续用纸箱。</p>
+</div>
+
+<h3 id="b-why2">6.1 为什么拆成两个工具</h3>
+<p>理由有两条，都来自调研笔记 02 的接口建议。</p>
+<ol>
+<li><b>生成慢，不能让 agent 干等</b>。生成走异步批处理：agent 一次提交好几个物体，生成期间接着用方块搭别的东西。</li>
+<li><b>摆错了只重摆，不重生成</b>。比如瓶子被摆成横躺，只要换个朝上轴重跑 <code>place_mesh</code>（估计几秒到几十秒），不用再花一次生成。</li>
+</ol>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 250" width="760" role="img" aria-label="时间线对比：合成一个工具时 agent 每个物体都要等生成；拆成两个工具后提交完接着搭家具，摆错只重摆">
+<defs><marker id="b-m6a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="20" y="22" font-size="13" font-weight="700">合成一个工具：每个物体都要等生成</text>
+<text x="20" y="55">agent</text>
+<rect x="90" y="38" width="120" height="24" class="f6 stroke"/><text x="150" y="55" text-anchor="middle">等生成杯子</text>
+<rect x="210" y="38" width="30" height="24" class="f3 stroke"/><text x="225" y="55" text-anchor="middle">摆</text>
+<rect x="240" y="38" width="120" height="24" class="f6 stroke"/><text x="300" y="55" text-anchor="middle">等生成书</text>
+<rect x="360" y="38" width="30" height="24" class="f3 stroke"/><text x="375" y="55" text-anchor="middle">摆</text>
+<rect x="390" y="38" width="120" height="24" class="f6 stroke"/><text x="450" y="55" text-anchor="middle">等生成瓶子</text>
+<rect x="510" y="38" width="30" height="24" class="f3 stroke"/><text x="525" y="55" text-anchor="middle">摆</text>
+<rect x="540" y="38" width="150" height="24" class="f1 stroke"/><text x="615" y="55" text-anchor="middle">才去搭桌椅柜子</text>
+<text x="20" y="100" font-size="13" font-weight="700">拆成两个工具：提交后接着干活，摆错了只重摆</text>
+<text x="20" y="137">agent</text>
+<rect x="90" y="120" width="70" height="24" class="f3 stroke"/><text x="125" y="137" text-anchor="middle">提交 3 个</text>
+<rect x="160" y="120" width="250" height="24" class="f1 stroke"/><text x="285" y="137" text-anchor="middle">同时搭桌子、椅子、柜子</text>
+<rect x="410" y="120" width="50" height="24" class="f3 stroke"/><text x="435" y="137" text-anchor="middle">摆杯子</text>
+<rect x="460" y="120" width="50" height="24" class="f3 stroke"/><text x="485" y="137" text-anchor="middle">摆书</text>
+<rect x="510" y="120" width="50" height="24" class="f3 stroke"/><text x="535" y="137" text-anchor="middle">摆瓶子</text>
+<rect x="560" y="120" width="60" height="24" class="f4 stroke"/><text x="590" y="137" text-anchor="middle">重摆书</text>
+<text x="20" y="173">Betty</text>
+<path d="M125,144 L125,168 L163,168" class="arrow" marker-end="url(#b-m6a)"/>
+<rect x="165" y="156" width="80" height="24" class="f2 stroke"/><text x="205" y="173" text-anchor="middle">生成杯子</text>
+<rect x="245" y="156" width="80" height="24" class="f2 stroke"/><text x="285" y="173" text-anchor="middle">生成书</text>
+<rect x="325" y="156" width="80" height="24" class="f2 stroke"/><text x="365" y="173" text-anchor="middle">生成瓶子</text>
+<path d="M590,194 L590,147" class="arrow-red" marker-end="url(#b-m6a)"/>
+<text x="590" y="208" text-anchor="middle" class="lbl-accent">朝上轴错了：只重跑 place_mesh，不重新生成</text>
+<path d="M90,230 L720,230" class="arrow" marker-end="url(#b-m6a)"/>
+<text x="700" y="246" text-anchor="middle">时间</text>
+</g></svg></div>
+<figcaption>示意图，长度不按真实比例。上面一条是“生成加摆放一个工具搞定”：agent 每个物体都要等生成返回，家具只能排在最后。下面是拆开以后：提交三件，生成在 Betty 上排队跑，agent 同时搭大家具；书摆歪了只重跑 <code>place_mesh</code>。</figcaption></figure>
+<div class="box calc"><span class="box-label">估算 · 一个物体要多久（调研笔记 02 第 7.3 节，多数是推算）</span>
+<ul>
+<li>SAM 3D 自己部署：A100 上 13.0 ± 1.4 秒一个，不含加载模型（RecGen 论文表 S3 实测）。</li>
+<li>配准加剪影精修：约 5 到 30 秒（推算）。</li>
+<li>每个候选合计约 30 到 90 秒（推算）。</li>
+<li>一个场景 15 个物体、每个 2 个候选：串行约 15 到 45 分钟，异步并发能缩到约 5 到 10 分钟（推算）。</li>
+</ul>
+<p>B200 上的速度没有测过，第 1 周在 Betty 上跑通后用实测数替换。</p>
+</div>
+<p class="src">调研笔记 02 第 0 节第 8 条、第 7.2 和 7.3 节；设计文档第 6 节。</p>
+
+<h3 id="b-gen3d">6.2 gen3d_request：从清单里的一个物体到一个干净的网格</h3>
+<p>接口照抄调研笔记 02 的 §7.2，只留我们会用到的后端。</p>
+<pre><code>gen3d_request(
+  object_ids,              # 清单里的物体 ID（A3、A4 来自 Boxer 清单）
+  backend = "sam3d",       # 正式实验；开发期用 "hy3d_shape"
+  n_candidates = 2,        # 每个物体几个候选，上限 3
+  frames = "auto",         # 自动挑帧
+  inpaint = "auto",        # 估计遮挡超过约 30% 才补全
+  texture = False          # 先只要形状，接受以后再补纹理
+) → job_id                 # 异步：先拿号，之后再取结果</code></pre>
+<div class="arch">
+<div class="arch-title">gen3d_request 内部六步</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 300" width="760" role="img" aria-label="gen3d_request 逐步图：挑帧、掩码小于 200 像素直接 too_small、裁 RGBA、可选补全、调后端、清理网格、缓存">
+<defs><marker id="b-m6b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="10" y="40" width="90" height="80" rx="8" class="f6 stroke"/>
+<text x="55" y="72" text-anchor="middle" font-weight="700">物体清单</text>
+<g font-size="14"><text x="55" y="96" text-anchor="middle" class="shape">object_ids</text></g>
+<path d="M100,80 L128,80" class="arrow" marker-end="url(#b-m6b)"/>
+<rect x="130" y="40" width="150" height="80" rx="8" class="f1 stroke"/>
+<text x="205" y="62" text-anchor="middle" font-weight="700">① 挑帧</text>
+<text x="205" y="84" text-anchor="middle">掩码面积 × 不截断</text>
+<text x="205" y="104" text-anchor="middle">× 清晰度，取前 k 帧</text>
+<path d="M280,80 L298,80" class="arrow" marker-end="url(#b-m6b)"/>
+<polygon points="300,80 355,40 410,80 355,120" class="f3 stroke"/>
+<text x="355" y="76" text-anchor="middle">掩码</text>
+<text x="355" y="94" text-anchor="middle">≥ 200 px</text>
+<path d="M355,120 L355,148" class="arrow-red" marker-end="url(#b-m6b)"/>
+<text x="362" y="140">否</text>
+<rect x="300" y="150" width="110" height="46" rx="8" class="f4 stroke"/>
+<g font-size="14"><text x="355" y="170" text-anchor="middle" class="shape">too_small</text></g>
+<text x="355" y="188" text-anchor="middle">直接用方块</text>
+</g>
+<g data-s="2">
+<path d="M410,80 L428,80" class="arrow" marker-end="url(#b-m6b)"/>
+<text x="419" y="72" text-anchor="middle">是</text>
+<rect x="430" y="40" width="150" height="80" rx="8" class="f2 stroke"/>
+<text x="505" y="62" text-anchor="middle" font-weight="700">② 裁 RGBA</text>
+<text x="505" y="84" text-anchor="middle">SAM 3 掩码当 alpha</text>
+<text x="505" y="104" text-anchor="middle">四周留 10–20% 边</text>
+</g>
+<g data-s="3">
+<path d="M580,80 L670,80 L670,212" class="arrow" marker-end="url(#b-m6b)"/>
+<rect x="590" y="214" width="160" height="80" rx="8" class="f3 stroke"/>
+<text x="670" y="236" text-anchor="middle" font-weight="700">③ 补全（可选）</text>
+<text x="670" y="256" text-anchor="middle">遮挡超过约 30% 才补</text>
+<text x="670" y="276" text-anchor="middle">原图也留作候选</text>
+</g>
+<g data-s="4">
+<path d="M590,254 L562,254" class="arrow" marker-end="url(#b-m6b)"/>
+<rect x="420" y="214" width="140" height="80" rx="8" class="f1 stroke"/>
+<text x="490" y="236" text-anchor="middle" font-weight="700">④ 调后端</text>
+<text x="490" y="256" text-anchor="middle">SAM 3D（Betty）</text>
+<text x="490" y="276" text-anchor="middle">Hunyuan（笔记本）</text>
+</g>
+<g data-s="5">
+<path d="M420,254 L392,254" class="arrow" marker-end="url(#b-m6b)"/>
+<rect x="250" y="214" width="140" height="80" rx="8" class="f5 stroke"/>
+<text x="320" y="234" text-anchor="middle" font-weight="700">⑤ 清理网格</text>
+<text x="320" y="252" text-anchor="middle">只留最大连通块</text>
+<text x="320" y="270" text-anchor="middle">≤ 20k 面</text>
+<text x="320" y="288" text-anchor="middle">Z 朝上、单位米</text>
+</g>
+<g data-s="6">
+<path d="M250,254 L222,254" class="arrow" marker-end="url(#b-m6b)"/>
+<rect x="40" y="214" width="180" height="80" rx="8" class="f2 stroke"/>
+<text x="130" y="236" text-anchor="middle" font-weight="700">⑥ 缓存，按 job_id 取结果</text>
+<text x="130" y="256" text-anchor="middle">键：帧、掩码、后端、种子</text>
+<g font-size="14"><text x="130" y="276" text-anchor="middle" class="shape">gen/…/c&lt;k&gt;/mesh.glb</text></g>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>挑帧，先过门槛</b>。按“掩码面积 × 不贴图像边的比例 × 清晰度”给帧排序，取前几帧。最好那一帧的掩码不到约 200 像素（约 14×14）就返回 <code>too_small</code>，用方块。A3 起用 1024×768 的高清帧。</li>
+<li><b>裁 RGBA</b>。用 SAM 3 的掩码当透明通道（alpha），四周留 10% 到 20% 的边。不让通用去背景模型在几十个像素上自己猜轮廓。</li>
+<li><b>可选补全</b>。估计遮挡超过约 30% 时，先用图像编辑模型把被挡住的部分补出来。原图也保留，作为另一个候选一起参加后面的打分。</li>
+<li><b>调后端</b>。正式实验用 Betty 上的 SAM 3D，开发期用笔记本上的 Hunyuan3D-2mini。每个物体默认 2 个候选（换帧或换种子），上限 3 个。</li>
+<li><b>清理网格</b>。只留最大的连通块（生成结果常带碎片），减面到不超过 2 万个三角面，统一成 Z 朝上、以米为单位。</li>
+<li><b>缓存</b>。按（帧、掩码哈希、后端、种子）存盘，同样的请求第二次直接返回。提交时拿到的 <code>job_id</code> 用来取结果，<code>place_mesh</code> 从这里取网格。</li>
+</ol>
+</div>
+<div class="box calc"><span class="box-label">算例 · 生成器实际看到多少像素（调研笔记 02 第 4.1 节，推算）</span>
+<p>生成器内部都会把物体裁剪放大到固定尺寸。拿 Pi3X 帧（574×434）里一个 60×60 像素的杯子来算。</p>
+<ul>
+<li>SAM 3D：物体那一路放大到 518。518 ÷ 60 ≈ 8.6，加上留边约 8 倍。</li>
+<li>TRELLIS.2：放大到 1024，裁剪不留边，1024 ÷ 60 ≈ 17 倍。</li>
+</ul>
+<p>放大不会凭空增加细节，模型拿到的信息还是那 60 像素。所以 A3 起要用高清帧，同一个杯子在 1024×768 的原图里宽约 60 × 1.78 ≈ 107 像素。</p>
+</div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>SAM 3D 吃的是整张图加掩码</b>。它自己在掩码周围留边、缩放到 518，没有去背景模型，直接用“图像 × 掩码”，所以掩码好坏直接决定结果。第 2 步的 RGBA 裁剪主要是给 Hunyuan 用的。</li>
+<li><b>Hunyuan 必须自己给 alpha</b>。没有 alpha 时，整张图都会被当成物体。</li>
+<li><b>“清晰度”这一项没有论文依据</b>。用 Laplacian 方差衡量清晰度是我们自己的选择，开发集上看效果再定。</li>
+<li><b>别每帧各生成一个</b>。AHa-3D 的文档提醒，不要每帧各生成一次、再假设它们彼此一致，原文是 <q>Do not regenerate each video frame and assume its meshes are temporally consistent</q>。</li>
+</ul>
+</div>
+<p class="src">调研笔记 02 第 4.1、4.3、4.5、7.2 节；设计文档第 6 节（too_small 门槛、缓存键）。</p>
+
+<h3 id="b-place">6.3 place_mesh：把网格摆准</h3>
+<p>拿到网格以后，要定它在房间里的位置、朝向和大小。做法照 φ-RIE、ReScene、GRASE 三篇论文的配方拼起来。</p>
+<pre><code>place_mesh(object_id, candidate_id,
+           init = "backend_pose" | "obb",   # SAM 3D 用后端给的位姿；Hunyuan 用 3D 框
+           dof = 7 | 9,                     # 9 = 三个轴各自缩放
+           support = 支撑面 ID 或 None,       # 比如桌面
+           yaw_hint = 偏航角提示 或 None)
+→ PlacementResult（JSON）</code></pre>
+<p>几个词先解释一下。</p>
+<ul>
+<li><b>OBB</b>（有向包围盒）。能转的 3D 框，由中心、三边长和朝向定义。</li>
+<li><b>ICP</b>（迭代最近点）。反复“给每个点找最近的对应点、再算一个最好的变换”，把一组点贴到另一组点上。</li>
+<li><b>剪影 IoU</b>。把网格按某个相机投影到图上得到剪影，和 SAM 3 掩码算交集除以并集。1 是完全重合。</li>
+<li><b>Chamfer 距离</b>。这里指单向的，观测到的每个点到网格表面的平均距离，越小越贴。</li>
+</ul>
+<div class="arch">
+<div class="arch-title">place_mesh 四步走到验收门</div>
+<div class="svg-wrap"><svg viewBox="0 0 760 300" width="760" role="img" aria-label="place_mesh 逐步图：初始化、ICP 贴点云、多帧剪影搜索、验收门、accepted 或 rejected_fit 退回方块">
+<defs><marker id="b-m6c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<g data-s="1">
+<rect x="10" y="40" width="150" height="170" rx="8" class="f0 stroke"/>
+<text x="85" y="62" text-anchor="middle" font-weight="700">① 初始化</text>
+<polygon points="82.15,88.67 120.79,99.03 107.85,147.33 69.21,136.97" class="f1 stroke"/>
+<circle cx="65" cy="96" r="2.5" class="accent"/><circle cx="65" cy="104" r="2.5" class="accent"/><circle cx="65" cy="112" r="2.5" class="accent"/><circle cx="65" cy="120" r="2.5" class="accent"/><circle cx="65" cy="128" r="2.5" class="accent"/><circle cx="65" cy="136" r="2.5" class="accent"/>
+<circle cx="69" cy="92" r="2.5" class="accent"/><circle cx="77" cy="92" r="2.5" class="accent"/><circle cx="85" cy="92" r="2.5" class="accent"/><circle cx="93" cy="92" r="2.5" class="accent"/><circle cx="101" cy="92" r="2.5" class="accent"/>
+<text x="85" y="160" text-anchor="middle" class="lbl-accent">红点 = 看到的点</text>
+<text x="85" y="178" text-anchor="middle">SAM 3D 给的位姿，</text>
+<text x="85" y="196" text-anchor="middle">或清单里的 3D 框</text>
+</g>
+<g data-s="2">
+<path d="M160,125 L174,125" class="arrow" marker-end="url(#b-m6c)"/>
+<rect x="176" y="40" width="150" height="170" rx="8" class="f0 stroke"/>
+<text x="251" y="62" text-anchor="middle" font-weight="700">② ICP 贴点云</text>
+<path d="M206,142 L296,142" class="arrow dash"/>
+<rect x="231" y="92" width="40" height="50" class="f1 stroke"/>
+<circle cx="231" cy="96" r="2.5" class="accent"/><circle cx="231" cy="104" r="2.5" class="accent"/><circle cx="231" cy="112" r="2.5" class="accent"/><circle cx="231" cy="120" r="2.5" class="accent"/><circle cx="231" cy="128" r="2.5" class="accent"/><circle cx="231" cy="136" r="2.5" class="accent"/>
+<circle cx="235" cy="92" r="2.5" class="accent"/><circle cx="243" cy="92" r="2.5" class="accent"/><circle cx="251" cy="92" r="2.5" class="accent"/><circle cx="259" cy="92" r="2.5" class="accent"/><circle cx="267" cy="92" r="2.5" class="accent"/>
+<text x="278" y="156">桌面</text>
+<text x="251" y="178" text-anchor="middle">观测点 → 网格，单向</text>
+<text x="251" y="196" text-anchor="middle">尺度限 0.75–1.25 倍</text>
+</g>
+<g data-s="3">
+<path d="M326,125 L340,125" class="arrow" marker-end="url(#b-m6c)"/>
+<rect x="342" y="40" width="150" height="170" rx="8" class="f0 stroke"/>
+<text x="417" y="62" text-anchor="middle" font-weight="700">③ 剪影搜索</text>
+<rect x="350" y="80" width="40" height="46" class="f0 stroke"/>
+<rect x="362" y="90" width="16" height="28" class="f2"/>
+<rect x="363" y="91" width="17" height="27" class="arrow dash"/>
+<rect x="397" y="80" width="40" height="46" class="f0 stroke"/>
+<rect x="409" y="90" width="16" height="28" class="f2"/>
+<rect x="407" y="89" width="17" height="30" class="arrow dash"/>
+<rect x="444" y="80" width="40" height="46" class="f0 stroke"/>
+<rect x="456" y="90" width="16" height="28" class="f2"/>
+<rect x="458" y="92" width="15" height="25" class="arrow dash"/>
+<text x="417" y="150" text-anchor="middle">3–5 帧比轮廓</text>
+<text x="417" y="172" text-anchor="middle">平均 IoU 0.71</text>
+<text x="417" y="196" text-anchor="middle">3 层 × 4 遍坐标搜索</text>
+</g>
+<g data-s="4">
+<path d="M492,125 L506,125" class="arrow" marker-end="url(#b-m6c)"/>
+<rect x="508" y="40" width="242" height="170" rx="8" class="f3 stroke"/>
+<text x="629" y="62" text-anchor="middle" font-weight="700">④ 验收门（四条都要过）</text>
+<text x="524" y="90">✓ 剪影 IoU 0.71 ≥ 0.65</text>
+<text x="524" y="114">✓ Chamfer 1.2 cm ≤ 1.5 cm</text>
+<text x="524" y="138">✓ 尺寸 0.92–1.13 倍框</text>
+<text x="524" y="162">✓ 穿进桌面 0.3 cm ≤ 1 cm</text>
+<text x="524" y="196">任一条不过 → rejected_fit</text>
+</g>
+<g data-s="5">
+<rect x="10" y="232" width="480" height="58" rx="8" class="f6 stroke"/>
+<text x="250" y="254" text-anchor="middle" font-weight="700">返回 PlacementResult（JSON）</text>
+<text x="250" y="276" text-anchor="middle">status、matrix_world、sil_iou、chamfer、cost、seconds</text>
+<path d="M565,210 L565,230" class="arrow-green" marker-end="url(#b-m6c)"/>
+<text x="571" y="225">全过</text>
+<rect x="508" y="232" width="114" height="58" rx="8" class="f2 stroke"/>
+<g font-size="14"><text x="565" y="254" text-anchor="middle" class="shape">accepted</text></g>
+<text x="565" y="276" text-anchor="middle">写进场景</text>
+<path d="M693,210 L693,230" class="arrow-red" marker-end="url(#b-m6c)"/>
+<text x="699" y="225">不过</text>
+<rect x="636" y="232" width="114" height="58" rx="8" class="f4 stroke"/>
+<g font-size="14"><text x="693" y="254" text-anchor="middle" class="shape">rejected_fit</text></g>
+<text x="693" y="276" text-anchor="middle">退回方块</text>
+</g>
+</g></svg></div>
+<ol class="arch-steps">
+<li><b>初始化</b>。SAM 3D 输出自带相机坐标系下的旋转、平移、尺度，用 Pi3X 的相机位姿换到世界系就是起点。Hunyuan 的网格没有位姿，尺度取点云的稳健 OBB，偏航每 10° 一个起点，再加 5 个候选朝上轴。图里红点是观测到的点。</li>
+<li><b>ICP 贴点云</b>。用观测到的部分点云去贴完整的网格，只算单向距离（观测点到网格），因为网格背面本来就没被拍到。尺度限制在 OBB 的 0.75 到 1.25 倍之间（GRASE 的范围），底面贴住支撑面（桌面）。</li>
+<li><b>剪影搜索</b>。取 3 到 5 帧，比较网格剪影（虚线）和 SAM 3 掩码（绿块），在有限范围内逐个坐标微调，分 3 层、每层 4 遍，步长 1、0.5、0.25。目标是“1 − 掩码 IoU”加边界距离、最差视角、点到面距离。</li>
+<li><b>验收门</b>。四个条件都过才算数，详见 <a href="#b-gate">6.4 节</a>。图里的数是示例。剪影 IoU、Chamfer 取自调研笔记 02 的返回值样例，尺寸比和穿透深度是为演示编的。</li>
+<li><b>结局</b>。过了就是 <code>accepted</code>，网格和它的 4×4 世界变换（<code>matrix_world</code>）写进场景；不过就是 <code>rejected_fit</code>，这个物体用清单里的框本身（方块）。不管哪种，结果都写成一份 JSON 返回给调用者并记进日志。</li>
+</ol>
+</div>
+<details><summary>看一份完整的返回值样例（调研笔记 02 第 7.2 节）</summary><div class="inner">
+<pre><code>{
+  "object_id": "obj_017", "status": "accepted",
+  "backend": "sam3d@fal", "candidate_id": 1, "frame": 412, "seed": 7,
+  "mesh_glb": "gen/obj_017/c1/mesh.glb",
+  "matrix_world": [[...4x4...]], "scale_xyz": [0.09, 0.09, 0.11],
+  "fit": {"sil_iou_mean": 0.71, "sil_iou_min": 0.55, "n_views": 4,
+          "chamfer_obs2mesh_cm": 1.2, "primitive_sil_iou": 0.62, "inlier_ratio": 0.83},
+  "input": {"mask_px": 3600, "occlusion_est": 0.2, "inpainted": false},
+  "cost_usd": 0.02, "seconds": {"gen": 14, "place": 8},
+  "blender_snippet": "bpy.ops.import_scene.gltf(filepath=...); obj.matrix_world = ..."
+}</code></pre>
+<p><code>mesh_glb</code> 在物体自己的坐标系里：Z 朝上、单位米、原点在底面中心。<code>matrix_world</code> 把它放进世界坐标系。</p>
+<p><code>status</code> 还可能是 <code>too_small</code>、<code>backend_error</code>、<code>timeout</code>、<code>wrong_category</code>（见 <a href="#b-fail">6.6 节</a>）。样例里的 <code>sam3d@fal</code> 是笔记写的示例，我们正式实验的后端在 Betty 上。</p>
+</div></details>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>剪影不必用可微渲染</b>。在网格表面采 2 万个点，投到图上再膨胀一下就是剪影。这样能避开 nvdiffrast 在新显卡上的编译问题（推算）。</li>
+<li><b>小物体上点云不可靠</b>。一个 60 像素的物体在 Pi3X 点云里可能只有几百个点，深度噪声相对物体尺寸很大（推算）。所以对小物体，剪影项比点云项更可靠，“底面贴支撑面”这条约束也很重要。</li>
+<li><b>SAM 3D 的尺度是各向同性的</b>。发布代码把三个轴的尺度取平均，扁的、长的物体会被缩成一样的比例。需要时用 <code>dof = 9</code> 让三个轴各自缩放。</li>
+<li><b>fal 上的 SAM 3D 坐标约定没写明</b>。返回的四元数、平移、尺度是什么坐标系，要拿已知物体实测。这正是 fal 那 10 美元的用途（<a href="#cost">第 9 章</a>）。</li>
+</ul>
+</div>
+<p class="src">调研笔记 02 第 3.1、3.2、7.2 节；GRASE 阅读笔记（附录 A.3 的参数和搜索设置，PDF 抽出的表有错位，实现前要对照原文）。</p>
+
+<h3 id="b-gate">6.4 验收门：四个条件，缺一不可</h3>
+<p>验收门决定一个生成网格能不能留在场景里。核心只有一句话：<b>必须比方块好</b>。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 496" width="760" role="img" aria-label="验收门决策图：剪影 IoU、Chamfer、尺寸、支撑面四个条件依次检查，全过 accepted，任何一条不过 rejected_fit 退回方块">
+<defs><marker id="b-m6d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker><marker id="b-m6e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker></defs>
+<g font-size="12">
+<rect x="20" y="12" width="310" height="40" rx="8" class="f6 stroke"/>
+<text x="175" y="37" text-anchor="middle">place_mesh 摆好的一个候选网格</text>
+<path d="M175,52 L175,70" class="arrow" marker-end="url(#b-m6d)"/>
+<rect x="20" y="72" width="310" height="72" rx="8" class="f3 stroke"/>
+<text x="175" y="94" text-anchor="middle" font-weight="700">① 剪影 IoU（3–5 帧平均）</text>
+<text x="175" y="114" text-anchor="middle">≥ max(0.6, 方块版 IoU + 0.03)</text>
+<text x="175" y="134" text-anchor="middle">为什么：生成必须比方块好，否则不值得换</text>
+<path d="M175,144 L175,162" class="arrow" marker-end="url(#b-m6d)"/>
+<text x="183" y="158">是</text>
+<rect x="20" y="164" width="310" height="72" rx="8" class="f3 stroke"/>
+<text x="175" y="186" text-anchor="middle" font-weight="700">② Chamfer（观测点 → 网格）</text>
+<text x="175" y="206" text-anchor="middle">≤ max(1.5 cm, 0.1 × 最长边)</text>
+<text x="175" y="226" text-anchor="middle">为什么：网格要贴住看到的点</text>
+<path d="M175,236 L175,254" class="arrow" marker-end="url(#b-m6d)"/>
+<text x="183" y="250">是</text>
+<rect x="20" y="256" width="310" height="72" rx="8" class="f3 stroke"/>
+<text x="175" y="278" text-anchor="middle" font-weight="700">③ 尺寸</text>
+<text x="175" y="298" text-anchor="middle">每个轴都在框的 0.75–1.25 倍</text>
+<text x="175" y="318" text-anchor="middle">为什么：防止尺度跑飞</text>
+<path d="M175,328 L175,346" class="arrow" marker-end="url(#b-m6d)"/>
+<text x="183" y="342">是</text>
+<rect x="20" y="348" width="310" height="72" rx="8" class="f3 stroke"/>
+<text x="175" y="370" text-anchor="middle" font-weight="700">④ 支撑面</text>
+<text x="175" y="390" text-anchor="middle">穿进支撑面不超过 1 cm</text>
+<text x="175" y="410" text-anchor="middle">为什么：别陷进桌面或飘着</text>
+<path d="M175,420 L175,438" class="arrow-green" marker-end="url(#b-m6d)"/>
+<text x="183" y="434">四条全过</text>
+<rect x="20" y="440" width="310" height="44" rx="8" class="f2 stroke"/>
+<text x="175" y="467" text-anchor="middle">accepted：网格写进场景，记日志</text>
+<path d="M330,108 L558,108" class="arrow-red" marker-end="url(#b-m6e)"/>
+<text x="444" y="101" text-anchor="middle">否</text>
+<path d="M330,200 L558,200" class="arrow-red" marker-end="url(#b-m6e)"/>
+<text x="444" y="193" text-anchor="middle">否</text>
+<path d="M330,292 L558,292" class="arrow-red" marker-end="url(#b-m6e)"/>
+<text x="444" y="285" text-anchor="middle">否</text>
+<path d="M330,384 L558,384" class="arrow-red" marker-end="url(#b-m6e)"/>
+<text x="444" y="377" text-anchor="middle">否</text>
+<rect x="560" y="72" width="190" height="348" rx="8" class="f4 stroke"/>
+<g font-size="14"><text x="655" y="220" text-anchor="middle" class="shape">rejected_fit</text></g>
+<text x="655" y="246" text-anchor="middle">退回方块：</text>
+<text x="655" y="266" text-anchor="middle">用清单里的框本身</text>
+<text x="655" y="290" text-anchor="middle">日志记下</text>
+<text x="655" y="310" text-anchor="middle">是哪一条没过</text>
+<text x="560" y="467">门槛都是初值，开发集上校准</text>
+</g></svg></div>
+<figcaption>四个条件从上往下依次检查，任何一条不过都走右边，退回方块并记下原因。四条都写在设计文档第 6 节工具表里。所有数值都是我们定的初值，只在开发集上调，不看测试集。</figcaption></figure>
+<div class="box calc"><span class="box-label">算例 · 三个物体过不过得了门</span>
+<p><b>杯子（最长边 0.11 m）</b>。方块版剪影 IoU 0.62，网格 0.71。</p>
+<ul>
+<li>剪影门槛 = max(0.6, 0.62 + 0.03) = 0.65，0.71 ≥ 0.65，过。</li>
+<li>Chamfer 门槛 = max(1.5 cm, 0.1 × 11 cm) = max(1.5, 1.1) = 1.5 cm。实测 1.2 cm，过。</li>
+</ul>
+<p><b>一本书</b>。方块本来就很像书，方块版 IoU 0.70；网格 0.72。</p>
+<ul>
+<li>剪影门槛 = max(0.6, 0.70 + 0.03) = 0.73，0.72 &lt; 0.73，<b>不过</b>，退回方块。生成虽然没变差，但也没好到值得换。</li>
+</ul>
+<p><b>一个台灯（最长边 0.4 m）</b>。</p>
+<ul>
+<li>Chamfer 门槛 = max(1.5 cm, 0.1 × 40 cm) = 4 cm。物体越大，允许的绝对误差越大，保底是 1.5 cm。</li>
+</ul>
+<p>以上数字是演示用的，杯子那组取自调研笔记 02 的返回值样例。</p>
+</div>
+<p><b>为什么非要有这道门</b>。证据有三条。</p>
+<ol>
+<li><b>直接接生成器可能更差</b>。SEIG（arXiv 2606.02580）拿 Blender agent VIGA 做对照：完整版 VIGA 先用 SAM 和 SAM-3D 分割、生成每个物体；去掉这两个模型、只靠大模型搭的版本，在两个数据集上 CLIP 分数都更高，PSNR 一高一低（单张图片输入，见下表）。SEIG 的作者说完整版生成的网格碎、颜色错，拼不成协调的场景，还会被 agent 改写纹理，原文是 <q>fragmented, mis-colored meshes that fail to assemble into a coherent scene</q>。</li>
+<li><b>SAM 3D 自己也设门</b>。它的布局后优化在掩码 IoU 低于 0.5、或者没超过初始 IoU 时拒绝结果。在 ADT 数据集上，1027 个实例里只有 554 个接受了优化。</li>
+<li><b>ReScene 也设门</b>。配准后 RMSE 不能变大、内点率下降不超过 0.01，否则保留原位姿。</li>
+</ol>
+<div class="table-wrap"><table>
+<tr><th>SEIG 表 1、2 里 VIGA 两个版本（图像指标，没有几何指标）</th><th>只靠大模型：PSNR / CLIP</th><th>加 SAM 和 SAM-3D：PSNR / CLIP</th></tr>
+<tr><td>NeRF-synthetic</td><td>12.33 / 0.8451</td><td>11.18 / 0.7986</td></tr>
+<tr><td>Edit3D</td><td>11.52 / 0.8366</td><td>12.48 / 0.7883</td></tr>
+</table></div>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>门只能比剪影，看不到真值</b>。“比方块好”比的是剪影 IoU；整道门只拿得到 SAM 3 掩码和 Pi3X 点云，CA-1M 的真值不进流程。过了门的网格在评测里照样可能判成“建坏了”。</li>
+<li><b>没有论文在真实数据上证明过“生成网格比方块的几何指标更好”</b>。调研笔记 02 第 5 节专门查过，没找到。这也是我们要测的东西。</li>
+<li><b>门槛别看测试集调</b>。看了测试集结果再改门槛，属于设计文档列的“反目标”。</li>
+</ul>
+</div>
+<p class="src">设计文档第 6 节工具表；调研笔记 02 第 3.1、5、7.2 节（SEIG arXiv 2606.02580 表 1、2；SAM 3D 表 9；ReScene）。</p>
+
+<h3 id="b-backends">6.5 SAM 3D 和 Hunyuan3D-2 怎么选</h3>
+<p>两个后端最大的区别：SAM 3D 生成网格时<b>顺带给出位姿</b>，Hunyuan 只给形状，位置、朝向、大小都要靠 <code>place_mesh</code> 自己解。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 252" width="760" role="img" aria-label="SAM 3D 和 Hunyuan3D-2mini 对比：SAM 3D 输入整图加掩码加点图，输出网格加相机系位姿；Hunyuan 输入 RGBA 裁剪，输出只有规范空间的形状，要全套配准">
+<defs><marker id="b-m6f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="10" y="30" font-size="13" font-weight="700">SAM 3D Objects（正式实验）</text>
+<rect x="10" y="40" width="160" height="80" rx="8" class="f6 stroke"/>
+<text x="90" y="62" text-anchor="middle" font-weight="700">输入</text>
+<text x="90" y="84" text-anchor="middle">整张图 + 掩码</text>
+<text x="90" y="104" text-anchor="middle">+ Pi3X 点图</text>
+<path d="M170,80 L198,80" class="arrow" marker-end="url(#b-m6f)"/>
+<rect x="200" y="40" width="160" height="80" rx="8" class="f2 stroke"/>
+<text x="280" y="62" text-anchor="middle" font-weight="700">SAM 3D</text>
+<text x="280" y="84" text-anchor="middle">Betty mig45，约 22 GB</text>
+<text x="280" y="104" text-anchor="middle">A100 上约 13 秒/个</text>
+<path d="M360,80 L388,80" class="arrow" marker-end="url(#b-m6f)"/>
+<rect x="390" y="40" width="180" height="80" rx="8" class="f2 stroke"/>
+<text x="480" y="62" text-anchor="middle" font-weight="700">网格 + 位姿</text>
+<text x="480" y="84" text-anchor="middle">R、t、s 都在相机系</text>
+<text x="480" y="104" text-anchor="middle">尺度三轴相同（各向同性）</text>
+<path d="M570,80 L598,80" class="arrow" marker-end="url(#b-m6f)"/>
+<rect x="600" y="40" width="150" height="80" rx="8" class="f6 stroke"/>
+<g font-size="14"><text x="675" y="62" text-anchor="middle" class="shape">place_mesh</text></g>
+<text x="675" y="84" text-anchor="middle">init = 后端位姿</text>
+<text x="675" y="104" text-anchor="middle">Pi3X 位姿换到世界系</text>
+<text x="10" y="150" font-size="13" font-weight="700">Hunyuan3D-2mini（开发、50 个物体小对比）</text>
+<rect x="10" y="160" width="160" height="80" rx="8" class="f6 stroke"/>
+<text x="90" y="182" text-anchor="middle" font-weight="700">输入</text>
+<text x="90" y="204" text-anchor="middle">RGBA 裁剪</text>
+<text x="90" y="224" text-anchor="middle">（必须自己给 alpha）</text>
+<path d="M170,200 L198,200" class="arrow" marker-end="url(#b-m6f)"/>
+<rect x="200" y="160" width="160" height="80" rx="8" class="f2 stroke"/>
+<text x="280" y="182" text-anchor="middle" font-weight="700">Hunyuan3D-2mini</text>
+<text x="280" y="204" text-anchor="middle">笔记本，约 6 GB</text>
+<text x="280" y="224" text-anchor="middle">不用编译 CUDA 扩展</text>
+<path d="M360,200 L388,200" class="arrow" marker-end="url(#b-m6f)"/>
+<rect x="390" y="160" width="180" height="80" rx="8" class="f4 stroke"/>
+<text x="480" y="182" text-anchor="middle" font-weight="700">只有形状</text>
+<text x="480" y="204" text-anchor="middle">规范空间：单位框里</text>
+<text x="480" y="224" text-anchor="middle">朝向、尺度、位置都未知</text>
+<path d="M570,200 L598,200" class="arrow" marker-end="url(#b-m6f)"/>
+<rect x="600" y="160" width="150" height="80" rx="8" class="f6 stroke"/>
+<g font-size="14"><text x="675" y="182" text-anchor="middle" class="shape">place_mesh</text></g>
+<text x="675" y="204" text-anchor="middle">OBB 定尺度，10° 偏航</text>
+<text x="675" y="224" text-anchor="middle">5 个朝上轴，再 ICP</text>
+</g></svg></div>
+<figcaption>关键差别在第三格。SAM 3D 的输出自带相机坐标系下的位姿（绿色），<code>place_mesh</code> 从它出发精修就行；Hunyuan 的输出在“规范空间”里，也就是缩放进一个单位框、朝向随意的形状（红色），<code>place_mesh</code> 要从零解出位置、偏航、尺度，还要猜哪条轴朝上。</figcaption></figure>
+<div class="table-wrap"><table>
+<tr><th></th><th>SAM 3D Objects</th><th>Hunyuan3D-2 / 2mini（只要形状）</th></tr>
+<tr><td>用途</td><td>正式实验的生成器</td><td>开发期把两个工具写通；50 个物体的小对比；Betty 装不通时的退路</td></tr>
+<tr><td>输出</td><td>网格加相机系下的旋转、平移、各向同性尺度</td><td>规范空间里的形状，没有位姿</td></tr>
+<tr><td>输入</td><td>整张图加每个物体的掩码，可选外部点图（传 Pi3X 的，输出才是米制）</td><td>单张图，必须带 alpha</td></tr>
+<tr><td>显存</td><td>官方要求至少 32 GB；A100 上实测进程 22 GB</td><td>形状模型约 6 GB</td></tr>
+<tr><td>速度</td><td>A100 上 13.0 ± 1.4 秒一个</td><td>没有核实（估计 10 到 30 秒）</td></tr>
+<tr><td>在哪跑</td><td>Betty 的 mig45 切片（课程额度）；fal 上只做核对</td><td>笔记本，晚上批量跑，避开 Blender 和 IsaacLab 抢显卡</td></tr>
+<tr><td>遮挡和小物体</td><td>专门用合成遮挡数据训练过，README 原话 <q>handling small objects and occlusions</q></td><td>没有专门训练</td></tr>
+<tr><td>许可</td><td>SAM License；Hugging Face 权限要人工审批</td><td>腾讯社区许可，排除欧盟、英国、韩国</td></tr>
+<tr><td>安装</td><td>依赖钉在 cu121；在 Blackwell 显卡上估计要自己重编 kaolin 和 pytorch3d（推算）</td><td>纯形状不用编译 CUDA 扩展，最容易装通</td></tr>
+</table></div>
+<div class="box detail"><span class="box-label">论文里的证据互相打架</span>
+<ul>
+<li><b>形状，SAM 3D 论文表 2</b>。在真实场景物体 SA-3DAO 上比 F1@0.01，SAM 3D 0.2344，Hunyuan3D-2.0 0.1574，2.1 只有 0.1399。</li>
+<li><b>摆放，SAM 3D 论文表 3</b>。同样在 SA-3DAO 上比 3D IoU，Hunyuan3D-2.0 网格加 FoundationPose 是 0.2937，SAM 3D 联合预测是 0.4254。</li>
+<li><b>GizmoAct 论文表 2，R2S-Object</b>。这一组的深度来自 Pi3X。SAM 3D 的 ADD-SB 误差 0.050 m，3D IoU 0.482。</li>
+<li><b>同一张表，CA-1M</b>。这一组的深度是 LiDAR 加 LingBot-Depth 补全，不是 Pi3X。SAM 3D 的 ADD-SB 误差 0.062 m，3D IoU 0.434。</li>
+<li><b>φ-RIE 在 ScanNet++ 真实物体上</b>（只有 29 个）。TRELLIS 的 F1 最高（0.3087），SAM 3D 反而最低（0.1847）。</li>
+</ul>
+<p>评测协议不同，排名就不同。所以不能只信论文排行，要在我们自己的数据上测一次。</p>
+</div>
+<details><summary>F1@0.01、FoundationPose、ADD-SB 是什么</summary><div class="inner">
+<ul>
+<li><b>F1@0.01</b>。比形状的分数。把生成的形状和真值形状都撒成点，距离在 0.01 以内能找到对方的点算“对上”，再把查准率和查全率合成一个数。0 到 1，越高越像。</li>
+<li><b>FoundationPose</b>。NVIDIA 的物体位姿估计模型。给它一个现成的网格和带深度的图，它估出网格在相机里的旋转和平移。它不估尺度，网格必须已经是米制大小。</li>
+<li><b>ADD-SB 误差</b>。衡量位姿摆得准不准，单位米，越小越好。按我们的理解它和常用的 ADD-S 同类：把物体按预测位姿和真值位姿各摆一遍，量两份点之间的平均最近距离，所以杯子这类对称物体绕自己的轴转一下不会被算成错。</li>
+</ul>
+</div></details>
+<p><b>50 个物体的小对比</b>就是为这个做的。它是物体级实验，不进 agent 循环，排在 11 月 10 日到 16 日。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 130" width="760" role="img" aria-label="50 个物体小对比的设计：固定种子抽物体，两种做法各摆一遍，和真值框比谁摆得准">
+<defs><marker id="b-m6g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<rect x="10" y="30" width="190" height="70" rx="8" class="f6 stroke"/>
+<text x="105" y="52" text-anchor="middle">测试场景里</text>
+<text x="105" y="72" text-anchor="middle">固定种子抽约 50 个</text>
+<text x="105" y="92" text-anchor="middle">XS、S 档物体</text>
+<path d="M200,55 L258,35" class="arrow" marker-end="url(#b-m6g)"/>
+<path d="M200,75 L258,95" class="arrow" marker-end="url(#b-m6g)"/>
+<rect x="260" y="14" width="240" height="42" rx="8" class="f2 stroke"/>
+<text x="380" y="40" text-anchor="middle">SAM 3D 自带的位姿</text>
+<rect x="260" y="74" width="240" height="42" rx="8" class="f4 stroke"/>
+<text x="380" y="100" text-anchor="middle">Hunyuan3D-2 形状 + place_mesh</text>
+<path d="M500,35 L558,55" class="arrow" marker-end="url(#b-m6g)"/>
+<path d="M500,95 L558,75" class="arrow" marker-end="url(#b-m6g)"/>
+<rect x="560" y="30" width="190" height="70" rx="8" class="f1 stroke"/>
+<text x="655" y="60" text-anchor="middle">和 CA-1M 真值框比</text>
+<text x="655" y="80" text-anchor="middle">谁摆得准</text>
+</g></svg></div>
+<figcaption>同一批物体、同一套真值，只换“位姿从哪来”。结论回答一个实际问题：如果 Betty 上的 SAM 3D 装不通，退到 Hunyuan 加我们的配准，要损失多少精度。</figcaption></figure>
+<div class="box trap"><span class="box-label">容易搞错</span>
+<ul>
+<li><b>11 月 2 日是 SAM 3D 的闸门</b>。到那天 Betty 上还装不通（HF 审批慢，或 B200 的环境问题），正式实验改用 Hunyuan3D-2mini 加我们的配准，报告里注明，训练加分项不做。</li>
+<li><b>Hunyuan 的许可有地域限制</b>。在美国做课程项目没问题；如果使用者在欧盟、英国、韩国，权重和它生成的网格都不能用。</li>
+</ul>
+</div>
+<p class="src">设计文档第 3、5（消融）、6、13 节；调研笔记 02 第 1.2、1.3、3.1、4.2、6、7.1 节。</p>
+
+<h3 id="b-fail">6.6 失败了怎么办</h3>
+<p>生成这条路随时可能出岔子。原则只有一条：<b>任何失败都有退路，退到底就是方块</b>，并且每次决定都记日志。</p>
+<figure><div class="svg-wrap"><svg viewBox="0 0 760 290" width="760" role="img" aria-label="失败去向图：五种 status 各自的处理方式，rejected_fit 和 backend_error 重试成功进场景、重试失败退回方块，最后落到生成网格、方块或程序化建模">
+<defs><marker id="b-m6h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<g font-size="12">
+<text x="100" y="20" text-anchor="middle" font-weight="700">status</text>
+<text x="375" y="20" text-anchor="middle" font-weight="700">怎么处理</text>
+<text x="655" y="20" text-anchor="middle" font-weight="700">最后用什么</text>
+<rect x="20" y="34" width="160" height="36" rx="6" class="f2 stroke"/>
+<g font-size="14"><text x="100" y="57" text-anchor="middle" class="shape">accepted</text></g>
+<rect x="20" y="86" width="160" height="36" rx="6" class="f3 stroke"/>
+<g font-size="14"><text x="100" y="109" text-anchor="middle" class="shape">rejected_fit</text></g>
+<rect x="20" y="138" width="160" height="36" rx="6" class="f4 stroke"/>
+<g font-size="14"><text x="100" y="161" text-anchor="middle" class="shape">backend_error</text></g>
+<rect x="20" y="190" width="160" height="36" rx="6" class="f4 stroke"/>
+<g font-size="14"><text x="100" y="213" text-anchor="middle" class="shape">too_small</text></g>
+<rect x="20" y="242" width="160" height="36" rx="6" class="f6 stroke"/>
+<g font-size="14"><text x="100" y="265" text-anchor="middle" class="shape">wrong_category</text></g>
+<path d="M180,52 L218,52" class="arrow" marker-end="url(#b-m6h)"/>
+<path d="M180,104 L218,104" class="arrow" marker-end="url(#b-m6h)"/>
+<path d="M180,156 L218,156" class="arrow" marker-end="url(#b-m6h)"/>
+<path d="M180,208 L218,208" class="arrow" marker-end="url(#b-m6h)"/>
+<path d="M180,260 L218,260" class="arrow" marker-end="url(#b-m6h)"/>
+<rect x="220" y="34" width="310" height="36" rx="6" class="f0 stroke"/>
+<text x="375" y="57" text-anchor="middle">直接用</text>
+<rect x="220" y="86" width="310" height="36" rx="6" class="f0 stroke"/>
+<text x="375" y="109" text-anchor="middle">换朝上轴（5 个）或换候选，再摆一次</text>
+<rect x="220" y="138" width="310" height="36" rx="6" class="f0 stroke"/>
+<text x="375" y="161" text-anchor="middle">超时也算；重试 1 次，还不行就放弃</text>
+<rect x="220" y="190" width="310" height="36" rx="6" class="f0 stroke"/>
+<text x="375" y="213" text-anchor="middle">最好那一帧掩码不到约 200 像素，不生成</text>
+<rect x="220" y="242" width="310" height="36" rx="6" class="f0 stroke"/>
+<text x="375" y="265" text-anchor="middle">铰接物体、尺寸敏感的柜体</text>
+<path d="M530,52 L568,60" class="arrow" marker-end="url(#b-m6h)"/>
+<path d="M530,98 L568,96" class="arrow-green" marker-end="url(#b-m6h)"/>
+<path d="M530,110 L568,160" class="arrow-red" marker-end="url(#b-m6h)"/>
+<path d="M530,146 L568,114" class="arrow-green" marker-end="url(#b-m6h)"/>
+<path d="M530,160 L568,180" class="arrow-red" marker-end="url(#b-m6h)"/>
+<path d="M530,208 L568,208" class="arrow" marker-end="url(#b-m6h)"/>
+<path d="M530,260 L568,260" class="arrow" marker-end="url(#b-m6h)"/>
+<rect x="570" y="34" width="170" height="88" rx="8" class="f2 stroke"/>
+<text x="655" y="74" text-anchor="middle" font-weight="700">生成网格</text>
+<text x="655" y="94" text-anchor="middle">进场景</text>
+<rect x="570" y="138" width="170" height="88" rx="8" class="f4 stroke"/>
+<text x="655" y="178" text-anchor="middle" font-weight="700">方块</text>
+<text x="655" y="198" text-anchor="middle">（清单里的框本身）</text>
+<rect x="570" y="242" width="170" height="36" rx="8" class="f1 stroke"/>
+<text x="655" y="265" text-anchor="middle">程序化建模（cabinet 等）</text>
+</g></svg></div>
+<figcaption>左边是工具可能返回的 status，中间是处理办法，右边是最后放进场景的东西。accepted 那条普通箭头是直接用；绿箭头是“重试成功”，红箭头是“重试后还不行”。backend_error 重试成功以后，网格照常要过摆放和验收门。铰接物体（能开合的柜子、抽屉）按 AHa-3D 自己的文档就该走 <code>cabinet</code> 程序化建模，不交给生成。</figcaption></figure>
+<div class="table-wrap"><table>
+<tr><th>失败情况</th><th>处理</th></tr>
+<tr><td>后端报错或超时</td><td>重试 1 次，仍然失败就用方块。笔记建议换另一个后端重试（fal 和自部署互为备份），但我们的 fal 只有 10 美元、只用于核对，正式实验里具体怎么重试由 Mingjian 定</td></tr>
+<tr><td>朝上轴错了（瓶子横躺之类）</td><td>依次试 5 个候选的朝上轴（φ-RIE 的做法）</td></tr>
+<tr><td>旋转对称的物体（杯子、花瓶）偏航定不下来</td><td>只看剪影；偏航误差不计入失败</td></tr>
+<tr><td>网格碎、颜色错（SEIG 在 VIGA 上观察到的问题）</td><td>只留最大连通块；连通块太多直接拒绝；<b>不许 agent 改写生成网格的材质</b></td></tr>
+<tr><td>补全时多画了东西（多出个把手之类）</td><td>原图那个候选一起打分，剪影 IoU 高的胜出</td></tr>
+<tr><td>场景预算用完</td><td>每个场景设生成次数上限（笔记建议例如 30 次）和美元上限，超了剩下的物体都用方块</td></tr>
+<tr><td>每个决定</td><td>记日志：后端、帧、门槛值、最后用的是方块还是网格，方便之后做“方块 vs 生成”的分析</td></tr>
+</table></div>
+<div class="box key"><span class="box-label">必记结论</span>
+<ul>
+<li>两个工具拆开：生成异步，摆放可以单独重跑。</li>
+<li>验收门的核心是“必须比方块好”，四条全过才留。</li>
+<li>SAM 3D 自带位姿，Hunyuan 要从零配准；50 个物体的小对比量这个差距。</li>
+<li>任何失败退到底都是方块，每个决定都进 <code>run_log.json</code>。</li>
+</ul>
+</div>
+<p class="src">调研笔记 02 第 7.2、7.4 节；设计文档第 6 节。</p>

@@ -1,0 +1,307 @@
+{
+  "reviews": [
+    {
+      "version": 5,
+      "request": "/home/mj/dl_project/repos/aha-3d/runs/ai2thor_floorplan209/authored_v5/layout_request.json",
+      "review": "/home/mj/dl_project/repos/aha-3d/runs/ai2thor_floorplan209/authored_v5/layout_review_raw.json",
+      "request_sha256": "177e79d61f0b6c982480e20af59f6de0d863b131a880a8a67b34ac0bb6090e93",
+      "required_image_count": 111,
+      "declared_reviewed_count": 111,
+      "observation_entries": 18,
+      "images_not_referenced_by_observations": [
+        "front:overlay_depth",
+        "front:reference",
+        "side:overlay_depth",
+        "source_000000:edges",
+        "source_000000:overlay",
+        "source_000000:overlay_depth",
+        "source_000000:reference",
+        "source_000062:edges",
+        "source_000062:overlay",
+        "source_000062:overlay_depth",
+        "source_000062:reference",
+        "source_000062:source",
+        "source_000116:overlay",
+        "source_000116:overlay_depth",
+        "source_000116:overlay_xray",
+        "source_000116:reference",
+        "source_000177:edges",
+        "source_000177:overlay",
+        "source_000177:overlay_depth",
+        "source_000177:overlay_xray",
+        "source_000177:reference",
+        "source_000177:source",
+        "source_000239:edges",
+        "source_000239:overlay",
+        "source_000239:overlay_depth",
+        "source_000239:reference",
+        "top:overlay_depth",
+        "top:overlay_xray",
+        "top:reference"
+      ],
+      "verdict": "rejected",
+      "findings": [
+        {
+          "id": "F01",
+          "severity": "blocking",
+          "affected_ids": [
+            "sideboard"
+          ]
+        },
+        {
+          "id": "F02",
+          "severity": "blocking",
+          "affected_ids": [
+            "windows"
+          ]
+        },
+        {
+          "id": "F03",
+          "severity": "blocking",
+          "affected_ids": [
+            "armchair",
+            "sofa"
+          ]
+        },
+        {
+          "id": "F04",
+          "severity": "blocking",
+          "affected_ids": [
+            "door",
+            "room"
+          ]
+        },
+        {
+          "id": "F05",
+          "severity": "blocking",
+          "affected_ids": [
+            "fireplace"
+          ]
+        }
+      ]
+    },
+    {
+      "version": 8,
+      "request": "/home/mj/dl_project/repos/aha-3d/runs/ai2thor_floorplan209/authored_v8/layout_request.json",
+      "review": "/home/mj/dl_project/repos/aha-3d/runs/ai2thor_floorplan209/authored_v8/layout_review_raw.json",
+      "request_sha256": "92a4b487b04ed604601004c03adfbaf7a4dc3050dc85bbeb95d226f68fd72c48",
+      "required_image_count": 92,
+      "declared_reviewed_count": 92,
+      "observation_entries": 20,
+      "images_not_referenced_by_observations": [
+        "front:edges",
+        "front:overlay",
+        "front:overlay_depth",
+        "front:overlay_xray",
+        "front:reference",
+        "side:edges",
+        "side:overlay_depth",
+        "side:overlay_xray",
+        "side:reference",
+        "source_000000:edges",
+        "source_000000:overlay",
+        "source_000000:overlay_depth",
+        "source_000000:overlay_xray",
+        "source_000000:reference",
+        "source_000116:edges",
+        "source_000116:overlay",
+        "source_000116:overlay_depth",
+        "source_000116:overlay_xray",
+        "source_000116:reference",
+        "source_000239:edges",
+        "source_000239:overlay",
+        "source_000239:overlay_depth",
+        "source_000239:overlay_xray",
+        "source_000239:reference",
+        "top:overlay_depth",
+        "top:reference"
+      ],
+      "verdict": "rejected",
+      "findings": [
+        {
+          "id": "seating-contours",
+          "severity": "blocking",
+          "affected_ids": [
+            "sofa",
+            "armchair"
+          ]
+        },
+        {
+          "id": "window-reveal-contours",
+          "severity": "blocking",
+          "affected_ids": [
+            "windows",
+            "room"
+          ]
+        },
+        {
+          "id": "side-table-offsets",
+          "severity": "blocking",
+          "affected_ids": [
+            "side_tables"
+          ]
+        },
+        {
+          "id": "sideboard-extent",
+          "severity": "blocking",
+          "affected_ids": [
+            "sideboard"
+          ]
+        },
+        {
+          "id": "decor-silhouettes",
+          "severity": "nonblocking",
+          "affected_ids": [
+            "decor"
+          ]
+        },
+        {
+          "id": "lamp-shade-profile",
+          "severity": "nonblocking",
+          "affected_ids": [
+            "floor_lamp"
+          ]
+        },
+        {
+          "id": "appearance-unverified",
+          "severity": "blocking",
+          "affected_ids": [
+            "room",
+            "sofa",
+            "armchair",
+            "coffee_table",
+            "sideboard",
+            "fireplace",
+            "windows",
+            "decor",
+            "door",
+            "floor_lamp",
+            "laptop",
+            "painting",
+            "side_tables",
+            "television"
+          ]
+        }
+      ]
+    }
+  ],
+  "cheap_model_trials": [
+    {
+      "path": "/home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/bounded-assembly-example/diagnosis.json",
+      "sha256": "7186118c21c0a00df49f64ca8fba64a08d35f452684458f8b5ecfd33ac9de451",
+      "task": "door_cabinet_corner",
+      "format": "text",
+      "sampling": "qwen",
+      "bounded_control": true,
+      "schema_valid": true,
+      "python_compiles": true,
+      "blender_valid": null,
+      "given_bounds_match": null,
+      "finish_reason": "stop",
+      "wall_seconds": 16.155985228993814,
+      "error_summary": "RuntimeError: Isolated Blender failed (1); see /home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/bounded-assembly-example/candidate/blender-request.log",
+      "visual_quality_validated": null
+    },
+    {
+      "path": "/home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/bounded-code-control/diagnosis.json",
+      "sha256": "48bb68ffcfa64cb63742703fb02ea4d7c54014ec4dab0e8cb287ccac2e564c75",
+      "task": "door_cabinet_corner",
+      "format": "text",
+      "sampling": "qwen",
+      "bounded_control": true,
+      "schema_valid": true,
+      "python_compiles": true,
+      "blender_valid": null,
+      "given_bounds_match": null,
+      "finish_reason": "stop",
+      "wall_seconds": 14.054569207000895,
+      "error_summary": "RuntimeError: Isolated Blender failed (1); see /home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/bounded-code-control/candidate/blender-request.log",
+      "visual_quality_validated": null
+    },
+    {
+      "path": "/home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/deepinfra-text/diagnosis.json",
+      "sha256": "1729676063b8f59de57a3b86e7d59b75f02a6b6bc90d3f3de0a8e27e22b18a1e",
+      "task": "door_cabinet_corner",
+      "format": "text",
+      "sampling": "qwen",
+      "bounded_control": null,
+      "schema_valid": null,
+      "python_compiles": null,
+      "blender_valid": null,
+      "given_bounds_match": null,
+      "finish_reason": "stop",
+      "wall_seconds": 11.80558946999372,
+      "error_summary": "ValidationError: 1 validation error for Proposal",
+      "visual_quality_validated": null
+    },
+    {
+      "path": "/home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/deepinfra-text-contract-fixed/diagnosis.json",
+      "sha256": "43612465d35bc0b8b2cb70175ade03fd542cdb98a2c420bf84ef50b02337b6d7",
+      "task": "door_cabinet_corner",
+      "format": "text",
+      "sampling": "qwen",
+      "bounded_control": null,
+      "schema_valid": true,
+      "python_compiles": true,
+      "blender_valid": true,
+      "given_bounds_match": null,
+      "finish_reason": "stop",
+      "wall_seconds": 8.317339223009185,
+      "error_summary": null,
+      "visual_quality_validated": null
+    },
+    {
+      "path": "/home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/legacy/diagnosis.json",
+      "sha256": "32270d6cd38f61ca3a0ea2cefbb10936289a8dda2a4a1862435c09581082d5fa",
+      "task": "door_cabinet_corner",
+      "format": null,
+      "sampling": "legacy",
+      "bounded_control": null,
+      "schema_valid": null,
+      "python_compiles": null,
+      "blender_valid": null,
+      "given_bounds_match": null,
+      "finish_reason": "length",
+      "wall_seconds": 43.34472745399398,
+      "error_summary": "ValidationError: 1 validation error for Proposal",
+      "visual_quality_validated": null
+    },
+    {
+      "path": "/home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/novita-schema/diagnosis.json",
+      "sha256": "d0197f3c52b56d2b0771f96d0eba47656f271ef730ae7fce6275b1eecb99b577",
+      "task": "door_cabinet_corner",
+      "format": "schema",
+      "sampling": "qwen",
+      "bounded_control": null,
+      "schema_valid": null,
+      "python_compiles": null,
+      "blender_valid": null,
+      "given_bounds_match": null,
+      "finish_reason": "stop",
+      "wall_seconds": 11.887403975008056,
+      "error_summary": "ValidationError: 1 validation error for Proposal",
+      "visual_quality_validated": null
+    },
+    {
+      "path": "/home/mj/dl_project/agen3d/recon/qwen-diagnosis-20261116/qwen-sampling/diagnosis.json",
+      "sha256": "3063e12fc43fa66ce2b0cffa460c02146b81634183736da26e27003cfe568892",
+      "task": "door_cabinet_corner",
+      "format": null,
+      "sampling": "qwen",
+      "bounded_control": null,
+      "schema_valid": null,
+      "python_compiles": null,
+      "blender_valid": null,
+      "given_bounds_match": null,
+      "finish_reason": "length",
+      "wall_seconds": 43.286103276012,
+      "error_summary": "ValidationError: 1 validation error for Proposal",
+      "visual_quality_validated": null
+    }
+  ],
+  "limitations": [
+    "Archived sequential debugging trials change prompts/transports; not a controlled model comparison.",
+    "An image mentioned in observations is not necessarily adequately reviewed.",
+    "Schema/execution validity does not prove source fidelity. Missing verdicts remain unknown."
+  ]
+}

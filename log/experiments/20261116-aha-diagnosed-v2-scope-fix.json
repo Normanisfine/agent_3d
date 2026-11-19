@@ -1,0 +1,16 @@
+{
+  "source_run": "agen3d/recon/ai2thor_floorplan209/aha-diagnosed-20261116T223340Z",
+  "root_cause": "Opening instructions require wall edits, but original task authorizes only new opening IDs. Exclusive tasks also became global success dependencies.",
+  "ready_after_opening_failure": [
+    "build_rug",
+    "build_ceiling_fixtures"
+  ],
+  "changed_existing_roots": [
+    "room_walls",
+    "wall_wainscoting"
+  ],
+  "unit_and_regression_tests_passed": 55,
+  "hosted_calls": 0,
+  "visual_quality_validated": false,
+  "old_code_and_run_preserved": true
+}
