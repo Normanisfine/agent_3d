@@ -1,0 +1,154 @@
+\documentclass{article}
+\usepackage[preprint,nonatbib]{neurips_2025}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\makeatletter
+\renewcommand{\@noticestring}{CIS 6220 final-project draft. November 2026.}
+\makeatother
+\title{Agentic Scene Reconstruction:\\Small Objects, Execution Efficiency, and Cost}
+\author{Yifan Hu \qquad Mingjian Li \qquad Yujing Li\\University of Pennsylvania\\CIS 6220: Deep Learning at Scale}
+\begin{document}
+\maketitle
+\begin{abstract}
+A reconstructed room can contain a sofa and a coffee table while omitting
+the objects a robot could pick up. Across three CA-1M rooms, the AHa-3D baseline correctly
+placed 2 of 174 objects measuring 20 to under 50\,cm. Extending the task to every
+visible object raised the count to 25. With detector crops and boxes, 30 objects
+met the center-and-size criterion, a gain of five. Only one more object met the
+box-overlap criterion. Image-to-3D generation gave no further gain
+for this size group. We also implement two controllers that build independent
+objects concurrently and review edits before updating the room. Four workers
+reduced build time from 11.32 to 6.63 seconds in a controlled Blender test
+with simulated model latency. Full-room speed and cost at matched quality
+remain unmeasured.
+\end{abstract}
+
+\input{visual-evidence}
+
+\section{Introduction}
+Picking up a cushion requires a scene in which it can move independently of
+the sofa. In an AHa-3D reconstruction of an AI2-THOR living room~\cite{aha3d,ai2thor},
+only one of 18 annotated objects under 50\,cm was correctly placed as a separate
+instance. Giving existing parts, including a sofa cushion, their own identities
+raised that count to four without moving any geometry. Objects on a dressing
+table or windowsill illustrate the problem in real rooms (Figure~\ref{fig:scope}).
+
+Our method expands reconstruction to every visible object, then supplies detector
+crops and locations for candidate instances. CA-1M's annotated boxes~\cite{ca1m}
+let us evaluate each change and the effect of mesh generation on placement.
+A reconstructed coffee table provides a separate test of how objects respond to a push.
+
+\textbf{Where AHa-3D falls short.}
+With its major-object instructions, AHa-3D correctly placed only 2 of 174 small
+objects (20 to under 50\,cm) by center and size across three held-out CA-1M rooms.
+The same runs averaged 72 minutes and an estimated \$13.91 in driving-agent
+tokens per room. In the AI2-THOR example, a single Blender script built the
+furniture sequentially, and the workflow took 42 minutes to hand off a scene
+that had failed review. These findings motivate two distinct tests. We measure
+whether explicit object instructions and a detector inventory improve placement
+(Section~\ref{sec:existing-reconstruction}), and whether independent object
+builds can run concurrently (Section~\ref{sec:parallel-time}).
+
+\section{Related Work}
+\textbf{From scans to editable objects.}
+Scan2CAD aligns CAD models to partial RGB-D geometry~\cite{scan2cad}.
+LiteReality retrieves assets and transfers appearance from indoor scans~\cite{litereality}.
+A well-aligned table can still be missing its plates. We use CA-1M's annotated boxes~\cite{ca1m} to measure
+instance placement, then examine the role of mesh volume in a separate
+rigid-body pilot using VoMP's predicted density~\cite{vomp}.
+
+\textbf{Scene authoring and inverse graphics.}
+SceneSmith uses agents to furnish rooms from text, down to clutter on individual
+surfaces~\cite{scenesmith}. Recovering a particular room requires each object to
+correspond to an observation. VIGA uses the discrepancy between a render and its
+target to guide the next code edit~\cite{viga}. LEGO-Anything revises Blender code
+against one image and scores visible geometry separately from whether the program runs~\cite{legoanything}.
+SceneConductor delegates local repairs to specialists after inferring a layout
+from one image~\cite{sceneconductor}. With metric RGB-D input, LiteReality-Agent
+edits a persistent room program, compares rendered and captured views, and checks
+support and collisions~\cite{literealityagent}. Our input is RGB video. After aligning camera
+trajectories for scoring, we measure placement recall by object size, counting
+targets that the agent never attempted.
+
+\textbf{Where to spend inference.}
+Fast-SAM3D accelerates single-view asset generation by caching intermediate
+computation and reducing redundant tokens~\cite{fastsam3d}. At the workflow level,
+LLMCompiler schedules independent tool calls in parallel~\cite{llmcompiler}, and
+FrugalGPT routes queries through a model cascade~\cite{frugalgpt}. Workers editing a room share
+state. They can build meshes concurrently, but raising a shelf changes the required
+height of every object on it. Our controllers track these dependencies and verify
+each change against the current scene.
+
+\section{Methods}
+\input{small-object-method}
+\input{architecture}
+
+\subsection{Accounting for time and cost}
+Parallel workers can shorten elapsed time while making the same number of model
+calls. We measure elapsed time from the start of a reconstruction to its end.
+For cost, we add the charges for input, cached input and output tokens to the
+cost of the compute used by the run. Overlapping jobs on one billed host incur
+one host charge for the shared interval. Failed calls, repairs and reviews
+also consume resources. To compare workflows at the same acceptance standard,
+we divide the total cost of all attempts by the number of accepted rooms.
+
+\input{completion}
+
+\section{Experiments}
+\subsection{Experimental setting}
+Our primary evaluation uses CA-1M handheld RGB video and annotated 3D
+boxes~\cite{ca1m}. We compare all five variants on the same three held-out
+rooms, using the same reconstruction model, reference geometry and a single
+seed. Together the rooms contain 513 target objects, including 174 with
+longest sides from 20 to under 50\,cm. We score every saved scene, including
+ones that failed the agent's own review. The example rooms in
+Figure~\ref{fig:scope} were used during development and are separate from this
+comparison. Boxer was trained in part on the CA-1M training set~\cite{boxer}.
+
+The AI2-THOR living room (Figure~\ref{fig:ai2thor}) supplies the synthetic
+setting for the initial failure analysis and the controlled parallel-build experiment. The physical
+interaction study uses recovered objects from one of the three CA-1M test rooms.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.44\linewidth,height=1.12in,keepaspectratio]{figures/ai2thor-source.png}
+\hspace{0.03\linewidth}
+\includegraphics[width=0.44\linewidth,height=1.12in,keepaspectratio]{figures/ai2thor-reconstruction.png}
+\caption{AI2-THOR input (left) and the original AHa-3D reconstruction (right).
+The furniture layout is recognizable, yet the laptop was the only one of 18
+annotated objects under 50\,cm correctly placed as an independent instance.}
+\label{fig:ai2thor}
+\end{figure}
+
+\input{reconstruction}
+\input{systems-results}
+\input{cost-results}
+\input{physics-results}
+
+\section{Discussion}
+An agent can only repair an object's placement if it has first given that
+object a separate identity. Explicit instructions addressed this omission in
+each room. Detector crops helped locate additional targets, but the smaller
+gain under box overlap shows that a plausible center and size can still hide a
+placement error. The generation variants also depended on accurate localization.
+
+The comparison covers three rooms and one seed. Box recall leaves category
+errors, surplus predictions and fine shape outside its scope. A room-scale
+speed or cost comparison requires live review, matched reconstruction quality
+and the costs of failed attempts. The physics pilot likewise needs measured
+object properties to establish accuracy.
+
+\section{Conclusion}
+The All objects instructions yielded 23 more correct small-object placements
+than the baseline. The detector inventory added five. Independent builds could
+overlap in a controlled test. Whether that saves time at matched room quality
+remains open.
+\label{main-text-end}
+\clearpage
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

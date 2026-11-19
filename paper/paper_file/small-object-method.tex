@@ -1,0 +1,71 @@
+\subsection{Reconstructing and evaluating small objects}
+\label{sec:small-method}
+AHa-3D often omits small objects in our CA-1M scenes. In Figure~\ref{fig:scope},
+the baseline reconstructs the dressing table but misses the bottle on top.
+To address these omissions, we evaluate four variants that change how the agent
+identifies, locates and builds small objects.
+
+\textbf{All objects} switches AHa-3D from its major-object setting to its
+all-object setting (\texttt{precise}). Our prompt requires a distinct identifier for every visible
+item. The bottle's mesh parts thus form one editable \emph{instance} that can
+move independently of the table. Construction uses AHa-3D's existing RoomKit
+primitives and library assets.
+
+\textbf{Inventory} pairs Boxer's predicted 3D boxes and categories~\cite{boxer}
+with crops from the video. The agent builds each listed item or explains an
+omission, and can still build items Boxer missed.
+
+We add two generation policies to Inventory. Both keep AHa-3D in
+\texttt{precise} mode and use the same external image-to-mesh model,
+\href{https://huggingface.co/tencent/Hunyuan3D-2mini}{Tencent's Hunyuan3D-2mini}.
+
+\textbf{Required generation} uses a size rule. A bottle estimated at 25\,cm
+falls below the 50\,cm longest-side cutoff, so the agent must submit its crop
+to the generator, subject to the room budget.
+
+\textbf{Selective generation} leaves that decision to the agent. For the same
+bottle, it can generate a mesh or model the shape directly in Blender. Both
+policies check generated meshes against the silhouette, observed 3D points,
+dimensions and support. If the fit fails, the agent uses primitives.
+
+\textbf{Camera alignment.}
+Each instance is scored as one upright box enclosing its mesh parts. Monocular
+video leaves room scale and heading uncertain. For reconstructed and annotated
+camera centers $x_i$ and $y_i$ at corresponding frames, the room transform is
+\begin{equation}
+ T(x)=sR_z(\theta)x+t,\qquad
+ (\hat{s},\hat{\theta},\hat{t})=
+ \arg\min_{s,\theta,t}\sum_i \lVert T(x_i)-y_i\rVert_2^2 .
+ \label{eq:camera-alignment}
+\end{equation}
+Here $R_z$ rotates about the vertical axis, $t$ translates the room and $s$
+scales it uniformly. The fitted transform maps every predicted box into the
+annotation frame. We also repeat the fit with $s=1$ to test the reconstruction's
+original scale. Object annotations enter only during offline scoring.
+
+\textbf{Matching and placement.}
+For an aligned prediction $P$ and target $G$, let $d$ be their center distance,
+$L$ the full diagonal of $G$, and $r$ the predicted longest side divided by the
+target's longest side. A candidate pair must satisfy $1/3\le r\le 3$ and either
+a center distance $d\le\max(L/2,0.30\,\mathrm{m})$ or a 3D intersection over
+union (IoU) of at least 0.10. Among these candidates, greedy matching
+takes the lowest $2d/L+|\log r|$ first and uses each box once, irrespective of
+category. We score each match independently under two criteria.
+\begin{align}
+ \text{Center and size:}\quad &d\le\max(0.10\,\mathrm{m},L/4)
+                  \quad\text{and}\quad 0.67\le r\le 1.5, \label{eq:center-size}\\
+ \text{Box overlap:}\quad &\operatorname{IoU}_{3\mathrm{D}}(P,G)
+     =\frac{\operatorname{vol}(P\cap G)}{\operatorname{vol}(P\cup G)}\ge 0.25.
+     \label{eq:box-overlap}
+\end{align}
+A 10\,cm shift can put a thin object beside its target. Box overlap exposes
+such errors even when center and size pass.
+
+\textbf{Recall by object size.}
+For either test, let $N_b$ count all annotated targets in size group $b$ and
+$C_b$ count those whose match passes. Pooled recall is
+$\mathrm{Recall}_b=C_b/N_b$. Unmatched targets contribute zero, and extra
+predictions carry no penalty. The primary small-object group contains targets
+with longest sides from 20 to under 50\,cm. Mean room recall averages the
+same fraction across rooms containing that size group, giving each room equal
+weight.

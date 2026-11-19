@@ -1,0 +1,50 @@
+[
+  {
+    "file": "ai2thor-source.png",
+    "source": "/home/mj/dl_project/progress-dashboard/assets/ground-truth.png",
+    "sha256": "ef3961b78fad94ef69d7922ff9f3f6c0d35b24257ce3e1a47775091c070c0df2",
+    "transform": "unchanged copy"
+  },
+  {
+    "file": "ai2thor-reconstruction.png",
+    "source": "/home/mj/dl_project/progress-dashboard/assets/reconstruction.png",
+    "sha256": "4cff36d3d16213a7bdaee2a51782deca33300dce7326d2b51e9f29ae8ef7d874",
+    "transform": "unchanged copy"
+  },
+  {
+    "file": "ca1m-small-objects.jpg",
+    "source": "/home/mj/dl_project/smallobj-video2blender/results/showcase/42897538_A2/triptych_000616.jpg",
+    "sha256": "09f16cb5332ba6cf27c57dd3cd350abe20c90f3f22ac7693e0e1671fa00bb3f7",
+    "transform": "unchanged copy"
+  },
+  {
+    "file": "coffee-rest.png",
+    "source": "/home/mj/dl_project/progress-dashboard/assets/coffee-rest.png",
+    "sha256": "69090a2f300ebcfa171427d09be343c4c76194ef08fed154e9fa21199a07e03f",
+    "transform": "unchanged copy"
+  },
+  {
+    "file": "coffee-properties.png",
+    "source": "/home/mj/dl_project/progress-dashboard/assets/coffee-properties.png",
+    "sha256": "64db3c02ff9397d7d6416b9b71bacf15b9c2fc2c8723601eb7eac259f29e4960",
+    "transform": "unchanged copy"
+  },
+  {
+    "file": "tissue-density.png",
+    "source": "coffee-properties.png",
+    "transform": "crop only",
+    "crop_xyxy": [
+      190,
+      480,
+      650,
+      900
+    ],
+    "note": "Tissue density panel; no altered data or recoloring"
+  },
+  {
+    "file": "parallelism.png",
+    "source": "draw_parallelism.py",
+    "transform": "original schematic; SVG and HTML also emitted",
+    "note": "Illustrative desk/chair/lamp dependencies; not measured scene results"
+  }
+]

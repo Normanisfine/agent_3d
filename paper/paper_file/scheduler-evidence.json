@@ -1,0 +1,86 @@
+{
+  "scope": "Implementation calibration/fixture only; not room reconstruction quality or actual API throughput",
+  "sources": [
+    {
+      "path": "../recon/parallel-capacity-20261116-01/capacity.json",
+      "sha256": "7befe8d12aa56b5a9793d6902270683051ed130d4a90d55ac355994f54ee603e",
+      "data": {
+        "machine": {
+          "effective_cpus": 32,
+          "load_1m": 0.498046875,
+          "available_memory_gib": 48.09718704223633,
+          "gpu": "NVIDIA GeForce RTX 5090, 31105 MiB"
+        },
+        "selected": {
+          "builds": 4,
+          "model_calls": 4,
+          "gpu_jobs": 1
+        },
+        "benchmark": [
+          {
+            "workers": 1,
+            "seconds": 0.26445559799321927,
+            "jobs_per_second": 3.7813531178328104
+          },
+          {
+            "workers": 2,
+            "seconds": 0.21540718099277,
+            "jobs_per_second": 9.284741533603416
+          },
+          {
+            "workers": 4,
+            "seconds": 0.26586520799901336,
+            "jobs_per_second": 15.045217951251614
+          }
+        ],
+        "benchmark_error": null,
+        "basis": "Smallest tested concurrency within 90% of best synthetic throughput; hardware caps apply.",
+        "limitations": "Not a proven optimum for this scene or provider. Model/API rate limits are not benchmarked. GPU jobs remain serial. Limits can be lowered by config."
+      }
+    },
+    {
+      "path": "../recon/parallel-evaluation-20261116-04/evaluation.json",
+      "sha256": "fd9c925bfe9386f6dcb10c80e4acf103984184e0c37b555f3a497f59a3bf8d3c",
+      "data": {
+        "runs": [
+          {
+            "workers": 1,
+            "wall_seconds": 11.322570687989355,
+            "scene": "recon/parallel-evaluation-20261116-04/workers-1/candidates/fixture_3-0003-0/scene.blend",
+            "committed": 4,
+            "fallbacks": 0,
+            "scope_and_camera_validation": "real isolated Blender",
+            "model_calls": 4
+          },
+          {
+            "workers": 4,
+            "wall_seconds": 6.625220804999117,
+            "scene": "recon/parallel-evaluation-20261116-04/workers-4/candidates/fixture_3-wave-0001-merge/scene.blend",
+            "committed": 4,
+            "fallbacks": 0,
+            "scope_and_camera_validation": "real isolated Blender",
+            "model_calls": 4
+          }
+        ],
+        "speedup": 1.7090103139575081,
+        "synthetic_provider_delay_s": 2.0,
+        "limitations": "Offline fixture, stubbed visual review. Not an end-to-end quality or real API latency benchmark."
+      }
+    }
+  ],
+  "implementation_sha256": {
+    "src/agen3d/multiagent/aha/runtime.py": "bf47bee04e9f8be6fe037c98e01689c48ed957a695ae345ddf8d2c4dcc9d8791",
+    "src/agen3d/multiagent/aha/scheduling.py": "056700ab63a0d480b48b6bb0e39b4f93af7781619ed0fbba6c4e3510a6772c74",
+    "src/agen3d/multiagent/aha/blender_worker.py": "d7984588e9f28ba3978f4ba80f0454c91339bb6f567272db4c7f786e03e6332b",
+    "scripts/evaluate_aha_parallel.py": "ed05204db5c17be996907fb65c0289a57a9ade97e7bbd17f90712d07acc1cfa8"
+  },
+  "tests": {
+    "passed": 75,
+    "scope": "AHA scheduler/construction/job/preparation/review/final-schema, agent-driven compatibility and provider tests"
+  },
+  "live_evaluation": {
+    "status": "stopped_by_user_before_plan",
+    "receipt": "../recon/ai2thor_floorplan209/aha-parallel-eval-20261116-01/stopped.json",
+    "complete": false
+  }
+}

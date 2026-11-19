@@ -13,7 +13,6 @@ venv/
 /models/
 outputs/
 data/
-/paper/
 
 # Local reconstruction runs, setup logs, and downloaded datasets
 /recon/*/

@@ -1,0 +1,11 @@
+\subsection{Physical properties of recovered objects}
+\label{sec:physics-plan}
+A plate can occupy the correct 3D box yet move unrealistically when pushed.
+We test this distinction on a coffee table reconstructed by Inventory.
+For each plate and the tissue-box assembly, we divide the mesh into volume
+cells and estimate density with pretrained VoMP~\cite{vomp}. Each cell
+contributes its density times its volume to the object's mass. The distribution
+of that mass determines the center of mass and resistance to rotation.
+We compare a uniform density, VoMP's object-average density and its spatially
+varying density while holding the geometry fixed. We set friction separately
+so we can test its effect on the same objects.

@@ -1,0 +1,67 @@
+\subsection{Improving small-object placement}
+\label{sec:existing-reconstruction}
+Across three held-out rooms, our method correctly placed \textbf{30 of 174}
+small objects by center and size, compared with \textbf{2 of 174} for original
+AHa-3D (Table~\ref{tab:small-placement}). The All objects variant raised recall
+from 1.1\% to 14.4\% (25 objects). With detector crops and 3D boxes, recall
+reached 17.2\% (30 objects). With box overlap as the criterion, the count
+rose from two to 20 to 21. Both tests used scale fitted from the cameras.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Small objects correctly placed out of 174 in three held-out rooms.
+All objects expands the baseline scope. Inventory adds detector evidence.
+The last two rows use the same generator, triggered by object size or by the agent. Parentheses
+give gains over the baseline with scale fitted from cameras.}
+\label{tab:small-placement}
+\begin{tabular}{lrrrr}
+\toprule
+& \multicolumn{2}{c}{Fitted scale} & \multicolumn{2}{c}{Fixed scale} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Variant & Center and size & Box overlap & Center and size & Box overlap \\
+\midrule
+AHa-3D (baseline) & 2 & 2 & 2 & 1 \\
+All objects & 25 (+23) & 20 (+18) & 12 & 7 \\
+Inventory & \textbf{30 (+28)} & \textbf{21 (+19)} & 13 & 7 \\
+\midrule
+Required generation & 24 (+22) & 21 (+19) & 9 & 7 \\
+Selective generation & 26 (+24) & 18 (+16) & 10 & 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All objects improved placement in every room (Figure~\ref{fig:by-room}).
+Inventory raised the count from 11 to 17 in the room with 142 targets but
+lowered it from eight to six in the living room. Relative to All objects, its
+net gain was five placements by center and size, one by fitted-scale overlap
+and zero by fixed-scale overlap.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.93\linewidth]{figures/ca1m-placement-by-room.pdf}
+\caption{Correct small-object placements by held-out room, using center and
+size after camera-based scale alignment. Each group compares reconstructions
+of the same targets.}
+\label{fig:by-room}
+\end{figure}
+
+Coverage fell sharply below 20\,cm (Figure~\ref{fig:recall}). The detector
+inventory loosely matched only 10 of 138 annotated targets of this size, and
+the Inventory reconstruction correctly placed nine by center and size. One
+room contributed 116 of these targets. Giving each room equal weight therefore
+changes the recall estimate substantially.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/ca1m-recall.pdf}
+\caption{Center-and-size recall after camera-based scale alignment. The four
+size groups contain 138, 174, 135 and 66 annotated objects, respectively. The
+two panels show how unequal numbers of objects per room affect the result.}
+\label{fig:recall}
+\end{figure}
+
+Neither generation policy improved on Inventory's 30 small-object placements
+by center and size. Across both policies, 160 generation attempts yielded ten
+accepted placements and five generated assets in the saved scenes. Flat meshes,
+incorrect dimensions and poor silhouette fits prompted the agent to fall back
+to procedural geometry.

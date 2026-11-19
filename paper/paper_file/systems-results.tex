@@ -1,0 +1,14 @@
+\subsection{Parallel construction time}
+\label{sec:parallel-time}
+We isolated the effect of scheduling by building the same four objects in
+Blender, first with one worker and then with four. Each build included a fixed
+two-second delay representing a model call. Both conditions used deterministic
+model responses and scripted visual reviews. The object builds, scene merges
+and camera checks ran in Blender.
+
+With one worker, the four builds took 11.32 seconds. Four workers completed
+them in 6.63 seconds, a $1.71\times$ speedup. Both runs made four model calls,
+committed all four objects and preserved the existing objects and cameras.
+Serial work, including edits to the shared room, remained in both runs.
+A full-room comparison with live models is still needed to measure the effect
+on reconstruction time at matched quality.

@@ -1,0 +1,31 @@
+\subsection{Time and inference cost}
+The extra coverage from Inventory came with a longer observed runtime.
+Across the same three CA-1M rooms, All objects averaged 51.4 minutes and
+Inventory averaged 81.9 minutes (Table~\ref{tab:existing-cost}). Jobs shared
+compute, so these timings also reflect contention. Selective generation had
+the lowest estimated driver cost and recovered 18 small objects by box overlap,
+compared with 21 for Inventory.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Mean wall time and estimated cost of the reconstruction agent's
+tokens per CA-1M room. Each mean covers the same three rooms. Total workflow
+cost also includes preprocessing, rendering and external review.}
+\label{tab:existing-cost}
+\begin{tabular}{lrr}
+\toprule
+Variant & Wall time (min) & Token-cost equivalent (USD) \\
+\midrule
+AHa-3D (baseline) & 72.0 & 13.91 \\
+All objects & 51.4 & 10.60 \\
+Inventory & 81.9 & 13.14 \\
+Required generation & 70.9 & 12.19 \\
+Selective generation & 55.4 & 9.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Only three of the 15 saved CA-1M reconstructions passed AHa-3D's own review.
+The token estimates cover the driving agent, including resumed work. Computing
+cost per accepted room would also require complete costs for preprocessing,
+hardware and reviewers, including those incurred on failed runs.

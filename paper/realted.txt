@@ -1,0 +1,23 @@
+Course Related requriement
+https://ungarl.github.io/CIS6220/project.html
+
+https://www.alignmentforum.org/posts/eJGptPbbFPZGLpjsp/highly-opinionated-advice-on-how-to-write-ml-papers
+
+https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619
+
+
+LiteReality-Agent: An Agentic System for Interactable 3D Indoor Scene Reconstruction
+https://arxiv.org/abs/2610.01863
+
+
+LEGO-Anything: Coding Agents for 3D Scene Reconstruction
+https://arxiv.org/abs/2609.36380
+
+
+SceneConductor: 3D Scene Generation from a Single Image with Multi-Agent Orchestration
+https://arxiv.org/abs/2606.08402
+
+
+Fast-SAM3D: 3Dfy Anything in Images but Faster
+https://arxiv.org/abs/2602.05293
+
