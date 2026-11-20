@@ -28,6 +28,17 @@ bottle, it can generate a mesh or model the shape directly in Blender. Both
 policies check generated meshes against the silhouette, observed 3D points,
 dimensions and support. If the fit fails, the agent uses primitives.
 
+\textbf{Revised inventory.}
+Boxer listed few objects under 20\,cm. After scoring the four variants, we
+rebuilt the inventory on development rooms, adapting SceneRig's detection
+stage~\cite{scenerig}. A language model names the object categories it sees
+in eight frames, extending a fixed list. SAM~3~\cite{sam3} segments them in
+full-resolution frames and in nine overlapping zoomed windows, keeping
+window-only detections that appear in at least two frames. MoGe-2
+depth~\cite{moge2}, rescaled to the reference geometry, lifts each mask to a
+3D box. Boxes are then moved onto the surface below them, and similar boxes
+of one category share a size.
+
 \textbf{Camera alignment.}
 Each instance is scored as one upright box enclosing its mesh parts. Monocular
 video leaves room scale and heading uncertain. For reconstructed and annotated

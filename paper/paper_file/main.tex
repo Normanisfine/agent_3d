@@ -20,7 +20,11 @@ placed 2 of 174 objects measuring 20 to under 50\,cm. Extending the task to ever
 visible object raised the count to 25. With detector crops and boxes, 30 objects
 met the center-and-size criterion, a gain of five. Only one more object met the
 box-overlap criterion. Image-to-3D generation gave no further gain
-for this size group. We also implement two controllers that build independent
+for this size group. Most remaining targets were never built: with the
+inventory, 110 of the 174 still had no reconstructed counterpart. A revised detector inventory, not yet used
+by an agent, located 58\% of targets under 20\,cm in five development rooms,
+up from 13\%.
+We also implement two controllers that build independent
 objects concurrently and review edits before updating the room. Four workers
 reduced build time from 11.32 to 6.63 seconds in a controlled Blender test
 with simulated model latency. Full-room speed and cost at matched quality
@@ -136,15 +140,24 @@ each room. Detector crops helped locate additional targets, but the smaller
 gain under box overlap shows that a plausible center and size can still hide a
 placement error. The generation variants also depended on accurate localization.
 
-The comparison covers three rooms and one seed. Box recall leaves category
-errors, surplus predictions and fine shape outside its scope. A room-scale
+Coverage remains the larger problem. Two thirds of all targets had no
+reconstructed counterpart under All objects or Inventory. The revised
+inventory finds most small targets on development rooms, but four in five of
+its entries match no annotation, so an agent would have to filter it.
+
+The comparison covers three rooms and one seed. A paired sign-flip test over
+three rooms cannot return a two-sided $p$-value below 0.25, so differences
+between variants are descriptive. Box recall leaves category
+errors and fine shape outside its scope, and we have not determined which
+unmatched reconstructions are errors. A room-scale
 speed or cost comparison requires live review, matched reconstruction quality
 and the costs of failed attempts. The physics pilot likewise needs measured
 object properties to establish accuracy.
 
 \section{Conclusion}
 The All objects instructions yielded 23 more correct small-object placements
-than the baseline. The detector inventory added five. Independent builds could
+than the baseline. The detector inventory added five. About two thirds of the small
+targets were still never built. Independent builds could
 overlap in a controlled test. Whether that saves time at matched room quality
 remains open.
 \label{main-text-end}

@@ -65,3 +65,75 @@ by center and size. Across both policies, 160 generation attempts yielded ten
 accepted placements and five generated assets in the saved scenes. Flat meshes,
 incorrect dimensions and poor silhouette fits prompted the agent to fall back
 to procedural geometry.
+
+\textbf{Most remaining targets were never built.}
+Table~\ref{tab:outcomes} separates targets whose match failed the
+center-and-size test from targets with no matched reconstruction. With All
+objects, 115 of the 174 small targets had no match, 34 were matched but
+misplaced and 25 were correct. Below 20\,cm, 119 of 138 had no match. The
+room with 376 annotated objects explains much of this gap: All objects
+reconstructed 139 instances there. Inventory matched five more small targets
+and left the same 34 misplaced. More than half of the targets of 50\,cm and
+larger also had no match.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Outcome of each of the 513 targets under the center-and-size test
+with fitted scale. Each cell gives targets correctly placed / matched but
+misplaced / left without a matched reconstruction.}
+\label{tab:outcomes}
+\begin{tabular}{lcccc}
+\toprule
+Variant & $<$20\,cm (138) & 20--$<$50\,cm (174) & 50--$<$150\,cm (135) & $\ge$150\,cm (66) \\
+\midrule
+AHa-3D (baseline) & 0 / 0 / 138 & 2 / 3 / 169 & 32 / 3 / 100 & 17 / 3 / 46 \\
+All objects & 7 / 12 / 119 & 25 / 34 / 115 & 45 / 16 / 74 & 26 / 4 / 36 \\
+Inventory & 9 / 8 / 121 & 30 / 34 / 110 & 51 / 13 / 71 & 24 / 5 / 37 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Recall ignores reconstructed instances that match no target: 39 of the 208
+built by All objects and 24 of the 198 built by Inventory. They can be errors
+or real objects that CA-1M does not annotate. We did not inspect them.
+
+\textbf{A revised inventory on development rooms.}
+Table~\ref{tab:inventory} scores inventories on their own in five development
+rooms, treating each inventory box as a placed object. Boxer's boxes passed
+center and size for 10\% of the 216 targets under 20\,cm, and SAM~3 with a
+fixed category list for 13\%. Room-specific categories raised this to 61\%.
+The complete revised inventory reached 58\%, and 51\% of the 141 small
+targets. With every box shifted horizontally by a random 0.5 to 1.5\,m
+before the final step, about 1\% passed. The final step costs four points
+for small targets but removes floating and sunken boxes.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Inventories scored without an agent on five development rooms.
+Rows beginning with + add one step to the row above. Matched: share of
+targets with a candidate match. Placed: share whose inventory box passes
+center and size. Entries matched: share of inventory entries that match any
+target.}
+\label{tab:inventory}
+\begin{tabular}{lrrrrrr}
+\toprule
+& & Entries & \multicolumn{2}{c}{$<$20\,cm (216)} & \multicolumn{2}{c}{20--$<$50\,cm (141)} \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Inventory & Entries & matched & Matched & Placed & Matched & Placed \\
+\midrule
+Boxer & 334 & 66\% & 16\% & 10\% & 57\% & 38\% \\
+SAM~3, fixed categories & 745 & 34\% & 27\% & 13\% & 69\% & 39\% \\
++ zoomed windows & 760 & 34\% & 28\% & 13\% & 70\% & 40\% \\
++ room-specific categories & 2{,}123 & 20\% & 82\% & 61\% & 81\% & 50\% \\
++ MoGe-2 depth & 2{,}295 & 19\% & 81\% & 58\% & 79\% & 55\% \\
++ support and shared size & 2{,}295 & 19\% & 81\% & 58\% & 79\% & 51\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three cautions apply. The revised inventory lists 2{,}295 entries against
+745, and the share that match a target fell from 34\% to 19\%: it contains
+duplicates and object parts. One refrigerator door covered with magnets and
+photographs holds 112 of the 216 smallest targets; without that room, the
+gain is from 18\% to 40\%. No agent has used this inventory, and it has not
+been run on the held-out rooms.

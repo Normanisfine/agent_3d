@@ -14,7 +14,7 @@ All five variants use the [same AHa-3D runner](../../evan/scripts/run_agent.sh).
 | Required generation | [A3r](../../evan/configs/prompts/A3r.md) | Add a required generation attempt for eligible inventory items under 50 cm, within budget. |
 | Selective generation | [A3v](../../evan/configs/prompts/A3v.md) | Let the agent choose which inventory items to generate. |
 
-The [inventory](../../evan/src/smallobj/inventory.py), [generation](../../evan/src/smallobj/gen3d.py), and [placement](../../evan/src/smallobj/place.py) modules implement the additional tools. The [evaluator](../../evan/src/smallobj/evaluate.py) defines the exact matching rules. The [held-out summary](../../evan/results/test_opus/summary.json) contains the run-level evidence.
+The [inventory](../../evan/src/smallobj/inventory.py), [generation](../../evan/src/smallobj/gen3d.py), and [placement](../../evan/src/smallobj/place.py) modules implement the additional tools. The [evaluator](../../evan/src/smallobj/evaluate.py) defines the exact matching rules. The [held-out summary](../../evan/results/test_opus/summary.json) contains the run-level evidence. The [outcome extraction](figures/extract_outcomes.py) rebuilds the counts of unmatched targets, reconstructed instances and driver usage from that summary. The revised inventory is scored in [the development-room table](../../evan/results/inventory_v2_dev.md); its code is on the `scenerig-detection` branch of the companion project.
 
 ## Figures and evidence
 

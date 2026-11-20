@@ -175,3 +175,15 @@ all exact evaluation equations. Four figures and five tables are included.
 - The introductory FloorPlan209 example uses the unaccepted original reconstruction. Its distance-and-size counts are in `../../recon/ai2thor_floorplan209/aha3d_ori/eval/objects_sim3_all_objects.csv`. The identity-only change from 1/18 to 4/18 below 0.5 m comes from the per-instance baseline and split rows in `../../diagnose/results/identity-ablation-20261116/identity-ablation.json`. Time to handoff comes from `../../diagnose/results/original-profile-20261116-v2/profile.json`.
 - The A2 design motivation uses the pre-freeze three-room development comparison in `../../evan/results/phase2_dev.md`. The workflow variants and run-time gate are documented in `../../evan/configs/prompts/` and `../../evan/src/smallobj/place.py`.
 - Both CA-1M result tables use `../../evan/results/test_opus/summary.json`. For the S-bin count table, multiply each archived `recall_D` and `recall_I` by its corresponding `n` under `recall_pooled[arm][alignment]["S"]` and round to the nearest integer. The fitted-scale D counts also match `funnel_D[arm]["S"]["correct"]`. The development protocol, FloorPlan209 identity split and scheduler fixture are separate comparisons.
+
+## Small-object additions, November 20, 2026
+
+No reconstruction, simulation or model call was run for these additions.
+
+- Outcome table, instance counts, accepted-run counts and driver usage: `figures/extract_outcomes.py` reads `../../evan/results/test_opus/summary.json` and `runs.md` and writes `small-object-outcomes.json`. Matching is one-to-one, so the number of matched instances equals the number of matched targets.
+- Revised inventory: `../../evan/results/inventory_v2_dev.md` (step-by-step scores on five development rooms) and `inventory_v2_chance.md` (random-shift control). Both are copied from the `scenerig-detection` branch of `smallobj-video2blender` at commit 97d1837; the code (`src/smallobj/tiles.py`, `labels.py`, `hd.py`, `settle.py`, `clean_inventory.py`) is on that branch and not in `evan/`, which mirrors `main`.
+- The "18% to 40%" figure leaves out room 47331319 and comes from the per-room rows of `inventory_v2_dev.md`: (4+9+6+0)/104 and (8+12+19+3)/104.
+- The random-shift control was run on the inventory before the support and shared-size step.
+- Sign-flip bound in the Discussion: three paired rooms give 2^3 sign assignments, so the smallest two-sided p-value is 2/8.
+- SceneRig, SAM 3 and MoGe-2 titles and author lists were checked against their arXiv abstract pages on November 20, 2026.
+- These edits were test-compiled with tectonic (pdflatex is not installed on Evan's laptop): the main text ends on page 8, with the last line of the Conclusion near the bottom. `main.pdf` and `build/` were left as they were; run `make pdf` to rebuild them and confirm the page count under pdflatex.

@@ -1,0 +1,194 @@
+{
+  "source": "evan/results/test_opus/summary.json and runs.md",
+  "source_sha256": "7522673f87e50627c23963d817f48cccf89e2db60eb5d8a5d67b41c8505d772a",
+  "kind": "existing_results_summary_not_new_experiment",
+  "criterion": "D",
+  "alignment": "GT-camera Sim(3), scale corrected",
+  "arms": {
+    "A0": {
+      "outcomes": {
+        "XS": {
+          "n": 138,
+          "correct": 0,
+          "misplaced": 0,
+          "unmatched": 138
+        },
+        "S": {
+          "n": 174,
+          "correct": 2,
+          "misplaced": 3,
+          "unmatched": 169
+        },
+        "M": {
+          "n": 135,
+          "correct": 32,
+          "misplaced": 3,
+          "unmatched": 100
+        },
+        "L": {
+          "n": 66,
+          "correct": 17,
+          "misplaced": 3,
+          "unmatched": 46
+        }
+      },
+      "predicted_instances": 62,
+      "matched_instances": 60,
+      "correct_instances": 51
+    },
+    "A1": {
+      "outcomes": {
+        "XS": {
+          "n": 138,
+          "correct": 7,
+          "misplaced": 12,
+          "unmatched": 119
+        },
+        "S": {
+          "n": 174,
+          "correct": 25,
+          "misplaced": 34,
+          "unmatched": 115
+        },
+        "M": {
+          "n": 135,
+          "correct": 45,
+          "misplaced": 16,
+          "unmatched": 74
+        },
+        "L": {
+          "n": 66,
+          "correct": 26,
+          "misplaced": 4,
+          "unmatched": 36
+        }
+      },
+      "predicted_instances": 208,
+      "matched_instances": 169,
+      "correct_instances": 103
+    },
+    "A2": {
+      "outcomes": {
+        "XS": {
+          "n": 138,
+          "correct": 9,
+          "misplaced": 8,
+          "unmatched": 121
+        },
+        "S": {
+          "n": 174,
+          "correct": 30,
+          "misplaced": 34,
+          "unmatched": 110
+        },
+        "M": {
+          "n": 135,
+          "correct": 51,
+          "misplaced": 13,
+          "unmatched": 71
+        },
+        "L": {
+          "n": 66,
+          "correct": 24,
+          "misplaced": 5,
+          "unmatched": 37
+        }
+      },
+      "predicted_instances": 198,
+      "matched_instances": 174,
+      "correct_instances": 114
+    },
+    "A3r": {
+      "outcomes": {
+        "XS": {
+          "n": 138,
+          "correct": 4,
+          "misplaced": 7,
+          "unmatched": 127
+        },
+        "S": {
+          "n": 174,
+          "correct": 24,
+          "misplaced": 35,
+          "unmatched": 115
+        },
+        "M": {
+          "n": 135,
+          "correct": 48,
+          "misplaced": 12,
+          "unmatched": 75
+        },
+        "L": {
+          "n": 66,
+          "correct": 32,
+          "misplaced": 3,
+          "unmatched": 31
+        }
+      },
+      "predicted_instances": 184,
+      "matched_instances": 165,
+      "correct_instances": 108
+    },
+    "A3v": {
+      "outcomes": {
+        "XS": {
+          "n": 138,
+          "correct": 6,
+          "misplaced": 3,
+          "unmatched": 129
+        },
+        "S": {
+          "n": 174,
+          "correct": 26,
+          "misplaced": 32,
+          "unmatched": 116
+        },
+        "M": {
+          "n": 135,
+          "correct": 46,
+          "misplaced": 15,
+          "unmatched": 74
+        },
+        "L": {
+          "n": 66,
+          "correct": 23,
+          "misplaced": 6,
+          "unmatched": 37
+        }
+      },
+      "predicted_instances": 179,
+      "matched_instances": 157,
+      "correct_instances": 101
+    }
+  },
+  "accepted_runs": [
+    {
+      "arm": "A0",
+      "run": "42897538/0",
+      "under_50cm_targets": 38,
+      "under_50cm_correct": 1
+    },
+    {
+      "arm": "A0",
+      "run": "42898849/0",
+      "under_50cm_targets": 258,
+      "under_50cm_correct": 0
+    },
+    {
+      "arm": "A3r",
+      "run": "42899617/0",
+      "under_50cm_targets": 16,
+      "under_50cm_correct": 6
+    }
+  ],
+  "driver_usage": {
+    "n_runs": 15,
+    "mean": {
+      "turns": 176.13333333333333,
+      "input_tokens": 31650646.933333334,
+      "cached_input_tokens": 31323897.6,
+      "output_tokens": 144454.53333333333
+    },
+    "cached_share_of_input": 0.9896763774206077
+  }
+}

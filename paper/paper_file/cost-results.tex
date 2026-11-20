@@ -1,4 +1,5 @@
 \subsection{Time and inference cost}
+\label{sec:cost}
 The extra coverage from Inventory came with a longer observed runtime.
 Across the same three CA-1M rooms, All objects averaged 51.4 minutes and
 Inventory averaged 81.9 minutes (Table~\ref{tab:existing-cost}). Jobs shared
@@ -26,6 +27,11 @@ Selective generation & 55.4 & 9.00 \\
 \end{table}
 
 Only three of the 15 saved CA-1M reconstructions passed AHa-3D's own review.
-The token estimates cover the driving agent, including resumed work. Computing
+Two were baseline reconstructions, which correctly placed one of the 296
+targets under 50\,cm in their rooms, so passing review said little about
+small-object coverage. The token estimates cover the driving agent, including
+resumed work. A run averaged 176 agent turns. Because the agent re-reads its
+conversation on every turn, it consumed 31.7 million input tokens, 99\% read
+from cache, against 0.14 million output tokens. Computing
 cost per accepted room would also require complete costs for preprocessing,
 hardware and reviewers, including those incurred on failed runs.
