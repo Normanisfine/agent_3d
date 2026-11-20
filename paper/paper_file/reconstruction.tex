@@ -1,6 +1,6 @@
-\subsection{Improving small-object placement}
+\subsection{Small-object coverage and placement}
 \label{sec:existing-reconstruction}
-Across three held-out rooms, our method correctly placed \textbf{30 of 174}
+Across three held-out rooms, the Inventory variant correctly placed \textbf{30 of 174}
 small objects by center and size, compared with \textbf{2 of 174} for original
 AHa-3D (Table~\ref{tab:small-placement}). The All objects variant raised recall
 from 1.1\% to 14.4\% (25 objects). With detector crops and 3D boxes, recall
@@ -30,20 +30,13 @@ Selective generation & 26 (+24) & 18 (+16) & 10 & 6 \\
 \end{tabular}
 \end{table}
 
-All objects improved placement in every room (Figure~\ref{fig:by-room}).
-Inventory raised the count from 11 to 17 in the room with 142 targets but
-lowered it from eight to six in the living room. Relative to All objects, its
+All objects improved placement in every room: from one to eight correct in
+the living room (22 targets), from zero to 11 in the room with 142 targets and
+from one to six in the third room (10 targets). Inventory raised the count to
+17 in the largest room and to seven in the third, but lowered it to six in the
+living room. Relative to All objects, its
 net gain was five placements by center and size, one by fitted-scale overlap
 and zero by fixed-scale overlap.
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.93\linewidth]{figures/ca1m-placement-by-room.pdf}
-\caption{Correct small-object placements by held-out room, using center and
-size after camera-based scale alignment. Each group compares reconstructions
-of the same targets.}
-\label{fig:by-room}
-\end{figure}
 
 Coverage fell sharply below 20\,cm (Figure~\ref{fig:recall}). The detector
 inventory loosely matched only 10 of 138 annotated targets of this size, and
