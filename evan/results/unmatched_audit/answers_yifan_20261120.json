@@ -1,0 +1,580 @@
+{
+ "exported_at": "2026-11-20T01:49:47.067Z",
+ "choices": {
+  "unlabeled": "视频里有，CA-1M 没标",
+  "misplaced": "位置或尺寸偏了，配不上",
+  "duplicate": "重复建了",
+  "absent": "视频里没有"
+ },
+ "n_total": 63,
+ "n_done": 63,
+ "answers": [
+  {
+   "key": "A1-claude_42897538_chandelier_west",
+   "run": "runs/A1-claude/42897538/0",
+   "id": "chandelier_west",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "我感觉这个建的没问题",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42897538_switch_kitchen",
+   "run": "runs/A1-claude/42897538/0",
+   "id": "switch_kitchen",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42897538_socket_north",
+   "run": "runs/A1-claude/42897538/0",
+   "id": "socket_north",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "absent"
+  },
+  {
+   "key": "A1-claude_42897538_context_hallway",
+   "run": "runs/A1-claude/42897538/0",
+   "id": "context_hallway",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "absent"
+  },
+  {
+   "key": "A1-claude_42898849_rug-bay-white",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "rug-bay-white",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42898849_set-top-box-alcove",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "set-top-box-alcove",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_picture-frame-alcove",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "picture-frame-alcove",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_note-card-alcove",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "note-card-alcove",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_noel-letter-n-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "noel-letter-n-sill",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_noel-letter-o-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "noel-letter-o-sill",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_noel-letter-e-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "noel-letter-e-sill",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_noel-letter-l-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "noel-letter-l-sill",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_lantern-north-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "lantern-north-sill",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_picture-frame-piano-1",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "picture-frame-piano-1",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_picture-frame-piano-2",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "picture-frame-piano-2",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_angel-figurine-shelf",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "angel-figurine-shelf",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_small-plant-kitchen-mantel",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "small-plant-kitchen-mantel",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_plant-top-fridge-column",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "plant-top-fridge-column",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_knife-block",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "knife-block",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "absent"
+  },
+  {
+   "key": "A1-claude_42898849_herb-plant-west-window-left",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "herb-plant-west-window-left",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_plate-stack-west-counter",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "plate-stack-west-counter",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_picture-frame-northwest-table",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "picture-frame-northwest-table",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_magazines-island",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "magazines-island",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_ceiling-downlight-1",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "ceiling-downlight-1",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_ceiling-downlight-2",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "ceiling-downlight-2",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_ceiling-downlight-4",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "ceiling-downlight-4",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42898849_ceiling-downlight-5",
+   "run": "runs/A1-claude/42898849/0",
+   "id": "ceiling-downlight-5",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A1-claude_42899617_door-handle-room-side",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "door-handle-room-side",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42899617_door-handle-bath-side",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "door-handle-bath-side",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42899617_bath-panel",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "bath-panel",
+   "label": "duplicate",
+   "label_text": "重复建了",
+   "note": "",
+   "prelabel": "duplicate"
+  },
+  {
+   "key": "A1-claude_42899617_bath-mixer-tap",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "bath-mixer-tap",
+   "label": "duplicate",
+   "label_text": "重复建了",
+   "note": "",
+   "prelabel": "duplicate"
+  },
+  {
+   "key": "A1-claude_42899617_mirror-bath-wall",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "mirror-bath-wall",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42899617_basin-tap-left",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "basin-tap-left",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42899617_basin-tap-right",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "basin-tap-right",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42899617_basin-plug",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "basin-plug",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42899617_basin-towel-rail",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "basin-towel-rail",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42899617_toilet-cistern",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "toilet-cistern",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "duplicate"
+  },
+  {
+   "key": "A1-claude_42899617_flush-lever",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "flush-lever",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A1-claude_42899617_smoke-detector",
+   "run": "runs/A1-claude/42899617/0",
+   "id": "smoke-detector",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42897538_switch_kitchen_door",
+   "run": "runs/A2-claude/42897538/0",
+   "id": "switch_kitchen_door",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A2-claude_42897538_socket_tv_wall",
+   "run": "runs/A2-claude/42897538/0",
+   "id": "socket_tv_wall",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "absent"
+  },
+  {
+   "key": "A2-claude_42897538_bowl_snacks",
+   "run": "runs/A2-claude/42897538/0",
+   "id": "bowl_snacks",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42897538_kitchen_oven",
+   "run": "runs/A2-claude/42897538/0",
+   "id": "kitchen_oven",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42897538_kitchen_kettle",
+   "run": "runs/A2-claude/42897538/0",
+   "id": "kitchen_kettle",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "absent"
+  },
+  {
+   "key": "A2-claude_42897538_kitchen_toaster",
+   "run": "runs/A2-claude/42897538/0",
+   "id": "kitchen_toaster",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "absent"
+  },
+  {
+   "key": "A2-claude_42897538_hall_ceiling_light",
+   "run": "runs/A2-claude/42897538/0",
+   "id": "hall_ceiling_light",
+   "label": "absent",
+   "label_text": "视频里没有",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A2-claude_42898849_rug_b050",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "rug_b050",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42898849_lantern_b015",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "lantern_b015",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A2-claude_42898849_plant_mantel_b075",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "plant_mantel_b075",
+   "label": "duplicate",
+   "label_text": "重复建了",
+   "note": "",
+   "prelabel": "duplicate"
+  },
+  {
+   "key": "A2-claude_42898849_angel_figure_x10",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "angel_figure_x10",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A2-claude_42898849_plant_pot_b066",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "plant_pot_b066",
+   "label": "duplicate",
+   "label_text": "重复建了",
+   "note": "",
+   "prelabel": "duplicate"
+  },
+  {
+   "key": "A2-claude_42898849_picture_b116",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "picture_b116",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A2-claude_42898849_hurricane_vase_b107",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "hurricane_vase_b107",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42898849_white_tablet_x20",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "white_tablet_x20",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A2-claude_42898849_sink_cabinet_b138",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "sink_cabinet_b138",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "duplicate"
+  },
+  {
+   "key": "A2-claude_42898849_plate_stack_b126",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "plate_stack_b126",
+   "label": "misplaced",
+   "label_text": "位置或尺寸偏了，配不上",
+   "note": "",
+   "prelabel": "misplaced"
+  },
+  {
+   "key": "A2-claude_42898849_wall_cabinet_b035",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "wall_cabinet_b035",
+   "label": "duplicate",
+   "label_text": "重复建了",
+   "note": "",
+   "prelabel": "duplicate"
+  },
+  {
+   "key": "A2-claude_42898849_wall_cabinet_b036",
+   "run": "runs/A2-claude/42898849/0",
+   "id": "wall_cabinet_b036",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "duplicate"
+  },
+  {
+   "key": "A2-claude_42899617_door_handle",
+   "run": "runs/A2-claude/42899617/0",
+   "id": "door_handle",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42899617_mirror_bath",
+   "run": "runs/A2-claude/42899617/0",
+   "id": "mirror_bath",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42899617_sink_tap_west",
+   "run": "runs/A2-claude/42899617/0",
+   "id": "sink_tap_west",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42899617_sink_tap_east",
+   "run": "runs/A2-claude/42899617/0",
+   "id": "sink_tap_east",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  },
+  {
+   "key": "A2-claude_42899617_smoke_detector",
+   "run": "runs/A2-claude/42899617/0",
+   "id": "smoke_detector",
+   "label": "unlabeled",
+   "label_text": "视频里有，CA-1M 没标",
+   "note": "",
+   "prelabel": "unlabeled"
+  }
+ ]
+}

@@ -1,0 +1,3981 @@
+{
+ "generator": "scripts/unmatched_audit.py",
+ "handoff_version": "handoff-1",
+ "choices": {
+  "unlabeled": "视频里有，CA-1M 没标",
+  "misplaced": "位置或尺寸偏了，配不上",
+  "duplicate": "重复建了",
+  "absent": "视频里没有"
+ },
+ "fields": {
+  "label": "人的判断（choices 的键），一开始是空串；页面里标完用\"下载答案\"导出，不回写这个文件",
+  "prelabel": "Claude 看图给的初步猜测（choices 的键）和一句理由 prelabel_reason；不是人工结论",
+  "support": "同 <run>/objects.json（smallobj.handoff）",
+  "gt_nearby": "真值坐标系里中心距 ≤ 0.6 m 或 d̂ ≤ 1（最长边 < 6 m）的目标，最多 3 个：配给了谁、D 结局、这一对过不过宽松门槛",
+  "gt_containing": "框里包着这个实例中心的真值目标（最长边 < 6 m 的），最多 2 个：多半是它所属的那件大东西",
+  "frame": "核对图用的源帧：按 Pi3X 深度估计没被挡住一半以上（visible_frac ≥ 0.5）的帧里，画面内面积 ×（1 − 截断）× 可见比例² 最大的；没有这样的帧就在全部帧里按前两项取",
+  "render": "camera = 用源帧那台相机渲染的；none = 没渲染出来"
+ },
+ "prelabel_meta": {
+  "by": "Claude（claude-fable-5-2），2026-11-20",
+  "basis": "每个实例只看了它的那一张对比图，加上 index.json 里附近 / 包着它的真值；是初步猜测，不是人工结论"
+ },
+ "runs": [
+  {
+   "run": "runs/A1-claude/42897538/0",
+   "n_pred": 37,
+   "n_matched": 33,
+   "n_unmatched": 4
+  },
+  {
+   "run": "runs/A1-claude/42898849/0",
+   "n_pred": 139,
+   "n_matched": 116,
+   "n_unmatched": 23
+  },
+  {
+   "run": "runs/A1-claude/42899617/0",
+   "n_pred": 32,
+   "n_matched": 20,
+   "n_unmatched": 12
+  },
+  {
+   "run": "runs/A2-claude/42897538/0",
+   "n_pred": 54,
+   "n_matched": 47,
+   "n_unmatched": 7
+  },
+  {
+   "run": "runs/A2-claude/42898849/0",
+   "n_pred": 120,
+   "n_matched": 108,
+   "n_unmatched": 12
+  },
+  {
+   "run": "runs/A2-claude/42899617/0",
+   "n_pred": 24,
+   "n_matched": 19,
+   "n_unmatched": 5
+  }
+ ],
+ "n": 63,
+ "items": [
+  {
+   "key": "A1-claude_42897538_chandelier_west",
+   "run": "runs/A1-claude/42897538/0",
+   "arm": "A1-claude",
+   "scene": "42897538",
+   "id": "chandelier_west",
+   "category": "fixtures/ceiling_light",
+   "size": [
+    0.844,
+    0.844,
+    0.266
+   ],
+   "center": [
+    -1.95,
+    -0.6,
+    2.297
+   ],
+   "yaw": -0.5635,
+   "bin": "M",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 924,
+   "frame_image": "perception/42897538/hd/frames/000924.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "fffd5399",
+     "category": "object",
+     "dist_m": 0.529,
+     "longest_m": 0.672,
+     "longest_ratio": 1.17,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "42bd9e92",
+     "category": "object",
+     "dist_m": 2.812,
+     "longest_m": 5.674,
+     "longest_ratio": 0.14,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42897538_chandelier_west.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "吊灯在视频里，画面上和框对得上；GT 最近的是个没配上的 object（最长边 67 cm，离 0.53 m，过不了门槛），多半就是这盏灯——如果不是，就该算 CA-1M 没标",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42897538_switch_kitchen",
+   "run": "runs/A1-claude/42897538/0",
+   "arm": "A1-claude",
+   "scene": "42897538",
+   "id": "switch_kitchen",
+   "category": "fixtures/switch",
+   "size": [
+    0.026,
+    0.086,
+    0.086
+   ],
+   "center": [
+    -1.75,
+    0.687,
+    1.2
+   ],
+   "yaw": -1.5708,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 308,
+   "frame_image": "perception/42897538/hd/frames/000308.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "e1d3f4f3",
+     "category": "switch",
+     "dist_m": 0.379,
+     "longest_m": 0.092,
+     "longest_ratio": 0.87,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "87a59768",
+     "category": "rug",
+     "dist_m": 1.86,
+     "longest_m": 3.122,
+     "longest_ratio": 0.03,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "rug_main"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42897538_switch_kitchen.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框落在一片空白墙面上；GT 的 switch 在 0.38 m 外，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42897538_socket_north",
+   "run": "runs/A1-claude/42897538/0",
+   "arm": "A1-claude",
+   "scene": "42897538",
+   "id": "socket_north",
+   "category": "fixtures/socket",
+   "size": [
+    0.023,
+    0.146,
+    0.086
+   ],
+   "center": [
+    -0.9,
+    1.768,
+    0.3
+   ],
+   "yaw": -1.5708,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 154,
+   "frame_image": "perception/42897538/hd/frames/000154.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "539075d1",
+     "category": "wires",
+     "dist_m": 0.218,
+     "longest_m": 0.637,
+     "longest_ratio": 0.21,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "cable_bundle"
+    },
+    {
+     "gt_id": "5f7ca49f",
+     "category": "table",
+     "dist_m": 0.296,
+     "longest_m": 0.461,
+     "longest_ratio": 0.3,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "lamp_side_table"
+    },
+    {
+     "gt_id": "20fe48c5",
+     "category": "object",
+     "dist_m": 0.325,
+     "longest_m": 0.278,
+     "longest_ratio": 0.49,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42897538_socket_north.jpg",
+   "render": "camera",
+   "prelabel": "absent",
+   "prelabel_reason": "帧 154 里框的位置是空白墙面，只有电视线垂下来；真插座在左下方踢脚线附近，GT 的 outlet 已配给 socket_step",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42897538_context_hallway",
+   "run": "runs/A1-claude/42897538/0",
+   "arm": "A1-claude",
+   "scene": "42897538",
+   "id": "context_hallway",
+   "category": "context/hallway",
+   "size": [
+    2.15,
+    1.85,
+    2.5
+   ],
+   "center": [
+    2.325,
+    2.725,
+    1.15
+   ],
+   "yaw": 0.0,
+   "bin": "L",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 0,
+   "frame_image": "perception/42897538/hd/frames/000000.png",
+   "truncation": 0.285,
+   "visible_frac": 0.74,
+   "gt_nearby": [
+    {
+     "gt_id": "d5e680c1",
+     "category": "thermostat",
+     "dist_m": 0.443,
+     "longest_m": 0.102,
+     "longest_ratio": 22.91,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42897538_context_hallway.jpg",
+   "render": "camera",
+   "prelabel": "absent",
+   "prelabel_reason": "不是物体：走廊的整间“背景体”（2.2 × 1.9 × 2.5 m），本该当结构件过滤掉",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_rug-bay-white",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "rug-bay-white",
+   "category": "decor/textile/rug",
+   "size": [
+    2.0,
+    1.4,
+    0.012
+   ],
+   "center": [
+    3.7,
+    1.3,
+    0.006
+   ],
+   "yaw": -0.0297,
+   "bin": "L",
+   "support": "floor",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 371,
+   "frame_image": "perception/42898849/hd/frames/000371.png",
+   "truncation": 0.349,
+   "visible_frac": 0.7,
+   "gt_nearby": [],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_rug-bay-white.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "白色地毯在视频里很清楚，框也对得上；GT 附近没有地毯目标",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_set-top-box-alcove",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "set-top-box-alcove",
+   "category": "appliance/media_box",
+   "size": [
+    0.22,
+    0.16,
+    0.05
+   ],
+   "center": [
+    4.8,
+    6.42,
+    0.845
+   ],
+   "yaw": 1.5411,
+   "bin": "S",
+   "support": "tv-cabinet-alcove",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 139,
+   "frame_image": "perception/42898849/hd/frames/000139.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "3cbab028",
+     "category": "television",
+     "dist_m": 0.498,
+     "longest_m": 0.736,
+     "longest_ratio": 0.32,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "tv-alcove"
+    },
+    {
+     "gt_id": "07c14b64",
+     "category": "cabinet",
+     "dist_m": 0.514,
+     "longest_m": 1.406,
+     "longest_ratio": 0.17,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "tv-cabinet-alcove"
+    },
+    {
+     "gt_id": "46d782a0",
+     "category": "tv box",
+     "dist_m": 0.542,
+     "longest_m": 0.261,
+     "longest_ratio": 0.9,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "cabinet",
+     "size": [
+      0.46,
+      1.41,
+      1.13
+     ],
+     "D": "correct",
+     "matched_pred": "tv-cabinet-alcove"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_set-top-box-alcove.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框落在电视柜面的空处；GT 有个没配上的 tv box（26 cm）在 0.54 m 外",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_picture-frame-alcove",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "picture-frame-alcove",
+   "category": "decor/picture_frame",
+   "size": [
+    0.22,
+    0.061,
+    0.182
+   ],
+   "center": [
+    4.864,
+    6.6,
+    0.909
+   ],
+   "yaw": 1.5411,
+   "bin": "S",
+   "support": "tv-cabinet-alcove",
+   "inside": "tv-alcove",
+   "from_inventory": null,
+   "frame": 139,
+   "frame_image": "perception/42898849/hd/frames/000139.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "3cbab028",
+     "category": "television",
+     "dist_m": 0.501,
+     "longest_m": 0.736,
+     "longest_ratio": 0.32,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "tv-alcove"
+    },
+    {
+     "gt_id": "0e50fe9d",
+     "category": "frame",
+     "dist_m": 0.501,
+     "longest_m": 0.273,
+     "longest_ratio": 0.86,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "44fc2a2f",
+     "category": "sticky note",
+     "dist_m": 0.524,
+     "longest_m": 0.106,
+     "longest_ratio": 2.22,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "cabinet",
+     "size": [
+      0.46,
+      1.41,
+      1.13
+     ],
+     "D": "correct",
+     "matched_pred": "tv-cabinet-alcove"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_picture-frame-alcove.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框的位置柜面是空的，相框在左下方的窗台上；GT 的 frame 离 0.50 m，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_note-card-alcove",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "note-card-alcove",
+   "category": "decor/card",
+   "size": [
+    0.12,
+    0.04,
+    0.1
+   ],
+   "center": [
+    4.75,
+    6.62,
+    0.87
+   ],
+   "yaw": 1.5411,
+   "bin": "XS",
+   "support": "tv-cabinet-alcove",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 139,
+   "frame_image": "perception/42898849/hd/frames/000139.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "0e50fe9d",
+     "category": "frame",
+     "dist_m": 0.393,
+     "longest_m": 0.273,
+     "longest_ratio": 0.47,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "44fc2a2f",
+     "category": "sticky note",
+     "dist_m": 0.414,
+     "longest_m": 0.106,
+     "longest_ratio": 1.21,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "3cbab028",
+     "category": "television",
+     "dist_m": 0.564,
+     "longest_m": 0.736,
+     "longest_ratio": 0.17,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "tv-alcove"
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "cabinet",
+     "size": [
+      0.46,
+      1.41,
+      1.13
+     ],
+     "D": "correct",
+     "matched_pred": "tv-cabinet-alcove"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_note-card-alcove.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框的位置没东西；GT 的 sticky note（11 cm）在 0.41 m 外，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_noel-letter-n-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "noel-letter-n-sill",
+   "category": "decor/seasonal/letter",
+   "size": [
+    0.207,
+    0.04,
+    0.277
+   ],
+   "center": [
+    3.322,
+    6.661,
+    1.032
+   ],
+   "yaw": -0.0297,
+   "bin": "S",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 139,
+   "frame_image": "perception/42898849/hd/frames/000139.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "c34f7482",
+     "category": "decoration",
+     "dist_m": 0.521,
+     "longest_m": 0.261,
+     "longest_ratio": 1.13,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "696bbf1e",
+     "category": "decoration",
+     "dist_m": 0.523,
+     "longest_m": 0.339,
+     "longest_ratio": 0.87,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "55d5063e",
+     "category": "blinds",
+     "dist_m": 0.679,
+     "longest_m": 2.269,
+     "longest_ratio": 0.13,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "roman-blind-north-living"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_noel-letter-n-sill.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "NOEL 字母在窗台上看得到，但框悬在窗玻璃中间、比实物高；GT 的几个 decoration 都在 0.47–0.52 m 外，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_noel-letter-o-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "noel-letter-o-sill",
+   "category": "decor/seasonal/letter",
+   "size": [
+    0.26,
+    0.04,
+    0.26
+   ],
+   "center": [
+    3.54,
+    6.66,
+    1.03
+   ],
+   "yaw": -0.0297,
+   "bin": "S",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 139,
+   "frame_image": "perception/42898849/hd/frames/000139.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "696bbf1e",
+     "category": "decoration",
+     "dist_m": 0.466,
+     "longest_m": 0.339,
+     "longest_ratio": 0.82,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "dc887f0b",
+     "category": "decoration",
+     "dist_m": 0.541,
+     "longest_m": 0.313,
+     "longest_ratio": 0.89,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "c34f7482",
+     "category": "decoration",
+     "dist_m": 0.558,
+     "longest_m": 0.261,
+     "longest_ratio": 1.06,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_noel-letter-o-sill.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "NOEL 字母在窗台上看得到，但框悬在窗玻璃中间、比实物高；GT 的几个 decoration 都在 0.47–0.52 m 外，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_noel-letter-e-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "noel-letter-e-sill",
+   "category": "decor/seasonal/letter",
+   "size": [
+    0.145,
+    0.04,
+    0.26
+   ],
+   "center": [
+    3.728,
+    6.66,
+    1.03
+   ],
+   "yaw": 3.1119,
+   "bin": "S",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 139,
+   "frame_image": "perception/42898849/hd/frames/000139.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "dc887f0b",
+     "category": "decoration",
+     "dist_m": 0.483,
+     "longest_m": 0.313,
+     "longest_ratio": 0.89,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "696bbf1e",
+     "category": "decoration",
+     "dist_m": 0.506,
+     "longest_m": 0.339,
+     "longest_ratio": 0.82,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "b49e8933",
+     "category": "decoration",
+     "dist_m": 0.528,
+     "longest_m": 0.273,
+     "longest_ratio": 1.01,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_noel-letter-e-sill.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "NOEL 字母在窗台上看得到，但框悬在窗玻璃中间、比实物高；GT 的几个 decoration 都在 0.47–0.52 m 外，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_noel-letter-l-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "noel-letter-l-sill",
+   "category": "decor/seasonal/letter",
+   "size": [
+    0.145,
+    0.04,
+    0.26
+   ],
+   "center": [
+    3.918,
+    6.66,
+    1.03
+   ],
+   "yaw": 3.1119,
+   "bin": "S",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 603,
+   "frame_image": "perception/42898849/hd/frames/000603.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "b49e8933",
+     "category": "decoration",
+     "dist_m": 0.482,
+     "longest_m": 0.273,
+     "longest_ratio": 1.01,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "dc887f0b",
+     "category": "decoration",
+     "dist_m": 0.505,
+     "longest_m": 0.313,
+     "longest_ratio": 0.89,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "55d5063e",
+     "category": "blinds",
+     "dist_m": 0.661,
+     "longest_m": 2.269,
+     "longest_ratio": 0.12,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "roman-blind-north-living"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_noel-letter-l-sill.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "NOEL 字母在窗台上看得到，但框悬在窗玻璃中间、比实物高；GT 的几个 decoration 都在 0.47–0.52 m 外，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_lantern-north-sill",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "lantern-north-sill",
+   "category": "decor/lantern",
+   "size": [
+    0.119,
+    0.119,
+    0.18
+   ],
+   "center": [
+    3.12,
+    6.68,
+    0.99
+   ],
+   "yaw": -1.1292,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 139,
+   "frame_image": "perception/42898849/hd/frames/000139.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "280a87fb",
+     "category": "object",
+     "dist_m": 0.523,
+     "longest_m": 0.215,
+     "longest_ratio": 0.89,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "c34f7482",
+     "category": "decoration",
+     "dist_m": 0.532,
+     "longest_m": 0.261,
+     "longest_ratio": 0.73,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "2639b85a",
+     "category": "object",
+     "dist_m": 0.593,
+     "longest_m": 0.072,
+     "longest_ratio": 2.65,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_lantern-north-sill.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框悬在窗玻璃中间，窗台上的摆件在它下方；GT 的 object（22 cm）离 0.52 m，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_picture-frame-piano-1",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "picture-frame-piano-1",
+   "category": "decor/picture_frame",
+   "size": [
+    0.24,
+    0.071,
+    0.242
+   ],
+   "center": [
+    1.979,
+    0.451,
+    1.338
+   ],
+   "yaw": 1.5411,
+   "bin": "S",
+   "support": "upright-piano",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 510,
+   "frame_image": "perception/42898849/hd/frames/000510.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "f529cc7a",
+     "category": "sticky note",
+     "dist_m": 0.33,
+     "longest_m": 0.089,
+     "longest_ratio": 2.91,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "8b93d6be",
+     "category": "frame",
+     "dist_m": 0.343,
+     "longest_m": 0.282,
+     "longest_ratio": 0.91,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "ed160a96",
+     "category": "sticky note",
+     "dist_m": 0.519,
+     "longest_m": 0.155,
+     "longest_ratio": 1.66,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_picture-frame-piano-1.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "相框在钢琴上，框只比它高一点；GT 的 frame 离 0.34 m，刚好过不了 0.30 m 的门槛",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_picture-frame-piano-2",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "picture-frame-piano-2",
+   "category": "decor/picture_frame",
+   "size": [
+    0.24,
+    0.071,
+    0.242
+   ],
+   "center": [
+    1.979,
+    0.751,
+    1.338
+   ],
+   "yaw": -1.6005,
+   "bin": "S",
+   "support": "upright-piano",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 510,
+   "frame_image": "perception/42898849/hd/frames/000510.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "ed160a96",
+     "category": "sticky note",
+     "dist_m": 0.331,
+     "longest_m": 0.155,
+     "longest_ratio": 1.66,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "63a0c25d",
+     "category": "frame",
+     "dist_m": 0.342,
+     "longest_m": 0.279,
+     "longest_ratio": 0.92,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "f529cc7a",
+     "category": "sticky note",
+     "dist_m": 0.36,
+     "longest_m": 0.089,
+     "longest_ratio": 2.91,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_picture-frame-piano-2.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "相框在钢琴上，框只比它高一点；GT 的 frame 离 0.34 m，刚好过不了 0.30 m 的门槛",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_angel-figurine-shelf",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "angel-figurine-shelf",
+   "category": "decor/figurine",
+   "size": [
+    0.099,
+    0.099,
+    0.32
+   ],
+   "center": [
+    4.8,
+    0.55,
+    1.77
+   ],
+   "yaw": -0.658,
+   "bin": "S",
+   "support": null,
+   "inside": "corner-shelf-unit",
+   "from_inventory": null,
+   "frame": 186,
+   "frame_image": "perception/42898849/hd/frames/000186.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "19b502bd",
+     "category": "decoration",
+     "dist_m": 0.246,
+     "longest_m": 0.312,
+     "longest_ratio": 1.09,
+     "passes_gate": true,
+     "D": "misplaced",
+     "matched_pred": "small-plant-shelf"
+    },
+    {
+     "gt_id": "177595df",
+     "category": "cabinet",
+     "dist_m": 0.918,
+     "longest_m": 1.888,
+     "longest_ratio": 0.18,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "corner-shelf-unit"
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "cabinet",
+     "size": [
+      0.41,
+      0.62,
+      1.89
+     ],
+     "D": "correct",
+     "matched_pred": "corner-shelf-unit"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_angel-figurine-shelf.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "天使摆件在壁龛里，框比它高出一截；GT 的 decoration 离 0.25 m，被更近的 small-plant-shelf 配走了",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_small-plant-kitchen-mantel",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "small-plant-kitchen-mantel",
+   "category": "decor/plant",
+   "size": [
+    0.135,
+    0.135,
+    0.18
+   ],
+   "center": [
+    -3.45,
+    1.52,
+    2.14
+   ],
+   "yaw": -0.2915,
+   "bin": "XS",
+   "support": "kitchen-mantel-beam",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 1392,
+   "frame_image": "perception/42898849/hd/frames/001392.png",
+   "truncation": 0.186,
+   "visible_frac": 0.1,
+   "gt_nearby": [
+    {
+     "gt_id": "91cbf0b3",
+     "category": "object",
+     "dist_m": 0.313,
+     "longest_m": 0.862,
+     "longest_ratio": 0.22,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "bd61e02e",
+     "category": "plant",
+     "dist_m": 0.394,
+     "longest_m": 0.109,
+     "longest_ratio": 1.76,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "c5890cd4",
+     "category": "object",
+     "dist_m": 0.506,
+     "longest_m": 1.289,
+     "longest_ratio": 0.15,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_small-plant-kitchen-mantel.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "小盆栽在框右边约一个身位（框压在挂钟上）；GT 的 plant（11 cm）离 0.39 m，没人配上，框也大了 1.8 倍",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_plant-top-fridge-column",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "plant-top-fridge-column",
+   "category": "decor/plant",
+   "size": [
+    0.29,
+    0.29,
+    0.14
+   ],
+   "center": [
+    -1.95,
+    1.5,
+    2.32
+   ],
+   "yaw": -0.8151,
+   "bin": "S",
+   "support": "wall-cabinet-coffee-niche",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 1252,
+   "frame_image": "perception/42898849/hd/frames/001252.png",
+   "truncation": 0.0,
+   "visible_frac": 0.96,
+   "gt_nearby": [
+    {
+     "gt_id": "918a0b44",
+     "category": "object",
+     "dist_m": 0.306,
+     "longest_m": 0.432,
+     "longest_ratio": 0.71,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "d649bfde",
+     "category": "object",
+     "dist_m": 0.354,
+     "longest_m": 0.38,
+     "longest_ratio": 0.81,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "63073d29",
+     "category": "object",
+     "dist_m": 0.552,
+     "longest_m": 0.432,
+     "longest_ratio": 0.71,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_plant-top-fridge-column.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框的位置是空墙，绿植在框的正下方；GT 的 object（43 cm）离 0.31 m，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_knife-block",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "knife-block",
+   "category": "decor/kitchenware/knife_block",
+   "size": [
+    0.14,
+    0.1,
+    0.22
+   ],
+   "center": [
+    -2.3,
+    1.8,
+    1.03
+   ],
+   "yaw": 1.5411,
+   "bin": "S",
+   "support": "kitchen-base-run-south",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 1345,
+   "frame_image": "perception/42898849/hd/frames/001345.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "ae328c81",
+     "category": "coffee grinder",
+     "dist_m": 0.282,
+     "longest_m": 0.243,
+     "longest_ratio": 0.97,
+     "passes_gate": true,
+     "D": "misplaced",
+     "matched_pred": "coffee-machine-second"
+    },
+    {
+     "gt_id": "b2e40f7e",
+     "category": "object",
+     "dist_m": 0.399,
+     "longest_m": 0.165,
+     "longest_ratio": 1.42,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "milk-frother"
+    },
+    {
+     "gt_id": "9122b1a1",
+     "category": "coffee maker",
+     "dist_m": 0.406,
+     "longest_m": 0.311,
+     "longest_ratio": 0.75,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "coffee-machine"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_knife-block.jpg",
+   "render": "camera",
+   "prelabel": "absent",
+   "prelabel_reason": "台面上只看到两台咖啡机和一个深色圆筒，没有刀架；附近三个 GT 都已配给别的实例",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_herb-plant-west-window-left",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "herb-plant-west-window-left",
+   "category": "decor/plant",
+   "size": [
+    0.232,
+    0.232,
+    0.22
+   ],
+   "center": [
+    -4.98,
+    2.15,
+    1.03
+   ],
+   "yaw": -1.3387,
+   "bin": "S",
+   "support": "kitchen-base-run-west",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 1160,
+   "frame_image": "perception/42898849/hd/frames/001160.png",
+   "truncation": 0.15,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "2f7ddf31",
+     "category": "plant",
+     "dist_m": 0.328,
+     "longest_m": 0.422,
+     "longest_ratio": 0.59,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "64661646",
+     "category": "paper towel roll",
+     "dist_m": 0.46,
+     "longest_m": 0.269,
+     "longest_ratio": 0.92,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "ae760d08",
+     "category": "sink",
+     "dist_m": 0.495,
+     "longest_m": 0.605,
+     "longest_ratio": 0.41,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_herb-plant-west-window-left.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "盆栽在视频里，和框部分重合；GT 的 plant（42 cm）离 0.33 m，没人配上，框只有它的 0.6 倍大",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_plate-stack-west-counter",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "plate-stack-west-counter",
+   "category": "decor/kitchenware/plates",
+   "size": [
+    0.277,
+    0.277,
+    0.05
+   ],
+   "center": [
+    -4.75,
+    3.2,
+    0.945
+   ],
+   "yaw": -1.4434,
+   "bin": "S",
+   "support": "kitchen-base-run-west",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 1206,
+   "frame_image": "perception/42898849/hd/frames/001206.png",
+   "truncation": 0.554,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "4e136500",
+     "category": "pan",
+     "dist_m": 0.197,
+     "longest_m": 0.266,
+     "longest_ratio": 1.11,
+     "passes_gate": true,
+     "D": "misplaced",
+     "matched_pred": "bottle-west-counter-1"
+    },
+    {
+     "gt_id": "badd39e6",
+     "category": "mat",
+     "dist_m": 0.289,
+     "longest_m": 0.492,
+     "longest_ratio": 0.6,
+     "passes_gate": true,
+     "D": "misplaced",
+     "matched_pred": "herb-plant-west-window-right"
+    },
+    {
+     "gt_id": "9b881a95",
+     "category": "mug",
+     "dist_m": 0.372,
+     "longest_m": 0.113,
+     "longest_ratio": 2.6,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "bottle-west-counter-2"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_plate-stack-west-counter.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "沥水垫上的白盘在视频里；最近的 GT pan 离 0.20 m、过得了门槛，但被 bottle-west-counter-1 配走了",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_picture-frame-northwest-table",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "picture-frame-northwest-table",
+   "category": "decor/picture_frame",
+   "size": [
+    0.22,
+    0.083,
+    0.261
+   ],
+   "center": [
+    -4.458,
+    6.576,
+    0.607
+   ],
+   "yaw": 0.3194,
+   "bin": "S",
+   "support": "side-table-northwest",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 1067,
+   "frame_image": "perception/42898849/hd/frames/001067.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "c67de55b",
+     "category": "sticky note",
+     "dist_m": 0.311,
+     "longest_m": 0.093,
+     "longest_ratio": 3.0,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "a7b65892",
+     "category": "frame",
+     "dist_m": 0.319,
+     "longest_m": 0.356,
+     "longest_ratio": 0.78,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "56e0a513",
+     "category": "lamp",
+     "dist_m": 0.418,
+     "longest_m": 0.773,
+     "longest_ratio": 0.36,
+     "passes_gate": true,
+     "D": "misplaced",
+     "matched_pred": "table-lamp-northwest"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_picture-frame-northwest-table.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "相框在边桌上，框偏到它左上方；GT 的 frame 离 0.32 m，刚好过不了门槛",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_magazines-island",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "magazines-island",
+   "category": "decor/books",
+   "size": [
+    0.3,
+    0.24,
+    0.03
+   ],
+   "center": [
+    -3.45,
+    4.62,
+    0.935
+   ],
+   "yaw": 0.1449,
+   "bin": "S",
+   "support": "kitchen-island",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 1160,
+   "frame_image": "perception/42898849/hd/frames/001160.png",
+   "truncation": 0.546,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "91cc589d",
+     "category": "sheets of paper",
+     "dist_m": 0.347,
+     "longest_m": 0.335,
+     "longest_ratio": 0.95,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "5203ea3e",
+     "category": "notebooks",
+     "dist_m": 0.355,
+     "longest_m": 0.337,
+     "longest_ratio": 0.95,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "f6818a18",
+     "category": "chair",
+     "dist_m": 0.546,
+     "longest_m": 1.025,
+     "longest_ratio": 0.31,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_magazines-island.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框的位置岛台面是空的；GT 的 sheets of paper 和 notebooks 都在 0.35 m 外，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_ceiling-downlight-1",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "ceiling-downlight-1",
+   "category": "lighting/downlight",
+   "size": [
+    0.119,
+    0.119,
+    0.035
+   ],
+   "center": [
+    1.95,
+    4.0,
+    2.533
+   ],
+   "yaw": -1.1292,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 186,
+   "frame_image": "perception/42898849/hd/frames/000186.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "be3d90b6",
+     "category": "lamp",
+     "dist_m": 0.313,
+     "longest_m": 0.14,
+     "longest_ratio": 0.9,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_ceiling-downlight-1.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "筒灯在框下方约一个身位；GT 的 lamp 离 0.31 m，刚好过不了门槛",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_ceiling-downlight-2",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "ceiling-downlight-2",
+   "category": "lighting/downlight",
+   "size": [
+    0.119,
+    0.119,
+    0.035
+   ],
+   "center": [
+    3.6,
+    2.8,
+    2.533
+   ],
+   "yaw": -1.4434,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 417,
+   "frame_image": "perception/42898849/hd/frames/000417.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "24c32127",
+     "category": "smoke detector",
+     "dist_m": 0.351,
+     "longest_m": 0.151,
+     "longest_ratio": 0.84,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_ceiling-downlight-2.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框的位置天花板是空的；0.35 m 外没配上的 GT 是个 smoke detector，多半把它当成了筒灯",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_ceiling-downlight-4",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "ceiling-downlight-4",
+   "category": "lighting/downlight",
+   "size": [
+    0.119,
+    0.119,
+    0.035
+   ],
+   "center": [
+    -0.45,
+    4.95,
+    2.533
+   ],
+   "yaw": 0.4416,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 928,
+   "frame_image": "perception/42898849/hd/frames/000928.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "677d9e07",
+     "category": "lamp",
+     "dist_m": 0.559,
+     "longest_m": 0.097,
+     "longest_ratio": 1.3,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "1a9e8d26",
+     "category": "curtain rod",
+     "dist_m": 2.096,
+     "longest_m": 4.194,
+     "longest_ratio": 0.03,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_ceiling-downlight-4.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框的位置天花板是空的；最近的 GT lamp 在 0.56 m 外，没人配上（离得远，把握不大）",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42898849_ceiling-downlight-5",
+   "run": "runs/A1-claude/42898849/0",
+   "arm": "A1-claude",
+   "scene": "42898849",
+   "id": "ceiling-downlight-5",
+   "category": "lighting/downlight",
+   "size": [
+    0.119,
+    0.119,
+    0.035
+   ],
+   "center": [
+    -3.45,
+    2.5,
+    2.533
+   ],
+   "yaw": -1.4434,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 1392,
+   "frame_image": "perception/42898849/hd/frames/001392.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "93079537",
+     "category": "lamp",
+     "dist_m": 0.347,
+     "longest_m": 0.108,
+     "longest_ratio": 1.18,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "f2f407c3",
+     "category": "lamp",
+     "dist_m": 0.458,
+     "longest_m": 0.152,
+     "longest_ratio": 0.83,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42898849_ceiling-downlight-5.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "筒灯在框右边；GT 的 lamp 离 0.35 m，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_door-handle-room-side",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "door-handle-room-side",
+   "category": "furniture/door_handle",
+   "size": [
+    0.119,
+    0.056,
+    0.16
+   ],
+   "center": [
+    1.749,
+    0.049,
+    0.94
+   ],
+   "yaw": 3.1194,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 56,
+   "frame_image": "perception/42899617/hd/frames/000056.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "837b7120",
+     "category": "object",
+     "dist_m": 0.687,
+     "longest_m": 2.114,
+     "longest_ratio": 0.08,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "door"
+    },
+    {
+     "gt_id": "d730e513",
+     "category": "bathtub",
+     "dist_m": 0.942,
+     "longest_m": 1.752,
+     "longest_ratio": 0.09,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "bathtub"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_door-handle-room-side.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "门把手在视频里，紧贴框的右边；GT 只有整扇门，没有把手",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_door-handle-bath-side",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "door-handle-bath-side",
+   "category": "furniture/door_handle",
+   "size": [
+    0.119,
+    0.056,
+    0.16
+   ],
+   "center": [
+    1.749,
+    -0.049,
+    0.94
+   ],
+   "yaw": 0.0222,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 334,
+   "frame_image": "perception/42899617/hd/frames/000334.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "837b7120",
+     "category": "object",
+     "dist_m": 0.74,
+     "longest_m": 2.114,
+     "longest_ratio": 0.08,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "door"
+    },
+    {
+     "gt_id": "d730e513",
+     "category": "bathtub",
+     "dist_m": 0.887,
+     "longest_m": 1.752,
+     "longest_ratio": 0.09,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "bathtub"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_door-handle-bath-side.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "门把手和锁板在视频里；GT 没有把手",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_bath-panel",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "bath-panel",
+   "category": "furniture/bath_panel",
+   "size": [
+    1.8,
+    0.04,
+    0.52
+   ],
+   "center": [
+    2.055,
+    -0.04,
+    0.26
+   ],
+   "yaw": -3.1416,
+   "bin": "L",
+   "support": "floor",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 390,
+   "frame_image": "perception/42899617/hd/frames/000390.png",
+   "truncation": 0.729,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "c2fd4af2",
+     "category": "object",
+     "dist_m": 0.285,
+     "longest_m": 0.409,
+     "longest_ratio": 4.55,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "bath-towel"
+    },
+    {
+     "gt_id": "d730e513",
+     "category": "bathtub",
+     "dist_m": 0.463,
+     "longest_m": 1.752,
+     "longest_ratio": 1.06,
+     "passes_gate": true,
+     "D": "correct",
+     "matched_pred": "bathtub"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [
+    {
+     "id": "bath-towel",
+     "category": "furniture/towel",
+     "iou": 0.07
+    }
+   ],
+   "image": "img/A1-claude_42899617_bath-panel.jpg",
+   "render": "camera",
+   "prelabel": "duplicate",
+   "prelabel_reason": "浴缸的侧板，是浴缸的一部分；GT 的 bathtub 已配给 bathtub（这一帧框大半出画）",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_bath-mixer-tap",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "bath-mixer-tap",
+   "category": "furniture/tap",
+   "size": [
+    0.188,
+    0.188,
+    0.185
+   ],
+   "center": [
+    2.925,
+    -0.46,
+    0.643
+   ],
+   "yaw": -0.7854,
+   "bin": "XS",
+   "support": "bathtub",
+   "inside": "bathtub",
+   "from_inventory": null,
+   "frame": 297,
+   "frame_image": "perception/42899617/hd/frames/000297.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "c693e031",
+     "category": "faucet",
+     "dist_m": 0.154,
+     "longest_m": 0.744,
+     "longest_ratio": 0.26,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "shower-handset"
+    },
+    {
+     "gt_id": "a3ee7307",
+     "category": "object",
+     "dist_m": 0.563,
+     "longest_m": 0.795,
+     "longest_ratio": 0.25,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "d730e513",
+     "category": "bathtub",
+     "dist_m": 0.932,
+     "longest_m": 1.752,
+     "longest_ratio": 0.11,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "bathtub"
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "faucet",
+     "size": [
+      0.19,
+      0.36,
+      0.74
+     ],
+     "D": "correct",
+     "matched_pred": "shower-handset"
+    }
+   ],
+   "pred_overlap": [
+    {
+     "id": "shower-handset",
+     "category": "furniture/shower_handset",
+     "iou": 0.1
+    }
+   ],
+   "image": "img/A1-claude_42899617_bath-mixer-tap.jpg",
+   "render": "camera",
+   "prelabel": "duplicate",
+   "prelabel_reason": "龙头在视频里，但 GT 把龙头连花洒软管标成一个 faucet（74 cm），已配给 shower-handset；一件东西建成了两个",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_mirror-bath-wall",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "mirror-bath-wall",
+   "category": "furniture/mirror",
+   "size": [
+    1.72,
+    0.045,
+    0.9
+   ],
+   "center": [
+    2.03,
+    -0.853,
+    1.485
+   ],
+   "yaw": 0.0,
+   "bin": "L",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 390,
+   "frame_image": "perception/42899617/hd/frames/000390.png",
+   "truncation": 0.853,
+   "visible_frac": 1.0,
+   "gt_nearby": [],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_mirror-bath-wall.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "浴缸上方的大镜子在别的帧里看得到（这一帧只拍到框的一角）；GT 1.5 m 内没有 mirror",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_basin-tap-left",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "basin-tap-left",
+   "category": "furniture/tap",
+   "size": [
+    0.106,
+    0.059,
+    0.122
+   ],
+   "center": [
+    2.078,
+    0.777,
+    0.941
+   ],
+   "yaw": -1.3045,
+   "bin": "XS",
+   "support": "basin",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 519,
+   "frame_image": "perception/42899617/hd/frames/000519.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "4f7ae5b5",
+     "category": "bathroom sink",
+     "dist_m": 0.313,
+     "longest_m": 0.588,
+     "longest_ratio": 0.21,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "basin"
+    },
+    {
+     "gt_id": "fa9e5dbd",
+     "category": "drain",
+     "dist_m": 0.493,
+     "longest_m": 0.19,
+     "longest_ratio": 0.66,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "basin-waste-trap"
+    },
+    {
+     "gt_id": "63e5d211",
+     "category": "towel radiator",
+     "dist_m": 0.551,
+     "longest_m": 0.808,
+     "longest_ratio": 0.16,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "towel-radiator"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_basin-tap-left.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "龙头在视频里（框略偏高）；GT 只有 bathroom sink，没有洗手盆的龙头",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_basin-tap-right",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "basin-tap-right",
+   "category": "furniture/tap",
+   "size": [
+    0.106,
+    0.059,
+    0.122
+   ],
+   "center": [
+    2.438,
+    0.777,
+    0.941
+   ],
+   "yaw": -1.3045,
+   "bin": "XS",
+   "support": "basin",
+   "inside": null,
+   "from_inventory": null,
+   "frame": 519,
+   "frame_image": "perception/42899617/hd/frames/000519.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "4f7ae5b5",
+     "category": "bathroom sink",
+     "dist_m": 0.323,
+     "longest_m": 0.588,
+     "longest_ratio": 0.21,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "basin"
+    },
+    {
+     "gt_id": "8f53a122",
+     "category": "toilet paper holder",
+     "dist_m": 0.461,
+     "longest_m": 0.123,
+     "longest_ratio": 1.03,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "toilet-roll-holder"
+    },
+    {
+     "gt_id": "64d3fe19",
+     "category": "toilet paper",
+     "dist_m": 0.462,
+     "longest_m": 0.123,
+     "longest_ratio": 1.02,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "toilet-roll"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_basin-tap-right.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "龙头在视频里（框略偏高）；GT 只有 bathroom sink，没有洗手盆的龙头",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_basin-plug",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "basin-plug",
+   "category": "furniture/plug",
+   "size": [
+    0.142,
+    0.04,
+    0.043
+   ],
+   "center": [
+    2.328,
+    0.761,
+    0.86
+   ],
+   "yaw": -1.1128,
+   "bin": "XS",
+   "support": null,
+   "inside": "basin",
+   "from_inventory": null,
+   "frame": 519,
+   "frame_image": "perception/42899617/hd/frames/000519.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "4f7ae5b5",
+     "category": "bathroom sink",
+     "dist_m": 0.194,
+     "longest_m": 0.588,
+     "longest_ratio": 0.25,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "basin"
+    },
+    {
+     "gt_id": "fa9e5dbd",
+     "category": "drain",
+     "dist_m": 0.394,
+     "longest_m": 0.19,
+     "longest_ratio": 0.77,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "basin-waste-trap"
+    },
+    {
+     "gt_id": "64d3fe19",
+     "category": "toilet paper",
+     "dist_m": 0.561,
+     "longest_m": 0.123,
+     "longest_ratio": 1.19,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "toilet-roll"
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "bathroom sink",
+     "size": [
+      0.41,
+      0.59,
+      0.29
+     ],
+     "D": "correct",
+     "matched_pred": "basin"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_basin-plug.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "塞子和链子在盆里看得到；GT 只有 bathroom sink 和 drain",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_basin-towel-rail",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "basin-towel-rail",
+   "category": "furniture/towel_rail",
+   "size": [
+    0.544,
+    0.37,
+    0.058
+   ],
+   "center": [
+    2.25,
+    0.681,
+    0.567
+   ],
+   "yaw": 0.0,
+   "bin": "M",
+   "support": null,
+   "inside": "basin",
+   "from_inventory": null,
+   "frame": 427,
+   "frame_image": "perception/42899617/hd/frames/000427.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "fa9e5dbd",
+     "category": "drain",
+     "dist_m": 0.124,
+     "longest_m": 0.19,
+     "longest_ratio": 2.95,
+     "passes_gate": true,
+     "D": "correct",
+     "matched_pred": "basin-waste-trap"
+    },
+    {
+     "gt_id": "4f7ae5b5",
+     "category": "bathroom sink",
+     "dist_m": 0.159,
+     "longest_m": 0.588,
+     "longest_ratio": 0.96,
+     "passes_gate": true,
+     "D": "correct",
+     "matched_pred": "basin"
+    },
+    {
+     "gt_id": "783f66ec",
+     "category": "object",
+     "dist_m": 0.387,
+     "longest_m": 0.411,
+     "longest_ratio": 1.37,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "radiator-switch-spur"
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "bathroom sink",
+     "size": [
+      0.41,
+      0.59,
+      0.29
+     ],
+     "D": "correct",
+     "matched_pred": "basin"
+    }
+   ],
+   "pred_overlap": [
+    {
+     "id": "basin",
+     "category": "furniture/basin",
+     "iou": 0.13
+    }
+   ],
+   "image": "img/A1-claude_42899617_basin-towel-rail.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "洗手盆下面的镀铬支架在帧 56 里看得到一点；GT 没有单独标（把握不大）",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_toilet-cistern",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "toilet-cistern",
+   "category": "furniture/cistern",
+   "size": [
+    0.45,
+    0.2,
+    0.355
+   ],
+   "center": [
+    3.671,
+    0.38,
+    0.792
+   ],
+   "yaw": -1.5708,
+   "bin": "S",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 185,
+   "frame_image": "perception/42899617/hd/frames/000185.png",
+   "truncation": 0.141,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "6071dd3f",
+     "category": "toilet",
+     "dist_m": 0.413,
+     "longest_m": 0.969,
+     "longest_ratio": 0.48,
+     "passes_gate": true,
+     "D": "misplaced",
+     "matched_pred": "toilet"
+    },
+    {
+     "gt_id": "65751de4",
+     "category": "toiler brush",
+     "dist_m": 0.452,
+     "longest_m": 0.37,
+     "longest_ratio": 1.26,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "toilet-brush-holder"
+    },
+    {
+     "gt_id": "3ce50c40",
+     "category": "object",
+     "dist_m": 0.503,
+     "longest_m": 0.826,
+     "longest_ratio": 0.56,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "toilet",
+     "size": [
+      0.76,
+      0.53,
+      0.97
+     ],
+     "D": "misplaced",
+     "matched_pred": "toilet"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_toilet-cistern.jpg",
+   "render": "camera",
+   "prelabel": "duplicate",
+   "prelabel_reason": "水箱在视频里，但它在 GT toilet 的框里（GT 把水箱算进马桶），toilet 已配给 toilet",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_flush-lever",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "flush-lever",
+   "category": "furniture/flush_lever",
+   "size": [
+    0.111,
+    0.037,
+    0.032
+   ],
+   "center": [
+    3.663,
+    0.116,
+    0.88
+   ],
+   "yaw": -1.8975,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 185,
+   "frame_image": "perception/42899617/hd/frames/000185.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "65751de4",
+     "category": "toiler brush",
+     "dist_m": 0.409,
+     "longest_m": 0.37,
+     "longest_ratio": 0.31,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "toilet-brush-holder"
+    },
+    {
+     "gt_id": "6071dd3f",
+     "category": "toilet",
+     "dist_m": 0.55,
+     "longest_m": 0.969,
+     "longest_ratio": 0.12,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "toilet"
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "toilet",
+     "size": [
+      0.76,
+      0.53,
+      0.97
+     ],
+     "D": "misplaced",
+     "matched_pred": "toilet"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_flush-lever.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "冲水扳手在视频里（框略偏高）；GT 没有单独标，它落在 GT toilet 的框里",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A1-claude_42899617_smoke-detector",
+   "run": "runs/A1-claude/42899617/0",
+   "arm": "A1-claude",
+   "scene": "42899617",
+   "id": "smoke-detector",
+   "category": "furniture/smoke_detector",
+   "size": [
+    0.1,
+    0.1,
+    0.04
+   ],
+   "center": [
+    1.19,
+    -0.42,
+    2.66
+   ],
+   "yaw": -1.021,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": null,
+   "frame": 482,
+   "frame_image": "perception/42899617/hd/frames/000482.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A1-claude_42899617_smoke-detector.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "天花板上框旁边有个小黑点，画面很糊；GT 附近什么都没有（把握不大）",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42897538_switch_kitchen_door",
+   "run": "runs/A2-claude/42897538/0",
+   "arm": "A2-claude",
+   "scene": "42897538",
+   "id": "switch_kitchen_door",
+   "category": "fixture/switch",
+   "size": [
+    0.09,
+    0.01,
+    0.09
+   ],
+   "center": [
+    -1.81,
+    0.68,
+    1.07
+   ],
+   "yaw": 0.0,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": false,
+   "frame": 308,
+   "frame_image": "perception/42897538/hd/frames/000308.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "e1d3f4f3",
+     "category": "switch",
+     "dist_m": 0.506,
+     "longest_m": 0.092,
+     "longest_ratio": 0.91,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "87a59768",
+     "category": "rug",
+     "dist_m": 1.817,
+     "longest_m": 3.122,
+     "longest_ratio": 0.03,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "rug_living"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42897538_switch_kitchen_door.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "框落在一片空白墙面上；GT 的 switch 在 0.51 m 外，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42897538_socket_tv_wall",
+   "run": "runs/A2-claude/42897538/0",
+   "arm": "A2-claude",
+   "scene": "42897538",
+   "id": "socket_tv_wall",
+   "category": "fixture/socket",
+   "size": [
+    0.15,
+    0.01,
+    0.09
+   ],
+   "center": [
+    -0.95,
+    1.79,
+    0.55
+   ],
+   "yaw": 0.0,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": false,
+   "frame": 154,
+   "frame_image": "perception/42897538/hd/frames/000154.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "539075d1",
+     "category": "wires",
+     "dist_m": 0.331,
+     "longest_m": 0.637,
+     "longest_ratio": 0.22,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "floor_cables_alcove"
+    },
+    {
+     "gt_id": "5f7ca49f",
+     "category": "table",
+     "dist_m": 0.409,
+     "longest_m": 0.461,
+     "longest_ratio": 0.3,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "side_table_red"
+    },
+    {
+     "gt_id": "20fe48c5",
+     "category": "object",
+     "dist_m": 0.511,
+     "longest_m": 0.278,
+     "longest_ratio": 0.5,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42897538_socket_tv_wall.jpg",
+   "render": "camera",
+   "prelabel": "absent",
+   "prelabel_reason": "帧 154 里框的位置是空白墙面，只有电视线垂下来；真插座在左下方踢脚线附近，GT 的 outlet 已配给 socket_alcove_wall",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42897538_bowl_snacks",
+   "run": "runs/A2-claude/42897538/0",
+   "arm": "A2-claude",
+   "scene": "42897538",
+   "id": "bowl_snacks",
+   "category": "decor/food",
+   "size": [
+    0.144,
+    0.158,
+    0.043
+   ],
+   "center": [
+    0.553,
+    -0.697,
+    0.645
+   ],
+   "yaw": 2.618,
+   "bin": "XS",
+   "support": "glass_bowl",
+   "inside": null,
+   "from_inventory": true,
+   "frame": 678,
+   "frame_image": "perception/42897538/hd/frames/000678.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "8b2a0357",
+     "category": "bowl",
+     "dist_m": 0.102,
+     "longest_m": 0.231,
+     "longest_ratio": 0.64,
+     "passes_gate": true,
+     "D": "correct",
+     "matched_pred": "glass_bowl"
+    },
+    {
+     "gt_id": "f34d8ee0",
+     "category": "plates",
+     "dist_m": 0.234,
+     "longest_m": 0.208,
+     "longest_ratio": 0.71,
+     "passes_gate": true,
+     "D": "correct",
+     "matched_pred": "plate_stack"
+    },
+    {
+     "gt_id": "120b9422",
+     "category": "tissue box",
+     "dist_m": 0.331,
+     "longest_m": 0.265,
+     "longest_ratio": 0.55,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "tissue_box"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42897538_bowl_snacks.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "玻璃碗里的饼干看得很清楚；GT 只标了碗（已配给 glass_bowl）",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42897538_kitchen_oven",
+   "run": "runs/A2-claude/42897538/0",
+   "arm": "A2-claude",
+   "scene": "42897538",
+   "id": "kitchen_oven",
+   "category": "appliance/oven",
+   "size": [
+    0.02,
+    0.58,
+    0.6
+   ],
+   "center": [
+    -3.0,
+    2.1,
+    0.45
+   ],
+   "yaw": 0.0,
+   "bin": "M",
+   "support": null,
+   "inside": "kitchen_base_cabinets",
+   "from_inventory": false,
+   "frame": 308,
+   "frame_image": "perception/42897538/hd/frames/000308.png",
+   "truncation": 0.637,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "3873cfad",
+     "category": "rug",
+     "dist_m": 0.597,
+     "longest_m": 1.592,
+     "longest_ratio": 0.35,
+     "passes_gate": true,
+     "D": "correct",
+     "matched_pred": "kitchen_rug"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42897538_kitchen_oven.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "帧 308 的左边缘能看到厨房里黑色烤箱的一角（框大半出画）；GT 附近只有地毯（把握不大）",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42897538_kitchen_kettle",
+   "run": "runs/A2-claude/42897538/0",
+   "arm": "A2-claude",
+   "scene": "42897538",
+   "id": "kitchen_kettle",
+   "category": "appliance/kettle",
+   "size": [
+    0.159,
+    0.159,
+    0.24
+   ],
+   "center": [
+    -3.4,
+    1.95,
+    1.02
+   ],
+   "yaw": -1.4399,
+   "bin": "S",
+   "support": "kitchen_base_cabinets",
+   "inside": null,
+   "from_inventory": false,
+   "frame": 277,
+   "frame_image": "perception/42897538/hd/frames/000277.png",
+   "truncation": 0.0,
+   "visible_frac": 0.15,
+   "gt_nearby": [
+    {
+     "gt_id": "eb2a3f88",
+     "category": "refrigerator",
+     "dist_m": 0.771,
+     "longest_m": 1.778,
+     "longest_ratio": 0.13,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "fridge_freezer"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42897538_kitchen_kettle.jpg",
+   "render": "camera",
+   "prelabel": "absent",
+   "prelabel_reason": "32 帧里都被墙挡着（可见比例 15%），看不到水壶，没法确认；不是清单来的，GT 附近也没有——需要看原视频",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42897538_kitchen_toaster",
+   "run": "runs/A2-claude/42897538/0",
+   "arm": "A2-claude",
+   "scene": "42897538",
+   "id": "kitchen_toaster",
+   "category": "appliance/toaster",
+   "size": [
+    0.16,
+    0.28,
+    0.18
+   ],
+   "center": [
+    -3.4,
+    2.28,
+    0.99
+   ],
+   "yaw": 0.0,
+   "bin": "S",
+   "support": "kitchen_base_cabinets",
+   "inside": null,
+   "from_inventory": false,
+   "frame": 277,
+   "frame_image": "perception/42897538/hd/frames/000277.png",
+   "truncation": 0.0,
+   "visible_frac": 0.0,
+   "gt_nearby": [],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42897538_kitchen_toaster.jpg",
+   "render": "camera",
+   "prelabel": "absent",
+   "prelabel_reason": "32 帧里都被墙挡着（可见比例 0%），看不到烤面包机，没法确认；不是清单来的，GT 附近也没有——需要看原视频",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42897538_hall_ceiling_light",
+   "run": "runs/A2-claude/42897538/0",
+   "arm": "A2-claude",
+   "scene": "42897538",
+   "id": "hall_ceiling_light",
+   "category": "lighting/ceiling_light",
+   "size": [
+    0.119,
+    0.119,
+    0.06
+   ],
+   "center": [
+    2.1,
+    2.45,
+    2.42
+   ],
+   "yaw": -0.9163,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": false,
+   "frame": 31,
+   "frame_image": "perception/42897538/hd/frames/000031.png",
+   "truncation": 0.0,
+   "visible_frac": 0.76,
+   "gt_nearby": [
+    {
+     "gt_id": "5e4b208b",
+     "category": "object",
+     "dist_m": 0.225,
+     "longest_m": 0.982,
+     "longest_ratio": 0.11,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "7f8d0eb8",
+     "category": "object",
+     "dist_m": 0.383,
+     "longest_m": 0.983,
+     "longest_ratio": 0.11,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42897538_hall_ceiling_light.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "走廊里有灯（帧 0 的门洞里看得到灯泡），但不在框的位置（这一帧是隔着门上的亮子看的）；最近的 GT lamp 在 1.4 m 外（把握不大）",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_rug_b050",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "rug_b050",
+   "category": "decor/rug",
+   "size": [
+    1.74,
+    1.09,
+    0.02
+   ],
+   "center": [
+    3.81,
+    1.55,
+    0.01
+   ],
+   "yaw": 0.0,
+   "bin": "L",
+   "support": "floor",
+   "inside": null,
+   "from_inventory": true,
+   "frame": 371,
+   "frame_image": "perception/42898849/hd/frames/000371.png",
+   "truncation": 0.134,
+   "visible_frac": 0.66,
+   "gt_nearby": [],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_rug_b050.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "白色地毯在视频里很清楚，框也对得上；GT 附近没有地毯目标",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_lantern_b015",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "lantern_b015",
+   "category": "decor/lantern",
+   "size": [
+    0.255,
+    0.255,
+    0.303
+   ],
+   "center": [
+    3.85,
+    2.3,
+    0.928
+   ],
+   "yaw": -1.3744,
+   "bin": "S",
+   "support": "console_table_b129",
+   "inside": null,
+   "from_inventory": true,
+   "frame": 417,
+   "frame_image": "perception/42898849/hd/frames/000417.png",
+   "truncation": 0.0,
+   "visible_frac": 0.93,
+   "gt_nearby": [
+    {
+     "gt_id": "dc805b68",
+     "category": "decoration",
+     "dist_m": 0.592,
+     "longest_m": 0.258,
+     "longest_ratio": 1.25,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_lantern_b015.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "藤编灯笼在桌上，框在它右边错开一个身位；GT 的 decoration（26 cm）离 0.59 m，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_plant_mantel_b075",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "plant_mantel_b075",
+   "category": "decor/plant",
+   "size": [
+    0.157,
+    0.157,
+    0.22
+   ],
+   "center": [
+    4.57,
+    5.36,
+    1.29
+   ],
+   "yaw": -1.3744,
+   "bin": "S",
+   "support": null,
+   "inside": null,
+   "from_inventory": true,
+   "frame": 881,
+   "frame_image": "perception/42898849/hd/frames/000881.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "2308ade9",
+     "category": "decoration",
+     "dist_m": 0.339,
+     "longest_m": 0.301,
+     "longest_ratio": 0.78,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "heart_decor_x04"
+    },
+    {
+     "gt_id": "1946161d",
+     "category": "object",
+     "dist_m": 0.43,
+     "longest_m": 0.082,
+     "longest_ratio": 2.87,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "b6c700d0",
+     "category": "lamp",
+     "dist_m": 0.534,
+     "longest_m": 0.589,
+     "longest_ratio": 0.4,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "table_lamp_b008"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_plant_mantel_b075.jpg",
+   "render": "camera",
+   "prelabel": "duplicate",
+   "prelabel_reason": "壁炉架左端没有单独的盆栽；清单 b075（plant）落在花环 b055 的一头，花环已经建成 garland_b055",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_angel_figure_x10",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "angel_figure_x10",
+   "category": "decor/figurine",
+   "size": [
+    0.119,
+    0.119,
+    0.245
+   ],
+   "center": [
+    4.871,
+    0.434,
+    1.935
+   ],
+   "yaw": -1.4137,
+   "bin": "S",
+   "support": null,
+   "inside": "corner_cabinet_b064",
+   "from_inventory": false,
+   "frame": 186,
+   "frame_image": "perception/42898849/hd/frames/000186.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "19b502bd",
+     "category": "decoration",
+     "dist_m": 0.397,
+     "longest_m": 0.312,
+     "longest_ratio": 0.84,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_angel_figure_x10.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "天使摆件在壁龛里，框比它高出一截；GT 的 decoration 离 0.40 m，没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_plant_pot_b066",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "plant_pot_b066",
+   "category": "decor/vase",
+   "size": [
+    0.306,
+    0.306,
+    0.26
+   ],
+   "center": [
+    4.32,
+    0.53,
+    0.13
+   ],
+   "yaw": 1.0996,
+   "bin": "S",
+   "support": "floor",
+   "inside": null,
+   "from_inventory": true,
+   "frame": 464,
+   "frame_image": "perception/42898849/hd/frames/000464.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "e6a70055",
+     "category": "ball",
+     "dist_m": 0.305,
+     "longest_m": 0.14,
+     "longest_ratio": 2.33,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "ball_b065"
+    },
+    {
+     "gt_id": "7d516e03",
+     "category": "object",
+     "dist_m": 0.323,
+     "longest_m": 1.07,
+     "longest_ratio": 0.31,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "83c05a79",
+     "category": "plant",
+     "dist_m": 0.44,
+     "longest_m": 1.07,
+     "longest_ratio": 0.31,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "plant_b016"
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "plant",
+     "size": [
+      0.53,
+      0.52,
+      1.07
+     ],
+     "D": "correct",
+     "matched_pred": "plant_b016"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_plant_pot_b066.jpg",
+   "render": "camera",
+   "prelabel": "duplicate",
+   "prelabel_reason": "花盆在视频里，但 GT 的 plant（1.07 m，连盆）已配给 plant_b016；盆和植物建成了两个",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_picture_b116",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "picture_b116",
+   "category": "decor/picture_frame",
+   "size": [
+    0.12,
+    0.054,
+    0.163
+   ],
+   "center": [
+    -3.95,
+    6.904,
+    0.6
+   ],
+   "yaw": 3.1178,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": true,
+   "frame": 1067,
+   "frame_image": "perception/42898849/hd/frames/001067.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "99918da3",
+     "category": "frame",
+     "dist_m": 0.311,
+     "longest_m": 0.164,
+     "longest_ratio": 1.06,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "3a4f8b66",
+     "category": "frame",
+     "dist_m": 0.435,
+     "longest_m": 0.276,
+     "longest_ratio": 0.63,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "picture_b115"
+    },
+    {
+     "gt_id": "8cbf5cbd",
+     "category": "decoration",
+     "dist_m": 0.551,
+     "longest_m": 0.212,
+     "longest_ratio": 0.82,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_picture_b116.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "小相框在窗台上，和框基本重合；GT 的 frame（16 cm）离 0.31 m，刚好过不了门槛",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_hurricane_vase_b107",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "hurricane_vase_b107",
+   "category": "decor/vase",
+   "size": [
+    0.178,
+    0.178,
+    0.2
+   ],
+   "center": [
+    -2.19,
+    4.05,
+    0.98
+   ],
+   "yaw": -1.7279,
+   "bin": "S",
+   "support": "island_b043",
+   "inside": null,
+   "from_inventory": true,
+   "frame": 1299,
+   "frame_image": "perception/42898849/hd/frames/001299.png",
+   "truncation": 0.094,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "a529881d",
+     "category": "decoration",
+     "dist_m": 0.308,
+     "longest_m": 0.901,
+     "longest_ratio": 0.24,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "driftwood_x19"
+    },
+    {
+     "gt_id": "892e03d4",
+     "category": "napkin",
+     "dist_m": 0.462,
+     "longest_m": 0.22,
+     "longest_ratio": 0.97,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "0e4ac5a1",
+     "category": "board",
+     "dist_m": 0.479,
+     "longest_m": 0.443,
+     "longest_ratio": 0.48,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "decoration",
+     "size": [
+      0.27,
+      0.9,
+      0.13
+     ],
+     "D": "misplaced",
+     "matched_pred": "driftwood_x19"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_hurricane_vase_b107.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "玻璃花瓶在岛台上看得到；GT 附近只有浮木（decoration）、napkin 和 board，没有花瓶",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_white_tablet_x20",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "white_tablet_x20",
+   "category": "decor/tablet",
+   "size": [
+    0.34,
+    0.24,
+    0.02
+   ],
+   "center": [
+    -1.85,
+    4.22,
+    0.89
+   ],
+   "yaw": 0.4,
+   "bin": "S",
+   "support": "island_b043",
+   "inside": null,
+   "from_inventory": false,
+   "frame": 278,
+   "frame_image": "perception/42898849/hd/frames/000278.png",
+   "truncation": 0.197,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "892e03d4",
+     "category": "napkin",
+     "dist_m": 0.335,
+     "longest_m": 0.22,
+     "longest_ratio": 1.65,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "3a69699c",
+     "category": "remote control",
+     "dist_m": 0.457,
+     "longest_m": 0.126,
+     "longest_ratio": 2.87,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "f8c98bf1",
+     "category": "kitchen island",
+     "dist_m": 0.824,
+     "longest_m": 2.395,
+     "longest_ratio": 0.15,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "island_b043"
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "kitchen island",
+     "size": [
+      1.3,
+      2.4,
+      0.91
+     ],
+     "D": "correct",
+     "matched_pred": "island_b043"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_white_tablet_x20.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "岛台上那块白板 GT 标成了 board（44 cm），但框离它 0.87 m，落在空台面上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_sink_cabinet_b138",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "sink_cabinet_b138",
+   "category": "furniture/cabinet",
+   "size": [
+    1.72,
+    0.63,
+    0.94
+   ],
+   "center": [
+    -4.705,
+    2.89,
+    0.47
+   ],
+   "yaw": 1.5708,
+   "bin": "L",
+   "support": "floor",
+   "inside": null,
+   "from_inventory": true,
+   "frame": 1392,
+   "frame_image": "perception/42898849/hd/frames/001392.png",
+   "truncation": 0.221,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "badd39e6",
+     "category": "mat",
+     "dist_m": 0.463,
+     "longest_m": 0.492,
+     "longest_ratio": 3.73,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "4e136500",
+     "category": "pan",
+     "dist_m": 0.519,
+     "longest_m": 0.266,
+     "longest_ratio": 6.89,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "6e1a9dc2",
+     "category": "mug",
+     "dist_m": 0.523,
+     "longest_m": 0.114,
+     "longest_ratio": 16.09,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "cabinet",
+     "size": [
+      0.65,
+      4.19,
+      0.9
+     ],
+     "D": "misplaced",
+     "matched_pred": "base_cabinet_b112"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_sink_cabinet_b138.jpg",
+   "render": "camera",
+   "prelabel": "duplicate",
+   "prelabel_reason": "水槽下的地柜在视频里，但 GT 把整排地柜标成一个 cabinet（4.2 m），已配给 base_cabinet_b112；一排柜子建成了几段",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_plate_stack_b126",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "plate_stack_b126",
+   "category": "decor/tableware",
+   "size": [
+    0.257,
+    0.257,
+    0.06
+   ],
+   "center": [
+    -4.72,
+    3.35,
+    0.97
+   ],
+   "yaw": -1.0996,
+   "bin": "S",
+   "support": "sink_cabinet_b138",
+   "inside": null,
+   "from_inventory": true,
+   "frame": 1206,
+   "frame_image": "perception/42898849/hd/frames/001206.png",
+   "truncation": 0.598,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "4e136500",
+     "category": "pan",
+     "dist_m": 0.357,
+     "longest_m": 0.266,
+     "longest_ratio": 1.03,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "badd39e6",
+     "category": "mat",
+     "dist_m": 0.452,
+     "longest_m": 0.492,
+     "longest_ratio": 0.56,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "9b881a95",
+     "category": "mug",
+     "dist_m": 0.53,
+     "longest_m": 0.113,
+     "longest_ratio": 2.42,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_plate_stack_b126.jpg",
+   "render": "camera",
+   "prelabel": "misplaced",
+   "prelabel_reason": "沥水垫上的白盘在视频里；GT 的 pan 离 0.36 m、mat 离 0.45 m，都没人配上",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_wall_cabinet_b035",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "wall_cabinet_b035",
+   "category": "furniture/cabinet",
+   "size": [
+    0.5,
+    0.362,
+    0.75
+   ],
+   "center": [
+    -4.839,
+    4.2,
+    1.625
+   ],
+   "yaw": 1.5708,
+   "bin": "M",
+   "support": null,
+   "inside": null,
+   "from_inventory": true,
+   "frame": 1021,
+   "frame_image": "perception/42898849/hd/frames/001021.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "39caaa7d",
+     "category": "object",
+     "dist_m": 0.396,
+     "longest_m": 0.144,
+     "longest_ratio": 5.54,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "ceb5c9d3",
+     "category": "object",
+     "dist_m": 0.404,
+     "longest_m": 0.113,
+     "longest_ratio": 7.05,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "d414fd1b",
+     "category": "object",
+     "dist_m": 0.433,
+     "longest_m": 0.099,
+     "longest_ratio": 8.11,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "cabinet",
+     "size": [
+      0.37,
+      1.94,
+      0.83
+     ],
+     "D": "misplaced",
+     "matched_pred": "open_shelf_b110"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_wall_cabinet_b035.jpg",
+   "render": "camera",
+   "prelabel": "duplicate",
+   "prelabel_reason": "吊柜在视频里，框也对得上；GT 把这一排吊柜标成一个 cabinet（1.9 m），已配给 open_shelf_b110",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42898849_wall_cabinet_b036",
+   "run": "runs/A2-claude/42898849/0",
+   "arm": "A2-claude",
+   "scene": "42898849",
+   "id": "wall_cabinet_b036",
+   "category": "furniture/cabinet",
+   "size": [
+    0.53,
+    0.362,
+    0.75
+   ],
+   "center": [
+    -4.839,
+    5.615,
+    1.625
+   ],
+   "yaw": 1.5708,
+   "bin": "M",
+   "support": null,
+   "inside": null,
+   "from_inventory": true,
+   "frame": 1021,
+   "frame_image": "perception/42898849/hd/frames/001021.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "42dc7259",
+     "category": "object",
+     "dist_m": 0.336,
+     "longest_m": 0.202,
+     "longest_ratio": 3.97,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "84c14b59",
+     "category": "object",
+     "dist_m": 0.412,
+     "longest_m": 0.202,
+     "longest_ratio": 3.96,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    },
+    {
+     "gt_id": "1b3142b1",
+     "category": "frame",
+     "dist_m": 0.441,
+     "longest_m": 0.163,
+     "longest_ratio": 4.89,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [
+    {
+     "category": "cabinet",
+     "size": [
+      0.37,
+      1.94,
+      0.83
+     ],
+     "D": "misplaced",
+     "matched_pred": "open_shelf_b110"
+    }
+   ],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42898849_wall_cabinet_b036.jpg",
+   "render": "camera",
+   "prelabel": "duplicate",
+   "prelabel_reason": "吊柜在视频里，框也对得上；GT 把这一排吊柜标成一个 cabinet（1.9 m），已配给 open_shelf_b110",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42899617_door_handle",
+   "run": "runs/A2-claude/42899617/0",
+   "arm": "A2-claude",
+   "scene": "42899617",
+   "id": "door_handle",
+   "category": "furniture/door_handle",
+   "size": [
+    0.13,
+    0.09,
+    0.2
+   ],
+   "center": [
+    1.725,
+    -0.015,
+    1.05
+   ],
+   "yaw": 0.0,
+   "bin": "S",
+   "support": null,
+   "inside": "door_leaf",
+   "from_inventory": false,
+   "frame": 56,
+   "frame_image": "perception/42899617/hd/frames/000056.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "837b7120",
+     "category": "object",
+     "dist_m": 0.693,
+     "longest_m": 2.114,
+     "longest_ratio": 0.1,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "door_leaf"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42899617_door_handle.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "门把手在视频里，就在框里；GT 只有整扇门，没有把手",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42899617_mirror_bath",
+   "run": "runs/A2-claude/42899617/0",
+   "arm": "A2-claude",
+   "scene": "42899617",
+   "id": "mirror_bath",
+   "category": "furniture/mirror",
+   "size": [
+    1.18,
+    0.025,
+    0.85
+   ],
+   "center": [
+    1.77,
+    -0.858,
+    1.495
+   ],
+   "yaw": 0.0,
+   "bin": "M",
+   "support": null,
+   "inside": null,
+   "from_inventory": true,
+   "frame": 352,
+   "frame_image": "perception/42899617/hd/frames/000352.png",
+   "truncation": 0.81,
+   "visible_frac": 1.0,
+   "gt_nearby": [],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42899617_mirror_bath.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "镜子在视频里（这一帧只拍到它的一角）；GT 附近没有 mirror",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42899617_sink_tap_west",
+   "run": "runs/A2-claude/42899617/0",
+   "arm": "A2-claude",
+   "scene": "42899617",
+   "id": "sink_tap_west",
+   "category": "furniture/tap",
+   "size": [
+    0.115,
+    0.06,
+    0.107
+   ],
+   "center": [
+    2.077,
+    0.794,
+    0.893
+   ],
+   "yaw": -1.3003,
+   "bin": "XS",
+   "support": "sink",
+   "inside": null,
+   "from_inventory": false,
+   "frame": 519,
+   "frame_image": "perception/42899617/hd/frames/000519.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "4f7ae5b5",
+     "category": "bathroom sink",
+     "dist_m": 0.288,
+     "longest_m": 0.588,
+     "longest_ratio": 0.2,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "sink"
+    },
+    {
+     "gt_id": "fa9e5dbd",
+     "category": "drain",
+     "dist_m": 0.448,
+     "longest_m": 0.19,
+     "longest_ratio": 0.62,
+     "passes_gate": false,
+     "D": "misplaced",
+     "matched_pred": "sink_stand"
+    },
+    {
+     "gt_id": "63e5d211",
+     "category": "towel radiator",
+     "dist_m": 0.528,
+     "longest_m": 0.808,
+     "longest_ratio": 0.15,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "towel_radiator"
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42899617_sink_tap_west.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "龙头在视频里（框略偏高）；GT 只有 bathroom sink，没有洗手盆的龙头",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42899617_sink_tap_east",
+   "run": "runs/A2-claude/42899617/0",
+   "arm": "A2-claude",
+   "scene": "42899617",
+   "id": "sink_tap_east",
+   "category": "furniture/tap",
+   "size": [
+    0.115,
+    0.06,
+    0.107
+   ],
+   "center": [
+    2.477,
+    0.794,
+    0.893
+   ],
+   "yaw": -1.3003,
+   "bin": "XS",
+   "support": "sink",
+   "inside": null,
+   "from_inventory": false,
+   "frame": 538,
+   "frame_image": "perception/42899617/hd/frames/000538.png",
+   "truncation": 0.06,
+   "visible_frac": 1.0,
+   "gt_nearby": [
+    {
+     "gt_id": "4f7ae5b5",
+     "category": "bathroom sink",
+     "dist_m": 0.326,
+     "longest_m": 0.588,
+     "longest_ratio": 0.2,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "sink"
+    },
+    {
+     "gt_id": "64d3fe19",
+     "category": "toilet paper",
+     "dist_m": 0.41,
+     "longest_m": 0.123,
+     "longest_ratio": 0.96,
+     "passes_gate": false,
+     "D": "correct",
+     "matched_pred": "toilet_roll_holder"
+    },
+    {
+     "gt_id": "8f53a122",
+     "category": "toilet paper holder",
+     "dist_m": 0.412,
+     "longest_m": 0.123,
+     "longest_ratio": 0.97,
+     "passes_gate": false,
+     "D": "missed",
+     "matched_pred": null
+    }
+   ],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42899617_sink_tap_east.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "龙头在视频里（框略偏高）；GT 只有 bathroom sink，没有洗手盆的龙头",
+   "label": "",
+   "note": ""
+  },
+  {
+   "key": "A2-claude_42899617_smoke_detector",
+   "run": "runs/A2-claude/42899617/0",
+   "arm": "A2-claude",
+   "scene": "42899617",
+   "id": "smoke_detector",
+   "category": "furniture/sensor",
+   "size": [
+    0.05,
+    0.08,
+    0.08
+   ],
+   "center": [
+    1.15,
+    -0.39,
+    2.57
+   ],
+   "yaw": -3.1416,
+   "bin": "XS",
+   "support": null,
+   "inside": null,
+   "from_inventory": false,
+   "frame": 482,
+   "frame_image": "perception/42899617/hd/frames/000482.png",
+   "truncation": 0.0,
+   "visible_frac": 1.0,
+   "gt_nearby": [],
+   "gt_containing": [],
+   "pred_overlap": [],
+   "image": "img/A2-claude_42899617_smoke_detector.jpg",
+   "render": "camera",
+   "prelabel": "unlabeled",
+   "prelabel_reason": "天花板上框里有个小黑点；GT 附近什么都没有（把握不大）",
+   "label": "",
+   "note": ""
+  }
+ ]
+}
