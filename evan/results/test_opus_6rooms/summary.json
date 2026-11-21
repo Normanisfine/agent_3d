@@ -949,5 +949,282 @@
    ],
    "p_sign_flip": 0.25
   }
+ },
+ "second_seed": {
+  "arm": "A5-claude",
+  "runs": {
+   "42897538": {
+    "n_pred": 68,
+    "minutes": 183.79359132448832,
+    "usd": 22.291783399999993,
+    "accepted": true,
+    "matched": 46,
+    "XS": {
+     "correct": 5,
+     "misplaced": 1,
+     "missed": 10,
+     "n": 16
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 3,
+     "missed": 9,
+     "n": 22
+    },
+    "M": {
+     "correct": 11,
+     "misplaced": 5,
+     "missed": 24,
+     "n": 40
+    },
+    "L": {
+     "correct": 9,
+     "misplaced": 2,
+     "missed": 7,
+     "n": 18
+    }
+   },
+   "42898849": {
+    "n_pred": 333,
+    "minutes": 185.8328377644221,
+    "usd": 31.921886599999997,
+    "accepted": false,
+    "matched": 194,
+    "XS": {
+     "correct": 7,
+     "misplaced": 35,
+     "missed": 74,
+     "n": 116
+    },
+    "S": {
+     "correct": 42,
+     "misplaced": 42,
+     "missed": 58,
+     "n": 142
+    },
+    "M": {
+     "correct": 28,
+     "misplaced": 16,
+     "missed": 32,
+     "n": 76
+    },
+    "L": {
+     "correct": 19,
+     "misplaced": 5,
+     "missed": 18,
+     "n": 42
+    }
+   },
+   "42899617": {
+    "n_pred": 27,
+    "minutes": 54.668016036351524,
+    "usd": 8.055981800000001,
+    "accepted": false,
+    "matched": 21,
+    "XS": {
+     "correct": 3,
+     "misplaced": 0,
+     "missed": 3,
+     "n": 6
+    },
+    "S": {
+     "correct": 4,
+     "misplaced": 4,
+     "missed": 2,
+     "n": 10
+    },
+    "M": {
+     "correct": 5,
+     "misplaced": 3,
+     "missed": 11,
+     "n": 19
+    },
+    "L": {
+     "correct": 2,
+     "misplaced": 0,
+     "missed": 4,
+     "n": 6
+    }
+   },
+   "42899712": {
+    "n_pred": 78,
+    "minutes": 96.8451977968216,
+    "usd": 17.225480999999995,
+    "accepted": false,
+    "matched": 58,
+    "XS": {
+     "correct": 11,
+     "misplaced": 4,
+     "missed": 28,
+     "n": 43
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 5,
+     "missed": 13,
+     "n": 28
+    },
+    "M": {
+     "correct": 17,
+     "misplaced": 2,
+     "missed": 5,
+     "n": 24
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 3,
+     "missed": 10,
+     "n": 19
+    }
+   },
+   "42899729": {
+    "n_pred": 45,
+    "minutes": 71.14116727908453,
+    "usd": 14.356205199999998,
+    "accepted": false,
+    "matched": 40,
+    "XS": {
+     "correct": 3,
+     "misplaced": 2,
+     "missed": 5,
+     "n": 10
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 4,
+     "missed": 8,
+     "n": 22
+    },
+    "M": {
+     "correct": 12,
+     "misplaced": 0,
+     "missed": 9,
+     "n": 21
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 3,
+     "missed": 4,
+     "n": 13
+    }
+   },
+   "44358442": {
+    "n_pred": 372,
+    "minutes": 83.52481433153153,
+    "usd": 27.037253399999997,
+    "accepted": false,
+    "matched": 130,
+    "XS": {
+     "correct": 32,
+     "misplaced": 28,
+     "missed": 13,
+     "n": 73
+    },
+    "S": {
+     "correct": 18,
+     "misplaced": 29,
+     "missed": 8,
+     "n": 55
+    },
+    "M": {
+     "correct": 14,
+     "misplaced": 3,
+     "missed": 9,
+     "n": 26
+    },
+    "L": {
+     "correct": 4,
+     "misplaced": 2,
+     "missed": 4,
+     "n": 10
+    }
+   }
+  },
+  "seed1_minus_seed0": {
+   "42897538": -3,
+   "42898849": 16,
+   "42899617": 2,
+   "42899712": 7,
+   "42899729": 2,
+   "44358442": -11
+  },
+  "paired": {
+   "种子 1 - A1-claude": {
+    "rooms": [
+     "42897538",
+     "42898849",
+     "42899617",
+     "42899712",
+     "42899729",
+     "44358442"
+    ],
+    "diffs": [
+     6,
+     34,
+     -1,
+     12,
+     3,
+     30
+    ],
+    "p_sign_flip": 0.0625
+   },
+   "两遍平均 - A1-claude": {
+    "rooms": [
+     "42897538",
+     "42898849",
+     "42899617",
+     "42899712",
+     "42899729",
+     "44358442"
+    ],
+    "diffs": [
+     7.5,
+     26.0,
+     -2.0,
+     8.5,
+     2.0,
+     35.5
+    ],
+    "p_sign_flip": 0.09375
+   },
+   "种子 1 - A2-claude": {
+    "rooms": [
+     "42897538",
+     "42898849",
+     "42899617",
+     "42899712",
+     "42899729",
+     "44358442"
+    ],
+    "diffs": [
+     7,
+     27,
+     -2,
+     5,
+     1,
+     16
+    ],
+    "p_sign_flip": 0.09375
+   },
+   "两遍平均 - A2-claude": {
+    "rooms": [
+     "42897538",
+     "42898849",
+     "42899617",
+     "42899712",
+     "42899729",
+     "44358442"
+    ],
+    "diffs": [
+     8.5,
+     19.0,
+     -3.0,
+     1.5,
+     0.0,
+     21.5
+    ],
+    "p_sign_flip": 0.1875
+   }
+  }
  }
 }
