@@ -1,6 +1,6 @@
 # CIS 6220 report
 
-The report uses the NeurIPS preprint layout. It has seven pages of main text and one page of references. Build the final PDF with `make pdf` here or `make -C paper/paper_file pdf` from the repository root.
+The report uses the NeurIPS preprint layout. It has eight pages of main text and one page of references. Build the final PDF with `make pdf` here or `make -C paper/paper_file pdf` from the repository root.
 
 ## Code behind the small-object comparison
 
@@ -20,7 +20,9 @@ The [inventory](../../evan/src/smallobj/inventory.py), [generation](../../evan/s
 
 The camera comparisons and size-stratified recall chart are rebuilt from saved CA-1M images and scores. Run `../../.venv/bin/python figures/plot_ca1m.py` from this directory before rebuilding the PDF if their source data change. The plotting script records the source room, camera view and crop for each image. Figure 1 uses development rooms. The physics figure pairs a source frame and its Inventory reconstruction from a held-out room with the coffee-table simulation and tissue-box density field.
 
-The CA-1M reconstructions and physical-property pilot come from the team's existing experiments. The scheduler timing uses real Blender builds with simulated model latency and scripted reviews. A matched full-room comparison of the new controllers remains open. Historical experiment details, study attribution and prior revision notes are retained in [the evidence notes](evidence.md). The [scheduler measurements](scheduler-evidence.json), [extracted recall and cost values](existing-results.json) and [other figure provenance](figures/provenance.json) are available for reproduction.
+The CA-1M reconstructions and physical-property pilot come from the team's existing experiments. The scheduler timing uses real Blender builds with simulated model latency and scripted reviews. Table 2 compares original AHa-3D, AHA-auto + Inventory, and AHA-driven + Inventory on FloorPlan209. The [original and auto comparison](../../../agen3d_exp/06_aha_auto_inventory/aha-auto-inventory-retry-01/evaluation/comparison_with_aha_ori.json) and [driven per-object scores and token breakdown](../../../agen3d_exp/07_aha_driven_inventory_20261120_211635_1nCGwL/evaluation/evan_object_scores.json) supply the table. The driven total includes the outer supervisor, the runtime ledger and one reused reference review. Historical experiment details, study attribution and prior revision notes are retained in [the evidence notes](evidence.md). The [scheduler measurements](scheduler-evidence.json), [extracted recall and cost values](existing-results.json) and [other figure provenance](figures/provenance.json) are available for reproduction.
+
+The [original run profile](../../diagnose/results/original-profile-20261116-v2/commands.csv) lists the nine `authored_build_and_stills` commands from v1 through v8, including the interrupted v1 build and its rerun. For the controller comparison, the 20 to under 50 cm subgroup is `20_to_50cm` in the original/auto comparison and `bin == "S"` in the driven rows. The [supervisor event log](../../../agen3d_exp/07_aha_driven_inventory_20261120_211635_1nCGwL/output/supervisor-OR6x367Z/events.jsonl) identifies the Codex thread and records its final token usage. In that thread's response-level trace (`01a1fbe4-9009-70b3-816a-3ccfd1135cb8`), 65 of 216 responses emitted a sleep tool call. Their usage receipts sum to 8,469,760 cached input tokens. Sleep duration itself carries no token charge.
 
 ## Template provenance
 

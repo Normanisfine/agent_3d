@@ -1,4 +1,4 @@
-\subsection{Parallel construction time}
+\subsection{Parallel construction and room reconstruction}
 \label{sec:parallel-time}
 We isolated the effect of scheduling by building the same four objects in
 Blender, first with one worker and then with four. Each build included a fixed
@@ -12,3 +12,69 @@ committed all four objects and preserved the existing objects and cameras.
 Serial work, including edits to the shared room, remained in both runs.
 A full-room comparison with live models is still needed to measure the effect
 on reconstruction time at matched quality.
+
+\paragraph{Room reconstruction on FloorPlan209.}
+AHA-auto and AHA-driven used the same prepared room reference, 37 Boxer
+detections and crops, and the same model for planning, construction and
+review (GPT-6 Astra at medium reasoning effort). The driven protocol allowed
+one build and two repairs per task. Local model calls were exempt from the
+runtime's dollar cap and are included in the token-cost estimates. We scored
+their exported scenes and the original AHa-3D scene against the same 34
+annotated objects, retaining each scene's authored instance groups.
+Table~\ref{tab:auto-floorplan209} reports both placement criteria after
+alignment to 32 camera positions, first with scale fitted and then with scale fixed.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{FloorPlan209 placement and estimated token cost. Each placement
+count uses the same 34 targets. Fitted scale permits one uniform rescaling of
+the scene from camera positions. Fixed scale preserves the authored size.}
+\label{tab:auto-floorplan209}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Measure & Original AHa-3D & AHA-driven & AHA-auto \\
+\midrule
+Box overlap, fitted scale & 7 & \textbf{16} & 11 \\
+Box overlap, fixed scale & 6 & \textbf{9} & 4 \\
+Center and size, fitted scale & 8 & \textbf{20} & 13 \\
+Center and size, fixed scale & 8 & \textbf{14} & 7 \\
+\midrule
+Cached input tokens & 17,673,472 & 27,124,992 & 783,872 \\
+Uncached input tokens & 557,515 & 759,533 & 742,829 \\
+Output tokens & 80,492 & 76,564 & 51,434 \\
+Total recorded tokens & 18,311,479 & 27,961,089 & 1,578,135 \\
+Estimated token cost (USD) & 27.27 & 38.55 & \textbf{10.78} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{What did agent supervision buy?}
+With fitted scale, AHA-driven placed 16 objects correctly by box overlap,
+up from seven for original AHa-3D. Among the 12 targets measuring 20 to
+under 50\,cm, correct placements rose from one to five by overlap and from
+one to six by center and size. Driven matched all five large targets by
+overlap. All three systems missed all six targets under 20\,cm by overlap.
+Driven committed all six tasks in its plan, although final review still
+found an extra box beside the coffee table.
+
+\paragraph{Where did the tokens go?}
+The driven supervisor accounted for 26.07 million of 27.96 million recorded
+tokens. Of its 216 model responses, 65 called a sleep tool. Those responses
+alone processed 8.47 million cached input tokens as the agent repeatedly
+carried its conversation forward. At our assumed rates of \$1, \$10 and \$50
+per million cached input, uncached input and output tokens, the supervisor
+cost \$28.88, already above the original run's recorded \$27.27. The runtime
+added \$9.35 and a reused reference review added \$0.32.
+
+\paragraph{What changed with a Python outer loop?}
+AHA-auto cost \$10.78 and matched driven's five small objects by fitted-scale
+overlap. Across all sizes it placed 11 objects, ahead of the original seven
+and behind driven's 16. A failed rug review blocked eight dependent tasks.
+Auto committed 10 of its 19 tasks in 30.2 minutes of construction and missed
+the sofa, armchair and coffee table, all three of which driven placed correctly
+at fitted scale. With scale fixed, auto's four overlap and seven center-and-size
+matches fell below the original six and eight. Thus its savings include work
+left undone. The original count includes context compaction and excludes
+three external image-review calls. Each inventory run includes the shared reference review
+once. Ten of 80 auto runtime calls and three of 98 driven runtime calls lack
+token receipts. All estimates exclude host and GPU costs.

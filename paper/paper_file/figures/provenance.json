@@ -42,9 +42,9 @@
     "note": "Tissue density panel; no altered data or recoloring"
   },
   {
-    "file": "parallelism.png",
+    "file": "parallelism.pdf",
     "source": "draw_parallelism.py",
-    "transform": "original schematic; SVG and HTML also emitted",
-    "note": "Illustrative desk/chair/lamp dependencies; not measured scene results"
+    "transform": "Vector schematic with SVG, HTML and PNG exports",
+    "note": "FloorPlan209 baseline and two controller pipelines, with an illustrative desk-to-lamp dependency and an independent chair"
   }
 ]

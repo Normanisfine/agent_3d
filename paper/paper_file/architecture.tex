@@ -1,29 +1,46 @@
-\subsection{Scheduling object construction}
+\subsection{Planning and controlling object reconstruction}
 \label{sec:architecture}
-Reconstructing more objects creates more opportunities to work in parallel.
-Two workers can build a desk and a chair independently. A third worker placing
-a lamp on the desk needs its final height. We implement two controllers for
-AHa-3D that use these dependencies while retaining its camera estimates,
-geometry tools and scene review (Figure~\ref{fig:blueprint}).
+We design two controllers for object-level reconstruction to study how
+assigning scheduling and repair decisions to an agent or a program affects
+placement accuracy and inference cost. In original AHa-3D, a
+scene-authoring agent edits the room directly and revises it in response to
+visual feedback. Both controllers use a planning agent to identify dependencies
+between object tasks. These dependencies let workers build independent objects
+concurrently and repair one object while preserving completed work elsewhere
+in the room (Figure~\ref{fig:blueprint}).
+
+The planning agent uses the detector inventory and source images to specify
+which objects each task creates or modifies and which existing objects it
+needs. For example, placing a lamp requires the finished height of its desk,
+while a chair can be built independently. The runtime adds dependencies
+when edits would conflict and limits concurrent builds to the available
+compute and memory. Workers build candidates in separate scene copies.
+Before committing an edit, each controller checks the geometry and cameras,
+verifies that unrelated objects are preserved, and reviews the candidate
+against the current scene.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth]{figures/parallelism.png}
-\caption{The desk and chair can be built from the same scene. The lamp waits
-for the desk to be committed. Workers build isolated candidates, and a single
-writer incorporates reviewed edits into the shared room.}
+\includegraphics[width=\linewidth]{figures/parallelism.pdf}
+\caption{Control of planning, construction, and repair. AHA-driven and
+AHA-auto each build a dependency graph from the object inventory. An agent
+directs execution in original AHa-3D and AHA-driven. In AHA-auto, the
+planning agent returns the graph to a Python scheduler.}
 \label{fig:blueprint}
 \end{figure}
 
-In \textbf{AHA-auto}, a model plans the tasks and a program dispatches ready
-work, retries failed builds and escalates difficult cases to a stronger model.
-In \textbf{AHA-agent-driven}, a supervisor chooses which tasks to delegate,
-when to review them and how to repair a failed edit. Both controllers allow
-tasks to run together only after their prerequisites are complete and when
-neither task changes objects the other uses.
+\textbf{AHA-driven.} The planning agent continues as the supervisor. It
+selects source views, delegates independent tasks to workers, and uses
+local reviews to choose which edits to accept or repair. Workers and
+reviewers receive evidence for the assigned task. The supervisor retains
+the room-wide history so it can weigh a local defect against unfinished
+work elsewhere. A per-task attempt limit bounds repeated construction.
+The supervisor still decides how often to inspect progress between builds.
 
-Workers edit separate scene copies. Before an edit becomes part of the room,
-the controller checks the saved geometry and cameras, verifies that unrelated
-objects were preserved and reviews the proposed change against the current
-scene. A short Blender benchmark and available memory limit the number of
-simultaneous builds. GPU generation and writes to the shared scene run serially.
+\textbf{AHA-auto.} Because the dependency graph and recorded build outcomes
+determine which tasks are ready, a Python scheduler can dispatch them without
+an additional model call. The scheduler waits for worker results, applies
+retry limits, and routes critical tasks or failed
+repairs to the supervisor role. If a task exhausts its attempts, its
+dependents are blocked and independent tasks remain eligible. Both controllers
+submit the assembled room for final review.

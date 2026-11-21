@@ -14,17 +14,20 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-A reconstructed room can contain a sofa and a coffee table while omitting
-the objects a robot could pick up. Across three CA-1M rooms, the AHa-3D baseline correctly
-placed 2 of 174 objects measuring 20 to under 50\,cm. Extending the task to every
-visible object raised the count to 25. With detector crops and boxes, 30 objects
-met the center-and-size criterion, a gain of five. Only one more object met the
-box-overlap criterion. Image-to-3D generation gave no further gain
-for this size group. We also implement two controllers that build independent
-objects concurrently and review edits before updating the room. Four workers
-reduced build time from 11.32 to 6.63 seconds in a controlled Blender test
-with simulated model latency. Full-room speed and cost at matched quality
-remain unmeasured.
+AHa-3D gives an agent tools to reconstruct a room, but the agent must decide
+which objects to build and how long to keep repairing them. On one AI2-THOR
+room, it produced eight scene versions and correctly placed 7 of 34 objects
+by box overlap after scale alignment. We study two ways to coordinate
+object-level work. AHA-driven gives the agent a detector inventory, independent
+build tasks and a repair limit. It placed 16 objects correctly, but its
+supervisor alone cost an estimated \$28.88 in tokens, exceeding the original
+run's \$27.27. AHA-auto moves scheduling and retry decisions into Python.
+With the same model in both controllers, auto placed 11 objects correctly
+for \$10.78, compared with driven's \$38.55. Both placed five of the 12
+objects measuring 20 to under 50\,cm by fitted-scale overlap, up from one
+for the baseline. In a separate study across three CA-1M rooms, expanding
+the task to all visible objects and supplying detector evidence raised
+center-and-size recall in that size range from 2 to 30 of 174.
 \end{abstract}
 
 \input{visual-evidence}
@@ -37,21 +40,25 @@ instance. Giving existing parts, including a sofa cushion, their own identities
 raised that count to four without moving any geometry. Objects on a dressing
 table or windowsill illustrate the problem in real rooms (Figure~\ref{fig:scope}).
 
-Our method expands reconstruction to every visible object, then supplies detector
-crops and locations for candidate instances. CA-1M's annotated boxes~\cite{ca1m}
-let us evaluate each change and the effect of mesh generation on placement.
-A reconstructed coffee table provides a separate test of how objects respond to a push.
+\textbf{Who decides when to try again?}
+Original AHa-3D provides an indoor-scene workflow as a skill for a coding
+agent. On FloorPlan209 the agent overlapped preview rendering with review,
+but built the furniture sequentially in a shared Blender scene. Its trace
+records eight room-scene versions and nine build
+commands, including an interrupted first build and its rerun. Five attempts
+to prepare layout evidence included two failures due to missing views.
+After 42 minutes the candidate still failed review. The trace records
+room-level revisions, leaving the cost of retrying any one object unknown.
 
-\textbf{Where AHa-3D falls short.}
-With its major-object instructions, AHa-3D correctly placed only 2 of 174 small
-objects (20 to under 50\,cm) by center and size across three held-out CA-1M rooms.
-The same runs averaged 72 minutes and an estimated \$13.91 in driving-agent
-tokens per room. In the AI2-THOR example, a single Blender script built the
-furniture sequentially, and the workflow took 42 minutes to hand off a scene
-that had failed review. These findings motivate two distinct tests. We measure
-whether explicit object instructions and a detector inventory improve placement
-(Section~\ref{sec:existing-reconstruction}), and whether independent object
-builds can run concurrently (Section~\ref{sec:parallel-time}).
+We ask whether explicit object identities, dependencies and repair limits
+can improve small-object coverage while reducing the cost of repeated work.
+AHA-driven keeps an agent in charge of these decisions. Profiling its
+supervisor shows how much inference it spends waiting for workers.
+AHA-auto lets a model plan the room, then gives those execution decisions
+to Python. We compare their costs and placements on FloorPlan209
+(Section~\ref{sec:parallel-time}). Separately, on three CA-1M rooms~\cite{ca1m},
+we vary object instructions, detector evidence and mesh generation to test
+which changes improve placement (Section~\ref{sec:existing-reconstruction}).
 
 \section{Related Work}
 \textbf{From scans to editable objects.}
@@ -99,29 +106,29 @@ we divide the total cost of all attempts by the number of accepted rooms.
 \input{completion}
 
 \section{Experiments}
-\subsection{Experimental setting}
-Our primary evaluation uses CA-1M handheld RGB video and annotated 3D
-boxes~\cite{ca1m}. We compare all five variants on the same three held-out
-rooms, using the same reconstruction model, reference geometry and a single
-seed. Together the rooms contain 513 target objects, including 174 with
-longest sides from 20 to under 50\,cm. We score every saved scene, including
-ones that failed the agent's own review. The example rooms in
-Figure~\ref{fig:scope} were used during development and are separate from this
-comparison. Boxer was trained in part on the CA-1M training set~\cite{boxer}.
+\subsection{Datasets and experimental design}
+\textbf{Small-object reconstruction on CA-1M.} We use handheld RGB video
+from three held-out rooms to test how object instructions, detector evidence
+and mesh generation affect placement (Figure~\ref{fig:settings}).
+The five variants share a reconstruction model, reference geometry and seed.
+We score all 15 outputs against 513 annotated targets, including 174 measuring
+20 to under 50\,cm~\cite{ca1m}. One room supplies the recovered objects for
+the physics pilot. Figure~\ref{fig:scope} uses separate development rooms.
+Boxer was trained in part on the CA-1M training set~\cite{boxer}.
 
-The AI2-THOR living room (Figure~\ref{fig:ai2thor}) supplies the synthetic
-setting for the initial failure analysis and the controlled parallel-build experiment. The physical
-interaction study uses recovered objects from one of the three CA-1M test rooms.
+\textbf{Controller evaluation in AI2-THOR.} We use one simulated living room,
+FloorPlan209~\cite{ai2thor}, to trace failures in original AHa-3D and compare
+its placement recall and token cost with AHA-driven and AHA-auto on the same
+34 targets. A separate four-object Blender benchmark uses the room shell
+and a fixed model delay to measure the effect of parallel scheduling.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.44\linewidth,height=1.12in,keepaspectratio]{figures/ai2thor-source.png}
-\hspace{0.03\linewidth}
-\includegraphics[width=0.44\linewidth,height=1.12in,keepaspectratio]{figures/ai2thor-reconstruction.png}
-\caption{AI2-THOR input (left) and the original AHa-3D reconstruction (right).
-The furniture layout is recognizable, yet the laptop was the only one of 18
-annotated objects under 50\,cm correctly placed as an independent instance.}
-\label{fig:ai2thor}
+\includegraphics[width=\linewidth]{figures/experimental-settings.pdf}
+\caption{Input and reconstruction in each setting. CA-1M shows the All
+objects variant on a held-out living room. AI2-THOR shows original AHa-3D
+on the room used to compare controllers.}
+\label{fig:settings}
 \end{figure}
 
 \input{reconstruction}
@@ -136,17 +143,22 @@ each room. Detector crops helped locate additional targets, but the smaller
 gain under box overlap shows that a plausible center and size can still hide a
 placement error. The generation variants also depended on accurate localization.
 
-The comparison covers three rooms and one seed. Box recall leaves category
-errors, surplus predictions and fine shape outside its scope. A room-scale
-speed or cost comparison requires live review, matched reconstruction quality
-and the costs of failed attempts. The physics pilot likewise needs measured
-object properties to establish accuracy.
+The controller comparison exposes a trade-off in handling failures. An agent
+can reconsider an individual edit, but it also spends tokens monitoring work
+between edits. Python can wait for a build at no model-token cost, but a
+dependency in its plan can prevent useful work after an upstream failure.
+One run per controller establishes neither run-to-run cost variability nor
+cost at equal quality. The CA-1M comparison covers three rooms and one seed.
+Box recall omits surplus objects, category errors and fine shape. The physics
+pilot needs measured object properties to establish accuracy.
 
 \section{Conclusion}
-The All objects instructions yielded 23 more correct small-object placements
-than the baseline. The detector inventory added five. Independent builds could
-overlap in a controlled test. Whether that saves time at matched room quality
-remains open.
+On FloorPlan209, agent supervision achieved the highest placement recall
+and carried the largest token cost. Python scheduling retained the
+fitted-scale gain on small objects at 72\% lower estimated token cost than
+AHA-driven, while losing five correct placements across all sizes.
+Whether either controller can deliver the same quality more cheaply across
+rooms remains open.
 \label{main-text-end}
 \clearpage
 \bibliographystyle{plain}
