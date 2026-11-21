@@ -2,7 +2,7 @@
 \label{sec:small-method}
 AHa-3D often omits small objects in our CA-1M scenes. In Figure~\ref{fig:scope},
 the baseline reconstructs the dressing table but misses the bottle on top.
-To address these omissions, we evaluate four variants that change how the agent
+To address these omissions, we evaluate five variants that change how the agent
 identifies, locates and builds small objects.
 
 \textbf{All objects} switches AHa-3D from its major-object setting to its
@@ -38,6 +38,13 @@ window-only detections that appear in at least two frames. MoGe-2
 depth~\cite{moge2}, rescaled to the reference geometry, lifts each mask to a
 3D box. Boxes are then moved onto the surface below them, and similar boxes
 of one category share a size.
+
+\textbf{Checklist} gives the agent the revised inventory in place of Boxer's.
+Same-category entries whose IoU exceeds 0.4, or whose centers lie within a
+fifth of the shorter box diagonal, are first reduced to one. The agent must
+then record a decision for every entry: built as its own instance, duplicate,
+part of a larger object, or skipped. The thresholds and the prompt were
+fixed on development rooms before any held-out run.
 
 \textbf{Camera alignment.}
 Each instance is scored as one upright box enclosing its mesh parts. Monocular
