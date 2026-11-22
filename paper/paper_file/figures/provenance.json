@@ -12,12 +12,6 @@
     "transform": "unchanged copy"
   },
   {
-    "file": "ca1m-small-objects.jpg",
-    "source": "/home/mj/dl_project/smallobj-video2blender/results/showcase/42897538_A2/triptych_000616.jpg",
-    "sha256": "09f16cb5332ba6cf27c57dd3cd350abe20c90f3f22ac7693e0e1671fa00bb3f7",
-    "transform": "unchanged copy"
-  },
-  {
     "file": "coffee-rest.png",
     "source": "/home/mj/dl_project/progress-dashboard/assets/coffee-rest.png",
     "sha256": "69090a2f300ebcfa171427d09be343c4c76194ef08fed154e9fa21199a07e03f",
