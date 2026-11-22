@@ -1,0 +1,165 @@
+\section{Small objects: additional results}
+\label{app:small}
+\textbf{Box overlap and fixed scale.} Besides the center-and-size test of
+Eq.~\ref{eq:center-size}, we score each match by box overlap,
+$\operatorname{IoU}_{3\mathrm{D}}(P,G)\ge 0.25$, which exposes a 10\,cm shift
+that puts a thin object beside its target, and we repeat the camera fit with
+$s=1$ to test the reconstruction's own scale
+(Table~\ref{tab:small-placement}). Relative to All objects, Inventory's net
+gain was five placements by center and size, one by fitted-scale overlap and
+zero by fixed-scale overlap.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Targets from 20 to under 50\,cm correctly placed, out of 174 in the
+first three held-out rooms. Parentheses give gains over the baseline with
+scale fitted from cameras.}
+\label{tab:small-placement}
+\begin{tabular}{lrrrr}
+\toprule
+& \multicolumn{2}{c}{Fitted scale} & \multicolumn{2}{c}{Fixed scale} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Variant & Center and size & Box overlap & Center and size & Box overlap \\
+\midrule
+AHa-3D (baseline) & 2 & 2 & 2 & 1 \\
+All objects & 25 (+23) & 20 (+18) & 12 & 7 \\
+Inventory & \textbf{30 (+28)} & \textbf{21 (+19)} & 13 & 7 \\
+\midrule
+Required generation & 24 (+22) & 21 (+19) & 9 & 7 \\
+Selective generation & 26 (+24) & 18 (+16) & 10 & 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Mean wall time and estimated cost of the reconstruction agent's
+tokens per room, over the first three held-out rooms. Total workflow
+cost also includes preprocessing, rendering and external review.}
+\label{tab:existing-cost}
+\begin{tabular}{lrr}
+\toprule
+Variant & Wall time (min) & Token-cost equivalent (USD) \\
+\midrule
+AHa-3D (baseline) & 72.0 & 13.91 \\
+All objects & 51.4 & 10.60 \\
+Inventory & 81.9 & 13.14 \\
+Required generation & 70.9 & 12.19 \\
+Selective generation & 55.4 & 9.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Targets under 50\,cm in six held-out rooms (543 in total).
+Instances: reconstructed objects of any size, excluding structure. Matching:
+share of them that match an annotated target. Time and estimated
+driving-agent cost are per room. The last two rows score detector boxes
+directly, with no agent.}
+\label{tab:six-rooms}
+\begin{tabular}{lrrrrrrr}
+\toprule
+& Correctly & Mis- & No & & & & \\
+Variant & placed & placed & match & Instances & Matching & Minutes & USD \\
+\midrule
+AHa-3D (baseline) & 6 & 6 & 531 & 101 & 97\% & 62 & 14.13 \\
+All objects & 71 & 81 & 391 & 375 & 83\% & 59 & 12.36 \\
+Inventory & 101 & 81 & 361 & 413 & 85\% & 104 & 19.95 \\
+Checklist & \textbf{142} & 144 & 257 & 922 & 51\% & 79 & 13.28 \\
+Checklist, second run & \textbf{155} & 157 & 231 & 923 & 53\% & 113 & 20.15 \\
+\midrule
+Boxer boxes, no agent & 84 & 36 & 423 & 364 & 71\% & -- & -- \\
+Checklist boxes, no agent & 194 & 145 & 204 & 2{,}287 & 23\% & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Per-room difference in targets under 50\,cm correctly placed.
+Rooms are numbered in evaluation order, with their target counts. $p$: exact
+two-sided sign-flip test over rooms; with six rooms it cannot fall below
+0.031.}
+\label{tab:paired}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Room (targets) & 1 (38) & 2 (258) & 3 (16) & 4 (71) & 5 (32) & 6 (128) & Total & $p$ \\
+\midrule
+All objects $-$ baseline & $+8$ & $+15$ & $+7$ & $+7$ & $+8$ & $+20$ & $+65$ & 0.031 \\
+Inventory $-$ All objects & $-1$ & $+7$ & $+1$ & $+7$ & $+2$ & $+14$ & $+30$ & 0.094 \\
+Checklist $-$ All objects & $+9$ & $+18$ & $-3$ & $+5$ & $+1$ & $+41$ & $+71$ & 0.094 \\
+Checklist $-$ Inventory & $+10$ & $+11$ & $-4$ & $-2$ & $-1$ & $+27$ & $+41$ & 0.250 \\
+\midrule
+Second run $-$ All objects & $+6$ & $+34$ & $-1$ & $+12$ & $+3$ & $+30$ & $+84$ & 0.062 \\
+Second run $-$ Inventory & $+7$ & $+27$ & $-2$ & $+5$ & $+1$ & $+16$ & $+54$ & 0.094 \\
+Second run $-$ first run & $-3$ & $+16$ & $+2$ & $+7$ & $+2$ & $-11$ & $+13$ & 0.625 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Inventories on development rooms.}
+Table~\ref{tab:inventory} scores inventories on their own in five development
+rooms, treating each inventory box as a placed object. Boxer's boxes passed
+center and size for 10\% of the 216 targets under 20\,cm, and SAM~3 with a
+fixed category list for 13\%. Room-specific categories raised this to 61\%.
+The revised inventory lists 2{,}295 entries against 745, and the share that
+match a target fell from 34\% to 19\%: it contains duplicates and object
+parts. One refrigerator door covered with magnets and photographs holds 112
+of the 216 smallest targets; without that room, the gain is from 18\% to
+40\%. With every box shifted horizontally by a random 0.5 to 1.5\,m, about
+1\% passed. On the six held-out rooms, scored after the Checklist settings
+were fixed, the revised inventory placed 32\% of targets under 20\,cm and
+41\% of those from 20 to under 50\,cm, against 6\% and 25\% for Boxer.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Inventories scored without an agent on five development rooms.
+Rows beginning with + add one step to the row above. Matched: share of
+targets with a candidate match. Placed: share whose inventory box passes
+center and size. Entries matched: share of inventory entries that match any
+target.}
+\label{tab:inventory}
+\begin{tabular}{lrrrrrr}
+\toprule
+& & Entries & \multicolumn{2}{c}{$<$20\,cm (216)} & \multicolumn{2}{c}{20--$<$50\,cm (141)} \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Inventory & Entries & matched & Matched & Placed & Matched & Placed \\
+\midrule
+Boxer & 334 & 66\% & 16\% & 10\% & 57\% & 38\% \\
+SAM~3, fixed categories & 745 & 34\% & 27\% & 13\% & 69\% & 39\% \\
++ windows, room categories & 2{,}123 & 20\% & 82\% & 61\% & 81\% & 50\% \\
++ MoGe-2 depth & 2{,}295 & 19\% & 81\% & 58\% & 79\% & 55\% \\
++ support and shared size & 2{,}295 & 19\% & 81\% & 58\% & 79\% & 51\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Runs and renders.} One Checklist run in room 2 ended without
+external review when the reviewer's quota ran out. Under a rule that does not
+look at the score, we repeated it; the excluded run placed 36 targets under
+50\,cm against 33 for the repeat. The comparison
+renders in Figures~\ref{fig:qual} and~\ref{fig:qual-all} were made after the
+runs from the saved scenes and were not seen by the agent or its reviewer.
+The appearance pass is a separate agent run on the saved Checklist scene
+that may assign materials and lights but may not move, add or remove
+geometry.
+
+\begin{figure}[!htbp]
+\centering
+\setlength{\tabcolsep}{0.8pt}
+\begin{tabular}{@{}c@{\hspace{2pt}}cccccc@{}}
+& \colhead{Video frame} & \colhead{AHa-3D baseline} & \colhead{All objects} & \colhead{Inventory} & \colhead{Checklist (ours)} & \colhead{Checklist + materials} \\[1pt]
+\qualrow{Room 1}{42897538}{38 targets $<$ 50\,cm}{1 correct}{9}{8}{\textbf{18}}
+\qualrow{Room 2}{42898849}{258 targets}{0}{15}{22}{\textbf{33}}
+\qualrow{Room 3}{42899617}{16 targets}{1}{8}{\textbf{9}}{5}
+\qualrow{Room 4}{42899712}{71 targets}{2}{9}{\textbf{16}}{14}
+\qualrow{Room 5}{42899729}{32 targets}{2}{10}{\textbf{12}}{11}
+\qualrow{Room 6}{44358442}{128 targets}{0}{20}{34}{\textbf{61}}
+\end{tabular}
+\caption{All six held-out rooms in the format of Figure~\ref{fig:qual}.
+Rooms 1, 2, 3 and 6 use the frame that sees the most annotated targets under
+50\,cm; in rooms 4 and 5 that frame faces a bare wall, and we show a frame
+chosen by hand instead. Checklist was below Inventory in rooms 3, 4 and 5.}
+\label{fig:qual-all}
+\end{figure}

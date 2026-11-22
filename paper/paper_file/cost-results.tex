@@ -1,37 +1,20 @@
 \subsection{Time and inference cost}
 \label{sec:cost}
-The extra coverage from Inventory came with a longer observed runtime.
-Across the same three CA-1M rooms, All objects averaged 51.4 minutes and
-Inventory averaged 81.9 minutes (Table~\ref{tab:existing-cost}). Jobs shared
-compute, so these timings also reflect contention. Selective generation had
-the lowest estimated driver cost and recovered 18 small objects by box overlap,
-compared with 21 for Inventory.
+On the six rooms, the baseline averaged 62 minutes and an estimated \$14.13
+in driving-agent tokens per room, All objects 59 minutes and \$12.36, and
+Inventory 104 minutes and \$19.95 (Table~\ref{tab:six-rooms}). The two
+Checklist runs averaged 79 and 113 minutes, and \$13.28 and \$20.15. Two
+runs of one variant differ by as much as the variants do, and jobs shared
+compute, so we do not rank the variants by time or cost. In the first three
+rooms, Selective generation had the lowest cost, \$9.00 per room
+(Table~\ref{tab:existing-cost}).
 
-\begin{table}[!htbp]
-\centering\small
-\caption{Mean wall time and estimated cost of the reconstruction agent's
-tokens per CA-1M room. Each mean covers the same three rooms. Total workflow
-cost also includes preprocessing, rendering and external review.}
-\label{tab:existing-cost}
-\begin{tabular}{lrr}
-\toprule
-Variant & Wall time (min) & Token-cost equivalent (USD) \\
-\midrule
-AHa-3D (baseline) & 72.0 & 13.91 \\
-All objects & 51.4 & 10.60 \\
-Inventory & 81.9 & 13.14 \\
-Required generation & 70.9 & 12.19 \\
-Selective generation & 55.4 & 9.00 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Only three of the 15 saved CA-1M reconstructions passed AHa-3D's own review.
-Two were baseline reconstructions, which correctly placed one of the 296
-targets under 50\,cm in their rooms, so passing review said little about
+AHa-3D's own review accepted five of the six baseline scenes and one of the
+24 all-object scenes. The five accepted baselines correctly placed 5 of the
+527 targets under 50\,cm in their rooms, so passing review said little about
 small-object coverage. The token estimates cover the driving agent, including
-resumed work. A run averaged 176 agent turns. Because the agent re-reads its
-conversation on every turn, it consumed 31.7 million input tokens, 99\% read
-from cache, against 0.14 million output tokens. Computing
+resumed work. A run averaged 196 agent turns. Because the agent re-reads its
+conversation on every turn, it consumed 39.1 million input tokens, 99\% read
+from cache, against 0.16 million output tokens. Computing
 cost per accepted room would also require complete costs for preprocessing,
 hardware and reviewers, including those incurred on failed runs.

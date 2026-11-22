@@ -1,35 +1,28 @@
 \subsection{Reconstructing and evaluating small objects}
 \label{sec:small-method}
-AHa-3D often omits small objects in our CA-1M scenes. In Figure~\ref{fig:scope},
-the baseline reconstructs the dressing table but misses the bottle on top.
-To address these omissions, we evaluate five variants that change how the agent
-identifies, locates and builds small objects.
+AHa-3D rebuilds a room's furniture and usually omits what stands on it
+(Figure~\ref{fig:qual}, second column). We evaluate variants that change how
+the agent identifies, locates and builds small objects, each added to the
+one before (Figure~\ref{fig:system}, bottom left).
 
 \textbf{All objects} switches AHa-3D from its major-object setting to its
 all-object setting (\texttt{precise}). Our prompt requires a distinct identifier for every visible
-item. The bottle's mesh parts thus form one editable \emph{instance} that can
-move independently of the table. Construction uses AHa-3D's existing RoomKit
-primitives and library assets.
+item, so that a bottle's mesh parts form one editable \emph{instance} that can
+move independently of the table.
 
+\input{visual-evidence}
 \textbf{Inventory} pairs Boxer's predicted 3D boxes and categories~\cite{boxer}
 with crops from the video. The agent builds each listed item or explains an
-omission, and can still build items Boxer missed.
-
-We add two generation policies to Inventory. Both keep AHa-3D in
-\texttt{precise} mode and use the same external image-to-mesh model,
-\href{https://huggingface.co/tencent/Hunyuan3D-2mini}{Tencent's Hunyuan3D-2mini}.
-
-\textbf{Required generation} uses a size rule. A bottle estimated at 25\,cm
-falls below the 50\,cm longest-side cutoff, so the agent must submit its crop
-to the generator, subject to the room budget.
-
-\textbf{Selective generation} leaves that decision to the agent. For the same
-bottle, it can generate a mesh or model the shape directly in Blender. Both
-policies check generated meshes against the silhouette, observed 3D points,
-dimensions and support. If the fit fails, the agent uses primitives.
+omission, and can still build items Boxer missed. Two further variants let
+this agent call an image-to-mesh model,
+\href{https://huggingface.co/tencent/Hunyuan3D-2mini}{Hunyuan3D-2mini}, for
+every object under 50\,cm (\textbf{Required generation}) or at its own
+discretion (\textbf{Selective generation}); a generated mesh that fails a
+check of silhouette, 3D points, dimensions and support is replaced by
+primitives.
 
 \textbf{Revised inventory.}
-Boxer listed few objects under 20\,cm. After scoring the four variants, we
+Boxer listed few objects under 20\,cm. After scoring these four variants, we
 rebuilt the inventory on development rooms, adapting SceneRig's detection
 stage~\cite{scenerig}. A language model names the object categories it sees
 in eight frames, extending a fixed list. SAM~3~\cite{sam3} segments them in
@@ -41,10 +34,12 @@ of one category share a size.
 
 \textbf{Checklist} gives the agent the revised inventory in place of Boxer's.
 Same-category entries whose IoU exceeds 0.4, or whose centers lie within a
-fifth of the shorter box diagonal, are first reduced to one. The agent must
-then record a decision for every entry: built as its own instance, duplicate,
-part of a larger object, or skipped. The thresholds and the prompt were
-fixed on development rooms before any held-out run.
+fifth of the shorter box diagonal, are first reduced to one. The prompt states
+that the list is noisy on purpose, and the agent must record a decision for
+every entry: \emph{built} as its own instance, \emph{duplicate} of an
+instance already built, \emph{part} of a larger object, or \emph{skipped}.
+An entry can then no longer be dropped silently. The thresholds and the
+prompt were fixed on development rooms before any held-out run.
 
 \textbf{Camera alignment.}
 Each instance is scored as one upright box enclosing its mesh parts. Monocular
@@ -56,34 +51,25 @@ camera centers $x_i$ and $y_i$ at corresponding frames, the room transform is
  \arg\min_{s,\theta,t}\sum_i \lVert T(x_i)-y_i\rVert_2^2 .
  \label{eq:camera-alignment}
 \end{equation}
-Here $R_z$ rotates about the vertical axis, $t$ translates the room and $s$
-scales it uniformly. The fitted transform maps every predicted box into the
-annotation frame. We also repeat the fit with $s=1$ to test the reconstruction's
-original scale. Object annotations enter only during offline scoring.
+Here $R_z$ rotates about the vertical axis. Object annotations enter only
+during offline scoring.
 
-\textbf{Matching and placement.}
+\textbf{Matching and outcomes.}
 For an aligned prediction $P$ and target $G$, let $d$ be their center distance,
 $L$ the full diagonal of $G$, and $r$ the predicted longest side divided by the
 target's longest side. A candidate pair must satisfy $1/3\le r\le 3$ and either
-a center distance $d\le\max(L/2,0.30\,\mathrm{m})$ or a 3D intersection over
-union (IoU) of at least 0.10. Among these candidates, greedy matching
-takes the lowest $2d/L+|\log r|$ first and uses each box once, irrespective of
-category. We score each match independently under two criteria.
-\begin{align}
- \text{Center and size:}\quad &d\le\max(0.10\,\mathrm{m},L/4)
-                  \quad\text{and}\quad 0.67\le r\le 1.5, \label{eq:center-size}\\
- \text{Box overlap:}\quad &\operatorname{IoU}_{3\mathrm{D}}(P,G)
-     =\frac{\operatorname{vol}(P\cap G)}{\operatorname{vol}(P\cup G)}\ge 0.25.
-     \label{eq:box-overlap}
-\end{align}
-A 10\,cm shift can put a thin object beside its target. Box overlap exposes
-such errors even when center and size pass.
-
-\textbf{Recall by object size.}
-For either test, let $N_b$ count all annotated targets in size group $b$ and
-$C_b$ count those whose match passes. Pooled recall is
-$\mathrm{Recall}_b=C_b/N_b$. Unmatched targets contribute zero, and extra
-predictions carry no penalty. The primary small-object group contains targets
-with longest sides from 20 to under 50\,cm. Mean room recall averages the
-same fraction across rooms containing that size group, giving each room equal
-weight.
+$d\le\max(L/2,0.30\,\mathrm{m})$ or a 3D intersection over
+union (IoU) of at least 0.10. Greedy matching takes the lowest
+$2d/L+|\log r|$ first and uses each box once, irrespective of category. A
+matched target is \emph{correctly placed} if
+\begin{equation}
+ d\le\max(0.10\,\mathrm{m},L/4)\quad\text{and}\quad 0.67\le r\le 1.5,
+ \label{eq:center-size}
+\end{equation}
+and \emph{misplaced} otherwise; an unmatched target has no reconstruction.
+The three outcomes separate a coverage failure from a placement failure. We
+report them by the target's longest side: under 20\,cm, 20 to under 50\,cm,
+50\,cm to under 1.5\,m, and larger. Reconstructed instances that match no
+target carry no penalty and are reported separately.
+Appendix~\ref{app:small} adds a box-overlap criterion and a fit without
+scale.
