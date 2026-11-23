@@ -27,6 +27,37 @@
 
 每个数字的出处都记在 `paper/paper_file/evidence.md` 最后两节（11 月 22 日和 24 日）。
 
+## LaTeX 文件一览
+
+整篇论文的 LaTeX 都在 `paper/paper_file/`，入口是 `main.tex`，其余文件由它按下面的顺序读入。编译：`make pdf`（pdflatex），或 `tectonic main.tex`。
+
+| 顺序 | 文件 | 论文里的位置 | 谁的 |
+|---|---|---|---|
+| 1 | `main.tex` | 标题、摘要、1 引言、2 相关工作、3.3 时间和成本的算法、4.1 实验设置、图 3、5 讨论、6 结论 | 共用（小物体的句子见上表） |
+| 2 | `small-object-method.tex` | 3.1 小物体的重建和评测 | Yifan |
+| 3 | `visual-evidence.tex`（由上一个文件读入） | 图 1 系统总览 | Yifan |
+| 4 | `architecture.tex` | 3.2 规划和控制，图 2 | Mingjian |
+| 5 | `completion.tex` | 3.4 物理属性 | Yujing |
+| 6 | `reconstruction.tex` | 4.2 小物体结果，图 4、图 5 | Yifan |
+| 7 | `systems-results.tex` | 4.3 并行构建和整间房重建，表 1、图 6 | Mingjian |
+| 8 | `cost-results.tex` | 4.4 时间和推理成本 | Yifan |
+| 9 | `physics-results.tex` | 4.5 茶几上的物理测试，图 7 | Yujing |
+| 10 | `appendix-small-objects.tex` | 附录 A，表 2–6、图 8 | Yifan |
+
+其他文件：`references.bib`（参考文献，共用）、`neurips_2025.sty`（会议模板，不要改）、`Makefile`、`evidence.md`（每个数字的出处）、`main.pdf`（编译结果）、`build/`（编译的中间文件）。
+
+图在 `paper/paper_file/figures/`：
+
+| 文件 | 哪张图 | 谁的 |
+|---|---|---|
+| `system-pipeline.pdf` | 图 1 | Yifan |
+| `parallelism.pdf` | 图 2 | Mingjian |
+| `ai2thor-source.png`、`ai2thor-reconstruction.png` | 图 3 | Mingjian |
+| `small-object-results.pdf` | 图 4 | Yifan |
+| `panels/*.jpg` | 图 5、图 8 的小图 | Yifan |
+| `experimental-settings.pdf` | 图 6 | Mingjian |
+| `ca1m-coffee-physics.pdf`（由 `coffee-rest.png`、`tissue-density.png` 拼成） | 图 7 | Yujing |
+
 ## 这个分支上新放的东西
 
 | 路径 | 内容 |
