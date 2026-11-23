@@ -56,31 +56,31 @@ def by_size(fig, gs):
             ax.bar(i, c, width=0.74, color=FILL[arm], edgecolor=DARK[arm], linewidth=0.8, zorder=3)
             ax.bar(i, m, bottom=c, width=0.74, color="white", edgecolor=DARK[arm], linewidth=0.8, hatch="//////", zorder=2)
             # 建对的个数标在条的正下方（标在条顶上会被读成实心加斜线的合计）
-            ax.text(i, -2.6, str(total(arm, b, "correct")), ha="center", va="top", fontsize=7.5,
+            ax.text(i, -3.2, str(total(arm, b, "correct")), ha="center", va="top", fontsize=7.5,
                     fontweight="bold" if total(arm, b, "correct") == best else "normal", color=DARK[arm] if arm != "A0" else INK)
         ax.set_xticks([])
         ax.set_xlim(-0.75, 3.75)
         ax.set_ylim(0, 72)
         ax.set_yticks([0, 20, 40, 60])
-        ax.set_title(BIN_TITLE[b], fontsize=8.5, pad=11)
+        ax.set_title(BIN_TITLE[b], fontsize=8.5, pad=10)
         ax.text(0.5, 1.02, f"{n} targets", transform=ax.transAxes, ha="center", va="bottom", fontsize=7, color="#767676")
         if ax is not axes[0]:
             ax.set_yticklabels([])
     axes[0].set_ylabel("targets (%)")
-    axes[0].text(-0.95, -2.6, "correct", ha="right", va="top", fontsize=7, color="#767676")
+    axes[0].text(-0.95, -3.2, "correct", ha="right", va="top", fontsize=7, color="#767676")
     return axes
 
 
 def legend(fig, ax):
     ax.set_axis_off()
     hs = [plt.Rectangle((0, 0), 1, 1, fc=FILL[a], ec=DARK[a], lw=0.8) for a in ARMS]
-    lg = ax.legend(hs, [NAME[a] for a in ARMS], loc="upper left", bbox_to_anchor=(-0.12, 1.13), fontsize=7.5, handlelength=1.3, handleheight=0.9,
-                   labelspacing=0.55, borderaxespad=0)
+    lg = ax.legend(hs, [NAME[a] for a in ARMS], loc="upper left", bbox_to_anchor=(-0.12, 1.22), fontsize=7.5, handlelength=1.3, handleheight=0.9,
+                   labelspacing=0.38, borderaxespad=0)
     lg.get_texts()[-1].set_fontweight("bold")
     ax.add_artist(lg)
     hs2 = [plt.Rectangle((0, 0), 1, 1, fc="#8a8a8a", ec=INK, lw=0.8), plt.Rectangle((0, 0), 1, 1, fc="white", ec=INK, lw=0.8, hatch="//////")]
-    ax.legend(hs2, ["correctly placed", "matched, misplaced"], loc="lower left", bbox_to_anchor=(-0.12, -0.04), fontsize=7,
-              handlelength=1.3, handleheight=0.9, labelspacing=0.55, borderaxespad=0)
+    ax.legend(hs2, ["correctly placed", "matched, misplaced"], loc="lower left", bbox_to_anchor=(-0.12, -0.16), fontsize=7,
+              handlelength=1.3, handleheight=0.9, labelspacing=0.38, borderaxespad=0)
 
 
 def by_room(fig, ax):
@@ -98,7 +98,7 @@ def by_room(fig, ax):
     ax.set_xlim(-0.55, len(ROOMS) - 0.45)
     ax.set_ylim(0, 62)
     ax.set_yticks([0, 20, 40, 60])
-    ax.set_ylabel("correct, < 50 cm (%)")
+    ax.set_ylabel("correct < 50 cm\n(%)", linespacing=1.0)
     ax.plot([], [], marker="D", ms=3.6, mfc="white", mec=DARK["A5"], mew=1.0, ls="none", label="Checklist, second run")
     ax.legend(loc="upper left", bbox_to_anchor=(0.25, 1.10), fontsize=7, handletextpad=0.3, borderaxespad=0)
 
@@ -110,14 +110,14 @@ def tradeoff(fig, ax):
 
     pts = {k: point("arms", k) for k in ARMS + ["A5s1"]} | {k: point("lists", k) for k in ("boxer", "checklist")}
     for src, dst, arm in (("boxer", "A2", "A2"), ("checklist", "A5", "A5")):
-        ax.annotate("", xy=pts[dst], xytext=pts[src], arrowprops=dict(arrowstyle="-|>", color=DARK[arm], lw=1.0, shrinkA=4.5, shrinkB=5, mutation_scale=8))
-    ax.plot(*pts["boxer"], marker="s", mfc="white", mec=DARK["A2"], mew=1.1, ms=4.6, ls="none", zorder=4)
-    ax.plot(*pts["checklist"], marker="s", mfc="white", mec=DARK["A5"], mew=1.1, ms=4.6, ls="none", zorder=4)
+        ax.annotate("", xy=pts[dst], xytext=pts[src], arrowprops=dict(arrowstyle="-|>", color=DARK[arm], lw=0.9, shrinkA=3.5, shrinkB=4, mutation_scale=7))
+    ax.plot(*pts["boxer"], marker="s", mfc="white", mec=DARK["A2"], mew=1.0, ms=3.8, ls="none", zorder=4)
+    ax.plot(*pts["checklist"], marker="s", mfc="white", mec=DARK["A5"], mew=1.0, ms=3.8, ls="none", zorder=4)
     for arm in ARMS:
-        ax.plot(*pts[arm], marker="o", mfc=FILL[arm], mec=DARK[arm], mew=0.9, ms=6.2, ls="none", zorder=5)
-    ax.plot(*pts["A5s1"], marker="D", mfc="white", mec=DARK["A5"], mew=1.1, ms=4.4, ls="none", zorder=5)
-    labels = {"A0": ("Baseline", (0, 9), "center"), "A1": ("All objects", (7, 0), "left"), "A2": ("Inventory", (7, 2), "left"),
-              "A5": ("Checklist", (-10, -1), "right"), "A5s1": ("2nd run", (7, 3), "left"),
+        ax.plot(*pts[arm], marker="o", mfc=FILL[arm], mec=DARK[arm], mew=0.8, ms=4.4, ls="none", zorder=5)
+    ax.plot(*pts["A5s1"], marker="D", mfc="white", mec=DARK["A5"], mew=0.9, ms=3.0, ls="none", zorder=6)
+    labels = {"A0": ("Baseline", (-6, 4), "right"), "A1": ("All objects", (6, -3), "left"), "A2": ("Inventory", (6, 4), "left"),
+              "A5": ("Checklist", (-7, -2), "right"), "A5s1": ("2nd run", (6, 3), "left"),
               "boxer": ("Boxer boxes,\nno agent", (-8, -7), "right"), "checklist": ("Checklist boxes,\nno agent", (10, 5), "left")}
     for k, (text, off, ha) in labels.items():
         ax.annotate(text, pts[k], xytext=off, textcoords="offset points", ha=ha, va="center", fontsize=7, linespacing=0.95,
@@ -128,22 +128,22 @@ def tradeoff(fig, ax):
     ax.set_xticks([0, 25, 50, 75, 100])
     ax.set_yticks([0, 50, 100, 150, 200])
     ax.set_xlabel("instances matching a target (%)", x=0.41)
-    ax.set_ylabel("correct, < 50 cm (count)")
+    ax.set_ylabel("correct < 50 cm\n(count)", linespacing=1.0)
     return pts
 
 
 def main():
-    fig = plt.figure(figsize=(5.5, 3.3))
-    top = GridSpec(1, 5, figure=fig, left=0.085, right=0.995, top=0.887, bottom=0.565, wspace=0.16, width_ratios=[1, 1, 1, 1, 1.12])
+    fig = plt.figure(figsize=(5.5, 2.9))
+    top = GridSpec(1, 5, figure=fig, left=0.085, right=0.995, top=0.88, bottom=0.59, wspace=0.16, width_ratios=[1, 1, 1, 1, 1.12])
     axes = by_size(fig, top)
     legend(fig, fig.add_subplot(top[0, 4]))
-    bottom = GridSpec(1, 2, figure=fig, left=0.085, right=0.995, top=0.405, bottom=0.122, wspace=0.25, width_ratios=[1.5, 1])
+    bottom = GridSpec(1, 2, figure=fig, left=0.085, right=0.995, top=0.41, bottom=0.14, wspace=0.27, width_ratios=[1.5, 1])
     ax_b, ax_c = fig.add_subplot(bottom[0, 0]), fig.add_subplot(bottom[0, 1])
     by_room(fig, ax_b)
     pts = tradeoff(fig, ax_c)
     panel_letter(fig, axes[0], "a", dx=-0.045)
-    panel_letter(fig, ax_b, "b", dx=-0.045)
-    panel_letter(fig, ax_c, "c", dx=-0.05)
+    panel_letter(fig, ax_b, "b", dx=-0.06)
+    panel_letter(fig, ax_c, "c", dx=-0.075)
     fig.savefig(FIG / "results.pdf")
     plt.close(fig)
     print({k: (round(x, 1), y) for k, (x, y) in pts.items()})
