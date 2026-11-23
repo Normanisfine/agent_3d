@@ -57,7 +57,7 @@ print(a, s or 0, w.get('five_hour', {}).get('pct', '-'), w.get('seven_day', {}).
     bash "$PROJ/scripts/run_agent.sh" "$ARM" "$SID" "$SEED" 9>&-; CODE=$?
   done
   (( CODE == 3 )) && { echo "!! 护栏触发（额度或每日上限），整批停下"; exit 3; }
-  RUN="$PROJ/runs/$ARM$( [ "$DRIVER" = claude ] && echo -claude )/$SID/$SEED"
+  RUN="$PROJ/runs/$ARM$( [ "$DRIVER" = claude ] && echo -claude )$( [ "${PERCEPTION:-laptop}" = betty ] && echo -betty )/$SID/$SEED"
   [ "$SCORE" = 1 ] && [ -f "$RUN/scene.blend" ] && bash "$PROJ/scripts/score_run.sh" "$RUN" 9>&-
 done
 echo ">> 队列跑完"

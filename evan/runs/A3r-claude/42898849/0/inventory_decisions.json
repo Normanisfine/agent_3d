@@ -1,0 +1,567 @@
+{
+ "b000": {
+  "action": "skipped",
+  "reason": "Not a real object: reflection/view through a glazed door leaf; no mirror exists at this position (Pi3X shows open floor)."
+ },
+ "b001": {
+  "action": "built",
+  "object_id": "b001"
+ },
+ "b002": {
+  "action": "built",
+  "object_id": "b002"
+ },
+ "b003": {
+  "action": "skipped",
+  "reason": "Duplicate detection of the table lamp built as b010 (same lamp on side table b011)."
+ },
+ "b004": {
+  "action": "built",
+  "object_id": "b004"
+ },
+ "b005": {
+  "action": "skipped",
+  "reason": "Duplicate detection of the table lamp built as b010."
+ },
+ "b006": {
+  "action": "built",
+  "object_id": "b006"
+ },
+ "b007": {
+  "action": "built",
+  "object_id": "b007"
+ },
+ "b008": {
+  "action": "built",
+  "object_id": "b008"
+ },
+ "b009": {
+  "action": "built",
+  "object_id": "b009"
+ },
+ "b010": {
+  "action": "built",
+  "object_id": "b010"
+ },
+ "b011": {
+  "action": "built",
+  "object_id": "b011"
+ },
+ "b012": {
+  "action": "skipped",
+  "reason": "Part of the large living-room rug built as b002 (crop shows the rug edge)."
+ },
+ "b013": {
+  "action": "built",
+  "object_id": "b013"
+ },
+ "b014": {
+  "action": "built",
+  "object_id": "b014"
+ },
+ "b015": {
+  "action": "built",
+  "object_id": "b015"
+ },
+ "b016": {
+  "action": "built",
+  "object_id": "b016"
+ },
+ "b017": {
+  "action": "built",
+  "object_id": "b017"
+ },
+ "b018": {
+  "action": "built",
+  "object_id": "b018"
+ },
+ "b019": {
+  "action": "built",
+  "object_id": "b019"
+ },
+ "b020": {
+  "action": "built",
+  "object_id": "b020"
+ },
+ "b021": {
+  "action": "built",
+  "object_id": "b021"
+ },
+ "b022": {
+  "action": "built",
+  "object_id": "b022"
+ },
+ "b023": {
+  "action": "skipped",
+  "reason": "Duplicate of the hydrangea vase built as b022."
+ },
+ "b024": {
+  "action": "built",
+  "object_id": "b024"
+ },
+ "b025": {
+  "action": "built",
+  "object_id": "b025"
+ },
+ "b026": {
+  "action": "skipped",
+  "reason": "Part of sofa b001 (crop shows the sofa arm, not a separate pillow)."
+ },
+ "b027": {
+  "action": "skipped",
+  "reason": "Part of sofa b001 (its south arm)."
+ },
+ "b028": {
+  "action": "built",
+  "object_id": "b028"
+ },
+ "b029": {
+  "action": "skipped",
+  "reason": "Table lamp in the hallway ~3 m beyond the doorway, outside the reconstructed room; hallway is only a stub."
+ },
+ "b030": {
+  "action": "built",
+  "object_id": "b030"
+ },
+ "b031": {
+  "action": "built",
+  "object_id": "b031"
+ },
+ "b032": {
+  "action": "built",
+  "object_id": "b032"
+ },
+ "b033": {
+  "action": "built",
+  "object_id": "b033"
+ },
+ "b034": {
+  "action": "skipped",
+  "reason": "Duplicate of pendant b033 (0.2 m apart)."
+ },
+ "b035": {
+  "action": "built",
+  "object_id": "b035"
+ },
+ "b036": {
+  "action": "built",
+  "object_id": "b036"
+ },
+ "b037": {
+  "action": "built",
+  "object_id": "b037"
+ },
+ "b038": {
+  "action": "built",
+  "object_id": "b038"
+ },
+ "b039": {
+  "action": "skipped",
+  "reason": "Duplicate of picture frame b117 on the NW side table."
+ },
+ "b040": {
+  "action": "skipped",
+  "reason": "Part of the west base-cabinet run built as b112."
+ },
+ "b041": {
+  "action": "built",
+  "object_id": "b041"
+ },
+ "b042": {
+  "action": "built",
+  "object_id": "b042"
+ },
+ "b043": {
+  "action": "built",
+  "object_id": "b043"
+ },
+ "b044": {
+  "action": "built",
+  "object_id": "b044"
+ },
+ "b045": {
+  "action": "built",
+  "object_id": "b045"
+ },
+ "b046": {
+  "action": "built",
+  "object_id": "b046"
+ },
+ "b047": {
+  "action": "skipped",
+  "reason": "Duplicate of the north-wall picture frame built as b119."
+ },
+ "b048": {
+  "action": "built",
+  "object_id": "b048"
+ },
+ "b049": {
+  "action": "built",
+  "object_id": "b049"
+ },
+ "b050": {
+  "action": "built",
+  "object_id": "b050"
+ },
+ "b051": {
+  "action": "skipped",
+  "reason": "Duplicate of the hydrangea vase built as b022."
+ },
+ "b052": {
+  "action": "skipped",
+  "reason": "Not a tissue box: crop shows the hydrangea flowers (duplicate of b022)."
+ },
+ "b053": {
+  "action": "skipped",
+  "reason": "Part of the living-room rug built as b088 (merged extent)."
+ },
+ "b054": {
+  "action": "skipped",
+  "reason": "Part of the large rug built as b002 (crop shows its edge)."
+ },
+ "b055": {
+  "action": "built",
+  "object_id": "b055"
+ },
+ "b056": {
+  "action": "built",
+  "object_id": "b056"
+ },
+ "b057": {
+  "action": "built",
+  "object_id": "b057"
+ },
+ "b058": {
+  "action": "built",
+  "object_id": "b058"
+ },
+ "b059": {
+  "action": "skipped",
+  "reason": "Duplicate of the sofa cushion built as b017."
+ },
+ "b060": {
+  "action": "built",
+  "object_id": "b060"
+ },
+ "b061": {
+  "action": "built",
+  "object_id": "b061"
+ },
+ "b062": {
+  "action": "built",
+  "object_id": "b062"
+ },
+ "b063": {
+  "action": "built",
+  "object_id": "b063"
+ },
+ "b064": {
+  "action": "built",
+  "object_id": "b064"
+ },
+ "b065": {
+  "action": "built",
+  "object_id": "b065"
+ },
+ "b066": {
+  "action": "built",
+  "object_id": "b066"
+ },
+ "b067": {
+  "action": "skipped",
+  "reason": "Part of the white rug built as b050 (merged extent)."
+ },
+ "b068": {
+  "action": "built",
+  "object_id": "b068"
+ },
+ "b069": {
+  "action": "built",
+  "object_id": "b069"
+ },
+ "b070": {
+  "action": "built",
+  "object_id": "b070"
+ },
+ "b071": {
+  "action": "built",
+  "object_id": "b071"
+ },
+ "b072": {
+  "action": "built",
+  "object_id": "b072"
+ },
+ "b073": {
+  "action": "built",
+  "object_id": "b073"
+ },
+ "b074": {
+  "action": "built",
+  "object_id": "b074"
+ },
+ "b075": {
+  "action": "built",
+  "object_id": "b075"
+ },
+ "b076": {
+  "action": "built",
+  "object_id": "b076"
+ },
+ "b077": {
+  "action": "built",
+  "object_id": "b077"
+ },
+ "b078": {
+  "action": "built",
+  "object_id": "b078"
+ },
+ "b079": {
+  "action": "built",
+  "object_id": "b079"
+ },
+ "b080": {
+  "action": "built",
+  "object_id": "b080"
+ },
+ "b081": {
+  "action": "built",
+  "object_id": "b081"
+ },
+ "b082": {
+  "action": "built",
+  "object_id": "b082"
+ },
+ "b083": {
+  "action": "skipped",
+  "reason": "Duplicate of the hydrangea vase built as b022."
+ },
+ "b084": {
+  "action": "built",
+  "object_id": "b084"
+ },
+ "b085": {
+  "action": "built",
+  "object_id": "b085"
+ },
+ "b086": {
+  "action": "built",
+  "object_id": "b086"
+ },
+ "b087": {
+  "action": "skipped",
+  "reason": "Duplicate of sofa b021."
+ },
+ "b088": {
+  "action": "built",
+  "object_id": "b088"
+ },
+ "b089": {
+  "action": "built",
+  "object_id": "b089"
+ },
+ "b090": {
+  "action": "built",
+  "object_id": "b090"
+ },
+ "b091": {
+  "action": "built",
+  "object_id": "b091"
+ },
+ "b092": {
+  "action": "built",
+  "object_id": "b092"
+ },
+ "b093": {
+  "action": "built",
+  "object_id": "b093"
+ },
+ "b094": {
+  "action": "skipped",
+  "reason": "Part of the living-room rug built as b088 (merged extent)."
+ },
+ "b095": {
+  "action": "skipped",
+  "reason": "Duplicate of the window-sill picture frame built as b061."
+ },
+ "b096": {
+  "action": "skipped",
+  "reason": "Not a rug: crop shows the chess board built as b084 (duplicate)."
+ },
+ "b097": {
+  "action": "built",
+  "object_id": "b097"
+ },
+ "b098": {
+  "action": "built",
+  "object_id": "b098"
+ },
+ "b099": {
+  "action": "skipped",
+  "reason": "Duplicate of the coffee-chest candles built as b089/b090 (only two candles visible)."
+ },
+ "b100": {
+  "action": "skipped",
+  "reason": "Not a cup: crop shows the same two candles built as b089/b090."
+ },
+ "b101": {
+  "action": "skipped",
+  "reason": "Duplicate of the mantel garland built as b055."
+ },
+ "b102": {
+  "action": "built",
+  "object_id": "b102"
+ },
+ "b103": {
+  "action": "built",
+  "object_id": "window_west_sink",
+  "note": "detected as mirror; it is the sink window"
+ },
+ "b104": {
+  "action": "built",
+  "object_id": "b104"
+ },
+ "b105": {
+  "action": "built",
+  "object_id": "b105"
+ },
+ "b106": {
+  "action": "skipped",
+  "reason": "Duplicate of the north-wall picture frame built as b119."
+ },
+ "b107": {
+  "action": "built",
+  "object_id": "b107"
+ },
+ "b108": {
+  "action": "skipped",
+  "reason": "Duplicate of bar stool b042 (0.23 m apart)."
+ },
+ "b109": {
+  "action": "built",
+  "object_id": "b109"
+ },
+ "b110": {
+  "action": "built",
+  "object_id": "b110"
+ },
+ "b111": {
+  "action": "built",
+  "object_id": "b111"
+ },
+ "b112": {
+  "action": "built",
+  "object_id": "b112"
+ },
+ "b113": {
+  "action": "skipped",
+  "reason": "Part of the west base-cabinet run built as b112."
+ },
+ "b114": {
+  "action": "built",
+  "object_id": "b114"
+ },
+ "b115": {
+  "action": "built",
+  "object_id": "b115"
+ },
+ "b116": {
+  "action": "built",
+  "object_id": "b116"
+ },
+ "b117": {
+  "action": "built",
+  "object_id": "b117"
+ },
+ "b118": {
+  "action": "skipped",
+  "reason": "Lower shelf of the side table built as b114."
+ },
+ "b119": {
+  "action": "built",
+  "object_id": "b119"
+ },
+ "b120": {
+  "action": "built",
+  "object_id": "b120"
+ },
+ "b121": {
+  "action": "skipped",
+  "reason": "Oven of the range cooker built as b030."
+ },
+ "b122": {
+  "action": "built",
+  "object_id": "b122"
+ },
+ "b123": {
+  "action": "skipped",
+  "reason": "Part of the south base-cabinet run built as b124."
+ },
+ "b124": {
+  "action": "built",
+  "object_id": "b124"
+ },
+ "b125": {
+  "action": "built",
+  "object_id": "b125"
+ },
+ "b126": {
+  "action": "built",
+  "object_id": "b126"
+ },
+ "b127": {
+  "action": "skipped",
+  "reason": "Oven door of the range cooker built as b030."
+ },
+ "b128": {
+  "action": "built",
+  "object_id": "b128"
+ },
+ "b129": {
+  "action": "built",
+  "object_id": "b129"
+ },
+ "b130": {
+  "action": "built",
+  "object_id": "b130"
+ },
+ "b131": {
+  "action": "built",
+  "object_id": "b131"
+ },
+ "b132": {
+  "action": "skipped",
+  "reason": "Right pier of the cooker recess, built as part of kitchen_cooker_chimney."
+ },
+ "b133": {
+  "action": "built",
+  "object_id": "b133"
+ },
+ "b134": {
+  "action": "built",
+  "object_id": "b134"
+ },
+ "b135": {
+  "action": "built",
+  "object_id": "b135"
+ },
+ "b136": {
+  "action": "skipped",
+  "reason": "Duplicate of the toaster built as b125 (0.08 m apart). Its generated mesh was also rejected."
+ },
+ "b137": {
+  "action": "built",
+  "object_id": "b137"
+ },
+ "b138": {
+  "action": "skipped",
+  "reason": "Part of the west base-cabinet run built as b112."
+ },
+ "b139": {
+  "action": "skipped",
+  "reason": "Part of the west base-cabinet run built as b112 (corner)."
+ },
+ "b140": {
+  "action": "skipped",
+  "reason": "Duplicate of the oven towel built as b122."
+ }
+}

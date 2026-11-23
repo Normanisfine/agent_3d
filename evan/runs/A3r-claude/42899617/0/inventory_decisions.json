@@ -1,0 +1,144 @@
+{
+ "b000": {
+  "action": "built",
+  "object_id": "sink"
+ },
+ "b001": {
+  "action": "built",
+  "object_id": "sink_trap",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b002": {
+  "action": "built",
+  "object_id": "toilet"
+ },
+ "b003": {
+  "action": "built",
+  "object_id": "trash_can",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b004": {
+  "action": "built",
+  "object_id": "mirror_sink"
+ },
+ "b005": {
+  "action": "built",
+  "object_id": "picture_east"
+ },
+ "b006": {
+  "action": "skipped",
+  "reason": "Mirror reflection of the east-wall picture (picture_east) seen in the sink mirror; its 3D position (y=1.48) lies behind the north wall, outside the room."
+ },
+ "b007": {
+  "action": "skipped",
+  "reason": "Not a separate object: crop (frame 519) shows the lower edge of the sink mirror with the door/tiles reflected in it; its centre (y=0.88, z=1.16) lies on the mirror plane. Covered by mirror_sink. Both gen3d candidates were rejected_fit."
+ },
+ "b008": {
+  "action": "built",
+  "object_id": "towel_radiator"
+ },
+ "b009": {
+  "action": "skipped",
+  "reason": "Part of the bathtub (inner rim/end of the same tub as b019); built as bathtub."
+ },
+ "b010": {
+  "action": "built",
+  "object_id": "bath_mat",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b011": {
+  "action": "built",
+  "object_id": "ceiling_light_toilet",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b012": {
+  "action": "built",
+  "object_id": "mirror_light",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b013": {
+  "action": "skipped",
+  "reason": "Mislabelled 'speaker': the crop (frame 74) is the end cap of the over-mirror light bar, inside b012's box (x 2.13 vs 2.05-2.51). Built as part of mirror_light. Both gen3d candidates were rejected_fit."
+ },
+ "b014": {
+  "action": "skipped",
+  "reason": "Duplicate detection of the sink mirror (b004); built once as mirror_sink."
+ },
+ "b015": {
+  "action": "skipped",
+  "reason": "Duplicate detection of the east-wall 'WORK HARD PLAY HARD' picture (b005); built once as picture_east."
+ },
+ "b016": {
+  "action": "skipped",
+  "reason": "Mirror reflection of picture_east in the sink mirror; position (y=1.40) is behind the north wall."
+ },
+ "b017": {
+  "action": "built",
+  "object_id": "toilet_brush",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b018": {
+  "action": "built",
+  "object_id": "bath_tap",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b019": {
+  "action": "built",
+  "object_id": "bathtub"
+ },
+ "b020": {
+  "action": "built",
+  "object_id": "toilet_ledge"
+ },
+ "b021": {
+  "action": "skipped",
+  "reason": "Duplicate detection of the bath mat draped over the tub rim (same object as b010); built once as bath_mat."
+ },
+ "b022": {
+  "action": "built",
+  "object_id": "mirror_tub"
+ },
+ "b023": {
+  "action": "skipped",
+  "reason": "Mislabelled 'toilet': the crop shows the west end of the bathtub; part of bathtub (b019)."
+ },
+ "b024": {
+  "action": "skipped",
+  "reason": "Duplicate detection of the framed mirror above the bathtub (b022); built once as mirror_tub."
+ },
+ "b025": {
+  "action": "skipped",
+  "reason": "Mislabelled 'mirror' strip at z~0.96 behind the tub wall: it is the blue tile band / lower mirror edge, built as part of the tub_tiles structure and mirror_tub frame."
+ },
+ "b026": {
+  "action": "built",
+  "object_id": "plug_adapter",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b027": {
+  "action": "skipped",
+  "reason": "Not a real in-room object: centre x=-2.02 is 3 m outside the room (behind the door/hallway reflection); crop shows only a door edge."
+ },
+ "b028": {
+  "action": "built",
+  "object_id": "ceiling_light_main",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b029": {
+  "action": "built",
+  "object_id": "picture_north",
+  "note": "Generated via gen3d job 090505-5bff89; both candidates were rejected_fit by place_mesh, so it was built with code primitives."
+ },
+ "b030": {
+  "action": "skipped",
+  "reason": "Not a real in-room object: crop (frame 519) shows the camera operator's clothing reflected in the sink mirror; its centre (y=0.93) is behind the north wall plane. Both gen3d candidates were rejected_fit."
+ },
+ "b031": {
+  "action": "skipped",
+  "reason": "Duplicate partial detection (lower part) of the sink mirror b004; built once as mirror_sink."
+ },
+ "b032": {
+  "action": "built",
+  "object_id": "skirting_north"
+ }
+}

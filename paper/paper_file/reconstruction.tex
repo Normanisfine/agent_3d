@@ -1,45 +1,45 @@
 \subsection{Small-object coverage and placement}
 \label{sec:existing-reconstruction}
-\textbf{Three rooms, five variants.}
-Across the first three held-out rooms, Inventory correctly placed
-\textbf{30 of 174} targets from 20 to under 50\,cm, against \textbf{2} for
-original AHa-3D and 25 for All objects. Neither generation policy improved
-on Inventory (24 and 26; Table~\ref{tab:small-placement} in the appendix).
-Of 160 generation attempts, ten were accepted and five generated assets
-remained in the saved scenes.
-
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/small-object-results.pdf}
 \caption{\textbf{Six held-out rooms, 857 targets.} \textbf{a}, Outcome by
-target size: solid bars are correctly placed targets (count above),
-hatched extensions are matched but misplaced. \textbf{b}, Share of targets
+target size: solid bars are correctly placed targets (count below each
+bar, the largest in bold), hatched extensions are matched but misplaced. \textbf{b}, Share of targets
 under 50\,cm correctly placed in each room; the diamond is a second
 Checklist run with identical settings. \textbf{c}, Correct placements under
 50\,cm against the share of reconstructed instances that match any target.
-Open diamonds score detector boxes directly, with no agent.}
+Squares score an inventory's boxes directly, with no agent, and the arrow
+leads to the run of the agent that was given them.}
 \label{fig:results}
 \end{figure}
 
-\textbf{Six rooms and the checklist.}
-We then ran the baseline, All objects, Inventory and Checklist on six
+\textbf{Six rooms, four variants.}
+The baseline, All objects, Inventory and Checklist ran on six
 held-out rooms holding 857 targets, 543 of them under 50\,cm
 (Figure~\ref{fig:results}a). The baseline correctly placed 6 of the 543, All
-objects 71, Inventory 101 and Checklist 142; under 20\,cm the counts are 0,
-21, 36 and 50 of 264. Checklist left 257 small targets without a matched
-reconstruction, against 361 for Inventory. Moving every reconstructed
+objects 71, Inventory 101 and Checklist 142, a more than twentyfold increase;
+under 20\,cm the counts are 0, 21, 36 and 50 of 264. Each step also helped
+larger objects: over all sizes the four variants correctly placed 83, 198,
+237 and 284 of 857. The share of small targets with a matched
+reconstruction rose from 2\% for the baseline to 34\% for Inventory and
+53\% for Checklist. Moving every reconstructed
 instance by a random 0.5 to 1.5\,m left Checklist with about four correct
 small placements, so the gain is not an effect of building more boxes.
+The order of the four variants is the same when rooms are averaged instead
+of pooled (3\%, 23\%, 29\% and 32\%) and under the stricter box-overlap
+test of Appendix~\ref{app:small} (Table~\ref{tab:six-rooms}).
 
-All objects beat the baseline in all six rooms ($p=0.031$ in an exact
-sign-flip test over rooms, the smallest value six rooms allow). Checklist
-gained 71 placements over All objects ($p=0.094$) and 41 over Inventory
-($p=0.25$): it led Inventory in three rooms and trailed in three, and 27 of
-the 41 came from one room with a wall of postcards
-(Figure~\ref{fig:results}b; Table~\ref{tab:paired}). A second Checklist run
-placed 155, ahead of Inventory in five rooms ($p=0.094$). Single rooms moved
-by $-11$ to $+16$ between the two runs, as much as most per-room gaps
-between variants, so we read only the pooled ordering.
+All three variants beat the baseline in every one of the six rooms, as did
+the second Checklist run ($p=0.031$ in an exact sign-flip test over rooms,
+the smallest value six rooms allow). Checklist placed the most small objects
+in both of its runs, 142 and 155 against 101 for Inventory and 71 for All
+objects, and led Inventory in three rooms in the first run and five in the
+second (Figure~\ref{fig:results}b; Table~\ref{tab:paired}). With six rooms
+these further gains do not reach significance ($p=0.094$ over All objects,
+$p=0.25$ and $0.094$ over Inventory), and single rooms moved by $-11$ to
+$+16$ between the two runs, so beyond the baseline we read only the pooled
+ordering.
 
 \begin{figure}[t]
 \centering
@@ -48,7 +48,7 @@ between variants, so we read only the pooled ordering.
 & \colhead{Video frame} & \colhead{AHa-3D baseline} & \colhead{All objects} & \colhead{Inventory} & \colhead{Checklist (ours)} & \colhead{Checklist + materials} \\[1pt]
 \qualrow{Room 1}{42897538}{38 targets $<$ 50\,cm}{1 correct}{9}{8}{\textbf{18}}
 \qualrow{Room 2}{42898849}{258 targets}{0}{15}{22}{\textbf{33}}
-\qualrow{Room 6}{44358442}{128 targets}{0}{20}{34}{\textbf{61}}
+\qualrow{Room 6}{44358442d}{128 targets}{0}{20}{34}{\textbf{61}}
 \end{tabular}
 \caption{\textbf{The same view under four variants.} Columns two to five
 render each saved scene from the camera of the video frame under one light
@@ -56,32 +56,43 @@ and material setup.
 Instances tied to objects under 50\,cm are \swatch{okblue}~correctly placed,
 \swatch{misorange}~matched but misplaced or \swatch{extragreen}~without an
 annotated counterpart. Last column: the Checklist scene after AHa-3D's
-appearance pass, geometry unchanged. Counts are whole-room correct
-placements under 50\,cm. Views were chosen to show small objects
-(all six rooms: Figure~\ref{fig:qual-all}).}
+appearance pass, geometry unchanged. Counts are correct placements under 50\,cm in the whole room, not in the
+view. Rooms and frames were chosen to show small objects;
+Figure~\ref{fig:qual-all} shows all six rooms, including the three in which
+Inventory placed more.}
 \label{fig:qual}
 \end{figure}
 
 In Figure~\ref{fig:qual}, the baseline builds the lamp, the television and
 the stove and nothing on or around them. All objects and Inventory add
-logs, bowls and shelf contents, many of them misplaced, and Checklist fills
-the shelves of room 6 with separate items.
+logs, bowls and shelf contents, many of them misplaced, and Checklist builds
+the postcards on the wall of room 6 one by one; CA-1M does not annotate
+them individually, so they appear green.
 
-\textbf{The checklist finds more than the agent places.}
+\textbf{Generation.}
+The first three rooms also ran the two generation variants. Of their 312
+targets under 50\,cm, Inventory correctly placed 39, Required generation 28
+and Selective generation 32 (by size and criterion:
+Table~\ref{tab:small-placement}). Of 160 generation attempts, ten were
+accepted and five generated assets remained in the saved scenes, so both
+variants mostly fell back to primitives.
+
+\textbf{Detection now runs ahead of placement.}
 Scored on their own, as if every box were a finished object, the
 checklist's boxes pass Eq.~\ref{eq:center-size} for 194 of the 543 small
-targets, against 84 for Boxer's (Figure~\ref{fig:results}c). The agent given
-Boxer's boxes ends above them, at 101. The agent given the checklist ends
-below it, at 142 and 155. What it
-contributes there is selection: only 23\% of the 2{,}287 checklist entries
-match any target, and the agent resolved 647 as duplicates and 727 as parts,
-built 851 and skipped 62, producing scenes in which 51\% of instances match
-a target. The gap between 194 and 142 is still a loss. It moves the limiting
-step from finding small objects to placing them.
+targets, against 84 for Boxer's (Figure~\ref{fig:results}c): the revised
+inventory more than doubles what detection finds. The agent given Boxer's
+boxes ends above them, at 101. The agent given the checklist ends at 142
+and 155, and what it contributes there is selection: only 23\% of the
+2{,}287 checklist entries match any target, and the agent resolved 647 as
+duplicates and 727 as parts, built 851 and skipped 62, producing scenes in
+which 51\% of instances match a target. Keeping the boxes that already pass
+would add up to 52 placements with no new detection, which makes placement
+the most direct next gain.
 
-\textbf{Misplacement is mostly center offset.}
-Checklist matched 286 targets under 50\,cm, against 182 for Inventory, and
-144 of the 286 failed Eq.~\ref{eq:center-size}: 104 on center distance
+\textbf{Most misplaced objects are near misses.}
+Checklist matched 286 targets under 50\,cm, against 182 for Inventory. Of
+the 144 that failed Eq.~\ref{eq:center-size}, 104 failed on center distance
 alone, 17 on size alone and 23 on both. The median center distance of
 matched small targets was 9.9\,cm, at the 10\,cm floor of the test, and
 within a centimeter of that for the other two variants.
@@ -92,6 +103,7 @@ first three rooms these were 39 of 208 for All objects and 24 of 198 for
 Inventory. One author checked all 63 against the video: 22 were present
 where reconstructed but not annotated, 27 were real but too far off to
 match, five were repeats and nine did not appear. Checklist built 922
-instances and 451 matched no target: 168 are postcards on one wall and 108
+instances, 843 of them from entries it marked as built, and 451 matched no
+target: 168 are postcards on one wall and 108
 ornaments on one Christmas tree, which CA-1M does not annotate one by one;
 the rest are unchecked.

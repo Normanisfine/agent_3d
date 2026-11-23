@@ -15,6 +15,11 @@ BLOCK="${CODEX_BLOCK_DIR:-$(dirname "$(readlink -f "$0")")/../runs/.codex_blocke
 mkdir -p "$BLOCK"
 tmp="$(mktemp -d)"; trap 'rm -rf "$tmp"' EXIT
 if [ -t 0 ]; then : > "$tmp/stdin"; else cat > "$tmp/stdin"; fi
+# 每次审查调用记一行到 CODEX_CALL_LOG（默认 runs/.codex_calls.log）：时间戳、哪次运行的场景、账户、退出码、是不是额度用完。
+# supervise.sh 靠它判断一次运行有没有真的拿到过审查意见。
+CALLS="${CODEX_CALL_LOG:-$(dirname "$BLOCK")/.codex_calls.log}"
+SCENE_KEY="$( { printf '%s\n' "$*"; cat "$tmp/stdin"; } | grep -oE '[0-9]{8}_[a-z0-9]+-claude(-betty)?_s[0-9]+' | head -1)"
+logcall() { echo "$(date +%s) ${SCENE_KEY:--} $1 $2 $3" >> "$CALLS" 2>/dev/null || true; }
 order=("${CODEX_HOME:-$HOME/.codex}")
 for h in ${CODEX_HOMES:-}; do [[ " ${order[*]} " == *" $h "* ]] || order+=("$h"); done
 code=1; tried=0
@@ -32,9 +37,11 @@ for h in "${order[@]}"; do
     (( until <= now )) && until=$(( until + 86400 ))   # 只给了钟点、已经过了：是明天的
     echo "$until" > "$BLOCK/$key"
     echo "!! codex_review: $h 额度用完，到 $(date -d "@$until" '+%m-%d %H:%M') 前换别的账户" >&2
+    logcall "$h" "$code" 1
     continue
   fi
+  logcall "$h" "$code" 0
   exit "$code"
 done
-(( tried )) || echo "ERROR: every Codex account in CODEX_HOMES hit its usage limit (see $BLOCK)" >&2
+(( tried )) || { echo "ERROR: every Codex account in CODEX_HOMES hit its usage limit (see $BLOCK)" >&2; logcall - 1 1; }
 exit "$code"

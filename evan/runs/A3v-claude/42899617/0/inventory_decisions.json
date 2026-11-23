@@ -1,0 +1,182 @@
+{
+ "b000": {
+  "action": "built",
+  "object_id": "sink",
+  "method": "code",
+  "reason": "Wall-hung basin with taps, chrome bracket rail and waste trap; gen3d tried (2 candidates) but both rejected_fit (sil IoU 0.24/0.26), so built from primitives at measured extent x1.98-2.54, y0.49-0.875, top 0.81. Root instance_id uses the scope subject name (\"sink\") so acceptance subjects resolve to exact IDs."
+ },
+ "b001": {
+  "action": "skipped",
+  "reason": "Not a soap dispenser: crop shows the underside of the basin and its waste pipe, which is built as part of sink b000."
+ },
+ "b002": {
+  "action": "built",
+  "object_id": "toilet",
+  "method": "code",
+  "reason": "Close-coupled-look toilet (pedestal, bowl, seat, raised lid, wall cistern, flush lever); gen3d tried, both candidates rejected_fit, so built from primitives. Root instance_id uses the scope subject name (\"toilet\") so acceptance subjects resolve to exact IDs."
+ },
+ "b003": {
+  "action": "built",
+  "object_id": "b003",
+  "method": "code",
+  "reason": "Chrome pedal bin; gen3d tried, both candidates rejected_fit (IoU 0.47/0.53 vs primitive 0.47), simple cylinder+dome build used."
+ },
+ "b004": {
+  "action": "built",
+  "object_id": "mirror",
+  "method": "code",
+  "reason": "Framed mirror above the sink; flat panel, built as frame + glass box. Root instance_id uses the scope subject name (\"mirror\") so acceptance subjects resolve to exact IDs."
+ },
+ "b005": {
+  "action": "built",
+  "object_id": "b005",
+  "method": "code",
+  "reason": "'Work hard play hard' framed print on the east wall; flat frame + print boxes."
+ },
+ "b006": {
+  "action": "skipped",
+  "reason": "Mirror reflection of picture b005 (sits at y=1.40-1.48, behind the north wall at y=0.875, mirrored about the sink mirror plane); not a real object."
+ },
+ "b007": {
+  "action": "skipped",
+  "reason": "Not a toilet: crop shows the lower edge of mirror b004 reflecting the door, above the tile splashback (built as sink_splashback)."
+ },
+ "b008": {
+  "action": "built",
+  "object_id": "b008",
+  "method": "code",
+  "reason": "Mislabelled 'dishwasher': it is the chrome heated towel ladder radiator left of the sink; gen3d tried, both rejected_fit, built as rails + 21 bars."
+ },
+ "b009": {
+  "action": "skipped",
+  "reason": "Duplicate of bathtub b019 (crop shows the same bath with mixer)."
+ },
+ "b010": {
+  "action": "built",
+  "object_id": "b010",
+  "method": "code",
+  "reason": "Grey bath mat draped over the bath rim; gen3d tried, both rejected_fit, built as three draped slabs."
+ },
+ "b011": {
+  "action": "built",
+  "object_id": "b011",
+  "method": "code",
+  "reason": "Crystal ceiling light over the toilet area; small, blown-out in video, built as canopy + crystal drops."
+ },
+ "b012": {
+  "action": "built",
+  "object_id": "b012",
+  "method": "code",
+  "reason": "Bar wall light above the sink mirror; simple box + end caps."
+ },
+ "b013": {
+  "action": "skipped",
+  "reason": "Not a speaker: crop shows the end cap of wall light b012 (part of that built object)."
+ },
+ "b014": {
+  "action": "skipped",
+  "reason": "Duplicate detection of sink mirror b004."
+ },
+ "b015": {
+  "action": "skipped",
+  "reason": "Duplicate detection of the 'Work hard' print b005."
+ },
+ "b016": {
+  "action": "skipped",
+  "reason": "Mirror reflection of print b005 (located behind the north wall); not a real object."
+ },
+ "b017": {
+  "action": "built",
+  "object_id": "b017",
+  "method": "code",
+  "reason": "Frosted toilet brush holder with brush on the south tiled ledge; gen3d tried, both rejected_fit, built as cone + handle."
+ },
+ "b018": {
+  "action": "built",
+  "object_id": "b018",
+  "method": "code",
+  "reason": "Wall bath/shower mixer with cross handles, spout, riser, handset and hose; gen3d tried, both rejected_fit, built from primitives at depth-measured position y-0.44."
+ },
+ "b019": {
+  "action": "built",
+  "object_id": "bathtub",
+  "method": "code",
+  "reason": "Main bath detection: panelled bath with rolled rim filling the alcove x1.155-2.935, y-0.845 to -0.02; gen3d tried, both rejected_fit (IoU 0.16/0.09), built with boolean basin."
+ },
+ "b020": {
+  "action": "built",
+  "object_id": "toilet_ledge_north",
+  "method": "code",
+  "reason": "Not a bathtub: crop shows the tiled ledge beside the toilet (with bin next to it); built as structure toilet_ledge_north (plus matching toilet_ledge_south)."
+ },
+ "b021": {
+  "action": "skipped",
+  "reason": "Duplicate detection of bath mat b010."
+ },
+ "b022": {
+  "action": "built",
+  "object_id": "b022",
+  "method": "code",
+  "reason": "Large framed mirror on the wall above the bath (x1.20-2.90, z1.00-1.93); frame + glass boxes."
+ },
+ "b023": {
+  "action": "skipped",
+  "reason": "Not a toilet: crop shows the west end of bathtub b019 with the bath mat; part of the built bath."
+ },
+ "b024": {
+  "action": "skipped",
+  "reason": "Duplicate detection of the bath mirror b022."
+ },
+ "b025": {
+  "action": "skipped",
+  "reason": "Crop shows the bath with its blue-band tile surround and dado cap; covered by bathtub and the built tile_surround_bath/wainscot structures."
+ },
+ "b026": {
+  "action": "skipped",
+  "reason": "Not a soap dispenser: crop shows the basin underside/bracket, built as part of sink b000."
+ },
+ "b027": {
+  "action": "skipped",
+  "reason": "Not a real object in the room: hallway wall/door edge at x=-2.0, outside the bathroom."
+ },
+ "b028": {
+  "action": "built",
+  "object_id": "b028",
+  "method": "code",
+  "reason": "Second crystal ceiling light over the bath; gen3d tried, both rejected_fit, built as canopy + crystal drops."
+ },
+ "b029": {
+  "action": "built",
+  "object_id": "b029",
+  "method": "code",
+  "reason": "Small colourful framed print on the north wall by the door; flat frame + print."
+ },
+ "b030": {
+  "action": "skipped",
+  "reason": "Not a towel: crop shows the camera operator's sleeve reflected in mirror b004; not a room object."
+ },
+ "b031": {
+  "action": "skipped",
+  "reason": "Duplicate of mirror b004 (lower part of the same mirror, reflecting the door) above the tile splashback."
+ },
+ "b032": {
+  "action": "built",
+  "object_id": "skirting",
+  "method": "code",
+  "reason": "Not a bathtub: long thin strip at floor level along the north wall is the skirting board; built as structure skirting."
+ },
+ "_extra_not_in_inventory": {
+  "action": "built",
+  "object_ids": [
+   "door",
+   "door_casing",
+   "toilet_roll_holder",
+   "radiator_controller",
+   "toilet_ledge_south",
+   "sink_splashback",
+   "tile_surround_bath",
+   "wainscot"
+  ],
+  "reason": "Visible objects/built-ins the detector missed: open panelled door with brass levers, door casing, toilet roll + holder, radiator thermostat box with cable, second tiled ledge, tile splashback, tub tile surround with blue band, panelled wainscot with dado rails."
+ }
+}

@@ -1,0 +1,998 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "television"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "sofa_loveseat"
+ },
+ "c002": {
+  "action": "part",
+  "object_id": "rug_main"
+ },
+ "c003": {
+  "action": "built",
+  "object_id": "sofa_three_seat"
+ },
+ "c004": {
+  "action": "part",
+  "object_id": "rug_main"
+ },
+ "c005": {
+  "action": "built",
+  "object_id": "coffee_table"
+ },
+ "c006": {
+  "action": "built",
+  "object_id": "pillow_loveseat_south"
+ },
+ "c007": {
+  "action": "built",
+  "object_id": "pillow_loveseat_north"
+ },
+ "c008": {
+  "action": "built",
+  "object_id": "radiator"
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "rug_main"
+ },
+ "c011": {
+  "action": "part",
+  "object_id": "rug_main"
+ },
+ "c012": {
+  "action": "built",
+  "object_id": "kitchen_rug"
+ },
+ "c013": {
+  "action": "built",
+  "object_id": "ottoman"
+ },
+ "c014": {
+  "action": "duplicate",
+  "object_id": "sofa_three_seat"
+ },
+ "c015": {
+  "action": "built",
+  "object_id": "table_lamp"
+ },
+ "c017": {
+  "action": "built",
+  "object_id": "pillow_sofa_south"
+ },
+ "c020": {
+  "action": "built",
+  "object_id": "pillow_sofa_north"
+ },
+ "c021": {
+  "action": "part",
+  "object_id": "table_lamp"
+ },
+ "c022": {
+  "action": "built",
+  "object_id": "fridge_freezer"
+ },
+ "c023": {
+  "action": "built",
+  "object_id": "side_table_corner"
+ },
+ "c024": {
+  "action": "duplicate",
+  "object_id": "radiator"
+ },
+ "c025": {
+  "action": "part",
+  "object_id": "door_living_hall"
+ },
+ "c027": {
+  "action": "duplicate",
+  "object_id": "television"
+ },
+ "c029": {
+  "action": "part",
+  "object_id": "rug_main"
+ },
+ "c030": {
+  "action": "duplicate",
+  "object_id": "coffee_table"
+ },
+ "c031": {
+  "action": "duplicate",
+  "object_id": "television"
+ },
+ "c032": {
+  "action": "duplicate",
+  "object_id": "pillow_loveseat_north"
+ },
+ "c034": {
+  "action": "built",
+  "object_id": "tissue_box"
+ },
+ "c035": {
+  "action": "built",
+  "object_id": "bowl_glass"
+ },
+ "c039": {
+  "action": "built",
+  "object_id": "hall_runner_rug"
+ },
+ "c040": {
+  "action": "part",
+  "object_id": "rug_main"
+ },
+ "c041": {
+  "action": "duplicate",
+  "object_id": "picture_framed"
+ },
+ "c043": {
+  "action": "duplicate",
+  "object_id": "side_table_lamp"
+ },
+ "c044": {
+  "action": "duplicate",
+  "object_id": "television"
+ },
+ "c045": {
+  "action": "built",
+  "object_id": "plate_05"
+ },
+ "c046": {
+  "action": "built",
+  "object_id": "mirror_east"
+ },
+ "c047": {
+  "action": "part",
+  "object_id": "door_living_hall"
+ },
+ "c049": {
+  "action": "built",
+  "object_id": "side_table_lamp"
+ },
+ "c051": {
+  "action": "part",
+  "object_id": "sofa_three_seat"
+ },
+ "c052": {
+  "action": "part",
+  "object_id": "rug_main"
+ },
+ "c053": {
+  "action": "built",
+  "object_id": "power_strip_sofa"
+ },
+ "c055": {
+  "action": "built",
+  "object_id": "tv_stand"
+ },
+ "c059": {
+  "action": "duplicate",
+  "object_id": "plate_05"
+ },
+ "c060": {
+  "action": "duplicate",
+  "object_id": "outlet_lamp_corner"
+ },
+ "c061": {
+  "action": "built",
+  "object_id": "outlet_lamp_corner"
+ },
+ "c063": {
+  "action": "duplicate",
+  "object_id": "outlet_lamp_corner"
+ },
+ "c064": {
+  "action": "built",
+  "object_id": "ornament_01"
+ },
+ "c065": {
+  "action": "built",
+  "object_id": "picture_framed"
+ },
+ "c066": {
+  "action": "built",
+  "object_id": "ornament_06"
+ },
+ "c067": {
+  "action": "built",
+  "object_id": "ornament_02"
+ },
+ "c068": {
+  "action": "built",
+  "object_id": "ornament_05"
+ },
+ "c069": {
+  "action": "duplicate",
+  "object_id": "ornament_01"
+ },
+ "c070": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c071": {
+  "action": "duplicate",
+  "object_id": "tissue_box"
+ },
+ "c072": {
+  "action": "duplicate",
+  "object_id": "pillow_sofa_south"
+ },
+ "c073": {
+  "action": "built",
+  "object_id": "ornament_07"
+ },
+ "c074": {
+  "action": "built",
+  "object_id": "sink_kitchen"
+ },
+ "c075": {
+  "action": "built",
+  "object_id": "ornament_08"
+ },
+ "c076": {
+  "action": "skipped",
+  "reason": "Reflection of the coffee table in the east-wall mirror (mirror_east, x=2.3); the real object is modeled at its true position"
+ },
+ "c077": {
+  "action": "duplicate",
+  "object_id": "coffee_table"
+ },
+ "c080": {
+  "action": "built",
+  "object_id": "ornament_03"
+ },
+ "c081": {
+  "action": "built",
+  "object_id": "ornament_04"
+ },
+ "c084": {
+  "action": "built",
+  "object_id": "cable_ethernet_yellow"
+ },
+ "c085": {
+  "action": "built",
+  "object_id": "plate_01"
+ },
+ "c086": {
+  "action": "built",
+  "object_id": "ornament_09"
+ },
+ "c087": {
+  "action": "part",
+  "object_id": "blind_south"
+ },
+ "c088": {
+  "action": "duplicate",
+  "object_id": "pillow_sofa_north"
+ },
+ "c089": {
+  "action": "built",
+  "object_id": "blind_west"
+ },
+ "c090": {
+  "action": "duplicate",
+  "object_id": "ornament_02"
+ },
+ "c092": {
+  "action": "built",
+  "object_id": "magazine"
+ },
+ "c093": {
+  "action": "built",
+  "object_id": "cable_sofa_black"
+ },
+ "c095": {
+  "action": "duplicate",
+  "object_id": "cable_wall_plug"
+ },
+ "c097": {
+  "action": "built",
+  "object_id": "kitchen_cabinets_back"
+ },
+ "c098": {
+  "action": "part",
+  "object_id": "sofa_loveseat"
+ },
+ "c099": {
+  "action": "built",
+  "object_id": "christmas_tree"
+ },
+ "c101": {
+  "action": "part",
+  "object_id": "television"
+ },
+ "c103": {
+  "action": "skipped",
+  "reason": "Reflection of the ottoman in the east-wall mirror (mirror_east, x=2.3); the real object is modeled at its true position"
+ },
+ "c104": {
+  "action": "skipped",
+  "reason": "Reflection of the window blind in the east-wall mirror (mirror_east, x=2.3); the real object is modeled at its true position"
+ },
+ "c105": {
+  "action": "duplicate",
+  "object_id": "magazine"
+ },
+ "c107": {
+  "action": "duplicate",
+  "object_id": "tv_stand"
+ },
+ "c108": {
+  "action": "built",
+  "object_id": "chandelier_east"
+ },
+ "c110": {
+  "action": "duplicate",
+  "object_id": "cable_ethernet_yellow"
+ },
+ "c111": {
+  "action": "part",
+  "object_id": "blind_west"
+ },
+ "c112": {
+  "action": "duplicate",
+  "object_id": "pillow_loveseat_south"
+ },
+ "c113": {
+  "action": "built",
+  "object_id": "plate_02"
+ },
+ "c115": {
+  "action": "built",
+  "object_id": "blind_south"
+ },
+ "c116": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c118": {
+  "action": "part",
+  "object_id": "sofa_loveseat"
+ },
+ "c119": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_back"
+ },
+ "c120": {
+  "action": "part",
+  "object_id": "coffee_table"
+ },
+ "c121": {
+  "action": "duplicate",
+  "object_id": "cable_sofa_black"
+ },
+ "c122": {
+  "action": "duplicate",
+  "object_id": "chandelier_west"
+ },
+ "c124": {
+  "action": "part",
+  "object_id": "sofa_loveseat"
+ },
+ "c128": {
+  "action": "duplicate",
+  "object_id": "side_table_corner"
+ },
+ "c129": {
+  "action": "built",
+  "object_id": "switch_hall"
+ },
+ "c130": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_back"
+ },
+ "c133": {
+  "action": "duplicate",
+  "object_id": "table_lamp"
+ },
+ "c134": {
+  "action": "part",
+  "object_id": "television"
+ },
+ "c135": {
+  "action": "duplicate",
+  "object_id": "outlet_lamp_corner"
+ },
+ "c137": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c138": {
+  "action": "built",
+  "object_id": "cable_sofa_white"
+ },
+ "c141": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c144": {
+  "action": "duplicate",
+  "object_id": "power_strip_lamp"
+ },
+ "c145": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_back"
+ },
+ "c147": {
+  "action": "skipped",
+  "reason": "Reflection of lights in the east-wall mirror (mirror_east), not a physical object at that place"
+ },
+ "c149": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c150": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c154": {
+  "action": "duplicate",
+  "object_id": "switch_hall"
+ },
+ "c155": {
+  "action": "built",
+  "object_id": "hall_ceiling_light"
+ },
+ "c156": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c158": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c163": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c164": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c167": {
+  "action": "part",
+  "object_id": "door_living_hall"
+ },
+ "c169": {
+  "action": "duplicate",
+  "object_id": "plate_04"
+ },
+ "c170": {
+  "action": "part",
+  "object_id": "mirror_east"
+ },
+ "c177": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c178": {
+  "action": "part",
+  "object_id": "mirror_east"
+ },
+ "c180": {
+  "action": "duplicate",
+  "object_id": "cable_tv_left_drop"
+ },
+ "c182": {
+  "action": "built",
+  "object_id": "plate_03"
+ },
+ "c187": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c188": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c192": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c195": {
+  "action": "built",
+  "object_id": "switch_kitchen_wall"
+ },
+ "c196": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c197": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c200": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c203": {
+  "action": "part",
+  "object_id": "sofa_loveseat"
+ },
+ "c204": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c205": {
+  "action": "duplicate",
+  "object_id": "switch_east_wall"
+ },
+ "c206": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c210": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c217": {
+  "action": "part",
+  "object_id": "rug_main"
+ },
+ "c219": {
+  "action": "part",
+  "object_id": "television"
+ },
+ "c221": {
+  "action": "built",
+  "object_id": "phone_handset"
+ },
+ "c223": {
+  "action": "part",
+  "object_id": "television"
+ },
+ "c225": {
+  "action": "duplicate",
+  "object_id": "cable_ethernet_yellow"
+ },
+ "c226": {
+  "action": "part",
+  "object_id": "door_kitchen"
+ },
+ "c227": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c228": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c233": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c236": {
+  "action": "duplicate",
+  "object_id": "cable_wall_plug"
+ },
+ "c241": {
+  "action": "duplicate",
+  "object_id": "switch_east_wall"
+ },
+ "c242": {
+  "action": "duplicate",
+  "object_id": "cable_tv_left_drop"
+ },
+ "c243": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c249": {
+  "action": "built",
+  "object_id": "plug_adapter_01"
+ },
+ "c255": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c256": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c257": {
+  "action": "skipped",
+  "reason": "Reflection of the plate in the east-wall mirror (mirror_east, x=2.3); the real object is modeled at its true position"
+ },
+ "c258": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c260": {
+  "action": "part",
+  "object_id": "door_living_hall"
+ },
+ "c261": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c264": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c270": {
+  "action": "duplicate",
+  "object_id": "plug_wall_lamp_corner"
+ },
+ "c273": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c275": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c279": {
+  "action": "built",
+  "object_id": "plug_adapter_04"
+ },
+ "c280": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c282": {
+  "action": "part",
+  "object_id": "rug_main"
+ },
+ "c286": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c288": {
+  "action": "part",
+  "object_id": "mirror_east"
+ },
+ "c292": {
+  "action": "duplicate",
+  "object_id": "cable_tv_left_drop"
+ },
+ "c293": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c295": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c296": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c297": {
+  "action": "built",
+  "object_id": "cable_floor_bundle"
+ },
+ "c304": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c308": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c309": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c310": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c311": {
+  "action": "built",
+  "object_id": "outlet_behind_tv"
+ },
+ "c314": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c315": {
+  "action": "duplicate",
+  "object_id": "power_strip_sofa"
+ },
+ "c319": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_west"
+ },
+ "c320": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c321": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c323": {
+  "action": "duplicate",
+  "object_id": "blind_south"
+ },
+ "c324": {
+  "action": "skipped",
+  "reason": "Reflection of the bowl in the east-wall mirror (mirror_east, x=2.3); the real object is modeled at its true position"
+ },
+ "c326": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_east"
+ },
+ "c327": {
+  "action": "built",
+  "object_id": "string_light_wall"
+ },
+ "c328": {
+  "action": "part",
+  "object_id": "mirror_east"
+ },
+ "c329": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c330": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c331": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c334": {
+  "action": "built",
+  "object_id": "plug_adapter_05"
+ },
+ "c335": {
+  "action": "duplicate",
+  "object_id": "cable_floor_bundle"
+ },
+ "c337": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c339": {
+  "action": "duplicate",
+  "object_id": "pillow_sofa_north"
+ },
+ "c340": {
+  "action": "built",
+  "object_id": "plate_04"
+ },
+ "c343": {
+  "action": "built",
+  "object_id": "clock_carriage"
+ },
+ "c344": {
+  "action": "duplicate",
+  "object_id": "cable_floor_bundle"
+ },
+ "c345": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c346": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c349": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c350": {
+  "action": "duplicate",
+  "object_id": "cable_sofa_black"
+ },
+ "c354": {
+  "action": "duplicate",
+  "object_id": "hall_runner_rug"
+ },
+ "c356": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c357": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c362": {
+  "action": "built",
+  "object_id": "chandelier_west"
+ },
+ "c366": {
+  "action": "duplicate",
+  "object_id": "plate_04"
+ },
+ "c369": {
+  "action": "duplicate",
+  "object_id": "cable_tv_left_drop"
+ },
+ "c370": {
+  "action": "built",
+  "object_id": "plug_adapter_03"
+ },
+ "c371": {
+  "action": "duplicate",
+  "object_id": "plug_adapter_05"
+ },
+ "c372": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_east"
+ },
+ "c377": {
+  "action": "duplicate",
+  "object_id": "pillow_sofa_north"
+ },
+ "c380": {
+  "action": "duplicate",
+  "object_id": "outlet_lamp_corner"
+ },
+ "c385": {
+  "action": "built",
+  "object_id": "cable_wall_plug"
+ },
+ "c387": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_east"
+ },
+ "c388": {
+  "action": "part",
+  "object_id": "door_living_hall"
+ },
+ "c389": {
+  "action": "duplicate",
+  "object_id": "cable_tv_left_drop"
+ },
+ "c390": {
+  "action": "built",
+  "object_id": "plug_adapter_02"
+ },
+ "c391": {
+  "action": "built",
+  "object_id": "kitchen_cabinets_west"
+ },
+ "c392": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c394": {
+  "action": "duplicate",
+  "object_id": "plate_02"
+ },
+ "c399": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_west"
+ },
+ "c400": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c405": {
+  "action": "part",
+  "object_id": "door_hall_closed"
+ },
+ "c407": {
+  "action": "duplicate",
+  "object_id": "cable_floor_bundle"
+ },
+ "c408": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c409": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c413": {
+  "action": "built",
+  "object_id": "oven_builtin"
+ },
+ "c414": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c415": {
+  "action": "skipped",
+  "reason": "Reflection of lights in the east-wall mirror (mirror_east), not a physical object at that place"
+ },
+ "c417": {
+  "action": "duplicate",
+  "object_id": "plate_01"
+ },
+ "c419": {
+  "action": "built",
+  "object_id": "switch_east_wall"
+ },
+ "c420": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c424": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c425": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c426": {
+  "action": "skipped",
+  "reason": "Reflection of lights in the east-wall mirror (mirror_east), not a physical object at that place"
+ },
+ "c431": {
+  "action": "skipped",
+  "reason": "Reflection of lights in the east-wall mirror (mirror_east), not a physical object at that place"
+ },
+ "c441": {
+  "action": "duplicate",
+  "object_id": "plug_adapter_03"
+ },
+ "c446": {
+  "action": "duplicate",
+  "object_id": "switch_east_wall"
+ },
+ "c447": {
+  "action": "built",
+  "object_id": "cable_tv_left_drop"
+ },
+ "c449": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c452": {
+  "action": "built",
+  "object_id": "power_strip_lamp"
+ },
+ "c454": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c457": {
+  "action": "duplicate",
+  "object_id": "cable_floor_bundle"
+ },
+ "c458": {
+  "action": "duplicate",
+  "object_id": "plug_adapter_03"
+ },
+ "c462": {
+  "action": "part",
+  "object_id": "chandelier_east"
+ },
+ "c463": {
+  "action": "skipped",
+  "reason": "Blue item at the frame edge immediately in front of the camera in frames 709 and 739 only, moving with the camera: the operator's blue shoe cover, not a room object"
+ },
+ "c464": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c467": {
+  "action": "built",
+  "object_id": "plug_wall_lamp_corner"
+ },
+ "c469": {
+  "action": "part",
+  "object_id": "kitchen_cabinets_west"
+ },
+ "c474": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c478": {
+  "action": "duplicate",
+  "object_id": "cable_floor_bundle"
+ },
+ "c481": {
+  "action": "part",
+  "object_id": "christmas_tree"
+ },
+ "c485": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c487": {
+  "action": "part",
+  "object_id": "string_light_wall"
+ },
+ "c489": {
+  "action": "skipped",
+  "reason": "Reflection of lights in the east-wall mirror (mirror_east), not a physical object at that place"
+ }
+}

@@ -1,0 +1,586 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "microwave"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "sofa-l"
+ },
+ "c002": {
+  "action": "built",
+  "object_id": "rug-red"
+ },
+ "c003": {
+  "action": "duplicate",
+  "object_id": "sofa-l"
+ },
+ "c004": {
+  "action": "built",
+  "object_id": "cushion-1"
+ },
+ "c005": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c006": {
+  "action": "built",
+  "object_id": "pedal-bin"
+ },
+ "c007": {
+  "action": "built",
+  "object_id": "dining-chair-4"
+ },
+ "c008": {
+  "action": "built",
+  "object_id": "dining-chair-2"
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "dining-chair-3"
+ },
+ "c012": {
+  "action": "built",
+  "object_id": "cushion-2"
+ },
+ "c013": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c015": {
+  "action": "built",
+  "object_id": "sink"
+ },
+ "c017": {
+  "action": "duplicate",
+  "object_id": "pedal-bin"
+ },
+ "c018": {
+  "action": "built",
+  "object_id": "kitchen-base-south"
+ },
+ "c019": {
+  "action": "built",
+  "object_id": "hob"
+ },
+ "c020": {
+  "action": "built",
+  "object_id": "armchair"
+ },
+ "c021": {
+  "action": "duplicate",
+  "object_id": "cushion-2"
+ },
+ "c022": {
+  "action": "built",
+  "object_id": "kitchen-base-north"
+ },
+ "c023": {
+  "action": "built",
+  "object_id": "coffee-table"
+ },
+ "c024": {
+  "action": "built",
+  "object_id": "toaster"
+ },
+ "c025": {
+  "action": "built",
+  "object_id": "tea-towel"
+ },
+ "c026": {
+  "action": "built",
+  "object_id": "side-table"
+ },
+ "c027": {
+  "action": "duplicate",
+  "object_id": "dining-chair-4",
+  "note": "chair seen from the corridor; depth offset toward the doorway"
+ },
+ "c028": {
+  "action": "built",
+  "object_id": "dining-table"
+ },
+ "c029": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c031": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c032": {
+  "action": "duplicate",
+  "object_id": "dining-table"
+ },
+ "c033": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c035": {
+  "action": "duplicate",
+  "object_id": "cushion-1"
+ },
+ "c039": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c040": {
+  "action": "part",
+  "object_id": "dining-chair-1"
+ },
+ "c042": {
+  "action": "duplicate",
+  "object_id": "kitchen-base-south"
+ },
+ "c044": {
+  "action": "part",
+  "object_id": "dining-chair-1"
+ },
+ "c045": {
+  "action": "part",
+  "object_id": "dining-chair-3"
+ },
+ "c047": {
+  "action": "built",
+  "object_id": "oven"
+ },
+ "c049": {
+  "action": "duplicate",
+  "object_id": "armchair"
+ },
+ "c050": {
+  "action": "duplicate",
+  "object_id": "dining-chair-3"
+ },
+ "c051": {
+  "action": "built",
+  "object_id": "radiator-east"
+ },
+ "c052": {
+  "action": "part",
+  "object_id": "arc-floor-lamp"
+ },
+ "c053": {
+  "action": "part",
+  "object_id": "arc-floor-lamp"
+ },
+ "c054": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c055": {
+  "action": "part",
+  "object_id": "dining-chair-1"
+ },
+ "c056": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c058": {
+  "action": "duplicate",
+  "object_id": "table-sculpture",
+  "note": "labelled chair; same black ornament on the dining table"
+ },
+ "c060": {
+  "action": "duplicate",
+  "object_id": "rug-red"
+ },
+ "c062": {
+  "action": "built",
+  "object_id": "kettle"
+ },
+ "c064": {
+  "action": "part",
+  "object_id": "dining-chair-4"
+ },
+ "c065": {
+  "action": "part",
+  "object_id": "arc-floor-lamp"
+ },
+ "c066": {
+  "action": "part",
+  "object_id": "arc-floor-lamp"
+ },
+ "c068": {
+  "action": "built",
+  "object_id": "wall-clock-kitchen"
+ },
+ "c069": {
+  "action": "part",
+  "object_id": "arc-floor-lamp"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "dishwasher"
+ },
+ "c072": {
+  "action": "built",
+  "object_id": "downlight-5"
+ },
+ "c073": {
+  "action": "duplicate",
+  "object_id": "coffee-table"
+ },
+ "c075": {
+  "action": "part",
+  "object_id": "kitchen-base-east"
+ },
+ "c076": {
+  "action": "part",
+  "object_id": "sofa-l"
+ },
+ "c077": {
+  "action": "duplicate",
+  "object_id": "coffee-table",
+  "note": "coffee table detection with a wrong floor-level position (seen at frame 935)"
+ },
+ "c078": {
+  "action": "built",
+  "object_id": "dining-chair-1"
+ },
+ "c079": {
+  "action": "built",
+  "object_id": "downlight-6"
+ },
+ "c080": {
+  "action": "built",
+  "object_id": "downlight-1"
+ },
+ "c081": {
+  "action": "built",
+  "object_id": "table-sculpture",
+  "note": "labelled chair; crop is the black block ornament on the dining table"
+ },
+ "c082": {
+  "action": "built",
+  "object_id": "kitchen-base-east"
+ },
+ "c083": {
+  "action": "built",
+  "object_id": "downlight-3"
+ },
+ "c085": {
+  "action": "part",
+  "object_id": "kitchen-base-north"
+ },
+ "c086": {
+  "action": "built",
+  "object_id": "downlight-2"
+ },
+ "c087": {
+  "action": "part",
+  "object_id": "dining-table"
+ },
+ "c088": {
+  "action": "part",
+  "object_id": "sofa-l"
+ },
+ "c090": {
+  "action": "built",
+  "object_id": "floor-photo"
+ },
+ "c092": {
+  "action": "duplicate",
+  "object_id": "downlight-6"
+ },
+ "c093": {
+  "action": "built",
+  "object_id": "wall-lamp-n2"
+ },
+ "c095": {
+  "action": "part",
+  "object_id": "sofa-l"
+ },
+ "c096": {
+  "action": "duplicate",
+  "object_id": "downlight-3"
+ },
+ "c097": {
+  "action": "duplicate",
+  "object_id": "downlight-2"
+ },
+ "c098": {
+  "action": "duplicate",
+  "object_id": "downlight-2"
+ },
+ "c099": {
+  "action": "duplicate",
+  "object_id": "side-table"
+ },
+ "c100": {
+  "action": "duplicate",
+  "object_id": "downlight-6"
+ },
+ "c101": {
+  "action": "duplicate",
+  "object_id": "downlight-4"
+ },
+ "c102": {
+  "action": "built",
+  "object_id": "downlight-4"
+ },
+ "c103": {
+  "action": "duplicate",
+  "object_id": "downlight-4"
+ },
+ "c107": {
+  "action": "duplicate",
+  "object_id": "radiator-east"
+ },
+ "c108": {
+  "action": "part",
+  "object_id": "dining-chair-3"
+ },
+ "c109": {
+  "action": "duplicate",
+  "object_id": "kitchen-base-east"
+ },
+ "c111": {
+  "action": "built",
+  "object_id": "wall-lamp-s1"
+ },
+ "c112": {
+  "action": "duplicate",
+  "object_id": "downlight-6"
+ },
+ "c113": {
+  "action": "duplicate",
+  "object_id": "downlight-2"
+ },
+ "c114": {
+  "action": "duplicate",
+  "object_id": "dining-chair-3"
+ },
+ "c115": {
+  "action": "duplicate",
+  "object_id": "downlight-5"
+ },
+ "c116": {
+  "action": "duplicate",
+  "object_id": "downlight-1"
+ },
+ "c120": {
+  "action": "part",
+  "object_id": "kitchen-tall-unit"
+ },
+ "c122": {
+  "action": "duplicate",
+  "object_id": "kitchen-base-east"
+ },
+ "c123": {
+  "action": "duplicate",
+  "object_id": "downlight-4"
+ },
+ "c124": {
+  "action": "built",
+  "object_id": "light-switch-living"
+ },
+ "c126": {
+  "action": "part",
+  "object_id": "kitchen-base-north"
+ },
+ "c127": {
+  "action": "duplicate",
+  "object_id": "wall-lamp-n2"
+ },
+ "c128": {
+  "action": "part",
+  "object_id": "kitchen-base-east"
+ },
+ "c129": {
+  "action": "duplicate",
+  "object_id": "radiator-east"
+ },
+ "c130": {
+  "action": "part",
+  "object_id": "wall-clock-kitchen",
+  "note": "glint on the kitchen wall clock face"
+ },
+ "c131": {
+  "action": "built",
+  "object_id": "wall-lamp-n1"
+ },
+ "c132": {
+  "action": "duplicate",
+  "object_id": "cushion-1"
+ },
+ "c133": {
+  "action": "built",
+  "object_id": "arc-floor-lamp"
+ },
+ "c135": {
+  "action": "part",
+  "object_id": "kitchen-base-north"
+ },
+ "c136": {
+  "action": "part",
+  "object_id": "kitchen-splashback",
+  "note": "top edge of the grey glass splashback band"
+ },
+ "c137": {
+  "action": "part",
+  "object_id": "wall-art-canvas",
+  "note": "Big Ben clock face printed in the canvas"
+ },
+ "c139": {
+  "action": "part",
+  "object_id": "coffee-table"
+ },
+ "c140": {
+  "action": "built",
+  "object_id": "faucet"
+ },
+ "c141": {
+  "action": "part",
+  "object_id": "dining-chair-2"
+ },
+ "c142": {
+  "action": "duplicate",
+  "object_id": "wall-lamp-n2"
+ },
+ "c143": {
+  "action": "part",
+  "object_id": "dining-chair-2"
+ },
+ "c145": {
+  "action": "part",
+  "object_id": "kitchen-base-north"
+ },
+ "c152": {
+  "action": "built",
+  "object_id": "kitchen-tall-unit"
+ },
+ "c153": {
+  "action": "part",
+  "object_id": "wall-art-photo",
+  "note": "printed figures (shoes) inside the black-and-white photo canvas"
+ },
+ "c154": {
+  "action": "part",
+  "object_id": "kitchen-tall-unit"
+ },
+ "c155": {
+  "action": "duplicate",
+  "object_id": "wall-lamp-s1"
+ },
+ "c156": {
+  "action": "built",
+  "object_id": "coffee-machine",
+  "note": "labelled kettle by the detector; crop is the black capsule coffee machine beside the microwave"
+ },
+ "c157": {
+  "action": "part",
+  "object_id": "wall-art-canvas"
+ },
+ "c158": {
+  "action": "duplicate",
+  "object_id": "sink"
+ },
+ "c159": {
+  "action": "duplicate",
+  "object_id": "downlight-5",
+  "note": "kitchen downlight seen through the doorway; Pi3X depth placed it on the glossy tall unit"
+ },
+ "c160": {
+  "action": "duplicate",
+  "object_id": "wall-lamp-n1"
+ },
+ "c162": {
+  "action": "duplicate",
+  "object_id": "faucet"
+ },
+ "c165": {
+  "action": "duplicate",
+  "object_id": "light-switch-living"
+ },
+ "c166": {
+  "action": "built",
+  "object_id": "smoke-detector-living"
+ },
+ "c167": {
+  "action": "part",
+  "object_id": "kitchen-base-east"
+ },
+ "c168": {
+  "action": "part",
+  "object_id": "kitchen-base-east"
+ },
+ "c169": {
+  "action": "duplicate",
+  "object_id": "downlight-3"
+ },
+ "c170": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c173": {
+  "action": "part",
+  "object_id": "kitchen-base-north"
+ },
+ "c178": {
+  "action": "part",
+  "object_id": "wall-art-canvas",
+  "note": "lamppost printed in the canvas"
+ },
+ "c179": {
+  "action": "part",
+  "object_id": "sofa-l"
+ },
+ "c185": {
+  "action": "part",
+  "object_id": "wall-art-canvas"
+ },
+ "c186": {
+  "action": "duplicate",
+  "object_id": "wall-lamp-n2"
+ },
+ "c187": {
+  "action": "part",
+  "object_id": "wall-art-photo"
+ },
+ "c188": {
+  "action": "duplicate",
+  "object_id": "downlight-5"
+ },
+ "c192": {
+  "action": "part",
+  "object_id": "wall-art-photo"
+ },
+ "c193": {
+  "action": "built",
+  "object_id": "radiator-west"
+ },
+ "c197": {
+  "action": "part",
+  "object_id": "kitchen-base-east"
+ },
+ "c201": {
+  "action": "part",
+  "object_id": "kitchen-base-north"
+ },
+ "c205": {
+  "action": "duplicate",
+  "object_id": "light-switch-living"
+ },
+ "c211": {
+  "action": "part",
+  "object_id": "wall-art-photo"
+ },
+ "c214": {
+  "action": "part",
+  "object_id": "wall-art-photo"
+ },
+ "c216": {
+  "action": "part",
+  "object_id": "wall-art-photo"
+ },
+ "c221": {
+  "action": "part",
+  "object_id": "wall-art-canvas",
+  "note": "tree printed in the canvas"
+ },
+ "c222": {
+  "action": "part",
+  "object_id": "wall-art-canvas"
+ }
+}

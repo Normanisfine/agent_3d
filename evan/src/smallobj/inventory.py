@@ -36,7 +36,8 @@ def fuse(per_frame: list, iou_min: float = 0.25) -> list:
         rec = boxes.record(f"{top.get('source', 'det')[:1]}{k:03d}", top["category"], center, top["yaw"], size,
                            confidence=float(w.max()), source=top.get("source", "det"))
         rec.update(item_id=rec["object_id"], score=float(w.max()), best_frame=top.get("frame"),
-                   bbox2d_xyxy=top.get("bbox2d_xyxy"), n_frames=len(c))
+                   bbox2d_xyxy=top.get("bbox2d_xyxy"), n_frames=len(c),
+                   det_sources=sorted({d.get("det_source", "full") for d in c}))
         out.append(rec)
     return out
 

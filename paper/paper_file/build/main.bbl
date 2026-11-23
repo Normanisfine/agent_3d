@@ -6,6 +6,14 @@
 \newblock Software. Inspected revision
   82f4b1110cfe4b55fff19df3b3790852ce07b171.
 
+\bibitem{sahi}
+Fatih~Cagatay Akyon, Sinan~Onur Altinuc, and Alptekin Temizel.
+\newblock Slicing aided hyper inference and fine-tuning for small object
+  detection.
+\newblock In {\em 2022 IEEE International Conference on Image Processing
+  (ICIP)}, pages 966--970, 2022.
+\newblock \url{https://doi.org/10.1109/ICIP46576.2022.9897990}.
+
 \bibitem{scan2cad}
 Armen Avetisyan, Manuel D{\"a}hnert, Angela Dai, Manolis Savva, Angel~X. Chang,
   and Matthias Nie{\ss}ner.
@@ -104,7 +112,7 @@ Justin Lazarow, David Griffiths, Gefen Kohavi, Francisco Crespo, and Afshin
   Dehghan.
 \newblock Cubify anything: Scaling indoor 3d object detection.
 \newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
-  Pattern Recognition}, 2025.
+  Pattern Recognition}, pages 22225--22233, 2025.
 \newblock \url{https://machinelearning.apple.com/research/cubify-anything}.
 
 \bibitem{legoanything}
@@ -137,6 +145,14 @@ Ruicheng Wang, Sicheng Xu, Yue Dong, Yu~Deng, Jianfeng Xiang, Zelong Lv,
 \newblock {\em \href{https://arxiv.org/abs/2507.02546}{arXiv:2507.02546}},
   2025.
 
+\bibitem{pi3}
+Yifan Wang, Jianjun Zhou, Haoyi Zhu, Wenzheng Chang, Yang Zhou, Zizun Li, Junyi
+  Chen, Jiangmiao Pang, Chunhua Shen, and Tong He.
+\newblock $\pi^3$: Permutation-equivariant visual geometry learning.
+\newblock In {\em The Fourteenth International Conference on Learning
+  Representations}, 2026.
+\newblock \url{https://arxiv.org/abs/2507.13347}.
+
 \bibitem{viga}
 Shaofeng Yin, Jiaxin Ge, Zora~Zhiruo Wang, Chenyang Wang, Xiuyu Li, Michael~J.
   Black, Trevor Darrell, Angjoo Kanazawa, and Haiwen Feng.
@@ -144,5 +160,13 @@ Shaofeng Yin, Jiaxin Ge, Zora~Zhiruo Wang, Chenyang Wang, Xiuyu Li, Michael~J.
   reasoning.
 \newblock {\em \href{https://arxiv.org/abs/2601.11109}{arXiv:2601.11109}},
   2026.
+
+\bibitem{hunyuan3d2}
+Zibo Zhao, Zeqiang Lai, Qingxiang Lin, Yunfei Zhao, Haolin Liu, Shuhui Yang,
+  et~al.
+\newblock {Hunyuan3D} 2.0: Scaling diffusion models for high resolution
+  textured {3D} assets generation.
+\newblock {\em \href{https://arxiv.org/abs/2501.12202}{arXiv:2501.12202}},
+  2025.
 
 \end{thebibliography}

@@ -1,0 +1,410 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "nightstand"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "table-lamp"
+ },
+ "c002": {
+  "action": "built",
+  "object_id": "radiator"
+ },
+ "c003": {
+  "action": "built",
+  "object_id": "dresser"
+ },
+ "c004": {
+  "action": "built",
+  "object_id": "cushion-north"
+ },
+ "c005": {
+  "action": "skipped",
+  "reason": "Camera operator reflected in the wall mirror (frame 456); a transient person, not static room content"
+ },
+ "c006": {
+  "action": "built",
+  "object_id": "trash-can-bedroom"
+ },
+ "c007": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c008": {
+  "action": "built",
+  "object_id": "bed"
+ },
+ "c009": {
+  "action": "duplicate",
+  "object_id": "nightstand"
+ },
+ "c010": {
+  "action": "built",
+  "object_id": "socket-south"
+ },
+ "c012": {
+  "action": "duplicate",
+  "object_id": "pillow-north-front"
+ },
+ "c013": {
+  "action": "built",
+  "object_id": "bath-pedal-bin"
+ },
+ "c014": {
+  "action": "duplicate",
+  "object_id": "bed-throw"
+ },
+ "c015": {
+  "action": "duplicate",
+  "object_id": "cushion-north"
+ },
+ "c016": {
+  "action": "built",
+  "object_id": "poster-card"
+ },
+ "c017": {
+  "action": "part",
+  "object_id": "poster-card"
+ },
+ "c018": {
+  "action": "built",
+  "object_id": "towel-roll-standing"
+ },
+ "c019": {
+  "action": "duplicate",
+  "object_id": "table-lamp"
+ },
+ "c020": {
+  "action": "duplicate",
+  "object_id": "towel-roll-lying"
+ },
+ "c021": {
+  "action": "duplicate",
+  "object_id": "switch-south-b"
+ },
+ "c022": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c023": {
+  "action": "part",
+  "object_id": "bathroom-shell"
+ },
+ "c024": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c025": {
+  "action": "duplicate",
+  "object_id": "pillow-north-front"
+ },
+ "c028": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c029": {
+  "action": "built",
+  "object_id": "wall-mirror"
+ },
+ "c030": {
+  "action": "duplicate",
+  "object_id": "pillow-north-back"
+ },
+ "c031": {
+  "action": "duplicate",
+  "object_id": "bath-sink"
+ },
+ "c032": {
+  "action": "built",
+  "object_id": "wardrobe"
+ },
+ "c033": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c036": {
+  "action": "built",
+  "object_id": "switch-south-a"
+ },
+ "c037": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c038": {
+  "action": "part",
+  "object_id": "bathroom-shell"
+ },
+ "c039": {
+  "action": "built",
+  "object_id": "towel-bath-1"
+ },
+ "c040": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c041": {
+  "action": "duplicate",
+  "object_id": "switch-south-b"
+ },
+ "c045": {
+  "action": "duplicate",
+  "object_id": "switch-south-a"
+ },
+ "c046": {
+  "action": "part",
+  "object_id": "hallway-shell"
+ },
+ "c048": {
+  "action": "duplicate",
+  "object_id": "bath-mirror-cabinet"
+ },
+ "c050": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c051": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c052": {
+  "action": "duplicate",
+  "object_id": "pillow-south-front"
+ },
+ "c053": {
+  "action": "built",
+  "object_id": "bath-sink"
+ },
+ "c056": {
+  "action": "built",
+  "object_id": "pillow-north-front"
+ },
+ "c057": {
+  "action": "duplicate",
+  "object_id": "pillow-south-back"
+ },
+ "c058": {
+  "action": "part",
+  "object_id": "door-bathroom"
+ },
+ "c060": {
+  "action": "built",
+  "object_id": "cushion-south"
+ },
+ "c061": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c062": {
+  "action": "built",
+  "object_id": "switch-south-b"
+ },
+ "c063": {
+  "action": "built",
+  "object_id": "towel-roll-lying"
+ },
+ "c064": {
+  "action": "part",
+  "object_id": "hallway-shell"
+ },
+ "c065": {
+  "action": "built",
+  "object_id": "towel-hand-folded"
+ },
+ "c068": {
+  "action": "built",
+  "object_id": "bath-toilet"
+ },
+ "c069": {
+  "action": "part",
+  "object_id": "bath-sink"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "towel-bath-2"
+ },
+ "c071": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c073": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c075": {
+  "action": "part",
+  "object_id": "poster-card"
+ },
+ "c076": {
+  "action": "part",
+  "object_id": "poster-card"
+ },
+ "c077": {
+  "action": "duplicate",
+  "object_id": "wardrobe"
+ },
+ "c081": {
+  "action": "built",
+  "object_id": "pillow-north-back"
+ },
+ "c082": {
+  "action": "part",
+  "object_id": "hallway-shell"
+ },
+ "c084": {
+  "action": "built",
+  "object_id": "socket-west-bed"
+ },
+ "c085": {
+  "action": "built",
+  "object_id": "bed-throw"
+ },
+ "c086": {
+  "action": "built",
+  "object_id": "pillow-south-back"
+ },
+ "c088": {
+  "action": "built",
+  "object_id": "bath-towel-rail"
+ },
+ "c090": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c091": {
+  "action": "duplicate",
+  "object_id": "radiator"
+ },
+ "c095": {
+  "action": "built",
+  "object_id": "pillow-south-front"
+ },
+ "c097": {
+  "action": "part",
+  "object_id": "bed"
+ },
+ "c099": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c101": {
+  "action": "duplicate",
+  "object_id": "socket-south"
+ },
+ "c105": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c106": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c108": {
+  "action": "part",
+  "object_id": "bath-shower"
+ },
+ "c109": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c110": {
+  "action": "duplicate",
+  "object_id": "towel-roll-lying"
+ },
+ "c113": {
+  "action": "duplicate",
+  "object_id": "towel-bath-2"
+ },
+ "c114": {
+  "action": "duplicate",
+  "object_id": "switch-south-b"
+ },
+ "c122": {
+  "action": "duplicate",
+  "object_id": "wardrobe"
+ },
+ "c123": {
+  "action": "skipped",
+  "reason": "10-pixel crop at the top-left frame corner of frame 476 with no identifiable outlet; no outlet is visible on the east wall above the dresser in frames 497/538"
+ },
+ "c124": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c125": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c126": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c127": {
+  "action": "part",
+  "object_id": "dresser"
+ },
+ "c128": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c132": {
+  "action": "duplicate",
+  "object_id": "bed-throw"
+ },
+ "c133": {
+  "action": "duplicate",
+  "object_id": "socket-south"
+ },
+ "c135": {
+  "action": "part",
+  "object_id": "bed"
+ },
+ "c136": {
+  "action": "part",
+  "object_id": "bed"
+ },
+ "c138": {
+  "action": "skipped",
+  "reason": "Dark region at the frame-0 edge near the floor south of the bed; no object at (-1.21,-0.05) in other views (frames 41, 186, 456) - bed-base side / camera-operator foot, not a static object"
+ },
+ "c140": {
+  "action": "duplicate",
+  "object_id": "bed-throw"
+ },
+ "c141": {
+  "action": "skipped",
+  "reason": "Dark sliver at the left edge of frame 621; nothing is on the floor at (-1.13,-0.10) in frames 41/186/456 (bed-side shadow / camera-operator foot)"
+ },
+ "c151": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c152": {
+  "action": "duplicate",
+  "object_id": "bed-throw"
+ },
+ "c153": {
+  "action": "duplicate",
+  "object_id": "switch-south-a"
+ },
+ "c156": {
+  "action": "part",
+  "object_id": "skirting-bedroom"
+ },
+ "c157": {
+  "action": "built",
+  "object_id": "bath-mirror-cabinet"
+ },
+ "c158": {
+  "action": "part",
+  "object_id": "bed"
+ },
+ "c163": {
+  "action": "duplicate",
+  "object_id": "switch-south-b"
+ },
+ "c164": {
+  "action": "duplicate",
+  "object_id": "switch-south-a"
+ }
+}

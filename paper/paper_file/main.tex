@@ -29,17 +29,21 @@
 \maketitle
 \begin{abstract}
 A reconstructed room can contain a sofa and a coffee table while omitting
-the objects a robot could pick up. Across six CA-1M rooms, the AHa-3D baseline correctly
-placed 6 of 543 objects under 50\,cm. Extending the task to every
-visible object raised the count to 71, with a gain in every room. Detector
-crops and boxes raised it to 101. A revised inventory that the agent must
-resolve entry by entry raised it to 142, and to 155 in a second run, although
-its lead over the detector inventory is not significant on six rooms.
-Image-to-3D generation gave no further gain in the three rooms
-where we tested it. Half of the small targets the best variant matched were
-misplaced, most by center offset alone, and the inventory's own boxes,
-scored without an agent, passed for 194 targets: detection now finds more
-small objects than the agent places well.
+the objects a robot could pick up. We measure this omission in AHa-3D, an
+agent that rebuilds a room in Blender from a handheld video, and close about
+half of it with three changes to what the agent is asked and given. On six
+held-out CA-1M rooms, AHa-3D correctly placed 6 of 543 annotated objects
+under 50\,cm and left 531 with no reconstruction at all. Asking for every
+visible object raised the count to 71, a detector's inventory of boxes and
+crops to 101, and a denser checklist on which the agent records a decision
+for every entry to 142, and to 155 in a second run. Every variant beat the
+baseline in every room, objects under 20\,cm went from none to 50, and
+correct placements of all sizes rose from 83 to 284 of 857. Image-to-3D
+generation gave no further gain in the three rooms where we tested it. The
+checklist's own boxes, scored without an agent, pass for 194 targets, and
+most misplaced objects miss by center offset alone: detection already finds
+more small objects than the agent places, and placement is the clear next
+step.
 We also implement two controllers that build independent
 objects concurrently and review edits before updating the room. Four workers
 reduced build time from 11.32 to 6.63 seconds in a controlled Blender test
@@ -54,15 +58,21 @@ instance. Giving existing parts, including a sofa cushion, their own identities
 raised that count to four without moving any geometry. Real rooms show the
 same omission (Figure~\ref{fig:qual}).
 
-Our method expands reconstruction to every visible object, then supplies detector
-crops and locations for candidate instances, and finally requires a decision on
-every entry of a denser inventory. CA-1M's annotated boxes~\cite{ca1m}
-let us evaluate each change and the effect of mesh generation on placement.
+We make three changes to AHa-3D, each added to the one before. \emph{All
+objects} asks for every visible object as a separate instance.
+\emph{Inventory} adds a detector's 3D boxes and image crops.
+\emph{Checklist} replaces that inventory with a denser one and requires a
+recorded decision on every entry. CA-1M's annotated boxes~\cite{ca1m} let us
+score each change, and the effect of mesh generation, with three outcomes
+per object: correctly placed, misplaced or never built. Together the changes
+raise correct placements under 50\,cm from 6 of 543 to 142, more than
+twentyfold, and about half of that gain comes from the first and simplest
+one.
 A reconstructed coffee table provides a separate test of how objects respond to a push.
 
 \textbf{Where AHa-3D falls short.}
-With its major-object instructions, AHa-3D correctly placed only 6 of 543
-objects under 50\,cm by center and size across six held-out CA-1M rooms.
+With its major-object instructions, AHa-3D left 531 of the 543 objects
+under 50\,cm in six held-out CA-1M rooms without any reconstruction.
 Its runs averaged 62 minutes and an estimated \$14.13 in
 driving-agent tokens per room. In the AI2-THOR example, a single Blender script built the
 furniture sequentially, and the workflow took 42 minutes to hand off a scene
@@ -92,6 +102,20 @@ support and collisions~\cite{literealityagent}. Our input is RGB video. After al
 trajectories for scoring, we measure placement recall by object size, counting
 targets that the agent never attempted.
 
+\textbf{Finding small objects.}
+CA-1M annotates rooms exhaustively with 3D boxes, including objects under
+20\,cm~\cite{ca1m}, and Boxer lifts open-world 2D detections to 3D
+boxes~\cite{boxer}. A small object covers few pixels of a full frame, and
+detecting again in overlapping zoomed windows recovers many that a single
+pass misses~\cite{sahi}. SceneRig uses such a stage with SAM~3 when it
+reconstructs a scene from one image~\cite{scenerig,sam3}. Lifting a mask to
+a 3D box needs depth, which monocular geometry models such as MoGe-2 now
+predict at metric scale~\cite{moge2}, and feed-forward multi-view models
+such as $\pi^3$ recover cameras and points from the video
+itself~\cite{pi3}. We build our
+inventories from these parts and ask what follows detection: how many of the
+listed objects an agent then builds in the right place.
+
 \textbf{Where to spend inference.}
 Fast-SAM3D accelerates single-view asset generation by caching intermediate
 computation and reducing redundant tokens~\cite{fastsam3d}. At the workflow level,
@@ -119,12 +143,17 @@ we divide the total cost of all attempts by the number of accepted rooms.
 \section{Experiments}
 \subsection{Experimental setting}
 Our primary evaluation uses CA-1M handheld RGB video and annotated 3D
-boxes~\cite{ca1m}. We first compare the baseline, All objects, Inventory and
-both generation policies on three held-out rooms, using the same
-reconstruction model, reference geometry and a single seed. These rooms
-contain 513 target objects, including 174 with longest sides from 20 to
-under 50\,cm. The baseline, All objects, Inventory and Checklist then run on
-six held-out rooms with 857 targets, and Checklist runs twice. We score every
+boxes~\cite{ca1m}. A seeded split made before any agent run set aside 5
+development and 15 held-out rooms, and the held-out rooms were run in an
+order fixed in advance. The scoring thresholds were frozen before any
+held-out scene was scored, and prompts and the revised inventory were settled
+on the development rooms. The first three held-out rooms carry the
+baseline, All objects, Inventory and both generation policies (513 targets,
+174 of them from 20 to under 50\,cm). The first six carry the baseline, All
+objects, Inventory and Checklist (857 targets); they reuse the earlier runs
+of rooms 1 to 3, and Checklist runs twice. Every variant uses the same
+reference geometry and one run per room, driven by Claude Opus~5.5 at medium
+reasoning effort. We score every
 saved scene, including ones that failed the agent's own review. Boxer was
 trained in part on the CA-1M training set~\cite{boxer}.
 
@@ -151,22 +180,21 @@ annotated objects under 50\,cm correctly placed as an independent instance.}
 \section{Discussion}
 An agent can only repair an object's placement if it has first given that
 object a separate identity. Explicit instructions addressed this omission in
-every room. Detector crops helped locate additional targets, but by box
-overlap (Appendix~\ref{app:small}) Inventory's gain over All objects in the first three rooms shrinks
-from five placements to one, so a plausible center and size can still hide a
-placement error. The generation variants also depended on accurate localization.
+every room, and each inventory then located more targets: the share of
+objects under 50\,cm with a reconstruction rose from 2\% to 53\%. The generation variants also depended on accurate localization.
 
-Placement now limits the result more than detection does. With the
-checklist, the share of targets under 50\,cm with no counterpart fell from
-two thirds to under half, but half of the matched ones were misplaced, and
-the checklist's boxes alone passed for more targets than the agent's scenes.
+Detection is no longer the only limit. The checklist's boxes alone pass for
+more small targets than the agent's scenes, and most misplaced objects miss
+by a few centimeters of center offset.
 Anchoring each built instance to its checklist box, and letting the agent
 correct only what the renders contradict, is the natural next step.
 
 The comparison covers six rooms and one run per variant, with a second
-run for Checklist alone. Only the gain of All objects
-over the baseline is significant; the other differences are descriptive,
-and two rooms carry most of Checklist's lead. Box recall leaves category
+run for Checklist alone. Checklist changes the inventory and the decision
+rule together, so we cannot separate their effects. Every variant's gain over the baseline is significant; the differences
+among the three variants are descriptive, and two rooms carry most of
+Checklist's lead. A stricter box-overlap test keeps their order and narrows
+the gaps (Table~\ref{tab:six-rooms}). Box recall leaves category
 errors and fine shape outside its scope, and a third of the reconstructions
 it ignored in the first three rooms were real objects without annotations.
 The physics pilot needs measured
@@ -181,10 +209,12 @@ amounts of completed work and placement accuracy. Only the four-object test
 isolates the effect of parallel scheduling.
 
 \section{Conclusion}
-Across six rooms, the All objects instructions yielded 65 more correct
-placements under 50\,cm than the baseline. The detector inventory added 30
-and the checklist a further 41. Nearly half of these targets were still
-never built.
+Three changes to what a reconstruction agent is asked and given raised
+correct placements of objects under 50\,cm from 6 to 142 of 543 on six
+held-out rooms, with a gain over the baseline in every room, and more than
+half of these objects now have a reconstruction. The checklist's boxes
+already locate more of them than the agent places, so the next gain lies in
+placement.
 
 On FloorPlan209, agent supervision achieved the highest placement recall
 and carried the largest token cost. Python scheduling retained the

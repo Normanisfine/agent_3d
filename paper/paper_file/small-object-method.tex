@@ -1,13 +1,15 @@
 \subsection{Reconstructing and evaluating small objects}
 \label{sec:small-method}
 AHa-3D rebuilds a room's furniture and usually omits what stands on it
-(Figure~\ref{fig:qual}, second column). We evaluate variants that change how
-the agent identifies, locates and builds small objects, each added to the
-one before (Figure~\ref{fig:system}, bottom left).
+(Figure~\ref{fig:qual}, second column). A \emph{target} is an annotated
+CA-1M box, and an \emph{instance} is a group of mesh parts that the agent
+gave one identifier. We evaluate variants that change how the agent
+identifies, locates and builds small objects, each added to the one before;
+Figure~\ref{fig:system} (bottom left) draws the last of them.
 
 \textbf{All objects} switches AHa-3D from its major-object setting to its
 all-object setting (\texttt{precise}). Our prompt requires a distinct identifier for every visible
-item, so that a bottle's mesh parts form one editable \emph{instance} that can
+item, so that a bottle's mesh parts form one instance that can
 move independently of the table.
 
 \input{visual-evidence}
@@ -15,7 +17,7 @@ move independently of the table.
 with crops from the video. The agent builds each listed item or explains an
 omission, and can still build items Boxer missed. Two further variants let
 this agent call an image-to-mesh model,
-\href{https://huggingface.co/tencent/Hunyuan3D-2mini}{Hunyuan3D-2mini}, for
+\href{https://huggingface.co/tencent/Hunyuan3D-2mini}{Hunyuan3D-2mini}~\cite{hunyuan3d2}, for
 every object under 50\,cm (\textbf{Required generation}) or at its own
 discretion (\textbf{Selective generation}); a generated mesh that fails a
 check of silhouette, 3D points, dimensions and support is replaced by
@@ -34,11 +36,13 @@ of one category share a size.
 
 \textbf{Checklist} gives the agent the revised inventory in place of Boxer's.
 Same-category entries whose IoU exceeds 0.4, or whose centers lie within a
-fifth of the shorter box diagonal, are first reduced to one. The prompt states
-that the list is noisy on purpose, and the agent must record a decision for
-every entry: \emph{built} as its own instance, \emph{duplicate} of an
+fifth of the shorter box diagonal, are first reduced to one, which takes the
+six held-out rooms from 3{,}210 entries to 2{,}287, against 364 for Boxer.
+Inventory already asked the agent to build or explain each item. Checklist
+states that the list is noisy on purpose and widens the choice for every
+entry to four: \emph{built} as its own instance, \emph{duplicate} of an
 instance already built, \emph{part} of a larger object, or \emph{skipped}.
-An entry can then no longer be dropped silently. The thresholds and the
+It also tells the agent to build piled or lined-up objects one by one. The thresholds and the
 prompt were fixed on development rooms before any held-out run.
 
 \textbf{Camera alignment.}

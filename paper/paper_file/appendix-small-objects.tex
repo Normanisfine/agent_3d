@@ -51,26 +51,28 @@ Selective generation & 55.4 & 9.00 \\
 \end{table}
 
 \begin{table}[!htbp]
-\centering\small
+\centering\small\setlength{\tabcolsep}{4pt}
 \caption{Targets under 50\,cm in six held-out rooms (543 in total).
+Box overlap: correctly placed when $\operatorname{IoU}_{3\mathrm{D}}\ge 0.25$ replaces
+Eq.~\ref{eq:center-size}; the next two columns use Eq.~\ref{eq:center-size}.
 Instances: reconstructed objects of any size, excluding structure. Matching:
 share of them that match an annotated target. Time and estimated
-driving-agent cost are per room. The last two rows score detector boxes
+driving-agent cost are per room. The last two rows score an inventory's boxes
 directly, with no agent.}
 \label{tab:six-rooms}
-\begin{tabular}{lrrrrrrr}
+\begin{tabular}{lrrrrrrrr}
 \toprule
-& Correctly & Mis- & No & & & & \\
-Variant & placed & placed & match & Instances & Matching & Minutes & USD \\
+& Correctly & Box & Mis- & No & & & & \\
+Variant & placed & overlap & placed & match & Instances & Matching & Minutes & USD \\
 \midrule
-AHa-3D (baseline) & 6 & 6 & 531 & 101 & 97\% & 62 & 14.13 \\
-All objects & 71 & 81 & 391 & 375 & 83\% & 59 & 12.36 \\
-Inventory & 101 & 81 & 361 & 413 & 85\% & 104 & 19.95 \\
-Checklist & \textbf{142} & 144 & 257 & 922 & 51\% & 79 & 13.28 \\
-Checklist, second run & \textbf{155} & 157 & 231 & 923 & 53\% & 113 & 20.15 \\
+AHa-3D (baseline) & 6 & 6 & 6 & 531 & 101 & 97\% & 62 & 14.13 \\
+All objects & 71 & 40 & 81 & 391 & 375 & 83\% & 59 & 12.36 \\
+Inventory & 101 & 47 & 81 & 361 & 413 & 85\% & 104 & 19.95 \\
+Checklist & \textbf{142} & 53 & 144 & 257 & 922 & 51\% & 79 & 13.28 \\
+Checklist, second run & \textbf{155} & 57 & 157 & 231 & 923 & 53\% & 113 & 20.15 \\
 \midrule
-Boxer boxes, no agent & 84 & 36 & 423 & 364 & 71\% & -- & -- \\
-Checklist boxes, no agent & 194 & 145 & 204 & 2{,}287 & 23\% & -- & -- \\
+Boxer boxes, no agent & 84 & 61 & 36 & 423 & 364 & 71\% & -- & -- \\
+Checklist boxes, no agent & 194 & 72 & 145 & 204 & 2{,}287 & 23\% & -- & -- \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -110,7 +112,9 @@ of the 216 smallest targets; without that room, the gain is from 18\% to
 40\%. With every box shifted horizontally by a random 0.5 to 1.5\,m, about
 1\% passed. On the six held-out rooms, scored after the Checklist settings
 were fixed, the revised inventory placed 32\% of targets under 20\,cm and
-41\% of those from 20 to under 50\,cm, against 6\% and 25\% for Boxer.
+41\% of those from 20 to under 50\,cm, and 32\% and 39\% after the
+Checklist's duplicate removal (the 194 of Table~\ref{tab:six-rooms}),
+against 6\% and 25\% for Boxer.
 
 \begin{table}[!htbp]
 \centering\small
@@ -143,7 +147,7 @@ renders in Figures~\ref{fig:qual} and~\ref{fig:qual-all} were made after the
 runs from the saved scenes and were not seen by the agent or its reviewer.
 The appearance pass is a separate agent run on the saved Checklist scene
 that may assign materials and lights but may not move, add or remove
-geometry.
+geometry; Figure~\ref{fig:rooms-materials} shows its result for each room.
 
 \begin{figure}[!htbp]
 \centering
@@ -160,6 +164,26 @@ geometry.
 \caption{All six held-out rooms in the format of Figure~\ref{fig:qual}.
 Rooms 1, 2, 3 and 6 use the frame that sees the most annotated targets under
 50\,cm; in rooms 4 and 5 that frame faces a bare wall, and we show a frame
-chosen by hand instead. Checklist was below Inventory in rooms 3, 4 and 5.}
+chosen by hand instead. Figure~\ref{fig:qual} shows room 6 from a second,
+hand-picked frame. Checklist was below Inventory in rooms 3, 4 and 5.}
 \label{fig:qual-all}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\setlength{\tabcolsep}{3pt}
+\newcommand{\roomimg}[1]{\includegraphics[width=0.47\linewidth]{figures/panels/#1_MAT_ov.jpg}}
+\begin{tabular}{@{}cc@{}}
+\roomimg{42897538} & \roomimg{42898849} \\[-2pt]
+\colhead{Room 1} & \colhead{Room 2} \\[5pt]
+\roomimg{42899617} & \roomimg{42899712} \\[-2pt]
+\colhead{Room 3} & \colhead{Room 4} \\[5pt]
+\roomimg{42899729} & \roomimg{44358442} \\[-2pt]
+\colhead{Room 5} & \colhead{Room 6} \\
+\end{tabular}
+\caption{The six held-out rooms as whole scenes: the first Checklist run of
+each room after AHa-3D's appearance pass, with the ceiling and the walls
+nearest the camera hidden. Geometry is the scored scene; the materials and
+lights come from a separate agent run and are not scored.}
+\label{fig:rooms-materials}
 \end{figure}

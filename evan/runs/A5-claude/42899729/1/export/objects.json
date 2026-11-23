@@ -1,0 +1,1073 @@
+[
+ {
+  "object_id": "floor-bedroom",
+  "category": "structure/floor",
+  "center": [
+   0.12999999523162842,
+   0.7400000095367432,
+   -0.02500000037252903
+  ],
+  "yaw": 0.0,
+  "size": [
+   3.640000104904175,
+   3.880000114440918,
+   0.05000000074505806
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "ceiling-bedroom",
+  "category": "structure/ceiling",
+  "center": [
+   0.12999999523162842,
+   0.7400000095367432,
+   2.950000047683716
+  ],
+  "yaw": 0.0,
+  "size": [
+   3.8399999141693115,
+   4.079999923706055,
+   0.07999992370605469
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-west",
+  "category": "structure/wall",
+  "center": [
+   -1.7324999570846558,
+   0.8774999380111693,
+   1.4550000429153442
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   3.805000066757202,
+   0.11500000953674316,
+   2.9100000858306885
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-north",
+  "category": "structure/wall",
+  "center": [
+   -0.12000000476837153,
+   2.7699999809265137,
+   1.4550000429153442
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.17999982833862305,
+   3.1399998664855957,
+   2.9100000858306885
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "window-sill-boxing",
+  "category": "structure/wall/boxing",
+  "center": [
+   -0.1200000047683715,
+   2.5299999713897705,
+   0.5299999713897705
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   3.140000104904175,
+   0.3400001525878906,
+   1.059999942779541
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-pier-northeast",
+  "category": "structure/wall/pier",
+  "center": [
+   1.7500000000000002,
+   2.552500009536743,
+   1.4550000429153442
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.4549999237060547,
+   0.5999999046325686,
+   2.9100000858306885
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-east",
+  "category": "structure/wall",
+  "center": [
+   1.962499976158142,
+   0.5199999809265137,
+   1.4550000429153442
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   3.6399998664855957,
+   0.17499995231628418,
+   2.9100000858306885
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-south-mirror-section",
+  "category": "structure/wall",
+  "center": [
+   -1.1974999904632568,
+   -1.0550000369548798,
+   1.4550000429153442
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.184999942779541,
+   0.2900000214576721,
+   2.9100000858306885
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-south",
+  "category": "structure/wall",
+  "center": [
+   0.6649999618530273,
+   -1.2424999475479126,
+   1.4550000429153442
+  ],
+  "yaw": 0.0,
+  "size": [
+   2.7699999809265137,
+   0.11500000953674316,
+   2.9100000858306885
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "ceiling-bulkhead-south",
+  "category": "structure/ceiling/bulkhead",
+  "center": [
+   0.5849999487400055,
+   -1.0750000476837158,
+   2.740000009536743
+  ],
+  "yaw": 0.0,
+  "size": [
+   2.6099998354911804,
+   0.25,
+   0.3400001525878906
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "doorway-bathroom",
+  "category": "structure/door/frame",
+  "center": [
+   -0.09999999403953552,
+   -1.25,
+   0.9449999928474426
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.7599999904632568,
+   0.13000011444091797,
+   1.8899999856948853
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "doorway-hallway",
+  "category": "structure/door/frame",
+  "center": [
+   1.4900000095367432,
+   -1.25,
+   0.9449999928474426
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.7999999523162842,
+   0.13000011444091797,
+   1.8899999856948853
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "window-west",
+  "category": "structure/window",
+  "center": [
+   -0.9100000113248826,
+   2.7249999046325684,
+   1.7149999737739563
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   1.4199999868869781,
+   0.05000019073486328,
+   1.3099998235702515
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "window-east",
+  "category": "structure/window",
+  "center": [
+   0.7350000292062759,
+   2.7249999046325684,
+   1.7149999737739563
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.05000019073486328,
+   1.3700000941753387,
+   1.3099998235702515
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "door-hallway",
+  "category": "structure/door/leaf",
+  "center": [
+   1.8475000262260437,
+   -0.8399999737739562,
+   0.9149999916553497
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.6599999666213988,
+   0.0549999475479126,
+   1.8099998831748962
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "door-bathroom",
+  "category": "structure/door/leaf",
+  "center": [
+   -0.3700000047683716,
+   -1.6399999856948853,
+   0.9149999916553497
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.6200001239776611,
+   0.060000002384185847,
+   1.8099998831748962
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "roller-blind-west",
+  "category": "furniture/window_treatment/roller_blind",
+  "center": [
+   -0.9100000262260436,
+   2.630000114440918,
+   2.3075000047683716
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   1.399999976158142,
+   0.05000019073486328,
+   1.1650002002716064
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "roller-blind-east",
+  "category": "furniture/window_treatment/roller_blind",
+  "center": [
+   0.735000042244792,
+   2.630000114440918,
+   2.4325000047683716
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.350000087171793,
+   0.05000019073486328,
+   0.9150002002716064
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "bed",
+  "category": "furniture/bed",
+  "center": [
+   -0.7014999985694885,
+   0.800000011920929,
+   0.46000000834465027
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   1.600000023841858,
+   1.9429999589920044,
+   0.9200000166893005
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "bedspread",
+  "category": "furniture/textile/bedspread",
+  "center": [
+   -0.05241212425076964,
+   0.7894002202072687,
+   0.38619954138994217
+  ],
+  "yaw": -1.5703897158461058,
+  "size": [
+   1.770353516149052,
+   0.9019735134642206,
+   0.49760089814662933
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "pillow-white-back-south",
+  "category": "furniture/textile/pillow",
+  "center": [
+   -1.4635896683426604,
+   0.43000002205340143,
+   0.8399418890476227
+  ],
+  "yaw": -1.5661835440064427,
+  "size": [
+   0.6781041898457497,
+   0.22940773084525157,
+   0.44002431631088257
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "pillow-white-back-north",
+  "category": "furniture/textile/pillow",
+  "center": [
+   -1.463589668273926,
+   1.1699999570846558,
+   0.8399418890476227
+  ],
+  "yaw": -1.5661835443384489,
+  "size": [
+   0.6781041004407723,
+   0.22940773084560306,
+   0.44002431631088257
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "pillow-white-front-south",
+  "category": "furniture/textile/pillow",
+  "center": [
+   -1.2457932233810425,
+   0.41999998688697815,
+   0.8086917102336884
+  ],
+  "yaw": -1.565835467190065,
+  "size": [
+   0.6369036145964488,
+   0.2211622203445358,
+   0.3779522776603699
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "pillow-white-front-north",
+  "category": "furniture/textile/pillow",
+  "center": [
+   -1.2457932233810425,
+   1.2000000476837158,
+   0.8086917102336884
+  ],
+  "yaw": -1.5658354675724915,
+  "size": [
+   0.6369035549937458,
+   0.22116222034495525,
+   0.3779522776603699
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "cushion-green-south",
+  "category": "furniture/textile/cushion",
+  "center": [
+   -1.0740443170086362,
+   0.5199999811429145,
+   0.8376132249832153
+  ],
+  "yaw": -1.5635348630779577,
+  "size": [
+   0.4514993600636056,
+   0.18871411835055785,
+   0.4324522018432617
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "cushion-green-north",
+  "category": "furniture/textile/cushion",
+  "center": [
+   -1.0740443167922356,
+   1.1400000152792356,
+   0.8376132249832153
+  ],
+  "yaw": -1.5780577905118354,
+  "size": [
+   0.45149941966667906,
+   0.18871411835055796,
+   0.4324522018432617
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "towel-folded-bottom",
+  "category": "furniture/textile/towel",
+  "center": [
+   -0.04999999701981536,
+   0.7049999832973849,
+   0.6610000133514404
+  ],
+  "yaw": 3.138018477708446,
+  "size": [
+   0.3794186020159911,
+   0.3094190860858219,
+   0.049421072006225586
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "towel-folded-top",
+  "category": "furniture/textile/towel",
+  "center": [
+   -0.04999999701982797,
+   0.7049999832957237,
+   0.7120000123977661
+  ],
+  "yaw": -0.004020091333389431,
+  "size": [
+   0.339418261346404,
+   0.289418623651304,
+   0.049421072006225586
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "towel-rolled-horizontal",
+  "category": "furniture/textile/towel",
+  "center": [
+   -0.05000000447034836,
+   0.6299999952316284,
+   0.7850000262260437
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.30000002682209015,
+   0.10000002384185791,
+   0.10000002384185791
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "towel-rolled-upright",
+  "category": "furniture/textile/towel",
+  "center": [
+   -0.030000000124380775,
+   0.7799999710604979,
+   0.8349999785423279
+  ],
+  "yaw": 0.39269984436416383,
+  "size": [
+   0.10905892852335178,
+   0.10905891922727862,
+   0.20000004768371582
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "poster-print-on-bed",
+  "category": "furniture/decor/paper_print",
+  "center": [
+   -0.31999999095415266,
+   0.27000001760057984,
+   0.6385000348091125
+  ],
+  "yaw": -0.29670595186440263,
+  "size": [
+   0.3200000168701422,
+   0.22000001337386493,
+   0.01
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "nightstand-north",
+  "category": "furniture/storage/nightstand",
+  "center": [
+   -1.447499990463257,
+   1.8499999642372131,
+   0.20000000298023224
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.41999995708465576,
+   0.4250001907348635,
+   0.4000000059604645
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "table-lamp-north",
+  "category": "furniture/lighting/table_lamp",
+  "center": [
+   -1.4700000286102295,
+   1.8600000143051147,
+   0.5425000041723251
+  ],
+  "yaw": -0.9162971297850442,
+  "size": [
+   0.20820331775790057,
+   0.20820331775790057,
+   0.2849999964237213
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "nightstand-south",
+  "category": "furniture/storage/nightstand",
+  "center": [
+   -1.4474999904632568,
+   -0.2700000181794167,
+   0.20000000298023224
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.4200000017881394,
+   0.4250001907348633,
+   0.4000000059604645
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "table-lamp-south",
+  "category": "furniture/lighting/table_lamp",
+  "center": [
+   -1.4700000286102295,
+   -0.27000001072883617,
+   0.5425000041723251
+  ],
+  "yaw": -0.9162977916679034,
+  "size": [
+   0.2082034304755206,
+   0.20820333590043716,
+   0.2849999964237213
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "tower-fan",
+  "category": "furniture/appliance/tower_fan",
+  "center": [
+   -1.5299999713897705,
+   -0.7400000095367432,
+   0.4049999713897705
+  ],
+  "yaw": -0.3926989139807273,
+  "size": [
+   0.2577756141596228,
+   0.2577756597790244,
+   0.809999942779541
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-mirror",
+  "category": "furniture/decor/mirror",
+  "center": [
+   -1.149999976158142,
+   -0.9000000059604646,
+   0.9450000375509262
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.6600000858306886,
+   0.050000011920929066,
+   1.4500000774860382
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "canvas-poppies-1",
+  "category": "furniture/decor/wall_art",
+  "center": [
+   -1.6749999523162842,
+   0.5799999833106995,
+   1.2799999713897705
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.2799999713897705,
+   0.029999971389770508,
+   0.2799999713897705
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "canvas-poppies-2",
+  "category": "furniture/decor/wall_art",
+  "center": [
+   -1.6749999523162842,
+   0.8799999952316285,
+   1.399999976158142
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.2799999713897706,
+   0.029999971389770508,
+   0.2799999713897705
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "canvas-poppies-3",
+  "category": "furniture/decor/wall_art",
+  "center": [
+   -1.6749999523162842,
+   1.2000000476837158,
+   1.5199999809265137
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.2799999713897705,
+   0.029999971389770508,
+   0.2799999713897705
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "painting-paris-umbrellas",
+  "category": "furniture/decor/wall_art",
+  "center": [
+   1.9349999427795412,
+   1.849999964237213,
+   1.5499999523162842
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.4599999189376829,
+   0.02999997138977073,
+   0.5999999046325684
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "radiator-under-window",
+  "category": "furniture/fixture/radiator",
+  "center": [
+   -0.14999997615814215,
+   2.353999972343445,
+   0.4099999964237213
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   1.5,
+   0.08800005912780762,
+   0.5799999833106995
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "chest-of-drawers",
+  "category": "furniture/storage/chest_of_drawers",
+  "center": [
+   1.7075000405311587,
+   1.8899999856948853,
+   0.4300000071525574
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.6499998569488525,
+   0.48500001430511475,
+   0.8600000143051147
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "folding-chair-1",
+  "category": "furniture/seating/folding_chair",
+  "center": [
+   1.6899999976158142,
+   2.27034854888916,
+   0.43832567968638614
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.36399996280670166,
+   0.10060548782348633,
+   0.8787430993979797
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "folding-chair-2",
+  "category": "furniture/seating/folding_chair",
+  "center": [
+   1.6899999976158142,
+   2.2943484783172607,
+   0.43832567968638614
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.36399996280670166,
+   0.10060548782348633,
+   0.8787430993979797
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wardrobe",
+  "category": "furniture/storage/wardrobe",
+  "center": [
+   1.649999976158142,
+   0.8999999761581422,
+   0.9399999976158142
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   1.2999999523162842,
+   0.5999999046325684,
+   1.8799999952316284
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "waste-bin-bedroom",
+  "category": "furniture/storage/waste_bin",
+  "center": [
+   1.7400000122355102,
+   0.07999999655741107,
+   0.12999999523162842
+  ],
+  "yaw": -0.9162969218150763,
+  "size": [
+   0.23794678091548827,
+   0.23794679184485723,
+   0.25999999046325684
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "ceiling-light",
+  "category": "furniture/lighting/ceiling_spotlight",
+  "center": [
+   0.09999999776482583,
+   0.9999999701976776,
+   2.850499987602234
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.36000000685453415,
+   0.07999998331069946,
+   0.11900019645690918
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "light-switch-bath-side",
+  "category": "furniture/fixture/wall_switch",
+  "center": [
+   0.41999998688697815,
+   -1.1950000524520874,
+   1.2999999523162842
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.08600002527236938,
+   0.01,
+   0.08599996566772461
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "light-switch-hall-side",
+  "category": "furniture/fixture/wall_switch",
+  "center": [
+   1.0,
+   -1.1950000524520874,
+   1.2999999523162842
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.08599996566772472,
+   0.01,
+   0.08599996566772461
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-control-high",
+  "category": "furniture/fixture/wall_switch",
+  "center": [
+   0.4399999976158142,
+   -1.1950000524520874,
+   1.850000023841858
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.08600002527236938,
+   0.01,
+   0.08599996566772461
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "power-outlet-south",
+  "category": "furniture/fixture/power_outlet",
+  "center": [
+   0.5600000023841858,
+   -1.1950000524520874,
+   0.18299999833106995
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.1399999856948852,
+   0.01,
+   0.085999995470047
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "power-outlet-west",
+  "category": "furniture/fixture/power_outlet",
+  "center": [
+   -1.6829999685287476,
+   1.7300000190734863,
+   0.28299999982118607
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.1400001049041748,
+   0.012000083923339844,
+   0.08600001037120819
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "bathroom-shell",
+  "category": "structure/room/bathroom",
+  "center": [
+   -0.3649999499320984,
+   -2.125,
+   1.2000000234693289
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.96999990940094,
+   1.6500000953674316,
+   2.500000048428774
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "shower-enclosure",
+  "category": "furniture/bathroom/shower_enclosure",
+  "center": [
+   -0.8400000184774398,
+   -2.4549999237060547,
+   1.0004999991506338
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.7899999618530273,
+   0.7999999821186065,
+   1.9990000016987324
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "washbasin",
+  "category": "furniture/bathroom/sink",
+  "center": [
+   -0.020000003278255452,
+   -2.640000104904175,
+   0.6499999761581421
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.4200000762939453,
+   0.5000000149011612,
+   0.46000003814697266
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "basin-tap",
+  "category": "furniture/bathroom/faucet",
+  "center": [
+   -0.019999999552965164,
+   -2.759999990463257,
+   0.9699999690055847
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.035999998450279236,
+   0.12000036239624023,
+   0.1799999475479126
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "mirror-cabinet",
+  "category": "furniture/bathroom/mirror_cabinet",
+  "center": [
+   0.10999999195337294,
+   -2.7825000286102295,
+   1.4500000476837158
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.439999982714653,
+   0.13500022888183594,
+   0.7000000476837158
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "heated-towel-rail",
+  "category": "furniture/bathroom/towel_rail",
+  "center": [
+   0.479999989271164,
+   -2.375,
+   0.7099999487400055
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.43400001525878906,
+   0.023999989032745417,
+   1.1200000643730164
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "toilet",
+  "category": "furniture/bathroom/toilet",
+  "center": [
+   0.2499999850988388,
+   -1.8799999952316284,
+   0.38999998569488525
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.37999987602233887,
+   0.5399999916553497,
+   0.7799999713897705
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "pedal-bin-bathroom",
+  "category": "furniture/storage/waste_bin",
+  "center": [
+   0.33000002043666243,
+   -2.450000048647906,
+   0.1599999964237213
+  ],
+  "yaw": -0.13090167477665515,
+  "size": [
+   0.22208370750849205,
+   0.2220835683383111,
+   0.3199999928474426
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "hallway-shell",
+  "category": "structure/room/hallway",
+  "center": [
+   1.9250000417232513,
+   -2.0000000596046448,
+   1.224999999627471
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.9500001072883606,
+   1.399999976158142,
+   2.550000000745058
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "picture-hallway-santo",
+  "category": "furniture/decor/wall_art",
+  "center": [
+   2.3399998545646667,
+   -2.5850000381469727,
+   1.5499999523162842
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.6999999284744265,
+   0.03000020980834961,
+   0.5
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ }
+]

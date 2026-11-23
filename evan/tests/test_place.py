@@ -107,3 +107,22 @@ def test_place_stays_near_inventory_box_with_outliers():
     res = place.fit(mesh, item, views, np.concatenate([obs, far]), gate=GATE, dof=7, support_z=None)
     got = np.asarray(res["placed_box"]["center"])
     assert np.linalg.norm(got - np.asarray(item["center"])) < 0.3, got
+
+
+def test_fit_backend_refines_generator_pose():
+    # SAM 3D 的网格带着它自己的位姿进房间坐标（SceneRig：保留生成的形状和朝向，只锚定位置和尺度）：
+    # init="backend" 从这个位姿起步只做小范围微调，不再从清单框重新搜索朝向
+    mesh = l_shape()
+    views, obs, placed = scene(mesh)
+    backend = placed.copy()
+    c = backend.bounds.mean(0)
+    backend.apply_translation(-c)
+    backend.apply_scale(1.08)
+    backend.apply_transform(trimesh.transformations.rotation_matrix(np.radians(6), [0, 0, 1]))
+    backend.apply_translation(c + [0.03, -0.02, 0.0])
+    res = place.fit(backend, perturbed_item(placed, 0.5), views, obs, gate=GATE, dof=7, support_z=0.0, init="backend")
+    assert res["status"] == "accepted", res["fit"]
+    M = np.asarray(res["matrix_world"])
+    got = trimesh.transform_points(backend.vertices, M)
+    assert np.linalg.norm(got.mean(0) - placed.vertices.mean(0)) < 0.02
+    assert abs(np.linalg.norm(M[:3, 0]) - 1 / 1.08) < 0.03

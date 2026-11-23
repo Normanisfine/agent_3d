@@ -3,7 +3,7 @@ import random
 
 from smallobj.ca1m import SHELL_DEFAULT, STRUCTURAL_DEFAULT
 
-# CA-1M 验证集和 BVB-150 重叠、覆盖率 ≥80% 的 22 个视频（research/notes/03-datasets-metrics.md §1.3）
+# CA-1M 验证集和 BVB-150 重叠、覆盖率 ≥80% 的 22 个视频（research/03-datasets-metrics.md §1.3）
 CA1M_IDS = [
     "42897538", "42897647", "42898849", "42899617", "42899698", "42899712", "42899725", "42899729",
     "44358442", "44358451", "45261121", "45261575", "45663164", "47115469", "47115525", "47115543",

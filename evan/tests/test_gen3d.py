@@ -170,8 +170,21 @@ def test_prepare_sam3d_job(scene):
     assert [s["item_id"] for s in spec] == ["big"]  # tiny 掩码不到 200 像素，不交给 SAM 3D
     pm = np.load(job / "big_pointmap.npy")
     assert pm.shape == (80, 100, 3) and np.allclose(pm[..., 2], 2.0)  # 相机坐标系：z 就是深度
-    assert np.isclose(pm[40, 50, 0], 0.0) and np.isclose(pm[40, 60, 0], 0.2)
+    assert np.isclose(pm[40, 50, 0], 0.0) and np.isclose(pm[40, 60, 0], 0.2, atol=1e-3)
+    assert pm.dtype == np.float16  # 存半精度：上传到 Colab 的包小一半，6 m 处误差约 3 mm
     assert Image.open(job / "big_rgba.png").size == (100, 80)  # SAM 3D 要整帧，不裁剪
+
+
+def test_prepare_sam3d_job_other_depth(scene):
+    # 清单 v2：点图用对齐过的 MoGe-2 深度（hd/depth_moge/），同 SceneRig 给 SAM 3D 的 MoGE 点图
+    root, _ = scene
+    for name, z in (("depth", 2.0), ("depth_moge", 3.0)):
+        P = root / "perception" / "S" / "hd" / name
+        P.mkdir()
+        np.save(P / "000000.npy", np.full((80, 100), z, np.float32))
+    job = gen3d.prepare_sam3d_job("S", ["big"], root=root, depth_name="depth_moge")
+    assert np.allclose(np.load(job / "big_pointmap.npy")[..., 2], 3.0)
+    assert json.loads((job / "inputs.json").read_text())[0]["depth"] == "depth_moge"
 
 
 def test_failed_cache_entry_is_regenerated(scene):
@@ -216,3 +229,36 @@ def test_concurrent_requests_respect_budget(scene):
     [t.join() for t in th]
     assert _ncalls(calls) == 1
     assert sorted(o[0]["status"] for o in outs) == ["budget", "ok"]
+
+
+def test_import_sam3d_outputs(tmp_path):
+    # Colab 写回的包：mesh_cam.glb 在 OpenCV 相机坐标，乘这一帧的 c2w 换到房间坐标，登记成 c9 候选（backend="sam3d"）
+    import io
+    import tarfile
+    import trimesh
+    root = tmp_path
+    job = root / "gen" / "S" / "sam3d_jobs" / "20261029-000000"
+    job.mkdir(parents=True)
+    c2w = np.eye(4)
+    c2w[:3, 3] = [1.0, 2.0, 3.0]
+    (job / "inputs.json").write_text(json.dumps([{"item_id": "a", "frame": 5, "c2w": c2w.tolist()},
+                                                 {"item_id": "b", "frame": 7, "c2w": c2w.tolist()}]))
+    out = tmp_path / "S_out.tar.gz"
+    with tarfile.open(out, "w:gz") as t:
+        def add(name, data):
+            info = tarfile.TarInfo(name)
+            info.size = len(data)
+            t.addfile(info, io.BytesIO(data))
+        add("pack.json", json.dumps({"scene": "S", "inventory": "inventory_v2.json",
+                                     "job_dir": "gen/S/sam3d_jobs/20261029-000000"}).encode())
+        add("job/a/mesh_cam.glb", trimesh.creation.box(extents=(0.2, 0.2, 0.2)).export(file_type="glb"))
+        add("job/a/status.json", b'{"status": "ok", "seconds": 30.0}')
+        add("job/b/status.json", b'{"status": "backend_error", "error": "boom"}')
+        add("job/../evil.txt", b"x")   # 包里的路径不许跳出任务目录
+    res = {r["item_id"]: r for r in gen3d.import_sam3d(out, root=root)}
+    assert res["a"]["status"] == "ok" and res["b"]["status"] == "backend_error"
+    meta = json.loads((root / "gen" / "S" / "a" / "c9" / "gen.json").read_text())
+    assert meta["backend"] == "sam3d" and meta["frame"] == 5 and meta["inventory"] == "inventory_v2.json"
+    v = trimesh.load(meta["mesh_glb"], force="mesh").vertices
+    assert np.allclose(v.mean(0), [1.0, 2.0, 3.0], atol=1e-6)
+    assert not (root / "gen" / "S" / "sam3d_jobs" / "evil.txt").exists()

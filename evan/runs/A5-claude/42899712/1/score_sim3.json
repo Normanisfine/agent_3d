@@ -1,0 +1,1132 @@
+{
+ "rows": [
+  {
+   "gt_id": "d167a748-b6a7-41a3-8bd4-7cd3ea4fc6f9",
+   "category": "outlet",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "d32e2afa-4697-4154-9362-feb6f21577d3",
+   "category": "couch",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.4367461730605595,
+   "iou": 0.3191402441284802,
+   "pred_id": "armchair"
+  },
+  {
+   "gt_id": "313b659f-4517-48b6-89c6-5481c9d0d61d",
+   "category": "sofa",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.06519318231077431,
+   "iou": 0.8005717199235742,
+   "pred_id": "sofa-l"
+  },
+  {
+   "gt_id": "4555b13b-7295-45c1-87b7-18ad8e7a0f7c",
+   "category": "cushion",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7146906441413942,
+   "iou": 0.12535317041039593,
+   "pred_id": "cushion-2"
+  },
+  {
+   "gt_id": "661bc751-9ddc-4b61-8e56-d27093095971",
+   "category": "cushion",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.3611273520180975,
+   "iou": 0.3576628046670277,
+   "pred_id": "cushion-1"
+  },
+  {
+   "gt_id": "d30e536a-9a96-4978-a809-a24a0e59c9b8",
+   "category": "picture",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.13974093445054905,
+   "iou": 0.2819575563805175,
+   "pred_id": "wall-art-photo"
+  },
+  {
+   "gt_id": "0e08397a-9e53-4f92-b4b6-52c102c8ace7",
+   "category": "lamp",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.20090603345151414,
+   "iou": 0.3558316362158701,
+   "pred_id": "wall-lamp-n2"
+  },
+  {
+   "gt_id": "a3dae70f-0bb6-4636-a73a-5601b0b3ccf7",
+   "category": "picture frame",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.06803228859064958,
+   "iou": 0.3995716745954847,
+   "pred_id": "wall-art-canvas"
+  },
+  {
+   "gt_id": "96fb5d96-7da4-4d36-9cbe-b28bbac28782",
+   "category": "lamp",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.24884921920161066,
+   "iou": 0.3163027705379263,
+   "pred_id": "wall-lamp-n1"
+  },
+  {
+   "gt_id": "ab6ba058-3c45-4bc5-8006-22b7bd5f3863",
+   "category": "light switch",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.6534086102698309,
+   "iou": 0.0,
+   "pred_id": "light-switch-living"
+  },
+  {
+   "gt_id": "ddcd56fd-7fca-4fe3-b56a-70cb2c948030",
+   "category": "tv stand",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.3372221405682925,
+   "iou": 0.4489497849704196,
+   "pred_id": "tv-stand"
+  },
+  {
+   "gt_id": "0e38d873-a89d-41bf-bace-ab98f7ce26f0",
+   "category": "television",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.2520638726984303,
+   "iou": 0.10693474770589964,
+   "pred_id": "tv"
+  },
+  {
+   "gt_id": "1ce0593f-0eba-4b35-9f1d-99a575eac003",
+   "category": "lamp",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.3505586928648088,
+   "iou": 0.33160349502564207,
+   "pred_id": "wall-lamp-s2"
+  },
+  {
+   "gt_id": "5fd83d6f-c241-47b1-8780-67abaf451d93",
+   "category": "lamp",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7721371980417397,
+   "iou": 0.044279107036593206,
+   "pred_id": "wall-lamp-s1"
+  },
+  {
+   "gt_id": "47c5446e-5422-4a22-8b2e-c6caf42cc581",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "311af0da-3ac6-498e-b321-44805ee055fb",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "28b60f9b-83f2-41e1-ae24-3f31cd81eab5",
+   "category": "remote control",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "d0600067-7ab5-4fc0-8350-1a2a451abc68",
+   "category": "wooden frame",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "adb97c8e-b29e-4c7c-b8c2-01b00491d16a",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "b0d4f42e-8dc6-4309-b2dc-bf3418282246",
+   "category": "table",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.2709729525544745,
+   "iou": 0.44350714785780376,
+   "pred_id": "side-table"
+  },
+  {
+   "gt_id": "27ef65e0-46c7-4473-a051-2effa5d4c910",
+   "category": "chair",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.20987174875299028,
+   "iou": 0.5133502610101753,
+   "pred_id": "dining-chair-3"
+  },
+  {
+   "gt_id": "06143212-ddc9-4be0-b4d3-7cb54784d349",
+   "category": "chair",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.11182482880541691,
+   "iou": 0.7150130630897309,
+   "pred_id": "dining-chair-4"
+  },
+  {
+   "gt_id": "d9bebe5b-1641-4889-879c-2218c0ed531a",
+   "category": "chair",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.30741139793416966,
+   "iou": 0.4120017831372876,
+   "pred_id": "dining-chair-2"
+  },
+  {
+   "gt_id": "0b071458-41e9-4e42-a408-0e8a2176d296",
+   "category": "chair",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.19384242791501274,
+   "iou": 0.5232445843408361,
+   "pred_id": "dining-chair-1"
+  },
+  {
+   "gt_id": "4fe1bfe8-5098-4bc6-a99d-766225d707d2",
+   "category": "rug",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.11692886484291257,
+   "iou": 0.6731089576150174,
+   "pred_id": "coffee-table"
+  },
+  {
+   "gt_id": "e0df579b-3a97-434f-95ac-8b38a9b90985",
+   "category": "table",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.07276434719223471,
+   "iou": 0.7622159991612258,
+   "pred_id": "dining-table"
+  },
+  {
+   "gt_id": "117ff6e0-cba1-4507-bf8e-7659c93d5caf",
+   "category": "lamp",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.14438643915589097,
+   "iou": 0.4422084049635426,
+   "pred_id": "arc-floor-lamp"
+  },
+  {
+   "gt_id": "1050c79b-c08b-4e04-88b8-b7fb4a3ae516",
+   "category": "clock",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.341335846761848,
+   "iou": 0.1624241846705054,
+   "pred_id": "wall-clock-kitchen"
+  },
+  {
+   "gt_id": "331168e6-9326-4d78-a16a-560bcb9fafed",
+   "category": "cooktop",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.08467187278609914,
+   "iou": 0.5595426249142808,
+   "pred_id": "hob"
+  },
+  {
+   "gt_id": "ae0bbca2-27e1-4f34-8bab-187adcc3cb1b",
+   "category": "oven",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.651563779843559,
+   "iou": 0.05278507689834859,
+   "pred_id": "oven"
+  },
+  {
+   "gt_id": "f3ef1fe8-94a8-49b2-9903-793a03597646",
+   "category": "toaster",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.12013571175132791,
+   "iou": 0.392293669028672,
+   "pred_id": "toaster"
+  },
+  {
+   "gt_id": "c2f312d8-5a8f-449b-a4af-30ea90e3cad4",
+   "category": "kettle",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.8071947928199892,
+   "iou": 0.07590602079711663,
+   "pred_id": "kettle"
+  },
+  {
+   "gt_id": "80218549-281c-4e2c-8cb0-cae1f26bfa46",
+   "category": "microwave",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.1437590746502509,
+   "iou": 0.684853343868277,
+   "pred_id": "microwave"
+  },
+  {
+   "gt_id": "4f657ce9-4c6c-43ce-813c-548d009286f6",
+   "category": "outlet",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 1.1348011367864679,
+   "iou": 0.0,
+   "pred_id": "socket-kitchen-north"
+  },
+  {
+   "gt_id": "0103990b-ea1f-4ee8-ba0a-354dc7c15313",
+   "category": "espresso machine",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.19105853201117015,
+   "iou": 0.5801777701049485,
+   "pred_id": "coffee-machine"
+  },
+  {
+   "gt_id": "e8340605-bdf7-4373-b1de-99f3fc655608",
+   "category": "fridge",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.11417803204034005,
+   "iou": 0.574274250804848,
+   "pred_id": "kitchen-tall-unit"
+  },
+  {
+   "gt_id": "bc41c8a6-de81-484d-b220-22973c20061f",
+   "category": "cabinet",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "905fcb18-0e92-475a-9afa-25632d878748",
+   "category": "plate",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "e5ec06d0-79fa-4fcb-ae85-06e99d303c71",
+   "category": "outlet",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 1.1183551133719372,
+   "iou": 0.0,
+   "pred_id": "socket-kitchen-east"
+  },
+  {
+   "gt_id": "fff3e972-f74e-4c3f-8b8e-11ee4b27fa7a",
+   "category": "cabinet",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.38078181048474363,
+   "iou": 0.542654415976555,
+   "pred_id": "kitchen-base-north"
+  },
+  {
+   "gt_id": "f12513b8-62ca-4672-b6d3-1fc0c3ef7ade",
+   "category": "cabinet",
+   "bin": "L",
+   "I": "correct",
+   "D": "misplaced",
+   "dhat": 0.5617643571418123,
+   "iou": 0.49637841154814866,
+   "pred_id": "kitchen-base-east"
+  },
+  {
+   "gt_id": "9b77b698-d069-4eee-b5cd-c81f3db71588",
+   "category": "cabinet",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.23975216760392234,
+   "iou": 0.7040523503018756,
+   "pred_id": "kitchen-base-south"
+  },
+  {
+   "gt_id": "15491452-501c-4b3a-8188-2afc15548fe7",
+   "category": "lamp",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.6400365407092005,
+   "iou": 0.07909018705998114,
+   "pred_id": "downlight-3"
+  },
+  {
+   "gt_id": "da2470b1-4be3-45a0-81aa-a6028b722d49",
+   "category": "lamp",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.5746068384292328,
+   "iou": 0.005664818161546258,
+   "pred_id": "downlight-2"
+  },
+  {
+   "gt_id": "32c1e69f-6c1b-4a37-b8e2-3ccd45e75068",
+   "category": "lamp",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.5672665755718462,
+   "iou": 0.005653478208485958,
+   "pred_id": "downlight-4"
+  },
+  {
+   "gt_id": "a9fc276d-ff6e-47e0-a9b0-d7028c835a41",
+   "category": "lamp",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.9279027655551878,
+   "iou": 0.0,
+   "pred_id": "downlight-6"
+  },
+  {
+   "gt_id": "ea416bfe-4746-4e04-b4ea-c957c8066ea9",
+   "category": "kitchen fan",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "12bef2a6-63ed-418e-8e8e-962fa56d83c7",
+   "category": "lamp",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.8593155069777484,
+   "iou": 0.05651467254148775,
+   "pred_id": "downlight-5"
+  },
+  {
+   "gt_id": "d406dba1-a0b6-41f6-8883-ce993fba4eee",
+   "category": "vent cover",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "205a9def-cb24-4271-ae10-d94fc50ec965",
+   "category": "lamp",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.46046463877128735,
+   "iou": 0.038790372502615446,
+   "pred_id": "downlight-1"
+  },
+  {
+   "gt_id": "2e11fdcd-a719-423b-8d49-b0042e82a12e",
+   "category": "poster",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.16399702409363834,
+   "iou": 0.0,
+   "pred_id": "floor-photo"
+  },
+  {
+   "gt_id": "229459af-abfe-464c-bd26-34b9dbbfbed8",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "b33cbb56-08b5-4ea3-9071-cf15b0f6e48f",
+   "category": "radiator",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.14822724373497453,
+   "iou": 0.35021880083147466,
+   "pred_id": "radiator-east"
+  },
+  {
+   "gt_id": "03347982-29be-465b-a97e-d4803ee8e365",
+   "category": "door stoper",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "8759a17c-507f-4fc8-885b-3c002a147cb6",
+   "category": "router wifi",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "13ebc080-2906-45a7-82db-df64d58caca0",
+   "category": "blind",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.5423998725430534,
+   "iou": 0.0,
+   "pred_id": "window-blind-1"
+  },
+  {
+   "gt_id": "eed0a26a-6751-41d2-89cc-b7d128989ad3",
+   "category": "blind",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.5793064680463949,
+   "iou": 0.0,
+   "pred_id": "window-blind-2"
+  },
+  {
+   "gt_id": "590bdd9a-6159-4436-ab95-563fa52c922d",
+   "category": "radiator",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.15463564239172867,
+   "iou": 0.36563863074130815,
+   "pred_id": "radiator-west"
+  },
+  {
+   "gt_id": "ea92275b-cc95-4784-b9cd-1cdca0acf4cb",
+   "category": "rug",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.041182676128484405,
+   "iou": 0.3712168883867987,
+   "pred_id": "rug-red"
+  },
+  {
+   "gt_id": "b920ee5c-c4e7-4420-a3e5-d061f336b838",
+   "category": "trash can",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.09865168348428958,
+   "iou": 0.6808627846564268,
+   "pred_id": "pedal-bin"
+  },
+  {
+   "gt_id": "c06151ed-71a6-4228-8bee-985d785786df",
+   "category": "plug",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "5ccab935-420f-4a24-b6f6-b2be37e5d004",
+   "category": "plug",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.796139471670063,
+   "iou": 0.0822092954229318,
+   "pred_id": "phone-charger"
+  },
+  {
+   "gt_id": "95017771-63e1-44c9-9a13-7040ae4325cb",
+   "category": "container",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "9fd039f0-a33e-4f98-90d0-8a88e697d6d7",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "5d64e6b9-73d1-4e1f-987f-94e1123ebb75",
+   "category": "object",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.0652694427009883,
+   "iou": 0.3361072956655333,
+   "pred_id": "sink"
+  },
+  {
+   "gt_id": "b2340fe8-ef06-4658-83c5-d5d0b2127915",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "111ca70f-66c1-477e-ab27-9e523f562938",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "7c7fdd2b-9dd9-46ae-a0d1-5d5bbee70c83",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.8230835390899421,
+   "iou": 0.05262300737466725,
+   "pred_id": "oven-glove"
+  },
+  {
+   "gt_id": "ca2bcd5e-213d-4488-a5e4-ba47652f8c98",
+   "category": "cloth rag",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.8286782598980311,
+   "iou": 0.07980358415729134,
+   "pred_id": "tea-towel"
+  },
+  {
+   "gt_id": "2e8259ca-efb2-46ef-ae8e-7edefc83c1ac",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "e2ab7dff-7a32-4383-8e83-c656d4b4912d",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "601136ba-d967-4f20-981e-c453c1fb0c7d",
+   "category": "outlet",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "25bb4d68-233a-4c42-9789-bed1e5184727",
+   "category": "knife block",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.5923917335222735,
+   "iou": 0.3150312772337399,
+   "pred_id": "utensil-pot"
+  },
+  {
+   "gt_id": "a44f0fb9-a7b8-4963-b7eb-e20f0cb2aa9b",
+   "category": "knife",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.5701035745063323,
+   "iou": 0.0,
+   "pred_id": "socket-kitchen-south"
+  },
+  {
+   "gt_id": "a40f60c0-266f-4200-966f-67fa4359573d",
+   "category": "kitchen utensils",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "6a876ad4-3b27-46ac-90a4-281d43c15606",
+   "category": "knife",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "ebcc0f6c-85ec-4e9b-99d1-61f205caede1",
+   "category": "spoon",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "0d84e0c5-cc4f-46d7-81fa-268151b437ff",
+   "category": "container",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "cbbbfd99-4ff3-4e09-a402-19bd5e445ba5",
+   "category": "spoon",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.4926693952518924,
+   "iou": 0.0,
+   "pred_id": "knife-block"
+  },
+  {
+   "gt_id": "8de130f9-9b24-4896-87af-d7278e0be817",
+   "category": "kitchen utensil",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "42bd38c7-de4a-4452-bbb6-b7a793f0bc35",
+   "category": "kitchen utensil",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "71524c7f-ed48-46f9-b432-cda7e6a65ebe",
+   "category": "spoon",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "fa9280ae-dc83-4ac2-a41e-5c479452f938",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "dc2d404a-4ac7-49a9-bc20-dbcad9d6c46f",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "df095d7e-236f-4cc5-835c-8539f3a6f47b",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "631ec957-09eb-4a1e-8fe7-9074518a375f",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a7cef9ea-5cdb-4067-88ee-42a0e701852e",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a0568d53-a491-4dee-be66-bf89a4bf35ca",
+   "category": "charger",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "b1c341d2-82e1-48e9-bc99-6acfaaad6912",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "f4a5c91c-0d0d-4855-a8d2-be87fc555575",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "e5505ee3-181d-48b5-90ee-c380666f49d3",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "8c99b580-feb9-4326-9234-a5af8385ad9b",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "925ffce1-88f4-4114-a1ab-4959bdfad425",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "88ae13a6-6dcc-4dee-ad5e-21ccd4112158",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "4f887af7-46c1-4903-9647-2ec757ff9338",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "4d8a20ba-c285-4dfe-b4ab-5d523ef37fec",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 3.9860564371916127,
+   "iou": 0.0,
+   "pred_id": "door-stop"
+  },
+  {
+   "gt_id": "1d0cc4a4-9c12-4c0c-a635-adbe732ca355",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "ad8f568a-c99e-4ad1-b18f-1796f75227a0",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a29a5bef-82aa-4b02-b25b-08d191a27d73",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "952e3401-97c5-40e5-bdb9-d8bb6df2bf68",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "4f14b6e2-6f26-41f6-ade5-b21e9eb4b6c8",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "836df3d5-0ae7-4cc0-9ea2-40a82a2b2617",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "81fa3c51-dbae-4e10-8c23-034d40def7dd",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "e9a58baf-6b42-4bd8-9fc7-f15381364050",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "aa678efd-42ce-4ceb-8136-88e5d83a0930",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "4f8d2527-74dc-4b9c-af81-117b73ab3476",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "1a409bc9-5292-4180-9ce2-dba835b20b66",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "eebb6667-c83d-4beb-a39e-ff0309ad54e2",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "63ef3a14-9be2-4e16-b4f5-9829ab7b0264",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "1ccba8a8-dbde-4819-a76e-f33b3715ab0b",
+   "category": "coffee pod",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.9895363099551936,
+   "iou": 0.06454308430043941,
+   "pred_id": "coffee-capsule-2"
+  },
+  {
+   "gt_id": "cf3ad391-cef0-420b-b2aa-0db83ea6a4ba",
+   "category": "coffee pod",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.1097326315119096,
+   "iou": 0.0,
+   "pred_id": "coffee-capsule-1"
+  },
+  {
+   "gt_id": "1581ef5d-4ce1-47d8-b939-63a4935ef865",
+   "category": "fire alarm",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.8921321586755299,
+   "iou": 0.0,
+   "pred_id": "smoke-detector-living"
+  },
+  {
+   "gt_id": "c4fe6d8f-b35f-41a5-a384-9c7d871de3de",
+   "category": "wires",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "c3e981f6-ed23-45ad-9e13-8f266406153d",
+   "category": "charger",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  }
+ ],
+ "summary": {
+  "XS": {
+   "n": 43,
+   "recall_I": 0.0,
+   "misplaced_I": 0.3488372093023256,
+   "missed_I": 0.6511627906976745,
+   "recall_D": 0.2558139534883721,
+   "misplaced_D": 0.09302325581395349,
+   "missed_D": 0.6511627906976745
+  },
+  "S": {
+   "n": 28,
+   "recall_I": 0.2857142857142857,
+   "misplaced_I": 0.25,
+   "missed_I": 0.4642857142857143,
+   "recall_D": 0.35714285714285715,
+   "misplaced_D": 0.17857142857142858,
+   "missed_D": 0.4642857142857143
+  },
+  "M": {
+   "n": 24,
+   "recall_I": 0.6666666666666666,
+   "misplaced_I": 0.125,
+   "missed_I": 0.20833333333333334,
+   "recall_D": 0.7083333333333334,
+   "misplaced_D": 0.08333333333333333,
+   "missed_D": 0.20833333333333334
+  },
+  "L": {
+   "n": 19,
+   "recall_I": 0.3684210526315789,
+   "misplaced_I": 0.10526315789473684,
+   "missed_I": 0.5263157894736842,
+   "recall_D": 0.3157894736842105,
+   "misplaced_D": 0.15789473684210525,
+   "missed_D": 0.5263157894736842
+  }
+ },
+ "n_pred": 78,
+ "alignment": {
+  "s": 1.0325454320382115,
+  "residual_median_m": 0.055061985082157386,
+  "ok": true
+ }
+}

@@ -15,9 +15,22 @@ RUN="$PROJ/runs/showcase/$NAME"
 [ -e "$RUN" ] && { echo "!! $RUN 已经有了，不覆盖" >&2; exit 2; }
 [ -e "$AHA/scenes/$SCENE_RUN" ] && { echo "!! $AHA/scenes/$SCENE_RUN 已经有了，不覆盖" >&2; exit 2; }
 REF="$(cd "$PROJ/perception/$SID/bundle" && pwd -P)"
-# 底子运行的白膜图目录名不统一（stills/、final_stills/、stills_v017/），取最先找到的
-STILLS="$(ls -d "$BASE"/stills "$BASE"/final_stills "$BASE"/stills_v* 2>/dev/null | head -1)"
-[ -n "$STILLS" ] || { echo "!! $BASE 下找不到白膜图目录" >&2; exit 2; }
+# 底子运行的白膜图目录名不统一（stills/、final_stills/、final_views/、renders/stills_v014/），往下找三层，取版本最新的；
+# 有的运行没存白膜图（11-22），那就不给，让 agent 自己从源视频机位里挑
+STILLS="$(find "$BASE" -maxdepth 3 -type d \( -name 'stills' -o -name 'final_stills' -o -name 'final_views' -o -name 'stills_v*' \) 2>/dev/null | sort -V | tail -1)"
+if [ -n "$STILLS" ]; then
+  STILLS_NOTE="and its whitebox stills in \`$STILLS/\`"
+  STILLS_RULE="matching the
+  base run's whitebox stills where possible; at least 1600 px wide. For every
+  whitebox render in \`$STILLS/\` that was made from a source-video camera (its file
+  name carries the frame number), also render the material scene from that same
+  camera at the same resolution, keeping the frame number in the file name."
+else
+  STILLS_NOTE="(the base run saved no whitebox stills)"
+  STILLS_RULE="at least 1600 px wide. Also render the material scene from at least
+  six source-video cameras spread across the video (\`$REF/source_views/\`), keeping
+  the frame number in each file name."
+fi
 mkdir -p "$RUN" "$AHA/scenes/$SCENE_RUN/references"
 cp "$PROJ/scenes/$SID/input.mp4" "$AHA/scenes/$SCENE_RUN/references/input.mp4"
 cat > "$RUN/request.json" <<EOF
@@ -52,7 +65,7 @@ its docs and in this prompt are relative to that root.
 This is a narrow **material revision** of an existing room, for presentation.
 The base scene \`$BASE/scene.blend\` was built and reviewed in an earlier task
 from the video \`$AHA/scenes/$SCENE_RUN/references/input.mp4\`; its notes are in
-\`$BASE/SUMMARY.md\` and its whitebox stills in \`$STILLS/\`. The base scene is
+\`$BASE/SUMMARY.md\` $STILLS_NOTE. The base scene is
 read-only: copy it into \`scenes/$SCENE_RUN/\` and work on the copy.
 
 Give the copy furnished materials and lighting that approximate what the source
@@ -81,11 +94,7 @@ Scope is already decided and prefilled in \`$RUN/request.json\`. Run
 ## Deliverables (in \`$RUN\`)
 
 - \`scene.blend\`: the material scene (a copy of your final \`.blend\`).
-- \`stills/\`: overview, front, side and two or three interior views, matching the
-  base run's whitebox stills where possible; at least 1600 px wide. For every
-  whitebox render in \`$STILLS/\` that was made from a source-video camera (its file
-  name carries the frame number), also render the material scene from that same
-  camera at the same resolution, keeping the frame number in the file name.
+- \`stills/\`: overview, front, side and two or three interior views, $STILLS_RULE
 - \`compare/\`: at least 6 side-by-side images, source video frame on the left and
   the material render from the matched source camera on the right, for frames
   spread across the video.

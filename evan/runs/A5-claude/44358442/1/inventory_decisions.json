@@ -1,0 +1,3538 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "curtain-right"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "laundry-basket"
+ },
+ "c002": {
+  "action": "duplicate",
+  "object_id": "pendant-lamp"
+ },
+ "c003": {
+  "action": "part",
+  "object_id": "desk"
+ },
+ "c004": {
+  "action": "duplicate",
+  "object_id": "pendant-lamp"
+ },
+ "c005": {
+  "action": "built",
+  "object_id": "curtain-left"
+ },
+ "c006": {
+  "action": "built",
+  "object_id": "pendant-lamp"
+ },
+ "c007": {
+  "action": "part",
+  "object_id": "desk"
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "daybed"
+ },
+ "c010": {
+  "action": "part",
+  "object_id": "desk"
+ },
+ "c011": {
+  "action": "built",
+  "object_id": "projector"
+ },
+ "c012": {
+  "action": "part",
+  "object_id": "daybed"
+ },
+ "c013": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c015": {
+  "action": "part",
+  "object_id": "desk"
+ },
+ "c016": {
+  "action": "duplicate",
+  "object_id": "pendant-lamp"
+ },
+ "c017": {
+  "action": "duplicate",
+  "object_id": "curtain-right"
+ },
+ "c018": {
+  "action": "built",
+  "object_id": "shoe-brown-2"
+ },
+ "c019": {
+  "action": "part",
+  "object_id": "desk"
+ },
+ "c020": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c021": {
+  "action": "built",
+  "object_id": "hall-table-lamp"
+ },
+ "c022": {
+  "action": "duplicate",
+  "object_id": "hall-table-lamp"
+ },
+ "c023": {
+  "action": "built",
+  "object_id": "wardrobe"
+ },
+ "c024": {
+  "action": "duplicate",
+  "object_id": "curtain-right"
+ },
+ "c025": {
+  "action": "built",
+  "object_id": "mouse-pad"
+ },
+ "c026": {
+  "action": "duplicate",
+  "object_id": "cardboard-box-under-table"
+ },
+ "c027": {
+  "action": "duplicate",
+  "object_id": "mouse-pad"
+ },
+ "c028": {
+  "action": "built",
+  "object_id": "poster-c028"
+ },
+ "c029": {
+  "action": "built",
+  "object_id": "cardboard-box-under-table"
+ },
+ "c031": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c033": {
+  "action": "part",
+  "object_id": "daybed"
+ },
+ "c034": {
+  "action": "built",
+  "object_id": "hall-basket"
+ },
+ "c036": {
+  "action": "built",
+  "object_id": "shoe-brown-1"
+ },
+ "c037": {
+  "action": "built",
+  "object_id": "bathrobe"
+ },
+ "c038": {
+  "action": "duplicate",
+  "object_id": "poster-c119"
+ },
+ "c041": {
+  "action": "duplicate",
+  "object_id": "curtain-left"
+ },
+ "c042": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c044": {
+  "action": "built",
+  "object_id": "hall-wall-sconce"
+ },
+ "c045": {
+  "action": "duplicate",
+  "object_id": "pendant-lamp"
+ },
+ "c049": {
+  "action": "built",
+  "object_id": "side-table"
+ },
+ "c051": {
+  "action": "built",
+  "object_id": "poster-c051"
+ },
+ "c053": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c054": {
+  "action": "duplicate",
+  "object_id": "framed-sunset-picture"
+ },
+ "c056": {
+  "action": "part",
+  "object_id": "daybed"
+ },
+ "c057": {
+  "action": "built",
+  "object_id": "poster-c057"
+ },
+ "c059": {
+  "action": "built",
+  "object_id": "paper-c059"
+ },
+ "c060": {
+  "action": "built",
+  "object_id": "poster-c060"
+ },
+ "c064": {
+  "action": "built",
+  "object_id": "poster-c064"
+ },
+ "c065": {
+  "action": "part",
+  "object_id": "calendar"
+ },
+ "c067": {
+  "action": "built",
+  "object_id": "framed-sunset-picture"
+ },
+ "c068": {
+  "action": "built",
+  "object_id": "box-c068"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "poster-c070"
+ },
+ "c076": {
+  "action": "built",
+  "object_id": "mouse"
+ },
+ "c078": {
+  "action": "built",
+  "object_id": "poster-c078"
+ },
+ "c079": {
+  "action": "built",
+  "object_id": "poster-c079"
+ },
+ "c080": {
+  "action": "duplicate",
+  "object_id": "poster-c523"
+ },
+ "c081": {
+  "action": "built",
+  "object_id": "poster-c081"
+ },
+ "c083": {
+  "action": "built",
+  "object_id": "wall-shelf"
+ },
+ "c085": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c086": {
+  "action": "duplicate",
+  "object_id": "poster-c379"
+ },
+ "c087": {
+  "action": "built",
+  "object_id": "poster-c087"
+ },
+ "c088": {
+  "action": "built",
+  "object_id": "poster-c088"
+ },
+ "c089": {
+  "action": "duplicate",
+  "object_id": "poster-c260"
+ },
+ "c090": {
+  "action": "part",
+  "object_id": "mattress"
+ },
+ "c091": {
+  "action": "built",
+  "object_id": "poster-c091"
+ },
+ "c092": {
+  "action": "duplicate",
+  "object_id": "poster-c088"
+ },
+ "c094": {
+  "action": "built",
+  "object_id": "poster-c094"
+ },
+ "c097": {
+  "action": "duplicate",
+  "object_id": "bathrobe"
+ },
+ "c098": {
+  "action": "built",
+  "object_id": "bottle-c098"
+ },
+ "c099": {
+  "action": "built",
+  "object_id": "box-c099"
+ },
+ "c101": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c102": {
+  "action": "built",
+  "object_id": "hall-picture"
+ },
+ "c107": {
+  "action": "part",
+  "object_id": "calendar"
+ },
+ "c108": {
+  "action": "built",
+  "object_id": "book-c108"
+ },
+ "c109": {
+  "action": "built",
+  "object_id": "poster-c109"
+ },
+ "c110": {
+  "action": "duplicate",
+  "object_id": "poster-c109"
+ },
+ "c111": {
+  "action": "built",
+  "object_id": "poster-c111"
+ },
+ "c113": {
+  "action": "built",
+  "object_id": "box-c113"
+ },
+ "c114": {
+  "action": "duplicate",
+  "object_id": "projector-cable"
+ },
+ "c115": {
+  "action": "built",
+  "object_id": "poster-c115"
+ },
+ "c116": {
+  "action": "built",
+  "object_id": "poster-c116"
+ },
+ "c117": {
+  "action": "built",
+  "object_id": "poster-c117"
+ },
+ "c118": {
+  "action": "built",
+  "object_id": "poster-c118"
+ },
+ "c119": {
+  "action": "built",
+  "object_id": "poster-c119"
+ },
+ "c120": {
+  "action": "built",
+  "object_id": "poster-c120"
+ },
+ "c121": {
+  "action": "built",
+  "object_id": "slipper-1"
+ },
+ "c123": {
+  "action": "built",
+  "object_id": "poster-c123"
+ },
+ "c124": {
+  "action": "duplicate",
+  "object_id": "poster-c057"
+ },
+ "c125": {
+  "action": "built",
+  "object_id": "poster-c125"
+ },
+ "c127": {
+  "action": "built",
+  "object_id": "light-switch"
+ },
+ "c128": {
+  "action": "part",
+  "object_id": "wall-shelf"
+ },
+ "c129": {
+  "action": "built",
+  "object_id": "book-c129"
+ },
+ "c131": {
+  "action": "built",
+  "object_id": "bottle-c131"
+ },
+ "c132": {
+  "action": "built",
+  "object_id": "poster-c132"
+ },
+ "c133": {
+  "action": "built",
+  "object_id": "poster-c133"
+ },
+ "c134": {
+  "action": "duplicate",
+  "object_id": "poster-c1183"
+ },
+ "c135": {
+  "action": "duplicate",
+  "object_id": "poster-c118"
+ },
+ "c136": {
+  "action": "duplicate",
+  "object_id": "poster-c064"
+ },
+ "c137": {
+  "action": "built",
+  "object_id": "poster-c137"
+ },
+ "c138": {
+  "action": "built",
+  "object_id": "poster-c138"
+ },
+ "c140": {
+  "action": "duplicate",
+  "object_id": "tote-bag-teal"
+ },
+ "c141": {
+  "action": "built",
+  "object_id": "desk"
+ },
+ "c142": {
+  "action": "built",
+  "object_id": "box-c142"
+ },
+ "c145": {
+  "action": "built",
+  "object_id": "poster-c145"
+ },
+ "c146": {
+  "action": "built",
+  "object_id": "yellow-blanket"
+ },
+ "c147": {
+  "action": "built",
+  "object_id": "poster-c147"
+ },
+ "c149": {
+  "action": "built",
+  "object_id": "poster-c149"
+ },
+ "c150": {
+  "action": "built",
+  "object_id": "poster-c150"
+ },
+ "c151": {
+  "action": "built",
+  "object_id": "poster-c151"
+ },
+ "c153": {
+  "action": "built",
+  "object_id": "book-c153"
+ },
+ "c154": {
+  "action": "built",
+  "object_id": "slipper-2"
+ },
+ "c155": {
+  "action": "built",
+  "object_id": "jacket-c155"
+ },
+ "c156": {
+  "action": "built",
+  "object_id": "suitcase"
+ },
+ "c158": {
+  "action": "duplicate",
+  "object_id": "mouse"
+ },
+ "c159": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c160": {
+  "action": "built",
+  "object_id": "poster-c160"
+ },
+ "c161": {
+  "action": "built",
+  "object_id": "duvet"
+ },
+ "c164": {
+  "action": "built",
+  "object_id": "jacket-c164"
+ },
+ "c166": {
+  "action": "duplicate",
+  "object_id": "projector-cable"
+ },
+ "c167": {
+  "action": "built",
+  "object_id": "poster-c167"
+ },
+ "c168": {
+  "action": "built",
+  "object_id": "poster-c168"
+ },
+ "c169": {
+  "action": "built",
+  "object_id": "poster-c169"
+ },
+ "c170": {
+  "action": "built",
+  "object_id": "poster-c170"
+ },
+ "c171": {
+  "action": "built",
+  "object_id": "poster-c171"
+ },
+ "c172": {
+  "action": "duplicate",
+  "object_id": "poster-c133"
+ },
+ "c173": {
+  "action": "duplicate",
+  "object_id": "poster-c109"
+ },
+ "c174": {
+  "action": "duplicate",
+  "object_id": "poster-c521"
+ },
+ "c176": {
+  "action": "built",
+  "object_id": "poster-c176"
+ },
+ "c177": {
+  "action": "built",
+  "object_id": "poster-c177"
+ },
+ "c180": {
+  "action": "duplicate",
+  "object_id": "projector-cable"
+ },
+ "c181": {
+  "action": "built",
+  "object_id": "paper-on-box"
+ },
+ "c184": {
+  "action": "built",
+  "object_id": "poster-c184"
+ },
+ "c186": {
+  "action": "duplicate",
+  "object_id": "poster-c1183"
+ },
+ "c187": {
+  "action": "built",
+  "object_id": "poster-c187"
+ },
+ "c188": {
+  "action": "built",
+  "object_id": "poster-c188"
+ },
+ "c189": {
+  "action": "duplicate",
+  "object_id": "poster-c262"
+ },
+ "c190": {
+  "action": "built",
+  "object_id": "poster-c190"
+ },
+ "c191": {
+  "action": "part",
+  "object_id": "daybed"
+ },
+ "c192": {
+  "action": "built",
+  "object_id": "jacket-c192"
+ },
+ "c193": {
+  "action": "built",
+  "object_id": "bottle-c193"
+ },
+ "c194": {
+  "action": "built",
+  "object_id": "book-c194"
+ },
+ "c196": {
+  "action": "built",
+  "object_id": "pillow-2"
+ },
+ "c197": {
+  "action": "part",
+  "object_id": "mattress"
+ },
+ "c198": {
+  "action": "built",
+  "object_id": "poster-c198"
+ },
+ "c199": {
+  "action": "built",
+  "object_id": "poster-c199"
+ },
+ "c200": {
+  "action": "duplicate",
+  "object_id": "poster-c188"
+ },
+ "c201": {
+  "action": "built",
+  "object_id": "poster-c201"
+ },
+ "c203": {
+  "action": "built",
+  "object_id": "box-c203"
+ },
+ "c204": {
+  "action": "built",
+  "object_id": "box-c204"
+ },
+ "c205": {
+  "action": "built",
+  "object_id": "poster-c205"
+ },
+ "c206": {
+  "action": "built",
+  "object_id": "poster-c206"
+ },
+ "c207": {
+  "action": "built",
+  "object_id": "book-c207"
+ },
+ "c208": {
+  "action": "built",
+  "object_id": "book-c208"
+ },
+ "c210": {
+  "action": "built",
+  "object_id": "clothes-rack"
+ },
+ "c211": {
+  "action": "built",
+  "object_id": "book-c211"
+ },
+ "c213": {
+  "action": "built",
+  "object_id": "projector-cable"
+ },
+ "c214": {
+  "action": "built",
+  "object_id": "poster-c214"
+ },
+ "c215": {
+  "action": "duplicate",
+  "object_id": "poster-c777"
+ },
+ "c216": {
+  "action": "built",
+  "object_id": "poster-c216"
+ },
+ "c217": {
+  "action": "built",
+  "object_id": "poster-c217"
+ },
+ "c218": {
+  "action": "built",
+  "object_id": "poster-c218"
+ },
+ "c219": {
+  "action": "built",
+  "object_id": "poster-c219"
+ },
+ "c220": {
+  "action": "built",
+  "object_id": "poster-c220"
+ },
+ "c222": {
+  "action": "built",
+  "object_id": "poster-c222"
+ },
+ "c224": {
+  "action": "duplicate",
+  "object_id": "pot-c691"
+ },
+ "c225": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c226": {
+  "action": "built",
+  "object_id": "bottle-c226"
+ },
+ "c227": {
+  "action": "built",
+  "object_id": "paper-c227"
+ },
+ "c228": {
+  "action": "built",
+  "object_id": "book-c228"
+ },
+ "c229": {
+  "action": "duplicate",
+  "object_id": "mouse"
+ },
+ "c230": {
+  "action": "built",
+  "object_id": "poster-c230"
+ },
+ "c231": {
+  "action": "built",
+  "object_id": "poster-c231"
+ },
+ "c232": {
+  "action": "duplicate",
+  "object_id": "poster-c145"
+ },
+ "c235": {
+  "action": "built",
+  "object_id": "poster-c235"
+ },
+ "c236": {
+  "action": "built",
+  "object_id": "poster-c236"
+ },
+ "c241": {
+  "action": "duplicate",
+  "object_id": "box-c345"
+ },
+ "c242": {
+  "action": "duplicate",
+  "object_id": "box-c142"
+ },
+ "c243": {
+  "action": "built",
+  "object_id": "book-c243"
+ },
+ "c244": {
+  "action": "built",
+  "object_id": "book-c244"
+ },
+ "c245": {
+  "action": "built",
+  "object_id": "book-c245"
+ },
+ "c247": {
+  "action": "duplicate",
+  "object_id": "poster-c230"
+ },
+ "c248": {
+  "action": "built",
+  "object_id": "poster-c248"
+ },
+ "c249": {
+  "action": "duplicate",
+  "object_id": "poster-c260"
+ },
+ "c250": {
+  "action": "duplicate",
+  "object_id": "poster-c187"
+ },
+ "c251": {
+  "action": "built",
+  "object_id": "poster-c251"
+ },
+ "c252": {
+  "action": "built",
+  "object_id": "paper-c252"
+ },
+ "c254": {
+  "action": "duplicate",
+  "object_id": "pot-c348"
+ },
+ "c256": {
+  "action": "duplicate",
+  "object_id": "box-c113"
+ },
+ "c260": {
+  "action": "built",
+  "object_id": "poster-c260"
+ },
+ "c261": {
+  "action": "built",
+  "object_id": "poster-c261"
+ },
+ "c262": {
+  "action": "built",
+  "object_id": "poster-c262"
+ },
+ "c264": {
+  "action": "duplicate",
+  "object_id": "light-switch"
+ },
+ "c265": {
+  "action": "built",
+  "object_id": "poster-c265"
+ },
+ "c266": {
+  "action": "built",
+  "object_id": "book-c266"
+ },
+ "c269": {
+  "action": "built",
+  "object_id": "bottle-c269"
+ },
+ "c271": {
+  "action": "duplicate",
+  "object_id": "poster-c262"
+ },
+ "c272": {
+  "action": "duplicate",
+  "object_id": "poster-c028"
+ },
+ "c273": {
+  "action": "built",
+  "object_id": "poster-c273"
+ },
+ "c274": {
+  "action": "built",
+  "object_id": "poster-c274"
+ },
+ "c275": {
+  "action": "built",
+  "object_id": "poster-c275"
+ },
+ "c278": {
+  "action": "built",
+  "object_id": "poster-c278"
+ },
+ "c279": {
+  "action": "built",
+  "object_id": "bottle-c279"
+ },
+ "c281": {
+  "action": "built",
+  "object_id": "calendar"
+ },
+ "c282": {
+  "action": "built",
+  "object_id": "book-c282"
+ },
+ "c283": {
+  "action": "duplicate",
+  "object_id": "paper-on-box"
+ },
+ "c284": {
+  "action": "duplicate",
+  "object_id": "poster-c994"
+ },
+ "c286": {
+  "action": "built",
+  "object_id": "shoe-black-1"
+ },
+ "c287": {
+  "action": "built",
+  "object_id": "pot-c287"
+ },
+ "c288": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c289": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c290": {
+  "action": "built",
+  "object_id": "bottle-c290"
+ },
+ "c291": {
+  "action": "duplicate",
+  "object_id": "poster-c262"
+ },
+ "c292": {
+  "action": "duplicate",
+  "object_id": "poster-c214"
+ },
+ "c295": {
+  "action": "built",
+  "object_id": "poster-c295"
+ },
+ "c297": {
+  "action": "duplicate",
+  "object_id": "poster-c087"
+ },
+ "c300": {
+  "action": "duplicate",
+  "object_id": "poster-c217"
+ },
+ "c301": {
+  "action": "built",
+  "object_id": "poster-c301"
+ },
+ "c302": {
+  "action": "built",
+  "object_id": "poster-c302"
+ },
+ "c303": {
+  "action": "duplicate",
+  "object_id": "poster-c435"
+ },
+ "c305": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c306": {
+  "action": "built",
+  "object_id": "book-c306"
+ },
+ "c307": {
+  "action": "built",
+  "object_id": "poster-c307"
+ },
+ "c309": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c311": {
+  "action": "duplicate",
+  "object_id": "book-c282"
+ },
+ "c312": {
+  "action": "built",
+  "object_id": "bottle-c312"
+ },
+ "c313": {
+  "action": "duplicate",
+  "object_id": "poster-c171"
+ },
+ "c314": {
+  "action": "built",
+  "object_id": "poster-c314"
+ },
+ "c316": {
+  "action": "built",
+  "object_id": "poster-c316"
+ },
+ "c318": {
+  "action": "part",
+  "object_id": "wall-shelf"
+ },
+ "c319": {
+  "action": "built",
+  "object_id": "poster-c319"
+ },
+ "c320": {
+  "action": "built",
+  "object_id": "poster-c320"
+ },
+ "c321": {
+  "action": "built",
+  "object_id": "poster-c321"
+ },
+ "c322": {
+  "action": "part",
+  "object_id": "desk"
+ },
+ "c323": {
+  "action": "duplicate",
+  "object_id": "book-c228"
+ },
+ "c324": {
+  "action": "duplicate",
+  "object_id": "poster-c117"
+ },
+ "c326": {
+  "action": "built",
+  "object_id": "ring-light-cable"
+ },
+ "c327": {
+  "action": "built",
+  "object_id": "poster-c327"
+ },
+ "c328": {
+  "action": "built",
+  "object_id": "poster-c328"
+ },
+ "c329": {
+  "action": "built",
+  "object_id": "poster-c329"
+ },
+ "c330": {
+  "action": "duplicate",
+  "object_id": "bottle-c098"
+ },
+ "c332": {
+  "action": "built",
+  "object_id": "bottle-c332"
+ },
+ "c334": {
+  "action": "part",
+  "object_id": "mouse"
+ },
+ "c335": {
+  "action": "built",
+  "object_id": "pillow-1"
+ },
+ "c337": {
+  "action": "duplicate",
+  "object_id": "poster-c187"
+ },
+ "c338": {
+  "action": "part",
+  "object_id": "hall-table-lamp"
+ },
+ "c339": {
+  "action": "built",
+  "object_id": "poster-c339"
+ },
+ "c341": {
+  "action": "duplicate",
+  "object_id": "poster-c217"
+ },
+ "c342": {
+  "action": "built",
+  "object_id": "book-c342"
+ },
+ "c344": {
+  "action": "built",
+  "object_id": "book-c344"
+ },
+ "c345": {
+  "action": "built",
+  "object_id": "box-c345"
+ },
+ "c346": {
+  "action": "duplicate",
+  "object_id": "box-c113"
+ },
+ "c347": {
+  "action": "part",
+  "object_id": "window"
+ },
+ "c348": {
+  "action": "built",
+  "object_id": "pot-c348"
+ },
+ "c349": {
+  "action": "built",
+  "object_id": "book-c349"
+ },
+ "c350": {
+  "action": "built",
+  "object_id": "book-c350"
+ },
+ "c352": {
+  "action": "built",
+  "object_id": "poster-c352"
+ },
+ "c353": {
+  "action": "built",
+  "object_id": "poster-c353"
+ },
+ "c358": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c359": {
+  "action": "built",
+  "object_id": "bottle-c359"
+ },
+ "c360": {
+  "action": "built",
+  "object_id": "poster-c360"
+ },
+ "c365": {
+  "action": "duplicate",
+  "object_id": "bottle-c290"
+ },
+ "c366": {
+  "action": "built",
+  "object_id": "book-c366"
+ },
+ "c368": {
+  "action": "duplicate",
+  "object_id": "poster-c111"
+ },
+ "c369": {
+  "action": "built",
+  "object_id": "hall-rug"
+ },
+ "c372": {
+  "action": "duplicate",
+  "object_id": "poster-c094"
+ },
+ "c373": {
+  "action": "built",
+  "object_id": "poster-c373"
+ },
+ "c374": {
+  "action": "built",
+  "object_id": "poster-c374"
+ },
+ "c375": {
+  "action": "built",
+  "object_id": "poster-c375"
+ },
+ "c378": {
+  "action": "duplicate",
+  "object_id": "poster-c078"
+ },
+ "c379": {
+  "action": "built",
+  "object_id": "poster-c379"
+ },
+ "c380": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c381": {
+  "action": "duplicate",
+  "object_id": "poster-c132"
+ },
+ "c383": {
+  "action": "built",
+  "object_id": "poster-c383"
+ },
+ "c384": {
+  "action": "built",
+  "object_id": "poster-c384"
+ },
+ "c387": {
+  "action": "built",
+  "object_id": "bottle-c387"
+ },
+ "c388": {
+  "action": "duplicate",
+  "object_id": "pot-c691"
+ },
+ "c389": {
+  "action": "duplicate",
+  "object_id": "pot-c287"
+ },
+ "c390": {
+  "action": "built",
+  "object_id": "tote-bag-teal"
+ },
+ "c391": {
+  "action": "built",
+  "object_id": "book-c391"
+ },
+ "c393": {
+  "action": "built",
+  "object_id": "book-c393"
+ },
+ "c394": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c395": {
+  "action": "duplicate",
+  "object_id": "poster-c534"
+ },
+ "c401": {
+  "action": "built",
+  "object_id": "poster-c401"
+ },
+ "c405": {
+  "action": "built",
+  "object_id": "poster-c405"
+ },
+ "c406": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c408": {
+  "action": "built",
+  "object_id": "poster-c408"
+ },
+ "c411": {
+  "action": "built",
+  "object_id": "book-c411"
+ },
+ "c412": {
+  "action": "built",
+  "object_id": "poster-c412"
+ },
+ "c413": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c415": {
+  "action": "duplicate",
+  "object_id": "light-switch"
+ },
+ "c416": {
+  "action": "duplicate",
+  "object_id": "light-switch"
+ },
+ "c419": {
+  "action": "built",
+  "object_id": "jacket-c419"
+ },
+ "c420": {
+  "action": "built",
+  "object_id": "box-c420"
+ },
+ "c422": {
+  "action": "built",
+  "object_id": "poster-c422"
+ },
+ "c424": {
+  "action": "built",
+  "object_id": "poster-c424"
+ },
+ "c425": {
+  "action": "built",
+  "object_id": "poster-c425"
+ },
+ "c428": {
+  "action": "duplicate",
+  "object_id": "suitcase"
+ },
+ "c431": {
+  "action": "built",
+  "object_id": "book-c431"
+ },
+ "c434": {
+  "action": "duplicate",
+  "object_id": "poster-c117"
+ },
+ "c435": {
+  "action": "built",
+  "object_id": "poster-c435"
+ },
+ "c436": {
+  "action": "built",
+  "object_id": "poster-c436"
+ },
+ "c437": {
+  "action": "built",
+  "object_id": "poster-c437"
+ },
+ "c439": {
+  "action": "built",
+  "object_id": "poster-c439"
+ },
+ "c440": {
+  "action": "built",
+  "object_id": "poster-c440"
+ },
+ "c441": {
+  "action": "built",
+  "object_id": "poster-c441"
+ },
+ "c442": {
+  "action": "built",
+  "object_id": "poster-c442"
+ },
+ "c445": {
+  "action": "built",
+  "object_id": "paper-c445"
+ },
+ "c447": {
+  "action": "built",
+  "object_id": "book-c447"
+ },
+ "c451": {
+  "action": "built",
+  "object_id": "poster-c451"
+ },
+ "c453": {
+  "action": "duplicate",
+  "object_id": "paper-c227"
+ },
+ "c454": {
+  "action": "built",
+  "object_id": "poster-c454"
+ },
+ "c455": {
+  "action": "built",
+  "object_id": "poster-c455"
+ },
+ "c456": {
+  "action": "built",
+  "object_id": "poster-c456"
+ },
+ "c461": {
+  "action": "duplicate",
+  "object_id": "poster-c190"
+ },
+ "c462": {
+  "action": "duplicate",
+  "object_id": "poster-c160"
+ },
+ "c467": {
+  "action": "duplicate",
+  "object_id": "poster-c028"
+ },
+ "c468": {
+  "action": "duplicate",
+  "object_id": "poster-c785"
+ },
+ "c470": {
+  "action": "built",
+  "object_id": "book-c470"
+ },
+ "c471": {
+  "action": "built",
+  "object_id": "poster-c471"
+ },
+ "c475": {
+  "action": "duplicate",
+  "object_id": "bottle-c226"
+ },
+ "c476": {
+  "action": "built",
+  "object_id": "shoe-black-2"
+ },
+ "c477": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c479": {
+  "action": "built",
+  "object_id": "poster-c479"
+ },
+ "c481": {
+  "action": "duplicate",
+  "object_id": "yellow-blanket"
+ },
+ "c483": {
+  "action": "built",
+  "object_id": "poster-c483"
+ },
+ "c484": {
+  "action": "built",
+  "object_id": "poster-c484"
+ },
+ "c485": {
+  "action": "built",
+  "object_id": "poster-c485"
+ },
+ "c488": {
+  "action": "built",
+  "object_id": "paper-c488"
+ },
+ "c493": {
+  "action": "built",
+  "object_id": "poster-c493"
+ },
+ "c494": {
+  "action": "built",
+  "object_id": "poster-c494"
+ },
+ "c495": {
+  "action": "built",
+  "object_id": "poster-c495"
+ },
+ "c497": {
+  "action": "built",
+  "object_id": "poster-c497"
+ },
+ "c498": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c501": {
+  "action": "built",
+  "object_id": "poster-c501"
+ },
+ "c503": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c505": {
+  "action": "duplicate",
+  "object_id": "book-c282"
+ },
+ "c506": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c507": {
+  "action": "built",
+  "object_id": "poster-c507"
+ },
+ "c509": {
+  "action": "duplicate",
+  "object_id": "poster-c217"
+ },
+ "c510": {
+  "action": "built",
+  "object_id": "poster-c510"
+ },
+ "c511": {
+  "action": "built",
+  "object_id": "poster-c511"
+ },
+ "c512": {
+  "action": "duplicate",
+  "object_id": "pot-c348"
+ },
+ "c513": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c514": {
+  "action": "duplicate",
+  "object_id": "book-c211"
+ },
+ "c516": {
+  "action": "part",
+  "object_id": "mattress"
+ },
+ "c519": {
+  "action": "built",
+  "object_id": "poster-c519"
+ },
+ "c521": {
+  "action": "built",
+  "object_id": "poster-c521"
+ },
+ "c523": {
+  "action": "built",
+  "object_id": "poster-c523"
+ },
+ "c525": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c526": {
+  "action": "built",
+  "object_id": "poster-c526"
+ },
+ "c527": {
+  "action": "duplicate",
+  "object_id": "poster-c353"
+ },
+ "c530": {
+  "action": "duplicate",
+  "object_id": "mouse-pad"
+ },
+ "c533": {
+  "action": "part",
+  "object_id": "string-lights"
+ },
+ "c534": {
+  "action": "built",
+  "object_id": "poster-c534"
+ },
+ "c535": {
+  "action": "duplicate",
+  "object_id": "poster-c314"
+ },
+ "c536": {
+  "action": "duplicate",
+  "object_id": "poster-c119"
+ },
+ "c541": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c542": {
+  "action": "duplicate",
+  "object_id": "framed-sunset-picture"
+ },
+ "c545": {
+  "action": "built",
+  "object_id": "poster-c545"
+ },
+ "c548": {
+  "action": "built",
+  "object_id": "poster-c548"
+ },
+ "c550": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c551": {
+  "action": "built",
+  "object_id": "book-c551"
+ },
+ "c553": {
+  "action": "built",
+  "object_id": "poster-c553"
+ },
+ "c554": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c555": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c557": {
+  "action": "built",
+  "object_id": "poster-c557"
+ },
+ "c559": {
+  "action": "built",
+  "object_id": "poster-c559"
+ },
+ "c564": {
+  "action": "built",
+  "object_id": "poster-c564"
+ },
+ "c566": {
+  "action": "built",
+  "object_id": "poster-c566"
+ },
+ "c568": {
+  "action": "duplicate",
+  "object_id": "curtain-right"
+ },
+ "c572": {
+  "action": "duplicate",
+  "object_id": "poster-c088"
+ },
+ "c576": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c580": {
+  "action": "built",
+  "object_id": "book-c580"
+ },
+ "c581": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c584": {
+  "action": "duplicate",
+  "object_id": "poster-c188"
+ },
+ "c587": {
+  "action": "built",
+  "object_id": "poster-c587"
+ },
+ "c591": {
+  "action": "duplicate",
+  "object_id": "poster-c119"
+ },
+ "c592": {
+  "action": "built",
+  "object_id": "poster-c592"
+ },
+ "c593": {
+  "action": "duplicate",
+  "object_id": "box-c345"
+ },
+ "c597": {
+  "action": "built",
+  "object_id": "paper-c597"
+ },
+ "c600": {
+  "action": "built",
+  "object_id": "poster-c600"
+ },
+ "c601": {
+  "action": "built",
+  "object_id": "poster-c601"
+ },
+ "c602": {
+  "action": "built",
+  "object_id": "poster-c602"
+ },
+ "c605": {
+  "action": "built",
+  "object_id": "poster-c605"
+ },
+ "c610": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c611": {
+  "action": "built",
+  "object_id": "office-chair"
+ },
+ "c612": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c614": {
+  "action": "duplicate",
+  "object_id": "poster-c339"
+ },
+ "c618": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c623": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c624": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c628": {
+  "action": "built",
+  "object_id": "poster-c628"
+ },
+ "c630": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c632": {
+  "action": "built",
+  "object_id": "poster-c632"
+ },
+ "c634": {
+  "action": "built",
+  "object_id": "poster-c634"
+ },
+ "c638": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c640": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c641": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c645": {
+  "action": "duplicate",
+  "object_id": "poster-c214"
+ },
+ "c648": {
+  "action": "built",
+  "object_id": "poster-c648"
+ },
+ "c649": {
+  "action": "duplicate",
+  "object_id": "poster-c248"
+ },
+ "c657": {
+  "action": "built",
+  "object_id": "book-c657"
+ },
+ "c658": {
+  "action": "built",
+  "object_id": "poster-c658"
+ },
+ "c659": {
+  "action": "built",
+  "object_id": "poster-c659"
+ },
+ "c661": {
+  "action": "duplicate",
+  "object_id": "pot-c348"
+ },
+ "c662": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c664": {
+  "action": "built",
+  "object_id": "poster-c664"
+ },
+ "c671": {
+  "action": "built",
+  "object_id": "book-c671"
+ },
+ "c674": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c678": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c682": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c683": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c685": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c686": {
+  "action": "built",
+  "object_id": "poster-c686"
+ },
+ "c688": {
+  "action": "built",
+  "object_id": "poster-c688"
+ },
+ "c691": {
+  "action": "built",
+  "object_id": "pot-c691"
+ },
+ "c692": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c696": {
+  "action": "duplicate",
+  "object_id": "side-table"
+ },
+ "c701": {
+  "action": "duplicate",
+  "object_id": "poster-c116"
+ },
+ "c704": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c707": {
+  "action": "duplicate",
+  "object_id": "poster-c634"
+ },
+ "c708": {
+  "action": "duplicate",
+  "object_id": "poster-c511"
+ },
+ "c711": {
+  "action": "built",
+  "object_id": "poster-c711"
+ },
+ "c716": {
+  "action": "duplicate",
+  "object_id": "paper-bag-wardrobe"
+ },
+ "c717": {
+  "action": "built",
+  "object_id": "book-c717"
+ },
+ "c718": {
+  "action": "built",
+  "object_id": "box-c718"
+ },
+ "c722": {
+  "action": "duplicate",
+  "object_id": "poster-c125"
+ },
+ "c723": {
+  "action": "built",
+  "object_id": "poster-c723"
+ },
+ "c729": {
+  "action": "part",
+  "object_id": "desk"
+ },
+ "c730": {
+  "action": "duplicate",
+  "object_id": "pot-c287"
+ },
+ "c731": {
+  "action": "built",
+  "object_id": "book-c731"
+ },
+ "c736": {
+  "action": "built",
+  "object_id": "navy-jacket-on-bed"
+ },
+ "c741": {
+  "action": "built",
+  "object_id": "bottle-c741"
+ },
+ "c746": {
+  "action": "built",
+  "object_id": "bottle-c746"
+ },
+ "c748": {
+  "action": "built",
+  "object_id": "bottle-c748"
+ },
+ "c749": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c750": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c759": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c762": {
+  "action": "duplicate",
+  "object_id": "book-c349"
+ },
+ "c764": {
+  "action": "part",
+  "object_id": "mouse"
+ },
+ "c766": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c768": {
+  "action": "built",
+  "object_id": "toy-c768"
+ },
+ "c769": {
+  "action": "built",
+  "object_id": "book-c769"
+ },
+ "c777": {
+  "action": "built",
+  "object_id": "poster-c777"
+ },
+ "c779": {
+  "action": "duplicate",
+  "object_id": "yellow-blanket"
+ },
+ "c780": {
+  "action": "part",
+  "object_id": "string-lights"
+ },
+ "c782": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c783": {
+  "action": "built",
+  "object_id": "bottle-c783"
+ },
+ "c784": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c785": {
+  "action": "built",
+  "object_id": "poster-c785"
+ },
+ "c788": {
+  "action": "built",
+  "object_id": "book-c788"
+ },
+ "c789": {
+  "action": "duplicate",
+  "object_id": "book-c306"
+ },
+ "c790": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c792": {
+  "action": "duplicate",
+  "object_id": "shoe-brown-2"
+ },
+ "c795": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c797": {
+  "action": "built",
+  "object_id": "book-c797"
+ },
+ "c800": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c805": {
+  "action": "duplicate",
+  "object_id": "hall-wall-sconce"
+ },
+ "c806": {
+  "action": "built",
+  "object_id": "poster-c806"
+ },
+ "c808": {
+  "action": "built",
+  "object_id": "poster-c808"
+ },
+ "c809": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c810": {
+  "action": "part",
+  "object_id": "office-chair"
+ },
+ "c812": {
+  "action": "built",
+  "object_id": "poster-c812"
+ },
+ "c816": {
+  "action": "duplicate",
+  "object_id": "pot-c691"
+ },
+ "c817": {
+  "action": "built",
+  "object_id": "paper-c817"
+ },
+ "c818": {
+  "action": "built",
+  "object_id": "box-c818"
+ },
+ "c821": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c823": {
+  "action": "duplicate",
+  "object_id": "poster-c587"
+ },
+ "c826": {
+  "action": "duplicate",
+  "object_id": "poster-c094"
+ },
+ "c827": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c829": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c830": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c835": {
+  "action": "part",
+  "object_id": "hall-table-lamp"
+ },
+ "c837": {
+  "action": "duplicate",
+  "object_id": "poster-c273"
+ },
+ "c838": {
+  "action": "duplicate",
+  "object_id": "poster-c231"
+ },
+ "c840": {
+  "action": "duplicate",
+  "object_id": "poster-c659"
+ },
+ "c841": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c843": {
+  "action": "built",
+  "object_id": "book-c843"
+ },
+ "c844": {
+  "action": "built",
+  "object_id": "poster-c844"
+ },
+ "c845": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c846": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c851": {
+  "action": "duplicate",
+  "object_id": "poster-c261"
+ },
+ "c856": {
+  "action": "duplicate",
+  "object_id": "poster-c601"
+ },
+ "c858": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c859": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c861": {
+  "action": "duplicate",
+  "object_id": "poster-c806"
+ },
+ "c863": {
+  "action": "part",
+  "object_id": "mattress"
+ },
+ "c864": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c866": {
+  "action": "part",
+  "object_id": "desk"
+ },
+ "c867": {
+  "action": "duplicate",
+  "object_id": "laundry-basket"
+ },
+ "c874": {
+  "action": "duplicate",
+  "object_id": "poster-c494"
+ },
+ "c876": {
+  "action": "duplicate",
+  "object_id": "poster-c521"
+ },
+ "c877": {
+  "action": "built",
+  "object_id": "string-lights"
+ },
+ "c881": {
+  "action": "part",
+  "object_id": "duvet"
+ },
+ "c882": {
+  "action": "built",
+  "object_id": "poster-c882"
+ },
+ "c886": {
+  "action": "duplicate",
+  "object_id": "poster-c184"
+ },
+ "c889": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c890": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c891": {
+  "action": "built",
+  "object_id": "box-c891"
+ },
+ "c892": {
+  "action": "duplicate",
+  "object_id": "poster-c412"
+ },
+ "c894": {
+  "action": "built",
+  "object_id": "small-card-left-wall"
+ },
+ "c895": {
+  "action": "duplicate",
+  "object_id": "pillow-1"
+ },
+ "c900": {
+  "action": "built",
+  "object_id": "poster-c900"
+ },
+ "c908": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c909": {
+  "action": "built",
+  "object_id": "jacket-c909"
+ },
+ "c912": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c914": {
+  "action": "duplicate",
+  "object_id": "poster-c149"
+ },
+ "c918": {
+  "action": "built",
+  "object_id": "book-c918"
+ },
+ "c919": {
+  "action": "built",
+  "object_id": "bottle-c919"
+ },
+ "c920": {
+  "action": "built",
+  "object_id": "book-c920"
+ },
+ "c922": {
+  "action": "built",
+  "object_id": "poster-c922"
+ },
+ "c924": {
+  "action": "duplicate",
+  "object_id": "box-c420"
+ },
+ "c930": {
+  "action": "built",
+  "object_id": "poster-c930"
+ },
+ "c931": {
+  "action": "part",
+  "object_id": "clothes-rack"
+ },
+ "c932": {
+  "action": "built",
+  "object_id": "book-c932"
+ },
+ "c939": {
+  "action": "duplicate",
+  "object_id": "poster-c220"
+ },
+ "c940": {
+  "action": "duplicate",
+  "object_id": "poster-c601"
+ },
+ "c941": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c942": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c944": {
+  "action": "duplicate",
+  "object_id": "pot-c287"
+ },
+ "c948": {
+  "action": "skipped",
+  "reason": "Garden vegetation outside the window glass (x=-3.77 is beyond the wall plane); not an object in the room"
+ },
+ "c949": {
+  "action": "built",
+  "object_id": "poster-c949"
+ },
+ "c951": {
+  "action": "duplicate",
+  "object_id": "poster-c494"
+ },
+ "c959": {
+  "action": "duplicate",
+  "object_id": "small-card-left-wall"
+ },
+ "c961": {
+  "action": "duplicate",
+  "object_id": "book-c918"
+ },
+ "c962": {
+  "action": "part",
+  "object_id": "curtain-right"
+ },
+ "c966": {
+  "action": "built",
+  "object_id": "poster-c966"
+ },
+ "c970": {
+  "action": "built",
+  "object_id": "poster-c970"
+ },
+ "c972": {
+  "action": "duplicate",
+  "object_id": "book-c843"
+ },
+ "c974": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c975": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c976": {
+  "action": "built",
+  "object_id": "paper-bag-wardrobe"
+ },
+ "c977": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c978": {
+  "action": "duplicate",
+  "object_id": "book-c843"
+ },
+ "c983": {
+  "action": "duplicate",
+  "object_id": "poster-c109"
+ },
+ "c987": {
+  "action": "duplicate",
+  "object_id": "poster-c125"
+ },
+ "c994": {
+  "action": "built",
+  "object_id": "poster-c994"
+ },
+ "c996": {
+  "action": "duplicate",
+  "object_id": "bottle-c193"
+ },
+ "c1004": {
+  "action": "duplicate",
+  "object_id": "floor-cable-1"
+ },
+ "c997": {
+  "action": "built",
+  "object_id": "box-c997"
+ },
+ "c998": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c999": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1017": {
+  "action": "duplicate",
+  "object_id": "poster-c587"
+ },
+ "c1025": {
+  "action": "duplicate",
+  "object_id": "suitcase"
+ },
+ "c1027": {
+  "action": "built",
+  "object_id": "book-c1027"
+ },
+ "c1030": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1031": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1035": {
+  "action": "duplicate",
+  "object_id": "poster-c167"
+ },
+ "c1036": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1039": {
+  "action": "built",
+  "object_id": "poster-c1039"
+ },
+ "c1043": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1044": {
+  "action": "duplicate",
+  "object_id": "poster-c688"
+ },
+ "c1045": {
+  "action": "part",
+  "object_id": "duvet"
+ },
+ "c1049": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1053": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1054": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1058": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c1059": {
+  "action": "built",
+  "object_id": "book-c1059"
+ },
+ "c1063": {
+  "action": "duplicate",
+  "object_id": "poster-c479"
+ },
+ "c1065": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c1066": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1067": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1068": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1075": {
+  "action": "built",
+  "object_id": "paper-c1075"
+ },
+ "c1077": {
+  "action": "duplicate",
+  "object_id": "book-c843"
+ },
+ "c1079": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1080": {
+  "action": "duplicate",
+  "object_id": "box-c068"
+ },
+ "c1082": {
+  "action": "built",
+  "object_id": "floor-cable-2"
+ },
+ "c1083": {
+  "action": "duplicate",
+  "object_id": "book-c1059"
+ },
+ "c1085": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1089": {
+  "action": "duplicate",
+  "object_id": "poster-c451"
+ },
+ "c1091": {
+  "action": "built",
+  "object_id": "jacket-c1091"
+ },
+ "c1092": {
+  "action": "duplicate",
+  "object_id": "book-c207"
+ },
+ "c1096": {
+  "action": "duplicate",
+  "object_id": "projector-cable"
+ },
+ "c1097": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1098": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1106": {
+  "action": "built",
+  "object_id": "poster-c1106"
+ },
+ "c1109": {
+  "action": "duplicate",
+  "object_id": "poster-c295"
+ },
+ "c1110": {
+  "action": "duplicate",
+  "object_id": "poster-c601"
+ },
+ "c1111": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1112": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1115": {
+  "action": "built",
+  "object_id": "box-c1115"
+ },
+ "c1118": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1120": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c1122": {
+  "action": "built",
+  "object_id": "book-c1122"
+ },
+ "c1124": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1127": {
+  "action": "duplicate",
+  "object_id": "poster-c806"
+ },
+ "c1129": {
+  "action": "duplicate",
+  "object_id": "poster-c147"
+ },
+ "c1132": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1133": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1134": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1140": {
+  "action": "part",
+  "object_id": "duvet"
+ },
+ "c1142": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1143": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1148": {
+  "action": "built",
+  "object_id": "poster-c1148"
+ },
+ "c1152": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1153": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c1154": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1158": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1163": {
+  "action": "duplicate",
+  "object_id": "poster-c218"
+ },
+ "c1168": {
+  "action": "duplicate",
+  "object_id": "floor-cable-1"
+ },
+ "c1169": {
+  "action": "built",
+  "object_id": "hanger-c1169"
+ },
+ "c1174": {
+  "action": "duplicate",
+  "object_id": "poster-c138"
+ },
+ "c1175": {
+  "action": "part",
+  "object_id": "pendant-lamp"
+ },
+ "c1177": {
+  "action": "part",
+  "object_id": "mouse"
+ },
+ "c1179": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1183": {
+  "action": "built",
+  "object_id": "poster-c1183"
+ },
+ "c1185": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1186": {
+  "action": "built",
+  "object_id": "poster-c1186"
+ },
+ "c1188": {
+  "action": "built",
+  "object_id": "poster-c1188"
+ },
+ "c1189": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1190": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1191": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1196": {
+  "action": "built",
+  "object_id": "plant-c1196"
+ },
+ "c1197": {
+  "action": "skipped",
+  "reason": "Garden vegetation outside the window glass (x=-3.78 is beyond the wall plane); not an object in the room"
+ },
+ "c1198": {
+  "action": "built",
+  "object_id": "hanger-c1198"
+ },
+ "c1199": {
+  "action": "duplicate",
+  "object_id": "hanger-c1198"
+ },
+ "c1201": {
+  "action": "built",
+  "object_id": "book-c1201"
+ },
+ "c1202": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1206": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1208": {
+  "action": "duplicate",
+  "object_id": "poster-c167"
+ },
+ "c1210": {
+  "action": "built",
+  "object_id": "poster-c1210"
+ },
+ "c1214": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1215": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1218": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1219": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1222": {
+  "action": "duplicate",
+  "object_id": "book-c1059"
+ },
+ "c1224": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1226": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1227": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1229": {
+  "action": "built",
+  "object_id": "poster-c1229"
+ },
+ "c1231": {
+  "action": "built",
+  "object_id": "poster-c1231"
+ },
+ "c1232": {
+  "action": "duplicate",
+  "object_id": "poster-c812"
+ },
+ "c1233": {
+  "action": "duplicate",
+  "object_id": "poster-c051"
+ },
+ "c1237": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1242": {
+  "action": "duplicate",
+  "object_id": "projector-cable"
+ },
+ "c1245": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c1247": {
+  "action": "built",
+  "object_id": "hanger-c1247"
+ },
+ "c1249": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1253": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1254": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1256": {
+  "action": "duplicate",
+  "object_id": "poster-c198"
+ },
+ "c1257": {
+  "action": "duplicate",
+  "object_id": "poster-c970"
+ },
+ "c1262": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1264": {
+  "action": "duplicate",
+  "object_id": "laundry-basket"
+ },
+ "c1266": {
+  "action": "duplicate",
+  "object_id": "floor-cable-2"
+ },
+ "c1267": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1269": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c1272": {
+  "action": "built",
+  "object_id": "paper-c1272"
+ },
+ "c1274": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1279": {
+  "action": "duplicate",
+  "object_id": "poster-c320"
+ },
+ "c1280": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1286": {
+  "action": "built",
+  "object_id": "power-strip"
+ },
+ "c1288": {
+  "action": "built",
+  "object_id": "floor-jacket"
+ },
+ "c1290": {
+  "action": "duplicate",
+  "object_id": "paper-on-box"
+ },
+ "c1293": {
+  "action": "duplicate",
+  "object_id": "book-c1201"
+ },
+ "c1305": {
+  "action": "built",
+  "object_id": "paper-c1305"
+ },
+ "c1310": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1311": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1312": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1318": {
+  "action": "built",
+  "object_id": "book-c1318"
+ },
+ "c1319": {
+  "action": "built",
+  "object_id": "book-c1319"
+ },
+ "c1320": {
+  "action": "duplicate",
+  "object_id": "pillow-2"
+ },
+ "c1321": {
+  "action": "duplicate",
+  "object_id": "pillow-2"
+ },
+ "c1330": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1337": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1338": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1339": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1340": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1342": {
+  "action": "duplicate",
+  "object_id": "bottle-c748"
+ },
+ "c1344": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1350": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1356": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1357": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1360": {
+  "action": "duplicate",
+  "object_id": "book-c843"
+ },
+ "c1361": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1363": {
+  "action": "built",
+  "object_id": "hanger-c1363"
+ },
+ "c1365": {
+  "action": "built",
+  "object_id": "box-c1365"
+ },
+ "c1367": {
+  "action": "built",
+  "object_id": "poster-c1367"
+ },
+ "c1368": {
+  "action": "duplicate",
+  "object_id": "poster-c484"
+ },
+ "c1369": {
+  "action": "built",
+  "object_id": "poster-c1369"
+ },
+ "c1370": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1371": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1374": {
+  "action": "built",
+  "object_id": "paper-c1374"
+ },
+ "c1375": {
+  "action": "part",
+  "object_id": "side-table"
+ },
+ "c1377": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1378": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1379": {
+  "action": "duplicate",
+  "object_id": "book-c1027"
+ },
+ "c1380": {
+  "action": "duplicate",
+  "object_id": "poster-c688"
+ },
+ "c1382": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1388": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1390": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1391": {
+  "action": "built",
+  "object_id": "hanger-c1391"
+ },
+ "c1394": {
+  "action": "duplicate",
+  "object_id": "pillow-1"
+ },
+ "c1395": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1396": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1398": {
+  "action": "part",
+  "object_id": "clothes-rack"
+ },
+ "c1399": {
+  "action": "built",
+  "object_id": "box-c1399"
+ },
+ "c1400": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1404": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1405": {
+  "action": "duplicate",
+  "object_id": "floor-cable-2"
+ },
+ "c1406": {
+  "action": "duplicate",
+  "object_id": "book-c1201"
+ },
+ "c1407": {
+  "action": "duplicate",
+  "object_id": "poster-c557"
+ },
+ "c1414": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1421": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1426": {
+  "action": "built",
+  "object_id": "hutch-black-pouch"
+ },
+ "c1427": {
+  "action": "duplicate",
+  "object_id": "box-c818"
+ },
+ "c1434": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1437": {
+  "action": "duplicate",
+  "object_id": "poster-c320"
+ },
+ "c1438": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1446": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c1448": {
+  "action": "duplicate",
+  "object_id": "book-c843"
+ },
+ "c1449": {
+  "action": "duplicate",
+  "object_id": "box-c718"
+ },
+ "c1452": {
+  "action": "duplicate",
+  "object_id": "poster-c051"
+ },
+ "c1458": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1463": {
+  "action": "built",
+  "object_id": "book-c1463"
+ },
+ "c1465": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1467": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1468": {
+  "action": "duplicate",
+  "object_id": "poster-c188"
+ },
+ "c1469": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1472": {
+  "action": "built",
+  "object_id": "poster-c1472"
+ },
+ "c1473": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1474": {
+  "action": "part",
+  "object_id": "hall-nightstand"
+ },
+ "c1475": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1477": {
+  "action": "built",
+  "object_id": "paper-c1477"
+ },
+ "c1478": {
+  "action": "built",
+  "object_id": "poster-c1478"
+ },
+ "c1479": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1480": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1481": {
+  "action": "part",
+  "object_id": "duvet"
+ },
+ "c1483": {
+  "action": "duplicate",
+  "object_id": "suitcase"
+ },
+ "c1484": {
+  "action": "built",
+  "object_id": "box-c1484"
+ },
+ "c1488": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1491": {
+  "action": "duplicate",
+  "object_id": "poster-c070"
+ },
+ "c1494": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1495": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1498": {
+  "action": "built",
+  "object_id": "hanger-c1498"
+ },
+ "c1499": {
+  "action": "duplicate",
+  "object_id": "ring-light-cable"
+ },
+ "c1500": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1506": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1508": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1510": {
+  "action": "built",
+  "object_id": "hall-nightstand"
+ },
+ "c1513": {
+  "action": "duplicate",
+  "object_id": "pillow-2"
+ },
+ "c1515": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1517": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1518": {
+  "action": "built",
+  "object_id": "floor-cable-1"
+ },
+ "c1519": {
+  "action": "built",
+  "object_id": "jacket-c1519"
+ },
+ "c1523": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1524": {
+  "action": "built",
+  "object_id": "paper-c1524"
+ },
+ "c1526": {
+  "action": "built",
+  "object_id": "hanging-strip-ornament"
+ },
+ "c1527": {
+  "action": "duplicate",
+  "object_id": "hanger-c1391"
+ },
+ "c1532": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1542": {
+  "action": "duplicate",
+  "object_id": "poster-c437"
+ },
+ "c1544": {
+  "action": "duplicate",
+  "object_id": "poster-c601"
+ },
+ "c1545": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1551": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1552": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1553": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1556": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1557": {
+  "action": "duplicate",
+  "object_id": "pillow-2"
+ },
+ "c1558": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1564": {
+  "action": "built",
+  "object_id": "bottle-c1564"
+ },
+ "c1568": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1572": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1574": {
+  "action": "duplicate",
+  "object_id": "poster-c412"
+ },
+ "c1575": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1576": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1581": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1585": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1586": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1591": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1592": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1594": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1596": {
+  "action": "duplicate",
+  "object_id": "poster-c592"
+ },
+ "c1598": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1599": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1600": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1602": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1603": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1604": {
+  "action": "duplicate",
+  "object_id": "floor-cable-1"
+ },
+ "c1605": {
+  "action": "duplicate",
+  "object_id": "paper-on-box"
+ },
+ "c1606": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1607": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1608": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1609": {
+  "action": "built",
+  "object_id": "box-c1609"
+ },
+ "c1611": {
+  "action": "duplicate",
+  "object_id": "projector-cable"
+ },
+ "c1614": {
+  "action": "duplicate",
+  "object_id": "poster-c566"
+ },
+ "c1615": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1624": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1625": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1627": {
+  "action": "built",
+  "object_id": "phone"
+ },
+ "c1629": {
+  "action": "duplicate",
+  "object_id": "poster-c601"
+ },
+ "c1630": {
+  "action": "duplicate",
+  "object_id": "pillow-1"
+ },
+ "c1631": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1637": {
+  "action": "duplicate",
+  "object_id": "tote-bag-teal"
+ },
+ "c1638": {
+  "action": "duplicate",
+  "object_id": "bottle-c193"
+ },
+ "c1641": {
+  "action": "duplicate",
+  "object_id": "book-c1059"
+ },
+ "c1644": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1645": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1647": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1648": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1649": {
+  "action": "duplicate",
+  "object_id": "yellow-blanket"
+ },
+ "c1650": {
+  "action": "built",
+  "object_id": "poster-c1650"
+ },
+ "c1651": {
+  "action": "duplicate",
+  "object_id": "poster-c401"
+ },
+ "c1652": {
+  "action": "duplicate",
+  "object_id": "poster-c117"
+ },
+ "c1655": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1656": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1666": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1671": {
+  "action": "duplicate",
+  "object_id": "poster-c070"
+ },
+ "c1677": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1678": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1680": {
+  "action": "part",
+  "object_id": "curtain-right"
+ },
+ "c1683": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1686": {
+  "action": "duplicate",
+  "object_id": "book-c932"
+ },
+ "c1687": {
+  "action": "duplicate",
+  "object_id": "poster-c548"
+ },
+ "c1688": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1690": {
+  "action": "part",
+  "object_id": "mattress"
+ },
+ "c1691": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1698": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1699": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1704": {
+  "action": "built",
+  "object_id": "box-c1704"
+ },
+ "c1705": {
+  "action": "duplicate",
+  "object_id": "pot-c691"
+ },
+ "c1714": {
+  "action": "duplicate",
+  "object_id": "poster-c592"
+ },
+ "c1716": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1717": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1720": {
+  "action": "duplicate",
+  "object_id": "poster-c320"
+ },
+ "c1728": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1732": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1735": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1736": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1744": {
+  "action": "built",
+  "object_id": "box-c1744"
+ },
+ "c1748": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1750": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1757": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1763": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1769": {
+  "action": "duplicate",
+  "object_id": "poster-c115"
+ },
+ "c1772": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1776": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1777": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1778": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1782": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1783": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1787": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1788": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1789": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1792": {
+  "action": "built",
+  "object_id": "bottle-c1792"
+ },
+ "c1795": {
+  "action": "built",
+  "object_id": "box-c1795"
+ },
+ "c1796": {
+  "action": "duplicate",
+  "object_id": "book-c843"
+ },
+ "c1797": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1798": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1799": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1802": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1812": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1813": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1820": {
+  "action": "duplicate",
+  "object_id": "pot-c287"
+ },
+ "c1822": {
+  "action": "built",
+  "object_id": "book-c1822"
+ },
+ "c1825": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1826": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1828": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1829": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1831": {
+  "action": "duplicate",
+  "object_id": "poster-c564"
+ },
+ "c1840": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1841": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1842": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1843": {
+  "action": "built",
+  "object_id": "bottle-c1843"
+ },
+ "c1846": {
+  "action": "duplicate",
+  "object_id": "book-c843"
+ },
+ "c1849": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1850": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1854": {
+  "action": "duplicate",
+  "object_id": "duvet"
+ },
+ "c1855": {
+  "action": "built",
+  "object_id": "wardrobe-top-box"
+ },
+ "c1857": {
+  "action": "duplicate",
+  "object_id": "laundry-basket"
+ },
+ "c1862": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1868": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1870": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c1871": {
+  "action": "part",
+  "object_id": "curtain-right"
+ },
+ "c1873": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c1874": {
+  "action": "part",
+  "object_id": "desk-hutch"
+ },
+ "c1875": {
+  "action": "built",
+  "object_id": "box-c1875"
+ },
+ "c1877": {
+  "action": "built",
+  "object_id": "book-c1877"
+ },
+ "c1879": {
+  "action": "duplicate",
+  "object_id": "poster-c566"
+ },
+ "c1880": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1883": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1884": {
+  "action": "duplicate",
+  "object_id": "poster-c260"
+ },
+ "c1886": {
+  "action": "duplicate",
+  "object_id": "poster-c632"
+ },
+ "c1891": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ },
+ "c1892": {
+  "action": "skipped",
+  "reason": "Rose print on the duvet cover (all detections lie on the bed surface); a textile pattern, not a separate object"
+ }
+}

@@ -247,11 +247,14 @@ if __name__ == "__main__":  # python -m smallobj.gen3d jobs <scene> <out.json> [
         Path(sys.argv[3]).write_text(json.dumps(item_mask_jobs(sys.argv[2], inventory=inv)) + "\n")
 
 
-def prepare_sam3d_job(scene_id: str, item_ids: list, inventory: str = "inventory.json", root: Path = PROJ) -> Path:
+def prepare_sam3d_job(scene_id: str, item_ids: list, inventory: str = "inventory.json", root: Path = PROJ,
+                      depth_name: str = "depth") -> Path:
     """给 Betty 上的 SAM 3D 准备一个批处理目录 gen/<scene>/sam3d_jobs/<时间>/：
     inputs.json（[{item_id, frame, rgba, mask, pointmap, K}]）、<item>_rgba.png（整帧，alpha = 掩码）、
-    <item>_mask.png、<item>_pointmap.npy（这一帧高清深度在相机坐标系下的点，H×W×3，无效为 NaN）。
-    掩码最大那一帧不到 200 像素或看不到的物体不放进去。Betty 写回 <item>/{mesh.glb 或 splat.ply, pose.json}。"""
+    <item>_mask.png、<item>_pointmap.npy（这一帧高清深度在相机坐标系下的点，H×W×3，float16，无效为 NaN）。
+    掩码最大那一帧不到 200 像素或看不到的物体不放进去。SAM 3D 在 Colab A100 上跑（scripts/gen_backends/sam3d_job.py），
+    写回 <item>/{mesh_cam.glb, mesh_canonical.glb, pose.json, status.json}。
+    depth_name="depth_moge"（清单 v2）：点图用对齐到 Pi3X 尺度的 MoGe-2 深度。"""
     import time
     from PIL import Image
     root = Path(root)
@@ -273,14 +276,56 @@ def prepare_sam3d_job(scene_id: str, item_ids: list, inventory: str = "inventory
         K = np.asarray(f["K"], float)
         mask = np.asarray(Image.open(mdir / m["mask"])) > 0
         img = np.asarray(Image.open(P / "hd" / "frames" / f"{s:06d}.png").convert("RGB"))
-        depth = np.load(P / "hd" / "depth" / f"{s:06d}.npy")
+        depth = np.load(P / "hd" / depth_name / f"{s:06d}.npy")
         H, W = depth.shape
         u, v = np.meshgrid(np.arange(W), np.arange(H))
-        pm = np.stack([(u - K[0, 2]) / K[0, 0] * depth, (v - K[1, 2]) / K[1, 1] * depth, depth], -1).astype(np.float32)
+        pm = np.stack([(u - K[0, 2]) / K[0, 0] * depth, (v - K[1, 2]) / K[1, 1] * depth, depth], -1).astype(np.float16)
         Image.fromarray(np.dstack([img, mask.astype(np.uint8) * 255])).save(job / f"{iid}_rgba.png")
         Image.fromarray(mask.astype(np.uint8) * 255).save(job / f"{iid}_mask.png")
         np.save(job / f"{iid}_pointmap.npy", pm)
         spec.append({"item_id": iid, "frame": s, "rgba": f"{iid}_rgba.png", "mask": f"{iid}_mask.png",
-                     "pointmap": f"{iid}_pointmap.npy", "K": K.tolist(), "c2w": f["c2w"]})
+                     "pointmap": f"{iid}_pointmap.npy", "K": K.tolist(), "c2w": f["c2w"], "depth": depth_name})
     (job / "inputs.json").write_text(json.dumps(spec, indent=1) + "\n")
     return job
+
+
+SAM3D_CANDIDATE = 9  # gen/<scene>/<item>/c9/：SAM 3D（Colab）的结果，和 Hunyuan 的 c0、c1 分开
+
+
+def import_sam3d(out_tar: Path, root: Path = PROJ) -> list:
+    """Colab 写回的 <包>_out.tar.gz（notebooks/sam3d_colab.ipynb）：解到原来的任务目录（pack.json 记着），
+    每个物体的 mesh_cam.glb（OpenCV 相机坐标）乘这一帧的 c2w 换到房间坐标，存成 gen/<scene>/<item>/c9/mesh.glb
+    和 gen.json（backend="sam3d"）。place_mesh 看到这个后端就从 SAM 3D 自己的位姿起步微调（借 SceneRig）。"""
+    import tarfile
+    import trimesh
+    root = Path(root)
+    with tarfile.open(out_tar) as t:
+        pack = json.load(t.extractfile("pack.json"))
+        job = (root / pack["job_dir"]).resolve()
+        for m in t.getmembers():
+            if not (m.isfile() and m.name.startswith("job/")):
+                continue
+            dest = (job / m.name[len("job/"):]).resolve()
+            if job not in dest.parents:  # 路径不许跳出任务目录
+                continue
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(t.extractfile(m).read())
+    out = []
+    for s in json.loads((job / "inputs.json").read_text()):
+        iid, d = s["item_id"], job / s["item_id"]
+        st = json.loads((d / "status.json").read_text()) if (d / "status.json").exists() else {"status": "missing"}
+        cdir = root / "gen" / pack["scene"] / iid / f"c{SAM3D_CANDIDATE}"
+        cdir.mkdir(parents=True, exist_ok=True)
+        res = {"item_id": iid, "candidate_id": SAM3D_CANDIDATE, "frame": s["frame"], "backend": "sam3d",
+               "inventory": pack["inventory"], "mesh_glb": str(cdir / "mesh.glb"), "seconds": st.get("seconds"),
+               "job": str(job.relative_to(root.resolve())) if root.resolve() in job.parents else str(job)}
+        if st.get("status") == "ok" and (d / "mesh_cam.glb").exists():
+            mesh = trimesh.load(d / "mesh_cam.glb", force="mesh")
+            mesh.apply_transform(np.asarray(s["c2w"], float))
+            mesh.export(cdir / "mesh.glb")
+            res.update(status="ok", faces=int(len(mesh.faces)))
+        else:
+            res.update(status=st.get("status", "missing") if st.get("status") != "ok" else "no_mesh", error=st.get("error"))
+        (cdir / "gen.json").write_text(json.dumps(res, indent=1) + "\n")
+        out.append(res)
+    return out
