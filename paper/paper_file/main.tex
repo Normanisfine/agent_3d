@@ -174,13 +174,25 @@ speed or cost comparison requires live review, matched reconstruction quality
 and the costs of failed attempts. The physics pilot likewise needs measured
 object properties to establish accuracy.
 
+The controller comparison exposes a trade-off in handling failures. An agent
+can reconsider an individual edit, but it also spends tokens monitoring work
+between edits. Python can wait for a build at no model-token cost, but a
+dependency in its plan can prevent useful work after an upstream failure.
+One run per controller establishes neither run-to-run cost variability nor
+cost at equal quality.
+
 \section{Conclusion}
 Across six rooms, the All objects instructions yielded 65 more correct
 placements under 50\,cm than the baseline. The detector inventory added 30
 and the checklist a further 41. Nearly half of these targets were still
-never built. Independent builds could
-overlap in a controlled test. Whether that saves time at matched room quality
-remains open.
+never built.
+
+On FloorPlan209, agent supervision achieved the highest placement recall
+and carried the largest token cost. Python scheduling retained the
+fitted-scale gain on small objects at 72\% lower estimated token cost than
+AHA-driven, while losing five correct placements across all sizes.
+Whether either controller can deliver the same quality more cheaply across
+rooms remains open.
 \label{main-text-end}
 \clearpage
 \bibliographystyle{plain}

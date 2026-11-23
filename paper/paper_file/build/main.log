@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.8.30)  19 NOV 2026 18:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.8.30)  23 NOV 2026 11:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -221,6 +221,25 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 \Gin@req@height=\dimen172
 \Gin@req@width=\dimen173
 )
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
 
@@ -360,24 +379,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (build/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -445,19 +464,19 @@ LaTeX Font Info:    ... okay on input line 14.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 14.
-Package microtype Info: Applying patch `item' on input line 14.
-Package microtype Info: Applying patch `toc' on input line 14.
-Package microtype Info: Applying patch `eqnum' on input line 14.
-Package microtype Info: Applying patch `footnote' on input line 14.
-Package microtype Info: Applying patch `verbatim' on input line 14.
+LaTeX Info: Redefining \microtypecontext on input line 28.
+Package microtype Info: Applying patch `item' on input line 28.
+Package microtype Info: Applying patch `toc' on input line 28.
+Package microtype Info: Applying patch `eqnum' on input line 28.
+Package microtype Info: Applying patch `footnote' on input line 28.
+Package microtype Info: Applying patch `verbatim' on input line 28.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 14.
+LaTeX Info: Redefining \showhyphens on input line 28.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -486,7 +505,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 14.
+Package hyperref Info: Link coloring OFF on input line 28.
 
 (build/main.out) (build/main.out)
 \@outlinefile=\write3
@@ -497,7 +516,7 @@ Package hyperref Info: Link coloring OFF on input line 14.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -506,7 +525,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -515,18 +534,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-(./visual-evidence.tex
-<figures/ca1m-scope.pdf, id=64, 507.3354pt x 209.04063pt>
-File: figures/ca1m-scope.pdf Graphic file (type pdf)
-<use figures/ca1m-scope.pdf>
-Package pdftex.def Info: figures/ca1m-scope.pdf  used on input line 3.
-(pdftex.def)             Requested size: 397.48499pt x 163.78465pt.
-) [1
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
-st/fonts/enc/dvips/base/8r.enc} <./figures/ca1m-scope.pdf>] (./small-object-met
-hod.tex
+st/fonts/enc/dvips/base/8r.enc}] (./small-object-method.tex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9
 .
 
@@ -537,80 +551,438 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [2])
-(./architecture.tex
-<figures/parallelism.png, id=136, 385.44pt x 187.902pt>
-File: figures/parallelism.png Graphic file (type png)
-<use figures/parallelism.png>
-Package pdftex.def Info: figures/parallelism.png  used on input line 11.
-(pdftex.def)             Requested size: 397.48499pt x 193.77345pt.
- [3 <./figures/parallelism.png (PNG copy)>])
-(./completion.tex)
-<figures/ai2thor-source.png, id=156, 1445.4pt x 963.6pt>
+ (./visual-evidence.tex
+<figures/system-pipeline.pdf, id=99, 401.74089pt x 302.52023pt>
+File: figures/system-pipeline.pdf Graphic file (type pdf)
+<use figures/system-pipeline.pdf>
+Package pdftex.def Info: figures/system-pipeline.pdf  used on input line 3.
+(pdftex.def)             Requested size: 397.48499pt x 299.32977pt.
+) [2]) (./architecture.tex [3 <./figures/system-pipeline.pdf>]
+
+pdfTeX warning: pdflatex (file ./figures/parallelism.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<figures/parallelism.pdf, id=245, 1043.9pt x 537.00626pt>
+File: figures/parallelism.pdf Graphic file (type pdf)
+<use figures/parallelism.pdf>
+Package pdftex.def Info: figures/parallelism.pdf  used on input line 24.
+(pdftex.def)             Requested size: 397.48499pt x 204.4742pt.
+) (./completion.tex) [4 <./figures/parallelism.pdf>]
+<figures/ai2thor-source.png, id=266, 1445.4pt x 963.6pt>
 File: figures/ai2thor-source.png Graphic file (type png)
 <use figures/ai2thor-source.png>
-Package pdftex.def Info: figures/ai2thor-source.png  used on input line 118.
+Package pdftex.def Info: figures/ai2thor-source.png  used on input line 138.
 (pdftex.def)             Requested size: 121.41277pt x 80.94185pt.
-<figures/ai2thor-reconstruction.png, id=157, 618.31pt x 407.5225pt>
+<figures/ai2thor-reconstruction.png, id=267, 618.31pt x 407.5225pt>
 File: figures/ai2thor-reconstruction.png Graphic file (type png)
 <use figures/ai2thor-reconstruction.png>
 Package pdftex.def Info: figures/ai2thor-reconstruction.png  used on input line
- 120.
+ 140.
 (pdftex.def)             Requested size: 122.80125pt x 80.93718pt.
- (./reconstruction.tex [4 <./figures/ai2thor-source.png (PNG copy)> <./figures/
-ai2thor-reconstruction.png>]
-<figures/ca1m-placement-by-room.pdf, id=168, 496.47357pt x 124.74203pt>
-File: figures/ca1m-placement-by-room.pdf Graphic file (type pdf)
-<use figures/ca1m-placement-by-room.pdf>
-Package pdftex.def Info: figures/ca1m-placement-by-room.pdf  used on input line
- 41.
-(pdftex.def)             Requested size: 369.65811pt x 92.87866pt.
-<figures/ca1m-recall.pdf, id=170, 497.85748pt x 191.59758pt>
-File: figures/ca1m-recall.pdf Graphic file (type pdf)
-<use figures/ca1m-recall.pdf>
-Package pdftex.def Info: figures/ca1m-recall.pdf  used on input line 56.
-(pdftex.def)             Requested size: 397.48499pt x 152.97128pt.
-) (./systems-results.tex [5 <./figures/ca1m-placement-by-room.pdf> <./figures/c
-a1m-recall.pdf>])
-(./cost-results.tex) (./physics-results.tex
-<figures/ca1m-coffee-physics.pdf, id=203, 424.46912pt x 261.48656pt>
+ (./reconstruction.tex
+<figures/small-object-results.pdf, id=270, 397.485pt x 238.49101pt>
+File: figures/small-object-results.pdf Graphic file (type pdf)
+<use figures/small-object-results.pdf>
+Package pdftex.def Info: figures/small-object-results.pdf  used on input line 1
+3.
+(pdftex.def)             Requested size: 397.48499pt x 238.49768pt.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 48
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `phv' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+<figures/panels/42897538_frame.jpg, id=274, 803.0pt x 602.25pt>
+File: figures/panels/42897538_frame.jpg Graphic file (type jpg)
+<use figures/panels/42897538_frame.jpg>
+Package pdftex.def Info: figures/panels/42897538_frame.jpg  used on input line 
+49.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42897538_A0.jpg, id=275, 803.0pt x 602.25pt>
+File: figures/panels/42897538_A0.jpg Graphic file (type jpg)
+<use figures/panels/42897538_A0.jpg>
+Package pdftex.def Info: figures/panels/42897538_A0.jpg  used on input line 49.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42897538_A1.jpg, id=276, 803.0pt x 602.25pt>
+File: figures/panels/42897538_A1.jpg Graphic file (type jpg)
+<use figures/panels/42897538_A1.jpg>
+Package pdftex.def Info: figures/panels/42897538_A1.jpg  used on input line 49.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42897538_A2.jpg, id=277, 803.0pt x 602.25pt>
+File: figures/panels/42897538_A2.jpg Graphic file (type jpg)
+<use figures/panels/42897538_A2.jpg>
+Package pdftex.def Info: figures/panels/42897538_A2.jpg  used on input line 49.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42897538_A5.jpg, id=278, 803.0pt x 602.25pt>
+File: figures/panels/42897538_A5.jpg Graphic file (type jpg)
+<use figures/panels/42897538_A5.jpg>
+Package pdftex.def Info: figures/panels/42897538_A5.jpg  used on input line 49.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42897538_MAT.jpg, id=279, 803.0pt x 602.25pt>
+File: figures/panels/42897538_MAT.jpg Graphic file (type jpg)
+<use figures/panels/42897538_MAT.jpg>
+Package pdftex.def Info: figures/panels/42897538_MAT.jpg  used on input line 49
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42898849_frame.jpg, id=280, 803.0pt x 602.25pt>
+File: figures/panels/42898849_frame.jpg Graphic file (type jpg)
+<use figures/panels/42898849_frame.jpg>
+Package pdftex.def Info: figures/panels/42898849_frame.jpg  used on input line 
+50.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42898849_A0.jpg, id=281, 803.0pt x 602.25pt>
+File: figures/panels/42898849_A0.jpg Graphic file (type jpg)
+<use figures/panels/42898849_A0.jpg>
+Package pdftex.def Info: figures/panels/42898849_A0.jpg  used on input line 50.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42898849_A1.jpg, id=282, 803.0pt x 602.25pt>
+File: figures/panels/42898849_A1.jpg Graphic file (type jpg)
+<use figures/panels/42898849_A1.jpg>
+Package pdftex.def Info: figures/panels/42898849_A1.jpg  used on input line 50.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42898849_A2.jpg, id=283, 803.0pt x 602.25pt>
+File: figures/panels/42898849_A2.jpg Graphic file (type jpg)
+<use figures/panels/42898849_A2.jpg>
+Package pdftex.def Info: figures/panels/42898849_A2.jpg  used on input line 50.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42898849_A5.jpg, id=284, 803.0pt x 602.25pt>
+File: figures/panels/42898849_A5.jpg Graphic file (type jpg)
+<use figures/panels/42898849_A5.jpg>
+Package pdftex.def Info: figures/panels/42898849_A5.jpg  used on input line 50.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42898849_MAT.jpg, id=285, 803.0pt x 602.25pt>
+File: figures/panels/42898849_MAT.jpg Graphic file (type jpg)
+<use figures/panels/42898849_MAT.jpg>
+Package pdftex.def Info: figures/panels/42898849_MAT.jpg  used on input line 50
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_frame.jpg, id=286, 803.0pt x 602.25pt>
+File: figures/panels/44358442_frame.jpg Graphic file (type jpg)
+<use figures/panels/44358442_frame.jpg>
+Package pdftex.def Info: figures/panels/44358442_frame.jpg  used on input line 
+51.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_A0.jpg, id=287, 803.0pt x 602.25pt>
+File: figures/panels/44358442_A0.jpg Graphic file (type jpg)
+<use figures/panels/44358442_A0.jpg>
+Package pdftex.def Info: figures/panels/44358442_A0.jpg  used on input line 51.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_A1.jpg, id=288, 803.0pt x 602.25pt>
+File: figures/panels/44358442_A1.jpg Graphic file (type jpg)
+<use figures/panels/44358442_A1.jpg>
+Package pdftex.def Info: figures/panels/44358442_A1.jpg  used on input line 51.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_A2.jpg, id=289, 803.0pt x 602.25pt>
+File: figures/panels/44358442_A2.jpg Graphic file (type jpg)
+<use figures/panels/44358442_A2.jpg>
+Package pdftex.def Info: figures/panels/44358442_A2.jpg  used on input line 51.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_A5.jpg, id=290, 803.0pt x 602.25pt>
+File: figures/panels/44358442_A5.jpg Graphic file (type jpg)
+<use figures/panels/44358442_A5.jpg>
+Package pdftex.def Info: figures/panels/44358442_A5.jpg  used on input line 51.
+
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_MAT.jpg, id=291, 803.0pt x 602.25pt>
+File: figures/panels/44358442_MAT.jpg Graphic file (type jpg)
+<use figures/panels/44358442_MAT.jpg>
+Package pdftex.def Info: figures/panels/44358442_MAT.jpg  used on input line 51
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+ [5 <./figures/ai2thor-source.png (PNG copy)> <./figures/ai2thor-reconstruction
+.png>])
+(./systems-results.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6 <./figures/small-object-results.pdf>]
+<figures/experimental-settings.pdf, id=347, 503.61952pt x 101.67586pt>
+File: figures/experimental-settings.pdf Graphic file (type pdf)
+<use figures/experimental-settings.pdf>
+Package pdftex.def Info: figures/experimental-settings.pdf  used on input line 
+53.
+(pdftex.def)             Requested size: 397.48499pt x 80.25166pt.
+ [7 <./figures/panels/42897538_frame.jpg> <./figures/panels/42897538_A0.jpg> <.
+/figures/panels/42897538_A1.jpg> <./figures/panels/42897538_A2.jpg> <./figures/
+panels/42897538_A5.jpg> <./figures/panels/42897538_MAT.jpg> <./figures/panels/4
+2898849_frame.jpg> <./figures/panels/42898849_A0.jpg> <./figures/panels/4289884
+9_A1.jpg> <./figures/panels/42898849_A2.jpg> <./figures/panels/42898849_A5.jpg>
+ <./figures/panels/42898849_MAT.jpg> <./figures/panels/44358442_frame.jpg> <./f
+igures/panels/44358442_A0.jpg> <./figures/panels/44358442_A1.jpg> <./figures/pa
+nels/44358442_A2.jpg> <./figures/panels/44358442_A5.jpg> <./figures/panels/4435
+8442_MAT.jpg>]) (./cost-results.tex)
+(./physics-results.tex
+<figures/ca1m-coffee-physics.pdf, id=364, 424.46912pt x 261.48656pt>
 File: figures/ca1m-coffee-physics.pdf Graphic file (type pdf)
 <use figures/ca1m-coffee-physics.pdf>
 Package pdftex.def Info: figures/ca1m-coffee-physics.pdf  used on input line 20
 .
 (pdftex.def)             Requested size: 369.65811pt x 227.73483pt.
-) [6] [7 <./figures/ca1m-coffee-physics.pdf>] (build/main.bbl) [8
+) [8 <./figures/experimental-settings.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] (build/main.aux)
+ [9 <./figures/ca1m-coffee-physics.pdf>] [10] (build/main.bbl [11
+
+]) [12]
+(./appendix-small-objects.tex [13
+
+]
+File: figures/panels/42897538_frame.jpg Graphic file (type jpg)
+<use figures/panels/42897538_frame.jpg>
+Package pdftex.def Info: figures/panels/42897538_frame.jpg  used on input line 
+153.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42897538_A0.jpg Graphic file (type jpg)
+<use figures/panels/42897538_A0.jpg>
+Package pdftex.def Info: figures/panels/42897538_A0.jpg  used on input line 153
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42897538_A1.jpg Graphic file (type jpg)
+<use figures/panels/42897538_A1.jpg>
+Package pdftex.def Info: figures/panels/42897538_A1.jpg  used on input line 153
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42897538_A2.jpg Graphic file (type jpg)
+<use figures/panels/42897538_A2.jpg>
+Package pdftex.def Info: figures/panels/42897538_A2.jpg  used on input line 153
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42897538_A5.jpg Graphic file (type jpg)
+<use figures/panels/42897538_A5.jpg>
+Package pdftex.def Info: figures/panels/42897538_A5.jpg  used on input line 153
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42897538_MAT.jpg Graphic file (type jpg)
+<use figures/panels/42897538_MAT.jpg>
+Package pdftex.def Info: figures/panels/42897538_MAT.jpg  used on input line 15
+3.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42898849_frame.jpg Graphic file (type jpg)
+<use figures/panels/42898849_frame.jpg>
+Package pdftex.def Info: figures/panels/42898849_frame.jpg  used on input line 
+154.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42898849_A0.jpg Graphic file (type jpg)
+<use figures/panels/42898849_A0.jpg>
+Package pdftex.def Info: figures/panels/42898849_A0.jpg  used on input line 154
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42898849_A1.jpg Graphic file (type jpg)
+<use figures/panels/42898849_A1.jpg>
+Package pdftex.def Info: figures/panels/42898849_A1.jpg  used on input line 154
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42898849_A2.jpg Graphic file (type jpg)
+<use figures/panels/42898849_A2.jpg>
+Package pdftex.def Info: figures/panels/42898849_A2.jpg  used on input line 154
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42898849_A5.jpg Graphic file (type jpg)
+<use figures/panels/42898849_A5.jpg>
+Package pdftex.def Info: figures/panels/42898849_A5.jpg  used on input line 154
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/42898849_MAT.jpg Graphic file (type jpg)
+<use figures/panels/42898849_MAT.jpg>
+Package pdftex.def Info: figures/panels/42898849_MAT.jpg  used on input line 15
+4.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899617_frame.jpg, id=459, 803.0pt x 602.25pt>
+File: figures/panels/42899617_frame.jpg Graphic file (type jpg)
+<use figures/panels/42899617_frame.jpg>
+Package pdftex.def Info: figures/panels/42899617_frame.jpg  used on input line 
+155.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899617_A0.jpg, id=460, 803.0pt x 602.25pt>
+File: figures/panels/42899617_A0.jpg Graphic file (type jpg)
+<use figures/panels/42899617_A0.jpg>
+Package pdftex.def Info: figures/panels/42899617_A0.jpg  used on input line 155
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899617_A1.jpg, id=461, 803.0pt x 602.25pt>
+File: figures/panels/42899617_A1.jpg Graphic file (type jpg)
+<use figures/panels/42899617_A1.jpg>
+Package pdftex.def Info: figures/panels/42899617_A1.jpg  used on input line 155
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899617_A2.jpg, id=462, 803.0pt x 602.25pt>
+File: figures/panels/42899617_A2.jpg Graphic file (type jpg)
+<use figures/panels/42899617_A2.jpg>
+Package pdftex.def Info: figures/panels/42899617_A2.jpg  used on input line 155
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899617_A5.jpg, id=463, 803.0pt x 602.25pt>
+File: figures/panels/42899617_A5.jpg Graphic file (type jpg)
+<use figures/panels/42899617_A5.jpg>
+Package pdftex.def Info: figures/panels/42899617_A5.jpg  used on input line 155
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899617_MAT.jpg, id=464, 803.0pt x 602.25pt>
+File: figures/panels/42899617_MAT.jpg Graphic file (type jpg)
+<use figures/panels/42899617_MAT.jpg>
+Package pdftex.def Info: figures/panels/42899617_MAT.jpg  used on input line 15
+5.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899712_frame.jpg, id=465, 803.0pt x 602.25pt>
+File: figures/panels/42899712_frame.jpg Graphic file (type jpg)
+<use figures/panels/42899712_frame.jpg>
+Package pdftex.def Info: figures/panels/42899712_frame.jpg  used on input line 
+156.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899712_A0.jpg, id=466, 803.0pt x 602.25pt>
+File: figures/panels/42899712_A0.jpg Graphic file (type jpg)
+<use figures/panels/42899712_A0.jpg>
+Package pdftex.def Info: figures/panels/42899712_A0.jpg  used on input line 156
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899712_A1.jpg, id=467, 803.0pt x 602.25pt>
+File: figures/panels/42899712_A1.jpg Graphic file (type jpg)
+<use figures/panels/42899712_A1.jpg>
+Package pdftex.def Info: figures/panels/42899712_A1.jpg  used on input line 156
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899712_A2.jpg, id=468, 803.0pt x 602.25pt>
+File: figures/panels/42899712_A2.jpg Graphic file (type jpg)
+<use figures/panels/42899712_A2.jpg>
+Package pdftex.def Info: figures/panels/42899712_A2.jpg  used on input line 156
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899712_A5.jpg, id=469, 803.0pt x 602.25pt>
+File: figures/panels/42899712_A5.jpg Graphic file (type jpg)
+<use figures/panels/42899712_A5.jpg>
+Package pdftex.def Info: figures/panels/42899712_A5.jpg  used on input line 156
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899712_MAT.jpg, id=470, 803.0pt x 602.25pt>
+File: figures/panels/42899712_MAT.jpg Graphic file (type jpg)
+<use figures/panels/42899712_MAT.jpg>
+Package pdftex.def Info: figures/panels/42899712_MAT.jpg  used on input line 15
+6.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899729_frame.jpg, id=471, 803.0pt x 602.25pt>
+File: figures/panels/42899729_frame.jpg Graphic file (type jpg)
+<use figures/panels/42899729_frame.jpg>
+Package pdftex.def Info: figures/panels/42899729_frame.jpg  used on input line 
+157.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899729_A0.jpg, id=472, 803.0pt x 602.25pt>
+File: figures/panels/42899729_A0.jpg Graphic file (type jpg)
+<use figures/panels/42899729_A0.jpg>
+Package pdftex.def Info: figures/panels/42899729_A0.jpg  used on input line 157
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899729_A1.jpg, id=473, 803.0pt x 602.25pt>
+File: figures/panels/42899729_A1.jpg Graphic file (type jpg)
+<use figures/panels/42899729_A1.jpg>
+Package pdftex.def Info: figures/panels/42899729_A1.jpg  used on input line 157
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899729_A2.jpg, id=474, 803.0pt x 602.25pt>
+File: figures/panels/42899729_A2.jpg Graphic file (type jpg)
+<use figures/panels/42899729_A2.jpg>
+Package pdftex.def Info: figures/panels/42899729_A2.jpg  used on input line 157
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899729_A5.jpg, id=475, 803.0pt x 602.25pt>
+File: figures/panels/42899729_A5.jpg Graphic file (type jpg)
+<use figures/panels/42899729_A5.jpg>
+Package pdftex.def Info: figures/panels/42899729_A5.jpg  used on input line 157
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/42899729_MAT.jpg, id=476, 803.0pt x 602.25pt>
+File: figures/panels/42899729_MAT.jpg Graphic file (type jpg)
+<use figures/panels/42899729_MAT.jpg>
+Package pdftex.def Info: figures/panels/42899729_MAT.jpg  used on input line 15
+7.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/44358442_frame.jpg Graphic file (type jpg)
+<use figures/panels/44358442_frame.jpg>
+Package pdftex.def Info: figures/panels/44358442_frame.jpg  used on input line 
+158.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/44358442_A0.jpg Graphic file (type jpg)
+<use figures/panels/44358442_A0.jpg>
+Package pdftex.def Info: figures/panels/44358442_A0.jpg  used on input line 158
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/44358442_A1.jpg Graphic file (type jpg)
+<use figures/panels/44358442_A1.jpg>
+Package pdftex.def Info: figures/panels/44358442_A1.jpg  used on input line 158
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/44358442_A2.jpg Graphic file (type jpg)
+<use figures/panels/44358442_A2.jpg>
+Package pdftex.def Info: figures/panels/44358442_A2.jpg  used on input line 158
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/44358442_A5.jpg Graphic file (type jpg)
+<use figures/panels/44358442_A5.jpg>
+Package pdftex.def Info: figures/panels/44358442_A5.jpg  used on input line 158
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+File: figures/panels/44358442_MAT.jpg Graphic file (type jpg)
+<use figures/panels/44358442_MAT.jpg>
+Package pdftex.def Info: figures/panels/44358442_MAT.jpg  used on input line 15
+8.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+) [14] [15 <./figures/panels/42899617_frame.jpg> <./figures/panels/42899617_A0.
+jpg> <./figures/panels/42899617_A1.jpg> <./figures/panels/42899617_A2.jpg> <./f
+igures/panels/42899617_A5.jpg> <./figures/panels/42899617_MAT.jpg> <./figures/p
+anels/42899712_frame.jpg> <./figures/panels/42899712_A0.jpg> <./figures/panels/
+42899712_A1.jpg> <./figures/panels/42899712_A2.jpg> <./figures/panels/42899712_
+A5.jpg> <./figures/panels/42899712_MAT.jpg> <./figures/panels/42899729_frame.jp
+g> <./figures/panels/42899729_A0.jpg> <./figures/panels/42899729_A1.jpg> <./fig
+ures/panels/42899729_A2.jpg> <./figures/panels/42899729_A5.jpg> <./figures/pane
+ls/42899729_MAT.jpg>] (build/main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EE5595532DA789D0BA7FF86274847E56;2576.
+(rerunfilecheck)             Checksum: 4B02F23EB18119C3B38DF2E1F87C7B76;3000.
  ) 
 Here is how much of TeX's memory you used:
- 12908 strings out of 476182
- 200246 string characters out of 5795595
- 1938975 words of memory out of 5000000
- 34446 multiletter control sequences out of 15000+600000
- 598974 words of font info for 212 fonts, out of 8000000 for 9000
+ 13774 strings out of 476182
+ 218147 string characters out of 5795595
+ 1951975 words of memory out of 5000000
+ 35234 multiletter control sequences out of 15000+600000
+ 606097 words of font info for 239 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,10n,79p,1001b,462s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,1001b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </tmp/texfonts/pk/ljfour/jknappen/ec/ectt1000.600pk></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on build/main.pdf (8 pages, 3766338 bytes).
+public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
+vetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmri8a.pfb>
+Output written on build/main.pdf (15 pages, 6257085 bytes).
 PDF statistics:
- 365 PDF objects out of 1000 (max. 8388607)
- 253 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
- 40092 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 621 PDF objects out of 1000 (max. 8388607)
+ 394 compressed objects within 4 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 48472 words of extra memory for PDF output out of 51595 (max. 10000000)
 
