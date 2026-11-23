@@ -93,16 +93,20 @@ def claude_windows(path):
 
 
 def claude_limit_pause(events_path, now=None):
-    """运行中途撞到 Claude 5 小时上限时，等到窗口重置后一分钟的秒数（至少 120）；不是这种情况返回 None。
-    每周额度用完、没撞上限、或读不到额度都返回 None（照旧记 rate_limited 停下）。"""
+    """运行中途撞到 Claude 额度上限时，等到额度恢复后一分钟的秒数（至少 120）；不是这种情况返回 None。
+    5 小时窗口用完等它重置；每周额度也用完了就等每周重置（11-20 起，Yifan："等限额恢复自行启动，不需要我盯着"；
+    之前每周用完是记 rate_limited 停下）。没撞上限、或读不到重置时间返回 None（照旧记 rate_limited 停下）。"""
     import time
     if not parse_claude_stream(events_path)["limit_hit"]:
         return None
     w = claude_windows(events_path)
-    if not w or w["seven_day"]["pct"] >= 100 or not w["five_hour"]["resets_at"]:
+    if not w:
+        return None
+    reset = w["seven_day"]["resets_at"] if w["seven_day"]["pct"] >= 100 else w["five_hour"]["resets_at"]
+    if not reset:
         return None
     now = time.time() if now is None else now
-    return max(120, int(w["five_hour"]["resets_at"] - now) + 60)
+    return max(120, int(reset - now) + 60)
 
 
 def claude_pauses(events_path):
@@ -111,16 +115,18 @@ def claude_pauses(events_path):
 
 
 def claude_gate(windows, weekly_max, primary_max, now=None):
-    """开跑前看 Claude 订阅额度：("run", 0)、("wait", 等到 5 小时窗口重置后一分钟的秒数) 或 ("stop", None)。
-    每周到 weekly_max 就停；5 小时窗口到 primary_max 就等（10-28 起默认 100：用完才等，运行中途撞上限由 run_agent.sh
-    等重置后续跑）；读不到额度也停。"""
+    """开跑前看 Claude 订阅额度：("run", 0)、("wait", 要等的秒数) 或 ("stop", None)。
+    5 小时窗口到 primary_max 就等它重置（10-28 起默认 100：用完才等，运行中途撞上限由 run_agent.sh 等重置后续跑）。
+    11-20 起队列不用人盯（Yifan："等限额恢复自行启动"）：每周到 weekly_max 就等到每周重置后一分钟再开下一个；
+    读不到额度（上限时这次很短的调用可能直接被拒）隔 10 分钟再读。只有每周到了上限又读不到重置时间才停。"""
     import time
+    now = time.time() if now is None else now
     if not windows:
-        return "stop", None
+        return "wait", 600
     if windows["seven_day"]["pct"] >= weekly_max:
-        return "stop", None
+        reset = windows["seven_day"]["resets_at"]
+        return ("wait", max(60, int(reset - now) + 60)) if reset else ("stop", None)
     if windows["five_hour"]["pct"] >= primary_max:
-        now = time.time() if now is None else now
         return "wait", max(60, int(windows["five_hour"]["resets_at"] - now) + 60)
     return "run", 0
 
@@ -195,8 +201,11 @@ GT_PATTERNS = ("/gt/", "/RT.json", "world_instances", "../../scenes/")
 
 
 def audit_gt_access(events_path, proj):
-    """在 agent 执行过的命令里找真值路径；返回命中的命令（截断到 200 字符）。"""
+    """在 agent 执行过的命令里找真值路径；返回命中的命令（截断到 200 字符）。
+    这次运行自己在 AHa-3D 里的场景目录（scenes/<视频>_<组>_s<种子>/）不算：从交付目录用相对路径回指它会写成
+    ../../../scenes/<自己>/…，字面上含有 "../../scenes/"（11-20 A0 42899729 因此被误判，命中的是它自己的审查图）。"""
     pats = GT_PATTERNS + (f"{proj}/scenes/",)
+    own = f"scenes/{aha_scene_run(Path(events_path).parent)}/"
     hits = []
     for e in _lines(events_path):
         cmds = []
@@ -206,7 +215,7 @@ def audit_gt_access(events_path, proj):
         elif e.get("type") == "assistant":  # Claude：Bash 的命令、Read/Edit 的路径都在 input 里
             cmds += [json.dumps(c.get("input", {}), ensure_ascii=False) for c in e.get("message", {}).get("content", [])
                      if c.get("type") == "tool_use"]
-        hits += [c[:200] for c in cmds if any(p in c for p in pats)]
+        hits += [c[:200] for c in cmds if any(p in c.replace(own, "scenes-own/") for p in pats)]
     return hits
 
 

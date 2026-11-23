@@ -17,8 +17,8 @@ export CODEX_HOMES="${CODEX_HOMES:-$HOME/.codex $HOME/.codex-b}"
 export CLAUDE="$(ls -d /home/user/.vscode/extensions/anthropic.claude-code-*-linux-x64/resources/native-binary/claude 2>/dev/null | sort -V | tail -1)"
 export CLAUDE_MODEL="claude-opus-5-5"
 export CLAUDE_EFFORT="medium"   # 和 Codex 的 medium 对齐；不读用户设置里的 xhigh
-# Claude 队列：每周用到 85% 就不再开新的（Yifan 10-27 定，给自己留余量）；5 小时窗口用完（100%）才等重置（Yifan 10-28："直接用完，不要有限制"）
-export CLAUDE_WEEKLY_MAX="${CLAUDE_WEEKLY_MAX:-85}"
+# Claude 队列：每周额度用完（100%）才停（Yifan 11-20："额度直接跑完就行"；10-27 到 11-20 是 85%）；5 小时窗口用完（100%）才等重置（Yifan 10-28："直接用完，不要有限制"）
+export CLAUDE_WEEKLY_MAX="${CLAUDE_WEEKLY_MAX:-100}"
 export CLAUDE_PRIMARY_MAX="${CLAUDE_PRIMARY_MAX:-100}"
 export PYTHONPATH="$PROJ/src${PYTHONPATH:+:$PYTHONPATH}"
 export PI3X_UPSTREAM="$AHA/external/Pi3"

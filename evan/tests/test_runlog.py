@@ -237,12 +237,12 @@ def _limit_events(five, week, result):
 
 def test_claude_limit_pause(tmp_path):
     # 10-28 起（Yifan："5 小时窗口直接用完，不要有限制"）：运行中途撞到 5 小时上限，等窗口重置后续跑同一个会话；
-    # 每周额度用完就不等（照旧记 rate_limited 停下）；没撞上限、读不到额度也不等
+    # 每周额度也用完了就等每周重置（11-20 起，不用人盯）；没撞上限、读不到额度不等
     hit = {"type": "result", "subtype": "success", "is_error": True, "session_id": "s", "num_turns": 40,
            "result": "You've hit your limit · resets 12:30pm", "usage": {}}
     ok = {"type": "result", "subtype": "success", "is_error": False, "session_id": "s", "num_turns": 40, "usage": {}}
     p = tmp_path / "events.jsonl"
-    for ev, want in ((_limit_events(0.97, 0.5, hit), 4060), (_limit_events(0.97, 1.0, hit), None),
+    for ev, want in ((_limit_events(0.97, 0.5, hit), 4060), (_limit_events(0.97, 1.0, hit), 99059),
                      (_limit_events(0.97, 0.5, ok), None), (_limit_events(0.97, 0.5, hit)[::2], None)):
         p.write_text("\n".join(json.dumps(e) for e in ev) + "\n")
         assert runlog.claude_limit_pause(p, now=1000) == want
@@ -367,12 +367,30 @@ def test_claude_windows_and_gate(tmp_path):
     assert runlog.claude_gate(w, weekly_max=85, primary_max=50, now=1000) == ("run", 0)
     w["five_hour"]["pct"] = 60.0
     assert runlog.claude_gate(w, weekly_max=85, primary_max=50, now=1000) == ("wait", 3660)
+    # 11-20 起：每周到上限等到每周重置，读不到额度隔 10 分钟再读；每周到了上限又没有重置时间才停
     w["seven_day"]["pct"] = 85.0
-    assert runlog.claude_gate(w, weekly_max=85, primary_max=50, now=1000) == ("stop", None)
-    assert runlog.claude_gate({}, weekly_max=85, primary_max=50, now=1000) == ("stop", None)
+    assert runlog.claude_gate(w, weekly_max=85, primary_max=50, now=1000) == ("wait", 99059)
+    assert runlog.claude_gate({}, weekly_max=85, primary_max=50, now=1000) == ("wait", 600)
+    assert runlog.claude_gate({**w, "seven_day": {"pct": 100.0, "resets_at": None}}, weekly_max=100, primary_max=100, now=1000) == ("stop", None)
     w["seven_day"]["pct"], w["five_hour"]["pct"] = 40.0, 99.0
     assert runlog.claude_gate(w, weekly_max=85, primary_max=100, now=1000) == ("run", 0)
     w["five_hour"]["pct"] = 100.0
     assert runlog.claude_gate(w, weekly_max=85, primary_max=100, now=1000) == ("wait", 3660)
     p.write_text("")
     assert runlog.claude_windows(p) == {}
+
+
+def test_gt_audit_ignores_own_aha_scene_dir(tmp_path):
+    # 11-20：A0 42899729 的 agent 在交付目录里用 ../../../scenes/<自己的场景>/review/… 指自己的审查图，
+    # 字面上含 "../../scenes/"，被当成碰了真值。自己的 AHa 场景目录不算；项目的 scenes/<视频>/ 和别的写法照旧算
+    run = tmp_path / "runs" / "A0-claude" / "123" / "0"
+    run.mkdir(parents=True)
+    def events(cmd):
+        p = run / "events.jsonl"
+        p.write_text(json.dumps({"type": "assistant", "message": {"content": [
+            {"type": "tool_use", "name": "Bash", "input": {"command": cmd}}]}}) + "\n")
+        return p
+    assert runlog.audit_gt_access(events("ls ../../../scenes/123_a0-claude_s0/review/layout_v12/"), "/p") == []
+    assert runlog.audit_gt_access(events("cat ../../scenes/123/gt/boxes.json"), "/p")
+    assert runlog.audit_gt_access(events("ls ../../../scenes/123_a1-claude_s0/review/"), "/p")
+    assert runlog.audit_gt_access(events("cat /p/scenes/123/frame_map.json"), "/p")
