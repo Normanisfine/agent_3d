@@ -10,11 +10,13 @@ rooms, Selective generation had the lowest cost, \$9.00 per room
 (Table~\ref{tab:existing-cost}).
 
 AHa-3D's own review accepted five of the six baseline scenes and one of the
-24 all-object scenes. The five accepted baselines correctly placed 5 of the
+24 scenes from All objects, Inventory and the two Checklist runs. The five accepted baselines correctly placed 5 of the
 527 targets under 50\,cm in their rooms, so passing review said little about
 small-object coverage. The token estimates cover the driving agent, including
 resumed work. A run averaged 196 agent turns. Because the agent re-reads its
 conversation on every turn, it consumed 39.1 million input tokens, 99\% read
-from cache, against 0.16 million output tokens. Computing
+from cache, against 0.16 million output tokens. These runs use a different model from the controller comparison of
+Section~\ref{sec:parallel-time}, so the baseline costs of the two are not
+comparable. Computing
 cost per accepted room would also require complete costs for preprocessing,
 hardware and reviewers, including those incurred on failed runs.
