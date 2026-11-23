@@ -147,7 +147,7 @@ renders in Figures~\ref{fig:qual} and~\ref{fig:qual-all} were made after the
 runs from the saved scenes and were not seen by the agent or its reviewer.
 The appearance pass is a separate agent run on the saved Checklist scene
 that may assign materials and lights but may not move, add or remove
-geometry.
+geometry; Figure~\ref{fig:rooms-materials} shows its result for each room.
 
 \begin{figure}[!htbp]
 \centering
@@ -167,4 +167,23 @@ Rooms 1, 2, 3 and 6 use the frame that sees the most annotated targets under
 chosen by hand instead. Figure~\ref{fig:qual} shows room 6 from a second,
 hand-picked frame. Checklist was below Inventory in rooms 3, 4 and 5.}
 \label{fig:qual-all}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\setlength{\tabcolsep}{3pt}
+\newcommand{\roomimg}[1]{\includegraphics[width=0.47\linewidth]{figures/panels/#1_MAT_ov.jpg}}
+\begin{tabular}{@{}cc@{}}
+\roomimg{42897538} & \roomimg{42898849} \\[-2pt]
+\colhead{Room 1} & \colhead{Room 2} \\[5pt]
+\roomimg{42899617} & \roomimg{42899712} \\[-2pt]
+\colhead{Room 3} & \colhead{Room 4} \\[5pt]
+\roomimg{42899729} & \roomimg{44358442} \\[-2pt]
+\colhead{Room 5} & \colhead{Room 6} \\
+\end{tabular}
+\caption{The six held-out rooms as whole scenes: the first Checklist run of
+each room after AHa-3D's appearance pass, with the ceiling and the walls
+nearest the camera hidden. Geometry is the scored scene; the materials and
+lights come from a separate agent run and are not scored.}
+\label{fig:rooms-materials}
 \end{figure}

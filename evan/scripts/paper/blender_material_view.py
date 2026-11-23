@@ -2,6 +2,7 @@
 
 spec：{"views": [{"name", "c2w"（OpenCV 相机到世界）, "K", "size_wh"}], "out_dir", 可选 "samples"、"overview": true}
 overview：和 blender_paper_render.py 同一个斜上方机位的整体图（藏掉天花板和靠近相机的墙），存 overview.png。
+可选 "overview_dir"（相机在房间哪一侧，默认 [0.55, -0.75]）、"overview_hide"（靠相机多近的墙藏掉，占房间对角线的比例，默认 0.2）、"overview_scale"（相机拉远的倍数，默认 1）。
 材质、灯光、世界光和色彩管理都用材质版场景里 agent 设好的，这里只换相机和分辨率；Cycles 的采样数封顶并开降噪，免得一张图渲很久。
 """
 import json
@@ -81,12 +82,13 @@ if spec.get("overview"):
     r = max((hi - lo).length, 2.0)
     dx, dy = spec.get("overview_dir", [0.55, -0.75])
     direction = Vector((dx, dy, 0.0)).normalized()
-    eye = c + direction * 0.85 * r + Vector((0, 0, 1.15 * r))
+    far = r * spec.get("overview_scale", 1.0)
+    eye = c + direction * 0.85 * far + Vector((0, 0, 1.15 * far))
     for n, (blo, bhi, st, name) in info.items():
         ctr = (blo + bhi) / 2
         tall_thin = (bhi.z - blo.z) > 1.2 and min(bhi.x - blo.x, bhi.y - blo.y) < 0.35
         ceiling_like = "ceiling" in name or "roof" in name or (bhi.z > room_top - 0.05 and (bhi.z - blo.z) < 0.15)
-        scene.objects[n].hide_render = ceiling_like or (st and tall_thin and (ctr - c).dot(direction) > 0.2 * r)
+        scene.objects[n].hide_render = ceiling_like or (st and tall_thin and (ctr - c).dot(direction) > spec.get("overview_hide", 0.2) * r)
     scene.render.film_transparent = True
     cam_data.shift_x = cam_data.shift_y = 0.0
     cam_data.sensor_fit = "AUTO"

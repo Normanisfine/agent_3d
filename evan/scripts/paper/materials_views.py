@@ -17,6 +17,8 @@ from smallobj.export_blend import BLENDER
 
 PROJ = Path(__file__).resolve().parents[2]
 ROOMS = ["42897538", "42898849", "42899617", "42899712", "42899729", "44358442"]
+# 整体图的机位：房间 3 是个小卫生间，默认机位被走廊的墙挡住，换一侧、多藏一面墙、相机拉远
+OVERVIEW = {"42899617": {"overview_dir": [0.55, -0.75], "overview_hide": 0.0, "overview_scale": 1.5}}
 
 
 def main():
@@ -35,7 +37,7 @@ def main():
         frames = json.loads((out / "meta.json").read_text())["frames"]
         with tempfile.TemporaryDirectory() as tmp:
             spec = {"views": [{"name": f"MAT_{f['k']}", "c2w": by_frame[f["source_frame"]]["c2w"], "K": by_frame[f["source_frame"]]["K"],
-                               "size_wh": cams["size_wh"]} for f in frames], "out_dir": tmp, "overview": True}
+                               "size_wh": cams["size_wh"]} for f in frames], "out_dir": tmp, "overview": True} | OVERVIEW.get(sid, {})
             Path(tmp, "spec.json").write_text(json.dumps(spec))
             cp = subprocess.run([str(BLENDER), "-b", str(blend), "--python", str(Path(__file__).with_name("blender_material_view.py")),
                                  "--", str(Path(tmp, "spec.json"))], capture_output=True, text=True)
