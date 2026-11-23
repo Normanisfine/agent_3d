@@ -10,6 +10,7 @@
 \citation{ca1m}
 \citation{vomp}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{1}{section.2}\protected@file@percent }
 \citation{scenesmith}
 \citation{viga}
 \citation{legoanything}
@@ -24,7 +25,6 @@
 \citation{scenerig}
 \citation{sam3}
 \citation{moge2}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Methods}{2}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstructing and evaluating small objects}{2}{subsection.3.1}\protected@file@percent }
 \newlabel{sec:small-method}{{3.1}{2}{Reconstructing and evaluating small objects}{subsection.3.1}{}}
@@ -52,19 +52,20 @@
 \newlabel{fig:results}{{4}{6}{\textbf {Six held-out rooms, 857 targets.} \textbf {a}, Outcome by target size: solid bars are correctly placed targets (count above), hatched extensions are matched but misplaced. \textbf {b}, Share of targets under 50\,cm correctly placed in each room; the diamond is a second Checklist run with identical settings. \textbf {c}, Correct placements under 50\,cm against the share of reconstructed instances that match any target. Open diamonds score detector boxes directly, with no agent}{figure.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Parallel construction and room reconstruction}{6}{subsection.4.3}\protected@file@percent }
 \newlabel{sec:parallel-time}{{4.3}{6}{Parallel construction and room reconstruction}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Room reconstruction on FloorPlan209.}{6}{section*.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {The same view under four variants.} Columns two to five render each saved scene from the camera of the video frame under one light and material setup. Instances tied to objects under 50\,cm are \textcolor {okblue}{\rule  {0.8em}{0.8em}}~correctly placed, \textcolor {misorange}{\rule  {0.8em}{0.8em}}~matched but misplaced or \textcolor {extragreen}{\rule  {0.8em}{0.8em}}~without an annotated counterpart. Last column: the Checklist scene after AHa-3D's appearance pass, geometry unchanged. Counts are whole-room correct placements under 50\,cm. Views were chosen to show small objects (all six rooms: Figure~\ref {fig:qual-all}).}}{7}{figure.5}\protected@file@percent }
 \newlabel{fig:qual}{{5}{7}{\textbf {The same view under four variants.} Columns two to five render each saved scene from the camera of the video frame under one light and material setup. Instances tied to objects under 50\,cm are \swatch {okblue}~correctly placed, \swatch {misorange}~matched but misplaced or \swatch {extragreen}~without an annotated counterpart. Last column: the Checklist scene after AHa-3D's appearance pass, geometry unchanged. Counts are whole-room correct placements under 50\,cm. Views were chosen to show small objects (all six rooms: Figure~\ref {fig:qual-all})}{figure.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{Room reconstruction on FloorPlan209.}{7}{section*.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces FloorPlan209 placement and estimated token cost. Each placement count uses the same 34 targets. Fitted scale permits one uniform rescaling of the scene from camera positions. Fixed scale preserves the authored size.}}{7}{table.1}\protected@file@percent }
-\newlabel{tab:auto-floorplan209}{{1}{7}{FloorPlan209 placement and estimated token cost. Each placement count uses the same 34 targets. Fitted scale permits one uniform rescaling of the scene from camera positions. Fixed scale preserves the authored size}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces FloorPlan209 placement, recorded time and estimated token cost. Each placement count uses the same 34 targets. Fitted scale permits one uniform rescaling of the scene from camera positions. Fixed scale preserves the authored size. Time spans the original agent session through handoff, the driven sessions from initialization to report, and the auto construction run. Driven and auto used a prepared reference.}}{7}{table.1}\protected@file@percent }
+\newlabel{tab:auto-floorplan209}{{1}{7}{FloorPlan209 placement, recorded time and estimated token cost. Each placement count uses the same 34 targets. Fitted scale permits one uniform rescaling of the scene from camera positions. Fixed scale preserves the authored size. Time spans the original agent session through handoff, the driven sessions from initialization to report, and the auto construction run. Driven and auto used a prepared reference}{table.1}{}}
 \@writefile{toc}{\contentsline {paragraph}{What did agent supervision buy?}{7}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Where did the tokens go?}{7}{section*.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Input and reconstruction in each setting. CA-1M shows the All objects variant on a held-out living room. AI2-THOR shows original AHa-3D on the room used to compare controllers.}}{8}{figure.6}\protected@file@percent }
 \newlabel{fig:settings}{{6}{8}{Input and reconstruction in each setting. CA-1M shows the All objects variant on a held-out living room. AI2-THOR shows original AHa-3D on the room used to compare controllers}{figure.6}{}}
-\@writefile{toc}{\contentsline {paragraph}{What changed with a Python outer loop?}{8}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Where did the tokens go?}{8}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Longer waits on the same room.}{8}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What changed with a Python outer loop?}{8}{section*.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Time and inference cost}{8}{subsection.4.4}\protected@file@percent }
 \newlabel{sec:cost}{{4.4}{8}{Time and inference cost}{subsection.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Physical plausibility on a coffee table}{8}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Physical plausibility on a coffee table}{9}{subsection.4.5}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces From video to a physical test. The matched camera views (top) show the plates on the tabletop and the tissue box on the shelf below. The simulation uses those recovered meshes (bottom left). The predicted density field (bottom right, kg/m$^3$) fills the solid tissue-box mesh, contributing to its high estimated mass.}}{9}{figure.7}\protected@file@percent }
 \newlabel{fig:physics}{{7}{9}{From video to a physical test. The matched camera views (top) show the plates on the tabletop and the tissue box on the shelf below. The simulation uses those recovered meshes (bottom left). The predicted density field (bottom right, kg/m$^3$) fills the solid tissue-box mesh, contributing to its high estimated mass}{figure.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{9}{section.5}\protected@file@percent }
@@ -94,8 +95,8 @@
 \newlabel{app:small}{{A}{13}{Small objects: additional results}{appendix.A}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Targets from 20 to under 50\,cm correctly placed, out of 174 in the first three held-out rooms. Parentheses give gains over the baseline with scale fitted from cameras.}}{13}{table.2}\protected@file@percent }
 \newlabel{tab:small-placement}{{2}{13}{Targets from 20 to under 50\,cm correctly placed, out of 174 in the first three held-out rooms. Parentheses give gains over the baseline with scale fitted from cameras}{table.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Mean wall time and estimated cost of the reconstruction agent's tokens per room, over the first three held-out rooms. Total workflow cost also includes preprocessing, rendering and external review.}}{13}{table.3}\protected@file@percent }
-\newlabel{tab:existing-cost}{{3}{13}{Mean wall time and estimated cost of the reconstruction agent's tokens per room, over the first three held-out rooms. Total workflow cost also includes preprocessing, rendering and external review}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Mean time and estimated cost of the reconstruction agent's tokens per room, over the first three held-out rooms. Total workflow cost also includes preprocessing, rendering and external review.}}{13}{table.3}\protected@file@percent }
+\newlabel{tab:existing-cost}{{3}{13}{Mean time and estimated cost of the reconstruction agent's tokens per room, over the first three held-out rooms. Total workflow cost also includes preprocessing, rendering and external review}{table.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Targets under 50\,cm in six held-out rooms (543 in total). Instances: reconstructed objects of any size, excluding structure. Matching: share of them that match an annotated target. Time and estimated driving-agent cost are per room. The last two rows score detector boxes directly, with no agent.}}{13}{table.4}\protected@file@percent }
 \newlabel{tab:six-rooms}{{4}{13}{Targets under 50\,cm in six held-out rooms (543 in total). Instances: reconstructed objects of any size, excluding structure. Matching: share of them that match an annotated target. Time and estimated driving-agent cost are per room. The last two rows score detector boxes directly, with no agent}{table.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Per-room difference in targets under 50\,cm correctly placed. Rooms are numbered in evaluation order, with their target counts. $p$: exact two-sided sign-flip test over rooms; with six rooms it cannot fall below 0.031.}}{14}{table.5}\protected@file@percent }

@@ -35,7 +35,13 @@ local reviews to choose which edits to accept or repair. Workers and
 reviewers receive evidence for the assigned task. The supervisor retains
 the room-wide history so it can weigh a local defect against unfinished
 work elsewhere. A per-task attempt limit bounds repeated construction.
-The supervisor still decides how often to inspect progress between builds.
+We tested two wait policies because each progress check can trigger another
+model request carrying the room history. AHA-driven-short typically waited
+one second at launch, then slept 15--20 seconds between checks.
+AHA-driven-long requested up to 30 seconds at launch and 60 seconds on
+follow-up checks. The long-wait run used fewer supervisor input tokens
+(Table~\ref{tab:auto-floorplan209}), although it also reused the short-wait
+plan and completed fewer tasks.
 
 \textbf{AHA-auto.} Because the dependency graph and recorded build outcomes
 determine which tasks are ready, a Python scheduler can dispatch them without

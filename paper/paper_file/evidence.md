@@ -15,7 +15,7 @@ Before submission: verify bibliography metadata, dataset release/terms, final sc
 
 Read `../../smallobj-video2blender` at the user's request; no files in that project were modified and no experiments were rerun.
 
-- `results/test_opus/summary.json`: source of the pooled and equal-scene-weight D recall and mean wall-time/API-equivalent cost tables. The paper values were recalculated from saved counts/per-run summaries, not copied from rounded prose.
+- `results/test_opus/summary.json`: source of the pooled and equal-scene-weight D recall and mean time/API-equivalent cost tables. The paper values were recalculated from saved counts/per-run summaries, not copied from rounded prose.
 - `results/test_opus/README.md` and `runs.md`: three scenes, five arms, seed 0, driver, original workflow limits, audit and restart history, acceptance outcomes, generation attempts/acceptances/retention and alignment diagnostics.
 - `configs/thresholds.json`, `src/smallobj/evaluate.py`, `score.py`, `align.py`, `report.py`, and `scripts/report_checkpoint.py`: frozen distance/IoU criteria, greedy one-to-one pairing, physical-size bins, full retained-GT denominator, visibility diagnostic and GT-camera-based scale alignment.
 - `configs/prompts/A0.md`, `A3r.md`, `A3v.md`: reconstruction scope and rule/agent-selected generation policies.

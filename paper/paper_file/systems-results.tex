@@ -7,11 +7,9 @@ model responses and scripted visual reviews. The object builds, scene merges
 and camera checks ran in Blender.
 
 With one worker, the four builds took 11.32 seconds. Four workers completed
-them in 6.63 seconds, a $1.71\times$ speedup. Both runs made four model calls,
+them in 6.63 seconds, a 41\% reduction in time ($1.71\times$ speedup). Both runs made four model calls,
 committed all four objects and preserved the existing objects and cameras.
 Serial work, including edits to the shared room, remained in both runs.
-A full-room comparison with live models is still needed to measure the effect
-on reconstruction time at matched quality.
 
 \paragraph{Room reconstruction on FloorPlan209.}
 AHA-auto and AHA-driven used the same prepared room reference, 37 Boxer
@@ -26,24 +24,28 @@ alignment to 32 camera positions, first with scale fitted and then with scale fi
 
 \begin{table}[!htbp]
 \centering\small
-\caption{FloorPlan209 placement and estimated token cost. Each placement
+\caption{FloorPlan209 placement, recorded time and estimated token cost. Each placement
 count uses the same 34 targets. Fitted scale permits one uniform rescaling of
-the scene from camera positions. Fixed scale preserves the authored size.}
+the scene from camera positions. Fixed scale preserves the authored size.
+Time spans the original agent session through handoff, the driven sessions from
+initialization to report, and the auto construction run. Driven and auto used a prepared reference.}
 \label{tab:auto-floorplan209}
-\begin{tabular}{@{}lrrr@{}}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrr@{}}
 \toprule
-Measure & Original AHa-3D & AHA-driven & AHA-auto \\
+Measure & Original AHa-3D & AHA-driven-short & AHA-driven-long & AHA-auto \\
 \midrule
-Box overlap, fitted scale & 7 & \textbf{16} & 11 \\
-Box overlap, fixed scale & 6 & \textbf{9} & 4 \\
-Center and size, fitted scale & 8 & \textbf{20} & 13 \\
-Center and size, fixed scale & 8 & \textbf{14} & 7 \\
+Box overlap, fitted scale & 7 & \textbf{16} & 10 & 11 \\
+Box overlap, fixed scale & 6 & \textbf{9} & 6 & 4 \\
+Center and size, fitted scale & 8 & \textbf{20} & 11 & 13 \\
+Center and size, fixed scale & 8 & \textbf{14} & 9 & 7 \\
 \midrule
-Cached input tokens & 17,673,472 & 27,124,992 & 783,872 \\
-Uncached input tokens & 557,515 & 759,533 & 742,829 \\
-Output tokens & 80,492 & 76,564 & 51,434 \\
-Total recorded tokens & 18,311,479 & 27,961,089 & 1,578,135 \\
-Estimated token cost (USD) & 27.27 & 38.55 & \textbf{10.78} \\
+Recorded time (min) & 42.1 & 49.8 & 30.1 & 30.2 \\
+Cached input tokens & 17,673,472 & 27,124,992 & 10,356,352 & 783,872 \\
+Uncached input tokens & 557,515 & 759,533 & 591,371 & 742,829 \\
+Output tokens & 80,492 & 76,564 & 76,693 & 51,434 \\
+Total recorded tokens & 18,311,479 & 27,961,089 & 11,024,416 & 1,578,135 \\
+Estimated token cost (USD) & 27.27 & 38.55 & 20.10 & \textbf{10.78} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -62,7 +64,7 @@ With fitted scale, AHA-driven placed 16 objects correctly by box overlap,
 up from seven for original AHa-3D. Among the 12 targets measuring 20 to
 under 50\,cm, correct placements rose from one to five by overlap and from
 one to six by center and size. Driven matched all five large targets by
-overlap. All three systems missed all six targets under 20\,cm by overlap.
+overlap. All four runs missed all six targets under 20\,cm by overlap.
 Driven committed all six tasks in its plan, although final review still
 found an extra box beside the coffee table.
 
@@ -74,6 +76,25 @@ carried its conversation forward. At our assumed rates of \$1, \$10 and \$50
 per million cached input, uncached input and output tokens, the supervisor
 cost \$28.88, already above the original run's recorded \$27.27. The runtime
 added \$9.35 and a reused reference review added \$0.32.
+
+\paragraph{Longer waits on the same room.}
+We repeated construction from the seed scene with the driven run's six-task
+plan already registered. The supervisor requested a 30-second initial wait
+and 60-second follow-up waits. It made 118 model requests versus 216 and
+issued no explicit sleeps. Of its 44 outer wait calls, 34
+requested just one second. Fewer requests and shorter average input per
+request (80,244 versus 120,538 tokens) reduced supervisor cost from
+\$28.88 to \$11.35. The runtime contributed \$8.44. With the shared
+reference review counted once, the estimate was \$20.10, 48\% below
+\$38.55. One of 67 runtime calls lacked a token receipt.
+
+The long-wait run took 19.7 fewer minutes than the short-wait run and
+committed four of the six tasks. Small objects assigned to the seating and coffee
+table lacked the close-up evidence required for review. Both groups exhausted
+three attempts, which kept their larger objects out of the export and blocked
+final layout review. Fitted-scale box overlap fell from 16 to 10 of 34. The armchair, sofa, coffee table, laptop and two vases lost their matches.
+Plan reuse, fewer completed tasks and the skipped final review also affect
+how we interpret the differences in time and cost.
 
 \paragraph{What changed with a Python outer loop?}
 AHA-auto cost \$10.78 and matched driven's five small objects by fitted-scale

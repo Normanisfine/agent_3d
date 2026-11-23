@@ -43,8 +43,7 @@ small objects than the agent places well.
 We also implement two controllers that build independent
 objects concurrently and review edits before updating the room. Four workers
 reduced build time from 11.32 to 6.63 seconds in a controlled Blender test
-with simulated model latency. Full-room speed and cost at matched quality
-remain unmeasured.
+with simulated model latency.
 \end{abstract}
 
 \section{Introduction}
@@ -169,17 +168,17 @@ run for Checklist alone. Only the gain of All objects
 over the baseline is significant; the other differences are descriptive,
 and two rooms carry most of Checklist's lead. Box recall leaves category
 errors and fine shape outside its scope, and a third of the reconstructions
-it ignored in the first three rooms were real objects without annotations. A room-scale
-speed or cost comparison requires live review, matched reconstruction quality
-and the costs of failed attempts. The physics pilot likewise needs measured
+it ignored in the first three rooms were real objects without annotations.
+The physics pilot needs measured
 object properties to establish accuracy.
 
 The controller comparison exposes a trade-off in handling failures. An agent
 can reconsider an individual edit, but it also spends tokens monitoring work
 between edits. Python can wait for a build at no model-token cost, but a
 dependency in its plan can prevent useful work after an upstream failure.
-One run per controller establishes neither run-to-run cost variability nor
-cost at equal quality.
+The four FloorPlan209 times describe runs with different timing boundaries,
+amounts of completed work and placement accuracy. Only the four-object test
+isolates the effect of parallel scheduling.
 
 \section{Conclusion}
 Across six rooms, the All objects instructions yielded 65 more correct
