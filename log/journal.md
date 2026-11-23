@@ -51,7 +51,7 @@ diagnosis tests passed; no model calls or new room reconstruction were launched.
 
 ## 2026-11-16 — Diagnosis-led AHA version and offline validation
 
-Implemented a new [aha_diagnosed](../src/agen3d/multiagent/aha_diagnosed/README.md)
+Implemented a new [aha_diagnosed](../src/agen3d/multiagent/archive/aha_diagnosed/README.md)
 folder, preserving `aha`, `aha_driven`, `aha_next`, historical scenes and upstream.
 Added explicit source-derived instance intent/support declarations; strong expressive
 construction; bounded complete per-image local reviews; exact-revision review reuse;

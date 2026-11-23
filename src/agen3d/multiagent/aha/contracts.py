@@ -168,7 +168,7 @@ class Config(Record):
         return self
 
 
-def load(path):
+def load(path, *, room_input=None, output=None):
     path = Path(path).resolve()
     c = Config.model_validate_json(path.read_text())
     for name in ('aha_repo', 'blender', 'python', 'source_scene', 'layout_spec', 'output'):
@@ -177,7 +177,13 @@ def load(path):
             # Resolving a virtualenv interpreter symlink bypasses pyvenv.cfg.
             resolved = os.path.abspath(path.parent / value) if name == 'python' else str((path.parent / value).resolve())
             setattr(c, name, resolved)
-    if c.preparation:
+    if output is not None:
+        c.output = str(Path(output).resolve())
+    if room_input is not None:
+        if c.preparation is None:
+            raise ValueError('--input requires a video preparation config')
+        c.preparation.input = str(Path(room_input).resolve())
+    elif c.preparation:
         c.preparation.input = str((path.parent / c.preparation.input).resolve())
     for mapping in (c.source_images, c.masks):
         for key, value in mapping.items():

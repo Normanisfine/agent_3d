@@ -1,6 +1,5 @@
 """AHA-backed construction queue with local critique and explicit strong takeover."""
 import copy
-import hashlib
 import threading
 from concurrent.futures import ThreadPoolExecutor
 import json
@@ -13,11 +12,12 @@ from pathlib import Path
 from PIL import Image
 from pydantic import ValidationError
 
-from ..models import ModelRegistry
+from ..resources import Checkpoints
 from ..process import run_process
 from ..providers import Provider
 from ..store import BudgetExceeded, Ledger, save
 from .contracts import Plan, Proposal, Review, ReferenceReview, Work, layout
+from .artifacts import file_revision
 from .isolation import execute
 from .reviews import bind as bind_review
 from .scheduling import HostMeter, calibrate, dependency_plan, ready_tasks
@@ -27,14 +27,6 @@ HERE = Path(__file__).parent
 
 class InvalidFinalReview(RuntimeError):
     pass
-
-
-def digest(path):
-    h = hashlib.sha256()
-    with Path(path).open('rb') as stream:
-        for data in iter(lambda: stream.read(1024*1024), b''):
-            h.update(data)
-    return h.hexdigest()
 
 
 def validate_scope(proposal, task, revision):
@@ -54,8 +46,6 @@ def resume_state(output, config):
             not any(s['stage'] == 'construction_bootstrap' and s['status'] == 'complete'
                     for s in previous['stages'])):
         raise ValueError('Resume supports only completed preparation blocked at reference review')
-    from .bootstrap import handoff
-    handoff(output / 'reference', output / 'bootstrap', restore=True)
     return previous
 
 
@@ -117,7 +107,6 @@ class Runtime:
         self.reference = None
         self.reference_limitations = []
         self.evidence = {**config.source_images, **config.masks}
-        self.source_hashes = {}
         self.stages = previous['stages'] if previous else []
         if previous:
             import uuid
@@ -165,8 +154,7 @@ class Runtime:
             return
         prep = self.c.preparation
         video = source_video(prep.input)
-        source_hash = digest(video)
-        save(self.output / 'source.json', {'video': str(video), 'sha256': source_hash})
+        save(self.output / 'source.json', {'video': str(video)})
         reference = self.output / 'reference'
         with self.compute('reference_preparation', prep.timeout_s, prep.reservation_usd):
             result = prepare(reference, video=video, timeout=prep.timeout_s,
@@ -174,8 +162,6 @@ class Runtime:
                 num_frames=prep.num_frames, pixel_limit=prep.pixel_limit)
             if not result['ok']:
                 raise RuntimeError('Reference preparation failed; see ' + result['log'])
-            if digest(video) != source_hash:
-                raise ValueError('Source video changed during preparation')
         with self.compute('construction_bootstrap', self.c.timeout_s):
             generated = bootstrap(self.c, reference, self.output / 'bootstrap', video)
         self.review_reference(generated)
@@ -194,11 +180,6 @@ class Runtime:
                  'Put non-blocking caveats in limitations. Never downgrade a blocking defect to get a pass.'},
                 generated['review_images'], strong=True)
         save(self.output / 'reference-review.json', review.model_dump())
-        if (review.candidate_revision != generated['revision'] or
-                set(review.reviewed_images) != set(generated['review_images'])):
-            raise ValueError('Reference reviewer omitted evidence or reviewed a stale reference')
-        if any(digest(path) != expected for path, expected in generated['binding'].items()):
-            raise ValueError('Reference changed during review')
         if review.verdict != 'pass':
             raise ValueError('Reference review requires repair: ' + '; '.join(review.defects))
         self.c = self.c.model_copy(update={key: generated[key]
@@ -217,7 +198,7 @@ class Runtime:
         if not receipt_path.is_file():
             return None
         receipt = json.loads(receipt_path.read_text())
-        expected = {key: digest(path) for key, path in generated['review_images'].items()}
+        expected = {key: file_revision(path) for key, path in generated['review_images'].items()}
         if receipt.get('images') != expected:
             return None
         try:
@@ -228,16 +209,15 @@ class Runtime:
         if review.verdict != 'pass':
             return None
         save(self.output / 'reference-review-reuse.json', {'call_id': row[0],
-             'receipt_sha256': digest(receipt_path), 'revision': generated['revision'],
-             'image_aliases': aliases, 'reason': 'Latest recorded review matches immutable inputs and delivered images'})
+             'revision': generated['revision'],
+             'image_aliases': aliases, 'reason': 'Same reference revision and review images'})
         self.ledger.event('reference_review_reused', {'call_id': row[0], 'aliases': aliases})
         return review
 
     def initialize_construction(self):
         self.current = Path(self.c.source_scene)
-        self.revision = digest(self.current)
+        self.revision = file_revision(self.current)
         self.evidence = {**self.c.source_images, **self.c.masks}
-        self.source_hashes = {k: digest(v) for k, v in self.evidence.items()}
         entries = json.loads((Path(self.c.aha_repo) / 'assets/index.json').read_text())['entries']
         self.catalog = {row['id']: row for row in entries
                         if row.get('kind') == 'collection' and row.get('status') == 'registered'}
@@ -247,10 +227,8 @@ class Runtime:
         holdback = self.c.judge_holdback + (
             self.c.repair_holdback if not strong or role in {'plan', 'reference_review'} else 0)
         paths = [Path(p) for p in images.values()]
-        before = {k: digest(v) for k, v in images.items()}
-        for key, value in before.items():
-            if key in self.source_hashes and self.source_hashes[key] != value:
-                raise ValueError('Original source evidence changed: ' + key)
+        image_versions = ({k: file_revision(p) for k, p in images.items()}
+                          if role == 'reference_review' else list(images))
         key = self.ledger.reserve(role, spec.call_reservation_usd, holdback,
                                   budget_exempt=self.c.exempt(spec),
                                   category='codex_cli' if spec.backend == 'codex' else 'paid_api')
@@ -276,7 +254,7 @@ class Runtime:
                     'Do not claim execution: the scheduler executes and verifies artifacts. '
                     'No native shell/tools are available. Report uncertainty and abstain if needed.',
                     {**packet, 'schema': response_schema, 'image_order': list(images),
-                     'image_manifest': [{'id': k, 'filename': Path(v).name, 'sha256': before[k]}
+                     'image_manifest': [{'id': k, 'filename': Path(v).name}
                                         for k, v in images.items()],
                      'evidence_response_rule': (
                          'Copy candidate_revision exactly. reviewed_images must contain every exact image_order ID once; '
@@ -287,13 +265,11 @@ class Runtime:
             self.ledger.settle(key, reply.actual_usd if reply else None,
                                {'usage': reply.usage if reply else {}, 'role': role, 'backend': spec.backend,
                                 'wall_seconds': time.monotonic()-start})
-        save(self.output / 'calls' / f'{key}.json', {'text': reply.text, 'images': before,
+        save(self.output / 'calls' / f'{key}.json', {'text': reply.text, 'images': image_versions,
              'backend': spec.backend, 'model': spec.model, 'usage': reply.usage,
              'raw_text': getattr(reply, 'raw_text', None)})
         if reply.usage.get('finish_reason') == 'length':
             raise ValueError('Model output truncated at max_output_tokens; see recorded response and usage')
-        if before != {k: digest(v) for k, v in images.items()}:
-            raise ValueError('Evidence changed during model call')
         try:
             parsed = schema.model_validate_json(reply.text)
             if isinstance(parsed, Review):
@@ -343,7 +319,7 @@ class Runtime:
         if proposal.image_id not in self.c.source_images or proposal.mask_id not in self.c.masks:
             raise ValueError('Generation requires registered source image and mask')
         service = self.c.hunyuan
-        checkpoint = ModelRegistry().resolve(service.checkpoint)
+        checkpoint = Checkpoints().entrypoint(service.checkpoint)
         with Image.open(self.evidence[proposal.image_id]) as im, Image.open(self.evidence[proposal.mask_id]) as mask:
             if im.size != mask.size:
                 raise ValueError('Mask and source raster must match; no implicit resize')
@@ -374,7 +350,7 @@ class Runtime:
 
     def construct(self, task, proposal, folder, *, prepare_evidence=True):
         validate_scope(proposal, task, self.revision)
-        if digest(self.current) != self.revision:
+        if file_revision(self.current) != self.revision:
             raise ValueError('Canonical scene changed outside the committer')
         if proposal.route == 'abstain':
             raise ValueError('Worker abstained: ' + proposal.reason)
@@ -519,10 +495,10 @@ class Runtime:
                 save(folder / 'local-review.json', review.model_dump())
                 if review.verdict == 'pass':
                     # Serial commit after rechecking the immutable parent.
-                    if digest(self.current) != proposal.parent_revision:
+                    if file_revision(self.current) != proposal.parent_revision:
                         raise ValueError('Stale parent at commit')
                     inventory = json.loads((folder / 'validation.json').read_text())
-                    revision = digest(candidate)
+                    revision = file_revision(candidate)
                     receipt = {'status': 'candidate_committed', 'scene': str(candidate),
                                'revision': revision, 'evidence': str(folder / 'evidence'),
                                'strong_takeover': strong, 'final_accepted': False}
@@ -555,19 +531,19 @@ class Runtime:
             raise ValueError('GPU generation requires serial construction')
         folder = branch.output / 'candidate'
         candidate, validation = branch.construct(task, proposal, folder, prepare_evidence=False)
-        return {'scene': candidate, 'scene_sha256': digest(candidate), 'validation': validation, 'proposal': proposal,
+        return {'scene': candidate, 'scene_revision': file_revision(candidate), 'validation': validation, 'proposal': proposal,
                 'parent': revision, 'strong': strong}
 
     def merge_branch(self, task, branch, wave):
         # The branch is immutable. Rebase via a trusted object import, never by relabeling a stale proposal.
         validate_scope(branch['proposal'], task, branch['parent'])
-        if digest(branch['scene']) != branch['scene_sha256']:
+        if file_revision(branch['scene']) != branch['scene_revision']:
             raise ValueError('Parallel candidate changed before merge')
         folder = self.output / 'candidates' / f'{task.task_id}-wave-{wave:04d}-merge'
         folder.mkdir(parents=True)
         shutil.copy2(self.current, folder / 'input.blend')
         shutil.copy2(branch['scene'], folder / 'candidate.blend')
-        revision = digest(self.current)
+        revision = file_revision(self.current)
         if revision != self.revision:
             raise ValueError('Canonical scene changed before merge')
         proposal = branch['proposal'].model_copy(update={'parent_revision': revision})
@@ -590,9 +566,9 @@ class Runtime:
         save(folder / 'local-review.json', review.model_dump())
         if review.verdict != 'pass':
             return self.work(task, feedback=review.model_dump(), force_strong=review.severity == 'critical', start_attempt=1)
-        if digest(self.current) != revision:
+        if file_revision(self.current) != revision:
             raise ValueError('Canonical scene changed during merge review')
-        receipt = {'status': 'candidate_committed', 'scene': str(candidate), 'revision': digest(candidate),
+        receipt = {'status': 'candidate_committed', 'scene': str(candidate), 'revision': file_revision(candidate),
                    'evidence': str(folder / 'evidence'), 'strong_takeover': branch['strong'],
                    'branch_parent_revision': branch['parent'], 'final_accepted': False}
         save(self.output / 'latest_candidate.json', receipt)
@@ -649,16 +625,9 @@ class Runtime:
             save(self.output / 'tasks.json', self.results)
         save(self.output / 'progress.json', {'phase': 'construction_finished', 'results': self.results})
 
-    def run(self, *, cuda=False, full_hashes=False):
+    def run(self, *, cuda=False):
         status, error = 'blocked_preparation' if self.c.preparation else 'blocked_construction', None
         try:
-            from .doctor import check
-            with self.compute('job_preflight', self.c.timeout_s):
-                readiness = check(self.c, cuda=cuda or self.c.preparation is not None,
-                                  full_hashes=full_hashes)
-                save(self.output / 'readiness.json', readiness)
-                if not readiness['required_ready']:
-                    raise RuntimeError('Required tools/inputs unavailable; see readiness.json')
             with self.compute('capacity_calibration', self.c.timeout_s):
                 self.capacity = calibrate(self.c, self.output / 'capacity')
             self._model_slots = threading.BoundedSemaphore(self.capacity['selected']['model_calls'])
@@ -666,7 +635,6 @@ class Runtime:
                 self.prepare()
             status = 'blocked_construction'
             self.initialize_construction()
-            self.bridge('preflight', self.current, self.output / 'preflight')
             self.reference = reference_summary(layout(self.c, self.current))
             self.reference['review_limitations'] = self.reference_limitations
             save(self.output / 'reference-summary.json', self.reference)

@@ -42,3 +42,46 @@ def resolve_resource(reference, kind):
     if kind == "runtimes":
         return interpreter_path(base, data[kind][alias])
     return str((base / data[kind][alias]).resolve())
+
+
+def load_env(path):
+    """Load literal KEY=value entries without executing shell code or overwriting exports."""
+    path = Path(path)
+    if not path.exists():
+        return
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        key, separator, value = line.removeprefix("export ").partition("=")
+        key = key.strip()
+        if separator and (key == "OPENROUTER_API_KEY" or key.startswith("AGEN3D_")):
+            os.environ.setdefault(key, value.strip().strip('"\''))
+
+
+class Checkpoints:
+    def __init__(self, root=None, lock=None):
+        project = Path(__file__).resolve().parents[3]
+        self.root = Path(root or os.environ.get("AGEN3D_MODEL_ROOT") or
+                         setting_path("model_root") or project / "models").resolve()
+        self.lock_path = Path(lock or os.environ.get("AGEN3D_MODEL_LOCK") or
+                              setting_path("model_lock") or project / "models.lock.json")
+        self.specs = json.loads(self.lock_path.read_text())["models"]
+
+    def directory(self, name):
+        if name not in self.specs or Path(name).name != name:
+            raise ValueError(f"Unknown model alias {name}")
+        return self.root / name
+
+    def file(self, name, relative):
+        directory = self.directory(name)
+        path = (directory / relative).resolve()
+        if not path.is_relative_to(directory.resolve()):
+            raise ValueError("Checkpoint file escapes model directory")
+        return path
+
+    def entrypoint(self, reference):
+        prefix, separator, name = reference.partition(":")
+        if prefix != "model" or not separator:
+            raise ValueError(f"Expected model:alias, got {reference}")
+        return self.file(name, self.specs[name]["entrypoint"])

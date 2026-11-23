@@ -8,7 +8,8 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from ..aha.contracts import Proposal, Work
-from ..aha.runtime import HERE, digest, validate_scope
+from ..aha.runtime import HERE, validate_scope
+from ..aha.artifacts import file_revision
 from ..aha.isolation import execute
 from ..aha.scheduling import calibrate, dependency_plan, ready_tasks
 from ..store import save
@@ -23,7 +24,7 @@ class ParallelSteps:
 
     def build_wave(self, plan):
         """Build one ready frontier only; never merge, review, retry or commit."""
-        if digest(self.current) != self.revision:
+        if file_revision(self.current) != self.revision:
             raise ValueError('Canonical scene changed outside this session')
         if 'machine' not in self.capacity:
             self.calibrate_capacity()
@@ -33,6 +34,9 @@ class ParallelSteps:
             raise ValueError('No ready tasks; inspect dependencies and committed results')
         if any(not task.parallel_safe for task in tasks):
             raise ValueError('Exclusive tasks require the serial build/review/commit path')
+        if self.boxer is not None:
+            for task in tasks:
+                self.check_task(task)
         waves = getattr(self, 'waves', {})
         self.waves = waves
         self.branches = getattr(self, 'branches', {})
@@ -76,9 +80,9 @@ class ParallelSteps:
         self.check_task(task)
         proposal = Proposal.model_validate(branch['proposal'])
         validate_scope(proposal, task, wave['parent'])
-        if branch['parent'] != wave['parent'] or digest(branch['scene']) != branch['scene_sha256']:
+        if branch['parent'] != wave['parent'] or file_revision(branch['scene']) != branch['scene_revision']:
             raise ValueError('Parallel branch changed before merge')
-        if digest(self.current) != self.revision:
+        if file_revision(self.current) != self.revision:
             raise ValueError('Canonical scene changed before merge')
         candidate_id = uuid.uuid4().hex
         folder = self.output / 'candidates' / candidate_id

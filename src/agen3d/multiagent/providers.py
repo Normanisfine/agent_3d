@@ -13,7 +13,7 @@ import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from .contracts import Decision, ModelSpec
+from .contracts import ModelSpec
 from .process import run_process
 
 
@@ -49,7 +49,7 @@ class Provider:
     def complete(self, spec: ModelSpec, system: str, packet: dict,
                  images: list[Path], workdir: Path) -> Reply:
         if spec.backend == "mock":
-            # Offline control exercises protocol flow, never produces a scientific verdict.
+            from .archive.contracts import Decision
             role = packet["task"]["role"]
             if not packet.get("history"):
                 decision = Decision(status="tool", summary="Offline fixture: inspect scene",

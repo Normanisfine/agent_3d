@@ -7,15 +7,17 @@ import uuid
 from pathlib import Path
 
 from ..aha.contracts import Config, Proposal, Review, Work, layout
-from ..aha.runtime import Runtime, digest, reference_summary
+from ..aha.runtime import Runtime, reference_summary
+from ..aha.artifacts import file_revision
 from ..aha.reviews import bind
 from ..providers import Provider
 from ..store import Ledger, save
 from .parallel import ParallelSteps
+from .inventory import BoxerInventory
 
 
 FIELDS = ('revision', 'takeovers', 'generations', 'sequence', 'results', 'inventory',
-          'reference', 'reference_limitations', 'evidence', 'source_hashes', 'stages')
+          'reference', 'reference_limitations', 'evidence', 'stages')
 
 
 def read(path):
@@ -25,33 +27,31 @@ def read(path):
 class Session(ParallelSteps, Runtime):
     """Reuse execution primitives, never Runtime.run/work's automatic policy."""
 
+    boxer: BoxerInventory | None = None
+
     @classmethod
-    def create(cls, config, *, cuda=False):
+    def create(cls, config, *, cuda=False, inventory_path=None):
+        boxer = BoxerInventory.load(inventory_path) if inventory_path else None
+        if boxer is not None:
+            config = config.model_copy(update={'hunyuan': None, 'max_generations': 0})
         self = cls(config)
+        self.boxer = boxer
         self.created_at = time.time()
         self.active_seconds = 0.
         self.candidates = {}
         self.ready = False
-        self.input_binding = {}
         try:
-            from ..aha.doctor import check
-            with self.compute('job_preflight', self.c.timeout_s):
-                readiness = check(self.c, cuda=cuda or bool(self.c.preparation))
-                save(self.output / 'readiness.json', readiness)
-                if not readiness['required_ready']:
-                    raise ValueError('Required tools unavailable; see readiness.json')
             if self.c.preparation:
                 self.prepare()
             self.initialize_construction()
-            self.bridge('preflight', self.current, self.output / 'preflight')
             self.reference = reference_summary(layout(self.c, self.current))
             self.reference['review_limitations'] = self.reference_limitations
             self.inspect()
-            inputs = layout(self.c, self.current)
-            paths = [self.c.source_scene, self.c.layout_spec, *self.evidence.values()]
-            paths.extend(v for k, v in inputs.items() if k != 'source_scene'
-                         and isinstance(v, str) and Path(v).is_file())
-            self.input_binding = {p: digest(p) for p in paths}
+            if boxer is not None:
+                crop_ids = {'boxer_' + k for k in boxer.crops}
+                if crop_ids.intersection(self.evidence):
+                    raise ValueError('Boxer crop IDs collide with registered scene evidence')
+                save(self.output / 'boxer-inventory.json', boxer.planner_manifest(self.output))
             self.ready = True
             return self
         except BaseException:
@@ -69,6 +69,8 @@ class Session(ParallelSteps, Runtime):
             if not state['ready']:
                 raise ValueError('Initialization failed; inspect logs and use a fresh output directory')
             self.c = Config.model_validate(state['config'])
+            if state.get('boxer') is not None:
+                self.boxer = BoxerInventory.model_validate(state['boxer'])
             self.initialize_concurrency()
             self.started = time.monotonic()
             self.provider = Provider()
@@ -80,13 +82,12 @@ class Session(ParallelSteps, Runtime):
             self.waves = state.get('waves', {})
             for name in FIELDS:
                 setattr(self, name, state[name])
-            for name in ('created_at', 'active_seconds', 'candidates', 'ready', 'input_binding'):
+            for name in ('created_at', 'active_seconds', 'candidates', 'ready'):
                 setattr(self, name, state[name])
-            if digest(self.current) != self.revision:
+            if 'input_binding' in state:
+                self.revision = file_revision(self.current)
+            elif file_revision(self.current) != self.revision:
                 raise ValueError('Canonical scene changed outside this session')
-            for path, expected in self.input_binding.items():
-                if digest(path) != expected:
-                    raise ValueError('Bound input changed: ' + path)
             entries = read(Path(self.c.aha_repo) / 'assets/index.json')['entries']
             self.catalog = {r['id']: r for r in entries
                             if r.get('kind') == 'collection' and r.get('status') == 'registered'}
@@ -101,10 +102,14 @@ class Session(ParallelSteps, Runtime):
             state = {name: getattr(self, name) for name in FIELDS}
             state.update(config=self.c.model_dump(), current=str(self.current) if self.current else None,
                          created_at=self.created_at, active_seconds=self.active_seconds,
-                         candidates=self.candidates, ready=self.ready, input_binding=self.input_binding,
+                         candidates=self.candidates, ready=self.ready,
                          capacity=self.capacity, branches=getattr(self, 'branches', {}),
                          waves=getattr(self, 'waves', {}))
+            if self.boxer is not None:
+                state['boxer'] = self.boxer.model_dump()
             save(self.output / 'session.json', state)
+            if self.boxer is not None:
+                save(self.output / 'inventory-decisions.json', self.inventory_decisions())
             from ..aha.artifacts import safe_export
             safe_export(self)
             save(self.output / 'report.json', self.summary())
@@ -115,7 +120,10 @@ class Session(ParallelSteps, Runtime):
         handoff_path = self.output / 'handoff.json'
         handoff = read(handoff_path) if handoff_path.exists() else {}
         status = (handoff.get('layout_status', 'in_progress') if self.ready else 'blocked_preparation')
-        return {'architecture': 'aha_driven', 'status': status,
+        inventory_files = {} if self.boxer is None else {
+            'boxer_inventory': str(self.output / 'boxer-inventory.json'),
+            'inventory_decisions': str(self.output / 'inventory-decisions.json')}
+        return {'architecture': 'aha_driven', 'status': status, **inventory_files,
                 'output': read(self.output / 'output.json') if (self.output / 'output.json').exists() else None,
                 'scene': str(self.current), 'revision': self.revision,
                 'ready': self.ready, 'results': self.results, 'capacity': self.capacity,
@@ -130,7 +138,29 @@ class Session(ParallelSteps, Runtime):
                     'Use provider exports for total-cost comparisons; unknown is not zero.',
                 'delivery_accepted': False}
 
+    def inventory_decisions(self):
+        return self.boxer.decisions(self.boxer.plan, self.results, self.inventory.get('objects', {}))
+
+    def register_inventory_plan(self, plan):
+        if self.boxer is None:
+            raise ValueError('Initialize the session with --inventory first')
+        decisions = self.boxer.decisions(plan, self.results, self.inventory.get('objects', {}))
+        for key, previous in self.inventory_decisions().items():
+            if previous.get('task') in self.results and decisions[key] != previous:
+                raise ValueError(f'Cannot reassign a committed task item: {key}')
+            if decisions[key].get('task') in self.results and decisions[key] != previous:
+                raise ValueError(f'Cannot add an item to a committed task: {key}')
+        if self.boxer.plan != plan:
+            if (self.output / 'handoff.json').is_file():
+                save(self.output / 'handoff.json', {'scene': str(self.current),
+                     'layout_status': 'unreviewed', 'delivery_accepted': False})
+            save(self.output / 'inventory-plan.json', plan.model_dump())
+            self.boxer.plan = plan
+        return decisions
+
     def check_task(self, task):
+        if self.boxer is not None:
+            self.boxer.check_scope(task)
         for dependency in task.depends_on:
             if self.results.get(dependency, {}).get('status') != 'candidate_committed':
                 raise ValueError('Uncommitted dependency: ' + dependency)
@@ -152,6 +182,10 @@ class Session(ParallelSteps, Runtime):
                   'helper_example': shared['helper_example'],
                   'assembly_example': shared['assembly_example'],
                   'images': images, 'schema': Proposal.model_json_schema()}
+        if self.boxer is not None:
+            items, crops = self.boxer.evidence(task)
+            packet['assigned_boxer_items'] = items
+            images.update(crops)
         folder = self.output / 'packets' / uuid.uuid4().hex
         save(folder / 'packet.json', packet)
         return folder / 'packet.json'
@@ -163,13 +197,29 @@ class Session(ParallelSteps, Runtime):
         if packet['parent_revision'] != self.revision:
             raise ValueError('Stale worker packet')
         images = packet.pop('images')
-        if any(self.c.source_images.get(k) != v for k, v in images.items()):
+        registered = self.c.source_images
+        if self.boxer is not None:
+            items, crops = self.boxer.evidence(task)
+            if packet.get('assigned_boxer_items') != items or any(images.get(k) != v for k, v in crops.items()):
+                raise ValueError('Worker packet differs from assigned Boxer evidence')
+            registered = {**registered, **crops}
+        if any(registered.get(k) != v for k, v in images.items()):
             raise ValueError('Worker packet contains unregistered images')
         proposal = self.call('driven_strong_build' if strong else 'driven_build', Proposal,
                              packet, images, strong=strong)
         path = self.output / 'proposals' / (uuid.uuid4().hex + '.json')
         save(path, proposal.model_dump())
         return path
+
+    def call(self, role, schema, packet, images, **kwargs):
+        # Parallel branches use Runtime.build_branch instead of the serial packet command.
+        if self.boxer is not None and role in ('build', 'strong_build'):
+            task = Work.model_validate(packet['task'])
+            self.check_task(task)
+            items, crops = self.boxer.evidence(task)
+            packet = {**packet, 'assigned_boxer_items': items}
+            images = {**images, **crops}
+        return super().call(role, schema, packet, images, **kwargs)
 
     def build(self, task, proposal):
         self.check_task(task)
@@ -181,25 +231,23 @@ class Session(ParallelSteps, Runtime):
     def register_candidate(self, identity, task, candidate, folder, request):
         save(folder / 'review-request.json', request)
         self.candidates[identity] = {'task': task.model_dump(), 'parent': self.revision,
-            'revision': digest(candidate), 'scene': str(candidate), 'folder': str(folder),
-            'binding': {str(p): digest(p) for p in [*request['images'].values(),
+            'revision': file_revision(candidate), 'scene': str(candidate), 'folder': str(folder),
+            'binding': {str(p): file_revision(p) for p in [*request['images'].values(),
                 folder / 'review-request.json', folder / 'validation.json']}, 'status': 'built'}
         return {'candidate_id': identity, 'review_request': str(folder / 'review-request.json')}
 
     def candidate(self, identity):
         row = self.candidates[identity]
-        if digest(self.current) != self.revision:
+        if file_revision(self.current) != self.revision:
             raise ValueError('Canonical scene changed outside this session')
         if row['parent'] != self.revision:
             raise ValueError('Candidate has a stale parent; rebuild against current scene')
-        if digest(row['scene']) != row['revision']:
+        if file_revision(row['scene']) != row['revision']:
             raise ValueError('Candidate scene changed')
         for path, expected in row['binding'].items():
-            if digest(path) != expected:
+            if file_revision(path) != expected:
                 raise ValueError('Candidate evidence changed')
         request = read(Path(row['folder']) / 'review-request.json')
-        if request['candidate_revision'] != row['revision']:
-            raise ValueError('Review request revision differs from candidate')
         return row, request
 
     def review(self, identity, review=None, *, strong=False):
@@ -211,22 +259,24 @@ class Session(ParallelSteps, Runtime):
             raise ValueError('Missing object review evidence')
         external = review is not None
         review = review or self.critic(task, request, strong=strong)
-        review, _ = bind(review, row['revision'], images)
+        review, _ = bind(review, request['candidate_revision'], images)
         self.candidate(identity)  # Recheck after model call.
         path = Path(row['folder']) / 'local-review.json'
         save(path, review.model_dump())
         row.update(status='reviewed' if review.verdict == 'pass' else 'needs_repair',
-                   review_hash=digest(path))
+                   review_revision=file_revision(path))
         self.ledger.event('driven_review', {'candidate': identity, 'external': external,
                                           'verdict': review.verdict})
         return review.model_dump()
 
     def commit(self, identity):
-        row, _ = self.candidate(identity)
+        row, request = self.candidate(identity)
         path = Path(row['folder']) / 'local-review.json'
-        if row['status'] != 'reviewed' or digest(path) != row['review_hash']:
+        if row['status'] != 'reviewed' or file_revision(path) != row['review_revision']:
             raise ValueError('Commit requires an unchanged passing review')
         review = Review.model_validate(read(path))
+        if review.candidate_revision != request['candidate_revision']:
+            raise ValueError('Review belongs to a different evidence revision')
         if review.verdict != 'pass':
             raise ValueError('Review rejected candidate')
         self.check_task(Work.model_validate(row['task']))
@@ -247,7 +297,10 @@ class Session(ParallelSteps, Runtime):
         return receipt
 
     def final_review(self):
-        if digest(self.current) != self.revision:
+        if self.boxer is not None and (self.boxer.plan is None or any(
+                d['action'] == 'assigned' for d in self.inventory_decisions().values())):
+            raise ValueError('Complete assigned inventory tasks or record omissions before final review')
+        if file_revision(self.current) != self.revision:
             raise ValueError('Canonical scene changed outside this session')
         folder = self.output / ('final-evidence-' + uuid.uuid4().hex)
         self.bridge('prepare', self.current, folder)
@@ -259,7 +312,7 @@ class Session(ParallelSteps, Runtime):
         finally:
             self.ledger.settle(key, None, {'backend': 'codex', 'native_aha_gate': True,
                                          'wall_seconds': time.monotonic() - started})
-        if digest(self.current) != self.revision:
+        if file_revision(self.current) != self.revision:
             raise ValueError('Canonical scene changed during final review')
         handoff = {'scene': str(self.current), 'revision': self.revision, 'evidence': str(folder),
                    'layout_status': 'layout_validated' if result['verdict'] == 'accepted'

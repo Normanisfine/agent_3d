@@ -4,7 +4,7 @@ from types import SimpleNamespace
 import pytest
 
 from agen3d.multiagent.aha.contracts import Plan, Proposal, Review, Work, Config
-from agen3d.multiagent.aha.runtime import Runtime, digest, validate_scope
+from agen3d.multiagent.aha.runtime import Runtime, file_revision, validate_scope
 from agen3d.multiagent.aha.isolation import command
 from agen3d.multiagent.store import Ledger
 
@@ -55,7 +55,7 @@ def runtime_stub(tmp_path):
     r.output = tmp_path
     r.current = tmp_path / 'parent.blend'
     r.current.write_bytes(b'parent')
-    r.revision = digest(r.current)
+    r.revision = file_revision(r.current)
     r.catalog, r.evidence, r.results = {}, {}, {}
     r.inventory = {}
     r.reference = None

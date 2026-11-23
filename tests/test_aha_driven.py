@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 from agen3d.multiagent.aha.contracts import Config, Proposal, Review, Work
-from agen3d.multiagent.aha.runtime import digest, validate_scope
+from agen3d.multiagent.aha.runtime import file_revision, validate_scope
 from agen3d.multiagent.aha_driven.session import Session
 from agen3d.multiagent.store import save
 
@@ -29,7 +29,6 @@ def session(tmp_path):
     s.active_seconds = 0.
     s.candidates = {}
     s.ready = True
-    s.input_binding = {str(image): digest(image)}
     s.initialize_construction()
     def construct(task, proposal, folder):
         validate_scope(proposal, task, s.revision)
@@ -37,7 +36,7 @@ def session(tmp_path):
         candidate = folder / 'scene.blend'
         candidate.write_bytes(folder.name.encode())
         save(folder/'validation.json', {'ok': True, 'objects': {}})
-        return candidate, {'candidate_revision': digest(candidate),
+        return candidate, {'candidate_revision': 'native-evidence-' + file_revision(candidate),
                            'images': {'focus': str(image)},
                            'object_views': {'desk': ['focus']}}
     s.construct = construct
@@ -54,7 +53,8 @@ def build(s):
 
 
 def review(s, identity, verdict='pass', images=None):
-    return Review(candidate_revision=s.candidates[identity]['revision'], verdict=verdict,
+    request = json.loads((Path(s.candidates[identity]['folder']) / 'review-request.json').read_text())
+    return Review(candidate_revision=request['candidate_revision'], verdict=verdict,
                   severity='routine', observations=['Inspected focus'],
                   defects=[] if verdict == 'pass' else ['Wrong extent'],
                   reviewed_images=['focus'] if images is None else images)
@@ -117,6 +117,9 @@ def test_close_exports_rejected_candidate_and_preserves_commit_gate(session):
 
 def test_review_coverage_and_evidence_binding(session):
     identity = build(session)
+    wrong = review(session, identity).model_copy(update={'candidate_revision': session.candidates[identity]['revision']})
+    with pytest.raises(ValueError, match='candidate_revision'):
+        session.review(identity, wrong)
     with pytest.raises(ValueError, match='Unknown'):
         session.review(identity, review(session, identity, images=['wrong']))
     session.review(identity, review(session, identity))
@@ -164,13 +167,13 @@ def test_dependency_and_context_scope(session):
     assert 'prior_tasks' not in packet
 
 
-def test_session_lock_and_changed_input(session):
+def test_session_lock_and_reopen(session):
     with pytest.raises(BlockingIOError):
         Session.open(session.output)
     session.close()
-    Path(session.c.source_images['source']).write_bytes(b'changed')
-    with pytest.raises(ValueError, match='Bound input changed'):
-        Session.open(session.output)
+    reopened = Session.open(session.output)
+    assert reopened.revision == session.revision
+    reopened.close()
 
 
 @pytest.mark.parametrize('verdict,status', [('accepted', 'layout_validated'),
@@ -228,7 +231,7 @@ def wave_fixture(session, monkeypatch, fail=None):
     barrier = threading.Barrier(2)
     original = session.current
     def branch(task, wave, parent, revision):
-        assert parent == original and revision == digest(original)
+        assert parent == original and revision == file_revision(original)
         barrier.wait(timeout=5)
         if task.task_id == fail:
             raise ValueError('fixture failure')
@@ -236,7 +239,7 @@ def wave_fixture(session, monkeypatch, fail=None):
         scene.write_bytes(task.task_id.encode())
         proposal = Proposal(parent_revision=revision, object_ids=task.object_ids,
                             route='code', reason='fixture', code='pass')
-        return {'scene': scene, 'scene_sha256': digest(scene), 'parent': revision,
+        return {'scene': scene, 'scene_revision': file_revision(scene), 'parent': revision,
                 'proposal': proposal, 'strong': False, 'validation': {'objects': {task.task_id: {}}}}
     session.build_branch = branch
     from agen3d.multiagent.aha_driven import parallel
@@ -248,7 +251,7 @@ def wave_fixture(session, monkeypatch, fail=None):
         save(folder/'validation.json', {'ok': True, 'objects': {}})
     monkeypatch.setattr(parallel, 'execute', execute)
     def bridge(action, scene, folder):
-        return {'candidate_revision': digest(scene), 'images': {'focus': session.c.source_images['source']},
+        return {'candidate_revision': file_revision(scene), 'images': {'focus': session.c.source_images['source']},
                 'object_views': {'desk': ['focus'], 'chair': ['focus']}}
     session.bridge = bridge
     return session.build_wave(parallel_plan())
@@ -336,3 +339,82 @@ def test_packet_shares_builder_contract_without_duplicate_cameras(session):
     assert 'parallel_safe' in packet['parallel_contract']
     assert packet['schema']['title']=='Proposal'
     assert 'prior_tasks' not in packet
+
+
+def test_boxer_inventory_serial_wave_and_resume(session, tmp_path, monkeypatch):
+    from PIL import Image
+    from agen3d.multiagent.aha.runtime import Runtime
+    from agen3d.multiagent.aha_driven.inventory import BoxerInventory, InventoryPlan
+
+    rows = [dict(item_id=key, category=key, center=[1, 2, 3], size=[1, 1, 1],
+                 yaw=0, score=.8, best_frame=1, bbox2d_xyxy=[2, 3, 4, 5])
+            for key in ('desk', 'chair', 'duplicate')]
+    save(tmp_path / 'inventory.json', rows)
+    crop_dir = tmp_path / 'inventory_crops'
+    crop_dir.mkdir()
+    for key in ('desk', 'chair'):
+        Image.new('RGB', (200, 150), 'green').save(crop_dir / f'{key}.jpg')
+    session.boxer = BoxerInventory.load(tmp_path / 'inventory.json')
+    manifest = session.boxer.planner_manifest(tmp_path)
+    assert set(manifest['items']) == {'desk', 'chair', 'duplicate'}
+    assert len(manifest['crop_sheets']) == 1
+    with Image.open(manifest['crop_sheets'][0]) as sheet:
+        assert sheet.size == (640, 150)
+    plan = InventoryPlan(**parallel_plan().model_dump())
+    with pytest.raises(ValueError, match='Unaccounted inventory IDs: duplicate'):
+        session.register_inventory_plan(plan)
+    plan = InventoryPlan(**parallel_plan().model_dump(),
+                         omissions=[{'item_id': 'duplicate', 'reason': 'Second detection of desk'}])
+    session.register_inventory_plan(plan)
+    with pytest.raises(ValueError, match='already accounted'):
+        session.register_inventory_plan(InventoryPlan(**parallel_plan().model_dump(),
+            omissions=[{'item_id': 'desk', 'reason': 'bad'}]))
+    task = plan.tasks[0]
+    path = session.packet(task, ['source'], [])
+    packet = json.loads(path.read_text())
+    assert packet['assigned_boxer_items']['desk']['center'] == [1, 2, 3]
+    assert set(packet['images']) == {'source', 'boxer_desk'}
+    with pytest.raises(ValueError, match='before final review'):
+        session.final_review()
+    calls = {}
+
+    def fake_call(self, role, schema, packet, images, **kwargs):
+        key = packet['task']['object_ids'][0]
+        assert set(packet['assigned_boxer_items']) == {key}
+        assert set(images) == {'source', 'boxer_' + key}
+        calls[role, key] = True
+        return Proposal(parent_revision=self.revision, object_ids=[key], route='code',
+                        code='pass', reason='fixture')
+
+    monkeypatch.setattr(Runtime, 'call', fake_call)
+    session.propose(path)
+    packet['images'].pop('boxer_desk')
+    save(path, packet)
+    with pytest.raises(ValueError, match='assigned Boxer evidence'):
+        session.propose(path)
+
+    def construct(task, proposal, folder, *, prepare_evidence):
+        folder.mkdir()
+        scene = folder / 'scene.blend'
+        scene.write_bytes(task.task_id.encode())
+        return scene, {'ok': True, 'objects': {}}
+
+    session.construct = construct
+    session.capacity = {'machine': {}, 'selected': {'builds': 2, 'model_calls': 2}}
+    result = session.build_wave(plan)
+    assert all(r['status'] == 'built' for r in result['results'].values())
+    assert set(calls) == {('driven_build', 'desk'), ('build', 'desk'), ('build', 'chair')}
+    session.close()
+    resumed = Session.open(session.output)
+    try:
+        assert resumed.boxer.plan == plan
+        decisions = json.loads((resumed.output / 'inventory-decisions.json').read_text())
+        assert decisions['duplicate'] == {'action': 'skipped', 'reason': 'Second detection of desk'}
+        assert decisions['chair'] == {'action': 'assigned', 'task': 'chair'}
+        resumed.results['desk'] = {'status':'candidate_committed'}
+        resumed.inventory = {'objects': {'desk': {}}}
+        assert resumed.inventory_decisions()['desk']['action'] == 'built'
+        with pytest.raises(ValueError, match='inventory assignment'):
+            resumed.check_task(task.model_copy(update={'object_ids':['chair']}))
+    finally:
+        resumed.close()

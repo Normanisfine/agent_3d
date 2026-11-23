@@ -1,1 +1,1 @@
-"""Agent-controlled AHA steps; the automated aha package remains unchanged."""
+"""Agent-directed room construction with persistent sessions."""

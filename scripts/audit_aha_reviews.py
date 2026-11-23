@@ -10,7 +10,7 @@ from pathlib import Path
 
 from agen3d.multiagent.aha.contracts import load, Work
 from agen3d.multiagent.aha.runtime import Runtime
-from agen3d.multiagent.pipeline.config import load_env
+from agen3d.multiagent.resources import load_env
 from agen3d.multiagent.store import save
 
 
