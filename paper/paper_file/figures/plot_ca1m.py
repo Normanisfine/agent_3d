@@ -47,6 +47,28 @@ def scope_comparison():
     image_grid(rows, ["Input video frame", BASELINE_LABEL, "Ours (all objects)"], "ca1m-scope.pdf")
 
 
+def experimental_settings():
+    # First matched camera view in the held-out living-room sheet: input above
+    # the All objects reconstruction. The original panels are 768 by 576.
+    with Image.open(RESULTS / "renders" / "A1_42897538.jpg") as sheet:
+        captured = [sheet.crop((150, y, 918, y + 576)) for y in (96, 672)]
+    with Image.open(FIGURES / "ai2thor-source.png") as source:
+        with Image.open(FIGURES / "ai2thor-reconstruction.png") as reconstruction:
+            panels = [*captured, source.copy(), reconstruction.copy()]
+    fig = plt.figure(figsize=(7, 1.45))
+    pairs = fig.add_gridspec(1, 2, left=0, right=1, top=0.80, bottom=0.01, wspace=0.08)
+    for pair_index, title in enumerate(("CA-1M", "AI2-THOR")):
+        grid = pairs[0, pair_index].subgridspec(1, 2, wspace=0.015)
+        for col in range(2):
+            ax = fig.add_subplot(grid[0, col])
+            ax.imshow(panels[2 * pair_index + col])
+            ax.set_axis_off()
+        bounds = pairs[0, pair_index].get_position(fig)
+        fig.text((bounds.x0 + bounds.x1) / 2, 0.90, title, ha="center", va="center", fontsize=11)
+    fig.savefig(FIGURES / "experimental-settings.pdf", dpi=300, bbox_inches="tight", pad_inches=0.02)
+    plt.close(fig)
+
+
 def coffee_table_physics():
     source = RESULTS / "showcase" / "42897538_A2" / "triptych_000616.jpg"
     with Image.open(source) as sheet:
@@ -131,6 +153,7 @@ def recall_plot():
 if __name__ == "__main__":
     plt.rcParams.update({"pdf.fonttype": 42, "pdf.compression": 9, "axes.titlesize": 11})
     scope_comparison()
+    experimental_settings()
     coffee_table_physics()
     small_placement_by_room()
     recall_plot()

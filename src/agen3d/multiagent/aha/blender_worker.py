@@ -1,5 +1,5 @@
 """Trusted bootstrap and validator, run INSIDE the construction sandbox."""
-import hashlib
+from array import array
 import json
 import math
 import sys
@@ -36,7 +36,7 @@ def material_state(material):
             if image:
                 row['image'] = image.name
                 if image.packed_file:
-                    row['packed_sha256'] = hashlib.sha256(image.packed_file.data).hexdigest()
+                    row['packed_data'] = image.packed_file.data
             result['nodes'].append(row)
         result['links'] = sorted((link.from_node.name, link.from_socket.identifier,
                                   link.to_node.name, link.to_socket.identifier)
@@ -44,7 +44,7 @@ def material_state(material):
     return result
 
 
-def inventory():
+def inventory(details=None):
     bpy.context.view_layer.update()
     result = {}
     for root in roots():
@@ -58,15 +58,21 @@ def inventory():
         hi = [max(p[i] for p in points) for i in range(3)]
         if max(hi[i] - lo[i] for i in range(3)) > 10000:
             raise ValueError('Implausibly large geometry')
-        signature = hashlib.sha256(json.dumps([
-            {'name': o.name, 'matrix': [list(r) for r in o.matrix_world],
-             'vertices': [list(v.co) for v in o.data.vertices],
-             'faces': [list(p.vertices) for p in o.data.polygons],
-             'hidden': [o.hide_render, o.hide_viewport],
-             'materials': [material_state(m) for m in o.data.materials]}
-            for o in parts], sort_keys=True).encode()).hexdigest()
+        if details is not None:
+            mesh_state = []
+            for obj in parts:
+                mesh = obj.data
+                coords = array('f', [0]) * (3 * len(mesh.vertices))
+                mesh.vertices.foreach_get('co', coords)
+                indices = array('i', [0]) * len(mesh.loops)
+                mesh.loops.foreach_get('vertex_index', indices)
+                mesh_state.append((obj.name, [list(r) for r in obj.matrix_world], coords,
+                                   indices, [p.loop_total for p in mesh.polygons],
+                                   obj.hide_render, obj.hide_viewport,
+                                   [material_state(mat) for mat in mesh.materials]))
+            details[root['instance_id']] = mesh_state
         result[root['instance_id']] = {'class': root.get('semantic_class'),
-            'parts': len(parts), 'min': lo, 'max': hi, 'signature': signature}
+            'parts': len(parts), 'min': lo, 'max': hi}
     return result
 
 
@@ -121,11 +127,12 @@ def merge_objects(ids):
 def main():
     req = json.loads(Path(sys.argv[sys.argv.index('--') + 1]).read_text())
     bpy.ops.wm.open_mainfile(filepath='/work/input.blend', load_ui=False)
-    before = inventory()
-    before_cameras = cameras()
     if req.get('inspect_only'):
-        Path('/work/inventory.json').write_text(json.dumps({'objects': before, 'cameras': before_cameras}))
+        Path('/work/inventory.json').write_text(json.dumps({'objects': inventory(), 'cameras': cameras()}))
         return
+    before_parts = {}
+    before = inventory(before_parts)
+    before_cameras = cameras()
     proposal = req['proposal']
     ids = proposal['object_ids']
     if req.get('verify_only'):
@@ -168,7 +175,8 @@ def main():
         root.scale = [proposal['dimensions'][i]/extent[i] for i in range(3)]
         root.rotation_euler.z = proposal['rotation_z']
         root.location = proposal['location']
-    after = inventory()
+    after_parts = {}
+    after = inventory(after_parts)
     if req.get('merge_only'):
         expected = req['expected_objects']
         for identity in ids:
@@ -185,7 +193,8 @@ def main():
         raise ValueError('Construction modified reviewed cameras')
     if not set(ids) <= set(after):
         raise ValueError('Program did not construct every required semantic root')
-    changed = {key for key in before.keys() | after.keys() if before.get(key) != after.get(key)}
+    changed = {key for key in before.keys() | after.keys() if before.get(key) != after.get(key)
+               or before_parts.get(key) != after_parts.get(key)}
     if not changed or not changed <= set(ids):
         raise ValueError('No geometry change or changes outside authorized semantic IDs')
     for identity in ids:

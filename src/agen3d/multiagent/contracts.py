@@ -1,50 +1,8 @@
-"""Strict wire contracts shared by CLI agents, VLMs, tools and scheduler."""
+"""Model and service configuration shared by the room controllers."""
 from typing import Literal
 
 from pydantic import Field, model_validator
-
 from agen3d.schema import Record
-
-Role = Literal["planner", "inventory", "geometry", "asset", "critic", "judge", "physics"]
-
-
-class Task(Record):
-    task_id: str = Field(pattern=r"^[a-zA-Z0-9_-]+$")
-    role: Role
-    instruction: str = Field(min_length=1, max_length=12000)
-    object_ids: list[str] = Field(default_factory=list, max_length=32)
-    evidence_ids: list[str] = Field(default_factory=list, max_length=12)
-    depends_on: list[str] = Field(default_factory=list)
-    max_turns: int = Field(default=4, ge=1, le=12)
-
-
-class ToolCall(Record):
-    name: str
-    arguments: dict = Field(default_factory=dict)
-
-
-class Decision(Record):
-    status: Literal["tool", "done", "pass", "repair", "abstain"]
-    summary: str = Field(max_length=6000)
-    calls: list[ToolCall] = Field(default_factory=list, max_length=4)
-    tasks: list[Task] = Field(default_factory=list, max_length=32)
-    evidence_used: list[str] = Field(default_factory=list)
-    uncertainty: list[str] = Field(default_factory=list)
-
-    @model_validator(mode="after")
-    def action_shape(self):
-        if (self.status == "tool") != bool(self.calls):
-            raise ValueError("Only status=tool carries calls; a tool turn needs at least one call")
-        if self.status == "tool" and self.tasks:
-            raise ValueError("Return a plan on a final decision, not alongside tools")
-        return self
-
-
-class Evidence(Record):
-    path: str
-    sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
-    kind: Literal["image", "json", "mask", "depth", "mesh"]
-    description: str
 
 
 class ModelSpec(Record):
@@ -83,30 +41,8 @@ class ServiceSpec(Record):
     reservation_usd: float = Field(gt=0, allow_inf_nan=False)
 
 
-class RunConfig(Record):
-    variant: Literal["v1", "v2", "v3"] = "v1"
-    scene: str
-    evidence_root: str
-    evidence: dict[str, Evidence] = Field(default_factory=dict)
-    output: str
-    models: dict[str, ModelSpec]
-    services: dict[Literal["pi3x", "sam3", "sam3d", "hunyuan", "hispatial"], ServiceSpec] = Field(default_factory=dict)
-    budget_usd: float = Field(gt=0, allow_inf_nan=False)
-    judge_reserve_usd: float = Field(gt=0, allow_inf_nan=False)
-    max_tasks: int = Field(default=24, ge=1, le=100)
-    max_strong_escalations: int = Field(default=2, ge=0, le=10)
-    max_generations: int = Field(default=2, ge=0, le=20)
-    source: str = "Reconstruct/refine the supplied canonical scene using only attached evidence."
-    tasks: list[Task] = Field(default_factory=list)
-
-    @model_validator(mode="after")
-    def model_aliases(self):
-        if not {"planner", "judge", "cheap"} <= self.models.keys():
-            raise ValueError("models must define planner, judge, cheap")
-        if self.judge_reserve_usd >= self.budget_usd:
-            raise ValueError("Final judge reserve must be below total budget")
-        if self.judge_reserve_usd < self.models["judge"].call_reservation_usd:
-            raise ValueError("Reserve must fund at least one final judge call")
-        if self.variant == "v3" and "medium" not in self.models:
-            raise ValueError("V3 requires a medium model alias")
-        return self
+def __getattr__(name):
+    if name in {"Decision", "Evidence", "Role", "RunConfig", "Task", "ToolCall"}:
+        from .archive import contracts
+        return getattr(contracts, name)
+    raise AttributeError(name)

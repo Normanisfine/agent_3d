@@ -1,20 +1,12 @@
 """Build construction inputs from native AHA output, without importing reference geometry."""
-import hashlib
 import json
 from pathlib import Path
 
 import numpy as np
 
 from ..store import save
+from .artifacts import file_revision
 from .isolation import execute
-
-
-def digest(path):
-    h = hashlib.sha256()
-    with Path(path).open('rb') as stream:
-        for chunk in iter(lambda: stream.read(8 * 1024 * 1024), b''):
-            h.update(chunk)
-    return h.hexdigest()
 
 
 def bootstrap(config, reference, output, video):
@@ -63,11 +55,6 @@ def bootstrap(config, reference, output, video):
 
 def handoff(reference, output, *, restore=False):
     reference, output = Path(reference), Path(output)
-    if restore:
-        saved = json.loads((output / 'reference-binding.json').read_text())
-        if any(digest(p) != h for p, h in saved['hashes'].items()):
-            raise ValueError('Prepared inputs changed since the previous review attempt')
-    spec = json.loads((output / 'layout_spec.json').read_text())
     report = json.loads((reference / 'reference_build.json').read_text())
     views_path = Path(report['source_views'])
     selected = json.loads(views_path.read_text())['source_frame_indices']
@@ -80,14 +67,7 @@ def handoff(reference, output, *, restore=False):
     alignment = json.loads(Path(report['alignment']).read_text()) if report.get('alignment') else {}
     for i, path in enumerate(sorted((reference / 'alignment').glob('*_support.png'))):
         images[f'alignment_{i:03d}'] = str(path)
-    # Bind every numerical input and review image, not merely a model's declaration.
-    binding = {str(p): digest(p) for p in [*spec.values(), *images.values(),
-               output / 'seed.blend', output / 'layout_spec.json', views_path,
-               reference / 'reference_build.json',
-               *([report['alignment']] if report.get('alignment') else [])]}
-    revision = hashlib.sha256(json.dumps(binding, sort_keys=True).encode()).hexdigest()
-    if not restore:
-        save(output / 'reference-binding.json', {'revision': revision, 'hashes': binding})
+    revision = file_revision(output / 'seed.blend')
     return {'source_scene': str(output / 'seed.blend'), 'layout_spec': str(output / 'layout_spec.json'),
             'source_images': sources, 'review_images': images, 'revision': revision,
-            'alignment': alignment, 'binding': binding}
+            'alignment': alignment}

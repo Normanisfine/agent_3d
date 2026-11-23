@@ -4,7 +4,7 @@ Date: 2026-11-15. Status: construction-stage implementation started; not end-to-
 
 Implementation: [AHA runtime](../src/agen3d/multiagent/aha/README.md).
 Verified capabilities and remaining dependencies are recorded in
-[setup status](../src/agen3d/multiagent/SETUP_STATUS.md). Video/dataset reference
+[setup status](../src/agen3d/multiagent/archive/SETUP_STATUS.md). Video/dataset reference
 preparation now runs inside the AHA job and shared cost ledger. Complete delivery
 and full-room quality validation remain unfinished.
 
@@ -39,16 +39,16 @@ Inspected local evidence:
   `completed_with_unresolved`; final judge requested repair.
 - [Selected artifact manifest](../recon/ai2thor_floorplan209/v1/selected.json):
   all 27 tracked objects were `observed_point_hull`; no applied RoomKit asset.
-- [Pipeline runner](../src/agen3d/multiagent/pipeline/runner.py): the planning
+- [Pipeline runner](../src/agen3d/multiagent/archive/pipeline/runner.py): the planning
   prompt requests a summary while the scheduler fixes stage order. Asset batches
   do not require successful selection mutations before advancing. `ask()` only
   raises for a particular provider-failure abstention, not every ineffective task.
 - The same runner permits at most three small transform corrections per repair
   round. It cannot resolve missing walls, wrong topology, or absent furniture parts.
-- [Blender assembler](../src/agen3d/multiagent/pipeline/blender_scene.py):
+- [Blender assembler](../src/agen3d/multiagent/archive/pipeline/blender_scene.py):
   collection assets or observed-point hulls plus a contextual floor; no general
   room-shell/opening authoring stage.
-- [Specialist adapter](../src/agen3d/multiagent/specialist_worker.py) already has
+- [Specialist adapter](../src/agen3d/multiagent/archive/specialist_worker.py) already has
   Hunyuan and SAM 3D branches. Their existence is not end-to-end integration:
   the raw pipeline initializes the agent with `services={}` and does not route
   generated object candidates into its construction loop.

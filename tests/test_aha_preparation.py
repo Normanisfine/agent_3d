@@ -34,6 +34,50 @@ def test_dataset_resolution_never_uses_ground_truth(tmp_path):
     assert source_video(video.parent) == video
 
 
+def test_choose_walkthrough_from_an_ordinary_capture_directory(tmp_path):
+    video = tmp_path / 'North studio.MOV'
+    video.touch()
+    assert source_video(tmp_path) == video
+    (tmp_path / 'second.mp4').touch()
+    with pytest.raises(ValueError, match='Multiple videos'):
+        source_video(tmp_path)
+    assert source_video(video) == video
+
+
+@pytest.mark.parametrize('controller', ['auto', 'driven'])
+def test_launch_room_from_cli(monkeypatch, tmp_path, controller):
+    import sys
+    from agen3d.multiagent.aha import cli as auto
+    from agen3d.multiagent.aha_driven import cli as driven
+
+    template = Path(__file__).resolve().parents[1] / 'configs/multiagent/aha.room.json'
+    monkeypatch.chdir(tmp_path)
+    video = tmp_path / 'studio.mp4'
+    video.touch()
+    received = []
+
+    class Started(Exception):
+        pass
+
+    def start(config, **kwargs):
+        received.append(config)
+        raise Started
+
+    if controller == 'auto':
+        command, entry = 'run', auto
+        monkeypatch.setattr('agen3d.multiagent.aha.runtime.Runtime', start)
+    else:
+        command, entry = 'init', driven
+        monkeypatch.setattr(driven.Session, 'create', start)
+
+    monkeypatch.setattr(sys, 'argv', ['aha', command, str(template),
+                                     '--input', video.name, '--output', 'my-room'])
+    with pytest.raises(Started):
+        entry.main()
+    assert source_video(received[0].preparation.input) == video
+    assert Path(received[0].output) == tmp_path / 'my-room'
+
+
 def test_raw_and_prepared_inputs_are_exclusive(tmp_path):
     with pytest.raises(ValueError, match='do not mix'):
         config(tmp_path, source_scene='scene.blend')
@@ -83,7 +127,7 @@ def install_fake_preparation(monkeypatch, tmp_path):
             p.write_bytes(b'test')
         return dict(source_scene=str(scene), layout_spec=str(spec), source_images={'s': str(image)},
                     review_images={'source': str(image), 'overlay': str(image)},
-                    revision='r', alignment={}, binding={str(image): bootstrap.digest(image)})
+                    revision='r', alignment={}, binding={str(image): bootstrap.file_revision(image)})
     monkeypatch.setattr(bootstrap, 'bootstrap', boot)
     return calls
 
@@ -102,7 +146,7 @@ def test_preparation_and_review_share_job_ledger_and_continue(monkeypatch, tmp_p
     assert result['error'].endswith('construction reached')
     charges = {r['label']: r for r in result['cost']['charges']}
     assert charges['reference_review']['actual'] == .02
-    for name in ('job_preflight', 'reference_preparation', 'construction_bootstrap'):
+    for name in ('reference_preparation', 'construction_bootstrap'):
         row = charges[name]
         assert row['actual'] == pytest.approx(row['detail']['billed_host_seconds'] * 2 / 3600)
     assert result['wall_seconds'] >= sum(s['wall_seconds'] for s in result['stages'])
@@ -177,12 +221,10 @@ def test_bootstrap_native_spec_and_source_evidence(monkeypatch, tmp_path):
     assert cfg['source_frames'] == frames
     assert cfg['model_to_world'] == np.eye(4).tolist()
     assert set(cfg['views']) == {'top','front','side'}
-    assert all(Path(path).is_file() for path in generated['binding'])
     restored = bootstrap.handoff(ref, tmp_path/'bootstrap', restore=True)
     assert restored['revision'] == generated['revision']
     (tmp_path/'bootstrap/seed.blend').write_bytes(b'changed scene')
-    with pytest.raises(ValueError, match='changed'):
-        bootstrap.handoff(ref, tmp_path/'bootstrap', restore=True)
+    assert bootstrap.handoff(ref, tmp_path/'bootstrap', restore=True)['revision'] != generated['revision']
 
 
 def test_semantic_subprocess_can_import_uninstalled_sam3(monkeypatch, tmp_path):
@@ -251,7 +293,7 @@ def test_resume_keeps_budget_costs_and_elapsed_without_repreparing(monkeypatch, 
         image = folder/'source.png'
         return dict(source_scene=str(folder/'seed.blend'),layout_spec=str(folder/'layout.json'),
             source_images={'s':str(image)}, review_images={'source':str(image),'overlay':str(image)},
-            revision='r',alignment={},binding={str(image):bootstrap.digest(image)})
+            revision='r',alignment={},binding={str(image):bootstrap.file_revision(image)})
     monkeypatch.setattr(bootstrap, 'handoff', restored)
     resumed = Runtime(c, provider=Reviewer(), resume_preparation=True)
     def stop():

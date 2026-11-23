@@ -11,7 +11,7 @@ from pathlib import Path
 
 from evaluate_aha_parallel import FixtureProvider
 from agen3d.multiagent.aha.contracts import load, Plan, Work, Review
-from agen3d.multiagent.aha.runtime import digest
+from agen3d.multiagent.aha.runtime import file_revision
 from agen3d.multiagent.aha_driven.session import Session
 from agen3d.multiagent.store import save
 
@@ -46,7 +46,7 @@ def main():
     try:
         # The real independent visual review is deliberately NOT claimed by this smoke.
         def bridge(action, scene, folder):
-            return {'candidate_revision': digest(scene),
+            return {'candidate_revision': file_revision(scene),
                     'images': {'fixture': next(iter(session.c.source_images.values()))},
                     'object_views': {task.object_ids[0]: ['fixture'] for task in tasks}}
         session.bridge = bridge

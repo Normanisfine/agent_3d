@@ -1,0 +1,1230 @@
+{
+ "rooms": [
+  "42897538",
+  "42898849",
+  "42899617",
+  "42899712",
+  "42899729",
+  "44358442"
+ ],
+ "arms": {
+  "A0-claude": {
+   "42897538": {
+    "n_pred": 15,
+    "minutes": 48.113818581899004,
+    "usd": 12.3137565,
+    "accepted": true,
+    "matched": 15,
+    "XS": {
+     "correct": 0,
+     "misplaced": 0,
+     "missed": 16,
+     "n": 16
+    },
+    "S": {
+     "correct": 1,
+     "misplaced": 0,
+     "missed": 21,
+     "n": 22
+    },
+    "M": {
+     "correct": 8,
+     "misplaced": 2,
+     "missed": 30,
+     "n": 40
+    },
+    "L": {
+     "correct": 4,
+     "misplaced": 0,
+     "missed": 14,
+     "n": 18
+    }
+   },
+   "42898849": {
+    "n_pred": 37,
+    "minutes": 80.0562275091807,
+    "usd": 14.523364900000008,
+    "accepted": true,
+    "matched": 36,
+    "XS": {
+     "correct": 0,
+     "misplaced": 0,
+     "missed": 116,
+     "n": 116
+    },
+    "S": {
+     "correct": 0,
+     "misplaced": 0,
+     "missed": 142,
+     "n": 142
+    },
+    "M": {
+     "correct": 20,
+     "misplaced": 1,
+     "missed": 55,
+     "n": 76
+    },
+    "L": {
+     "correct": 12,
+     "misplaced": 3,
+     "missed": 27,
+     "n": 42
+    }
+   },
+   "42899617": {
+    "n_pred": 10,
+    "minutes": 87.69315800269445,
+    "usd": 14.884774100000003,
+    "accepted": false,
+    "matched": 9,
+    "XS": {
+     "correct": 0,
+     "misplaced": 0,
+     "missed": 6,
+     "n": 6
+    },
+    "S": {
+     "correct": 1,
+     "misplaced": 3,
+     "missed": 6,
+     "n": 10
+    },
+    "M": {
+     "correct": 4,
+     "misplaced": 0,
+     "missed": 15,
+     "n": 19
+    },
+    "L": {
+     "correct": 1,
+     "misplaced": 0,
+     "missed": 5,
+     "n": 6
+    }
+   },
+   "42899712": {
+    "n_pred": 22,
+    "minutes": 55.6192657550176,
+    "usd": 14.202047399999996,
+    "accepted": true,
+    "matched": 21,
+    "XS": {
+     "correct": 0,
+     "misplaced": 0,
+     "missed": 43,
+     "n": 43
+    },
+    "S": {
+     "correct": 2,
+     "misplaced": 2,
+     "missed": 24,
+     "n": 28
+    },
+    "M": {
+     "correct": 10,
+     "misplaced": 0,
+     "missed": 14,
+     "n": 24
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 1,
+     "missed": 12,
+     "n": 19
+    }
+   },
+   "42899729": {
+    "n_pred": 7,
+    "minutes": 75.82278348207474,
+    "usd": 22.80189920000001,
+    "accepted": true,
+    "matched": 7,
+    "XS": {
+     "correct": 0,
+     "misplaced": 0,
+     "missed": 10,
+     "n": 10
+    },
+    "S": {
+     "correct": 2,
+     "misplaced": 1,
+     "missed": 19,
+     "n": 22
+    },
+    "M": {
+     "correct": 1,
+     "misplaced": 0,
+     "missed": 20,
+     "n": 21
+    },
+    "L": {
+     "correct": 3,
+     "misplaced": 0,
+     "missed": 10,
+     "n": 13
+    }
+   },
+   "44358442": {
+    "n_pred": 10,
+    "minutes": 22.812879010041556,
+    "usd": 6.0636756,
+    "accepted": true,
+    "matched": 10,
+    "XS": {
+     "correct": 0,
+     "misplaced": 0,
+     "missed": 73,
+     "n": 73
+    },
+    "S": {
+     "correct": 0,
+     "misplaced": 0,
+     "missed": 55,
+     "n": 55
+    },
+    "M": {
+     "correct": 4,
+     "misplaced": 2,
+     "missed": 20,
+     "n": 26
+    },
+    "L": {
+     "correct": 4,
+     "misplaced": 0,
+     "missed": 6,
+     "n": 10
+    }
+   }
+  },
+  "A1-claude": {
+   "42897538": {
+    "n_pred": 37,
+    "minutes": 43.7001535654068,
+    "usd": 9.231728000000002,
+    "accepted": false,
+    "matched": 33,
+    "XS": {
+     "correct": 1,
+     "misplaced": 2,
+     "missed": 13,
+     "n": 16
+    },
+    "S": {
+     "correct": 8,
+     "misplaced": 4,
+     "missed": 10,
+     "n": 22
+    },
+    "M": {
+     "correct": 9,
+     "misplaced": 1,
+     "missed": 30,
+     "n": 40
+    },
+    "L": {
+     "correct": 7,
+     "misplaced": 1,
+     "missed": 10,
+     "n": 18
+    }
+   },
+   "42898849": {
+    "n_pred": 139,
+    "minutes": 68.86329816182455,
+    "usd": 11.270913599999998,
+    "accepted": false,
+    "matched": 116,
+    "XS": {
+     "correct": 4,
+     "misplaced": 9,
+     "missed": 103,
+     "n": 116
+    },
+    "S": {
+     "correct": 11,
+     "misplaced": 28,
+     "missed": 103,
+     "n": 142
+    },
+    "M": {
+     "correct": 31,
+     "misplaced": 13,
+     "missed": 32,
+     "n": 76
+    },
+    "L": {
+     "correct": 17,
+     "misplaced": 3,
+     "missed": 22,
+     "n": 42
+    }
+   },
+   "42899617": {
+    "n_pred": 32,
+    "minutes": 41.57498567104339,
+    "usd": 11.291291000000001,
+    "accepted": false,
+    "matched": 20,
+    "XS": {
+     "correct": 2,
+     "misplaced": 1,
+     "missed": 3,
+     "n": 6
+    },
+    "S": {
+     "correct": 6,
+     "misplaced": 2,
+     "missed": 2,
+     "n": 10
+    },
+    "M": {
+     "correct": 5,
+     "misplaced": 2,
+     "missed": 12,
+     "n": 19
+    },
+    "L": {
+     "correct": 2,
+     "misplaced": 0,
+     "missed": 4,
+     "n": 6
+    }
+   },
+   "42899712": {
+    "n_pred": 55,
+    "minutes": 63.44012532234192,
+    "usd": 13.346819599999998,
+    "accepted": false,
+    "matched": 48,
+    "XS": {
+     "correct": 1,
+     "misplaced": 5,
+     "missed": 37,
+     "n": 43
+    },
+    "S": {
+     "correct": 8,
+     "misplaced": 6,
+     "missed": 14,
+     "n": 28
+    },
+    "M": {
+     "correct": 16,
+     "misplaced": 3,
+     "missed": 5,
+     "n": 24
+    },
+    "L": {
+     "correct": 9,
+     "misplaced": 0,
+     "missed": 10,
+     "n": 19
+    }
+   },
+   "42899729": {
+    "n_pred": 33,
+    "minutes": 65.09528339703878,
+    "usd": 13.525252800000002,
+    "accepted": false,
+    "matched": 32,
+    "XS": {
+     "correct": 3,
+     "misplaced": 1,
+     "missed": 6,
+     "n": 10
+    },
+    "S": {
+     "correct": 7,
+     "misplaced": 5,
+     "missed": 10,
+     "n": 22
+    },
+    "M": {
+     "correct": 8,
+     "misplaced": 1,
+     "missed": 12,
+     "n": 21
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 1,
+     "missed": 6,
+     "n": 13
+    }
+   },
+   "44358442": {
+    "n_pred": 79,
+    "minutes": 73.09520862499873,
+    "usd": 15.467637599999998,
+    "accepted": false,
+    "matched": 61,
+    "XS": {
+     "correct": 10,
+     "misplaced": 8,
+     "missed": 55,
+     "n": 73
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 10,
+     "missed": 35,
+     "n": 55
+    },
+    "M": {
+     "correct": 13,
+     "misplaced": 3,
+     "missed": 10,
+     "n": 26
+    },
+    "L": {
+     "correct": 4,
+     "misplaced": 3,
+     "missed": 3,
+     "n": 10
+    }
+   }
+  },
+  "A2-claude": {
+   "42897538": {
+    "n_pred": 54,
+    "minutes": 119.31284174919128,
+    "usd": 12.248446900000003,
+    "accepted": false,
+    "matched": 47,
+    "XS": {
+     "correct": 2,
+     "misplaced": 4,
+     "missed": 10,
+     "n": 16
+    },
+    "S": {
+     "correct": 6,
+     "misplaced": 8,
+     "missed": 8,
+     "n": 22
+    },
+    "M": {
+     "correct": 10,
+     "misplaced": 7,
+     "missed": 23,
+     "n": 40
+    },
+    "L": {
+     "correct": 9,
+     "misplaced": 1,
+     "missed": 8,
+     "n": 18
+    }
+   },
+   "42898849": {
+    "n_pred": 120,
+    "minutes": 84.93900574048361,
+    "usd": 17.862115699999993,
+    "accepted": false,
+    "matched": 108,
+    "XS": {
+     "correct": 5,
+     "misplaced": 3,
+     "missed": 108,
+     "n": 116
+    },
+    "S": {
+     "correct": 17,
+     "misplaced": 25,
+     "missed": 100,
+     "n": 142
+    },
+    "M": {
+     "correct": 35,
+     "misplaced": 6,
+     "missed": 35,
+     "n": 76
+    },
+    "L": {
+     "correct": 13,
+     "misplaced": 4,
+     "missed": 25,
+     "n": 42
+    }
+   },
+   "42899617": {
+    "n_pred": 24,
+    "minutes": 41.42437882423401,
+    "usd": 9.321793300000001,
+    "accepted": false,
+    "matched": 19,
+    "XS": {
+     "correct": 2,
+     "misplaced": 1,
+     "missed": 3,
+     "n": 6
+    },
+    "S": {
+     "correct": 7,
+     "misplaced": 1,
+     "missed": 2,
+     "n": 10
+    },
+    "M": {
+     "correct": 6,
+     "misplaced": 0,
+     "missed": 13,
+     "n": 19
+    },
+    "L": {
+     "correct": 2,
+     "misplaced": 0,
+     "missed": 4,
+     "n": 6
+    }
+   },
+   "42899712": {
+    "n_pred": 63,
+    "minutes": 94.30497684081395,
+    "usd": 18.093565700000003,
+    "accepted": false,
+    "matched": 54,
+    "XS": {
+     "correct": 9,
+     "misplaced": 2,
+     "missed": 32,
+     "n": 43
+    },
+    "S": {
+     "correct": 7,
+     "misplaced": 8,
+     "missed": 13,
+     "n": 28
+    },
+    "M": {
+     "correct": 17,
+     "misplaced": 2,
+     "missed": 5,
+     "n": 24
+    },
+    "L": {
+     "correct": 8,
+     "misplaced": 1,
+     "missed": 10,
+     "n": 19
+    }
+   },
+   "42899729": {
+    "n_pred": 48,
+    "minutes": 164.7758423725764,
+    "usd": 47.26242599999999,
+    "accepted": false,
+    "matched": 37,
+    "XS": {
+     "correct": 3,
+     "misplaced": 1,
+     "missed": 6,
+     "n": 10
+    },
+    "S": {
+     "correct": 9,
+     "misplaced": 3,
+     "missed": 10,
+     "n": 22
+    },
+    "M": {
+     "correct": 10,
+     "misplaced": 3,
+     "missed": 8,
+     "n": 21
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 2,
+     "missed": 5,
+     "n": 13
+    }
+   },
+   "44358442": {
+    "n_pred": 104,
+    "minutes": 119.73877349297206,
+    "usd": 14.93398999999999,
+    "accepted": false,
+    "matched": 86,
+    "XS": {
+     "correct": 15,
+     "misplaced": 11,
+     "missed": 47,
+     "n": 73
+    },
+    "S": {
+     "correct": 19,
+     "misplaced": 14,
+     "missed": 22,
+     "n": 55
+    },
+    "M": {
+     "correct": 15,
+     "misplaced": 4,
+     "missed": 7,
+     "n": 26
+    },
+    "L": {
+     "correct": 5,
+     "misplaced": 3,
+     "missed": 2,
+     "n": 10
+    }
+   }
+  },
+  "A5-claude": {
+   "42897538": {
+    "n_pred": 82,
+    "minutes": 55.96878434419632,
+    "usd": 9.630754199999998,
+    "accepted": false,
+    "matched": 51,
+    "XS": {
+     "correct": 6,
+     "misplaced": 5,
+     "missed": 5,
+     "n": 16
+    },
+    "S": {
+     "correct": 12,
+     "misplaced": 3,
+     "missed": 7,
+     "n": 22
+    },
+    "M": {
+     "correct": 11,
+     "misplaced": 4,
+     "missed": 25,
+     "n": 40
+    },
+    "L": {
+     "correct": 9,
+     "misplaced": 1,
+     "missed": 8,
+     "n": 18
+    }
+   },
+   "42898849": {
+    "n_pred": 342,
+    "minutes": 120.68046948512395,
+    "usd": 19.392357000000004,
+    "accepted": false,
+    "matched": 185,
+    "XS": {
+     "correct": 7,
+     "misplaced": 26,
+     "missed": 83,
+     "n": 116
+    },
+    "S": {
+     "correct": 26,
+     "misplaced": 48,
+     "missed": 68,
+     "n": 142
+    },
+    "M": {
+     "correct": 38,
+     "misplaced": 14,
+     "missed": 24,
+     "n": 76
+    },
+    "L": {
+     "correct": 22,
+     "misplaced": 4,
+     "missed": 16,
+     "n": 42
+    }
+   },
+   "42899617": {
+    "n_pred": 28,
+    "minutes": 81.64180016517639,
+    "usd": 14.729683000000003,
+    "accepted": false,
+    "matched": 21,
+    "XS": {
+     "correct": 1,
+     "misplaced": 1,
+     "missed": 4,
+     "n": 6
+    },
+    "S": {
+     "correct": 4,
+     "misplaced": 4,
+     "missed": 2,
+     "n": 10
+    },
+    "M": {
+     "correct": 6,
+     "misplaced": 3,
+     "missed": 10,
+     "n": 19
+    },
+    "L": {
+     "correct": 2,
+     "misplaced": 0,
+     "missed": 4,
+     "n": 6
+    }
+   },
+   "42899712": {
+    "n_pred": 67,
+    "minutes": 48.06924647092819,
+    "usd": 11.021796600000004,
+    "accepted": false,
+    "matched": 52,
+    "XS": {
+     "correct": 4,
+     "misplaced": 5,
+     "missed": 34,
+     "n": 43
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 6,
+     "missed": 12,
+     "n": 28
+    },
+    "M": {
+     "correct": 17,
+     "misplaced": 2,
+     "missed": 5,
+     "n": 24
+    },
+    "L": {
+     "correct": 7,
+     "misplaced": 1,
+     "missed": 11,
+     "n": 19
+    }
+   },
+   "42899729": {
+    "n_pred": 42,
+    "minutes": 111.44814474582672,
+    "usd": 14.693408399999997,
+    "accepted": false,
+    "matched": 35,
+    "XS": {
+     "correct": 2,
+     "misplaced": 1,
+     "missed": 7,
+     "n": 10
+    },
+    "S": {
+     "correct": 9,
+     "misplaced": 4,
+     "missed": 9,
+     "n": 22
+    },
+    "M": {
+     "correct": 8,
+     "misplaced": 2,
+     "missed": 11,
+     "n": 21
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 3,
+     "missed": 4,
+     "n": 13
+    }
+   },
+   "44358442": {
+    "n_pred": 361,
+    "minutes": 53.27240634759267,
+    "usd": 10.2306128,
+    "accepted": false,
+    "matched": 127,
+    "XS": {
+     "correct": 30,
+     "misplaced": 27,
+     "missed": 16,
+     "n": 73
+    },
+    "S": {
+     "correct": 31,
+     "misplaced": 14,
+     "missed": 10,
+     "n": 55
+    },
+    "M": {
+     "correct": 12,
+     "misplaced": 6,
+     "missed": 8,
+     "n": 26
+    },
+    "L": {
+     "correct": 4,
+     "misplaced": 3,
+     "missed": 3,
+     "n": 10
+    }
+   }
+  },
+  "A1-claude-betty": {
+   "42897538": null,
+   "42898849": null,
+   "42899617": null,
+   "42899712": {
+    "n_pred": 72,
+    "minutes": 99.16769373019537,
+    "usd": 15.92727179999999,
+    "accepted": false,
+    "matched": 52,
+    "XS": {
+     "correct": 1,
+     "misplaced": 8,
+     "missed": 34,
+     "n": 43
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 6,
+     "missed": 12,
+     "n": 28
+    },
+    "M": {
+     "correct": 16,
+     "misplaced": 2,
+     "missed": 6,
+     "n": 24
+    },
+    "L": {
+     "correct": 8,
+     "misplaced": 1,
+     "missed": 10,
+     "n": 19
+    }
+   },
+   "42899729": {
+    "n_pred": 37,
+    "minutes": 124.23543526331584,
+    "usd": 35.54605420000002,
+    "accepted": false,
+    "matched": 33,
+    "XS": {
+     "correct": 5,
+     "misplaced": 0,
+     "missed": 5,
+     "n": 10
+    },
+    "S": {
+     "correct": 8,
+     "misplaced": 4,
+     "missed": 10,
+     "n": 22
+    },
+    "M": {
+     "correct": 8,
+     "misplaced": 1,
+     "missed": 12,
+     "n": 21
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 1,
+     "missed": 6,
+     "n": 13
+    }
+   },
+   "44358442": {
+    "n_pred": 143,
+    "minutes": 73.31952067216237,
+    "usd": 11.069409199999996,
+    "accepted": false,
+    "matched": 97,
+    "XS": {
+     "correct": 21,
+     "misplaced": 17,
+     "missed": 35,
+     "n": 73
+    },
+    "S": {
+     "correct": 21,
+     "misplaced": 15,
+     "missed": 19,
+     "n": 55
+    },
+    "M": {
+     "correct": 12,
+     "misplaced": 4,
+     "missed": 10,
+     "n": 26
+    },
+    "L": {
+     "correct": 4,
+     "misplaced": 3,
+     "missed": 3,
+     "n": 10
+    }
+   }
+  }
+ },
+ "paired": {
+  "A1-claude - A0-claude": {
+   "rooms": [
+    "42897538",
+    "42898849",
+    "42899617",
+    "42899712",
+    "42899729",
+    "44358442"
+   ],
+   "diffs": [
+    8,
+    15,
+    7,
+    7,
+    8,
+    20
+   ],
+   "p_sign_flip": 0.03125
+  },
+  "A2-claude - A1-claude": {
+   "rooms": [
+    "42897538",
+    "42898849",
+    "42899617",
+    "42899712",
+    "42899729",
+    "44358442"
+   ],
+   "diffs": [
+    -1,
+    7,
+    1,
+    7,
+    2,
+    14
+   ],
+   "p_sign_flip": 0.09375
+  },
+  "A5-claude - A1-claude": {
+   "rooms": [
+    "42897538",
+    "42898849",
+    "42899617",
+    "42899712",
+    "42899729",
+    "44358442"
+   ],
+   "diffs": [
+    9,
+    18,
+    -3,
+    5,
+    1,
+    41
+   ],
+   "p_sign_flip": 0.09375
+  },
+  "A5-claude - A2-claude": {
+   "rooms": [
+    "42897538",
+    "42898849",
+    "42899617",
+    "42899712",
+    "42899729",
+    "44358442"
+   ],
+   "diffs": [
+    10,
+    11,
+    -4,
+    -2,
+    -1,
+    27
+   ],
+   "p_sign_flip": 0.25
+  },
+  "A1-claude-betty - A1-claude": {
+   "rooms": [
+    "42899712",
+    "42899729",
+    "44358442"
+   ],
+   "diffs": [
+    2,
+    3,
+    22
+   ],
+   "p_sign_flip": 0.25
+  }
+ },
+ "second_seed": {
+  "arm": "A5-claude",
+  "runs": {
+   "42897538": {
+    "n_pred": 68,
+    "minutes": 183.79359132448832,
+    "usd": 22.291783399999993,
+    "accepted": true,
+    "matched": 46,
+    "XS": {
+     "correct": 5,
+     "misplaced": 1,
+     "missed": 10,
+     "n": 16
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 3,
+     "missed": 9,
+     "n": 22
+    },
+    "M": {
+     "correct": 11,
+     "misplaced": 5,
+     "missed": 24,
+     "n": 40
+    },
+    "L": {
+     "correct": 9,
+     "misplaced": 2,
+     "missed": 7,
+     "n": 18
+    }
+   },
+   "42898849": {
+    "n_pred": 333,
+    "minutes": 185.8328377644221,
+    "usd": 31.921886599999997,
+    "accepted": false,
+    "matched": 194,
+    "XS": {
+     "correct": 7,
+     "misplaced": 35,
+     "missed": 74,
+     "n": 116
+    },
+    "S": {
+     "correct": 42,
+     "misplaced": 42,
+     "missed": 58,
+     "n": 142
+    },
+    "M": {
+     "correct": 28,
+     "misplaced": 16,
+     "missed": 32,
+     "n": 76
+    },
+    "L": {
+     "correct": 19,
+     "misplaced": 5,
+     "missed": 18,
+     "n": 42
+    }
+   },
+   "42899617": {
+    "n_pred": 27,
+    "minutes": 54.668016036351524,
+    "usd": 8.055981800000001,
+    "accepted": false,
+    "matched": 21,
+    "XS": {
+     "correct": 3,
+     "misplaced": 0,
+     "missed": 3,
+     "n": 6
+    },
+    "S": {
+     "correct": 4,
+     "misplaced": 4,
+     "missed": 2,
+     "n": 10
+    },
+    "M": {
+     "correct": 5,
+     "misplaced": 3,
+     "missed": 11,
+     "n": 19
+    },
+    "L": {
+     "correct": 2,
+     "misplaced": 0,
+     "missed": 4,
+     "n": 6
+    }
+   },
+   "42899712": {
+    "n_pred": 78,
+    "minutes": 96.8451977968216,
+    "usd": 17.225480999999995,
+    "accepted": false,
+    "matched": 58,
+    "XS": {
+     "correct": 11,
+     "misplaced": 4,
+     "missed": 28,
+     "n": 43
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 5,
+     "missed": 13,
+     "n": 28
+    },
+    "M": {
+     "correct": 17,
+     "misplaced": 2,
+     "missed": 5,
+     "n": 24
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 3,
+     "missed": 10,
+     "n": 19
+    }
+   },
+   "42899729": {
+    "n_pred": 45,
+    "minutes": 71.14116727908453,
+    "usd": 14.356205199999998,
+    "accepted": false,
+    "matched": 40,
+    "XS": {
+     "correct": 3,
+     "misplaced": 2,
+     "missed": 5,
+     "n": 10
+    },
+    "S": {
+     "correct": 10,
+     "misplaced": 4,
+     "missed": 8,
+     "n": 22
+    },
+    "M": {
+     "correct": 12,
+     "misplaced": 0,
+     "missed": 9,
+     "n": 21
+    },
+    "L": {
+     "correct": 6,
+     "misplaced": 3,
+     "missed": 4,
+     "n": 13
+    }
+   },
+   "44358442": {
+    "n_pred": 372,
+    "minutes": 83.52481433153153,
+    "usd": 27.037253399999997,
+    "accepted": false,
+    "matched": 130,
+    "XS": {
+     "correct": 32,
+     "misplaced": 28,
+     "missed": 13,
+     "n": 73
+    },
+    "S": {
+     "correct": 18,
+     "misplaced": 29,
+     "missed": 8,
+     "n": 55
+    },
+    "M": {
+     "correct": 14,
+     "misplaced": 3,
+     "missed": 9,
+     "n": 26
+    },
+    "L": {
+     "correct": 4,
+     "misplaced": 2,
+     "missed": 4,
+     "n": 10
+    }
+   }
+  },
+  "seed1_minus_seed0": {
+   "42897538": -3,
+   "42898849": 16,
+   "42899617": 2,
+   "42899712": 7,
+   "42899729": 2,
+   "44358442": -11
+  },
+  "paired": {
+   "种子 1 - A1-claude": {
+    "rooms": [
+     "42897538",
+     "42898849",
+     "42899617",
+     "42899712",
+     "42899729",
+     "44358442"
+    ],
+    "diffs": [
+     6,
+     34,
+     -1,
+     12,
+     3,
+     30
+    ],
+    "p_sign_flip": 0.0625
+   },
+   "两遍平均 - A1-claude": {
+    "rooms": [
+     "42897538",
+     "42898849",
+     "42899617",
+     "42899712",
+     "42899729",
+     "44358442"
+    ],
+    "diffs": [
+     7.5,
+     26.0,
+     -2.0,
+     8.5,
+     2.0,
+     35.5
+    ],
+    "p_sign_flip": 0.09375
+   },
+   "种子 1 - A2-claude": {
+    "rooms": [
+     "42897538",
+     "42898849",
+     "42899617",
+     "42899712",
+     "42899729",
+     "44358442"
+    ],
+    "diffs": [
+     7,
+     27,
+     -2,
+     5,
+     1,
+     16
+    ],
+    "p_sign_flip": 0.09375
+   },
+   "两遍平均 - A2-claude": {
+    "rooms": [
+     "42897538",
+     "42898849",
+     "42899617",
+     "42899712",
+     "42899729",
+     "44358442"
+    ],
+    "diffs": [
+     8.5,
+     19.0,
+     -3.0,
+     1.5,
+     0.0,
+     21.5
+    ],
+    "p_sign_flip": 0.1875
+   }
+  }
+ }
+}

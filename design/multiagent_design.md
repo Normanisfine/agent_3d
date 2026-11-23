@@ -327,7 +327,7 @@ Among eligible variants, choose the lowest total cost; report latency as another
 
 ## 10. Implementation boundary and next decisions
 
-Existing code provides typed scene state, input/label separation helpers, geometric matching, basic support/duplicate checks, bounded scene-state repair, and synchronous budget routing. It does **not** yet implement provider execution, a resumable scheduler, process isolation, source-render verification, the authored Blender export/apply bridge, or specialist generation queues. See [implementation boundaries](../docs/protocol.md) and [routing primitives](../src/agen3d/routing.py).
+Existing code provides typed scene state, input/label separation helpers, geometric matching, basic support/duplicate checks, bounded scene-state repair, and synchronous budget routing. It does **not** yet implement provider execution, a resumable scheduler, process isolation, source-render verification, the authored Blender export/apply bridge, or specialist generation queues. See [implementation boundaries](../docs/protocol.md) and [routing primitives](../src/agen3d/archive/routing.py).
 
 Suggested implementation order:
 

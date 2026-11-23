@@ -6,7 +6,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 from agen3d.multiagent.contracts import ModelSpec
-from agen3d.multiagent.pipeline.config import load_env
+from agen3d.multiagent.resources import load_env
 from agen3d.multiagent.providers import Provider
 from agen3d.multiagent.store import Ledger, save
 

@@ -3,14 +3,14 @@ import json
 from types import SimpleNamespace
 
 from agen3d.multiagent.aha.artifacts import record_candidate, export_output, safe_export
-from agen3d.multiagent.aha.runtime import digest
+from agen3d.multiagent.aha.runtime import file_revision
 from agen3d.multiagent.store import save
 
 
 def runtime(tmp_path):
     scene = tmp_path / 'seed.blend'
     scene.write_bytes(b'canonical')
-    return SimpleNamespace(output=tmp_path, current=scene, revision=digest(scene))
+    return SimpleNamespace(output=tmp_path, current=scene, revision=file_revision(scene))
 
 
 def candidate(r, name='first', parent=None):
@@ -27,7 +27,7 @@ def candidate(r, name='first', parent=None):
 def test_rejected_candidate_exported_without_commit(tmp_path):
     r = runtime(tmp_path)
     scene = candidate(r)
-    save(scene.parent / 'local-review.json', {'candidate_revision': digest(scene),
+    save(scene.parent / 'local-review.json', {'candidate_revision': file_revision(scene),
          'verdict': 'repair', 'defects': ['Window too tall']})
     result = export_output(r)
     assert result['local_review']['verdict'] == 'repair'

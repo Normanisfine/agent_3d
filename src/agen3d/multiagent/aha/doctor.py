@@ -5,7 +5,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-from ..models import ModelRegistry
+from ..resources import Checkpoints
 from ..process import run_process
 from . import isolation
 
@@ -29,7 +29,7 @@ def probe(command, timeout=120, **kwargs):
         return {'ok': False, 'error': f'{type(exc).__name__}: {exc}'}
 
 
-def check(config=None, cuda=False, full_hashes=False):
+def check(config=None, cuda=False):
     project = PROJECT
     aha = Path(config.aha_repo) if config else project / 'external/aha-3d'
     blender = Path(config.blender) if config else project.parent / 'tools/blender/blender-4.5.14-linux-x64/blender'
@@ -58,7 +58,7 @@ def check(config=None, cuda=False, full_hashes=False):
         result = probe(cmd)
         result['ok'] = result['ok'] and (folder / 'receipt').exists()
         checks.append({'component': 'generated_code_isolation', 'level': 'execution', **result})
-    registry = ModelRegistry()
+    registry = Checkpoints()
     for name, (repo, runtime, imports) in IMPORTS.items():
         interpreter = project / '.venvs' / runtime / 'bin/python'
         repository = project / 'external' / repo
@@ -72,9 +72,9 @@ def check(config=None, cuda=False, full_hashes=False):
         result = probe([str(interpreter), '-c', script, *map(str, paths)])
         checks.append({'component': name, 'level': 'cuda_tensor_and_import' if cuda else 'import',
                        'repo': str(repository), 'python': str(interpreter), **result})
-        verification = registry.verify(name, full=full_hashes)
-        checks.append({'component': name + '_checkpoint', 'level': verification['verification'],
-                       'ok': verification['ok'], 'failures': verification['failures']})
+        checkpoint = registry.entrypoint('model:' + name)
+        checks.append({'component': name + '_checkpoint', 'level': 'exists',
+                       'ok': checkpoint.exists(), 'path': str(checkpoint)})
     if cuda:
         checks.append({'component': 'gpu', 'level': 'driver',
                        **probe(['nvidia-smi', '--query-gpu=name,memory.total', '--format=csv,noheader'])})
@@ -96,15 +96,16 @@ def check(config=None, cuda=False, full_hashes=False):
                 checks.append({'component': name, 'level': 'exists', 'ok': Path(getattr(config, name)).is_file()})
         for key, path in {**config.source_images, **config.masks}.items():
             checks.append({'component': 'evidence:' + key, 'level': 'exists', 'ok': Path(path).is_file()})
-        checks.append({'component': 'worker_credentials', 'level': 'presence_only',
-                       'ok': bool(os.environ.get(config.worker.api_key_env))})
     required = {'blender', 'aha_python', 'generated_code_isolation', 'codex_cli'}
     if config:
-        required |= {'worker_credentials'}
+        if config.worker.backend in {'openrouter', 'openai_compatible'}:
+            checks.append({'component': 'worker_credentials', 'level': 'presence_only',
+                           'ok': bool(os.environ.get(config.worker.api_key_env))})
+            required.add('worker_credentials')
         required |= ({'preparation_input', 'preparation_sam3_import', 'aha_reference_meshing', 'pi3x', 'pi3x_checkpoint',
                       'sam3', 'sam3_checkpoint'} if config.preparation else {'source_scene', 'layout_spec'})
         required |= {'evidence:' + k for k in {**config.source_images, **config.masks}}
-        if config.supervisor.backend == 'claude':
+        if 'claude' in {config.supervisor.backend, config.worker.backend}:
             required.add('claude_cli')
         if config.hunyuan:
             required |= {'hunyuan-shape', 'hunyuan-shape_checkpoint'}

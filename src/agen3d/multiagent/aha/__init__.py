@@ -1,1 +1,1 @@
-"""Single AHA-backed construction workflow; legacy routing variants are separate."""
+"""Automated room construction and shared AHA execution tools."""

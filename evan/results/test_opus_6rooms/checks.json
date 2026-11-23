@@ -1,0 +1,234 @@
+{
+ "per_room": [
+  {
+   "room": "42897538",
+   "arm": "基线",
+   "built": 15,
+   "matched": 15,
+   "small_correct": 1,
+   "small_chance": 0.0
+  },
+  {
+   "room": "42897538",
+   "arm": "All objects",
+   "built": 37,
+   "matched": 33,
+   "small_correct": 9,
+   "small_chance": 0.1
+  },
+  {
+   "room": "42897538",
+   "arm": "Inventory（Boxer 清单）",
+   "built": 54,
+   "matched": 47,
+   "small_correct": 8,
+   "small_chance": 0.0
+  },
+  {
+   "room": "42897538",
+   "arm": "逐项清单（清单 v2）",
+   "built": 82,
+   "matched": 51,
+   "small_correct": 18,
+   "small_chance": 0.1
+  },
+  {
+   "room": "42898849",
+   "arm": "基线",
+   "built": 37,
+   "matched": 36,
+   "small_correct": 0,
+   "small_chance": 0.0
+  },
+  {
+   "room": "42898849",
+   "arm": "All objects",
+   "built": 139,
+   "matched": 116,
+   "small_correct": 15,
+   "small_chance": 1.2
+  },
+  {
+   "room": "42898849",
+   "arm": "Inventory（Boxer 清单）",
+   "built": 120,
+   "matched": 108,
+   "small_correct": 22,
+   "small_chance": 0.8
+  },
+  {
+   "room": "42898849",
+   "arm": "逐项清单（清单 v2）",
+   "built": 342,
+   "matched": 185,
+   "small_correct": 33,
+   "small_chance": 1.7
+  },
+  {
+   "room": "42899617",
+   "arm": "基线",
+   "built": 10,
+   "matched": 9,
+   "small_correct": 1,
+   "small_chance": 0.1
+  },
+  {
+   "room": "42899617",
+   "arm": "All objects",
+   "built": 32,
+   "matched": 20,
+   "small_correct": 8,
+   "small_chance": 0.1
+  },
+  {
+   "room": "42899617",
+   "arm": "Inventory（Boxer 清单）",
+   "built": 24,
+   "matched": 19,
+   "small_correct": 9,
+   "small_chance": 0.1
+  },
+  {
+   "room": "42899617",
+   "arm": "逐项清单（清单 v2）",
+   "built": 28,
+   "matched": 21,
+   "small_correct": 5,
+   "small_chance": 0.1
+  },
+  {
+   "room": "42899712",
+   "arm": "基线",
+   "built": 22,
+   "matched": 21,
+   "small_correct": 2,
+   "small_chance": 0.0
+  },
+  {
+   "room": "42899712",
+   "arm": "All objects",
+   "built": 55,
+   "matched": 48,
+   "small_correct": 9,
+   "small_chance": 0.2
+  },
+  {
+   "room": "42899712",
+   "arm": "Inventory（Boxer 清单）",
+   "built": 63,
+   "matched": 54,
+   "small_correct": 16,
+   "small_chance": 0.3
+  },
+  {
+   "room": "42899712",
+   "arm": "逐项清单（清单 v2）",
+   "built": 67,
+   "matched": 52,
+   "small_correct": 14,
+   "small_chance": 0.2
+  },
+  {
+   "room": "42899729",
+   "arm": "基线",
+   "built": 7,
+   "matched": 7,
+   "small_correct": 2,
+   "small_chance": 0.0
+  },
+  {
+   "room": "42899729",
+   "arm": "All objects",
+   "built": 33,
+   "matched": 32,
+   "small_correct": 10,
+   "small_chance": 0.2
+  },
+  {
+   "room": "42899729",
+   "arm": "Inventory（Boxer 清单）",
+   "built": 48,
+   "matched": 37,
+   "small_correct": 12,
+   "small_chance": 0.2
+  },
+  {
+   "room": "42899729",
+   "arm": "逐项清单（清单 v2）",
+   "built": 42,
+   "matched": 35,
+   "small_correct": 11,
+   "small_chance": 0.2
+  },
+  {
+   "room": "44358442",
+   "arm": "基线",
+   "built": 10,
+   "matched": 10,
+   "small_correct": 0,
+   "small_chance": 0.0
+  },
+  {
+   "room": "44358442",
+   "arm": "All objects",
+   "built": 79,
+   "matched": 61,
+   "small_correct": 20,
+   "small_chance": 0.6
+  },
+  {
+   "room": "44358442",
+   "arm": "Inventory（Boxer 清单）",
+   "built": 104,
+   "matched": 86,
+   "small_correct": 34,
+   "small_chance": 1.2
+  },
+  {
+   "room": "44358442",
+   "arm": "逐项清单（清单 v2）",
+   "built": 361,
+   "matched": 127,
+   "small_correct": 61,
+   "small_chance": 1.5
+  }
+ ],
+ "decisions": {
+  "42897538": {
+   "built": 69,
+   "part": 109,
+   "duplicate": 60,
+   "skipped": 11
+  },
+  "42898849": {
+   "built": 340,
+   "part": 188,
+   "duplicate": 248,
+   "skipped": 33
+  },
+  "42899617": {
+   "built": 21,
+   "duplicate": 44,
+   "skipped": 6,
+   "part": 29
+  },
+  "42899712": {
+   "built": 45,
+   "duplicate": 45,
+   "part": 48,
+   "skipped": 5
+  },
+  "42899729": {
+   "built": 30,
+   "skipped": 4,
+   "duplicate": 35,
+   "part": 33
+  },
+  "44358442": {
+   "built": 346,
+   "part": 320,
+   "duplicate": 215,
+   "skipped": 3
+  }
+ }
+}

@@ -2,7 +2,7 @@
 from pathlib import Path
 import json
 import os
-from ..models import ModelRegistry
+from ..resources import Checkpoints
 from ..process import run_process
 from ..store import save
 
@@ -20,12 +20,19 @@ def environment(aha):
 def source_video(source):
     """Use RGB evidence only; never inspect simulator ground truth."""
     path = Path(source).resolve()
+    if path.is_file():
+        return path
     if path.is_dir():
-        candidates = [path / 'reference/original_camera_rgb.mp4', path / 'original_camera_rgb.mp4']
-        path = next((p for p in candidates if p.is_file()), path)
-    if not path.is_file():
-        raise ValueError('Input must be a video or dataset/reference directory containing original_camera_rgb.mp4')
-    return path
+        for video in (path / 'reference/original_camera_rgb.mp4', path / 'original_camera_rgb.mp4'):
+            if video.is_file():
+                return video
+        formats = {'.mp4', '.mov', '.mkv', '.avi', '.m4v', '.webm'}
+        videos = [p for p in path.iterdir() if p.suffix.lower() in formats and p.is_file()]
+        if len(videos) == 1:
+            return videos[0]
+        if videos:
+            raise ValueError(f'Multiple videos in {path}; supply the path to the room video')
+    raise ValueError(f'No room video found at {path}')
 
 
 def prepare(output, *, video=None, bundle=None, timeout=3600, aha_repo=None, python=None,
@@ -39,20 +46,15 @@ def prepare(output, *, video=None, bundle=None, timeout=3600, aha_repo=None, pyt
     python = python or PROJECT / '.venv/bin/python'
     pi3x_python = PROJECT / '.venvs/pi3x-clean/bin/python'
     sam_python = PROJECT / '.venvs/sam3-clean/bin/python'
-    registry = ModelRegistry()
-    # AHA reference meshing needs Open3D in this interpreter. Probe before inference.
-    from .doctor import probe
-    check = probe([str(python), '-c', 'import open3d, numpy, scipy'])
-    if not check['ok']:
-        raise RuntimeError('AHA reference meshing runtime unavailable: ' + check.get('stderr', check.get('error', '')))
+    registry = Checkpoints()
     command = [str(python), '-m', 'tools.layout_inspection.build_reference',
                '--out', str(out), '--pi3x-python', str(pi3x_python),
                '--upstream', str(PROJECT/'external/pi3'), '--semantic-python', str(sam_python),
                '--mesh-python', str(python), '--num-frames', str(num_frames),
                '--pixel-limit', str(pixel_limit)]
-    sam_checkpoint = registry.resolve('model:sam3')
+    sam_checkpoint = registry.entrypoint('model:sam3')
     if video:
-        command += ['--video', str(Path(video).resolve()), '--checkpoint', str(registry.resolve('model:pi3x'))]
+        command += ['--video', str(Path(video).resolve()), '--checkpoint', str(registry.entrypoint('model:pi3x'))]
     else:
         command += ['--bundle', str(Path(bundle).resolve())]
     log = out.with_name(out.name + '.reference.log')

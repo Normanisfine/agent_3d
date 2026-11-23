@@ -119,13 +119,12 @@ def test_codex_and_compute_do_not_consume_api_budget(monkeypatch, tmp_path):
     result = r.run()
     assert result['status'] == 'layout_validated', result
     charges = result['cost']['charges']
-    assert next(c for c in charges if c['label'] == 'job_preflight')['budget_exempt']
     assert next(c for c in charges if c['label'] == 'plan')['budget_exempt']
     assert next(c for c in charges if c['label'] == 'final_judge')['budget_exempt']
     assert not next(c for c in charges if c['label'] == 'build')['budget_exempt']
     assert result['cost']['accounted_usd'] == pytest.approx(.02)
     groups = result['cost']['categories']
-    assert groups['local_compute']['calls'] == 2  # preflight plus capacity calibration
+    assert groups['local_compute']['calls'] == 1  # capacity calibration
     assert groups['codex_cli']['calls'] == 2
     assert groups['paid_api']['accounted_usd'] == pytest.approx(.02)
     assert groups['codex_cli']['accounted_usd'] == 0
@@ -149,14 +148,14 @@ def test_exempt_unknown_calls_preserve_usage_even_after_budget_exhaustion(tmp_pa
 def test_blocked_construction_still_exports_verified_candidate(monkeypatch, tmp_path):
     from agen3d.multiagent.aha.artifacts import record_candidate
     from agen3d.multiagent.aha.contracts import Review
-    from agen3d.multiagent.aha.runtime import digest
+    from agen3d.multiagent.aha.runtime import file_revision
     r = job(monkeypatch, tmp_path, [])
     original_construct = r.construct
     def construct(task, proposal, folder):
         candidate, request = original_construct(task, proposal, folder)
         (folder / 'validation.json').write_text('{"ok":true,"objects":{"floor":{}}}')
         record_candidate(folder, candidate, r.revision, task)
-        request['candidate_revision'] = digest(candidate)
+        request['candidate_revision'] = file_revision(candidate)
         return candidate, request
     r.construct = construct
     r.critic = lambda task, request, **kw: Review(

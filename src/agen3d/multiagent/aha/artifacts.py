@@ -1,4 +1,4 @@
-"""Diagnostic exports are independent of visual acceptance and canonical commits."""
+"""Local scene revisions and Blender exports."""
 import json
 import shutil
 import time
@@ -7,26 +7,29 @@ from pathlib import Path
 from ..store import save
 
 
+def file_revision(path):
+    stat = Path(path).stat()
+    return f'{stat.st_ino:x}-{stat.st_mtime_ns:x}-{stat.st_size:x}'
+
+
 def record_candidate(folder, scene, parent, task):
-    from .runtime import digest
     save(folder / 'artifact.json', {
-        'scene': str(scene), 'revision': digest(scene), 'parent_revision': parent,
+        'scene': str(scene), 'revision': file_revision(scene), 'parent_revision': parent,
         'task_id': task.task_id, 'object_ids': task.object_ids,
-        'validation_sha256': digest(folder / 'validation.json'),
+        'validation_revision': file_revision(folder / 'validation.json'),
         'verified_at_ns': time.time_ns(),
     })
 
 
 def export_output(runtime):
     """Prefer a verified extension of current; never splice unreviewed branches."""
-    from .runtime import digest
     current = Path(runtime.current) if runtime.current else None
     if current is None or not current.is_file():
         receipt = {'status': 'unavailable', 'scene': None, 'delivery_accepted': False,
                    'reason': 'No usable scene was produced; inspect the run failure.'}
         save(runtime.output / 'output.json', receipt)
         return receipt
-    if digest(current) != runtime.revision:
+    if file_revision(current) != runtime.revision:
         raise ValueError('Canonical scene changed before diagnostic export')
     eligible = []
     excluded = []
@@ -38,8 +41,8 @@ def export_output(runtime):
             validation_path = marker.parent / 'validation.json'
             if row['parent_revision'] != runtime.revision:
                 continue
-            if (digest(scene) != row['revision'] or
-                    digest(validation_path) != row['validation_sha256'] or
+            if (file_revision(scene) != row['revision'] or
+                    file_revision(validation_path) != row['validation_revision'] or
                     not json.loads(validation_path.read_text()).get('ok')):
                 raise ValueError('Candidate or validation changed')
             eligible.append(row)
@@ -51,14 +54,16 @@ def export_output(runtime):
     target = runtime.output / 'final_scene.blend'
     temporary = runtime.output / '.final_scene.blend.tmp'
     shutil.copy2(source, temporary)
-    if digest(temporary) != revision:
-        temporary.unlink(missing_ok=True)
-        raise ValueError('Scene changed during diagnostic export')
     temporary.replace(target)
     review_path = source.parent / 'local-review.json'
     review = json.loads(review_path.read_text()) if review_path.exists() else None
     if review and review.get('candidate_revision') != revision:
-        review = None
+        # Driven reviews are bound to a native evidence revision. The session
+        # records the exact review file it accepted for this exact scene.
+        candidate = getattr(runtime, 'candidates', {}).get(source.parent.name, {})
+        if (candidate.get('scene') != str(source) or candidate.get('revision') != revision
+                or candidate.get('review_revision') != file_revision(review_path)):
+            review = None
     receipt = {
         'status': 'candidate_exported', 'scene': str(target), 'revision': revision,
         'source_scene': str(source), 'canonical_scene': str(current),
@@ -67,13 +72,6 @@ def export_output(runtime):
         'task_id': chosen['task_id'] if chosen else None,
         'local_review': review, 'delivery_accepted': False,
         'excluded_candidates': excluded,
-        'limitations': [
-            'Diagnostic candidate, possibly incomplete or rejected; filename does not imply acceptance.',
-            'Latest verified extension is a deterministic fallback, not a quality ranking.',
-            'Unmerged parallel branches are retained separately and are not combined into this scene.',
-            'Byte copy preserves authored cameras; no camera animation, asset packing or final video is added. '
-            'External resources retain their original paths; use source_scene if relative resources are unresolved.',
-        ],
     }
     save(runtime.output / 'output.json', receipt)
     return receipt

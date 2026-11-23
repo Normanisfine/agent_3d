@@ -4,8 +4,9 @@ import json
 from pathlib import Path
 
 from ..aha.contracts import Plan, Proposal, Review, Work, load
-from ..pipeline.config import load_env
+from ..resources import load_env
 from .session import Session, read
+from .inventory import InventoryPlan
 
 
 def main():
@@ -14,13 +15,15 @@ def main():
     commands = parser.add_subparsers(dest='command', required=True)
     p = commands.add_parser('init')
     p.add_argument('config', type=Path)
-    p.add_argument('--output', type=Path, required=True, help='New, separate comparison directory')
+    p.add_argument('--input', type=Path, help='Room video or capture directory')
+    p.add_argument('--output', type=Path, required=True, help='New session directory')
     p.add_argument('--cuda', action='store_true')
-    for name in ('status', 'packet', 'propose', 'build', 'review', 'commit', 'final-review', 'capacity', 'wave', 'merge', 'export'):
+    p.add_argument('--inventory', type=Path, help='Boxer inventory.json with adjacent inventory_crops/')
+    for name in ('status', 'inventory-plan', 'packet', 'propose', 'build', 'review', 'commit', 'final-review', 'capacity', 'wave', 'merge', 'export'):
         p = commands.add_parser(name)
         p.add_argument('session', type=Path)
-        if name == 'wave':
-            p.add_argument('--plan', type=Path, required=True)
+        if name in ('wave', 'inventory-plan'):
+            p.add_argument('--plan', type=Path, required=name == 'inventory-plan')
         if name == 'merge':
             p.add_argument('--branch', required=True)
         if name in ('packet', 'build'):
@@ -42,9 +45,8 @@ def main():
     if args.env_file:
         load_env(args.env_file)
     if args.command == 'init':
-        config = load(args.config)
-        config.output = str(args.output.resolve())
-        session = Session.create(config, cuda=args.cuda)
+        config = load(args.config, room_input=args.input, output=args.output)
+        session = Session.create(config, cuda=args.cuda, inventory_path=args.inventory)
     else:
         session = Session.open(args.session)
     try:
@@ -56,8 +58,22 @@ def main():
         elif name == 'export':
             from ..aha.artifacts import export_output
             result = export_output(session)
+        elif name == 'inventory-plan':
+            result = session.register_inventory_plan(InventoryPlan.model_validate(read(args.plan)))
         elif name == 'wave':
-            result = session.build_wave(Plan.model_validate(read(args.plan)))
+            if args.plan:
+                data = read(args.plan)
+                if session.boxer is not None and 'omissions' in data:
+                    plan = InventoryPlan.model_validate(data)
+                    if plan != session.boxer.plan:
+                        raise ValueError('Register this inventory-plan before running its wave')
+                else:
+                    plan = Plan.model_validate(data)
+            elif session.boxer is not None and session.boxer.plan is not None:
+                plan = session.boxer.plan
+            else:
+                parser.error('wave requires --plan or a registered inventory-plan')
+            result = session.build_wave(plan)
         elif name == 'merge':
             result = session.merge(args.branch)
         elif name == 'packet':

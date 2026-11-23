@@ -168,7 +168,7 @@ def test_tampered_parallel_candidate_rejected_before_merge(tmp_path):
     scene=tmp_path/'candidate.blend';scene.write_bytes(b'changed')
     proposal=Proposal(parent_revision='r',object_ids=['a'],route='code',reason='fixture',code='pass')
     with pytest.raises(ValueError,match='changed before merge'):
-        r.merge_branch(task('a'),{'proposal':proposal,'parent':'r','scene':scene,'scene_sha256':'old'},1)
+        r.merge_branch(task('a'),{'proposal':proposal,'parent':'r','scene':scene,'scene_revision':'old'},1)
 
 
 def test_proposal_schema_requires_code_and_length_is_charged(tmp_path):

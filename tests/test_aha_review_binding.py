@@ -6,7 +6,7 @@ import pytest
 
 from agen3d.multiagent.aha.contracts import ReferenceReview
 from agen3d.multiagent.aha.reviews import bind
-from agen3d.multiagent.aha.runtime import Runtime, digest
+from agen3d.multiagent.aha.runtime import Runtime, file_revision
 from agen3d.multiagent.store import Ledger, save
 
 
@@ -46,7 +46,7 @@ def cached_runtime(tmp_path):
     key = r.ledger.reserve('reference_review',.25)
     r.ledger.settle(key,None,{})
     save(tmp_path/'calls'/f'{key}.json', {'text':review(['support.png']).model_dump_json(),
-                                       'images':{k:digest(v) for k,v in images.items()}})
+                                       'images':{k:file_revision(v) for k,v in images.items()}})
     return r, {'revision':'r','review_images':images}, key
 
 
@@ -75,5 +75,5 @@ def test_never_revive_old_pass_over_latest_invalid_or_rejected_review(tmp_path):
     assert r.cached_reference_review(generated) is None
     rejected = review(['support.png']).model_copy(update={'verdict':'repair','defects':['bad floor']})
     save(tmp_path/'calls'/f'{key}.json', {'text':rejected.model_dump_json(),
-        'images':{k:digest(v) for k,v in generated['review_images'].items()}})
+        'images':{k:file_revision(v) for k,v in generated['review_images'].items()}})
     assert r.cached_reference_review(generated) is None
