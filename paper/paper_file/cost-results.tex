@@ -1,22 +1,16 @@
-\subsection{Time and inference cost}
+\subsection{Time and token cost on CA-1M}
 \label{sec:cost}
-On the six rooms, the baseline averaged 62 minutes and an estimated \$14.13
-in driving-agent tokens per room, All objects 59 minutes and \$12.36, and
-Inventory 104 minutes and \$19.95 (Table~\ref{tab:six-rooms}). The two
-Checklist runs averaged 79 and 113 minutes, and \$13.28 and \$20.15. Two
-runs of one variant differ by as much as the variants do, and jobs shared
-compute, so we do not rank the variants by time or cost. In the first three
-rooms, Selective generation had the lowest cost, \$9.00 per room
-(Table~\ref{tab:existing-cost}).
+Across six held-out rooms, All objects correctly placed 71 small targets
+compared with six for the baseline, at a lower mean token cost per room
+(\$12.36 versus \$14.13) and a similar runtime (59 versus 62 minutes).
+Checklist placed 142 targets on its first run and 155 on its second. Its
+mean cost per room varied from \$13.28 to \$20.15 across the two runs,
+and mean runtime rose from 79 to 113 minutes (Table~\ref{tab:six-rooms}).
+These estimates cover the reconstruction agent. A run averaged 196 turns
+and processed 39.1 million input tokens, 99\% of them cached.
 
-AHa-3D's own review accepted five of the six baseline scenes and one of the
-24 scenes from All objects, Inventory and the two Checklist runs. The five accepted baselines correctly placed 5 of the
-527 targets under 50\,cm in their rooms, so passing review said little about
-small-object coverage. The token estimates cover the driving agent, including
-resumed work. A run averaged 196 agent turns. Because the agent re-reads its
-conversation on every turn, it consumed 39.1 million input tokens, 99\% read
-from cache, against 0.16 million output tokens. These runs use a different model from the controller comparison of
-Section~\ref{sec:parallel-time}, so the baseline costs of the two are not
-comparable. Computing
-cost per accepted room would also require complete costs for preprocessing,
-hardware and reviewers, including those incurred on failed runs.
+Passing the agent's scene review was a poor indicator of small-object
+placement. The review accepted five of six baseline scenes, which together
+correctly placed just 5 of 527 targets under 50\,cm. It accepted only one
+of the 24 scenes produced by All objects, Inventory and the two Checklist
+runs, although each variant improved small-object placement in every room.

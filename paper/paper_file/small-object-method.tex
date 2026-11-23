@@ -1,16 +1,13 @@
 \subsection{Reconstructing and evaluating small objects}
 \label{sec:small-method}
-AHa-3D rebuilds a room's furniture and usually omits what stands on it
-(Figure~\ref{fig:qual}, second column). A \emph{target} is an annotated
-CA-1M box, and an \emph{instance} is a group of mesh parts that the agent
-gave one identifier. We evaluate variants that change how the agent
-identifies, locates and builds small objects, each added to the one before;
-Figure~\ref{fig:system} (bottom left) draws the last of them.
+We study how instance-level instructions and a visual inventory affect
+small-object reconstruction in AHa-3D (Figure~\ref{fig:system}, bottom left).
+A \emph{target} is an annotated CA-1M box, and an \emph{instance} is a
+set of reconstructed mesh parts with a common identifier.
 
 \textbf{All objects} switches AHa-3D from its major-object setting to its
-all-object setting (\texttt{precise}). Our prompt requires a distinct identifier for every visible
-item, so that a bottle's mesh parts form one instance that can
-move independently of the table.
+all-object setting (\texttt{precise}). The prompt requires a distinct
+identifier for each visible item so that it can move independently of its support.
 
 \input{visual-evidence}
 \textbf{Inventory} pairs Boxer's predicted 3D boxes and categories~\cite{boxer}
@@ -24,26 +21,24 @@ check of silhouette, 3D points, dimensions and support is replaced by
 primitives.
 
 \textbf{Revised inventory.}
-Boxer listed few objects under 20\,cm. After scoring these four variants, we
-rebuilt the inventory on development rooms, adapting SceneRig's detection
-stage~\cite{scenerig}. A language model names the object categories it sees
-in eight frames, extending a fixed list. SAM~3~\cite{sam3} segments them in
+To improve coverage below 20\,cm, we adapt SceneRig's detection
+stage~\cite{scenerig}. A language model extends a fixed category list
+with categories observed in eight frames. SAM~3~\cite{sam3} segments them in
 full-resolution frames and in nine overlapping zoomed windows, keeping
 window-only detections that appear in at least two frames. MoGe-2
 depth~\cite{moge2}, rescaled to the reference geometry, lifts each mask to a
 3D box. Boxes are then moved onto the surface below them, and similar boxes
 of one category share a size.
 
-\textbf{Checklist} gives the agent the revised inventory in place of Boxer's.
-Same-category entries whose IoU exceeds 0.4, or whose centers lie within a
-fifth of the shorter box diagonal, are first reduced to one, which takes the
-six held-out rooms from 3{,}210 entries to 2{,}287, against 364 for Boxer.
-Inventory already asked the agent to build or explain each item. Checklist
-states that the list is noisy on purpose and widens the choice for every
-entry to four: \emph{built} as its own instance, \emph{duplicate} of an
-instance already built, \emph{part} of a larger object, or \emph{skipped}.
-It also tells the agent to build piled or lined-up objects one by one. The thresholds and the
-prompt were fixed on development rooms before any held-out run.
+\textbf{Checklist} uses the revised inventory. We merge same-category
+entries when their 3D intersection over union (IoU) exceeds 0.4 or their
+centers lie within one fifth of the shorter box diagonal. Across the six
+held-out rooms, this reduces 3{,}210 entries to 2{,}287 (Boxer yields 364).
+To account for redundant detections, the agent labels each entry as
+\emph{built} (a separate instance), \emph{duplicate} (an existing instance),
+\emph{part} (of a larger object), or \emph{skipped}. The prompt requires
+separate instances for individual objects in stacks or rows. We fixed the
+thresholds and prompt on development rooms before held-out evaluation.
 
 \textbf{Camera alignment.}
 Each instance is scored as one upright box enclosing its mesh parts. Monocular
@@ -62,9 +57,9 @@ during offline scoring.
 For an aligned prediction $P$ and target $G$, let $d$ be their center distance,
 $L$ the full diagonal of $G$, and $r$ the predicted longest side divided by the
 target's longest side. A candidate pair must satisfy $1/3\le r\le 3$ and either
-$d\le\max(L/2,0.30\,\mathrm{m})$ or a 3D intersection over
-union (IoU) of at least 0.10. Greedy matching takes the lowest
-$2d/L+|\log r|$ first and uses each box once, irrespective of category. A
+$d\le\max(L/2,0.30\,\mathrm{m})$ or a 3D IoU of at least 0.10.
+We greedily match pairs in ascending order of $2d/L+|\log r|$, using
+each box at most once regardless of category. A
 matched target is \emph{correctly placed} if
 \begin{equation}
  d\le\max(0.10\,\mathrm{m},L/4)\quad\text{and}\quad 0.67\le r\le 1.5,
