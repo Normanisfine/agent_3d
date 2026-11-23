@@ -4,8 +4,9 @@ third_party/
 scenes/
 perception/
 gen/
-runs/
+# runs/ 在组里仓库的这份快照里是特意放进来的（每次运行的最终场景、日志、打分），所以这里不忽略
 *.blend
+!runs/**/scene.blend
 *.blend1
 *.npz
 *.glb

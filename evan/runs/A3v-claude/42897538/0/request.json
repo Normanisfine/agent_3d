@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scene": "42897538_a3v-claude_s0",
+  "inputs": {"video": "scenes/42897538_a3v-claude_s0/references/input.mp4"},
+  "preset": "whitebox",
+  "appearance": "whitebox",
+  "delivery": "stills",
+  "fidelity": {"mode": "precise"},
+  "interactive_demo": false,
+  "camera": "inspection",
+  "people": "none",
+  "cabinets": "none",
+  "objects": "none",
+  "variants": {"models": false, "materials": false}
+}

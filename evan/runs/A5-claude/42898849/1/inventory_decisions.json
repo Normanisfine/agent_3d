@@ -1,0 +1,3238 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "rug_central"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "table_lamp_rope"
+ },
+ "c002": {
+  "action": "duplicate",
+  "object_id": "rug_living"
+ },
+ "c003": {
+  "action": "built",
+  "object_id": "radiator_kitchen_garden"
+ },
+ "c004": {
+  "action": "built",
+  "object_id": "throw_striped"
+ },
+ "c005": {
+  "action": "built",
+  "object_id": "side_table_oak"
+ },
+ "c006": {
+  "action": "built",
+  "object_id": "piano_chair_wicker"
+ },
+ "c008": {
+  "action": "duplicate",
+  "object_id": "rug_central"
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "lantern_woven"
+ },
+ "c010": {
+  "action": "built",
+  "object_id": "piano"
+ },
+ "c011": {
+  "action": "duplicate",
+  "object_id": "rug_alcove_shaggy"
+ },
+ "c012": {
+  "action": "duplicate",
+  "object_id": "sofa_fireside"
+ },
+ "c013": {
+  "action": "built",
+  "object_id": "side_table_lamp"
+ },
+ "c015": {
+  "action": "duplicate",
+  "object_id": "curtain_rod_french"
+ },
+ "c017": {
+  "action": "duplicate",
+  "object_id": "rug_living"
+ },
+ "c018": {
+  "action": "duplicate",
+  "object_id": "floor_lamp"
+ },
+ "c019": {
+  "action": "duplicate",
+  "object_id": "curtain_french_right"
+ },
+ "c020": {
+  "action": "built",
+  "object_id": "radiator_living_garden"
+ },
+ "c021": {
+  "action": "built",
+  "object_id": "rug_alcove_shaggy"
+ },
+ "c023": {
+  "action": "duplicate",
+  "object_id": "rug_living"
+ },
+ "c024": {
+  "action": "built",
+  "object_id": "garland_mantel"
+ },
+ "c026": {
+  "action": "built",
+  "object_id": "frame_corner_table"
+ },
+ "c027": {
+  "action": "duplicate",
+  "object_id": "table_lamp_ginger_jar"
+ },
+ "c029": {
+  "action": "built",
+  "object_id": "basket_wicker"
+ },
+ "c030": {
+  "action": "built",
+  "object_id": "blanket_in_basket"
+ },
+ "c031": {
+  "action": "duplicate",
+  "object_id": "rug_living"
+ },
+ "c033": {
+  "action": "built",
+  "object_id": "bar_stool_5"
+ },
+ "c034": {
+  "action": "duplicate",
+  "object_id": "bar_stool_1"
+ },
+ "c035": {
+  "action": "duplicate",
+  "object_id": "sofa_window"
+ },
+ "c036": {
+  "action": "duplicate",
+  "object_id": "radiator_living_side"
+ },
+ "c037": {
+  "action": "built",
+  "object_id": "yucca_plant"
+ },
+ "c038": {
+  "action": "built",
+  "object_id": "piano_frame_1"
+ },
+ "c039": {
+  "action": "built",
+  "object_id": "piano_frame_3"
+ },
+ "c040": {
+  "action": "built",
+  "object_id": "sofa_window"
+ },
+ "c041": {
+  "action": "duplicate",
+  "object_id": "vase_hydrangea"
+ },
+ "c044": {
+  "action": "built",
+  "object_id": "bar_stool_4"
+ },
+ "c046": {
+  "action": "duplicate",
+  "object_id": "picture_kitchen_garden"
+ },
+ "c047": {
+  "action": "built",
+  "object_id": "curtain_rod_french"
+ },
+ "c048": {
+  "action": "built",
+  "object_id": "curtain_french_left"
+ },
+ "c049": {
+  "action": "duplicate",
+  "object_id": "rug_alcove_shaggy"
+ },
+ "c050": {
+  "action": "built",
+  "object_id": "corner_cabinet"
+ },
+ "c051": {
+  "action": "built",
+  "object_id": "piano_frame_2"
+ },
+ "c052": {
+  "action": "duplicate",
+  "object_id": "table_lamp_rope"
+ },
+ "c054": {
+  "action": "built",
+  "object_id": "rug_living"
+ },
+ "c055": {
+  "action": "duplicate",
+  "object_id": "rug_central"
+ },
+ "c056": {
+  "action": "built",
+  "object_id": "trunk_coffee_table"
+ },
+ "c057": {
+  "action": "built",
+  "object_id": "frame_kitchen_sill"
+ },
+ "c058": {
+  "action": "built",
+  "object_id": "doormat_french"
+ },
+ "c059": {
+  "action": "built",
+  "object_id": "table_lamp_tv"
+ },
+ "c060": {
+  "action": "built",
+  "object_id": "radiator_living_side"
+ },
+ "c061": {
+  "action": "duplicate",
+  "object_id": "picture_side_sill"
+ },
+ "c062": {
+  "action": "part",
+  "object_id": "yucca_plant"
+ },
+ "c063": {
+  "action": "duplicate",
+  "object_id": "picture_kitchen_garden"
+ },
+ "c065": {
+  "action": "built",
+  "object_id": "picture_kitchen_garden"
+ },
+ "c066": {
+  "action": "built",
+  "object_id": "plant_box_shelf"
+ },
+ "c067": {
+  "action": "built",
+  "object_id": "floor_lamp"
+ },
+ "c069": {
+  "action": "built",
+  "object_id": "christmas_tree"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "table_lamp_ginger_jar"
+ },
+ "c071": {
+  "action": "duplicate",
+  "object_id": "christmas_tree"
+ },
+ "c072": {
+  "action": "built",
+  "object_id": "oven_glove"
+ },
+ "c073": {
+  "action": "built",
+  "object_id": "clock_kitchen"
+ },
+ "c075": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c076": {
+  "action": "built",
+  "object_id": "cushion_fireside_4"
+ },
+ "c077": {
+  "action": "built",
+  "object_id": "cushion_window_2"
+ },
+ "c079": {
+  "action": "built",
+  "object_id": "chess_board"
+ },
+ "c080": {
+  "action": "duplicate",
+  "object_id": "candle_jar"
+ },
+ "c081": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c082": {
+  "action": "built",
+  "object_id": "kettle"
+ },
+ "c083": {
+  "action": "duplicate",
+  "object_id": "table_lamp_rope"
+ },
+ "c084": {
+  "action": "built",
+  "object_id": "cushion_window_1"
+ },
+ "c086": {
+  "action": "duplicate",
+  "object_id": "sofa_window"
+ },
+ "c087": {
+  "action": "built",
+  "object_id": "bar_stool_1"
+ },
+ "c088": {
+  "action": "duplicate",
+  "object_id": "kettle"
+ },
+ "c089": {
+  "action": "duplicate",
+  "object_id": "bar_stool_3"
+ },
+ "c090": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c091": {
+  "action": "duplicate",
+  "object_id": "clock_kitchen"
+ },
+ "c093": {
+  "action": "built",
+  "object_id": "cushion_window_5"
+ },
+ "c095": {
+  "action": "built",
+  "object_id": "bar_stool_3"
+ },
+ "c096": {
+  "action": "duplicate",
+  "object_id": "rug_central"
+ },
+ "c097": {
+  "action": "duplicate",
+  "object_id": "curtain_rod_french"
+ },
+ "c099": {
+  "action": "duplicate",
+  "object_id": "vase_hydrangea"
+ },
+ "c1000": {
+  "action": "duplicate",
+  "object_id": "ornament_005"
+ },
+ "c1001": {
+  "action": "built",
+  "object_id": "milk_frother"
+ },
+ "c1004": {
+  "action": "part",
+  "object_id": "yucca_plant"
+ },
+ "c1007": {
+  "action": "duplicate",
+  "object_id": "ornament_049"
+ },
+ "c1008": {
+  "action": "built",
+  "object_id": "ornament_073"
+ },
+ "c101": {
+  "action": "built",
+  "object_id": "cushion_window_3"
+ },
+ "c1015": {
+  "action": "duplicate",
+  "object_id": "bar_stool_3"
+ },
+ "c1016": {
+  "action": "duplicate",
+  "object_id": "ornament_033"
+ },
+ "c1019": {
+  "action": "built",
+  "object_id": "fruit_003"
+ },
+ "c1021": {
+  "action": "part",
+  "object_id": "french_doors"
+ },
+ "c1022": {
+  "action": "built",
+  "object_id": "cutting_board"
+ },
+ "c1026": {
+  "action": "built",
+  "object_id": "firewood_036"
+ },
+ "c1029": {
+  "action": "duplicate",
+  "object_id": "blind_kitchen_garden"
+ },
+ "c103": {
+  "action": "part",
+  "object_id": "sofa_window"
+ },
+ "c1031": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c1033": {
+  "action": "built",
+  "object_id": "banner_letter_06_c"
+ },
+ "c1034": {
+  "action": "built",
+  "object_id": "banner_letter_05_y"
+ },
+ "c1035": {
+  "action": "built",
+  "object_id": "banner_letter_07_h"
+ },
+ "c1036": {
+  "action": "duplicate",
+  "object_id": "cushion_window_4"
+ },
+ "c1037": {
+  "action": "duplicate",
+  "object_id": "ornament_027"
+ },
+ "c1038": {
+  "action": "built",
+  "object_id": "piano_goblet_4"
+ },
+ "c1040": {
+  "action": "duplicate",
+  "object_id": "hearth_stone"
+ },
+ "c1041": {
+  "action": "duplicate",
+  "object_id": "candle_jar"
+ },
+ "c1042": {
+  "action": "built",
+  "object_id": "ornament_074"
+ },
+ "c1046": {
+  "action": "duplicate",
+  "object_id": "fridge_tall_unit"
+ },
+ "c1049": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1050": {
+  "action": "built",
+  "object_id": "banner_letter_01_m"
+ },
+ "c1051": {
+  "action": "built",
+  "object_id": "banner_letter_11_t"
+ },
+ "c1055": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1056": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c106": {
+  "action": "duplicate",
+  "object_id": "radiator_living_garden"
+ },
+ "c1060": {
+  "action": "duplicate",
+  "object_id": "firewood_018"
+ },
+ "c1065": {
+  "action": "built",
+  "object_id": "banner_letter_02_e"
+ },
+ "c1066": {
+  "action": "built",
+  "object_id": "banner_letter_04_r"
+ },
+ "c1067": {
+  "action": "built",
+  "object_id": "banner_letter_03_r"
+ },
+ "c1068": {
+  "action": "built",
+  "object_id": "banner_letter_08_r"
+ },
+ "c1070": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1072": {
+  "action": "duplicate",
+  "object_id": "ornament_027"
+ },
+ "c1074": {
+  "action": "built",
+  "object_id": "ornament_075"
+ },
+ "c1078": {
+  "action": "duplicate",
+  "object_id": "ornament_009"
+ },
+ "c1079": {
+  "action": "built",
+  "object_id": "fruit_004"
+ },
+ "c108": {
+  "action": "built",
+  "object_id": "pendant_2"
+ },
+ "c1083": {
+  "action": "built",
+  "object_id": "banner_letter_13_a"
+ },
+ "c1084": {
+  "action": "built",
+  "object_id": "banner_letter_12_m"
+ },
+ "c1087": {
+  "action": "duplicate",
+  "object_id": "tall_unit_left"
+ },
+ "c1089": {
+  "action": "built",
+  "object_id": "piano_goblet_2"
+ },
+ "c109": {
+  "action": "duplicate",
+  "object_id": "toaster"
+ },
+ "c1091": {
+  "action": "part",
+  "object_id": "open_shelves_left"
+ },
+ "c1092": {
+  "action": "built",
+  "object_id": "ornament_076"
+ },
+ "c1093": {
+  "action": "built",
+  "object_id": "gift_bag_red"
+ },
+ "c1094": {
+  "action": "duplicate",
+  "object_id": "ornament_057"
+ },
+ "c1095": {
+  "action": "duplicate",
+  "object_id": "ornament_009"
+ },
+ "c1098": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c110": {
+  "action": "built",
+  "object_id": "curtain_french_right"
+ },
+ "c1101": {
+  "action": "part",
+  "object_id": "wall_cabinet_back"
+ },
+ "c1102": {
+  "action": "built",
+  "object_id": "banner_letter_10_s"
+ },
+ "c1105": {
+  "action": "part",
+  "object_id": "french_doors"
+ },
+ "c1106": {
+  "action": "built",
+  "object_id": "ornament_077"
+ },
+ "c1107": {
+  "action": "built",
+  "object_id": "ornament_078"
+ },
+ "c1109": {
+  "action": "built",
+  "object_id": "red_box_piano"
+ },
+ "c111": {
+  "action": "built",
+  "object_id": "vase_hydrangea"
+ },
+ "c1112": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c1113": {
+  "action": "duplicate",
+  "object_id": "ornament_057"
+ },
+ "c1116": {
+  "action": "duplicate",
+  "object_id": "ornament_050"
+ },
+ "c1119": {
+  "action": "built",
+  "object_id": "banner_letter_14_s"
+ },
+ "c112": {
+  "action": "duplicate",
+  "object_id": "piano_frame_2"
+ },
+ "c1120": {
+  "action": "duplicate",
+  "object_id": "ornament_053"
+ },
+ "c1123": {
+  "action": "duplicate",
+  "object_id": "piano_goblet_4"
+ },
+ "c1124": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1126": {
+  "action": "built",
+  "object_id": "blind_kitchen_sink"
+ },
+ "c1130": {
+  "action": "built",
+  "object_id": "ornament_079"
+ },
+ "c1131": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c1135": {
+  "action": "built",
+  "object_id": "firewood_037"
+ },
+ "c1137": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c114": {
+  "action": "duplicate",
+  "object_id": "kitchen_island"
+ },
+ "c1140": {
+  "action": "duplicate",
+  "object_id": "ornament_069"
+ },
+ "c1141": {
+  "action": "duplicate",
+  "object_id": "ornament_056"
+ },
+ "c1149": {
+  "action": "duplicate",
+  "object_id": "herb_plant_sill"
+ },
+ "c115": {
+  "action": "part",
+  "object_id": "tall_unit_coffee"
+ },
+ "c1150": {
+  "action": "duplicate",
+  "object_id": "wood_stove"
+ },
+ "c1151": {
+  "action": "part",
+  "object_id": "tall_unit_coffee"
+ },
+ "c1158": {
+  "action": "built",
+  "object_id": "fruit_005"
+ },
+ "c116": {
+  "action": "built",
+  "object_id": "coffee_machine"
+ },
+ "c1160": {
+  "action": "built",
+  "object_id": "ornament_080"
+ },
+ "c1161": {
+  "action": "duplicate",
+  "object_id": "ornament_033"
+ },
+ "c1168": {
+  "action": "duplicate",
+  "object_id": "curtain_french_left"
+ },
+ "c117": {
+  "action": "duplicate",
+  "object_id": "curtain_french_right"
+ },
+ "c1171": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c1175": {
+  "action": "built",
+  "object_id": "mug_1"
+ },
+ "c1176": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c1177": {
+  "action": "duplicate",
+  "object_id": "ornament_080"
+ },
+ "c118": {
+  "action": "built",
+  "object_id": "cushion_window_4"
+ },
+ "c1182": {
+  "action": "duplicate",
+  "object_id": "ornament_006"
+ },
+ "c1184": {
+  "action": "built",
+  "object_id": "fridge_tall_unit"
+ },
+ "c1189": {
+  "action": "duplicate",
+  "object_id": "ornament_074"
+ },
+ "c1195": {
+  "action": "part",
+  "object_id": "piano"
+ },
+ "c1197": {
+  "action": "duplicate",
+  "object_id": "ornament_025"
+ },
+ "c120": {
+  "action": "duplicate",
+  "object_id": "cushion_window_5"
+ },
+ "c1201": {
+  "action": "duplicate",
+  "object_id": "ornament_076"
+ },
+ "c1202": {
+  "action": "duplicate",
+  "object_id": "ornament_067"
+ },
+ "c1203": {
+  "action": "duplicate",
+  "object_id": "ornament_043"
+ },
+ "c1207": {
+  "action": "part",
+  "object_id": "knife_block"
+ },
+ "c1208": {
+  "action": "built",
+  "object_id": "ornament_081"
+ },
+ "c1210": {
+  "action": "duplicate",
+  "object_id": "plant_box_shelf"
+ },
+ "c1214": {
+  "action": "duplicate",
+  "object_id": "curtain_french_left"
+ },
+ "c1215": {
+  "action": "duplicate",
+  "object_id": "ornament_072"
+ },
+ "c1217": {
+  "action": "built",
+  "object_id": "notebook_stool"
+ },
+ "c122": {
+  "action": "duplicate",
+  "object_id": "plant_box_shelf"
+ },
+ "c1220": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c1222": {
+  "action": "built",
+  "object_id": "ornament_082"
+ },
+ "c1224": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1226": {
+  "action": "built",
+  "object_id": "piano_goblet_3"
+ },
+ "c1227": {
+  "action": "built",
+  "object_id": "firewood_038"
+ },
+ "c1228": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c1231": {
+  "action": "built",
+  "object_id": "firewood_039"
+ },
+ "c1232": {
+  "action": "duplicate",
+  "object_id": "ornament_011"
+ },
+ "c1238": {
+  "action": "built",
+  "object_id": "ornament_083"
+ },
+ "c124": {
+  "action": "duplicate",
+  "object_id": "picture_side_sill"
+ },
+ "c1242": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c1246": {
+  "action": "duplicate",
+  "object_id": "pot_side_sill"
+ },
+ "c1248": {
+  "action": "duplicate",
+  "object_id": "ornament_057"
+ },
+ "c125": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c1251": {
+  "action": "part",
+  "object_id": "french_doors"
+ },
+ "c1252": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c1255": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1256": {
+  "action": "built",
+  "object_id": "firewood_040"
+ },
+ "c1258": {
+  "action": "built",
+  "object_id": "ornament_084"
+ },
+ "c126": {
+  "action": "built",
+  "object_id": "ornament_001"
+ },
+ "c1261": {
+  "action": "built",
+  "object_id": "firewood_041"
+ },
+ "c1264": {
+  "action": "duplicate",
+  "object_id": "ornament_046"
+ },
+ "c1267": {
+  "action": "built",
+  "object_id": "fruit_006"
+ },
+ "c127": {
+  "action": "built",
+  "object_id": "plant_beam_2"
+ },
+ "c1270": {
+  "action": "duplicate",
+  "object_id": "herb_plant_sill"
+ },
+ "c1271": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1273": {
+  "action": "duplicate",
+  "object_id": "hydrangea_flowers"
+ },
+ "c128": {
+  "action": "built",
+  "object_id": "range_cooker"
+ },
+ "c1280": {
+  "action": "built",
+  "object_id": "fruit_007"
+ },
+ "c1281": {
+  "action": "built",
+  "object_id": "charging_cable"
+ },
+ "c1283": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1285": {
+  "action": "part",
+  "object_id": "coffee_machine"
+ },
+ "c1286": {
+  "action": "built",
+  "object_id": "ornament_085"
+ },
+ "c1287": {
+  "action": "built",
+  "object_id": "banner_letter_09_i"
+ },
+ "c129": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c1293": {
+  "action": "duplicate",
+  "object_id": "plant_beam_2"
+ },
+ "c1297": {
+  "action": "duplicate",
+  "object_id": "blind_living_side"
+ },
+ "c130": {
+  "action": "duplicate",
+  "object_id": "cushion_window_5"
+ },
+ "c1301": {
+  "action": "duplicate",
+  "object_id": "plant_shelf"
+ },
+ "c1304": {
+  "action": "built",
+  "object_id": "mug_2"
+ },
+ "c1309": {
+  "action": "built",
+  "object_id": "pot_side_sill"
+ },
+ "c131": {
+  "action": "duplicate",
+  "object_id": "rug_living"
+ },
+ "c1311": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1312": {
+  "action": "duplicate",
+  "object_id": "tall_unit_left"
+ },
+ "c1316": {
+  "action": "duplicate",
+  "object_id": "coffee_machine"
+ },
+ "c1318": {
+  "action": "part",
+  "object_id": "tv_cupboard"
+ },
+ "c1319": {
+  "action": "duplicate",
+  "object_id": "console_table"
+ },
+ "c132": {
+  "action": "duplicate",
+  "object_id": "christmas_tree"
+ },
+ "c1323": {
+  "action": "built",
+  "object_id": "ornament_086"
+ },
+ "c1324": {
+  "action": "part",
+  "object_id": "open_shelves_left"
+ },
+ "c133": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_5"
+ },
+ "c1331": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1336": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c134": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_3"
+ },
+ "c1341": {
+  "action": "duplicate",
+  "object_id": "ornament_013"
+ },
+ "c1342": {
+  "action": "built",
+  "object_id": "ornament_087"
+ },
+ "c1345": {
+  "action": "duplicate",
+  "object_id": "kitchen_island"
+ },
+ "c1347": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1348": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c1351": {
+  "action": "duplicate",
+  "object_id": "ornament_007"
+ },
+ "c1353": {
+  "action": "duplicate",
+  "object_id": "ornament_080"
+ },
+ "c1355": {
+  "action": "duplicate",
+  "object_id": "firewood_024"
+ },
+ "c1356": {
+  "action": "built",
+  "object_id": "hall_picture"
+ },
+ "c1358": {
+  "action": "duplicate",
+  "object_id": "ornament_036"
+ },
+ "c1359": {
+  "action": "part",
+  "object_id": "pendant_2"
+ },
+ "c136": {
+  "action": "built",
+  "object_id": "wall_cabinet_left"
+ },
+ "c1361": {
+  "action": "duplicate",
+  "object_id": "hydrangea_flowers"
+ },
+ "c1363": {
+  "action": "built",
+  "object_id": "firewood_042"
+ },
+ "c1365": {
+  "action": "duplicate",
+  "object_id": "ornament_010"
+ },
+ "c1366": {
+  "action": "duplicate",
+  "object_id": "ornament_043"
+ },
+ "c137": {
+  "action": "duplicate",
+  "object_id": "bar_stool_2"
+ },
+ "c1373": {
+  "action": "duplicate",
+  "object_id": "plant_beam_2"
+ },
+ "c1377": {
+  "action": "duplicate",
+  "object_id": "cushion_window_1"
+ },
+ "c138": {
+  "action": "built",
+  "object_id": "kitchen_run_left"
+ },
+ "c1384": {
+  "action": "built",
+  "object_id": "ornament_088"
+ },
+ "c1385": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c1388": {
+  "action": "built",
+  "object_id": "banner_merry_christmas"
+ },
+ "c139": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c1396": {
+  "action": "duplicate",
+  "object_id": "ornament_069"
+ },
+ "c1401": {
+  "action": "built",
+  "object_id": "dish_drainer"
+ },
+ "c1403": {
+  "action": "duplicate",
+  "object_id": "ornament_021"
+ },
+ "c1404": {
+  "action": "duplicate",
+  "object_id": "side_table_lamp"
+ },
+ "c1405": {
+  "action": "part",
+  "object_id": "tv_cupboard"
+ },
+ "c1407": {
+  "action": "duplicate",
+  "object_id": "rug_alcove_shaggy"
+ },
+ "c1411": {
+  "action": "built",
+  "object_id": "firewood_043"
+ },
+ "c1412": {
+  "action": "built",
+  "object_id": "ornament_089"
+ },
+ "c1414": {
+  "action": "built",
+  "object_id": "ornament_090"
+ },
+ "c1417": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c1418": {
+  "action": "duplicate",
+  "object_id": "ornament_088"
+ },
+ "c142": {
+  "action": "built",
+  "object_id": "cushion_fireside_2"
+ },
+ "c1428": {
+  "action": "built",
+  "object_id": "ornament_091"
+ },
+ "c143": {
+  "action": "built",
+  "object_id": "picture_corner_cabinet"
+ },
+ "c1431": {
+  "action": "duplicate",
+  "object_id": "ornament_022"
+ },
+ "c1434": {
+  "action": "built",
+  "object_id": "firewood_044"
+ },
+ "c1436": {
+  "action": "built",
+  "object_id": "gift_parcel_1"
+ },
+ "c1437": {
+  "action": "duplicate",
+  "object_id": "ornament_043"
+ },
+ "c1439": {
+  "action": "built",
+  "object_id": "ornament_092"
+ },
+ "c144": {
+  "action": "part",
+  "object_id": "piano"
+ },
+ "c1441": {
+  "action": "duplicate",
+  "object_id": "ornament_048"
+ },
+ "c1444": {
+  "action": "built",
+  "object_id": "fruit_008"
+ },
+ "c1448": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c1449": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c145": {
+  "action": "part",
+  "object_id": "sofa_window"
+ },
+ "c1450": {
+  "action": "part",
+  "object_id": "tall_unit_coffee"
+ },
+ "c1451": {
+  "action": "duplicate",
+  "object_id": "ornament_083"
+ },
+ "c1457": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c1460": {
+  "action": "duplicate",
+  "object_id": "ornament_084"
+ },
+ "c1463": {
+  "action": "duplicate",
+  "object_id": "ornament_005"
+ },
+ "c147": {
+  "action": "built",
+  "object_id": "heart_hanging"
+ },
+ "c1471": {
+  "action": "built",
+  "object_id": "plant_shelf"
+ },
+ "c1473": {
+  "action": "duplicate",
+  "object_id": "papers_folder"
+ },
+ "c1479": {
+  "action": "duplicate",
+  "object_id": "firewood_017"
+ },
+ "c1483": {
+  "action": "duplicate",
+  "object_id": "ornament_025"
+ },
+ "c1488": {
+  "action": "built",
+  "object_id": "ornament_093"
+ },
+ "c149": {
+  "action": "duplicate",
+  "object_id": "curtain_rod_french"
+ },
+ "c150": {
+  "action": "part",
+  "object_id": "corner_cabinet"
+ },
+ "c153": {
+  "action": "built",
+  "object_id": "ornament_002"
+ },
+ "c154": {
+  "action": "duplicate",
+  "object_id": "ornament_001"
+ },
+ "c156": {
+  "action": "built",
+  "object_id": "kitchen_island"
+ },
+ "c158": {
+  "action": "duplicate",
+  "object_id": "frame_corner_table"
+ },
+ "c160": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_5"
+ },
+ "c162": {
+  "action": "built",
+  "object_id": "wood_stove"
+ },
+ "c163": {
+  "action": "duplicate",
+  "object_id": "radiator_living_garden"
+ },
+ "c167": {
+  "action": "built",
+  "object_id": "toaster"
+ },
+ "c168": {
+  "action": "built",
+  "object_id": "cushion_fireside_1"
+ },
+ "c172": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_4"
+ },
+ "c173": {
+  "action": "duplicate",
+  "object_id": "cushion_window_1"
+ },
+ "c174": {
+  "action": "built",
+  "object_id": "candle_pillar"
+ },
+ "c176": {
+  "action": "duplicate",
+  "object_id": "christmas_tree"
+ },
+ "c177": {
+  "action": "duplicate",
+  "object_id": "kettle"
+ },
+ "c178": {
+  "action": "built",
+  "object_id": "plant_beam_1"
+ },
+ "c179": {
+  "action": "built",
+  "object_id": "wall_cabinet_back"
+ },
+ "c181": {
+  "action": "built",
+  "object_id": "tv"
+ },
+ "c182": {
+  "action": "built",
+  "object_id": "picture_side_sill"
+ },
+ "c183": {
+  "action": "duplicate",
+  "object_id": "oven_glove"
+ },
+ "c184": {
+  "action": "part",
+  "object_id": "side_table_oak"
+ },
+ "c185": {
+  "action": "built",
+  "object_id": "angel_small_2"
+ },
+ "c186": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c187": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c188": {
+  "action": "duplicate",
+  "object_id": "oven_glove"
+ },
+ "c189": {
+  "action": "built",
+  "object_id": "cushion_fireside_3"
+ },
+ "c190": {
+  "action": "duplicate",
+  "object_id": "radiator_living_side"
+ },
+ "c192": {
+  "action": "part",
+  "object_id": "wall_garden"
+ },
+ "c193": {
+  "action": "duplicate",
+  "object_id": "candle_pillar"
+ },
+ "c194": {
+  "action": "duplicate",
+  "object_id": "pendant_2"
+ },
+ "c195": {
+  "action": "built",
+  "object_id": "frame_corner_small"
+ },
+ "c196": {
+  "action": "duplicate",
+  "object_id": "plant_beam_2"
+ },
+ "c197": {
+  "action": "duplicate",
+  "object_id": "garland_mantel"
+ },
+ "c199": {
+  "action": "built",
+  "object_id": "hall_lamp"
+ },
+ "c200": {
+  "action": "part",
+  "object_id": "corner_cabinet"
+ },
+ "c201": {
+  "action": "built",
+  "object_id": "angel_small_1"
+ },
+ "c202": {
+  "action": "duplicate",
+  "object_id": "cushion_window_1"
+ },
+ "c204": {
+  "action": "part",
+  "object_id": "sofa_fireside"
+ },
+ "c205": {
+  "action": "duplicate",
+  "object_id": "xmas_tree_small"
+ },
+ "c206": {
+  "action": "built",
+  "object_id": "open_shelves_left"
+ },
+ "c207": {
+  "action": "duplicate",
+  "object_id": "table_lamp_rope"
+ },
+ "c209": {
+  "action": "built",
+  "object_id": "picture_living_garden"
+ },
+ "c210": {
+  "action": "built",
+  "object_id": "pendant_1"
+ },
+ "c211": {
+  "action": "built",
+  "object_id": "ornament_003"
+ },
+ "c212": {
+  "action": "duplicate",
+  "object_id": "rug_central"
+ },
+ "c215": {
+  "action": "duplicate",
+  "object_id": "christmas_tree"
+ },
+ "c216": {
+  "action": "duplicate",
+  "object_id": "table_lamp_ginger_jar"
+ },
+ "c217": {
+  "action": "built",
+  "object_id": "wine_glass_shelf_001"
+ },
+ "c218": {
+  "action": "duplicate",
+  "object_id": "curtain_french_left"
+ },
+ "c219": {
+  "action": "built",
+  "object_id": "sofa_fireside"
+ },
+ "c220": {
+  "action": "built",
+  "object_id": "cushion_fireside_5"
+ },
+ "c221": {
+  "action": "built",
+  "object_id": "hall_doormat"
+ },
+ "c222": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_3"
+ },
+ "c223": {
+  "action": "duplicate",
+  "object_id": "radiator_living_side"
+ },
+ "c224": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c225": {
+  "action": "built",
+  "object_id": "fruit_basket"
+ },
+ "c226": {
+  "action": "built",
+  "object_id": "frame_kitchen_sill_small"
+ },
+ "c227": {
+  "action": "duplicate",
+  "object_id": "plant_beam_2"
+ },
+ "c228": {
+  "action": "built",
+  "object_id": "herb_plant_sill"
+ },
+ "c230": {
+  "action": "duplicate",
+  "object_id": "plant_beam_1"
+ },
+ "c231": {
+  "action": "duplicate",
+  "object_id": "tall_unit_coffee"
+ },
+ "c232": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c233": {
+  "action": "built",
+  "object_id": "book_britain"
+ },
+ "c235": {
+  "action": "built",
+  "object_id": "candle_jar"
+ },
+ "c238": {
+  "action": "duplicate",
+  "object_id": "table_lamp_rope"
+ },
+ "c239": {
+  "action": "built",
+  "object_id": "mantel_beam_living"
+ },
+ "c240": {
+  "action": "duplicate",
+  "object_id": "sofa_window"
+ },
+ "c241": {
+  "action": "built",
+  "object_id": "hearth_stone"
+ },
+ "c242": {
+  "action": "duplicate",
+  "object_id": "pendant_1"
+ },
+ "c243": {
+  "action": "built",
+  "object_id": "open_book_counter"
+ },
+ "c244": {
+  "action": "built",
+  "object_id": "ornament_004"
+ },
+ "c245": {
+  "action": "built",
+  "object_id": "sink_basin"
+ },
+ "c246": {
+  "action": "built",
+  "object_id": "knife_block"
+ },
+ "c248": {
+  "action": "duplicate",
+  "object_id": "banner_letter_10_s"
+ },
+ "c249": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c250": {
+  "action": "duplicate",
+  "object_id": "corner_side_table"
+ },
+ "c251": {
+  "action": "built",
+  "object_id": "tall_unit_coffee"
+ },
+ "c252": {
+  "action": "duplicate",
+  "object_id": "fridge_tall_unit"
+ },
+ "c254": {
+  "action": "duplicate",
+  "object_id": "banner_merry_christmas"
+ },
+ "c255": {
+  "action": "duplicate",
+  "object_id": "banner_letter_07_h"
+ },
+ "c256": {
+  "action": "duplicate",
+  "object_id": "picture_living_garden"
+ },
+ "c257": {
+  "action": "built",
+  "object_id": "log_bucket"
+ },
+ "c259": {
+  "action": "built",
+  "object_id": "blind_living_side"
+ },
+ "c260": {
+  "action": "built",
+  "object_id": "firewood_001"
+ },
+ "c261": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c262": {
+  "action": "part",
+  "object_id": "wall_kitchen_back"
+ },
+ "c265": {
+  "action": "duplicate",
+  "object_id": "cushion_window_3"
+ },
+ "c267": {
+  "action": "built",
+  "object_id": "ornament_005"
+ },
+ "c269": {
+  "action": "duplicate",
+  "object_id": "basket_wicker"
+ },
+ "c270": {
+  "action": "built",
+  "object_id": "ornament_006"
+ },
+ "c271": {
+  "action": "part",
+  "object_id": "tall_unit_left"
+ },
+ "c274": {
+  "action": "part",
+  "object_id": "side_table_oak"
+ },
+ "c275": {
+  "action": "built",
+  "object_id": "ornament_007"
+ },
+ "c276": {
+  "action": "built",
+  "object_id": "ornament_008"
+ },
+ "c277": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_3"
+ },
+ "c278": {
+  "action": "duplicate",
+  "object_id": "cushion_window_4"
+ },
+ "c279": {
+  "action": "built",
+  "object_id": "firewood_002"
+ },
+ "c284": {
+  "action": "built",
+  "object_id": "candle_sill"
+ },
+ "c286": {
+  "action": "built",
+  "object_id": "ornament_009"
+ },
+ "c291": {
+  "action": "built",
+  "object_id": "ornament_010"
+ },
+ "c294": {
+  "action": "built",
+  "object_id": "firewood_003"
+ },
+ "c297": {
+  "action": "duplicate",
+  "object_id": "table_lamp_ginger_jar"
+ },
+ "c299": {
+  "action": "duplicate",
+  "object_id": "throw_striped"
+ },
+ "c300": {
+  "action": "duplicate",
+  "object_id": "sofa_window"
+ },
+ "c301": {
+  "action": "built",
+  "object_id": "blind_living_garden"
+ },
+ "c303": {
+  "action": "duplicate",
+  "object_id": "christmas_tree"
+ },
+ "c305": {
+  "action": "duplicate",
+  "object_id": "side_table_oak"
+ },
+ "c306": {
+  "action": "built",
+  "object_id": "firewood_004"
+ },
+ "c307": {
+  "action": "duplicate",
+  "object_id": "banner_merry_christmas"
+ },
+ "c308": {
+  "action": "duplicate",
+  "object_id": "cushion_window_3"
+ },
+ "c310": {
+  "action": "duplicate",
+  "object_id": "ornament_008"
+ },
+ "c311": {
+  "action": "duplicate",
+  "object_id": "ornament_005"
+ },
+ "c312": {
+  "action": "built",
+  "object_id": "ornament_011"
+ },
+ "c314": {
+  "action": "built",
+  "object_id": "firewood_005"
+ },
+ "c315": {
+  "action": "built",
+  "object_id": "bar_stool_2"
+ },
+ "c317": {
+  "action": "duplicate",
+  "object_id": "table_lamp_ginger_jar"
+ },
+ "c319": {
+  "action": "built",
+  "object_id": "kitchen_inglenook_beam"
+ },
+ "c321": {
+  "action": "duplicate",
+  "object_id": "plant_beam_1"
+ },
+ "c323": {
+  "action": "built",
+  "object_id": "tv_cupboard"
+ },
+ "c324": {
+  "action": "duplicate",
+  "object_id": "ornament_007"
+ },
+ "c325": {
+  "action": "built",
+  "object_id": "ornament_012"
+ },
+ "c326": {
+  "action": "duplicate",
+  "object_id": "herb_plant_sill"
+ },
+ "c327": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c329": {
+  "action": "built",
+  "object_id": "small_plant_sill"
+ },
+ "c330": {
+  "action": "duplicate",
+  "object_id": "christmas_tree"
+ },
+ "c331": {
+  "action": "built",
+  "object_id": "ornament_013"
+ },
+ "c332": {
+  "action": "duplicate",
+  "object_id": "ornament_006"
+ },
+ "c333": {
+  "action": "duplicate",
+  "object_id": "ornament_007"
+ },
+ "c334": {
+  "action": "part",
+  "object_id": "open_shelves_left"
+ },
+ "c336": {
+  "action": "duplicate",
+  "object_id": "bar_stool_1"
+ },
+ "c337": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c338": {
+  "action": "duplicate",
+  "object_id": "cushion_window_1"
+ },
+ "c340": {
+  "action": "built",
+  "object_id": "ornament_014"
+ },
+ "c341": {
+  "action": "built",
+  "object_id": "firewood_006"
+ },
+ "c342": {
+  "action": "part",
+  "object_id": "sofa_fireside"
+ },
+ "c343": {
+  "action": "duplicate",
+  "object_id": "ornament_008"
+ },
+ "c344": {
+  "action": "duplicate",
+  "object_id": "banner_letter_01_m"
+ },
+ "c346": {
+  "action": "built",
+  "object_id": "xmas_tree_small"
+ },
+ "c347": {
+  "action": "duplicate",
+  "object_id": "rug_living"
+ },
+ "c348": {
+  "action": "built",
+  "object_id": "glass_vase_tall"
+ },
+ "c349": {
+  "action": "duplicate",
+  "object_id": "ornament_011"
+ },
+ "c350": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c351": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_2"
+ },
+ "c352": {
+  "action": "duplicate",
+  "object_id": "sofa_window"
+ },
+ "c354": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c355": {
+  "action": "duplicate",
+  "object_id": "bar_stool_5"
+ },
+ "c356": {
+  "action": "duplicate",
+  "object_id": "ornament_012"
+ },
+ "c358": {
+  "action": "duplicate",
+  "object_id": "console_table"
+ },
+ "c359": {
+  "action": "part",
+  "object_id": "table_lamp_rope"
+ },
+ "c361": {
+  "action": "built",
+  "object_id": "ornament_015"
+ },
+ "c362": {
+  "action": "duplicate",
+  "object_id": "kitchen_island"
+ },
+ "c364": {
+  "action": "built",
+  "object_id": "ornament_016"
+ },
+ "c365": {
+  "action": "duplicate",
+  "object_id": "xmas_tree_small"
+ },
+ "c366": {
+  "action": "built",
+  "object_id": "console_table"
+ },
+ "c367": {
+  "action": "duplicate",
+  "object_id": "ornament_013"
+ },
+ "c370": {
+  "action": "built",
+  "object_id": "firewood_007"
+ },
+ "c371": {
+  "action": "built",
+  "object_id": "ornament_017"
+ },
+ "c372": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c373": {
+  "action": "built",
+  "object_id": "ornament_018"
+ },
+ "c374": {
+  "action": "duplicate",
+  "object_id": "banner_letter_12_m"
+ },
+ "c375": {
+  "action": "built",
+  "object_id": "ornament_019"
+ },
+ "c377": {
+  "action": "duplicate",
+  "object_id": "garland_mantel"
+ },
+ "c379": {
+  "action": "built",
+  "object_id": "ornament_020"
+ },
+ "c383": {
+  "action": "duplicate",
+  "object_id": "curtain_rod_french"
+ },
+ "c385": {
+  "action": "duplicate",
+  "object_id": "trunk_coffee_table"
+ },
+ "c386": {
+  "action": "built",
+  "object_id": "photo_frame_garden_sill"
+ },
+ "c388": {
+  "action": "duplicate",
+  "object_id": "bar_stool_2"
+ },
+ "c390": {
+  "action": "built",
+  "object_id": "ornament_021"
+ },
+ "c391": {
+  "action": "built",
+  "object_id": "ornament_022"
+ },
+ "c394": {
+  "action": "built",
+  "object_id": "ornament_023"
+ },
+ "c395": {
+  "action": "duplicate",
+  "object_id": "picture_corner_cabinet"
+ },
+ "c396": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_1"
+ },
+ "c397": {
+  "action": "built",
+  "object_id": "wall_cabinet_left_curved"
+ },
+ "c399": {
+  "action": "duplicate",
+  "object_id": "ornament_011"
+ },
+ "c400": {
+  "action": "duplicate",
+  "object_id": "ornament_007"
+ },
+ "c402": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c403": {
+  "action": "duplicate",
+  "object_id": "banner_letter_01_m"
+ },
+ "c404": {
+  "action": "duplicate",
+  "object_id": "ornament_019"
+ },
+ "c405": {
+  "action": "built",
+  "object_id": "ornament_024"
+ },
+ "c406": {
+  "action": "built",
+  "object_id": "firewood_008"
+ },
+ "c407": {
+  "action": "part",
+  "object_id": "yucca_plant"
+ },
+ "c408": {
+  "action": "duplicate",
+  "object_id": "firewood_004"
+ },
+ "c409": {
+  "action": "built",
+  "object_id": "firewood_009"
+ },
+ "c411": {
+  "action": "built",
+  "object_id": "gift_bag_white"
+ },
+ "c412": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c413": {
+  "action": "duplicate",
+  "object_id": "tall_unit_coffee"
+ },
+ "c415": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c417": {
+  "action": "built",
+  "object_id": "ornament_025"
+ },
+ "c418": {
+  "action": "duplicate",
+  "object_id": "curtain_french_left"
+ },
+ "c419": {
+  "action": "duplicate",
+  "object_id": "ornament_005"
+ },
+ "c420": {
+  "action": "built",
+  "object_id": "ornament_026"
+ },
+ "c421": {
+  "action": "built",
+  "object_id": "ornament_027"
+ },
+ "c422": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c423": {
+  "action": "part",
+  "object_id": "wall_kitchen_back"
+ },
+ "c424": {
+  "action": "duplicate",
+  "object_id": "heart_hanging"
+ },
+ "c425": {
+  "action": "duplicate",
+  "object_id": "ornament_022"
+ },
+ "c426": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_3"
+ },
+ "c428": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_5"
+ },
+ "c431": {
+  "action": "built",
+  "object_id": "ornament_028"
+ },
+ "c432": {
+  "action": "built",
+  "object_id": "card_counter"
+ },
+ "c433": {
+  "action": "duplicate",
+  "object_id": "ornament_013"
+ },
+ "c434": {
+  "action": "duplicate",
+  "object_id": "ornament_011"
+ },
+ "c435": {
+  "action": "built",
+  "object_id": "ornament_029"
+ },
+ "c436": {
+  "action": "built",
+  "object_id": "bottle_shelf"
+ },
+ "c437": {
+  "action": "built",
+  "object_id": "wine_glass_shelf_002"
+ },
+ "c438": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c440": {
+  "action": "duplicate",
+  "object_id": "curtain_french_right"
+ },
+ "c441": {
+  "action": "built",
+  "object_id": "blind_kitchen_garden"
+ },
+ "c446": {
+  "action": "built",
+  "object_id": "piano_stool"
+ },
+ "c448": {
+  "action": "built",
+  "object_id": "ornament_030"
+ },
+ "c449": {
+  "action": "built",
+  "object_id": "ornament_031"
+ },
+ "c450": {
+  "action": "built",
+  "object_id": "ornament_032"
+ },
+ "c451": {
+  "action": "duplicate",
+  "object_id": "trunk_coffee_table"
+ },
+ "c452": {
+  "action": "duplicate",
+  "object_id": "cushion_window_1"
+ },
+ "c454": {
+  "action": "part",
+  "object_id": "wall_kitchen_back"
+ },
+ "c457": {
+  "action": "built",
+  "object_id": "throw_red"
+ },
+ "c458": {
+  "action": "built",
+  "object_id": "firewood_010"
+ },
+ "c459": {
+  "action": "duplicate",
+  "object_id": "christmas_tree"
+ },
+ "c460": {
+  "action": "built",
+  "object_id": "firewood_011"
+ },
+ "c462": {
+  "action": "duplicate",
+  "object_id": "ornament_011"
+ },
+ "c463": {
+  "action": "built",
+  "object_id": "ornament_033"
+ },
+ "c464": {
+  "action": "duplicate",
+  "object_id": "ornament_030"
+ },
+ "c467": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c468": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c471": {
+  "action": "built",
+  "object_id": "wreath_noel_o"
+ },
+ "c473": {
+  "action": "duplicate",
+  "object_id": "ornament_015"
+ },
+ "c474": {
+  "action": "built",
+  "object_id": "ornament_034"
+ },
+ "c475": {
+  "action": "built",
+  "object_id": "ornament_035"
+ },
+ "c476": {
+  "action": "duplicate",
+  "object_id": "ornament_023"
+ },
+ "c477": {
+  "action": "built",
+  "object_id": "ornament_036"
+ },
+ "c478": {
+  "action": "built",
+  "object_id": "wine_glass_shelf_003"
+ },
+ "c484": {
+  "action": "built",
+  "object_id": "tall_unit_left"
+ },
+ "c486": {
+  "action": "built",
+  "object_id": "ornament_037"
+ },
+ "c487": {
+  "action": "duplicate",
+  "object_id": "ornament_024"
+ },
+ "c488": {
+  "action": "duplicate",
+  "object_id": "firewood_008"
+ },
+ "c490": {
+  "action": "built",
+  "object_id": "firewood_012"
+ },
+ "c491": {
+  "action": "built",
+  "object_id": "firewood_013"
+ },
+ "c493": {
+  "action": "duplicate",
+  "object_id": "ornament_020"
+ },
+ "c497": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c498": {
+  "action": "duplicate",
+  "object_id": "side_table_oak"
+ },
+ "c500": {
+  "action": "built",
+  "object_id": "hall_side_table"
+ },
+ "c502": {
+  "action": "duplicate",
+  "object_id": "fruit_basket"
+ },
+ "c503": {
+  "action": "built",
+  "object_id": "ornament_038"
+ },
+ "c504": {
+  "action": "duplicate",
+  "object_id": "glass_vase_tall"
+ },
+ "c505": {
+  "action": "built",
+  "object_id": "ornament_039"
+ },
+ "c506": {
+  "action": "duplicate",
+  "object_id": "ornament_027"
+ },
+ "c508": {
+  "action": "built",
+  "object_id": "ornament_040"
+ },
+ "c509": {
+  "action": "duplicate",
+  "object_id": "ornament_016"
+ },
+ "c510": {
+  "action": "duplicate",
+  "object_id": "banner_letter_03_r"
+ },
+ "c512": {
+  "action": "duplicate",
+  "object_id": "firewood_013"
+ },
+ "c513": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c514": {
+  "action": "built",
+  "object_id": "firewood_014"
+ },
+ "c515": {
+  "action": "duplicate",
+  "object_id": "sofa_fireside"
+ },
+ "c517": {
+  "action": "duplicate",
+  "object_id": "ornament_013"
+ },
+ "c518": {
+  "action": "duplicate",
+  "object_id": "ornament_011"
+ },
+ "c519": {
+  "action": "duplicate",
+  "object_id": "ornament_024"
+ },
+ "c521": {
+  "action": "duplicate",
+  "object_id": "ornament_037"
+ },
+ "c522": {
+  "action": "duplicate",
+  "object_id": "curtain_french_left"
+ },
+ "c524": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c525": {
+  "action": "duplicate",
+  "object_id": "ornament_019"
+ },
+ "c526": {
+  "action": "duplicate",
+  "object_id": "ornament_011"
+ },
+ "c528": {
+  "action": "built",
+  "object_id": "ornament_041"
+ },
+ "c530": {
+  "action": "built",
+  "object_id": "wine_glass_shelf_004"
+ },
+ "c531": {
+  "action": "built",
+  "object_id": "ornament_042"
+ },
+ "c533": {
+  "action": "duplicate",
+  "object_id": "sink_basin"
+ },
+ "c534": {
+  "action": "built",
+  "object_id": "banner_star_right"
+ },
+ "c535": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c536": {
+  "action": "built",
+  "object_id": "ornament_043"
+ },
+ "c537": {
+  "action": "duplicate",
+  "object_id": "ornament_005"
+ },
+ "c543": {
+  "action": "duplicate",
+  "object_id": "ornament_028"
+ },
+ "c544": {
+  "action": "duplicate",
+  "object_id": "ornament_022"
+ },
+ "c545": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c547": {
+  "action": "built",
+  "object_id": "banner_star_left"
+ },
+ "c548": {
+  "action": "duplicate",
+  "object_id": "range_cooker"
+ },
+ "c549": {
+  "action": "built",
+  "object_id": "candle_under_tree"
+ },
+ "c550": {
+  "action": "built",
+  "object_id": "ornament_044"
+ },
+ "c551": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_5"
+ },
+ "c552": {
+  "action": "duplicate",
+  "object_id": "corner_cabinet"
+ },
+ "c554": {
+  "action": "built",
+  "object_id": "firewood_015"
+ },
+ "c556": {
+  "action": "built",
+  "object_id": "ornament_045"
+ },
+ "c557": {
+  "action": "duplicate",
+  "object_id": "ornament_039"
+ },
+ "c558": {
+  "action": "duplicate",
+  "object_id": "herb_plant_sill"
+ },
+ "c561": {
+  "action": "built",
+  "object_id": "angel_top"
+ },
+ "c562": {
+  "action": "built",
+  "object_id": "ornament_046"
+ },
+ "c563": {
+  "action": "built",
+  "object_id": "ornament_047"
+ },
+ "c565": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c566": {
+  "action": "duplicate",
+  "object_id": "tall_unit_coffee"
+ },
+ "c567": {
+  "action": "duplicate",
+  "object_id": "banner_star_right"
+ },
+ "c569": {
+  "action": "duplicate",
+  "object_id": "lantern_woven"
+ },
+ "c570": {
+  "action": "duplicate",
+  "object_id": "throw_striped"
+ },
+ "c573": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c574": {
+  "action": "built",
+  "object_id": "firewood_016"
+ },
+ "c575": {
+  "action": "duplicate",
+  "object_id": "ornament_034"
+ },
+ "c576": {
+  "action": "duplicate",
+  "object_id": "ornament_022"
+ },
+ "c577": {
+  "action": "built",
+  "object_id": "ornament_048"
+ },
+ "c578": {
+  "action": "built",
+  "object_id": "ornament_049"
+ },
+ "c579": {
+  "action": "duplicate",
+  "object_id": "ornament_034"
+ },
+ "c580": {
+  "action": "duplicate",
+  "object_id": "papers_folder"
+ },
+ "c581": {
+  "action": "duplicate",
+  "object_id": "side_table_lamp"
+ },
+ "c584": {
+  "action": "part",
+  "object_id": "corner_cabinet"
+ },
+ "c585": {
+  "action": "duplicate",
+  "object_id": "cushion_window_1"
+ },
+ "c586": {
+  "action": "part",
+  "object_id": "sofa_fireside"
+ },
+ "c588": {
+  "action": "duplicate",
+  "object_id": "ornament_035"
+ },
+ "c589": {
+  "action": "built",
+  "object_id": "firewood_017"
+ },
+ "c590": {
+  "action": "built",
+  "object_id": "firewood_018"
+ },
+ "c591": {
+  "action": "duplicate",
+  "object_id": "tall_unit_left"
+ },
+ "c592": {
+  "action": "duplicate",
+  "object_id": "ornament_017"
+ },
+ "c593": {
+  "action": "duplicate",
+  "object_id": "ornament_041"
+ },
+ "c596": {
+  "action": "built",
+  "object_id": "ornament_050"
+ },
+ "c598": {
+  "action": "built",
+  "object_id": "book_small"
+ },
+ "c599": {
+  "action": "duplicate",
+  "object_id": "ornament_043"
+ },
+ "c600": {
+  "action": "built",
+  "object_id": "firewood_019"
+ },
+ "c602": {
+  "action": "part",
+  "object_id": "open_shelves_left"
+ },
+ "c603": {
+  "action": "built",
+  "object_id": "pink_box"
+ },
+ "c604": {
+  "action": "built",
+  "object_id": "candle_wreath_sill"
+ },
+ "c605": {
+  "action": "duplicate",
+  "object_id": "ornament_047"
+ },
+ "c606": {
+  "action": "duplicate",
+  "object_id": "ornament_032"
+ },
+ "c608": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c610": {
+  "action": "duplicate",
+  "object_id": "wall_cabinet_left_curved"
+ },
+ "c611": {
+  "action": "duplicate",
+  "object_id": "ornament_034"
+ },
+ "c612": {
+  "action": "duplicate",
+  "object_id": "ornament_042"
+ },
+ "c613": {
+  "action": "built",
+  "object_id": "ornament_051"
+ },
+ "c614": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c615": {
+  "action": "skipped",
+  "reason": "crop is a blurred white rug edge at (0.56,4.97,0.69); nothing is at that place in the video"
+ },
+ "c616": {
+  "action": "built",
+  "object_id": "ornament_052"
+ },
+ "c619": {
+  "action": "duplicate",
+  "object_id": "ornament_027"
+ },
+ "c620": {
+  "action": "built",
+  "object_id": "ornament_053"
+ },
+ "c621": {
+  "action": "part",
+  "object_id": "wall_garden"
+ },
+ "c623": {
+  "action": "part",
+  "object_id": "wall_cabinet_left_curved"
+ },
+ "c625": {
+  "action": "duplicate",
+  "object_id": "ornament_006"
+ },
+ "c626": {
+  "action": "part",
+  "object_id": "wall_kitchen_left"
+ },
+ "c628": {
+  "action": "duplicate",
+  "object_id": "ornament_051"
+ },
+ "c629": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c630": {
+  "action": "duplicate",
+  "object_id": "ornament_031"
+ },
+ "c631": {
+  "action": "built",
+  "object_id": "ornament_054"
+ },
+ "c634": {
+  "action": "duplicate",
+  "object_id": "christmas_card_piano"
+ },
+ "c635": {
+  "action": "built",
+  "object_id": "front_door_sign"
+ },
+ "c636": {
+  "action": "duplicate",
+  "object_id": "ornament_043"
+ },
+ "c639": {
+  "action": "duplicate",
+  "object_id": "ornament_006"
+ },
+ "c643": {
+  "action": "duplicate",
+  "object_id": "ornament_045"
+ },
+ "c644": {
+  "action": "duplicate",
+  "object_id": "oven_glove"
+ },
+ "c646": {
+  "action": "duplicate",
+  "object_id": "range_cooker"
+ },
+ "c647": {
+  "action": "duplicate",
+  "object_id": "small_plant_sill"
+ },
+ "c648": {
+  "action": "duplicate",
+  "object_id": "banner_letter_01_m"
+ },
+ "c649": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_4"
+ },
+ "c650": {
+  "action": "duplicate",
+  "object_id": "ornament_010"
+ },
+ "c654": {
+  "action": "part",
+  "object_id": "table_lamp_rope"
+ },
+ "c655": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c657": {
+  "action": "duplicate",
+  "object_id": "ornament_022"
+ },
+ "c659": {
+  "action": "part",
+  "object_id": "french_doors"
+ },
+ "c660": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c661": {
+  "action": "duplicate",
+  "object_id": "banner_letter_14_s"
+ },
+ "c662": {
+  "action": "duplicate",
+  "object_id": "sofa_window"
+ },
+ "c664": {
+  "action": "built",
+  "object_id": "ornament_055"
+ },
+ "c667": {
+  "action": "duplicate",
+  "object_id": "bar_stool_1"
+ },
+ "c668": {
+  "action": "duplicate",
+  "object_id": "ornament_034"
+ },
+ "c669": {
+  "action": "duplicate",
+  "object_id": "ornament_034"
+ },
+ "c671": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c672": {
+  "action": "duplicate",
+  "object_id": "kitchen_island"
+ },
+ "c674": {
+  "action": "built",
+  "object_id": "photo_frame_tv"
+ },
+ "c675": {
+  "action": "built",
+  "object_id": "ornament_056"
+ },
+ "c677": {
+  "action": "built",
+  "object_id": "firewood_020"
+ },
+ "c680": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c681": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c683": {
+  "action": "duplicate",
+  "object_id": "wood_stove"
+ },
+ "c687": {
+  "action": "duplicate",
+  "object_id": "ornament_014"
+ },
+ "c688": {
+  "action": "duplicate",
+  "object_id": "bar_stool_4"
+ },
+ "c689": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c692": {
+  "action": "duplicate",
+  "object_id": "cushion_window_2"
+ },
+ "c693": {
+  "action": "duplicate",
+  "object_id": "banner_letter_14_s"
+ },
+ "c695": {
+  "action": "built",
+  "object_id": "firewood_021"
+ },
+ "c697": {
+  "action": "built",
+  "object_id": "firewood_022"
+ },
+ "c699": {
+  "action": "built",
+  "object_id": "firewood_023"
+ },
+ "c702": {
+  "action": "duplicate",
+  "object_id": "ornament_042"
+ },
+ "c707": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c708": {
+  "action": "built",
+  "object_id": "hydrangea_flowers"
+ },
+ "c709": {
+  "action": "duplicate",
+  "object_id": "blanket_in_basket"
+ },
+ "c710": {
+  "action": "built",
+  "object_id": "firewood_024"
+ },
+ "c711": {
+  "action": "part",
+  "object_id": "sink_basin"
+ },
+ "c715": {
+  "action": "part",
+  "object_id": "corner_cabinet"
+ },
+ "c717": {
+  "action": "part",
+  "object_id": "fridge_tall_unit"
+ },
+ "c718": {
+  "action": "built",
+  "object_id": "ornament_057"
+ },
+ "c720": {
+  "action": "duplicate",
+  "object_id": "ornament_024"
+ },
+ "c721": {
+  "action": "duplicate",
+  "object_id": "ornament_034"
+ },
+ "c722": {
+  "action": "duplicate",
+  "object_id": "ornament_029"
+ },
+ "c723": {
+  "action": "built",
+  "object_id": "ornament_058"
+ },
+ "c724": {
+  "action": "built",
+  "object_id": "corner_side_table"
+ },
+ "c725": {
+  "action": "part",
+  "object_id": "kitchen_run_back"
+ },
+ "c726": {
+  "action": "built",
+  "object_id": "ornament_059"
+ },
+ "c728": {
+  "action": "duplicate",
+  "object_id": "cushion_window_5"
+ },
+ "c730": {
+  "action": "built",
+  "object_id": "ornament_060"
+ },
+ "c731": {
+  "action": "duplicate",
+  "object_id": "rug_living"
+ },
+ "c732": {
+  "action": "built",
+  "object_id": "firewood_025"
+ },
+ "c734": {
+  "action": "built",
+  "object_id": "firewood_026"
+ },
+ "c735": {
+  "action": "duplicate",
+  "object_id": "ornament_024"
+ },
+ "c736": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c737": {
+  "action": "built",
+  "object_id": "wine_glass_shelf_005"
+ },
+ "c739": {
+  "action": "duplicate",
+  "object_id": "console_table"
+ },
+ "c743": {
+  "action": "duplicate",
+  "object_id": "ornament_005"
+ },
+ "c744": {
+  "action": "built",
+  "object_id": "firewood_027"
+ },
+ "c747": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c749": {
+  "action": "built",
+  "object_id": "firewood_028"
+ },
+ "c750": {
+  "action": "built",
+  "object_id": "ornament_061"
+ },
+ "c752": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c753": {
+  "action": "built",
+  "object_id": "ornament_062"
+ },
+ "c755": {
+  "action": "duplicate",
+  "object_id": "ornament_058"
+ },
+ "c756": {
+  "action": "built",
+  "object_id": "ornament_063"
+ },
+ "c757": {
+  "action": "built",
+  "object_id": "ornament_064"
+ },
+ "c758": {
+  "action": "duplicate",
+  "object_id": "firewood_015"
+ },
+ "c759": {
+  "action": "duplicate",
+  "object_id": "tall_unit_left"
+ },
+ "c760": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c770": {
+  "action": "duplicate",
+  "object_id": "ornament_019"
+ },
+ "c772": {
+  "action": "part",
+  "object_id": "wall_kitchen_back"
+ },
+ "c777": {
+  "action": "duplicate",
+  "object_id": "piano"
+ },
+ "c779": {
+  "action": "skipped",
+  "reason": "crop shows only hall floor/skirting at (-1.10,-0.26); no separate object there"
+ },
+ "c783": {
+  "action": "built",
+  "object_id": "firewood_029"
+ },
+ "c785": {
+  "action": "duplicate",
+  "object_id": "ornament_043"
+ },
+ "c786": {
+  "action": "duplicate",
+  "object_id": "ornament_026"
+ },
+ "c787": {
+  "action": "built",
+  "object_id": "fruit_001"
+ },
+ "c790": {
+  "action": "duplicate",
+  "object_id": "ornament_033"
+ },
+ "c791": {
+  "action": "duplicate",
+  "object_id": "ornament_033"
+ },
+ "c792": {
+  "action": "part",
+  "object_id": "corner_cabinet"
+ },
+ "c794": {
+  "action": "built",
+  "object_id": "firewood_030"
+ },
+ "c795": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c798": {
+  "action": "built",
+  "object_id": "ornament_065"
+ },
+ "c799": {
+  "action": "duplicate",
+  "object_id": "ornament_001"
+ },
+ "c800": {
+  "action": "duplicate",
+  "object_id": "kitchen_inglenook_beam"
+ },
+ "c802": {
+  "action": "built",
+  "object_id": "christmas_card_piano"
+ },
+ "c804": {
+  "action": "duplicate",
+  "object_id": "bar_stool_5"
+ },
+ "c808": {
+  "action": "built",
+  "object_id": "ornament_066"
+ },
+ "c809": {
+  "action": "duplicate",
+  "object_id": "wall_cabinet_left_curved"
+ },
+ "c810": {
+  "action": "built",
+  "object_id": "ornament_067"
+ },
+ "c811": {
+  "action": "duplicate",
+  "object_id": "notebook_stool"
+ },
+ "c812": {
+  "action": "duplicate",
+  "object_id": "ornament_054"
+ },
+ "c815": {
+  "action": "duplicate",
+  "object_id": "ornament_064"
+ },
+ "c816": {
+  "action": "duplicate",
+  "object_id": "ornament_053"
+ },
+ "c819": {
+  "action": "duplicate",
+  "object_id": "ornament_049"
+ },
+ "c821": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c824": {
+  "action": "duplicate",
+  "object_id": "banner_star_left"
+ },
+ "c825": {
+  "action": "duplicate",
+  "object_id": "ornament_006"
+ },
+ "c826": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c832": {
+  "action": "duplicate",
+  "object_id": "tv_cupboard"
+ },
+ "c833": {
+  "action": "duplicate",
+  "object_id": "tv_cupboard"
+ },
+ "c834": {
+  "action": "part",
+  "object_id": "tall_unit_coffee"
+ },
+ "c837": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c838": {
+  "action": "built",
+  "object_id": "firewood_031"
+ },
+ "c839": {
+  "action": "built",
+  "object_id": "firewood_032"
+ },
+ "c841": {
+  "action": "duplicate",
+  "object_id": "ornament_024"
+ },
+ "c843": {
+  "action": "duplicate",
+  "object_id": "ornament_029"
+ },
+ "c845": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c846": {
+  "action": "duplicate",
+  "object_id": "ornament_065"
+ },
+ "c847": {
+  "action": "built",
+  "object_id": "kitchen_run_back"
+ },
+ "c848": {
+  "action": "duplicate",
+  "object_id": "banner_star_right"
+ },
+ "c850": {
+  "action": "duplicate",
+  "object_id": "ornament_055"
+ },
+ "c851": {
+  "action": "part",
+  "object_id": "open_shelves_left"
+ },
+ "c853": {
+  "action": "duplicate",
+  "object_id": "ornament_061"
+ },
+ "c860": {
+  "action": "part",
+  "object_id": "kitchen_run_left"
+ },
+ "c861": {
+  "action": "built",
+  "object_id": "ornament_068"
+ },
+ "c862": {
+  "action": "built",
+  "object_id": "ornament_069"
+ },
+ "c863": {
+  "action": "built",
+  "object_id": "ornament_070"
+ },
+ "c865": {
+  "action": "built",
+  "object_id": "firewood_033"
+ },
+ "c866": {
+  "action": "duplicate",
+  "object_id": "plant_box_shelf"
+ },
+ "c868": {
+  "action": "duplicate",
+  "object_id": "ornament_061"
+ },
+ "c869": {
+  "action": "duplicate",
+  "object_id": "ornament_010"
+ },
+ "c871": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c875": {
+  "action": "built",
+  "object_id": "photo_frame_wire"
+ },
+ "c882": {
+  "action": "duplicate",
+  "object_id": "ornament_010"
+ },
+ "c885": {
+  "action": "part",
+  "object_id": "tall_unit_coffee"
+ },
+ "c888": {
+  "action": "duplicate",
+  "object_id": "banner_star_right"
+ },
+ "c889": {
+  "action": "built",
+  "object_id": "ornament_071"
+ },
+ "c890": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c895": {
+  "action": "duplicate",
+  "object_id": "firewood_014"
+ },
+ "c897": {
+  "action": "part",
+  "object_id": "pendant_1"
+ },
+ "c899": {
+  "action": "part",
+  "object_id": "open_shelves_left"
+ },
+ "c900": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c904": {
+  "action": "duplicate",
+  "object_id": "herb_plant_sill"
+ },
+ "c906": {
+  "action": "part",
+  "object_id": "range_cooker"
+ },
+ "c907": {
+  "action": "part",
+  "object_id": "kitchen_island"
+ },
+ "c912": {
+  "action": "skipped",
+  "reason": "seen through the glass: garden/patio scenery outside the room, not an indoor object"
+ },
+ "c914": {
+  "action": "duplicate",
+  "object_id": "ornament_002"
+ },
+ "c921": {
+  "action": "part",
+  "object_id": "wall_cabinet_left_curved"
+ },
+ "c924": {
+  "action": "built",
+  "object_id": "fruit_002"
+ },
+ "c926": {
+  "action": "part",
+  "object_id": "wall_kitchen_back"
+ },
+ "c928": {
+  "action": "duplicate",
+  "object_id": "plant_beam_1"
+ },
+ "c929": {
+  "action": "part",
+  "object_id": "hall_double_doors"
+ },
+ "c931": {
+  "action": "built",
+  "object_id": "firewood_034"
+ },
+ "c937": {
+  "action": "duplicate",
+  "object_id": "sofa_fireside"
+ },
+ "c941": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_1"
+ },
+ "c942": {
+  "action": "duplicate",
+  "object_id": "cushion_fireside_4"
+ },
+ "c943": {
+  "action": "duplicate",
+  "object_id": "hydrangea_flowers"
+ },
+ "c945": {
+  "action": "part",
+  "object_id": "open_shelves_left"
+ },
+ "c947": {
+  "action": "built",
+  "object_id": "wine_glass_shelf_006"
+ },
+ "c948": {
+  "action": "built",
+  "object_id": "papers_folder"
+ },
+ "c951": {
+  "action": "built",
+  "object_id": "ornament_072"
+ },
+ "c955": {
+  "action": "built",
+  "object_id": "piano_goblet_1"
+ },
+ "c956": {
+  "action": "duplicate",
+  "object_id": "ornament_003"
+ },
+ "c958": {
+  "action": "duplicate",
+  "object_id": "ornament_067"
+ },
+ "c963": {
+  "action": "part",
+  "object_id": "wall_cabinet_back"
+ },
+ "c968": {
+  "action": "duplicate",
+  "object_id": "range_cooker"
+ },
+ "c972": {
+  "action": "duplicate",
+  "object_id": "ornament_005"
+ },
+ "c974": {
+  "action": "built",
+  "object_id": "firewood_035"
+ },
+ "c982": {
+  "action": "part",
+  "object_id": "knife_block"
+ },
+ "c986": {
+  "action": "part",
+  "object_id": "french_doors"
+ },
+ "c987": {
+  "action": "part",
+  "object_id": "front_door"
+ },
+ "c994": {
+  "action": "duplicate",
+  "object_id": "ornament_005"
+ }
+}

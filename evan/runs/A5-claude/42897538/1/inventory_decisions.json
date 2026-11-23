@@ -1,0 +1,998 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "tv-01"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "loveseat-01"
+ },
+ "c002": {
+  "action": "duplicate",
+  "object_id": "rug-main"
+ },
+ "c003": {
+  "action": "built",
+  "object_id": "sofa-01"
+ },
+ "c004": {
+  "action": "duplicate",
+  "object_id": "rug-main"
+ },
+ "c005": {
+  "action": "built",
+  "object_id": "coffee-table-01"
+ },
+ "c006": {
+  "action": "built",
+  "object_id": "cushion-loveseat-01"
+ },
+ "c007": {
+  "action": "built",
+  "object_id": "cushion-loveseat-02"
+ },
+ "c008": {
+  "action": "built",
+  "object_id": "radiator-01"
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "rug-main"
+ },
+ "c011": {
+  "action": "duplicate",
+  "object_id": "rug-main"
+ },
+ "c012": {
+  "action": "built",
+  "object_id": "rug-kitchen"
+ },
+ "c013": {
+  "action": "built",
+  "object_id": "ottoman-01"
+ },
+ "c014": {
+  "action": "part",
+  "object_id": "sofa-01"
+ },
+ "c015": {
+  "action": "built",
+  "object_id": "table-lamp-01"
+ },
+ "c017": {
+  "action": "built",
+  "object_id": "cushion-sofa-01"
+ },
+ "c020": {
+  "action": "built",
+  "object_id": "cushion-sofa-02"
+ },
+ "c021": {
+  "action": "part",
+  "object_id": "table-lamp-01"
+ },
+ "c022": {
+  "action": "built",
+  "object_id": "fridge-01"
+ },
+ "c023": {
+  "action": "built",
+  "object_id": "side-table-01"
+ },
+ "c024": {
+  "action": "duplicate",
+  "object_id": "radiator-01"
+ },
+ "c025": {
+  "action": "built",
+  "object_id": "door-hall"
+ },
+ "c027": {
+  "action": "part",
+  "object_id": "tv-01"
+ },
+ "c029": {
+  "action": "duplicate",
+  "object_id": "rug-main"
+ },
+ "c030": {
+  "action": "duplicate",
+  "object_id": "coffee-table-01"
+ },
+ "c031": {
+  "action": "duplicate",
+  "object_id": "tv-01"
+ },
+ "c032": {
+  "action": "duplicate",
+  "object_id": "cushion-loveseat-02"
+ },
+ "c034": {
+  "action": "built",
+  "object_id": "tissue-box-01"
+ },
+ "c035": {
+  "action": "built",
+  "object_id": "glass-bowl-01"
+ },
+ "c039": {
+  "action": "built",
+  "object_id": "rug-hall"
+ },
+ "c040": {
+  "action": "duplicate",
+  "object_id": "rug-main"
+ },
+ "c041": {
+  "action": "duplicate",
+  "object_id": "picture-01"
+ },
+ "c043": {
+  "action": "duplicate",
+  "object_id": "lamp-table-01"
+ },
+ "c044": {
+  "action": "part",
+  "object_id": "tv-01"
+ },
+ "c045": {
+  "action": "duplicate",
+  "object_id": "plate-01"
+ },
+ "c046": {
+  "action": "built",
+  "object_id": "mirror-01"
+ },
+ "c047": {
+  "action": "part",
+  "object_id": "door-hall"
+ },
+ "c049": {
+  "action": "built",
+  "object_id": "lamp-table-01"
+ },
+ "c051": {
+  "action": "part",
+  "object_id": "sofa-01"
+ },
+ "c052": {
+  "action": "part",
+  "object_id": "rug-main"
+ },
+ "c053": {
+  "action": "built",
+  "object_id": "power-strip-02"
+ },
+ "c055": {
+  "action": "built",
+  "object_id": "tv-stand-01"
+ },
+ "c059": {
+  "action": "duplicate",
+  "object_id": "plate-02"
+ },
+ "c060": {
+  "action": "duplicate",
+  "object_id": "wall-socket-01"
+ },
+ "c061": {
+  "action": "built",
+  "object_id": "wall-socket-01"
+ },
+ "c063": {
+  "action": "duplicate",
+  "object_id": "wall-socket-01"
+ },
+ "c064": {
+  "action": "built",
+  "object_id": "ornament-01"
+ },
+ "c065": {
+  "action": "built",
+  "object_id": "picture-01"
+ },
+ "c066": {
+  "action": "built",
+  "object_id": "ornament-02"
+ },
+ "c067": {
+  "action": "built",
+  "object_id": "ornament-03"
+ },
+ "c068": {
+  "action": "built",
+  "object_id": "ornament-04"
+ },
+ "c069": {
+  "action": "built",
+  "object_id": "ornament-05"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "string-lights-wall"
+ },
+ "c071": {
+  "action": "duplicate",
+  "object_id": "tissue-box-01"
+ },
+ "c072": {
+  "action": "duplicate",
+  "object_id": "cushion-sofa-01"
+ },
+ "c073": {
+  "action": "built",
+  "object_id": "ornament-06"
+ },
+ "c074": {
+  "action": "built",
+  "object_id": "kitchen-sink-01"
+ },
+ "c075": {
+  "action": "built",
+  "object_id": "ornament-07"
+ },
+ "c076": {
+  "action": "duplicate",
+  "object_id": "coffee-table-01"
+ },
+ "c077": {
+  "action": "duplicate",
+  "object_id": "coffee-table-01"
+ },
+ "c080": {
+  "action": "built",
+  "object_id": "ornament-08"
+ },
+ "c081": {
+  "action": "built",
+  "object_id": "ornament-09"
+ },
+ "c084": {
+  "action": "built",
+  "object_id": "cable-tv-yellow-01"
+ },
+ "c085": {
+  "action": "built",
+  "object_id": "plate-01"
+ },
+ "c086": {
+  "action": "built",
+  "object_id": "ornament-10"
+ },
+ "c087": {
+  "action": "built",
+  "object_id": "blinds-front-left"
+ },
+ "c088": {
+  "action": "duplicate",
+  "object_id": "cushion-sofa-02"
+ },
+ "c089": {
+  "action": "built",
+  "object_id": "blinds-left"
+ },
+ "c090": {
+  "action": "built",
+  "object_id": "ornament-11"
+ },
+ "c092": {
+  "action": "built",
+  "object_id": "magazine-01"
+ },
+ "c093": {
+  "action": "part",
+  "object_id": "cable-sofa-01"
+ },
+ "c095": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c097": {
+  "action": "built",
+  "object_id": "kitchen-base-end"
+ },
+ "c098": {
+  "action": "part",
+  "object_id": "loveseat-01"
+ },
+ "c099": {
+  "action": "built",
+  "object_id": "christmas-tree-01"
+ },
+ "c101": {
+  "action": "part",
+  "object_id": "tv-01"
+ },
+ "c103": {
+  "action": "duplicate",
+  "object_id": "ottoman-01"
+ },
+ "c104": {
+  "action": "duplicate",
+  "object_id": "blinds-front-right"
+ },
+ "c105": {
+  "action": "duplicate",
+  "object_id": "magazine-01"
+ },
+ "c107": {
+  "action": "part",
+  "object_id": "tv-01"
+ },
+ "c108": {
+  "action": "built",
+  "object_id": "chandelier-01"
+ },
+ "c110": {
+  "action": "duplicate",
+  "object_id": "cable-tv-yellow-01"
+ },
+ "c111": {
+  "action": "duplicate",
+  "object_id": "blinds-left"
+ },
+ "c112": {
+  "action": "duplicate",
+  "object_id": "cushion-loveseat-01"
+ },
+ "c113": {
+  "action": "built",
+  "object_id": "plate-02"
+ },
+ "c115": {
+  "action": "built",
+  "object_id": "blinds-front-right"
+ },
+ "c116": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c118": {
+  "action": "part",
+  "object_id": "loveseat-01"
+ },
+ "c119": {
+  "action": "part",
+  "object_id": "kitchen-base-end"
+ },
+ "c120": {
+  "action": "part",
+  "object_id": "coffee-table-01"
+ },
+ "c121": {
+  "action": "part",
+  "object_id": "cable-sofa-01"
+ },
+ "c122": {
+  "action": "duplicate",
+  "object_id": "chandelier-02"
+ },
+ "c124": {
+  "action": "part",
+  "object_id": "loveseat-01"
+ },
+ "c128": {
+  "action": "duplicate",
+  "object_id": "side-table-01"
+ },
+ "c129": {
+  "action": "built",
+  "object_id": "light-switch-hall"
+ },
+ "c130": {
+  "action": "part",
+  "object_id": "kitchen-base-end"
+ },
+ "c133": {
+  "action": "duplicate",
+  "object_id": "table-lamp-01"
+ },
+ "c134": {
+  "action": "part",
+  "object_id": "tv-01"
+ },
+ "c135": {
+  "action": "duplicate",
+  "object_id": "wall-socket-01"
+ },
+ "c137": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c138": {
+  "action": "built",
+  "object_id": "cable-sofa-01"
+ },
+ "c141": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c144": {
+  "action": "built",
+  "object_id": "power-strip-01"
+ },
+ "c145": {
+  "action": "part",
+  "object_id": "kitchen-base-end"
+ },
+ "c147": {
+  "action": "duplicate",
+  "object_id": "string-lights-wall"
+ },
+ "c149": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c150": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c154": {
+  "action": "duplicate",
+  "object_id": "light-switch-hall"
+ },
+ "c155": {
+  "action": "built",
+  "object_id": "ceiling-light-hall"
+ },
+ "c156": {
+  "action": "built",
+  "object_id": "string-lights-tree"
+ },
+ "c158": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c163": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c164": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c167": {
+  "action": "part",
+  "object_id": "door-hall"
+ },
+ "c169": {
+  "action": "built",
+  "object_id": "plate-03"
+ },
+ "c170": {
+  "action": "part",
+  "object_id": "mirror-01"
+ },
+ "c177": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c178": {
+  "action": "part",
+  "object_id": "mirror-01"
+ },
+ "c180": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c182": {
+  "action": "built",
+  "object_id": "plate-04"
+ },
+ "c187": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c188": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c192": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c195": {
+  "action": "built",
+  "object_id": "light-switch-01"
+ },
+ "c196": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c197": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c200": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c203": {
+  "action": "part",
+  "object_id": "loveseat-01"
+ },
+ "c204": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c205": {
+  "action": "duplicate",
+  "object_id": "light-switch-02"
+ },
+ "c206": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c210": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c217": {
+  "action": "part",
+  "object_id": "rug-main"
+ },
+ "c219": {
+  "action": "part",
+  "object_id": "tv-01"
+ },
+ "c221": {
+  "action": "built",
+  "object_id": "telephone-01"
+ },
+ "c223": {
+  "action": "part",
+  "object_id": "tv-01"
+ },
+ "c225": {
+  "action": "duplicate",
+  "object_id": "cable-tv-yellow-01"
+ },
+ "c226": {
+  "action": "built",
+  "object_id": "door-kitchen-sliding"
+ },
+ "c227": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c228": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c233": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c236": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c241": {
+  "action": "duplicate",
+  "object_id": "light-switch-02"
+ },
+ "c242": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c243": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c249": {
+  "action": "part",
+  "object_id": "power-strip-01"
+ },
+ "c255": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c256": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c257": {
+  "action": "duplicate",
+  "object_id": "plate-01"
+ },
+ "c258": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c260": {
+  "action": "part",
+  "object_id": "door-hall"
+ },
+ "c261": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c264": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c270": {
+  "action": "part",
+  "object_id": "wall-socket-01"
+ },
+ "c273": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c275": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c279": {
+  "action": "part",
+  "object_id": "power-strip-01"
+ },
+ "c280": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c282": {
+  "action": "part",
+  "object_id": "rug-main"
+ },
+ "c286": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c288": {
+  "action": "part",
+  "object_id": "mirror-01"
+ },
+ "c292": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c293": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c295": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c296": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c297": {
+  "action": "built",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c304": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c308": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c309": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c310": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c311": {
+  "action": "part",
+  "object_id": "tv-01"
+ },
+ "c314": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c315": {
+  "action": "duplicate",
+  "object_id": "power-strip-02"
+ },
+ "c319": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c320": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c321": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c323": {
+  "action": "duplicate",
+  "object_id": "blinds-front-right"
+ },
+ "c324": {
+  "action": "duplicate",
+  "object_id": "glass-bowl-01"
+ },
+ "c326": {
+  "action": "built",
+  "object_id": "kitchen-base-right"
+ },
+ "c327": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c328": {
+  "action": "duplicate",
+  "object_id": "picture-01"
+ },
+ "c329": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c330": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c331": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c334": {
+  "action": "part",
+  "object_id": "power-strip-01"
+ },
+ "c335": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c337": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c339": {
+  "action": "duplicate",
+  "object_id": "cushion-sofa-02"
+ },
+ "c340": {
+  "action": "built",
+  "object_id": "plate-05"
+ },
+ "c343": {
+  "action": "built",
+  "object_id": "clock-01"
+ },
+ "c344": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c345": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c346": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c349": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c350": {
+  "action": "part",
+  "object_id": "cable-sofa-01"
+ },
+ "c354": {
+  "action": "duplicate",
+  "object_id": "rug-hall"
+ },
+ "c356": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c357": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c362": {
+  "action": "built",
+  "object_id": "chandelier-02"
+ },
+ "c366": {
+  "action": "duplicate",
+  "object_id": "plate-05"
+ },
+ "c369": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c370": {
+  "action": "part",
+  "object_id": "power-strip-01"
+ },
+ "c371": {
+  "action": "part",
+  "object_id": "power-strip-01"
+ },
+ "c372": {
+  "action": "part",
+  "object_id": "kitchen-base-right"
+ },
+ "c377": {
+  "action": "duplicate",
+  "object_id": "cushion-sofa-02"
+ },
+ "c380": {
+  "action": "duplicate",
+  "object_id": "wall-socket-01"
+ },
+ "c385": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c387": {
+  "action": "part",
+  "object_id": "kitchen-base-right"
+ },
+ "c388": {
+  "action": "part",
+  "object_id": "door-hall"
+ },
+ "c389": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c390": {
+  "action": "part",
+  "object_id": "power-strip-01"
+ },
+ "c391": {
+  "action": "built",
+  "object_id": "kitchen-base-left"
+ },
+ "c392": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c394": {
+  "action": "duplicate",
+  "object_id": "plate-01"
+ },
+ "c399": {
+  "action": "part",
+  "object_id": "oven-01"
+ },
+ "c400": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c405": {
+  "action": "built",
+  "object_id": "door-hall-far"
+ },
+ "c407": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c408": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c409": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c413": {
+  "action": "built",
+  "object_id": "oven-01"
+ },
+ "c414": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c415": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c417": {
+  "action": "duplicate",
+  "object_id": "glass-bowl-01"
+ },
+ "c419": {
+  "action": "built",
+  "object_id": "light-switch-02"
+ },
+ "c420": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c424": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c425": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c426": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c431": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c441": {
+  "action": "part",
+  "object_id": "power-strip-01"
+ },
+ "c446": {
+  "action": "duplicate",
+  "object_id": "light-switch-02"
+ },
+ "c447": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c449": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c452": {
+  "action": "duplicate",
+  "object_id": "power-strip-01"
+ },
+ "c454": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c457": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c458": {
+  "action": "part",
+  "object_id": "power-strip-01"
+ },
+ "c462": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ },
+ "c463": {
+  "action": "skipped",
+  "reason": "Blue shoe cover on the camera operator's foot (person), not a room object; people are out of scope"
+ },
+ "c464": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c467": {
+  "action": "part",
+  "object_id": "wall-socket-01"
+ },
+ "c469": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c474": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c478": {
+  "action": "part",
+  "object_id": "cable-bundle-tv-01"
+ },
+ "c481": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c485": {
+  "action": "part",
+  "object_id": "string-lights-tree"
+ },
+ "c487": {
+  "action": "part",
+  "object_id": "string-lights-wall"
+ },
+ "c489": {
+  "action": "part",
+  "object_id": "chandelier-01"
+ }
+}
