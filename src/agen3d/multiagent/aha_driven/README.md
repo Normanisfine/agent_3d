@@ -2,6 +2,8 @@
 
 Start a session with the [room reconstruction guide](../README.md). The supervising agent chooses each task and when to commit it. Each command reopens the saved session.
 
+For long commands such as `build`, `wave`, and `review`, set `yield_time_ms` to `30000` in `exec_command`. If it returns a running session, wait on that session directly with empty `write_stdin` calls and `yield_time_ms` set to `60000`. Skip the sleep between calls.
+
 ## Build an object
 
 Use a source image ID from `session.json` and an object ID chosen for this room. For example, a task for a visible desk could be:
