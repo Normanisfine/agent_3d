@@ -1,0 +1,218 @@
+{
+ "b000": {
+  "action": "skipped",
+  "reason": "Not a real object: 'fireplace' box covers the right edge of the TV and the edge of the open hall door (no fireplace in the room); both are built as tv and door_hall_leaf."
+ },
+ "b001": {
+  "action": "built",
+  "object_id": "hall_rug"
+ },
+ "b002": {
+  "action": "built",
+  "object_id": "door_hall_transom"
+ },
+ "b003": {
+  "action": "built",
+  "object_id": "hall_mirror"
+ },
+ "b004": {
+  "action": "built",
+  "object_id": "hall_cabinet"
+ },
+ "b005": {
+  "action": "built",
+  "object_id": "tv"
+ },
+ "b006": {
+  "action": "built",
+  "object_id": "router"
+ },
+ "b007": {
+  "action": "built",
+  "object_id": "side_table_red"
+ },
+ "b008": {
+  "action": "skipped",
+  "reason": "Part of a structure already built: 'sink' is the TV's pedestal stand, modeled as tv_neck/tv_base inside the tv root."
+ },
+ "b009": {
+  "action": "built",
+  "object_id": "tv_cabinet"
+ },
+ "b010": {
+  "action": "built",
+  "object_id": "carriage_clock"
+ },
+ "b011": {
+  "action": "built",
+  "object_id": "table_lamp"
+ },
+ "b012": {
+  "action": "built",
+  "object_id": "cordless_phone"
+ },
+ "b013": {
+  "action": "skipped",
+  "reason": "Not a real object: 'table' box lies behind the TV wall (y=2.49) and its crop shows only the TV's top edge against the wall."
+ },
+ "b014": {
+  "action": "skipped",
+  "reason": "Duplicate of b012: same cordless phone handset/base on the TV cabinet (built as cordless_phone)."
+ },
+ "b015": {
+  "action": "built",
+  "object_id": "pillow_loveseat_south"
+ },
+ "b016": {
+  "action": "built",
+  "object_id": "pillow_loveseat_north"
+ },
+ "b017": {
+  "action": "built",
+  "object_id": "loveseat"
+ },
+ "b018": {
+  "action": "skipped",
+  "reason": "Duplicate of b037: the living room has a single large rug (~3.2 x 2.2 m, fringed east/west ends); built once as rug_living."
+ },
+ "b019": {
+  "action": "built",
+  "object_id": "fridge_freezer"
+ },
+ "b020": {
+  "action": "built",
+  "object_id": "kitchen_base_cabinets"
+ },
+ "b021": {
+  "action": "skipped",
+  "reason": "Duplicate/misplaced detection: crop shows the lamp shade of b011 (table_lamp), not a kitchen cabinet; kitchen base units are built from b020."
+ },
+ "b022": {
+  "action": "skipped",
+  "reason": "Duplicate/misplaced detection: crop shows the red side table with lamp (b007/b011), projected behind the wall; already built as side_table_red."
+ },
+ "b023": {
+  "action": "built",
+  "object_id": "kitchen_rug"
+ },
+ "b024": {
+  "action": "skipped",
+  "reason": "Part of an object already built: crop shows the loveseat's arm/back cushion, modeled in the loveseat root."
+ },
+ "b025": {
+  "action": "built",
+  "object_id": "side_table_black"
+ },
+ "b026": {
+  "action": "built",
+  "object_id": "fairy_lights"
+ },
+ "b027": {
+  "action": "built",
+  "object_id": "ottoman"
+ },
+ "b028": {
+  "action": "skipped",
+  "reason": "Duplicate of b037: same single living-room rug (built as rug_living)."
+ },
+ "b029": {
+  "action": "built",
+  "object_id": "picture_framed"
+ },
+ "b030": {
+  "action": "built",
+  "object_id": "pillow_sofa_north"
+ },
+ "b031": {
+  "action": "built",
+  "object_id": "pillow_sofa_south"
+ },
+ "b032": {
+  "action": "built",
+  "object_id": "sofa_3seat"
+ },
+ "b033": {
+  "action": "built",
+  "object_id": "glass_bowl"
+ },
+ "b034": {
+  "action": "built",
+  "object_id": "plate_stack"
+ },
+ "b035": {
+  "action": "built",
+  "object_id": "coffee_table"
+ },
+ "b036": {
+  "action": "built",
+  "object_id": "tissue_box"
+ },
+ "b037": {
+  "action": "built",
+  "object_id": "rug_living"
+ },
+ "b038": {
+  "action": "skipped",
+  "reason": "Duplicate of b031: same south mauve cushion on the three-seat sofa (built as pillow_sofa_south)."
+ },
+ "b039": {
+  "action": "skipped",
+  "reason": "Duplicate of b030: same north mauve cushion on the three-seat sofa (built as pillow_sofa_north)."
+ },
+ "b040": {
+  "action": "built",
+  "object_id": "bowl_snacks"
+ },
+ "b041": {
+  "action": "skipped",
+  "reason": "Duplicate of b034: the top plate of the same plate stack (built as plate_stack)."
+ },
+ "b042": {
+  "action": "built",
+  "object_id": "flyer_on_rug"
+ },
+ "b043": {
+  "action": "skipped",
+  "reason": "Part of an object already built: crop shows the front base of the three-seat sofa, modeled in sofa_3seat."
+ },
+ "b044": {
+  "action": "skipped",
+  "reason": "Part of an object already built: crop shows the three-seat sofa's front/seat edge, modeled in sofa_3seat."
+ },
+ "b045": {
+  "action": "skipped",
+  "reason": "Not a real object: 'picture frame' crop shows a coffee-table leg and lower shelf on the rug; covered by coffee_table."
+ },
+ "b046": {
+  "action": "skipped",
+  "reason": "Duplicate of b001: same hallway rug region (built as hall_rug)."
+ },
+ "b047": {
+  "action": "built",
+  "object_id": "mirror_east"
+ },
+ "b048": {
+  "action": "skipped",
+  "reason": "Duplicate of b047: same gilded mirror above the sofa (built as mirror_east)."
+ },
+ "b049": {
+  "action": "skipped",
+  "reason": "Duplicate: 'table' box is the bowl/plate group on the coffee-table top (built as glass_bowl, bowl_snacks, plate_stack)."
+ },
+ "b050": {
+  "action": "built",
+  "object_id": "chandelier_east"
+ },
+ "b051": {
+  "action": "built",
+  "object_id": "chandelier_west"
+ },
+ "b052": {
+  "action": "skipped",
+  "reason": "Duplicate of b029: same ornate framed picture on the south wall (built as picture_framed)."
+ },
+ "b053": {
+  "action": "skipped",
+  "reason": "Duplicate of b042: same printed flyer lying on the rug (built as flyer_on_rug)."
+ }
+}

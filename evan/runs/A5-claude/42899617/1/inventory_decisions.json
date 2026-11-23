@@ -1,0 +1,423 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "toilet"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "sink"
+ },
+ "c002": {
+  "action": "built",
+  "object_id": "toilet-cistern"
+ },
+ "c003": {
+  "action": "built",
+  "object_id": "bathtub"
+ },
+ "c004": {
+  "action": "duplicate",
+  "object_id": "toilet"
+ },
+ "c005": {
+  "action": "built",
+  "object_id": "bath-mat-towel"
+ },
+ "c007": {
+  "action": "duplicate",
+  "object_id": "bathtub"
+ },
+ "c008": {
+  "action": "skipped",
+  "reason": "Curtain in the hallway/adjacent room seen through the open doorway; outside the reconstructed bathroom envelope (wall-west at x=1.13)."
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "ceiling-light-main"
+ },
+ "c012": {
+  "action": "skipped",
+  "reason": "Curtain in the hallway/adjacent room seen through the open doorway; outside the reconstructed bathroom envelope (wall-west at x=1.13)."
+ },
+ "c013": {
+  "action": "built",
+  "object_id": "painting"
+ },
+ "c014": {
+  "action": "built",
+  "object_id": "sink-tap-left"
+ },
+ "c015": {
+  "action": "duplicate",
+  "object_id": "mirror-bath"
+ },
+ "c016": {
+  "action": "built",
+  "object_id": "toilet-paper-roll"
+ },
+ "c017": {
+  "action": "skipped",
+  "reason": "Curtain in the hallway/adjacent room seen through the open doorway; outside the reconstructed bathroom envelope (wall-west at x=1.13)."
+ },
+ "c018": {
+  "action": "duplicate",
+  "object_id": "sink-tap-left"
+ },
+ "c019": {
+  "action": "built",
+  "object_id": "sink-tap-right"
+ },
+ "c021": {
+  "action": "part",
+  "object_id": "sink"
+ },
+ "c022": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c023": {
+  "action": "part",
+  "object_id": "bathtub",
+  "note": "Bath drain."
+ },
+ "c024": {
+  "action": "duplicate",
+  "object_id": "sink-tap-right"
+ },
+ "c026": {
+  "action": "built",
+  "object_id": "trash-can"
+ },
+ "c027": {
+  "action": "duplicate",
+  "object_id": "mirror-sink",
+  "note": "Mirror content (reflection of the bath-side wall) inside the sink mirror."
+ },
+ "c029": {
+  "action": "duplicate",
+  "object_id": "toilet-paper-roll"
+ },
+ "c030": {
+  "action": "duplicate",
+  "object_id": "mirror-sink"
+ },
+ "c031": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c032": {
+  "action": "duplicate",
+  "object_id": "sink"
+ },
+ "c034": {
+  "action": "duplicate",
+  "object_id": "trash-can"
+ },
+ "c035": {
+  "action": "duplicate",
+  "object_id": "trash-can"
+ },
+ "c036": {
+  "action": "duplicate",
+  "object_id": "mirror-bath"
+ },
+ "c037": {
+  "action": "skipped",
+  "reason": "Curtain in the hallway/adjacent room seen through the open doorway; outside the reconstructed bathroom envelope (wall-west at x=1.13)."
+ },
+ "c039": {
+  "action": "built",
+  "object_id": "poster"
+ },
+ "c040": {
+  "action": "duplicate",
+  "object_id": "toilet-paper-roll"
+ },
+ "c041": {
+  "action": "built",
+  "object_id": "sink-waste-trap"
+ },
+ "c042": {
+  "action": "duplicate",
+  "object_id": "toilet-paper-roll"
+ },
+ "c043": {
+  "action": "duplicate",
+  "object_id": "sink-tap-left"
+ },
+ "c045": {
+  "action": "duplicate",
+  "object_id": "bathtub"
+ },
+ "c047": {
+  "action": "built",
+  "object_id": "light-bar-sink"
+ },
+ "c048": {
+  "action": "duplicate",
+  "object_id": "door",
+  "note": "Door lever reflected in the sink mirror (detection behind wall plane y=0.89)."
+ },
+ "c049": {
+  "action": "duplicate",
+  "object_id": "sink-waste-trap"
+ },
+ "c050": {
+  "action": "duplicate",
+  "object_id": "bath-mat-towel"
+ },
+ "c051": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c052": {
+  "action": "duplicate",
+  "object_id": "light-bar-sink",
+  "note": "Reflection of the sink light bar in the bath-side mirror (frames 371/380), not a second light."
+ },
+ "c053": {
+  "action": "duplicate",
+  "object_id": "sink-tap-right"
+ },
+ "c055": {
+  "action": "skipped",
+  "reason": "Not a room object: the dark 'phone' is the camera operator's tablet reflected in the sink mirror (frame 519; detection at y=0.97 behind the mirror plane)."
+ },
+ "c056": {
+  "action": "built",
+  "object_id": "mirror-sink"
+ },
+ "c057": {
+  "action": "duplicate",
+  "object_id": "door",
+  "note": "Door lever reflected in the sink mirror."
+ },
+ "c059": {
+  "action": "part",
+  "object_id": "sink"
+ },
+ "c060": {
+  "action": "duplicate",
+  "object_id": "poster"
+ },
+ "c061": {
+  "action": "skipped",
+  "reason": "Curtain rail/pipe above the hallway curtain beyond the doorway (x=0.94 < bathroom wall x=1.13); outside the reconstructed room."
+ },
+ "c062": {
+  "action": "part",
+  "object_id": "bathtub",
+  "note": "Bath front panel."
+ },
+ "c063": {
+  "action": "duplicate",
+  "object_id": "toilet",
+  "note": "Toilet reflected in the sink mirror."
+ },
+ "c064": {
+  "action": "duplicate",
+  "object_id": "poster",
+  "note": "Poster reflected in the sink mirror."
+ },
+ "c065": {
+  "action": "duplicate",
+  "object_id": "poster"
+ },
+ "c067": {
+  "action": "duplicate",
+  "object_id": "light-bar-sink",
+  "note": "Reflection of the sink light bar in the bath-side mirror, not a second light."
+ },
+ "c068": {
+  "action": "duplicate",
+  "object_id": "mirror-bath"
+ },
+ "c069": {
+  "action": "built",
+  "object_id": "towel-radiator"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "ceiling-light-alcove"
+ },
+ "c072": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c073": {
+  "action": "built",
+  "object_id": "bath-mixer-tap"
+ },
+ "c075": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c076": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c077": {
+  "action": "duplicate",
+  "object_id": "poster",
+  "note": "Poster reflected in the sink mirror."
+ },
+ "c079": {
+  "action": "duplicate",
+  "object_id": "toilet",
+  "note": "Toilet reflected in the sink mirror."
+ },
+ "c083": {
+  "action": "part",
+  "object_id": "door",
+  "note": "Door lever on the open door leaf."
+ },
+ "c086": {
+  "action": "duplicate",
+  "object_id": "sink-tap-left"
+ },
+ "c088": {
+  "action": "duplicate",
+  "object_id": "light-bar-sink"
+ },
+ "c091": {
+  "action": "built",
+  "object_id": "mirror-bath"
+ },
+ "c092": {
+  "action": "duplicate",
+  "object_id": "poster",
+  "note": "Poster reflected in the sink mirror."
+ },
+ "c093": {
+  "action": "duplicate",
+  "object_id": "bathtub"
+ },
+ "c097": {
+  "action": "part",
+  "object_id": "toilet-cistern",
+  "note": "Flush pipe under the cistern."
+ },
+ "c098": {
+  "action": "part",
+  "object_id": "door",
+  "note": "Door lever/latch on the door leaf."
+ },
+ "c100": {
+  "action": "duplicate",
+  "object_id": "sink-tap-left"
+ },
+ "c101": {
+  "action": "built",
+  "object_id": "toilet-paper-holder"
+ },
+ "c104": {
+  "action": "duplicate",
+  "object_id": "towel-radiator"
+ },
+ "c108": {
+  "action": "duplicate",
+  "object_id": "bath-mixer-tap"
+ },
+ "c111": {
+  "action": "built",
+  "object_id": "bath-shower-handset"
+ },
+ "c113": {
+  "action": "part",
+  "object_id": "sink-bracket-pipe"
+ },
+ "c115": {
+  "action": "built",
+  "object_id": "sink-plug"
+ },
+ "c116": {
+  "action": "duplicate",
+  "object_id": "toilet-paper-holder"
+ },
+ "c123": {
+  "action": "part",
+  "object_id": "toilet-cistern",
+  "note": "Small white detection at the cistern's side (frame 204); cistern/flush-pipe part, not a separate roll."
+ },
+ "c124": {
+  "action": "part",
+  "object_id": "bathtub",
+  "note": "Bath drain/overflow."
+ },
+ "c128": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c130": {
+  "action": "part",
+  "object_id": "door",
+  "note": "Door lever on the door leaf."
+ },
+ "c131": {
+  "action": "duplicate",
+  "object_id": "toilet-paper-holder"
+ },
+ "c134": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c136": {
+  "action": "duplicate",
+  "object_id": "bath-shower-handset"
+ },
+ "c139": {
+  "action": "duplicate",
+  "object_id": "toilet-paper-holder"
+ },
+ "c141": {
+  "action": "duplicate",
+  "object_id": "painting"
+ },
+ "c142": {
+  "action": "part",
+  "object_id": "sink-bracket-pipe"
+ },
+ "c147": {
+  "action": "duplicate",
+  "object_id": "door",
+  "note": "Door lever reflected in the sink mirror."
+ },
+ "c151": {
+  "action": "built",
+  "object_id": "sink-bracket-pipe"
+ },
+ "c153": {
+  "action": "part",
+  "object_id": "trash-can",
+  "note": "Bin liner inside the pedal bin."
+ },
+ "c155": {
+  "action": "part",
+  "object_id": "sink",
+  "note": "Small chrome detail on the sink tap deck (part of sink fittings)."
+ },
+ "c158": {
+  "action": "duplicate",
+  "object_id": "bath-mixer-tap"
+ },
+ "c159": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c160": {
+  "action": "duplicate",
+  "object_id": "bath-mixer-tap"
+ },
+ "c162": {
+  "action": "duplicate",
+  "object_id": "sink-plug"
+ },
+ "c164": {
+  "action": "duplicate",
+  "object_id": "bath-shower-handset"
+ },
+ "c165": {
+  "action": "duplicate",
+  "object_id": "painting"
+ }
+}

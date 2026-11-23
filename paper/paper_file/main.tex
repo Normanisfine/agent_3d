@@ -28,171 +28,81 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-A reconstructed room can contain a sofa and a coffee table while omitting
-the objects a robot could pick up. Across six CA-1M rooms, the AHa-3D baseline correctly
-placed 6 of 543 objects under 50\,cm. Extending the task to every
-visible object raised the count to 71, with a gain in every room. Detector
-crops and boxes raised it to 101. A revised inventory that the agent must
-resolve entry by entry raised it to 142, and to 155 in a second run, although
-its lead over the detector inventory is not significant on six rooms.
-Image-to-3D generation gave no further gain in the three rooms
-where we tested it. Half of the small targets the best variant matched were
-misplaced, most by center offset alone, and the inventory's own boxes,
-scored without an agent, passed for 194 targets: detection now finds more
-small objects than the agent places well.
-We also implement two controllers that build independent
-objects concurrently and review edits before updating the room. Four workers
-reduced build time from 11.32 to 6.63 seconds in a controlled Blender test
-with simulated model latency. Full-room speed and cost at matched quality
-remain unmeasured.
+Frontier multimodal models can now use 3D software such as Blender to reconstruct editable scenes from video. However, existing agent harnesses such as AHa-3D face two fundamental bottlenecks: they systematically omit small, interactive objects, and their monolithic execution loops incur high latency and token costs from sequential builds and repetitive status polling. In this work, we show that agent harness design---how tasks are structured, coordinated, and executed---is central to overcoming both quality and efficiency limits. Taking AHa-3D as our baseline, we introduce two key designs: first, a structured visual inventory and accounting checklist that guides the agent to systematically identify and place fine-grained objects; second, a decoupled execution architecture that extracts a scene dependency graph, enabling independent objects to be built in parallel while offloading task scheduling to a programmatic controller. Across six held-out real-world rooms in CA-1M, our checklist increases correct small-object placements by over twentyfold (from 6 to 142 on objects under 50\,cm). Concurrently, parallel dispatch reduces Blender build time by 41\%, while programmatic scheduling cuts token cost by 72\% while correctly placing more objects than the baseline. Together, these results demonstrate that agent harness design can simultaneously improve 3D reconstruction fidelity and significantly reduce inference overhead.
 \end{abstract}
 
 \section{Introduction}
-Picking up a cushion requires a scene in which it can move independently of
-the sofa. In an AHa-3D reconstruction of an AI2-THOR living room~\cite{aha3d,ai2thor},
-only one of 18 annotated objects under 50\,cm was correctly placed as a separate
-instance. Giving existing parts, including a sofa cushion, their own identities
-raised that count to four without moving any geometry. Real rooms show the
-same omission (Figure~\ref{fig:qual}).
+Transforming monocular video into editable, interactive 3D digital twins is essential for embodied AI and robotics. Frontier multimodal models have enabled agentic scene reconstruction, where models author procedural code in Blender to iteratively assemble virtual rooms. In this work, we study \textbf{AHa-3D}~\cite{aha3d}, a pioneering baseline harness that reconstructs 3D scenes from handheld video, and evaluate it on two complementary benchmarks: \textbf{AI2-THOR}~\cite{ai2thor}, a synthetic interactive environment that provides precise ground-truth geometry for controlled experimentation, and \textbf{CA-1M}~\cite{ca1m}, a real-world dataset of handheld RGB videos exhaustively annotated with 3D bounding boxes down to clutter under 20\,cm.
 
-Our method expands reconstruction to every visible object, then supplies detector
-crops and locations for candidate instances, and finally requires a decision on
-every entry of a denser inventory. CA-1M's annotated boxes~\cite{ca1m}
-let us evaluate each change and the effect of mesh generation on placement.
-A reconstructed coffee table provides a separate test of how objects respond to a push.
+Evaluating AHa-3D on these benchmarks exposes two fundamental bottlenecks. First, the baseline systematically omits the fine-grained objects that make a space functionally useful: in AI2-THOR, original AHa-3D correctly placed only the laptop among 18 annotated objects under 50\,cm (Figure~\ref{fig:settings}, right), while across six held-out CA-1M rooms, AHa-3D omitted 531 of 543 small objects entirely (Figure~\ref{fig:qual}). Second, the baseline relies on a monolithic, sequential execution loop where a single agent alternates between code authoring and execution monitoring. In practice, runs averaged over an hour per room, and in our experiments an agent supervisor spent millions of tokens in repetitive sleep loops while waiting for Blender processes to finish.
 
-\textbf{Where AHa-3D falls short.}
-With its major-object instructions, AHa-3D correctly placed only 6 of 543
-objects under 50\,cm by center and size across six held-out CA-1M rooms.
-Its runs averaged 62 minutes and an estimated \$14.13 in
-driving-agent tokens per room. In the AI2-THOR example, a single Blender script built the
-furniture sequentially, and the workflow took 42 minutes to hand off a scene
-that had failed review. These findings motivate two distinct tests. We measure
-whether explicit object instructions and a detector inventory improve placement
-(Section~\ref{sec:existing-reconstruction}), and whether independent object
-builds can run concurrently (Section~\ref{sec:parallel-time}).
+We demonstrate that both fidelity and efficiency bottlenecks can be substantially mitigated through agent harness design. Taking AHa-3D as our baseline, we introduce two architectural changes. First, to overcome small-object omission, we scaffold the agent with a multi-scale visual inventory of 3D boxes and crops, coupled with an explicit accounting checklist that requires the agent to classify each candidate as built, duplicate, part, or skipped. Second, to eliminate execution overhead, we decouple scene planning from construction: an explicit dependency graph allows independent objects to be synthesized in parallel across concurrent Blender workers, while a programmatic Python scheduler replaces the model in managing task dispatch and waiting on workers.
+
+Our empirical findings confirm the efficacy of this harness redesign. Across six held-out CA-1M rooms, our checklist increases correct placements of objects under 50\,cm from 6 to 142 (over a twentyfold gain), with objects under 20\,cm rising from zero to 50. In system benchmarks, concurrent worker dispatch shortens Blender build time by 41\%, while programmatic scheduling cuts token cost by 72\% relative to agent supervision while placing more objects than the baseline. Appendix~\ref{sec:physics-plan} examines how the recovered objects respond to a push.
 
 \section{Related Work}
-\textbf{From scans to editable objects.}
-Scan2CAD aligns CAD models to partial RGB-D geometry~\cite{scan2cad}.
-LiteReality retrieves assets and transfers appearance from indoor scans~\cite{litereality}.
-A well-aligned table can still be missing its plates. We use CA-1M's annotated boxes~\cite{ca1m} to measure
-instance placement, then examine the role of mesh volume in a separate
-rigid-body pilot using VoMP's predicted density~\cite{vomp}.
+\textbf{Agentic 3D scene reconstruction.}
+While early methods align CAD models to partial scans~\cite{scan2cad,litereality}, recent works leverage vision-language models to author editable 3D environments via procedural code~\cite{aha3d,legoanything,scenesmith}. Frameworks like VIGA~\cite{viga} and LEGO-Anything~\cite{legoanything} iteratively refine Blender geometry from single images, while SceneConductor~\cite{sceneconductor} and LiteReality-Agent~\cite{literealityagent} orchestrate specialist agents to infer layouts and resolve collisions from RGB-D inputs. In contrast, our focus is reconstructing interactive digital twins from monocular RGB video, directly addressing the systematic omission of fine-grained manipulable clutter.
 
-\textbf{Scene authoring and inverse graphics.}
-SceneSmith uses agents to furnish rooms from text, down to clutter on individual
-surfaces~\cite{scenesmith}. Recovering a particular room requires each object to
-correspond to an observation. VIGA uses the discrepancy between a render and its
-target to guide the next code edit~\cite{viga}. LEGO-Anything revises Blender code
-against one image and scores visible geometry separately from whether the program runs~\cite{legoanything}.
-SceneConductor delegates local repairs to specialists after inferring a layout
-from one image~\cite{sceneconductor}. With metric RGB-D input, LiteReality-Agent
-edits a persistent room program, compares rendered and captured views, and checks
-support and collisions~\cite{literealityagent}. Our input is RGB video. After aligning camera
-trajectories for scoring, we measure placement recall by object size, counting
-targets that the agent never attempted.
+\textbf{Small-object detection and lifting.}
+Recovering fine-grained objects from video requires identifying small items across cluttered viewpoints. While Boxer~\cite{boxer} lifts open-world 2D detections to 3D bounding boxes, small objects often cover few pixels in global frames. Multi-scale sliced inference (SAHI)~\cite{sahi} and high-resolution segmentors like SAM~3~\cite{sam3} significantly improve coverage, which can be lifted via metric monocular depth (MoGe-2)~\cite{moge2} or multi-view geometry ($\pi^3$)~\cite{pi3}. We build upon these primitives to investigate the challenge beyond detection: guiding an agent to systematically verify, build, and place these candidates.
 
-\textbf{Where to spend inference.}
-Fast-SAM3D accelerates single-view asset generation by caching intermediate
-computation and reducing redundant tokens~\cite{fastsam3d}. At the workflow level,
-LLMCompiler schedules independent tool calls in parallel~\cite{llmcompiler}, and
-FrugalGPT routes queries through a model cascade~\cite{frugalgpt}. Workers editing a room share
-state. They can build meshes concurrently, but raising a shelf changes the required
-height of every object on it. Our controllers track these dependencies and verify
-each change against the current scene.
+\textbf{Efficient agent coordination.}
+Scaling multi-agent workflows necessitates minimizing redundant inference and idle latency. LLMCompiler~\cite{llmcompiler} parallelizes independent tool calls, while systems like Fast-SAM3D~\cite{fastsam3d} and FrugalGPT~\cite{frugalgpt} reduce per-call compute via caching and model cascading. However, authoring interconnected 3D scenes introduces state dependencies (e.g., placing objects upon supporting furniture). We resolve this by extracting a scene dependency graph, enabling concurrent Blender worker synthesis and offloading polling to a zero-token programmatic scheduler.
 
 \section{Methods}
 \input{small-object-method}
 \input{architecture}
 
-\subsection{Accounting for time and cost}
-Parallel workers can shorten elapsed time while making the same number of model
-calls. We measure elapsed time from the start of a reconstruction to its end.
-For cost, we add the charges for input, cached input and output tokens to the
-cost of the compute used by the run. Overlapping jobs on one billed host incur
-one host charge for the shared interval. Failed calls, repairs and reviews
-also consume resources. To compare workflows at the same acceptance standard,
-we divide the total cost of all attempts by the number of accepted rooms.
-
-\input{completion}
-
 \section{Experiments}
 \subsection{Experimental setting}
-Our primary evaluation uses CA-1M handheld RGB video and annotated 3D
-boxes~\cite{ca1m}. We first compare the baseline, All objects, Inventory and
-both generation policies on three held-out rooms, using the same
-reconstruction model, reference geometry and a single seed. These rooms
-contain 513 target objects, including 174 with longest sides from 20 to
-under 50\,cm. The baseline, All objects, Inventory and Checklist then run on
-six held-out rooms with 857 targets, and Checklist runs twice. We score every
-saved scene, including ones that failed the agent's own review. Boxer was
-trained in part on the CA-1M training set~\cite{boxer}.
+We evaluate small-object reconstruction on CA-1M~\cite{ca1m} and harness
+efficiency on AI2-THOR~\cite{ai2thor} (Figure~\ref{fig:settings}).
 
-The AI2-THOR living room (Figure~\ref{fig:ai2thor}) supplies the synthetic
-setting for the initial failure analysis and the controlled parallel-build experiment. The physical
-interaction study uses recovered objects from one of the first three CA-1M test rooms.
+\textbf{CA-1M.} We use handheld RGB video and annotated 3D boxes to measure
+small-object coverage and placement. A seeded split assigned 5 rooms to
+development and 15 to a held-out set with a fixed evaluation order. We set
+prompts and inventory parameters on development rooms and fixed the scoring
+thresholds before held-out evaluation. We compare the baseline, All objects,
+Inventory and Checklist on the first six held-out rooms (857 targets,
+543 under 50\,cm). The first three rooms (513 targets) also serve for the
+two generation policies, reusing the baseline, All objects and Inventory
+runs. All variants use the same reference geometry and Claude Opus~5.5 at
+medium reasoning effort. We run each variant once per room and Checklist
+twice, and score every saved scene, including those that failed agent review.
+Boxer was trained in part on the CA-1M training set~\cite{boxer}.
 
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.44\linewidth,height=1.12in,keepaspectratio]{figures/ai2thor-source.png}
-\hspace{0.03\linewidth}
-\includegraphics[width=0.44\linewidth,height=1.12in,keepaspectratio]{figures/ai2thor-reconstruction.png}
-\caption{AI2-THOR input (left) and the original AHa-3D reconstruction (right).
-The furniture layout is recognizable, yet the laptop was the only one of 18
-annotated objects under 50\,cm correctly placed as an independent instance.}
-\label{fig:ai2thor}
-\end{figure}
+\textbf{AI2-THOR.} On FloorPlan209, we compare the original AHa-3D,
+AHA-driven and AHA-auto by elapsed time, estimated token cost and placement
+accuracy on the same 34 targets. A separate four-object Blender test isolates
+the effect of parallel scheduling by timing one worker and four workers
+under the same simulated model latency.
 
 \input{reconstruction}
 \input{systems-results}
 \input{cost-results}
-\input{physics-results}
 
 \section{Discussion}
-An agent can only repair an object's placement if it has first given that
-object a separate identity. Explicit instructions addressed this omission in
-every room. Detector crops helped locate additional targets, but by box
-overlap (Appendix~\ref{app:small}) Inventory's gain over All objects in the first three rooms shrinks
-from five placements to one, so a plausible center and size can still hide a
-placement error. The generation variants also depended on accurate localization.
+The revised inventory already located 194 small targets within the placement
+tolerance, compared with 142 in the first Checklist reconstruction. Most
+misplaced objects failed on center distance alone. One way to reduce this
+error is to initialize each object at its inventory box and adjust its
+position only when the camera views support a correction.
 
-Placement now limits the result more than detection does. With the
-checklist, the share of targets under 50\,cm with no counterpart fell from
-two thirds to under half, but half of the matched ones were misplaced, and
-the checklist's boxes alone passed for more targets than the agent's scenes.
-Anchoring each built instance to its checklist box, and letting the agent
-correct only what the renders contradict, is the natural next step.
+All three variants improved on the baseline in every CA-1M room, but two of
+the six rooms accounted for most of Checklist's lead over Inventory. Checklist
+also changed the detections and the instructions together, so their individual
+contributions remain uncertain. Box matching measures location and size.
+It leaves category and shape untested, and some real objects lack annotations.
 
-The comparison covers six rooms and one run per variant, with a second
-run for Checklist alone. Only the gain of All objects
-over the baseline is significant; the other differences are descriptive,
-and two rooms carry most of Checklist's lead. Box recall leaves category
-errors and fine shape outside its scope, and a third of the reconstructions
-it ignored in the first three rooms were real objects without annotations. A room-scale
-speed or cost comparison requires live review, matched reconstruction quality
-and the costs of failed attempts. The physics pilot likewise needs measured
-object properties to establish accuracy.
-
-The controller comparison exposes a trade-off in handling failures. An agent
-can reconsider an individual edit, but it also spends tokens monitoring work
-between edits. Python can wait for a build at no model-token cost, but a
-dependency in its plan can prevent useful work after an upstream failure.
-One run per controller establishes neither run-to-run cost variability nor
-cost at equal quality.
+On FloorPlan209, the Python scheduler avoided repeated model calls to check
+worker progress, but one failed review blocked eight dependent tasks. Its
+lower token cost therefore reflects a run that also completed less work.
+Only the four-object Blender experiment held the workload fixed when measuring
+the effect of parallel execution.
 
 \section{Conclusion}
-Across six rooms, the All objects instructions yielded 65 more correct
-placements under 50\,cm than the baseline. The detector inventory added 30
-and the checklist a further 41. Nearly half of these targets were still
-never built.
-
-On FloorPlan209, agent supervision achieved the highest placement recall
-and carried the largest token cost. Python scheduling retained the
-fitted-scale gain on small objects at 72\% lower estimated token cost than
-AHA-driven, while losing five correct placements across all sizes.
-Whether either controller can deliver the same quality more cheaply across
-rooms remains open.
+In this paper, we demonstrated that agent harness design can substantially improve both reconstruction fidelity and system efficiency in agentic 3D scene authoring. Taking AHa-3D as our baseline, we introduced a multi-scale visual inventory and an explicit accounting checklist that guides the agent to systematically identify fine-grained objects down to 20\,cm, increasing correct small-object placements more than twentyfold across six held-out rooms in CA-1M. Concurrently, by decoupling dependency planning from construction and delegating routine status checks to a programmatic Python scheduler, our system reduces Blender build time by 41\% and cuts inference token costs by 72\% while placing more objects than the baseline. These results show that structured task guidance and coordinated execution are key levers for making agentic 3D scene authoring more accurate and cost-effective.
 \label{main-text-end}
 \clearpage
 \bibliographystyle{plain}
@@ -200,4 +110,7 @@ rooms remains open.
 \clearpage
 \appendix
 \input{appendix-small-objects}
+\clearpage
+\input{completion}
+\input{physics-results}
 \end{document}

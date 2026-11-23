@@ -70,6 +70,18 @@ def extract_hd(video: Path, bundle_dir: Path, out_dir: Path) -> dict:
     return out
 
 
+def align_depth(moge: np.ndarray, pi3x: np.ndarray) -> tuple:
+    """清单 v2（借 SceneRig 用 MoGE 做度量摆放）：MoGe-2 在高清帧上的深度乘一个尺度，对齐到 Pi3X 上采样深度
+    （流程的房间尺度）。尺度取两边都有效的像素上 pi3x / moge 的中位数；MoGe 无效的像素记 NaN。
+    返回 (对齐后的深度 float32, 尺度)。"""
+    moge = np.asarray(moge, np.float64)
+    pi3x = np.asarray(pi3x, np.float64)
+    good = np.isfinite(moge) & (moge > 0)
+    both = good & np.isfinite(pi3x) & (pi3x > 0)
+    s = float(np.median(pi3x[both] / moge[both])) if both.any() else float("nan")
+    return np.where(good, s * moge, np.nan).astype(np.float32), s
+
+
 def depth_scale(bundle_dir: Path) -> float:
     """Pi3X 局部点的单位换到房间世界坐标的倍数（world_transform 的尺度部分；刚体时为 1）。"""
     cams = json.loads((Path(bundle_dir) / "alignment" / "cameras.json").read_text())

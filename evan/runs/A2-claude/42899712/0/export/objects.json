@@ -1,0 +1,1328 @@
+[
+ {
+  "object_id": "floor-living",
+  "category": "structure/floor",
+  "center": [
+   -1.7599999904632568,
+   3.160000205039978,
+   -0.02500000037252903
+  ],
+  "yaw": 0.0,
+  "size": [
+   5.320000171661377,
+   4.120000123977661,
+   0.05000000074505806
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "floor-kitchen",
+  "category": "structure/floor",
+  "center": [
+   2.2249999046325684,
+   4.175000190734863,
+   -0.02500000037252903
+  ],
+  "yaw": 0.0,
+  "size": [
+   2.6500000953674316,
+   2.5500001907348633,
+   0.05000000074505806
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "floor-hallway",
+  "category": "structure/floor",
+  "center": [
+   0.07499998807907104,
+   0.3149999976158142,
+   -0.02500000037252903
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.649999976158142,
+   1.3300000429153442,
+   0.05000000074505806
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "ceiling-living",
+  "category": "structure/ceiling",
+  "center": [
+   -1.7599999904632568,
+   3.160000205039978,
+   2.994999885559082
+  ],
+  "yaw": 0.0,
+  "size": [
+   5.320000171661377,
+   4.120000123977661,
+   0.05000019073486328
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "ceiling-kitchen",
+  "category": "structure/ceiling",
+  "center": [
+   2.2750001549720764,
+   4.175000190734863,
+   2.365000009536743
+  ],
+  "yaw": 0.0,
+  "size": [
+   2.5500000715255737,
+   2.5500001907348633,
+   0.05000019073486328
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "ceiling-beam",
+  "category": "structure/beam",
+  "center": [
+   -0.9549999535083771,
+   3.160000205039978,
+   2.759999990463257
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.24999994039535522,
+   4.120000123977661,
+   0.4200000762939453
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-north-living",
+  "category": "structure/wall",
+  "center": [
+   -1.8849999904632568,
+   5.28000020980835,
+   1.4850000143051147
+  ],
+  "yaw": 0.0,
+  "size": [
+   5.769999980926514,
+   0.11999988555908203,
+   2.9700000286102295
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-south-living",
+  "category": "structure/wall",
+  "center": [
+   -1.8850000500679016,
+   1.039999932050705,
+   1.4850000143051147
+  ],
+  "yaw": 0.0,
+  "size": [
+   5.769999861717224,
+   0.1199999451637268,
+   2.9700000286102295
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-west-living",
+  "category": "structure/wall",
+  "center": [
+   -4.579999923706055,
+   3.159999847412109,
+   1.4850000143051147
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   4.119999885559082,
+   0.38000011444091797,
+   2.9700000286102295
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "window-north",
+  "category": "structure/window",
+  "center": [
+   -4.569999933242798,
+   4.099999904632568,
+   1.7600000202655792
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   1.1599998474121098,
+   0.3600001335144043,
+   1.8800000548362732
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-east-partition",
+  "category": "structure/wall",
+  "center": [
+   0.949999988079071,
+   3.275000214576721,
+   1.4850000143051147
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.10000002384185791,
+   4.3500001430511475,
+   2.9700000286102295
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-kitchen-south",
+  "category": "structure/wall",
+  "center": [
+   2.3350000381469727,
+   2.8399999141693115,
+   1.1699999570846558
+  ],
+  "yaw": 0.0,
+  "size": [
+   2.6700000762939453,
+   0.11999988555908203,
+   2.3399999141693115
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-kitchen-east",
+  "category": "structure/wall",
+  "center": [
+   3.609999895095825,
+   4.175000190734863,
+   1.1699999570846558
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.11999988555908203,
+   2.5500001907348633,
+   2.3399999141693115
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-kitchen-north",
+  "category": "structure/wall",
+  "center": [
+   2.3350000381469727,
+   5.510000228881836,
+   1.1699999570846558
+  ],
+  "yaw": 0.0,
+  "size": [
+   2.6700000762939453,
+   0.11999988555908203,
+   2.3399999141693115
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "roman-blind",
+  "category": "furniture/decor/blind",
+  "center": [
+   -4.659999847412109,
+   4.100000023841858,
+   2.4800000190734863
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.039999961853027344,
+   1.0600001811981201,
+   0.3600001335144043
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "door-entry",
+  "category": "structure/door",
+  "center": [
+   -0.2859827649303715,
+   1.155146367968135,
+   1.0500000715255737
+  ],
+  "yaw": 2.829146991864352,
+  "size": [
+   1.47645955550072,
+   0.37327783755416133,
+   2.1000001430511475
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "tall-unit",
+  "category": "furniture/cabinet/tall_unit",
+  "center": [
+   1.3750000000000002,
+   5.134000062942505,
+   1.159999966621399
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.6320004463195801,
+   0.7500000000000002,
+   2.319999933242798
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-counter-south",
+  "category": "furniture/cabinet/base_run",
+  "center": [
+   2.2750000953674316,
+   3.199999928474426,
+   0.4599999785423279
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   2.5500001907348633,
+   0.6000001430511479,
+   0.9199999570846558
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "base-cabinet-south",
+  "category": "furniture/cabinet/base",
+  "center": [
+   1.5099999904632568,
+   3.1799999475479126,
+   0.49000000953674316
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.619999885559082,
+   0.5600001811981201,
+   0.7799999713897705
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "oven",
+  "category": "furniture/appliance/oven",
+  "center": [
+   2.1500000953674316,
+   3.2127307653427124,
+   0.48000000417232513
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.5999999046325684,
+   0.6254618167877197,
+   0.7600000202655792
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "hob",
+  "category": "furniture/appliance/hob",
+  "center": [
+   2.1500000953674316,
+   3.2149999141693115,
+   0.9424999952316284
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.5399999618530273,
+   0.4699997901916504,
+   0.04499995708465576
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "dishwasher",
+  "category": "furniture/appliance/dishwasher",
+  "center": [
+   2.7249999046325684,
+   3.1850000619888306,
+   0.48749999701976776
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.5500001907348633,
+   0.5699999332427979,
+   0.7750000059604645
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-counter-east",
+  "category": "furniture/cabinet/base_run",
+  "center": [
+   3.250000119209289,
+   4.175000190734863,
+   0.4599999785423279
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   1.3500003814697266,
+   0.6000001430511479,
+   0.9199999570846558
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-counter-north",
+  "category": "furniture/cabinet/base_run",
+  "center": [
+   2.3499998450279236,
+   5.150000095367432,
+   0.4599999785423279
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.1999999284744263,
+   0.6000003814697266,
+   0.9199999570846558
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "sink",
+  "category": "furniture/fixture/sink",
+  "center": [
+   3.2649999856948857,
+   3.952500104904175,
+   0.9889999628067017
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.8949999809265137,
+   0.47000002861022994,
+   0.4779999256134033
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-wall-cabinets",
+  "category": "furniture/cabinet/wall",
+  "center": [
+   1.975000023841858,
+   3.027500033378601,
+   1.7949999570846558
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.9500000476837158,
+   0.25499987602233887,
+   0.5499999523162842
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "microwave",
+  "category": "furniture/appliance/microwave",
+  "center": [
+   2.059999942779541,
+   5.142500162124634,
+   1.0499999523162842
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.3750004768371582,
+   0.4600000381469729,
+   0.25999999046325684
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "coffee-machine",
+  "category": "furniture/appliance/coffee_machine",
+  "center": [
+   2.509999990463257,
+   5.2200000286102295,
+   1.0750000178813934
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.32000017166137695,
+   0.17999982833862305,
+   0.3100000023841858
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kettle",
+  "category": "furniture/appliance/kettle",
+  "center": [
+   3.4000000953674316,
+   3.0399999618530273,
+   1.0500000417232513
+  ],
+  "yaw": -0.9163007082187047,
+  "size": [
+   0.1982888443128832,
+   0.1982888443128834,
+   0.2600000500679016
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "toaster",
+  "category": "furniture/appliance/toaster",
+  "center": [
+   3.072499990463257,
+   3.0899999141693115,
+   1.0210000276565552
+  ],
+  "yaw": 1.5707963267948966,
+  "size": [
+   0.25999975204467773,
+   0.19499969482421875,
+   0.20200014114379883
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "glass-trivet",
+  "category": "furniture/tableware/trivet",
+  "center": [
+   2.759999990463257,
+   3.119999885559082,
+   0.9319999814033508
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.17999982833862305,
+   0.15999984741210938,
+   0.024000048637390137
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "knife-block",
+  "category": "furniture/tableware/knife_block",
+  "center": [
+   1.399999976158142,
+   3.0299999713897705,
+   1.0937791466712952
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.11999988555908203,
+   0.20640230178833008,
+   0.3355797529220581
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "utensil-holder",
+  "category": "furniture/tableware/utensil_holder",
+  "center": [
+   1.2400000095367432,
+   3.0099999904632564,
+   1.0705520808696747
+  ],
+  "yaw": -1.3744493275156708,
+  "size": [
+   0.09807867141354754,
+   0.09807848408855957,
+   0.3011041283607483
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "oven-glove",
+  "category": "furniture/textile/oven_glove",
+  "center": [
+   1.6815235614776611,
+   3.418750047683716,
+   0.7142259627580643
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.22695279121398926,
+   0.23749971389770508,
+   0.44154807925224304
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "tea-towel",
+  "category": "furniture/textile/towel",
+  "center": [
+   1.4600000381469727,
+   3.3890000581741333,
+   0.824999988079071
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.20000004768371582,
+   0.2579996585845947,
+   0.21000003814697266
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "wall-clock",
+  "category": "furniture/decor/clock",
+  "center": [
+   3.5362499952316284,
+   4.050000190734863,
+   1.9500001072883606
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.027499914169311523,
+   0.3000001907348633,
+   0.30000007152557373
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-downlight-1",
+  "category": "furniture/lighting/downlight",
+  "center": [
+   1.7699999809265137,
+   3.5199999809265137,
+   2.325000047683716
+  ],
+  "yaw": -0.9817405568731963,
+  "size": [
+   0.0823858998828424,
+   0.08238596566001677,
+   0.029999732971191406
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-downlight-2",
+  "category": "furniture/lighting/downlight",
+  "center": [
+   2.7000000476837163,
+   3.5199999809265137,
+   2.325000047683716
+  ],
+  "yaw": -0.9817405568731963,
+  "size": [
+   0.08238576742316028,
+   0.08238576742316006,
+   0.029999732971191406
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-downlight-3",
+  "category": "furniture/lighting/downlight",
+  "center": [
+   1.7699999809265137,
+   4.079999923706055,
+   2.325000047683716
+  ],
+  "yaw": -0.5890638251685361,
+  "size": [
+   0.08238609765709048,
+   0.08238603188257976,
+   0.029999732971191406
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-downlight-4",
+  "category": "furniture/lighting/downlight",
+  "center": [
+   2.700000047683716,
+   4.079999923706055,
+   2.325000047683716
+  ],
+  "yaw": -0.5890678666762903,
+  "size": [
+   0.08238596564587439,
+   0.08238596564587475,
+   0.029999732971191406
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-downlight-5",
+  "category": "furniture/lighting/downlight",
+  "center": [
+   1.7699999809265137,
+   4.659999847412109,
+   2.325000047683716
+  ],
+  "yaw": -0.5890638251685361,
+  "size": [
+   0.08238609765709048,
+   0.08238603188257976,
+   0.029999732971191406
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-downlight-6",
+  "category": "furniture/lighting/downlight",
+  "center": [
+   2.700000047683716,
+   4.65999984741211,
+   2.325000047683716
+  ],
+  "yaw": -0.5890678666762903,
+  "size": [
+   0.08238596564587441,
+   0.08238596564587386,
+   0.029999732971191406
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "kitchen-ceiling-detector",
+  "category": "furniture/fixture/smoke_detector",
+  "center": [
+   1.3500000238418581,
+   4.099999904632568,
+   2.325000047683716
+  ],
+  "yaw": -1.4137179697082218,
+  "size": [
+   0.10864563580286069,
+   0.10864563580286046,
+   0.03000020980834961
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "socket-kitchen-east",
+  "category": "furniture/fixture/socket",
+  "center": [
+   3.5374999046325684,
+   3.0950000286102295,
+   1.0349999368190765
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.02500009536743164,
+   0.15000009536743164,
+   0.0899999737739563
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "socket-kitchen-north",
+  "category": "furniture/fixture/socket",
+  "center": [
+   2.755000114440918,
+   5.4375,
+   1.0349999368190765
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.15000009536743164,
+   0.024999618530273438,
+   0.0899999737739563
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "dining-table",
+  "category": "furniture/table/dining",
+  "center": [
+   -0.2099999962947274,
+   4.320000178544806,
+   0.37599999364465475
+  ],
+  "yaw": -0.5890468684113528,
+  "size": [
+   1.0477517395785618,
+   1.0477518680374325,
+   0.749999986961484
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "dining-chair-ne",
+  "category": "furniture/seating/chairs",
+  "center": [
+   0.14746419731426957,
+   4.719518988276501,
+   0.506044436711818
+  ],
+  "yaw": -2.300695522240146,
+  "size": [
+   0.5123829421958606,
+   0.39999999816351517,
+   1.0060888743028045
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "dining-chair-nw",
+  "category": "furniture/seating/chairs",
+  "center": [
+   -0.7187096605276427,
+   4.818328296752463,
+   0.506044436711818
+  ],
+  "yaw": 2.3665030888574794,
+  "size": [
+   0.5123826451853133,
+   0.3999998609615063,
+   1.0060888743028045
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "dining-chair-sw",
+  "category": "furniture/seating/chairs",
+  "center": [
+   -0.7005795721893656,
+   3.933799107423159,
+   0.506044436711818
+  ],
+  "yaw": 0.6669080488389576,
+  "size": [
+   0.5123827409612001,
+   0.4000001196832108,
+   1.0060888743028045
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "dining-chair-se",
+  "category": "furniture/seating/chairs",
+  "center": [
+   0.08361812788133821,
+   3.8376272063948287,
+   0.506044436711818
+  ],
+  "yaw": -1.0240073358164135,
+  "size": [
+   0.5123826393510091,
+   0.4000000076230581,
+   1.0060888743028045
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "speaker",
+  "category": "furniture/electronics/speaker",
+  "center": [
+   0.14000000432133675,
+   4.510000228881836,
+   0.8004999756813049
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.20000001043081284,
+   0.11999988555908203,
+   0.0989999771118164
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "trash-can",
+  "category": "furniture/fixture/trash_can",
+  "center": [
+   0.6499999612569809,
+   4.989999771118164,
+   0.3199999928474426
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.31999996304512024,
+   0.31999969482421875,
+   0.6399999856948853
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "light-switch-east",
+  "category": "furniture/fixture/switch",
+  "center": [
+   0.8924999833106995,
+   3.240000009536743,
+   1.2799999713897705
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.014999985694885254,
+   0.11999988555908203,
+   0.11999988555908203
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "picture-bw-dining",
+  "category": "furniture/decor/wall_art",
+  "center": [
+   0.06999999657273294,
+   5.209500074386597,
+   1.6050000190734863
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.021000385284423828,
+   0.31999998539686203,
+   0.49000000953674316
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "l-sofa",
+  "category": "furniture/seating/sofa",
+  "center": [
+   -2.614999949932099,
+   4.265000104904175,
+   0.44999998807907104
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   1.7699999809265137,
+   2.46999990940094,
+   0.8999999761581421
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "pillow-west",
+  "category": "furniture/textile/pillow",
+  "center": [
+   -3.440000057220459,
+   4.570000171661377,
+   0.6999999731779099
+  ],
+  "yaw": 0.610864669219739,
+  "size": [
+   0.44532473997928734,
+   0.19736982662622093,
+   0.44217875599861145
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "pillow-east",
+  "category": "furniture/textile/pillow",
+  "center": [
+   -1.7499999999999998,
+   4.46999979019165,
+   0.699999988079071
+  ],
+  "yaw": 2.617994943051329,
+  "size": [
+   0.4234340378539194,
+   0.1921929303198442,
+   0.42113327980041504
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "rug",
+  "category": "furniture/textile/rug",
+  "center": [
+   -1.7200000286102295,
+   3.240000009536743,
+   0.014999999664723873
+  ],
+  "yaw": 0.0,
+  "size": [
+   2.0,
+   1.4800000190734863,
+   0.029999999329447746
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "coffee-table",
+  "category": "furniture/table/coffee",
+  "center": [
+   -2.184999942779541,
+   3.365000009536743,
+   0.21499998774379492
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.2300000190734863,
+   0.6500000953674316,
+   0.36999997682869434
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "coaster-1",
+  "category": "furniture/tableware/coaster",
+  "center": [
+   -1.840000033378601,
+   3.3299999237060547,
+   0.4025000035762787
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.09999990463256836,
+   0.09999990463256836,
+   0.01
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "coaster-2",
+  "category": "furniture/tableware/coaster",
+  "center": [
+   -2.0299999713897705,
+   3.3299999237060547,
+   0.4025000035762787
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.09999990463256836,
+   0.09999990463256836,
+   0.01
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "canvas-london",
+  "category": "furniture/decor/wall_art",
+  "center": [
+   -1.7499999403953552,
+   5.199999809265137,
+   1.5
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.2399998903274536,
+   0.039999961853027344,
+   0.9000000953674316
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "sconce-north-west",
+  "category": "furniture/lighting/wall_sconce",
+  "center": [
+   -2.630000114440918,
+   5.164999961853027,
+   1.7300000190734863
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.1100001335144043,
+   0.1099996566772461,
+   0.2200000286102295
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "sconce-north-east",
+  "category": "furniture/lighting/wall_sconce",
+  "center": [
+   -0.949999988079071,
+   5.164999961853027,
+   1.7300000190734863
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.11000001430511475,
+   0.1099996566772461,
+   0.2200000286102295
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "sconce-south-east",
+  "category": "furniture/lighting/wall_sconce",
+  "center": [
+   -1.4199999570846558,
+   1.1549999713897705,
+   1.7300000190734863
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.1099998950958252,
+   0.1099998950958252,
+   0.2200000286102295
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "sconce-south-west",
+  "category": "furniture/lighting/wall_sconce",
+  "center": [
+   -3.119999885559082,
+   1.1549999713897705,
+   1.7300000190734863
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.1100001335144043,
+   0.1099998950958252,
+   0.2200000286102295
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "tv-stand",
+  "category": "furniture/table/tv_stand",
+  "center": [
+   -2.549999952316284,
+   1.3200000524520874,
+   0.26249998807907104
+  ],
+  "yaw": 0.0,
+  "size": [
+   1.0,
+   0.40000009536743164,
+   0.5049999952316284
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "tv",
+  "category": "furniture/electronics/tv",
+  "center": [
+   -2.549999952316284,
+   1.299999952316284,
+   0.7824999690055847
+  ],
+  "yaw": -3.141592653589793,
+  "size": [
+   0.9200000762939453,
+   0.1600000858306887,
+   0.5349999666213989
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "socket-tv",
+  "category": "furniture/fixture/socket",
+  "center": [
+   -1.909999966621399,
+   1.1124999523162842,
+   0.3149999976158142
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.1400001049041748,
+   0.02500009536743164,
+   0.09000003337860107
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "arc-floor-lamp",
+  "category": "furniture/lighting/floor_lamp",
+  "center": [
+   -3.8527445646448832,
+   1.6940786603429778,
+   0.9811674356460571
+  ],
+  "yaw": -0.06608024920755673,
+  "size": [
+   0.9309047576640097,
+   0.9893066547640191,
+   1.9623348712921143
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "armchair",
+  "category": "furniture/seating/armchair",
+  "center": [
+   -3.71750009059906,
+   1.915669977664948,
+   0.4125000238418579
+  ],
+  "yaw": 2.0943949177575183,
+  "size": [
+   0.7300002786043684,
+   0.7200001731536347,
+   0.8250000476837158
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "cupboard",
+  "category": "furniture/cabinet/cupboard",
+  "center": [
+   -4.175000071525574,
+   4.96999979019165,
+   1.024999976158142
+  ],
+  "yaw": -1.5707963267948966,
+  "size": [
+   0.5,
+   0.4900000095367436,
+   2.049999952316284
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "radiator-west-north",
+  "category": "furniture/fixture/radiator",
+  "center": [
+   -4.369999885559082,
+   4.099999904632568,
+   0.3999999910593033
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.10000038146972656,
+   0.9600000381469727,
+   0.4999999701976776
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "radiator-west-south",
+  "category": "furniture/fixture/radiator",
+  "center": [
+   -4.369999885559082,
+   2.75,
+   0.3999999910593033
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.10000038146972656,
+   0.940000057220459,
+   0.4999999701976776
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "radiator-east",
+  "category": "furniture/fixture/radiator",
+  "center": [
+   0.8500000238418579,
+   2.200000047683716,
+   0.3999999910593033
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.10000002384185791,
+   0.5999999046325684,
+   0.4999999701976776
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "side-table",
+  "category": "furniture/table/side",
+  "center": [
+   0.6200000047683716,
+   1.5499999523162842,
+   0.25999999046325684
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.48000001907348633,
+   0.440000057220459,
+   0.5199999809265137
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "smoke-detector",
+  "category": "furniture/fixture/smoke_detector",
+  "center": [
+   0.300000011920929,
+   1.809999942779541,
+   2.9549999237060547
+  ],
+  "yaw": -1.4137162591192072,
+  "size": [
+   0.10864567456256302,
+   0.10864572410912521,
+   0.03000020980834961
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ },
+ {
+  "object_id": "picture-hallway-floor",
+  "category": "furniture/decor/wall_art",
+  "center": [
+   0.11999999731779099,
+   0.27000001072883606,
+   0.010499999858438969
+  ],
+  "yaw": 0.0,
+  "size": [
+   0.20000000298023224,
+   0.25999999046325684,
+   0.020999999716877937
+  ],
+  "confidence": 1.0,
+  "source": "pred"
+ }
+]

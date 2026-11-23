@@ -116,28 +116,40 @@ class _Problem:
         return yaw, s, t
 
 
-def fit(mesh, item: dict, views: list, obs, gate: dict, dof: int = 7, support_z=None) -> dict:
-    """在 views（每个有 K、c2w、size_wh、mask）和观测点 obs 上找网格的位姿并验收，返回 PlacementResult 的几何部分。"""
+def fit(mesh, item: dict, views: list, obs, gate: dict, dof: int = 7, support_z=None, init: str = "box") -> dict:
+    """在 views（每个有 K、c2w、size_wh、mask）和观测点 obs 上找网格的位姿并验收，返回 PlacementResult 的几何部分。
+    init="box"：mesh 是规范网格（最长边 1），从清单框起步粗搜朝上轴和 yaw。
+    init="backend"：mesh 已经带着生成器自己的位姿在房间坐标里（SAM 3D；借 SceneRig，保留生成的形状和朝向），
+    只从这个位姿起步做 ICP 和小步搜索，尺度相对原样限在 0.8–1.25 倍。"""
     size = np.asarray(item["size"], float)
     s0 = float(size.max())
     obs = np.asarray(obs, float).reshape(-1, 3)
     # 只用清单框附近的观测点（掩码边缘可能混进远处背景的深度）
     near = np.linalg.norm(obs - np.asarray(item["center"], float), axis=1) <= max(0.3, 1.5 * s0)
     prob = _Problem(mesh, views, obs[near])
-    max_move = max(0.5, 2.0 * s0)  # 位置离清单框的起点最多挪这么远
-    s_bounds = (0.75 * s0, 1.25 * s0)
-    t0 = np.array([item["center"][0], item["center"][1], item["center"][2] - size[2] / 2])
-    if support_z is not None:
-        t0[2] = support_z
-    # 1) 粗搜：5 个朝上轴 × 每 10° 一个 yaw
-    starts = sorted((prob.objective(u, np.radians(a), s0, t0), u, np.radians(a)) for u in range(len(UPS)) for a in range(0, 360, 10))
+    max_move = max(0.5, 2.0 * s0)  # 位置离起点最多挪这么远
+    if init == "backend":
+        L = float(np.ptp(np.asarray(mesh.vertices), 0).max())
+        s_ref, s_bounds = 1.0, (0.8, 1.25)
+        t0 = prob.offsets[0].copy()  # 原样朝上、yaw 0、尺度 1 时，世界点 = 底面中心化的点 + 这个偏移，正好是生成器给的位置
+        if support_z is not None:
+            t0[2] = support_z
+        starts = [(None, 0, 0.0)]
+    else:
+        L = s_ref = s0
+        s_bounds = (0.75 * s0, 1.25 * s0)
+        t0 = np.array([item["center"][0], item["center"][1], item["center"][2] - size[2] / 2])
+        if support_z is not None:
+            t0[2] = support_z
+        # 1) 粗搜：5 个朝上轴 × 每 10° 一个 yaw
+        starts = sorted((prob.objective(u, np.radians(a), s0, t0), u, np.radians(a))
+                        for u in range(len(UPS)) for a in range(0, 360, 10))[:3]
     best = None
-    for _, u, yaw in starts[:3]:
+    for _, u, yaw in starts:
         # 2) ICP，3) 有界坐标搜索（x, y, [z], yaw, s），步长减半 4 次
-        yaw, s, t = prob.icp(u, yaw, s0, t0.copy(), s_bounds, support_z, t0, max_move)
+        yaw, s, t = prob.icp(u, yaw, s_ref, t0.copy(), s_bounds, support_z, t0, max_move)
         cur = prob.objective(u, yaw, s, t)
-        L = s0
-        steps = [0.1 * L, 0.1 * L, 0.05 * L, np.radians(10), 0.05 * s0]
+        steps = [0.1 * L, 0.1 * L, 0.05 * L, np.radians(10), 0.05 * s_ref]
         for _ in range(4):
             for dim, st in enumerate(steps):
                 if dim == 2 and support_z is not None:
@@ -203,8 +215,10 @@ def blender_snippet(mesh_glb: str, M) -> str:
 
 
 def place_mesh(scene_id: str, item_id: str, candidate_id: int, init: str = "obb", dof: int = 7, support_z=None,
-               inventory: str = "inventory.json", root: Path = PROJ) -> dict:
-    """读 perception/<id>/（高清帧、深度、掩码、清单）和 gen/<id>/<item>/c<k>/，调 fit()，写 placement.json。"""
+               inventory: str = "inventory.json", root: Path = PROJ, depth_name: str = "depth") -> dict:
+    """读 perception/<id>/（高清帧、深度、掩码、清单）和 gen/<id>/<item>/c<k>/，调 fit()，写 placement.json。
+    SAM 3D 的候选（gen.json 的 backend 是 "sam3d"）网格已经在房间坐标里，fit 从它自己的位姿起步（init="backend"）。
+    depth_name="depth_moge"（清单 v2）：观测点用对齐过的 MoGe-2 深度反投影。"""
     import trimesh
     from PIL import Image
 
@@ -230,7 +244,7 @@ def place_mesh(scene_id: str, item_id: str, candidate_id: int, init: str = "obb"
         f = by_frame[int(m["frame"])]
         mask = np.asarray(Image.open(mdir / m["mask"])) > 0
         views.append({"K": f["K"], "c2w": f["c2w"], "size_wh": cams["size_wh"], "mask": mask})
-        depth = np.load(P / "hd" / "depth" / f"{int(m['frame']):06d}.npy")
+        depth = np.load(P / "hd" / depth_name / f"{int(m['frame']):06d}.npy")
         obs.append(clean_inventory.points_from_mask(mask, depth, f["K"], f["c2w"]))
     obs = np.concatenate(obs) if obs else np.zeros((0, 3))
     if len(obs) > 6000:
@@ -238,7 +252,8 @@ def place_mesh(scene_id: str, item_id: str, candidate_id: int, init: str = "obb"
     gate_cfg = json.loads((root / "configs" / "gen_gate.json").read_text()) if (root / "configs" / "gen_gate.json").exists() \
         else json.loads((PROJ / "configs" / "gen_gate.json").read_text())
     mesh = trimesh.load(meta["mesh_glb"], force="mesh")
-    res = {**base, **fit(mesh, items[item_id], views, obs, gate=gate_cfg, dof=dof, support_z=support_z)}
+    res = {**base, **fit(mesh, items[item_id], views, obs, gate=gate_cfg, dof=dof, support_z=support_z,
+                         init="backend" if meta.get("backend") == "sam3d" else "box")}
     res["seconds"] = {"place": round(time.time() - t_start, 1), "gen": meta.get("seconds")}
     res["blender_snippet"] = blender_snippet(meta["mesh_glb"], res["matrix_world"])
     (cdir / "placement.json").write_text(json.dumps(res, indent=1) + "\n")

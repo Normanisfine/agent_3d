@@ -83,3 +83,14 @@ def test_agent_tool_paths_pass_gt_audit(tmp_path):
     p = tmp_path / "events.jsonl"
     p.write_text("\n".join(json.dumps(e) for e in ev) + "\n")
     assert runlog.audit_gt_access(p, str(PROJ)) == []
+
+
+def test_a5_adds_only_the_checklist_section():
+    # A5（11-20）：A1 全文 + 清单 v2 的逐项清单一节；要求每个条目各建一个独立物体，重复和部件要指向已建的物体
+    a1, a5 = prompts.template("A1").splitlines(), prompts.template("A5").splitlines()
+    assert [l for l in a5 if l in a1 or not l.strip()] and all(l in a5 for l in a1)
+    section = prompts.template("A5").split("## Object checklist")[1].split("## When you finish or stop")[0]
+    for word in ("duplicate", "part", "one instance per", "{{INVENTORY}}", "{{CROPS}}"):
+        assert word in section, word
+    prompt, request = prompts.render("A5", _vars("A5", "45261575_a5-claude_s0"))
+    assert "{{" not in prompt and "{{" not in request

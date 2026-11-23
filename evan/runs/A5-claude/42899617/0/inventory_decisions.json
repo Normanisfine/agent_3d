@@ -1,0 +1,402 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "toilet"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "washbasin"
+ },
+ "c002": {
+  "action": "built",
+  "object_id": "toilet-cistern"
+ },
+ "c003": {
+  "action": "built",
+  "object_id": "bathtub"
+ },
+ "c004": {
+  "action": "duplicate",
+  "object_id": "toilet"
+ },
+ "c005": {
+  "action": "built",
+  "object_id": "bath-mat-towel"
+ },
+ "c007": {
+  "action": "duplicate",
+  "object_id": "bathtub"
+ },
+ "c008": {
+  "action": "skipped",
+  "reason": "Outside the reconstructed bathroom: hallway curtain/rod seen through the open doorway (x<1.1, beyond the west wall)"
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "ceiling-light-main"
+ },
+ "c012": {
+  "action": "skipped",
+  "reason": "Outside the reconstructed bathroom: hallway curtain/rod seen through the open doorway (x<1.1, beyond the west wall)"
+ },
+ "c013": {
+  "action": "built",
+  "object_id": "painting"
+ },
+ "c014": {
+  "action": "built",
+  "object_id": "basin-tap-left"
+ },
+ "c015": {
+  "action": "built",
+  "object_id": "bath-mirror"
+ },
+ "c016": {
+  "action": "built",
+  "object_id": "toilet-roll"
+ },
+ "c017": {
+  "action": "skipped",
+  "reason": "Outside the reconstructed bathroom: hallway curtain/rod seen through the open doorway (x<1.1, beyond the west wall)"
+ },
+ "c018": {
+  "action": "duplicate",
+  "object_id": "basin-tap-left"
+ },
+ "c019": {
+  "action": "built",
+  "object_id": "basin-tap-right"
+ },
+ "c021": {
+  "action": "part",
+  "object_id": "washbasin"
+ },
+ "c022": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c023": {
+  "action": "part",
+  "object_id": "bathtub"
+ },
+ "c024": {
+  "action": "duplicate",
+  "object_id": "basin-tap-right"
+ },
+ "c026": {
+  "action": "built",
+  "object_id": "pedal-bin"
+ },
+ "c027": {
+  "action": "duplicate",
+  "object_id": "basin-mirror"
+ },
+ "c029": {
+  "action": "duplicate",
+  "object_id": "toilet-roll"
+ },
+ "c030": {
+  "action": "built",
+  "object_id": "basin-mirror"
+ },
+ "c031": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c032": {
+  "action": "duplicate",
+  "object_id": "washbasin"
+ },
+ "c034": {
+  "action": "duplicate",
+  "object_id": "pedal-bin"
+ },
+ "c035": {
+  "action": "duplicate",
+  "object_id": "pedal-bin"
+ },
+ "c036": {
+  "action": "duplicate",
+  "object_id": "bath-mirror"
+ },
+ "c037": {
+  "action": "skipped",
+  "reason": "Outside the reconstructed bathroom: hallway curtain/rod seen through the open doorway (x<1.1, beyond the west wall)"
+ },
+ "c039": {
+  "action": "built",
+  "object_id": "poster"
+ },
+ "c040": {
+  "action": "duplicate",
+  "object_id": "toilet-roll"
+ },
+ "c041": {
+  "action": "part",
+  "object_id": "washbasin"
+ },
+ "c042": {
+  "action": "duplicate",
+  "object_id": "toilet-roll"
+ },
+ "c043": {
+  "action": "duplicate",
+  "object_id": "basin-tap-right"
+ },
+ "c045": {
+  "action": "duplicate",
+  "object_id": "bathtub"
+ },
+ "c047": {
+  "action": "built",
+  "object_id": "basin-wall-light"
+ },
+ "c048": {
+  "action": "part",
+  "object_id": "door"
+ },
+ "c049": {
+  "action": "part",
+  "object_id": "washbasin"
+ },
+ "c050": {
+  "action": "duplicate",
+  "object_id": "bath-mat-towel"
+ },
+ "c051": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c052": {
+  "action": "duplicate",
+  "object_id": "basin-wall-light"
+ },
+ "c053": {
+  "action": "duplicate",
+  "object_id": "basin-tap-right"
+ },
+ "c055": {
+  "action": "skipped",
+  "reason": "Reflection of the camera operator's phone/tablet in the basin mirror; not a room object"
+ },
+ "c056": {
+  "action": "duplicate",
+  "object_id": "basin-mirror"
+ },
+ "c057": {
+  "action": "part",
+  "object_id": "door"
+ },
+ "c059": {
+  "action": "part",
+  "object_id": "washbasin"
+ },
+ "c060": {
+  "action": "duplicate",
+  "object_id": "poster"
+ },
+ "c061": {
+  "action": "skipped",
+  "reason": "Outside the reconstructed bathroom: hallway curtain/rod seen through the open doorway (x<1.1, beyond the west wall)"
+ },
+ "c062": {
+  "action": "duplicate",
+  "object_id": "bathtub"
+ },
+ "c063": {
+  "action": "duplicate",
+  "object_id": "toilet-cistern"
+ },
+ "c064": {
+  "action": "duplicate",
+  "object_id": "poster"
+ },
+ "c065": {
+  "action": "duplicate",
+  "object_id": "poster"
+ },
+ "c067": {
+  "action": "duplicate",
+  "object_id": "basin-wall-light"
+ },
+ "c068": {
+  "action": "duplicate",
+  "object_id": "bath-mirror"
+ },
+ "c069": {
+  "action": "built",
+  "object_id": "towel-radiator"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "ceiling-light-alcove"
+ },
+ "c072": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c073": {
+  "action": "built",
+  "object_id": "bath-mixer-tap"
+ },
+ "c075": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c076": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c077": {
+  "action": "duplicate",
+  "object_id": "poster"
+ },
+ "c079": {
+  "action": "duplicate",
+  "object_id": "toilet-cistern"
+ },
+ "c083": {
+  "action": "part",
+  "object_id": "door"
+ },
+ "c086": {
+  "action": "duplicate",
+  "object_id": "basin-tap-left"
+ },
+ "c088": {
+  "action": "duplicate",
+  "object_id": "basin-wall-light"
+ },
+ "c091": {
+  "action": "duplicate",
+  "object_id": "bath-mirror"
+ },
+ "c092": {
+  "action": "duplicate",
+  "object_id": "poster"
+ },
+ "c093": {
+  "action": "duplicate",
+  "object_id": "bathtub"
+ },
+ "c097": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c098": {
+  "action": "part",
+  "object_id": "door"
+ },
+ "c100": {
+  "action": "duplicate",
+  "object_id": "basin-tap-left"
+ },
+ "c101": {
+  "action": "built",
+  "object_id": "toilet-roll-holder"
+ },
+ "c104": {
+  "action": "duplicate",
+  "object_id": "towel-radiator"
+ },
+ "c108": {
+  "action": "duplicate",
+  "object_id": "bath-mixer-tap"
+ },
+ "c111": {
+  "action": "built",
+  "object_id": "bath-shower-handset"
+ },
+ "c113": {
+  "action": "part",
+  "object_id": "washbasin"
+ },
+ "c115": {
+  "action": "built",
+  "object_id": "basin-plug"
+ },
+ "c116": {
+  "action": "duplicate",
+  "object_id": "toilet-roll-holder"
+ },
+ "c123": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c124": {
+  "action": "part",
+  "object_id": "bathtub"
+ },
+ "c128": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c130": {
+  "action": "part",
+  "object_id": "door"
+ },
+ "c131": {
+  "action": "duplicate",
+  "object_id": "toilet-roll-holder"
+ },
+ "c134": {
+  "action": "part",
+  "object_id": "toilet"
+ },
+ "c136": {
+  "action": "part",
+  "object_id": "bath-shower-handset"
+ },
+ "c139": {
+  "action": "duplicate",
+  "object_id": "toilet-roll-holder"
+ },
+ "c141": {
+  "action": "duplicate",
+  "object_id": "painting"
+ },
+ "c142": {
+  "action": "part",
+  "object_id": "washbasin"
+ },
+ "c147": {
+  "action": "part",
+  "object_id": "door"
+ },
+ "c151": {
+  "action": "part",
+  "object_id": "washbasin"
+ },
+ "c153": {
+  "action": "part",
+  "object_id": "pedal-bin"
+ },
+ "c155": {
+  "action": "duplicate",
+  "object_id": "basin-tap-left"
+ },
+ "c158": {
+  "action": "duplicate",
+  "object_id": "bath-mixer-tap"
+ },
+ "c159": {
+  "action": "part",
+  "object_id": "toilet-cistern"
+ },
+ "c160": {
+  "action": "duplicate",
+  "object_id": "bath-mixer-tap"
+ },
+ "c162": {
+  "action": "duplicate",
+  "object_id": "basin-plug"
+ },
+ "c164": {
+  "action": "part",
+  "object_id": "bath-shower-handset"
+ },
+ "c165": {
+  "action": "duplicate",
+  "object_id": "painting"
+ }
+}

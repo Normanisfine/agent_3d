@@ -1,0 +1,270 @@
+{
+ "b000": {
+  "action": "skipped",
+  "reason": "not a real fireplace; crop shows the TV edge (duplicate of b005)"
+ },
+ "b001": {
+  "action": "skipped",
+  "reason": "hallway rug, hallway/kitchen seen through a doorway, outside the reconstructed living room"
+ },
+ "b002": {
+  "action": "built",
+  "object_id": "door_hall",
+  "method": "code",
+  "reason": "glazed transom above the hall door; built as part of the door structure root door_hall"
+ },
+ "b003": {
+  "action": "skipped",
+  "reason": "hallway chest of drawers/mirror, hallway/kitchen seen through a doorway, outside the reconstructed living room"
+ },
+ "b004": {
+  "action": "skipped",
+  "reason": "hallway chest of drawers, hallway/kitchen seen through a doorway, outside the reconstructed living room"
+ },
+ "b005": {
+  "action": "built",
+  "object_id": "b005",
+  "method": "code",
+  "reason": "flat-panel TV is a simple slab + pedestal; boxes match its silhouette"
+ },
+ "b006": {
+  "action": "built",
+  "object_id": "b006",
+  "method": "code",
+  "reason": "small black set-top box with yellow cable on the TV stand (labelled remote); tiny box"
+ },
+ "b007": {
+  "action": "built",
+  "object_id": "b007",
+  "method": "code",
+  "reason": "lamp side table; generated candidates rejected by fit (IoU 0.43), built with turned-leg primitives"
+ },
+ "b008": {
+  "action": "skipped",
+  "reason": "not a sink; it is the TV pedestal base, built as part of b005"
+ },
+ "b009": {
+  "action": "built",
+  "object_id": "b009",
+  "method": "code",
+  "reason": "TV stand is a closed rectangular box with two sliding doors"
+ },
+ "b010": {
+  "action": "built",
+  "object_id": "b010",
+  "method": "code",
+  "reason": "gold carriage clock on TV stand; generated candidates rejected by fit (IoU 0.17/0.28)"
+ },
+ "b011": {
+  "action": "built",
+  "object_id": "b011",
+  "method": "code",
+  "reason": "table lamp; generated c0 fit-accepted but reviewer flagged missing open wire cage/stepped base, rebuilt with code (rods, stepped base, lathed bell shade)"
+ },
+ "b012": {
+  "action": "skipped",
+  "reason": "duplicate of b006 (same set-top box on TV stand)"
+ },
+ "b013": {
+  "action": "skipped",
+  "reason": "not a real object: position is behind the TV wall and crop shows the TV stand edge"
+ },
+ "b014": {
+  "action": "skipped",
+  "reason": "duplicate of b006 (same set-top box on TV stand)"
+ },
+ "b015": {
+  "action": "built",
+  "object_id": "b015",
+  "method": "code",
+  "reason": "plaid cushion on 2-seater; generated candidates rejected by fit, built as rounded cushion box"
+ },
+ "b016": {
+  "action": "built",
+  "object_id": "b016",
+  "method": "generated",
+  "reason": "plaid cushion on 2-seater; generated c1 accepted by fit (IoU 0.79) and visually matches"
+ },
+ "b017": {
+  "action": "built",
+  "object_id": "b017",
+  "method": "code",
+  "reason": "2-seat leather sofa; generated candidates rejected by fit (IoU 0.41/0.39), built from rounded primitives"
+ },
+ "b018": {
+  "action": "built",
+  "object_id": "b018",
+  "method": "code",
+  "reason": "single large rug (one rug in the video); flat slab with fringe"
+ },
+ "b019": {
+  "action": "skipped",
+  "reason": "light switch inside the kitchen passage (Pi3X point at y=1.24, beyond the room wall), hallway/kitchen seen through a doorway, outside the reconstructed living room"
+ },
+ "b020": {
+  "action": "skipped",
+  "reason": "kitchen base cabinets, hallway/kitchen seen through a doorway, outside the reconstructed living room"
+ },
+ "b021": {
+  "action": "skipped",
+  "reason": "kitchen-area ghost detection (crop shows the lamp shade); duplicate of b011 / outside room"
+ },
+ "b022": {
+  "action": "skipped",
+  "reason": "duplicate of lamp side table b007/lamp b011 (position beyond wall)"
+ },
+ "b023": {
+  "action": "skipped",
+  "reason": "kitchen rug, hallway/kitchen seen through a doorway, outside the reconstructed living room"
+ },
+ "b024": {
+  "action": "skipped",
+  "reason": "not a separate pillow: crop shows the 2-seater arm; part of b017"
+ },
+ "b025": {
+  "action": "built",
+  "object_id": "b025",
+  "method": "code",
+  "reason": "black square side table (Lack style) with Christmas tree; boxes"
+ },
+ "b026": {
+  "action": "built",
+  "object_id": "fairy_lights",
+  "method": "code",
+  "reason": "not a lamp: crop shows the string fairy lights over the radiator; built as wire + bulbs"
+ },
+ "b027": {
+  "action": "built",
+  "object_id": "b027",
+  "method": "code",
+  "reason": "ottoman; generated c0 fit-accepted but reviewer flagged ragged lower geometry, rebuilt as clean rounded upholstered box"
+ },
+ "b028": {
+  "action": "skipped",
+  "reason": "duplicate of the single large rug b018"
+ },
+ "b029": {
+  "action": "built",
+  "object_id": "b029",
+  "method": "code",
+  "reason": "gilt-framed picture above the radiator (labelled mirror); frame + canvas boxes"
+ },
+ "b030": {
+  "action": "built",
+  "object_id": "b030",
+  "method": "code",
+  "reason": "mauve cushion on 3-seater; generated candidates rejected by fit, rounded cushion box"
+ },
+ "b031": {
+  "action": "built",
+  "object_id": "b031",
+  "method": "code",
+  "reason": "mauve cushion on 3-seater; generated c1 fit-accepted but reviewer flagged a collapsed shape, rebuilt as full rounded cushion"
+ },
+ "b032": {
+  "action": "built",
+  "object_id": "b032",
+  "method": "code",
+  "reason": "3-seat sofa; generated c1 fit-accepted but sat too low/undersized vs source (size ratio 0.81/0.76), kept code-built sofa"
+ },
+ "b033": {
+  "action": "built",
+  "object_id": "b033",
+  "method": "code",
+  "reason": "glass bowl with biscuits; generated candidates rejected by fit (IoU 0.31/0.34)"
+ },
+ "b034": {
+  "action": "built",
+  "object_id": "b034",
+  "method": "code",
+  "reason": "stack of white plates; simple cylinders"
+ },
+ "b035": {
+  "action": "built",
+  "object_id": "b035",
+  "method": "code",
+  "reason": "black coffee table with lower shelf; boxes"
+ },
+ "b036": {
+  "action": "built",
+  "object_id": "b036",
+  "method": "code",
+  "reason": "tissue box on the coffee table lower shelf; box"
+ },
+ "b037": {
+  "action": "skipped",
+  "reason": "duplicate of the single large rug b018"
+ },
+ "b038": {
+  "action": "skipped",
+  "reason": "duplicate of cushion b031"
+ },
+ "b039": {
+  "action": "skipped",
+  "reason": "duplicate of cushion b030"
+ },
+ "b040": {
+  "action": "skipped",
+  "reason": "not a candle: crop shows the glass bowl b033 (duplicate)"
+ },
+ "b041": {
+  "action": "skipped",
+  "reason": "duplicate of plate stack b034"
+ },
+ "b042": {
+  "action": "built",
+  "object_id": "b042",
+  "method": "code",
+  "reason": "printed Chaplin poster lying on the rug (labelled book); thin sheet"
+ },
+ "b043": {
+  "action": "skipped",
+  "reason": "not a pillow: crop shows the 3-seater front seat; part of b032"
+ },
+ "b044": {
+  "action": "skipped",
+  "reason": "duplicate of sofa b032 (its front base)"
+ },
+ "b045": {
+  "action": "skipped",
+  "reason": "not a picture frame: crop shows a coffee-table leg; part of b035"
+ },
+ "b046": {
+  "action": "skipped",
+  "reason": "not a real object in the room: crop shows the TV edge; position is in the hallway"
+ },
+ "b047": {
+  "action": "built",
+  "object_id": "b047",
+  "method": "code",
+  "reason": "gilt-framed wall mirror above the 3-seater; frame + mirror boxes"
+ },
+ "b048": {
+  "action": "skipped",
+  "reason": "duplicate of mirror b047"
+ },
+ "b049": {
+  "action": "skipped",
+  "reason": "not a table: crop shows the bowl/plates on the coffee table (duplicates of b033/b034)"
+ },
+ "b050": {
+  "action": "built",
+  "object_id": "b050",
+  "method": "code",
+  "reason": "ceiling chandelier; generated candidates rejected by fit (IoU 0.36); hub + arms + bulbs"
+ },
+ "b051": {
+  "action": "built",
+  "object_id": "b051",
+  "method": "code",
+  "reason": "second ceiling chandelier; generated candidates rejected by fit (single view, IoU 0.48/0.49)"
+ },
+ "b052": {
+  "action": "skipped",
+  "reason": "duplicate of the gilt-framed picture b029"
+ },
+ "b053": {
+  "action": "skipped",
+  "reason": "duplicate of the poster b042"
+ }
+}

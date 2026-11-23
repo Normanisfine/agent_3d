@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 无人值守跑一次 AHa-3D agent（Codex CLI + gpt-6.1-sol medium）。
-# 用法：bash scripts/run_agent.sh <arm: A0|A1|A2|A3r|A3v> <scene_id> <seed> [墙钟上限秒，默认读 configs/run_caps.json，0 = 不限]
+# 用法：bash scripts/run_agent.sh <arm: A0|A1|A2|A3r|A3v|A5> <scene_id> <seed> [墙钟上限秒，默认读 configs/run_caps.json，0 = 不限]
 # A2/A3 开跑前准备：清单裁图（perception/<id>/inventory_crops/），A3 还要生成用的物体掩码（item_masks/）、
 #   A3r 的必须生成名单（$RUN/route_generate.json）；生成次数按这次运行单独计数（SMALLOBJ_BUDGET）。
 # 工具调用次数上限读 configs/run_caps.json 的 tool_calls，到了由 scripts/watch_tool_cap.sh 停掉，状态记为 tool_cap。
@@ -12,22 +12,31 @@
 set -uo pipefail
 source "$(dirname "$0")/env.sh"
 ARM="$1"; SID="$2"; SEED="$3"
-case "$ARM" in A0|A1|A2|A3r|A3v) ;; *) echo "!! 不认识的实验组 $ARM" >&2; exit 2;; esac
+case "$ARM" in A0|A1|A2|A3r|A3v|A5) ;; *) echo "!! 不认识的实验组 $ARM" >&2; exit 2;; esac
 CAP="${4:-$(python3 -c "import json;print(json.load(open('$PROJ/configs/run_caps.json'))['wall_s'])" 2>/dev/null || echo 3600)}"   # 0 = 不限（timeout 0 不计时）
 # 工具调用次数上限（codex exec 整次只有一个 turn，用完成的命令执行次数当"轮数"）；没有 run_caps.json 就不限
 TOOL_CAP="$(python3 -c "import json;print(json.load(open('$PROJ/configs/run_caps.json')).get('tool_calls',0))" 2>/dev/null || echo 0)"
 DRIVER="${DRIVER:-codex}"   # claude（10-27 起的主实验：Opus 5.5，原版规则；输出放 runs/<arm>-claude/）或 codex（旧规则的对照组）
 case "$DRIVER" in codex) RUNARM="$ARM";; claude) RUNARM="$ARM-claude";; *) echo "!! 不认识的驱动 $DRIVER" >&2; exit 2;; esac
+# PERCEPTION=betty（11-20 起的对照）：用 Betty 上 25.5 万像素的感知（perception_betty/，先跑 scripts/betty/localize_bundle.py），
+# 输出放 runs/<arm>-claude-betty/。清单和生成用的掩码是按笔记本那份感知的坐标做的，所以只支持不带清单的 A0、A1。
+PERCEPTION="${PERCEPTION:-laptop}"
+case "$PERCEPTION" in
+  laptop) PDIR=perception;;
+  betty) PDIR=perception_betty; RUNARM="$RUNARM-betty"
+    [[ "$ARM" == A0 || "$ARM" == A1 ]] || { echo "!! PERCEPTION=betty 只支持 A0、A1" >&2; exit 2; };;
+  *) echo "!! 不认识的感知 $PERCEPTION" >&2; exit 2;;
+esac
 RUN="$PROJ/runs/$RUNARM/$SID/$SEED"
 [ -e "$RUN/run_log.json" ] && { echo "!! $RUN 已经跑过" >&2; exit 2; }
 TODAY=$(date +%F)
 # 只数 Codex 驱动的 agent 组（A*，不含 -claude）；P0、P0c 不调大模型。Claude 驱动由队列按订阅的每周额度（85%）管，不数次数
-N_TODAY=$(find "$PROJ"/runs/A* -path "*-claude/*" -prune -o -name run_log.json -newermt "$TODAY" -print 2>/dev/null | wc -l)
+N_TODAY=$(find "$PROJ"/runs/A* -path "*-claude*/*" -prune -o -name run_log.json -newermt "$TODAY" -print 2>/dev/null | wc -l)
 DAILY_CAP="${DAILY_CAP:-12}"   # 10-27 Yifan 从 6 提到 12
 [ "$DRIVER" = codex ] && ! (( N_TODAY < DAILY_CAP )) && { echo "!! 今天已经跑了 $N_TODAY 次，到上限 $DAILY_CAP 次" >&2; exit 5; }   # 5 = 只是今天满了，队列等到明天
 
 if [ "$SID" = office48 ]; then REF="$(ls -d "$PROJ"/runs/legacy/office48-reference-*/ | tail -1)"; VIDEO="$PROJ/scenes/office48/source.mp4"
-else REF="$PROJ/perception/$SID/bundle"; VIDEO="$PROJ/scenes/$SID/input.mp4"; fi
+else REF="$PROJ/$PDIR/$SID/bundle"; VIDEO="$PROJ/scenes/$SID/input.mp4"; fi
 # 开跑前检查：缺东西就别开跑，免得白烧额度、还把这个名额记成跑过
 if [ "$DRIVER" = codex ]; then
   [ -x "$CODEX" ] || { echo "!! 找不到 codex：$CODEX（VS Code 的 Codex 扩展没装？）" >&2; exit 3; }
@@ -39,7 +48,13 @@ fi
 ln -sfn "$PROJ/scripts/codex_review.sh" "$PROJ/.runtime/bin/codex"
 [ -n "$REF" ] && [ -d "$REF" ] || { echo "!! 缺感知结果：$REF" >&2; exit 3; }
 [ -f "$VIDEO" ] || { echo "!! 缺输入视频：$VIDEO" >&2; exit 3; }
-INV="$PROJ/perception/$SID/inventory.json"
+INV="$PROJ/perception/$SID/inventory.json"; CROPS_DIR="$PROJ/perception/$SID/inventory_crops"
+# A5（11-20 起）：清单 v2 去重后的逐项清单（smallobj.checklist；开发集由 scripts/inventory_v2_checklist_dev.py 写出），裁图单独放一个目录
+if [ "$ARM" = A5 ]; then
+  INV="$PROJ/perception/$SID/inventory_v2_list.json"; CROPS_DIR="$PROJ/perception/$SID/inventory_v2_crops"
+  [ -f "$INV" ] || { echo "!! 缺逐项清单：$INV" >&2; exit 3; }
+  [ -d "$CROPS_DIR" ] || "$PY" -c "from smallobj import checklist; checklist.export_crops('$SID')"
+fi
 if [[ "$ARM" == A2 || "$ARM" == A3* ]]; then
   [ -f "$INV" ] || { echo "!! 缺清单：$INV（先跑 scripts/run_boxer.sh）" >&2; exit 3; }
   [ -d "$PROJ/perception/$SID/inventory_crops" ] || "$PY" -c "from smallobj import inventory; inventory.export_crops('$SID')"
@@ -58,7 +73,7 @@ import json; from smallobj import inventory
 json.dump(inventory.route_rule(inventory.load('$INV')), open('$RUN/route_generate.json', 'w'))"
 "$PY" -m smallobj.prompts "$ARM" "$RUN/prompt.md" "$RUN/request.json" \
   AHA="$AHA" SCENE_RUN="$SCENE_RUN" REQUEST="$RUN/request.json" REF_DIR="$REF" OUT="$RUN" SCENE_ID="$SID" \
-  INVENTORY="$INV" CROPS="$PROJ/perception/$SID/inventory_crops" ROUTE="$RUN/route_generate.json" \
+  INVENTORY="$INV" CROPS="$CROPS_DIR" ROUTE="$RUN/route_generate.json" \
   TOOLS="$PROJ/scripts/agent_tools" || { echo "!! 提示词没渲染出来" >&2; exit 3; }
 
 echo ">> $RUNARM $SID seed=$SEED cap=$( (( CAP > 0 )) && echo "${CAP}s" || echo 不限) tool_calls≤$( (( TOOL_CAP > 0 )) && echo "$TOOL_CAP" || echo 不限) → $RUN"

@@ -1,0 +1,2402 @@
+{
+ "c367": {
+  "object_id": "c367",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 496,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c367/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.9096987973202066,
+    0.02096693178215717,
+    0.0,
+    -0.1504736510887077
+   ],
+   [
+    -0.02096693178215717,
+    0.9096987973202066,
+    0.0,
+    -0.13727349915417064
+   ],
+   [
+    0.0,
+    0.0,
+    0.9099403903960896,
+    0.009905133294961344
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9099403903960896,
+   0.9099403903960896,
+   0.9099403903960896
+  ],
+  "fit": {
+   "sil_iou_mean": 0.8457525094336003,
+   "sil_iou_min": 0.7933539283626951,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 1.8810357466951244,
+   "primitive_sil_iou": 0.3881369625758446,
+   "inlier_ratio": 1.0,
+   "size_ratio": [
+    1.0907528541403924,
+    0.972501483113474,
+    2.28972548491997
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -2.162755547773382,
+    -0.9402972635669858,
+    0.3839785499857273
+   ],
+   "yaw": 1.4795363485483453,
+   "size": [
+    0.35995011233666907,
+    0.4723814268828985,
+    0.09025858432007683
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.2,
+   "gen": 16.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c367/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.909699, 0.020967, 0.000000, -0.150474), (-0.020967, 0.909699, 0.000000, -0.137273), (0.000000, 0.000000, 0.909940, 0.009905), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c149": {
+  "object_id": "c149",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 496,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c149/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.9018141065454249,
+    0.020752598154523526,
+    0.0,
+    -0.1734011470829595
+   ],
+   [
+    -0.020752598154523526,
+    0.9018141065454249,
+    0.0,
+    -0.1371761311439078
+   ],
+   [
+    0.0,
+    0.0,
+    0.9020528549339479,
+    0.01786085979079366
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9020528549339479,
+   0.9020528549339479,
+   0.9020528549339479
+  ],
+  "fit": {
+   "sil_iou_mean": 0.8580501384196916,
+   "sil_iou_min": 0.8111773343698713,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 1.5814842301409706,
+   "primitive_sil_iou": 0.39679329586484996,
+   "inlier_ratio": 1.0,
+   "size_ratio": [
+    1.0593832566339847,
+    0.9678430919562435,
+    2.1209640381461785
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -2.1612225740998627,
+    -0.9327417429848469,
+    0.389075684194082
+   ],
+   "yaw": 1.4900218781360817,
+   "size": [
+    0.34498266204706163,
+    0.4666731044881067,
+    0.07607575600740635
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.2,
+   "gen": 12.6
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c149/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.901814, 0.020753, 0.000000, -0.173401), (-0.020753, 0.901814, 0.000000, -0.137176), (0.000000, 0.000000, 0.902053, 0.017861), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c057": {
+  "object_id": "c057",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 496,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c057/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.8290429692064647,
+    0.07427304222398885,
+    0.0,
+    -0.17073039270735713
+   ],
+   [
+    -0.07427304222398885,
+    0.8290429692064647,
+    0.0,
+    -0.39959377710984145
+   ],
+   [
+    0.0,
+    0.0,
+    0.8323633398894245,
+    0.03490694409772649
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.8323633398894245,
+   0.8323633398894245,
+   0.8323633398894245
+  ],
+  "fit": {
+   "sil_iou_mean": 0.6807546959989978,
+   "sil_iou_min": 0.6433112688970227,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 3.0512043953841195,
+   "primitive_sil_iou": 0.7487103462474196,
+   "inlier_ratio": 0.9614814814814815,
+   "size_ratio": [
+    0.8973177156277643,
+    1.227371474369411,
+    2.561372873342877
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -1.788813753414881,
+    -1.6348515392172895,
+    0.26522893556106386
+   ],
+   "yaw": 3.0146444125158567,
+   "size": [
+    0.6088019986839557,
+    0.44189221669801015,
+    0.27229258614379387
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 4.6,
+   "gen": 13.4
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c057/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.829043, 0.074273, 0.000000, -0.170730), (-0.074273, 0.829043, 0.000000, -0.399594), (0.000000, 0.000000, 0.832363, 0.034907), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c182": {
+  "object_id": "c182",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 218,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c182/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.1605735404459316,
+    0.18355941059176306,
+    0.0,
+    -0.43912095742028523
+   ],
+   [
+    -0.18355941059176306,
+    1.1605735404459316,
+    0.0,
+    -0.11782420942383443
+   ],
+   [
+    0.0,
+    0.0,
+    1.175,
+    -0.10798273909336889
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.175,
+   1.175,
+   1.175
+  ],
+  "fit": {
+   "sil_iou_mean": 0.2764322124830696,
+   "sil_iou_min": 0.13477721981559013,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 6.500580500542079,
+   "primitive_sil_iou": 0.36360310545391217,
+   "inlier_ratio": 0.7124074074074074,
+   "size_ratio": [
+    1.4532985413467074,
+    2.2857997485286576,
+    1.3136668872274053
+   ],
+   "penetration_m": 0.0015623642454203335,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    1.337489162950323,
+    2.1337813231980998,
+    0.31215108974405564
+   ],
+   "yaw": 1.5801363282204814,
+   "size": [
+    0.9210789486205311,
+    0.3370651434054299,
+    0.627426907978952
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.1,
+   "gen": 12.5
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c182/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.160574, 0.183559, 0.000000, -0.439121), (-0.183559, 1.160574, 0.000000, -0.117824), (0.000000, 0.000000, 1.175000, -0.107983), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c204": {
+  "object_id": "c204",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 0,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c204/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.0580348945009508,
+    -0.37069300291714574,
+    0.0,
+    0.3399079930593172
+   ],
+   [
+    0.37069300291714574,
+    1.0580348945009508,
+    0.0,
+    -0.06674730420188035
+   ],
+   [
+    0.0,
+    0.0,
+    1.1210937250709099,
+    -0.09047213525894293
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.1210937250709099,
+   1.1210937250709099,
+   1.1210937250709099
+  ],
+  "fit": {
+   "sil_iou_mean": 0.3342589149814754,
+   "sil_iou_min": 0.14059046109510084,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 3.122618548277696,
+   "primitive_sil_iou": 0.3158082927430377,
+   "inlier_ratio": 0.7003703703703704,
+   "size_ratio": [
+    0.7365486763792471,
+    1.4435369322026657,
+    1.0693010679505806
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.1243038734459323,
+    0.7814522681124242,
+    0.9509694307113704
+   ],
+   "yaw": -2.7829969214997403,
+   "size": [
+    0.43924418993936637,
+    0.18989952854966174,
+    0.4215319612393509
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.7,
+   "gen": 13.2
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c204/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.058035, -0.370693, 0.000000, 0.339908), (0.370693, 1.058035, 0.000000, -0.066747), (0.000000, 0.000000, 1.121094, -0.090472), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c157": {
+  "object_id": "c157",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 536,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c157/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.8741394641017786,
+    -0.34514288935895604,
+    0.0,
+    -1.0464154046717202
+   ],
+   [
+    0.34514288935895604,
+    0.8741394641017786,
+    0.0,
+    0.9329973210733074
+   ],
+   [
+    0.0,
+    0.0,
+    0.9398103089321767,
+    0.002066965244709562
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9398103089321767,
+   0.9398103089321767,
+   0.9398103089321767
+  ],
+  "fit": {
+   "sil_iou_mean": 0.4663083824366987,
+   "sil_iou_min": 0.0954159317904994,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 1.543275501747702,
+   "primitive_sil_iou": 0.350073128636248,
+   "inlier_ratio": 1.0,
+   "size_ratio": [
+    1.0960696005878208,
+    0.9508902821541134,
+    1.1992146704629485
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -3.396099547144961,
+    -1.7758157157602372,
+    0.3244063550459665
+   ],
+   "yaw": 2.07505910660546,
+   "size": [
+    0.3017442482350587,
+    0.30209900246710975,
+    0.4195239081951272
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 5.5,
+   "gen": 13.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c157/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.874139, -0.345143, 0.000000, -1.046415), (0.345143, 0.874139, 0.000000, 0.932997), (0.000000, 0.000000, 0.939810, 0.002067), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c077": {
+  "object_id": "c077",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 536,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c077/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.8802910601057725,
+    -0.3300023822514925,
+    0.0,
+    -0.9982474198623681
+   ],
+   [
+    0.3300023822514925,
+    0.8802910601057725,
+    0.0,
+    0.8923766613505018
+   ],
+   [
+    0.0,
+    0.0,
+    0.9401137818337763,
+    0.002227488154028623
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9401137818337763,
+   0.9401137818337763,
+   0.9401137818337763
+  ],
+  "fit": {
+   "sil_iou_mean": 0.4631527300237874,
+   "sil_iou_min": 0.09463383793410507,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 1.5405924898825856,
+   "primitive_sil_iou": 0.3487439718233866,
+   "inlier_ratio": 1.0,
+   "size_ratio": [
+    1.0963486838311864,
+    0.9506322418944884,
+    1.2055916002230949
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -3.395423378420564,
+    -1.7761053967805733,
+    0.325106868561343
+   ],
+   "yaw": -2.677601559833939,
+   "size": [
+    0.30201702276188813,
+    0.3018210789065956,
+    0.4215903332962473
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 5.8,
+   "gen": 14.0
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c077/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.880291, -0.330002, 0.000000, -0.998247), (0.330002, 0.880291, 0.000000, 0.892377), (0.000000, 0.000000, 0.940114, 0.002227), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c267": {
+  "object_id": "c267",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 0,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c267/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.2050499986591536,
+    0.05379185097739302,
+    0.0,
+    -0.024160784862579332
+   ],
+   [
+    -0.05379185097739302,
+    1.2050499986591536,
+    0.0,
+    -0.14427751952574208
+   ],
+   [
+    0.0,
+    0.0,
+    1.20625,
+    -0.18139180791857046
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.20625,
+   1.20625,
+   1.20625
+  ],
+  "fit": {
+   "sil_iou_mean": 0.257773253758017,
+   "sil_iou_min": 0.0,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 10.45357005252329,
+   "primitive_sil_iou": 0.43441952802986705,
+   "inlier_ratio": 0.2735955056179775,
+   "size_ratio": [
+    1.149924780090236,
+    0.8406480897934373,
+    1.1182528813624661
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.5777025869498742,
+    0.5647997794071516,
+    0.6911085651320001
+   ],
+   "yaw": 1.1543829059447983,
+   "size": [
+    0.3953731535924334,
+    0.1758814063524361,
+    0.2729436039924623
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.5,
+   "gen": 12.5
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c267/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.205050, 0.053792, 0.000000, -0.024161), (-0.053792, 1.205050, 0.000000, -0.144278), (0.000000, 0.000000, 1.206250, -0.181392), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c582": {
+  "object_id": "c582",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 218,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c582/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.9784131683204665,
+    0.02095935921132644,
+    0.0,
+    -0.04207404646022894
+   ],
+   [
+    -0.02095935921132644,
+    0.9784131683204665,
+    0.0,
+    -0.04599902709292758
+   ],
+   [
+    0.0,
+    0.0,
+    0.9786376360438235,
+    0.13143858501711822
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9786376360438235,
+   0.9786376360438235,
+   0.9786376360438235
+  ],
+  "fit": {
+   "sil_iou_mean": 0.3911167314745259,
+   "sil_iou_min": 0.22164036458333336,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 3.4255806244885605,
+   "primitive_sil_iou": 0.5085621114317719,
+   "inlier_ratio": 0.7413660782808903,
+   "size_ratio": [
+    1.1990488681922284,
+    1.2545833055323805,
+    2.0706289716028574
+   ],
+   "penetration_m": 0.00023429951149897543,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.43944059251958256,
+    2.2435966044089395,
+    0.24173206050309326
+   ],
+   "yaw": 1.3712512556630223,
+   "size": [
+    0.44610009258607564,
+    0.2975261948338547,
+    0.4839327200291845
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 2.5,
+   "gen": 13.4
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c582/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.978413, 0.020959, 0.000000, -0.042074), (-0.020959, 0.978413, 0.000000, -0.045999), (0.000000, 0.000000, 0.978638, 0.131439), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c106": {
+  "object_id": "c106",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 436,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c106/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.8971829519765566,
+    -0.0744514860956124,
+    0.0,
+    -0.30616113713330506
+   ],
+   [
+    0.0744514860956124,
+    0.8971829519765566,
+    0.0,
+    0.20448128804121954
+   ],
+   [
+    0.0,
+    0.0,
+    0.9002667788490328,
+    0.021933964783580367
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9002667788490328,
+   0.9002667788490328,
+   0.9002667788490328
+  ],
+  "fit": {
+   "sil_iou_mean": 0.3671023269625971,
+   "sil_iou_min": 0.05935649884077054,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 5.77336360943571,
+   "primitive_sil_iou": 0.3754517323124467,
+   "inlier_ratio": 0.5733333333333334,
+   "size_ratio": [
+    0.7014791821103781,
+    1.0994344085899972,
+    1.8121637532982449
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -2.9395323398151993,
+    -0.04383093113194105,
+    0.3427802628959443
+   ],
+   "yaw": -1.5265108328452568,
+   "size": [
+    0.4991124415636991,
+    0.3140621307441136,
+    0.3962544686405273
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 4.9,
+   "gen": 15.0
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c106/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.897183, -0.074451, 0.000000, -0.306161), (0.074451, 0.897183, 0.000000, 0.204481), (0.000000, 0.000000, 0.900267, 0.021934), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c428": {
+  "object_id": "c428",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 0,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c428/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.1562010395043079,
+    0.010640429932939855,
+    0.0,
+    -0.04781469392136433
+   ],
+   [
+    -0.010640429932939855,
+    1.1562010395043079,
+    0.0,
+    -0.03871825099069137
+   ],
+   [
+    0.0,
+    0.0,
+    1.15625,
+    -0.23412872436391152
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.15625,
+   1.15625,
+   1.15625
+  ],
+  "fit": {
+   "sil_iou_mean": 0.347281212961356,
+   "sil_iou_min": 0.13562206376757863,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 12.663860729842598,
+   "primitive_sil_iou": 0.4172846724874886,
+   "inlier_ratio": 0.0,
+   "size_ratio": [
+    1.2137037481783335,
+    1.1506980289161923,
+    0.34726252129360363
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.09621861345693003,
+    1.055926259650414,
+    0.5994520443032499
+   ],
+   "yaw": 3.0376386083784253,
+   "size": [
+    0.4843769632970762,
+    0.4829375838462927,
+    0.08588758669793606
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 2.4,
+   "gen": 13.8
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c428/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.156201, 0.010640, 0.000000, -0.047815), (-0.010640, 1.156201, 0.000000, -0.038718), (0.000000, 0.000000, 1.156250, -0.234129), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c050": {
+  "object_id": "c050",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 615,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c050/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.8575151980685392,
+    -0.32487519408361537,
+    0.0,
+    0.20259490931530144
+   ],
+   [
+    0.32487519408361537,
+    0.8575151980685392,
+    0.0,
+    0.24487560292135468
+   ],
+   [
+    0.0,
+    0.0,
+    0.9169930243188291,
+    -0.0027321904058713424
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9169930243188291,
+   0.9169930243188291,
+   0.9169930243188291
+  ],
+  "fit": {
+   "sil_iou_mean": 0.18535430839004582,
+   "sil_iou_min": 0.0008977433617627873,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 7.675832822485209,
+   "primitive_sil_iou": 0.2379365107495158,
+   "inlier_ratio": 0.597311271975181,
+   "size_ratio": [
+    1.1337982826876796,
+    1.3931478441823955,
+    9.488252068506064
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.7439539299085816,
+    0.8930710386974374,
+    0.42696698687466916
+   ],
+   "yaw": -1.5825668390022471,
+   "size": [
+    0.6401942743433451,
+    0.49560464499486834,
+    0.8645392350883634
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.9,
+   "gen": 12.8
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c050/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.857515, -0.324875, 0.000000, 0.202595), (0.324875, 0.857515, 0.000000, 0.244876), (0.000000, 0.000000, 0.916993, -0.002732), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c100": {
+  "object_id": "c100",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 60,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c100/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.7663739475049857,
+    0.26013001291408316,
+    0.0,
+    0.10483479402470752
+   ],
+   [
+    -0.26013001291408316,
+    0.7663739475049857,
+    0.0,
+    0.20032697677812944
+   ],
+   [
+    0.0,
+    0.0,
+    0.8093186338105998,
+    0.12316988383932223
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.8093186338105998,
+   0.8093186338105998,
+   0.8093186338105998
+  ],
+  "fit": {
+   "sil_iou_mean": 0.17936809883111746,
+   "sil_iou_min": 0.0,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 7.422396678270305,
+   "primitive_sil_iou": 0.13282421449689671,
+   "inlier_ratio": 0.6411290322580645,
+   "size_ratio": [
+    8.094264417943577,
+    1.3721541079710047,
+    5.5811935385542535
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.343428749150226,
+    0.36532696416744953,
+    0.4317726080343401
+   ],
+   "yaw": 2.9400505465920057,
+   "size": [
+    0.5941181976791311,
+    0.6049301487254595,
+    0.7955494438830003
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.6,
+   "gen": 12.7
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c100/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.766374, 0.260130, 0.000000, 0.104835), (-0.260130, 0.766374, 0.000000, 0.200327), (0.000000, 0.000000, 0.809319, 0.123170), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c229": {
+  "object_id": "c229",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 198,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c229/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.9705474708013392,
+    -0.35163342119935476,
+    0.0,
+    0.9295030338600604
+   ],
+   [
+    0.35163342119935476,
+    0.9705474708013392,
+    0.0,
+    -0.10861955400778767
+   ],
+   [
+    0.0,
+    0.0,
+    1.0322831278206765,
+    -0.056546780644098904
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.0322831278206765,
+   1.0322831278206765,
+   1.0322831278206765
+  ],
+  "fit": {
+   "sil_iou_mean": 0.5826424368391768,
+   "sil_iou_min": 0.4449107913669064,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 4.666816017185872,
+   "primitive_sil_iou": 0.5566547760141781,
+   "inlier_ratio": 0.555,
+   "size_ratio": [
+    0.3712860316440894,
+    1.2201625555911202,
+    1.7367628512683118
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.5917476436967485,
+    2.49549710346617,
+    1.962260208901333
+   ],
+   "yaw": 0.2854426590120265,
+   "size": [
+    0.5003068993849673,
+    0.01,
+    0.23305708160990912
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 0.8,
+   "gen": 12.2
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c229/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.970547, -0.351633, 0.000000, 0.929503), (0.351633, 0.970547, 0.000000, -0.108620), (0.000000, 0.000000, 1.032283, -0.056547), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c183": {
+  "object_id": "c183",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 139,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c183/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.8796201662521359,
+    -0.09431061322269906,
+    0.0,
+    -0.05615896204261965
+   ],
+   [
+    0.09431061322269906,
+    0.8796201662521359,
+    0.0,
+    0.21596513600646228
+   ],
+   [
+    0.0,
+    0.0,
+    0.8846615898997066,
+    0.0905184419275357
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.8846615898997066,
+   0.8846615898997066,
+   0.8846615898997066
+  ],
+  "fit": {
+   "sil_iou_mean": 0.30144754467499746,
+   "sil_iou_min": 0.05010531053800831,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 1.606842925529578,
+   "primitive_sil_iou": 0.2822639223094025,
+   "inlier_ratio": 1.0,
+   "size_ratio": [
+    2.766395105306012,
+    1.464903494652081,
+    1.6214672789983706
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.1679310440855354,
+    1.2579588658517606,
+    0.4860118184047023
+   ],
+   "yaw": 1.6136161983806545,
+   "size": [
+    0.4362424371454172,
+    0.5479095321909822,
+    0.6050746817776618
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.4,
+   "gen": 12.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c183/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.879620, -0.094311, 0.000000, -0.056159), (0.094311, 0.879620, 0.000000, 0.215965), (0.000000, 0.000000, 0.884662, 0.090518), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c059": {
+  "object_id": "c059",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 99,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c059/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.7822832977893199,
+    0.16743011079213388,
+    0.0,
+    -0.3577459444859721
+   ],
+   [
+    -0.16743011079213388,
+    0.7822832977893199,
+    0.0,
+    0.08222485043987104
+   ],
+   [
+    0.0,
+    0.0,
+    0.8,
+    0.1674689442187418
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "fit": {
+   "sil_iou_mean": 0.17086309261911384,
+   "sil_iou_min": 0.06409812298400934,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 5.811719302853506,
+   "primitive_sil_iou": 0.22883604015045322,
+   "inlier_ratio": 0.6251826595226497,
+   "size_ratio": [
+    1.6861699787940438,
+    1.2011905039852366,
+    1.760380656897761
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.90288661271338,
+    1.13426143740438,
+    0.6709413439303507
+   ],
+   "yaw": -2.0205821447227006,
+   "size": [
+    0.44927446040881497,
+    0.26589799106414413,
+    0.6569122791290284
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.1,
+   "gen": 12.8
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c059/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.782283, 0.167430, 0.000000, -0.357746), (-0.167430, 0.782283, 0.000000, 0.082225), (0.000000, 0.000000, 0.800000, 0.167469), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c477": {
+  "object_id": "c477",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 139,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c477/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.0696574209050433,
+    0.34866024282715985,
+    0.0,
+    -0.8047189501635141
+   ],
+   [
+    -0.34866024282715985,
+    1.0696574209050433,
+    0.0,
+    -0.08325882619692626
+   ],
+   [
+    0.0,
+    0.0,
+    1.1250470936923145,
+    -0.09715847640711921
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.1250470936923145,
+   1.1250470936923145,
+   1.1250470936923145
+  ],
+  "fit": {
+   "sil_iou_mean": 0.3517464768682122,
+   "sil_iou_min": 0.23873081680916866,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 3.8310206874260864,
+   "primitive_sil_iou": 0.48204755637549673,
+   "inlier_ratio": 0.8218518518518518,
+   "size_ratio": [
+    0.7759649841035897,
+    1.9189921085704733,
+    1.6915490647610307
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.05797926829626295,
+    2.1412334785543754,
+    0.31655228231683796
+   ],
+   "yaw": 2.833553623645564,
+   "size": [
+    0.6390310496014284,
+    0.1721422306130005,
+    0.6468639429700691
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 2.1,
+   "gen": 15.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c477/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.069657, 0.348660, 0.000000, -0.804719), (-0.348660, 1.069657, 0.000000, -0.083259), (0.000000, 0.000000, 1.125047, -0.097158), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c521": {
+  "object_id": "c521",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 0,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c521/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.2361464379190166,
+    -0.05786392676034425,
+    0.0,
+    0.017272104028592528
+   ],
+   [
+    0.05786392676034425,
+    1.2361464379190166,
+    0.0,
+    -0.20036635728294327
+   ],
+   [
+    0.0,
+    0.0,
+    1.2374999999999998,
+    -0.17949418513349513
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.2374999999999998,
+   1.2374999999999998,
+   1.2374999999999998
+  ],
+  "fit": {
+   "sil_iou_mean": 0.413803938407127,
+   "sil_iou_min": 0.0,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 7.400444874203868,
+   "primitive_sil_iou": 0.4735440211705067,
+   "inlier_ratio": 0.6269113149847095,
+   "size_ratio": [
+    1.6201855086802726,
+    0.9154932607383153,
+    0.33330678416165527
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.12160801885623586,
+    1.0237348207077641,
+    0.6826111099285699
+   ],
+   "yaw": -1.4031233200672804,
+   "size": [
+    0.3387034287937388,
+    0.33677266847327625,
+    0.07223935872316356
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.7,
+   "gen": 13.7
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c521/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.236146, -0.057864, 0.000000, 0.017272), (0.057864, 1.236146, 0.000000, -0.200366), (0.000000, 0.000000, 1.237500, -0.179494), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c138": {
+  "object_id": "c138",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 60,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c138/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.7317986641024701,
+    0.32321929895635915,
+    0.0,
+    0.00917483452512996
+   ],
+   [
+    -0.32321929895635915,
+    0.7317986641024701,
+    0.0,
+    0.26611422585248484
+   ],
+   [
+    0.0,
+    0.0,
+    0.8,
+    0.08726121127116324
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "fit": {
+   "sil_iou_mean": 0.1983480656174373,
+   "sil_iou_min": 0.010763041856542822,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 3.6883087376535366,
+   "primitive_sil_iou": 0.2358664304052336,
+   "inlier_ratio": 0.832037037037037,
+   "size_ratio": [
+    2.7219868109175063,
+    2.1848264362300926,
+    3.1251009720831164
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.3697617035118277,
+    0.3382155769857031,
+    0.37867706879484303
+   ],
+   "yaw": -0.9127802974225219,
+   "size": [
+    0.6689278841985398,
+    0.40455524929561487,
+    0.560236980021
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.6,
+   "gen": 12.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c138/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.731799, 0.323219, 0.000000, 0.009175), (-0.323219, 0.731799, 0.000000, 0.266114), (0.000000, 0.000000, 0.800000, 0.087261), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c031": {
+  "object_id": "c031",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 218,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c031/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.1007294966377537,
+    0.2150239921771749,
+    0.0,
+    -0.5174658831561478
+   ],
+   [
+    -0.2150239921771749,
+    1.1007294966377537,
+    0.0,
+    0.017257827435933848
+   ],
+   [
+    0.0,
+    0.0,
+    1.1215349936494234,
+    -0.08189662457551469
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.1215349936494234,
+   1.1215349936494234,
+   1.1215349936494234
+  ],
+  "fit": {
+   "sil_iou_mean": 0.2648087560092485,
+   "sil_iou_min": 0.23081119415198298,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 6.723086136928769,
+   "primitive_sil_iou": 0.2211875381742537,
+   "inlier_ratio": 0.5253703703703704,
+   "size_ratio": [
+    1.6005731197370097,
+    1.608684225061285,
+    1.2615962409542278
+   ],
+   "penetration_m": 5.742737592646929e-05,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    1.2486212207892904,
+    2.0496603941103095,
+    0.2950723660152126
+   ],
+   "yaw": -2.294979481272393,
+   "size": [
+    0.6933419780743653,
+    0.35996945477241704,
+    0.5902595867822782
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 2.1,
+   "gen": 12.5
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c031/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.100729, 0.215024, 0.000000, -0.517466), (-0.215024, 1.100729, 0.000000, 0.017258), (0.000000, 0.000000, 1.121535, -0.081897), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c355": {
+  "object_id": "c355",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 60,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c355/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.6894947489981245,
+    0.40570554729263125,
+    0.0,
+    0.10205311992233773
+   ],
+   [
+    -0.40570554729263125,
+    0.6894947489981245,
+    0.0,
+    0.30529025713780794
+   ],
+   [
+    0.0,
+    0.0,
+    0.8,
+    0.14663648331212606
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "fit": {
+   "sil_iou_mean": 0.18550298603148094,
+   "sil_iou_min": 0.08385086206896553,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 5.554539642098512,
+   "primitive_sil_iou": 0.10736301675847504,
+   "inlier_ratio": 0.7194438680224113,
+   "size_ratio": [
+    1.9264676913694168,
+    1.2196471881742617,
+    1.3536325039180164
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.43261834621580747,
+    0.3473470273801676,
+    0.4335387064670285
+   ],
+   "yaw": 2.8925631753127954,
+   "size": [
+    0.5050824219556266,
+    0.5356451653996221,
+    0.5771805085241795
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.9,
+   "gen": 12.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c355/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.689495, 0.405706, 0.000000, 0.102053), (-0.405706, 0.689495, 0.000000, 0.305290), (0.000000, 0.000000, 0.800000, 0.146636), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c234": {
+  "object_id": "c234",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 60,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c234/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.6954881943168253,
+    0.39534310613177764,
+    0.0,
+    0.07511370576608062
+   ],
+   [
+    -0.39534310613177764,
+    0.6954881943168253,
+    0.0,
+    0.26341162747188834
+   ],
+   [
+    0.0,
+    0.0,
+    0.8,
+    0.08519172682471891
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "fit": {
+   "sil_iou_mean": 0.2210214106988971,
+   "sil_iou_min": 0.0022848793832380004,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 3.6467619469203605,
+   "primitive_sil_iou": 0.20164890669843014,
+   "inlier_ratio": 0.8475925925925926,
+   "size_ratio": [
+    2.6430960690791783,
+    1.8663542708968348,
+    1.4938541382462558
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.3788630521408668,
+    0.29170967952541615,
+    0.42854084088512084
+   ],
+   "yaw": 2.3107502108637226,
+   "size": [
+    0.6980618854435837,
+    0.41679898456046005,
+    0.5574539363384247
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.8,
+   "gen": 12.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c234/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.695488, 0.395343, 0.000000, 0.075114), (-0.395343, 0.695488, 0.000000, 0.263412), (0.000000, 0.000000, 0.800000, 0.085192), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c285": {
+  "object_id": "c285",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 496,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c285/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.1059906131420956,
+    0.33719256537114184,
+    0.0,
+    0.37621425174420287
+   ],
+   [
+    -0.33719256537114184,
+    1.1059906131420956,
+    0.0,
+    -0.6680412999187403
+   ],
+   [
+    0.0,
+    0.0,
+    1.15625,
+    -0.1278860786701142
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.15625,
+   1.15625,
+   1.15625
+  ],
+  "fit": {
+   "sil_iou_mean": 0.4025979223057672,
+   "sil_iou_min": 0.3236200889339187,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 4.232408589873781,
+   "primitive_sil_iou": 0.3074875242429273,
+   "inlier_ratio": 0.47314814814814815,
+   "size_ratio": [
+    0.7534217436942039,
+    1.0143304564809732,
+    2.5131137153041543
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -2.2656500362036422,
+    -0.6806829470376817,
+    0.3601856973250807
+   ],
+   "yaw": -2.478308700760715,
+   "size": [
+    0.3945345492389416,
+    0.20008687511682788,
+    0.08909812569618225
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.0,
+   "gen": 12.4
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c285/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.105991, 0.337193, 0.000000, 0.376214), (-0.337193, 1.105991, 0.000000, -0.668041), (0.000000, 0.000000, 1.156250, -0.127886), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c150": {
+  "object_id": "c150",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 0,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c150/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.091686977732863,
+    0.39953196699198856,
+    0.0,
+    -0.27003006037697325
+   ],
+   [
+    -0.39953196699198856,
+    1.091686977732863,
+    0.0,
+    0.008908631252493748
+   ],
+   [
+    0.0,
+    0.0,
+    1.1625,
+    -0.12519896900459826
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.1625,
+   1.1625,
+   1.1625
+  ],
+  "fit": {
+   "sil_iou_mean": 0.4213797589331674,
+   "sil_iou_min": 0.41855804136766567,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 2.3920797359207966,
+   "primitive_sil_iou": 0.28830549921644444,
+   "inlier_ratio": 0.8616666666666667,
+   "size_ratio": [
+    0.9751927741155656,
+    1.0843877080071609,
+    1.6640224882209194
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.11846081664822948,
+    0.836791802519984,
+    1.0581832172890038
+   ],
+   "yaw": 3.08538631780233,
+   "size": [
+    0.25801096463708373,
+    0.23178481805630258,
+    0.48253418505191803
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.3,
+   "gen": 12.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c150/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.091687, 0.399532, 0.000000, -0.270030), (-0.399532, 1.091687, 0.000000, 0.008909), (0.000000, 0.000000, 1.162500, -0.125199), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c086": {
+  "object_id": "c086",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 139,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c086/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.0948326874396659,
+    -0.3718271762709644,
+    0.0,
+    0.7399812575761944
+   ],
+   [
+    0.3718271762709644,
+    1.0948326874396659,
+    0.0,
+    -0.269165699158858
+   ],
+   [
+    0.0,
+    0.0,
+    1.15625,
+    -0.12556367378746452
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.15625,
+   1.15625,
+   1.15625
+  ],
+  "fit": {
+   "sil_iou_mean": 0.49441896907913274,
+   "sil_iou_min": 0.45092478421701604,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 3.8049002109136953,
+   "primitive_sil_iou": 0.6590826883999856,
+   "inlier_ratio": 0.8427777777777777,
+   "size_ratio": [
+    4.445773311958619,
+    1.369694348394246,
+    1.550893608058399
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.13523755257395784,
+    2.091809372029079,
+    0.8165315211557846
+   ],
+   "yaw": -2.704056933169903,
+   "size": [
+    0.4045220568299276,
+    0.13272801379956145,
+    0.6841559018939734
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 0.9,
+   "gen": 13.0
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c086/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.094833, -0.371827, 0.000000, 0.739981), (0.371827, 1.094833, 0.000000, -0.269166), (0.000000, 0.000000, 1.156250, -0.125564), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c193": {
+  "object_id": "c193",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 615,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c193/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.1009845577067454,
+    0.39218562721150574,
+    0.0,
+    -0.18264435715244032
+   ],
+   [
+    -0.39218562721150574,
+    1.1009845577067454,
+    0.0,
+    0.02602426709249739
+   ],
+   [
+    0.0,
+    0.0,
+    1.16875,
+    -0.12104494951960376
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.16875,
+   1.16875,
+   1.16875
+  ],
+  "fit": {
+   "sil_iou_mean": 0.19451733539854502,
+   "sil_iou_min": 0.022279629250307253,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 8.750371581301614,
+   "primitive_sil_iou": 0.25521230503577963,
+   "inlier_ratio": 0.7439453529290002,
+   "size_ratio": [
+    2.8932576537292043,
+    1.7688771019053275,
+    4.272538537150651
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    0.04195890966420809,
+    0.39151578317105595,
+    0.3963529195094786
+   ],
+   "yaw": -0.2689649244575145,
+   "size": [
+    0.5604381034876074,
+    0.6528944194503539,
+    0.8521256938111037
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.1,
+   "gen": 12.6
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c193/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.100985, 0.392186, 0.000000, -0.182644), (-0.392186, 1.100985, 0.000000, 0.026024), (0.000000, 0.000000, 1.168750, -0.121045), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c646": {
+  "object_id": "c646",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 139,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c646/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.0831870769946086,
+    -0.40449946691173255,
+    0.0,
+    0.923264731881816
+   ],
+   [
+    0.40449946691173255,
+    1.0831870769946086,
+    0.0,
+    -0.07075421782196534
+   ],
+   [
+    0.0,
+    0.0,
+    1.15625,
+    -0.13340263379081957
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.15625,
+   1.15625,
+   1.15625
+  ],
+  "fit": {
+   "sil_iou_mean": 0.451892654340926,
+   "sil_iou_min": 0.34233433526011564,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 3.666549805452112,
+   "primitive_sil_iou": 0.46447695571811526,
+   "inlier_ratio": 0.7651851851851852,
+   "size_ratio": [
+    0.6188385103119192,
+    1.6194283379349654,
+    1.4985945708880097
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.012699880734824179,
+    2.119866334841547,
+    0.39418927665524306
+   ],
+   "yaw": -2.761696278755711,
+   "size": [
+    0.533006907646031,
+    0.13490194670937727,
+    0.5604979279451072
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 2.1,
+   "gen": 15.2
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c646/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.083187, -0.404499, 0.000000, 0.923265), (0.404499, 1.083187, 0.000000, -0.070754), (0.000000, 0.000000, 1.156250, -0.133403), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c368": {
+  "object_id": "c368",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 0,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c368/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.9432675529130622,
+    -0.013532722718141444,
+    0.0,
+    -0.024936424698580983
+   ],
+   [
+    0.013532722718141444,
+    0.9432675529130622,
+    0.0,
+    -0.0020036848208648816
+   ],
+   [
+    0.0,
+    0.0,
+    0.9433646224884431,
+    0.04617184441148203
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9433646224884431,
+   0.9433646224884431,
+   0.9433646224884431
+  ],
+  "fit": {
+   "sil_iou_mean": 0.5940219631515906,
+   "sil_iou_min": 0.5532791001305614,
+   "n_views": 2,
+   "chamfer_obs2mesh_cm": 0.9413923816781754,
+   "primitive_sil_iou": 0.554926514248566,
+   "inlier_ratio": 0.8870370370370371,
+   "size_ratio": [
+    1.160396000108686,
+    0.8474224222404244,
+    2.707624932092246
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.28375989517510275,
+    0.4976381145999168,
+    0.7222455804528822
+   ],
+   "yaw": 2.1961684158648307,
+   "size": [
+    0.1802806462430594,
+    0.1812623809686535,
+    0.051600261538889414
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.6,
+   "gen": 12.9
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c368/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.943268, -0.013533, 0.000000, -0.024936), (0.013533, 0.943268, 0.000000, -0.002004), (0.000000, 0.000000, 0.943365, 0.046172), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c629": {
+  "object_id": "c629",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 496,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c629/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    1.121733398234276,
+    -0.2804072855433378,
+    0.0,
+    0.10261008258506754
+   ],
+   [
+    0.2804072855433378,
+    1.121733398234276,
+    0.0,
+    0.6078847366498716
+   ],
+   [
+    0.0,
+    0.0,
+    1.15625,
+    -0.04401934101892219
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   1.15625,
+   1.15625,
+   1.15625
+  ],
+  "fit": {
+   "sil_iou_mean": 0.24692202859921142,
+   "sil_iou_min": 0.1447200699825044,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 1.9589213739272633,
+   "primitive_sil_iou": 0.34033517946397546,
+   "inlier_ratio": 0.8666666666666667,
+   "size_ratio": [
+    2.227676018362545,
+    1.2804228110694764,
+    1.180600625361362
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -2.043841797920041,
+    -0.7459763734228808,
+    0.36813922830211415
+   ],
+   "yaw": 1.6220928119289795,
+   "size": [
+    0.3283486846653755,
+    0.3072431775166833,
+    0.08090992458164692
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.9,
+   "gen": 13.2
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c629/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((1.121733, -0.280407, 0.000000, 0.102610), (0.280407, 1.121733, 0.000000, 0.607885), (0.000000, 0.000000, 1.156250, -0.044019), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ },
+ "c378": {
+  "object_id": "c378",
+  "candidate_id": 9,
+  "backend": "sam3d",
+  "frame": 119,
+  "seed": null,
+  "mesh_glb": "/home/user/6220/Project/ubuntu_final_project/gen/47331262/c378/c9/mesh.glb",
+  "input": {
+   "mask_px": null
+  },
+  "status": "rejected_fit",
+  "matrix_world": [
+   [
+    0.9301983014340632,
+    0.016158626362865625,
+    0.0,
+    -0.11800187870722231
+   ],
+   [
+    -0.016158626362865625,
+    0.9301983014340632,
+    0.0,
+    0.09209883104547645
+   ],
+   [
+    0.0,
+    0.0,
+    0.9303386379145773,
+    0.06448791293453182
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "scale_xyz": [
+   0.9303386379145773,
+   0.9303386379145773,
+   0.9303386379145773
+  ],
+  "fit": {
+   "sil_iou_mean": 0.3722319179365005,
+   "sil_iou_min": 0.21104866840152817,
+   "n_views": 3,
+   "chamfer_obs2mesh_cm": 1.8654316177028178,
+   "primitive_sil_iou": 0.3955135758236356,
+   "inlier_ratio": 0.895,
+   "size_ratio": [
+    1.7395652431487691,
+    1.0141366289237121,
+    1.5482129383833427
+   ],
+   "penetration_m": 0.0,
+   "up_index": 0
+  },
+  "placed_box": {
+   "object_id": "obb",
+   "category": "object",
+   "center": [
+    -0.3185625927618977,
+    2.1605097215684848,
+    0.9931470885856917
+   ],
+   "yaw": -0.14246435413588676,
+   "size": [
+    0.36044644601825504,
+    0.26491478836628124,
+    0.36738287612661924
+   ],
+   "confidence": 1.0,
+   "source": "fit"
+  },
+  "seconds": {
+   "place": 1.1,
+   "gen": 13.0
+  },
+  "blender_snippet": "import bpy\nfrom mathutils import Matrix\nbpy.ops.import_scene.gltf(filepath='/home/user/6220/Project/ubuntu_final_project/gen/47331262/c378/c9/mesh.glb')\nobj = bpy.context.selected_objects[0]\nC_inv = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, -1, 0, 0), (0, 0, 0, 1)))  # \u62b5\u6d88\u5bfc\u5165\u65f6\u7684 Y\u2192Z \u8f6c\u6362\nobj.matrix_world = Matrix(((0.930198, 0.016159, 0.000000, -0.118002), (-0.016159, 0.930198, 0.000000, 0.092099), (0.000000, 0.000000, 0.930339, 0.064488), (0.000000, 0.000000, 0.000000, 1.000000))) @ C_inv\n"
+ }
+}

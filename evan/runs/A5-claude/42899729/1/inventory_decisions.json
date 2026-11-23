@@ -1,0 +1,410 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "nightstand-north"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "table-lamp-north"
+ },
+ "c002": {
+  "action": "built",
+  "object_id": "radiator-under-window"
+ },
+ "c003": {
+  "action": "built",
+  "object_id": "chest-of-drawers"
+ },
+ "c004": {
+  "action": "built",
+  "object_id": "cushion-green-north"
+ },
+ "c005": {
+  "action": "skipped",
+  "reason": "The camera operator seen as a reflection in the wall mirror (frame 456); people are excluded from the static room and nothing physical is here."
+ },
+ "c006": {
+  "action": "built",
+  "object_id": "waste-bin-bedroom"
+ },
+ "c007": {
+  "action": "built",
+  "object_id": "bed"
+ },
+ "c008": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c009": {
+  "action": "skipped",
+  "reason": "Reflection in the tall south wall mirror (frame 456 shows the bed, pillows, lamp and nightstand mirrored); no physical object at this place."
+ },
+ "c010": {
+  "action": "built",
+  "object_id": "power-outlet-south"
+ },
+ "c012": {
+  "action": "duplicate",
+  "object_id": "pillow-white-front-north"
+ },
+ "c013": {
+  "action": "built",
+  "object_id": "pedal-bin-bathroom"
+ },
+ "c014": {
+  "action": "part",
+  "object_id": "bedspread"
+ },
+ "c015": {
+  "action": "skipped",
+  "reason": "Reflection in the tall south wall mirror (frame 456 shows the bed, pillows, lamp and nightstand mirrored); no physical object at this place."
+ },
+ "c016": {
+  "action": "built",
+  "object_id": "poster-print-on-bed"
+ },
+ "c017": {
+  "action": "part",
+  "object_id": "poster-print-on-bed"
+ },
+ "c018": {
+  "action": "built",
+  "object_id": "towel-rolled-upright"
+ },
+ "c019": {
+  "action": "skipped",
+  "reason": "Reflection in the tall south wall mirror (frame 456 shows the bed, pillows, lamp and nightstand mirrored); no physical object at this place."
+ },
+ "c020": {
+  "action": "built",
+  "object_id": "towel-rolled-horizontal"
+ },
+ "c021": {
+  "action": "built",
+  "object_id": "light-switch-hall-side"
+ },
+ "c022": {
+  "action": "part",
+  "object_id": "window-sill-boxing"
+ },
+ "c023": {
+  "action": "part",
+  "object_id": "bathroom-shell"
+ },
+ "c024": {
+  "action": "part",
+  "object_id": "window-sill-boxing"
+ },
+ "c025": {
+  "action": "skipped",
+  "reason": "Reflection in the tall south wall mirror (frame 456 shows the bed, pillows, lamp and nightstand mirrored); no physical object at this place."
+ },
+ "c028": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c029": {
+  "action": "built",
+  "object_id": "wall-mirror"
+ },
+ "c030": {
+  "action": "skipped",
+  "reason": "Reflection in the tall south wall mirror (frame 456 shows the bed, pillows, lamp and nightstand mirrored); no physical object at this place."
+ },
+ "c031": {
+  "action": "duplicate",
+  "object_id": "washbasin"
+ },
+ "c032": {
+  "action": "built",
+  "object_id": "wardrobe"
+ },
+ "c033": {
+  "action": "part",
+  "object_id": "bedspread"
+ },
+ "c036": {
+  "action": "built",
+  "object_id": "light-switch-bath-side"
+ },
+ "c037": {
+  "action": "part",
+  "object_id": "wall-south-mirror-section"
+ },
+ "c038": {
+  "action": "part",
+  "object_id": "bathroom-shell"
+ },
+ "c039": {
+  "action": "built",
+  "object_id": "towel-folded-bottom"
+ },
+ "c040": {
+  "action": "part",
+  "object_id": "wall-south-mirror-section"
+ },
+ "c041": {
+  "action": "duplicate",
+  "object_id": "light-switch-hall-side"
+ },
+ "c045": {
+  "action": "built",
+  "object_id": "wall-control-high"
+ },
+ "c046": {
+  "action": "part",
+  "object_id": "hallway-shell"
+ },
+ "c048": {
+  "action": "part",
+  "object_id": "mirror-cabinet"
+ },
+ "c050": {
+  "action": "part",
+  "object_id": "wall-east"
+ },
+ "c051": {
+  "action": "skipped",
+  "reason": "Reflection in the tall south wall mirror (frame 456 shows the bed, pillows, lamp and nightstand mirrored); no physical object at this place."
+ },
+ "c052": {
+  "action": "skipped",
+  "reason": "Reflection in the tall south wall mirror (frame 456 shows the bed, pillows, lamp and nightstand mirrored); no physical object at this place."
+ },
+ "c053": {
+  "action": "built",
+  "object_id": "washbasin"
+ },
+ "c056": {
+  "action": "built",
+  "object_id": "pillow-white-front-north"
+ },
+ "c057": {
+  "action": "skipped",
+  "reason": "Reflection in the tall south wall mirror (frame 456 shows the bed, pillows, lamp and nightstand mirrored); no physical object at this place."
+ },
+ "c058": {
+  "action": "part",
+  "object_id": "doorway-bathroom"
+ },
+ "c060": {
+  "action": "built",
+  "object_id": "cushion-green-south"
+ },
+ "c061": {
+  "action": "part",
+  "object_id": "wall-east"
+ },
+ "c062": {
+  "action": "duplicate",
+  "object_id": "light-switch-hall-side"
+ },
+ "c063": {
+  "action": "duplicate",
+  "object_id": "towel-rolled-horizontal"
+ },
+ "c064": {
+  "action": "part",
+  "object_id": "hallway-shell"
+ },
+ "c065": {
+  "action": "duplicate",
+  "object_id": "towel-folded-bottom"
+ },
+ "c068": {
+  "action": "built",
+  "object_id": "toilet"
+ },
+ "c069": {
+  "action": "built",
+  "object_id": "basin-tap"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "towel-folded-top"
+ },
+ "c071": {
+  "action": "part",
+  "object_id": "wall-pier-northeast"
+ },
+ "c073": {
+  "action": "part",
+  "object_id": "window-sill-boxing"
+ },
+ "c075": {
+  "action": "part",
+  "object_id": "poster-print-on-bed"
+ },
+ "c076": {
+  "action": "part",
+  "object_id": "poster-print-on-bed"
+ },
+ "c077": {
+  "action": "duplicate",
+  "object_id": "wardrobe"
+ },
+ "c081": {
+  "action": "built",
+  "object_id": "pillow-white-back-north"
+ },
+ "c082": {
+  "action": "part",
+  "object_id": "hallway-shell"
+ },
+ "c084": {
+  "action": "built",
+  "object_id": "power-outlet-west"
+ },
+ "c085": {
+  "action": "built",
+  "object_id": "bedspread"
+ },
+ "c086": {
+  "action": "built",
+  "object_id": "pillow-white-back-south"
+ },
+ "c088": {
+  "action": "built",
+  "object_id": "heated-towel-rail"
+ },
+ "c090": {
+  "action": "part",
+  "object_id": "window-sill-boxing"
+ },
+ "c091": {
+  "action": "duplicate",
+  "object_id": "radiator-under-window"
+ },
+ "c095": {
+  "action": "built",
+  "object_id": "pillow-white-front-south"
+ },
+ "c097": {
+  "action": "part",
+  "object_id": "bedspread"
+ },
+ "c099": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c101": {
+  "action": "duplicate",
+  "object_id": "power-outlet-south"
+ },
+ "c105": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c106": {
+  "action": "duplicate",
+  "object_id": "bed"
+ },
+ "c108": {
+  "action": "part",
+  "object_id": "shower-enclosure"
+ },
+ "c109": {
+  "action": "part",
+  "object_id": "bed"
+ },
+ "c110": {
+  "action": "duplicate",
+  "object_id": "towel-rolled-upright"
+ },
+ "c113": {
+  "action": "duplicate",
+  "object_id": "towel-folded-top"
+ },
+ "c114": {
+  "action": "duplicate",
+  "object_id": "light-switch-hall-side"
+ },
+ "c122": {
+  "action": "duplicate",
+  "object_id": "wardrobe"
+ },
+ "c123": {
+  "action": "skipped",
+  "reason": "3 cm blob at the image edge of frame 476 near the east wall above the chest; no outlet or other object is identifiable there in any frame (east wall there is plain in frames 504-534)."
+ },
+ "c124": {
+  "action": "part",
+  "object_id": "wall-south"
+ },
+ "c125": {
+  "action": "part",
+  "object_id": "window-sill-boxing"
+ },
+ "c126": {
+  "action": "part",
+  "object_id": "wall-south"
+ },
+ "c127": {
+  "action": "part",
+  "object_id": "chest-of-drawers"
+ },
+ "c128": {
+  "action": "part",
+  "object_id": "wall-south"
+ },
+ "c132": {
+  "action": "duplicate",
+  "object_id": "bedspread"
+ },
+ "c133": {
+  "action": "duplicate",
+  "object_id": "power-outlet-south"
+ },
+ "c135": {
+  "action": "part",
+  "object_id": "bed"
+ },
+ "c136": {
+  "action": "duplicate",
+  "object_id": "poster-print-on-bed"
+ },
+ "c138": {
+  "action": "built",
+  "object_id": "nightstand-south"
+ },
+ "c140": {
+  "action": "duplicate",
+  "object_id": "bedspread"
+ },
+ "c141": {
+  "action": "duplicate",
+  "object_id": "nightstand-south"
+ },
+ "c151": {
+  "action": "part",
+  "object_id": "wardrobe"
+ },
+ "c152": {
+  "action": "part",
+  "object_id": "bedspread"
+ },
+ "c153": {
+  "action": "duplicate",
+  "object_id": "light-switch-bath-side"
+ },
+ "c156": {
+  "action": "duplicate",
+  "object_id": "nightstand-north"
+ },
+ "c157": {
+  "action": "built",
+  "object_id": "mirror-cabinet"
+ },
+ "c158": {
+  "action": "part",
+  "object_id": "bed"
+ },
+ "c163": {
+  "action": "duplicate",
+  "object_id": "light-switch-hall-side"
+ },
+ "c164": {
+  "action": "duplicate",
+  "object_id": "light-switch-bath-side"
+ }
+}

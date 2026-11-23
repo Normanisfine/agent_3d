@@ -92,3 +92,19 @@ def test_project_box_and_best_view():
                                              {"source_frame": 5, "K": K, "c2w": np.eye(4).tolist()}]}
     best, box, n_views = hd.best_view(cup, cams)
     assert best == 0 and n_views == 1
+
+
+def test_align_depth_to_pi3x_scale():
+    # 清单 v2：MoGe-2 在高清帧上的深度（边缘清楚、不缺像素）按中位比例对齐到 Pi3X 上采样深度的尺度
+    import numpy as np
+    from smallobj import hd
+    rng = np.random.default_rng(0)
+    moge = rng.uniform(1.0, 4.0, (60, 80)).astype(np.float32)
+    pi3x = 2.0 * moge
+    pi3x[:10] = np.nan                       # Pi3X 低置信度、边缘的地方是 NaN
+    pi3x[20:22, :5] *= 3.0                   # 少量离群像素不影响中位数
+    moge[59, 79] = np.inf                    # MoGe 自己判无效的像素
+    out, s = hd.align_depth(moge, pi3x)
+    assert abs(s - 2.0) < 1e-6
+    assert np.isfinite(out[:10]).all()       # Pi3X 缺的地方 MoGe 补上
+    assert np.isnan(out[59, 79]) and np.allclose(out[30:50], 2.0 * moge[30:50])

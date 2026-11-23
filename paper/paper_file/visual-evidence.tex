@@ -2,14 +2,17 @@
 \centering
 \includegraphics[width=\linewidth]{figures/system-pipeline.pdf}
 \caption{\textbf{System overview.} Top: AHa-3D~\cite{aha3d} computes a
-reference geometry from a handheld video, an agent authors the room in
+reference geometry from a handheld video (cameras and points from Pi3X, the
+released update of $\pi^3$~\cite{pi3}; structural masks from
+SAM~3~\cite{sam3}), an agent authors the room in
 Blender against renders from the video's cameras, and an optional pass adds
-materials. Middle: one held-out room at each stage; instances under 50\,cm
-are blue, and the inset is the same room built without the checklist.
-Bottom: our additions, a detector checklist for small objects
-(Section~\ref{sec:small-method}; the four entries are real, and the bar
-counts the agent's decisions on all 2{,}287 entries of six held-out rooms),
-concurrent object builds (Section~\ref{sec:architecture}) and physical
-properties (Section~\ref{sec:physics-plan}).}
+materials. Middle: one held-out room at each stage, built with the checklist (342
+instances of any size; those under 50\,cm are blue). The inset is the AHa-3D
+baseline scene of the same room, with 37.
+Bottom: our additions, each evaluated separately: a checklist for small
+objects (Section~\ref{sec:small-method}; the four entries are real, and the
+entry counts and the bar of the agent's decisions cover the six held-out
+rooms), concurrent object builds (Section~\ref{sec:architecture}) and
+physical properties (Appendix~\ref{sec:physics-plan}).}
 \label{fig:system}
 \end{figure}

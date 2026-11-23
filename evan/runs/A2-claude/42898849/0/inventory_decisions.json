@@ -1,0 +1,603 @@
+{
+ "b000": {
+  "action": "skipped",
+  "reason": "Not a real object: a \"mirror\" detection whose crop is a wide view of the living room; no mirror is visible in any source frame and the reference has no planar surface at (1.18, 3.72)."
+ },
+ "b001": {
+  "action": "built",
+  "object_id": "sofa_b001"
+ },
+ "b002": {
+  "action": "built",
+  "object_id": "rug_b002"
+ },
+ "b003": {
+  "action": "built",
+  "object_id": "table_lamp_b005",
+  "note": "duplicate detection of the rope table lamp"
+ },
+ "b004": {
+  "action": "skipped",
+  "reason": "Not a separate object: the crop shows only the island worktop corner; the reference has no seat-height geometry at (-1.3, 4.32) or past the island end, and the layout reviewer confirmed open floor there (all four island stools are built)."
+ },
+ "b005": {
+  "action": "built",
+  "object_id": "table_lamp_b005"
+ },
+ "b006": {
+  "action": "built",
+  "object_id": "picture_b006"
+ },
+ "b007": {
+  "action": "built",
+  "object_id": "tv_b007"
+ },
+ "b008": {
+  "action": "built",
+  "object_id": "table_lamp_b008"
+ },
+ "b009": {
+  "action": "built",
+  "object_id": "noel_letters_b009"
+ },
+ "b010": {
+  "action": "built",
+  "object_id": "table_lamp_b005",
+  "note": "duplicate detection of the rope table lamp"
+ },
+ "b011": {
+  "action": "built",
+  "object_id": "side_table_b011"
+ },
+ "b012": {
+  "action": "built",
+  "object_id": "rug_b002",
+  "note": "part of the large grey living rug b002 (corner seen under side table)"
+ },
+ "b013": {
+  "action": "built",
+  "object_id": "floor_lamp_b013"
+ },
+ "b014": {
+  "action": "built",
+  "object_id": "fireplace_b014"
+ },
+ "b015": {
+  "action": "built",
+  "object_id": "lantern_b015"
+ },
+ "b016": {
+  "action": "built",
+  "object_id": "plant_b016"
+ },
+ "b017": {
+  "action": "built",
+  "object_id": "pillow_b017"
+ },
+ "b018": {
+  "action": "built",
+  "object_id": "pillow_b018"
+ },
+ "b019": {
+  "action": "built",
+  "object_id": "pillow_b019"
+ },
+ "b020": {
+  "action": "built",
+  "object_id": "pillow_b020"
+ },
+ "b021": {
+  "action": "built",
+  "object_id": "sofa_b021"
+ },
+ "b022": {
+  "action": "built",
+  "object_id": "flowers_b022"
+ },
+ "b023": {
+  "action": "built",
+  "object_id": "vase_b023"
+ },
+ "b024": {
+  "action": "built",
+  "object_id": "book_b024"
+ },
+ "b025": {
+  "action": "built",
+  "object_id": "side_table_b025"
+ },
+ "b026": {
+  "action": "built",
+  "object_id": "sofa_b001",
+  "note": "arm of sofa b001"
+ },
+ "b027": {
+  "action": "built",
+  "object_id": "sofa_b001",
+  "note": "arm of sofa b001"
+ },
+ "b028": {
+  "action": "built",
+  "object_id": "wall_cabinet_b028"
+ },
+ "b029": {
+  "action": "skipped",
+  "reason": "Outside the reconstructed room: a hallway lamp seen through the entrance doorway at y=-3 m (beyond the room envelope; the hallway is not in scope)."
+ },
+ "b030": {
+  "action": "built",
+  "object_id": "range_cooker_b030"
+ },
+ "b031": {
+  "action": "built",
+  "object_id": "fridge_b031"
+ },
+ "b032": {
+  "action": "built",
+  "object_id": "base_cabinet_b032"
+ },
+ "b033": {
+  "action": "built",
+  "object_id": "pendant_b033"
+ },
+ "b034": {
+  "action": "built",
+  "object_id": "pendant_b033",
+  "note": "duplicate of pendant b033"
+ },
+ "b035": {
+  "action": "built",
+  "object_id": "wall_cabinet_b035"
+ },
+ "b036": {
+  "action": "built",
+  "object_id": "wall_cabinet_b036"
+ },
+ "b037": {
+  "action": "built",
+  "object_id": "tall_fridge_b037"
+ },
+ "b038": {
+  "action": "built",
+  "object_id": "table_lamp_b038"
+ },
+ "b039": {
+  "action": "built",
+  "object_id": "picture_b039"
+ },
+ "b040": {
+  "action": "built",
+  "object_id": "base_cabinet_b112",
+  "note": "section of base cabinet run b112"
+ },
+ "b041": {
+  "action": "built",
+  "object_id": "barstool_b041"
+ },
+ "b042": {
+  "action": "built",
+  "object_id": "barstool_b042"
+ },
+ "b043": {
+  "action": "built",
+  "object_id": "island_b043",
+  "note": "island extended to the reference body extent x -3.58..-1.08 (detector box was shorter)"
+ },
+ "b044": {
+  "action": "built",
+  "object_id": "gift_b044"
+ },
+ "b045": {
+  "action": "built",
+  "object_id": "barstool_b045"
+ },
+ "b046": {
+  "action": "built",
+  "object_id": "lantern_b046"
+ },
+ "b047": {
+  "action": "built",
+  "object_id": "picture_b119",
+  "note": "duplicate of wall picture b119"
+ },
+ "b048": {
+  "action": "built",
+  "object_id": "gift_b048"
+ },
+ "b049": {
+  "action": "built",
+  "object_id": "log_barrel_b049"
+ },
+ "b050": {
+  "action": "built",
+  "object_id": "rug_b050"
+ },
+ "b051": {
+  "action": "built",
+  "object_id": "vase_b023",
+  "note": "duplicate of hydrangea jug b023"
+ },
+ "b052": {
+  "action": "built",
+  "object_id": "book_b052"
+ },
+ "b053": {
+  "action": "built",
+  "object_id": "rug_b088",
+  "note": "same grey rug as b088"
+ },
+ "b054": {
+  "action": "built",
+  "object_id": "rug_b002",
+  "note": "corner of rug b002"
+ },
+ "b055": {
+  "action": "built",
+  "object_id": "garland_b055"
+ },
+ "b056": {
+  "action": "built",
+  "object_id": "mantel_b056"
+ },
+ "b057": {
+  "action": "built",
+  "object_id": "stove_b057"
+ },
+ "b058": {
+  "action": "built",
+  "object_id": "lantern_b015",
+  "note": "duplicate of woven lantern b015"
+ },
+ "b059": {
+  "action": "built",
+  "object_id": "pillow_b017",
+  "note": "duplicate of pillow b017"
+ },
+ "b060": {
+  "action": "built",
+  "object_id": "plant_b060"
+ },
+ "b061": {
+  "action": "built",
+  "object_id": "picture_b061"
+ },
+ "b062": {
+  "action": "built",
+  "object_id": "picture_b062"
+ },
+ "b063": {
+  "action": "built",
+  "object_id": "windowsill_b063"
+ },
+ "b064": {
+  "action": "built",
+  "object_id": "corner_cabinet_b064"
+ },
+ "b065": {
+  "action": "built",
+  "object_id": "ball_b065"
+ },
+ "b066": {
+  "action": "built",
+  "object_id": "plant_pot_b066"
+ },
+ "b067": {
+  "action": "built",
+  "object_id": "rug_b050",
+  "note": "same white rug as b050"
+ },
+ "b068": {
+  "action": "built",
+  "object_id": "red_box_b068"
+ },
+ "b069": {
+  "action": "built",
+  "object_id": "picture_b069"
+ },
+ "b070": {
+  "action": "built",
+  "object_id": "picture_b070"
+ },
+ "b071": {
+  "action": "built",
+  "object_id": "picture_b071"
+ },
+ "b072": {
+  "action": "built",
+  "object_id": "sheet_music_b072"
+ },
+ "b073": {
+  "action": "built",
+  "object_id": "stool_b073"
+ },
+ "b074": {
+  "action": "built",
+  "object_id": "wicker_chair_b074"
+ },
+ "b075": {
+  "action": "built",
+  "object_id": "plant_mantel_b075"
+ },
+ "b076": {
+  "action": "built",
+  "object_id": "chest_table_b076"
+ },
+ "b077": {
+  "action": "built",
+  "object_id": "red_bag_b077"
+ },
+ "b078": {
+  "action": "built",
+  "object_id": "pillow_b078"
+ },
+ "b079": {
+  "action": "built",
+  "object_id": "gift_b079"
+ },
+ "b080": {
+  "action": "built",
+  "object_id": "pillow_b080"
+ },
+ "b081": {
+  "action": "built",
+  "object_id": "throw_b081"
+ },
+ "b082": {
+  "action": "built",
+  "object_id": "pillow_b082"
+ },
+ "b083": {
+  "action": "built",
+  "object_id": "vase_b023",
+  "note": "duplicate of hydrangea jug b023"
+ },
+ "b084": {
+  "action": "built",
+  "object_id": "chessboard_b084"
+ },
+ "b085": {
+  "action": "built",
+  "object_id": "magazine_rack_b085"
+ },
+ "b086": {
+  "action": "built",
+  "object_id": "magazine_rack_b085",
+  "note": "duplicate of magazine rack b085"
+ },
+ "b087": {
+  "action": "built",
+  "object_id": "sofa_b021",
+  "note": "partial detection of sofa b021"
+ },
+ "b088": {
+  "action": "built",
+  "object_id": "rug_b088"
+ },
+ "b089": {
+  "action": "built",
+  "object_id": "candle_jar_b100",
+  "note": "same jar candle as b100"
+ },
+ "b090": {
+  "action": "built",
+  "object_id": "candle_pillar_b099",
+  "note": "same pillar candle as b099"
+ },
+ "b091": {
+  "action": "built",
+  "object_id": "lantern_b091"
+ },
+ "b092": {
+  "action": "built",
+  "object_id": "windowsill_b092"
+ },
+ "b093": {
+  "action": "built",
+  "object_id": "basket_b093"
+ },
+ "b094": {
+  "action": "built",
+  "object_id": "rug_b088",
+  "note": "same grey rug as b088"
+ },
+ "b095": {
+  "action": "built",
+  "object_id": "picture_b061",
+  "note": "duplicate of picture b061 on the east windowsill"
+ },
+ "b096": {
+  "action": "built",
+  "object_id": "chessboard_b084",
+  "note": "duplicate of chessboard b084"
+ },
+ "b097": {
+  "action": "built",
+  "object_id": "log_holder_b097"
+ },
+ "b098": {
+  "action": "built",
+  "object_id": "plant_pot_b098"
+ },
+ "b099": {
+  "action": "built",
+  "object_id": "candle_pillar_b099"
+ },
+ "b100": {
+  "action": "built",
+  "object_id": "candle_jar_b100"
+ },
+ "b101": {
+  "action": "built",
+  "object_id": "garland_b055",
+  "note": "duplicate of mantel garland b055"
+ },
+ "b102": {
+  "action": "built",
+  "object_id": "pendant_b102"
+ },
+ "b103": {
+  "action": "built",
+  "object_id": "window_west_sink",
+  "note": "labelled mirror; actually the west kitchen window above the sink"
+ },
+ "b104": {
+  "action": "built",
+  "object_id": "barstool_b104"
+ },
+ "b105": {
+  "action": "built",
+  "object_id": "barstool_b045",
+  "note": "same stool as the easternmost island stool b045 (seen through the entrance doorway in frame 0)"
+ },
+ "b106": {
+  "action": "built",
+  "object_id": "picture_b119",
+  "note": "duplicate of wall picture b119"
+ },
+ "b107": {
+  "action": "built",
+  "object_id": "hurricane_vase_b107"
+ },
+ "b108": {
+  "action": "built",
+  "object_id": "barstool_b042",
+  "note": "duplicate of bar stool b042"
+ },
+ "b109": {
+  "action": "built",
+  "object_id": "gift_bag_b109"
+ },
+ "b110": {
+  "action": "built",
+  "object_id": "open_shelf_b110"
+ },
+ "b111": {
+  "action": "built",
+  "object_id": "fruit_bowl_b111"
+ },
+ "b112": {
+  "action": "built",
+  "object_id": "base_cabinet_b112"
+ },
+ "b113": {
+  "action": "built",
+  "object_id": "base_cabinet_b112",
+  "note": "section of base cabinet run b112"
+ },
+ "b114": {
+  "action": "built",
+  "object_id": "lamp_table_b114"
+ },
+ "b115": {
+  "action": "built",
+  "object_id": "picture_b115"
+ },
+ "b116": {
+  "action": "built",
+  "object_id": "picture_b116"
+ },
+ "b117": {
+  "action": "built",
+  "object_id": "picture_b039",
+  "note": "duplicate of picture b039"
+ },
+ "b118": {
+  "action": "built",
+  "object_id": "lamp_table_b114",
+  "note": "lower shelf of lamp table b114"
+ },
+ "b119": {
+  "action": "built",
+  "object_id": "picture_b119"
+ },
+ "b120": {
+  "action": "built",
+  "object_id": "kettle_b120"
+ },
+ "b121": {
+  "action": "built",
+  "object_id": "range_cooker_b030",
+  "note": "oven of range cooker b030"
+ },
+ "b122": {
+  "action": "built",
+  "object_id": "towel_b122"
+ },
+ "b123": {
+  "action": "built",
+  "object_id": "base_cabinet_b123"
+ },
+ "b124": {
+  "action": "built",
+  "object_id": "base_cabinet_b124"
+ },
+ "b125": {
+  "action": "built",
+  "object_id": "toaster_b125"
+ },
+ "b126": {
+  "action": "built",
+  "object_id": "plate_stack_b126"
+ },
+ "b127": {
+  "action": "built",
+  "object_id": "range_cooker_b030",
+  "note": "oven of range cooker b030"
+ },
+ "b128": {
+  "action": "built",
+  "object_id": "beam_b128"
+ },
+ "b129": {
+  "action": "built",
+  "object_id": "console_table_b129"
+ },
+ "b130": {
+  "action": "built",
+  "object_id": "coffee_machine_b130"
+ },
+ "b131": {
+  "action": "built",
+  "object_id": "milk_frother_b131"
+ },
+ "b132": {
+  "action": "built",
+  "object_id": "chimney_breast_kitchen",
+  "note": "right pillar of the kitchen chimney breast"
+ },
+ "b133": {
+  "action": "built",
+  "object_id": "wall_clock_b133"
+ },
+ "b134": {
+  "action": "built",
+  "object_id": "glass_wall_cabinet_b134"
+ },
+ "b135": {
+  "action": "built",
+  "object_id": "plant_windowsill_b135"
+ },
+ "b136": {
+  "action": "built",
+  "object_id": "toaster_b125",
+  "note": "duplicate of toaster b125"
+ },
+ "b137": {
+  "action": "built",
+  "object_id": "canister_b137"
+ },
+ "b138": {
+  "action": "built",
+  "object_id": "sink_cabinet_b138"
+ },
+ "b139": {
+  "action": "built",
+  "object_id": "base_cabinet_b123",
+  "note": "corner filler of corner base cabinet b123"
+ },
+ "b140": {
+  "action": "built",
+  "object_id": "towel_b122",
+  "note": "duplicate of towel b122"
+ }
+}

@@ -1,46 +1,38 @@
-\subsection{Planning and controlling object reconstruction}
+\subsection{Planning and scheduling object reconstruction}
 \label{sec:architecture}
-We design two controllers for object-level reconstruction to study how
-assigning scheduling and repair decisions to an agent or a program affects
-placement accuracy and inference cost. In original AHa-3D, a
-scene-authoring agent edits the room directly and revises it in response to
-visual feedback. Both controllers use a planning agent to identify dependencies
-between object tasks. These dependencies let workers build independent objects
-concurrently and repair one object while preserving completed work elsewhere
-in the room (Figure~\ref{fig:blueprint}).
-
-The planning agent uses the detector inventory and source images to specify
-which objects each task creates or modifies and which existing objects it
-needs. For example, placing a lamp requires the finished height of its desk,
-while a chair can be built independently. The runtime adds dependencies
-when edits would conflict and limits concurrent builds to the available
-compute and memory. Workers build candidates in separate scene copies.
-Before committing an edit, each controller checks the geometry and cameras,
-verifies that unrelated objects are preserved, and reviews the candidate
-against the current scene.
+In the original AHa-3D, one agent builds and revises the room in sequence.
+Our two controllers share a planning agent that uses the detector inventory
+and source images to identify which objects each task needs or changes
+(Figure~\ref{fig:blueprint}). For example, a lamp must wait for its desk,
+but a chair can be built in parallel. The runtime orders conflicting edits
+and runs independent builds in separate scene copies as resources
+permit. Before merging an edit, both controllers check the geometry, cameras
+and unrelated objects, and review the candidate in the context of the room.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth]{figures/parallelism.pdf}
-\caption{Control of planning, construction, and repair. AHA-driven and
-AHA-auto each build a dependency graph from the object inventory. An agent
-directs execution in original AHa-3D and AHA-driven. In AHA-auto, the
-planning agent returns the graph to a Python scheduler.}
+\includegraphics[width=0.78\linewidth]{figures/parallelism.pdf}
+\caption{Planning, construction and repair in the original AHa-3D and the
+two controllers. Both controllers use the same checks before merging a
+worker's edits. The assembled room then goes to final review.}
 \label{fig:blueprint}
 \end{figure}
 
-\textbf{AHA-driven.} The planning agent continues as the supervisor. It
-selects source views, delegates independent tasks to workers, and uses
-local reviews to choose which edits to accept or repair. Workers and
-reviewers receive evidence for the assigned task. The supervisor retains
-the room-wide history so it can weigh a local defect against unfinished
-work elsewhere. A per-task attempt limit bounds repeated construction.
-The supervisor still decides how often to inspect progress between builds.
+\textbf{AHA-driven.} The planning agent stays on as supervisor. It selects
+source views, assigns tasks to workers and uses local reviews and the room
+history to accept edits or request repairs within a per-task attempt limit.
+Each progress check can send the
+room history through the model again. We compare a short-wait policy
+(typically one second at launch and 15--20 seconds between checks) with
+a long-wait policy (requests of up to 30 seconds at launch and 60 seconds
+thereafter).
 
-\textbf{AHA-auto.} Because the dependency graph and recorded build outcomes
-determine which tasks are ready, a Python scheduler can dispatch them without
-an additional model call. The scheduler waits for worker results, applies
-retry limits, and routes critical tasks or failed
-repairs to the supervisor role. If a task exhausts its attempts, its
-dependents are blocked and independent tasks remain eligible. Both controllers
-submit the assembled room for final review.
+\textbf{AHA-auto.} The planning agent hands its dependency graph to a Python
+scheduler. The scheduler dispatches ready tasks, waits for workers and
+enforces retry limits. It refers critical tasks and failed repairs to a
+supervisor. When a task exhausts its attempts, the scheduler blocks its
+dependents and continues with independent work.
+
+We report elapsed time and estimated token cost for each controller run
+(Table~\ref{tab:auto-floorplan209}). We price recorded cached input,
+uncached input and output tokens separately and exclude host and GPU costs.

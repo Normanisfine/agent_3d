@@ -1,6 +1,6 @@
 """各实验组的提示词和请求（configs/prompts/<arm>.md、configs/requests/<arm>.json）的渲染。
 
-A2、A3r、A3v 都在 A1 的全文上只做增加（A3 另把 A1 里"不许用生成器"那一句换成"或用下面的生成工具"），
+A2、A3r、A3v、A5 都在 A1 的全文上只做增加（A3 另把 A1 里"不许用生成器"那一句换成"或用下面的生成工具"），
 tests/test_prompts.py 检查这一点。用法：python -m smallobj.prompts <arm> <out_prompt> <out_request> KEY=VALUE ...
 """
 import re
@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 PROJ = Path(__file__).resolve().parents[2]
-ARMS = ("A0", "A1", "A2", "A3r", "A3v")
+ARMS = ("A0", "A1", "A2", "A3r", "A3v", "A5")
 
 
 def template(arm: str) -> str:

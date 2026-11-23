@@ -1,0 +1,39 @@
+{
+ "status": "ok",
+ "exit_code": 0,
+ "wall_s": 4549.367008924484,
+ "paused_s": 3177.0,
+ "usage": {
+  "thread_id": "7d24ed29-0a97-4d0b-ba08-e6ce8a9b3fea",
+  "input_tokens": 33844558,
+  "cached_input_tokens": 33506053,
+  "output_tokens": 153071,
+  "reasoning_output_tokens": 0,
+  "turns": 186,
+  "tool_calls": 184,
+  "cost_usd_equiv": 22.80189920000001,
+  "limit_hit": false
+ },
+ "rate_limits": {
+  "primary_start": 82.0,
+  "primary_end": 5.0,
+  "weekly_start": 81.0,
+  "weekly_end": 82.0,
+  "reached": true
+ },
+ "leak_suspect": false,
+ "leak_hits": [],
+ "same_video_suspect": false,
+ "same_video_hits": [],
+ "aha_accepted": true,
+ "codex_home": "claude",
+ "weekly_delta": 1.0,
+ "primary_delta": -77.0,
+ "leak_recheck": {
+  "date": "2026-11-20",
+  "before": [
+   "{\"command\": \"S=$PWD/scenes/42899729_a0-claude_s0 && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src $PI3X_MESH_PY - <<EOF\\nimport json\\nfrom aha3d.workflow.layout_gate import record_review, require_current\\n"
+  ],
+  "note": "误判：命中的是 ../../../scenes/42899729_a0-claude_s0/review/…（这次运行自己的 AHa 场景目录），audit_gt_access 已改成不算自己的场景目录"
+ }
+}

@@ -1,0 +1,3538 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "curtain_right_01"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "laundry_basket_01"
+ },
+ "c002": {
+  "action": "built",
+  "object_id": "pendant_lamp_01"
+ },
+ "c003": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c004": {
+  "action": "duplicate",
+  "object_id": "pendant_lamp_01"
+ },
+ "c005": {
+  "action": "built",
+  "object_id": "curtain_left_01"
+ },
+ "c006": {
+  "action": "duplicate",
+  "object_id": "pendant_lamp_01"
+ },
+ "c007": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "daybed_01"
+ },
+ "c010": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c011": {
+  "action": "built",
+  "object_id": "projector_01"
+ },
+ "c012": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c013": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c015": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c016": {
+  "action": "duplicate",
+  "object_id": "pendant_lamp_01"
+ },
+ "c017": {
+  "action": "duplicate",
+  "object_id": "curtain_right_01"
+ },
+ "c018": {
+  "action": "built",
+  "object_id": "shoe_brown_01"
+ },
+ "c019": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c020": {
+  "action": "part",
+  "object_id": "nightstand_01"
+ },
+ "c021": {
+  "action": "built",
+  "object_id": "hallway_table_lamp_01"
+ },
+ "c022": {
+  "action": "duplicate",
+  "object_id": "hallway_table_lamp_01"
+ },
+ "c023": {
+  "action": "built",
+  "object_id": "wardrobe_01"
+ },
+ "c024": {
+  "action": "duplicate",
+  "object_id": "curtain_right_01"
+ },
+ "c025": {
+  "action": "built",
+  "object_id": "mouse_pad_01"
+ },
+ "c026": {
+  "action": "built",
+  "object_id": "cardboard_box_01"
+ },
+ "c027": {
+  "action": "duplicate",
+  "object_id": "mouse_pad_01"
+ },
+ "c028": {
+  "action": "built",
+  "object_id": "postcard_074"
+ },
+ "c029": {
+  "action": "duplicate",
+  "object_id": "cardboard_box_01"
+ },
+ "c031": {
+  "action": "part",
+  "object_id": "nightstand_01"
+ },
+ "c033": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c034": {
+  "action": "built",
+  "object_id": "hallway_basket_01"
+ },
+ "c036": {
+  "action": "built",
+  "object_id": "shoe_brown_02"
+ },
+ "c037": {
+  "action": "built",
+  "object_id": "dressing_gown_01"
+ },
+ "c038": {
+  "action": "duplicate",
+  "object_id": "postcard_022"
+ },
+ "c041": {
+  "action": "duplicate",
+  "object_id": "curtain_left_01"
+ },
+ "c042": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c044": {
+  "action": "duplicate",
+  "object_id": "hallway_wall_light_01"
+ },
+ "c045": {
+  "action": "part",
+  "object_id": "pendant_lamp_01"
+ },
+ "c049": {
+  "action": "built",
+  "object_id": "nightstand_01"
+ },
+ "c051": {
+  "action": "built",
+  "object_id": "postcard_075"
+ },
+ "c053": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c054": {
+  "action": "duplicate",
+  "object_id": "framed_sunset_picture_01"
+ },
+ "c056": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c057": {
+  "action": "built",
+  "object_id": "postcard_076"
+ },
+ "c059": {
+  "action": "built",
+  "object_id": "sticky_note_01"
+ },
+ "c060": {
+  "action": "duplicate",
+  "object_id": "postcard_058"
+ },
+ "c064": {
+  "action": "built",
+  "object_id": "postcard_077"
+ },
+ "c065": {
+  "action": "part",
+  "object_id": "calendar_01"
+ },
+ "c067": {
+  "action": "built",
+  "object_id": "framed_sunset_picture_01"
+ },
+ "c068": {
+  "action": "built",
+  "object_id": "storage_box_02"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "postcard_078"
+ },
+ "c076": {
+  "action": "built",
+  "object_id": "mouse_01"
+ },
+ "c078": {
+  "action": "built",
+  "object_id": "postcard_079"
+ },
+ "c079": {
+  "action": "built",
+  "object_id": "postcard_080"
+ },
+ "c080": {
+  "action": "duplicate",
+  "object_id": "postcard_015"
+ },
+ "c081": {
+  "action": "built",
+  "object_id": "postcard_081"
+ },
+ "c083": {
+  "action": "built",
+  "object_id": "wall_shelf_lower_01"
+ },
+ "c085": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c086": {
+  "action": "duplicate",
+  "object_id": "postcard_044"
+ },
+ "c087": {
+  "action": "built",
+  "object_id": "postcard_019"
+ },
+ "c088": {
+  "action": "built",
+  "object_id": "postcard_082"
+ },
+ "c089": {
+  "action": "duplicate",
+  "object_id": "postcard_031"
+ },
+ "c090": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c091": {
+  "action": "built",
+  "object_id": "postcard_083"
+ },
+ "c092": {
+  "action": "duplicate",
+  "object_id": "postcard_082"
+ },
+ "c094": {
+  "action": "built",
+  "object_id": "postcard_020"
+ },
+ "c097": {
+  "action": "duplicate",
+  "object_id": "dressing_gown_01"
+ },
+ "c098": {
+  "action": "built",
+  "object_id": "bottle_03"
+ },
+ "c099": {
+  "action": "built",
+  "object_id": "storage_box_03"
+ },
+ "c1004": {
+  "action": "part",
+  "object_id": "floor_cable_01"
+ },
+ "c101": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c1017": {
+  "action": "duplicate",
+  "object_id": "postcard_147"
+ },
+ "c102": {
+  "action": "built",
+  "object_id": "hallway_picture_01"
+ },
+ "c1025": {
+  "action": "duplicate",
+  "object_id": "suitcase_01"
+ },
+ "c1027": {
+  "action": "built",
+  "object_id": "book_58"
+ },
+ "c1030": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1031": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1035": {
+  "action": "duplicate",
+  "object_id": "postcard_097"
+ },
+ "c1036": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1039": {
+  "action": "duplicate",
+  "object_id": "postcard_075"
+ },
+ "c1043": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1044": {
+  "action": "duplicate",
+  "object_id": "postcard_005"
+ },
+ "c1045": {
+  "action": "duplicate",
+  "object_id": "postcard_134"
+ },
+ "c1049": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1053": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1054": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1058": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c1059": {
+  "action": "built",
+  "object_id": "book_41"
+ },
+ "c1063": {
+  "action": "duplicate",
+  "object_id": "postcard_051"
+ },
+ "c1065": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c1066": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1067": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1068": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c107": {
+  "action": "part",
+  "object_id": "calendar_01"
+ },
+ "c1075": {
+  "action": "built",
+  "object_id": "small_card_01"
+ },
+ "c1077": {
+  "action": "built",
+  "object_id": "book_25"
+ },
+ "c1079": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c108": {
+  "action": "built",
+  "object_id": "book_15"
+ },
+ "c1080": {
+  "action": "duplicate",
+  "object_id": "storage_box_02"
+ },
+ "c1082": {
+  "action": "part",
+  "object_id": "floor_cable_01"
+ },
+ "c1083": {
+  "action": "built",
+  "object_id": "book_59"
+ },
+ "c1085": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1089": {
+  "action": "duplicate",
+  "object_id": "postcard_049"
+ },
+ "c109": {
+  "action": "built",
+  "object_id": "postcard_084"
+ },
+ "c1091": {
+  "action": "built",
+  "object_id": "coat_on_rack_05"
+ },
+ "c1092": {
+  "action": "built",
+  "object_id": "book_42"
+ },
+ "c1096": {
+  "action": "part",
+  "object_id": "projector_cable_01"
+ },
+ "c1097": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1098": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c110": {
+  "action": "duplicate",
+  "object_id": "postcard_084"
+ },
+ "c1106": {
+  "action": "built",
+  "object_id": "postcard_161"
+ },
+ "c1109": {
+  "action": "duplicate",
+  "object_id": "postcard_149"
+ },
+ "c111": {
+  "action": "built",
+  "object_id": "postcard_085"
+ },
+ "c1110": {
+  "action": "duplicate",
+  "object_id": "postcard_004"
+ },
+ "c1111": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1112": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1115": {
+  "action": "built",
+  "object_id": "storage_box_07"
+ },
+ "c1118": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1120": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c1122": {
+  "action": "built",
+  "object_id": "book_60"
+ },
+ "c1124": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1127": {
+  "action": "duplicate",
+  "object_id": "postcard_062"
+ },
+ "c1129": {
+  "action": "duplicate",
+  "object_id": "postcard_094"
+ },
+ "c113": {
+  "action": "built",
+  "object_id": "box_stack_upper_01"
+ },
+ "c1132": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1133": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1134": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c114": {
+  "action": "built",
+  "object_id": "projector_cable_01"
+ },
+ "c1140": {
+  "action": "built",
+  "object_id": "pillow_03"
+ },
+ "c1142": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1143": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1148": {
+  "action": "duplicate",
+  "object_id": "postcard_094"
+ },
+ "c115": {
+  "action": "built",
+  "object_id": "postcard_021"
+ },
+ "c1152": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1153": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c1154": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1158": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c116": {
+  "action": "built",
+  "object_id": "postcard_086"
+ },
+ "c1163": {
+  "action": "duplicate",
+  "object_id": "postcard_113"
+ },
+ "c1168": {
+  "action": "part",
+  "object_id": "floor_cable_01"
+ },
+ "c1169": {
+  "action": "duplicate",
+  "object_id": "hanger_01"
+ },
+ "c117": {
+  "action": "built",
+  "object_id": "postcard_087"
+ },
+ "c1174": {
+  "action": "duplicate",
+  "object_id": "postcard_092"
+ },
+ "c1175": {
+  "action": "part",
+  "object_id": "pendant_lamp_01"
+ },
+ "c1177": {
+  "action": "part",
+  "object_id": "mouse_01"
+ },
+ "c1179": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c118": {
+  "action": "built",
+  "object_id": "postcard_088"
+ },
+ "c1183": {
+  "action": "built",
+  "object_id": "postcard_073"
+ },
+ "c1185": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1186": {
+  "action": "built",
+  "object_id": "postcard_162"
+ },
+ "c1188": {
+  "action": "built",
+  "object_id": "postcard_163"
+ },
+ "c1189": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c119": {
+  "action": "built",
+  "object_id": "postcard_022"
+ },
+ "c1190": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1191": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1196": {
+  "action": "built",
+  "object_id": "window_plant_01"
+ },
+ "c1197": {
+  "action": "skipped",
+  "reason": "foliage of the garden tree seen through the window glass, outside the room"
+ },
+ "c1198": {
+  "action": "built",
+  "object_id": "hanger_01"
+ },
+ "c1199": {
+  "action": "built",
+  "object_id": "hanger_04"
+ },
+ "c120": {
+  "action": "built",
+  "object_id": "postcard_006"
+ },
+ "c1201": {
+  "action": "built",
+  "object_id": "book_43"
+ },
+ "c1202": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1206": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1208": {
+  "action": "duplicate",
+  "object_id": "postcard_097"
+ },
+ "c121": {
+  "action": "built",
+  "object_id": "slipper_01"
+ },
+ "c1210": {
+  "action": "built",
+  "object_id": "postcard_164"
+ },
+ "c1214": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1215": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1218": {
+  "action": "part",
+  "object_id": "postcard_104"
+ },
+ "c1219": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1222": {
+  "action": "built",
+  "object_id": "book_61"
+ },
+ "c1224": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1226": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1227": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1229": {
+  "action": "duplicate",
+  "object_id": "postcard_156"
+ },
+ "c123": {
+  "action": "built",
+  "object_id": "postcard_001"
+ },
+ "c1231": {
+  "action": "built",
+  "object_id": "postcard_165"
+ },
+ "c1232": {
+  "action": "duplicate",
+  "object_id": "postcard_154"
+ },
+ "c1233": {
+  "action": "duplicate",
+  "object_id": "postcard_075"
+ },
+ "c1237": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c124": {
+  "action": "duplicate",
+  "object_id": "postcard_076"
+ },
+ "c1242": {
+  "action": "part",
+  "object_id": "projector_cable_01"
+ },
+ "c1245": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c1247": {
+  "action": "built",
+  "object_id": "hanger_03"
+ },
+ "c1249": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c125": {
+  "action": "built",
+  "object_id": "postcard_089"
+ },
+ "c1253": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1254": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1256": {
+  "action": "duplicate",
+  "object_id": "postcard_107"
+ },
+ "c1257": {
+  "action": "duplicate",
+  "object_id": "postcard_116"
+ },
+ "c1262": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1264": {
+  "action": "duplicate",
+  "object_id": "laundry_basket_01"
+ },
+ "c1266": {
+  "action": "part",
+  "object_id": "floor_cable_01"
+ },
+ "c1267": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1269": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c127": {
+  "action": "built",
+  "object_id": "light_switch_01"
+ },
+ "c1272": {
+  "action": "built",
+  "object_id": "desk_paper_01"
+ },
+ "c1274": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1279": {
+  "action": "duplicate",
+  "object_id": "postcard_002"
+ },
+ "c128": {
+  "action": "built",
+  "object_id": "wall_shelf_upper_01"
+ },
+ "c1280": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1286": {
+  "action": "built",
+  "object_id": "floor_cable_01"
+ },
+ "c1288": {
+  "action": "built",
+  "object_id": "floor_bag_black_01"
+ },
+ "c129": {
+  "action": "built",
+  "object_id": "book_26"
+ },
+ "c1290": {
+  "action": "part",
+  "object_id": "cardboard_box_01"
+ },
+ "c1293": {
+  "action": "built",
+  "object_id": "book_62"
+ },
+ "c1305": {
+  "action": "built",
+  "object_id": "nightstand_paper_01"
+ },
+ "c131": {
+  "action": "duplicate",
+  "object_id": "bottle_03"
+ },
+ "c1310": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1311": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1312": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1318": {
+  "action": "built",
+  "object_id": "book_44"
+ },
+ "c1319": {
+  "action": "built",
+  "object_id": "book_45"
+ },
+ "c132": {
+  "action": "built",
+  "object_id": "postcard_090"
+ },
+ "c1320": {
+  "action": "duplicate",
+  "object_id": "postcard_080"
+ },
+ "c1321": {
+  "action": "duplicate",
+  "object_id": "postcard_149"
+ },
+ "c133": {
+  "action": "built",
+  "object_id": "postcard_091"
+ },
+ "c1330": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1337": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1338": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1339": {
+  "action": "part",
+  "object_id": "postcard_004"
+ },
+ "c134": {
+  "action": "duplicate",
+  "object_id": "postcard_073"
+ },
+ "c1340": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1342": {
+  "action": "duplicate",
+  "object_id": "bottle_01"
+ },
+ "c1344": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c135": {
+  "action": "duplicate",
+  "object_id": "postcard_088"
+ },
+ "c1350": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1356": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1357": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c136": {
+  "action": "duplicate",
+  "object_id": "postcard_077"
+ },
+ "c1360": {
+  "action": "built",
+  "object_id": "book_46"
+ },
+ "c1361": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1363": {
+  "action": "built",
+  "object_id": "hanger_05"
+ },
+ "c1365": {
+  "action": "duplicate",
+  "object_id": "robin_card_01"
+ },
+ "c1367": {
+  "action": "built",
+  "object_id": "postcard_166"
+ },
+ "c1368": {
+  "action": "duplicate",
+  "object_id": "postcard_138"
+ },
+ "c1369": {
+  "action": "duplicate",
+  "object_id": "postcard_087"
+ },
+ "c137": {
+  "action": "duplicate",
+  "object_id": "postcard_040"
+ },
+ "c1370": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1371": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1374": {
+  "action": "duplicate",
+  "object_id": "hutch_card_01"
+ },
+ "c1375": {
+  "action": "part",
+  "object_id": "nightstand_01"
+ },
+ "c1377": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1378": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1379": {
+  "action": "built",
+  "object_id": "book_63"
+ },
+ "c138": {
+  "action": "built",
+  "object_id": "postcard_092"
+ },
+ "c1380": {
+  "action": "duplicate",
+  "object_id": "postcard_005"
+ },
+ "c1382": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1388": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1390": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1391": {
+  "action": "built",
+  "object_id": "hanger_07"
+ },
+ "c1394": {
+  "action": "duplicate",
+  "object_id": "pillow_02"
+ },
+ "c1395": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1396": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1398": {
+  "action": "part",
+  "object_id": "clothes_rack_01"
+ },
+ "c1399": {
+  "action": "built",
+  "object_id": "storage_box_06"
+ },
+ "c140": {
+  "action": "duplicate",
+  "object_id": "tote_bag_01"
+ },
+ "c1400": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1404": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1405": {
+  "action": "part",
+  "object_id": "floor_cable_01"
+ },
+ "c1406": {
+  "action": "built",
+  "object_id": "book_47"
+ },
+ "c1407": {
+  "action": "duplicate",
+  "object_id": "postcard_003"
+ },
+ "c141": {
+  "action": "built",
+  "object_id": "desk_01"
+ },
+ "c1414": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c142": {
+  "action": "duplicate",
+  "object_id": "box_stack_lower_01"
+ },
+ "c1421": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1426": {
+  "action": "built",
+  "object_id": "hutch_black_pouch_01"
+ },
+ "c1427": {
+  "action": "duplicate",
+  "object_id": "storage_box_05"
+ },
+ "c1434": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1437": {
+  "action": "duplicate",
+  "object_id": "postcard_092"
+ },
+ "c1438": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1446": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c1448": {
+  "action": "built",
+  "object_id": "book_64"
+ },
+ "c1449": {
+  "action": "duplicate",
+  "object_id": "storage_box_04"
+ },
+ "c145": {
+  "action": "built",
+  "object_id": "postcard_093"
+ },
+ "c1452": {
+  "action": "duplicate",
+  "object_id": "postcard_075"
+ },
+ "c1458": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c146": {
+  "action": "built",
+  "object_id": "throw_blanket_yellow_01"
+ },
+ "c1463": {
+  "action": "built",
+  "object_id": "book_65"
+ },
+ "c1465": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1467": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1468": {
+  "action": "duplicate",
+  "object_id": "postcard_105"
+ },
+ "c1469": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c147": {
+  "action": "built",
+  "object_id": "postcard_094"
+ },
+ "c1472": {
+  "action": "built",
+  "object_id": "postcard_167"
+ },
+ "c1473": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1474": {
+  "action": "part",
+  "object_id": "hallway_nightstand_01"
+ },
+ "c1475": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1477": {
+  "action": "duplicate",
+  "object_id": "desk_paper_01"
+ },
+ "c1478": {
+  "action": "duplicate",
+  "object_id": "postcard_157"
+ },
+ "c1479": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1480": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1481": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c1483": {
+  "action": "part",
+  "object_id": "suitcase_01"
+ },
+ "c1484": {
+  "action": "duplicate",
+  "object_id": "storage_box_05"
+ },
+ "c1488": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c149": {
+  "action": "built",
+  "object_id": "postcard_095"
+ },
+ "c1491": {
+  "action": "duplicate",
+  "object_id": "postcard_078"
+ },
+ "c1494": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1495": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1498": {
+  "action": "built",
+  "object_id": "hanger_02"
+ },
+ "c1499": {
+  "action": "part",
+  "object_id": "floor_cable_02"
+ },
+ "c150": {
+  "action": "duplicate",
+  "object_id": "postcard_074"
+ },
+ "c1500": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1506": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1508": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c151": {
+  "action": "built",
+  "object_id": "postcard_023"
+ },
+ "c1510": {
+  "action": "built",
+  "object_id": "hallway_nightstand_01"
+ },
+ "c1513": {
+  "action": "duplicate",
+  "object_id": "pillow_01"
+ },
+ "c1515": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1517": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1518": {
+  "action": "part",
+  "object_id": "floor_cable_01"
+ },
+ "c1519": {
+  "action": "built",
+  "object_id": "coat_on_rack_07"
+ },
+ "c1523": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1524": {
+  "action": "duplicate",
+  "object_id": "hutch_card_01"
+ },
+ "c1526": {
+  "action": "built",
+  "object_id": "wall_strip_print_01"
+ },
+ "c1527": {
+  "action": "built",
+  "object_id": "hanger_06"
+ },
+ "c153": {
+  "action": "built",
+  "object_id": "book_27"
+ },
+ "c1532": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c154": {
+  "action": "built",
+  "object_id": "slipper_02"
+ },
+ "c1542": {
+  "action": "duplicate",
+  "object_id": "postcard_135"
+ },
+ "c1544": {
+  "action": "duplicate",
+  "object_id": "postcard_004"
+ },
+ "c1545": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c155": {
+  "action": "built",
+  "object_id": "coat_on_rack_01"
+ },
+ "c1551": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1552": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1553": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1556": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1557": {
+  "action": "duplicate",
+  "object_id": "pillow_01"
+ },
+ "c1558": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c156": {
+  "action": "built",
+  "object_id": "suitcase_01"
+ },
+ "c1564": {
+  "action": "built",
+  "object_id": "bottle_15"
+ },
+ "c1568": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1572": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1574": {
+  "action": "duplicate",
+  "object_id": "postcard_011"
+ },
+ "c1575": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1576": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c158": {
+  "action": "duplicate",
+  "object_id": "mouse_01"
+ },
+ "c1581": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1585": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1586": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c159": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c1591": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1592": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1594": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1596": {
+  "action": "duplicate",
+  "object_id": "postcard_110"
+ },
+ "c1598": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1599": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c160": {
+  "action": "built",
+  "object_id": "postcard_096"
+ },
+ "c1600": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1602": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1603": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1604": {
+  "action": "part",
+  "object_id": "floor_cable_01"
+ },
+ "c1605": {
+  "action": "part",
+  "object_id": "cardboard_box_01"
+ },
+ "c1606": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1607": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1608": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1609": {
+  "action": "duplicate",
+  "object_id": "box_stack_upper_01"
+ },
+ "c161": {
+  "action": "built",
+  "object_id": "duvet_01"
+ },
+ "c1611": {
+  "action": "part",
+  "object_id": "projector_cable_01"
+ },
+ "c1614": {
+  "action": "built",
+  "object_id": "postcard_168"
+ },
+ "c1615": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1624": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1625": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1627": {
+  "action": "built",
+  "object_id": "phone_01"
+ },
+ "c1629": {
+  "action": "duplicate",
+  "object_id": "postcard_004"
+ },
+ "c1630": {
+  "action": "duplicate",
+  "object_id": "pillow_02"
+ },
+ "c1631": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1637": {
+  "action": "duplicate",
+  "object_id": "tote_bag_01"
+ },
+ "c1638": {
+  "action": "duplicate",
+  "object_id": "bottle_06"
+ },
+ "c164": {
+  "action": "built",
+  "object_id": "coat_on_rack_06"
+ },
+ "c1641": {
+  "action": "built",
+  "object_id": "book_66"
+ },
+ "c1644": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1645": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1647": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1648": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1649": {
+  "action": "duplicate",
+  "object_id": "throw_blanket_yellow_01"
+ },
+ "c1650": {
+  "action": "built",
+  "object_id": "postcard_169"
+ },
+ "c1651": {
+  "action": "duplicate",
+  "object_id": "postcard_041"
+ },
+ "c1652": {
+  "action": "duplicate",
+  "object_id": "postcard_112"
+ },
+ "c1655": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1656": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c166": {
+  "action": "part",
+  "object_id": "projector_cable_01"
+ },
+ "c1666": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c167": {
+  "action": "built",
+  "object_id": "postcard_097"
+ },
+ "c1671": {
+  "action": "duplicate",
+  "object_id": "postcard_121"
+ },
+ "c1677": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1678": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c168": {
+  "action": "built",
+  "object_id": "postcard_098"
+ },
+ "c1680": {
+  "action": "part",
+  "object_id": "curtain_right_01"
+ },
+ "c1683": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1686": {
+  "action": "built",
+  "object_id": "book_48"
+ },
+ "c1687": {
+  "action": "duplicate",
+  "object_id": "postcard_058"
+ },
+ "c1688": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c169": {
+  "action": "built",
+  "object_id": "postcard_099"
+ },
+ "c1690": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c1691": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1698": {
+  "action": "part",
+  "object_id": "postcard_032"
+ },
+ "c1699": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c170": {
+  "action": "built",
+  "object_id": "postcard_100"
+ },
+ "c1704": {
+  "action": "built",
+  "object_id": "red_tin_01"
+ },
+ "c1705": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_02"
+ },
+ "c171": {
+  "action": "built",
+  "object_id": "postcard_101"
+ },
+ "c1714": {
+  "action": "duplicate",
+  "object_id": "postcard_126"
+ },
+ "c1716": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1717": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c172": {
+  "action": "duplicate",
+  "object_id": "postcard_091"
+ },
+ "c1720": {
+  "action": "duplicate",
+  "object_id": "postcard_007"
+ },
+ "c1728": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c173": {
+  "action": "duplicate",
+  "object_id": "postcard_084"
+ },
+ "c1732": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1735": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1736": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c174": {
+  "action": "duplicate",
+  "object_id": "postcard_056"
+ },
+ "c1744": {
+  "action": "built",
+  "object_id": "storage_box_08"
+ },
+ "c1748": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1750": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1757": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c176": {
+  "action": "built",
+  "object_id": "postcard_102"
+ },
+ "c1763": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1769": {
+  "action": "duplicate",
+  "object_id": "postcard_021"
+ },
+ "c177": {
+  "action": "built",
+  "object_id": "postcard_024"
+ },
+ "c1772": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1776": {
+  "action": "part",
+  "object_id": "postcard_061"
+ },
+ "c1777": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1778": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1782": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1783": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1787": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1788": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1789": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1792": {
+  "action": "duplicate",
+  "object_id": "bottle_10"
+ },
+ "c1795": {
+  "action": "duplicate",
+  "object_id": "storage_box_04"
+ },
+ "c1796": {
+  "action": "duplicate",
+  "object_id": "book_40"
+ },
+ "c1797": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1798": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1799": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c180": {
+  "action": "part",
+  "object_id": "projector_cable_01"
+ },
+ "c1802": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c181": {
+  "action": "part",
+  "object_id": "cardboard_box_01"
+ },
+ "c1812": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1813": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1820": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_03"
+ },
+ "c1822": {
+  "action": "built",
+  "object_id": "book_67"
+ },
+ "c1825": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1826": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1828": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1829": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1831": {
+  "action": "duplicate",
+  "object_id": "postcard_059"
+ },
+ "c184": {
+  "action": "built",
+  "object_id": "postcard_103"
+ },
+ "c1840": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1841": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1842": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1843": {
+  "action": "built",
+  "object_id": "bottle_16"
+ },
+ "c1846": {
+  "action": "built",
+  "object_id": "book_49"
+ },
+ "c1849": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1850": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1854": {
+  "action": "duplicate",
+  "object_id": "office_chair_01"
+ },
+ "c1855": {
+  "action": "built",
+  "object_id": "wardrobe_top_box_01"
+ },
+ "c1857": {
+  "action": "duplicate",
+  "object_id": "laundry_basket_01"
+ },
+ "c186": {
+  "action": "duplicate",
+  "object_id": "postcard_073"
+ },
+ "c1862": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1868": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c187": {
+  "action": "built",
+  "object_id": "postcard_104"
+ },
+ "c1870": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c1871": {
+  "action": "duplicate",
+  "object_id": "dressing_gown_01"
+ },
+ "c1873": {
+  "action": "built",
+  "object_id": "desk_hutch_01"
+ },
+ "c1874": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c1875": {
+  "action": "duplicate",
+  "object_id": "box_stack_upper_01"
+ },
+ "c1877": {
+  "action": "built",
+  "object_id": "book_68"
+ },
+ "c1879": {
+  "action": "duplicate",
+  "object_id": "postcard_168"
+ },
+ "c188": {
+  "action": "built",
+  "object_id": "postcard_105"
+ },
+ "c1880": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1883": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1884": {
+  "action": "skipped",
+  "reason": "aggregate detection spanning many postcards of the poster wall; each postcard is built individually"
+ },
+ "c1886": {
+  "action": "duplicate",
+  "object_id": "postcard_063"
+ },
+ "c189": {
+  "action": "duplicate",
+  "object_id": "postcard_032"
+ },
+ "c1891": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c1892": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c190": {
+  "action": "built",
+  "object_id": "postcard_106"
+ },
+ "c191": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c192": {
+  "action": "built",
+  "object_id": "coat_on_rack_02"
+ },
+ "c193": {
+  "action": "built",
+  "object_id": "bottle_06"
+ },
+ "c194": {
+  "action": "built",
+  "object_id": "book_07"
+ },
+ "c196": {
+  "action": "built",
+  "object_id": "pillow_01"
+ },
+ "c197": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c198": {
+  "action": "built",
+  "object_id": "postcard_107"
+ },
+ "c199": {
+  "action": "built",
+  "object_id": "postcard_108"
+ },
+ "c200": {
+  "action": "duplicate",
+  "object_id": "postcard_105"
+ },
+ "c201": {
+  "action": "built",
+  "object_id": "postcard_109"
+ },
+ "c203": {
+  "action": "built",
+  "object_id": "tissue_box_01"
+ },
+ "c204": {
+  "action": "built",
+  "object_id": "box_stack_lower_01"
+ },
+ "c205": {
+  "action": "built",
+  "object_id": "postcard_025"
+ },
+ "c206": {
+  "action": "built",
+  "object_id": "postcard_026"
+ },
+ "c207": {
+  "action": "built",
+  "object_id": "book_01"
+ },
+ "c208": {
+  "action": "built",
+  "object_id": "book_02"
+ },
+ "c210": {
+  "action": "built",
+  "object_id": "clothes_rack_01"
+ },
+ "c211": {
+  "action": "built",
+  "object_id": "book_16"
+ },
+ "c213": {
+  "action": "part",
+  "object_id": "projector_cable_01"
+ },
+ "c214": {
+  "action": "built",
+  "object_id": "postcard_110"
+ },
+ "c215": {
+  "action": "duplicate",
+  "object_id": "postcard_069"
+ },
+ "c216": {
+  "action": "built",
+  "object_id": "postcard_111"
+ },
+ "c217": {
+  "action": "built",
+  "object_id": "postcard_112"
+ },
+ "c218": {
+  "action": "built",
+  "object_id": "postcard_113"
+ },
+ "c219": {
+  "action": "built",
+  "object_id": "postcard_114"
+ },
+ "c220": {
+  "action": "built",
+  "object_id": "postcard_115"
+ },
+ "c222": {
+  "action": "built",
+  "object_id": "postcard_027"
+ },
+ "c224": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_02"
+ },
+ "c225": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c226": {
+  "action": "built",
+  "object_id": "bottle_07"
+ },
+ "c227": {
+  "action": "built",
+  "object_id": "hanging_card_blue_figure_01"
+ },
+ "c228": {
+  "action": "built",
+  "object_id": "book_28"
+ },
+ "c229": {
+  "action": "duplicate",
+  "object_id": "mouse_01"
+ },
+ "c230": {
+  "action": "built",
+  "object_id": "postcard_116"
+ },
+ "c231": {
+  "action": "built",
+  "object_id": "postcard_117"
+ },
+ "c232": {
+  "action": "duplicate",
+  "object_id": "postcard_093"
+ },
+ "c235": {
+  "action": "built",
+  "object_id": "postcard_028"
+ },
+ "c236": {
+  "action": "built",
+  "object_id": "postcard_029"
+ },
+ "c241": {
+  "action": "duplicate",
+  "object_id": "storage_box_03"
+ },
+ "c242": {
+  "action": "duplicate",
+  "object_id": "box_stack_lower_01"
+ },
+ "c243": {
+  "action": "built",
+  "object_id": "book_17"
+ },
+ "c244": {
+  "action": "built",
+  "object_id": "book_29"
+ },
+ "c245": {
+  "action": "built",
+  "object_id": "book_30"
+ },
+ "c247": {
+  "action": "duplicate",
+  "object_id": "postcard_116"
+ },
+ "c248": {
+  "action": "built",
+  "object_id": "postcard_118"
+ },
+ "c249": {
+  "action": "duplicate",
+  "object_id": "postcard_031"
+ },
+ "c250": {
+  "action": "duplicate",
+  "object_id": "postcard_104"
+ },
+ "c251": {
+  "action": "built",
+  "object_id": "postcard_030"
+ },
+ "c252": {
+  "action": "built",
+  "object_id": "figure_card_01"
+ },
+ "c254": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_01"
+ },
+ "c256": {
+  "action": "duplicate",
+  "object_id": "box_stack_upper_01"
+ },
+ "c260": {
+  "action": "built",
+  "object_id": "postcard_031"
+ },
+ "c261": {
+  "action": "built",
+  "object_id": "postcard_119"
+ },
+ "c262": {
+  "action": "built",
+  "object_id": "postcard_032"
+ },
+ "c264": {
+  "action": "duplicate",
+  "object_id": "light_switch_01"
+ },
+ "c265": {
+  "action": "built",
+  "object_id": "postcard_007"
+ },
+ "c266": {
+  "action": "built",
+  "object_id": "book_08"
+ },
+ "c269": {
+  "action": "built",
+  "object_id": "bottle_02"
+ },
+ "c271": {
+  "action": "duplicate",
+  "object_id": "postcard_032"
+ },
+ "c272": {
+  "action": "duplicate",
+  "object_id": "postcard_074"
+ },
+ "c273": {
+  "action": "built",
+  "object_id": "postcard_120"
+ },
+ "c274": {
+  "action": "built",
+  "object_id": "postcard_121"
+ },
+ "c275": {
+  "action": "duplicate",
+  "object_id": "postcard_111"
+ },
+ "c278": {
+  "action": "built",
+  "object_id": "postcard_122"
+ },
+ "c279": {
+  "action": "built",
+  "object_id": "bottle_09"
+ },
+ "c281": {
+  "action": "built",
+  "object_id": "calendar_01"
+ },
+ "c282": {
+  "action": "built",
+  "object_id": "book_03"
+ },
+ "c283": {
+  "action": "part",
+  "object_id": "cardboard_box_01"
+ },
+ "c284": {
+  "action": "duplicate",
+  "object_id": "postcard_072"
+ },
+ "c286": {
+  "action": "built",
+  "object_id": "shoe_dark_01"
+ },
+ "c287": {
+  "action": "built",
+  "object_id": "window_sill_pot_03"
+ },
+ "c288": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c289": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c290": {
+  "action": "built",
+  "object_id": "bottle_10"
+ },
+ "c291": {
+  "action": "duplicate",
+  "object_id": "postcard_032"
+ },
+ "c292": {
+  "action": "duplicate",
+  "object_id": "postcard_110"
+ },
+ "c295": {
+  "action": "duplicate",
+  "object_id": "postcard_086"
+ },
+ "c297": {
+  "action": "duplicate",
+  "object_id": "postcard_019"
+ },
+ "c300": {
+  "action": "duplicate",
+  "object_id": "postcard_112"
+ },
+ "c301": {
+  "action": "built",
+  "object_id": "postcard_123"
+ },
+ "c302": {
+  "action": "built",
+  "object_id": "postcard_124"
+ },
+ "c303": {
+  "action": "duplicate",
+  "object_id": "postcard_044"
+ },
+ "c305": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c306": {
+  "action": "built",
+  "object_id": "book_09"
+ },
+ "c307": {
+  "action": "built",
+  "object_id": "postcard_125"
+ },
+ "c309": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c311": {
+  "action": "built",
+  "object_id": "book_05"
+ },
+ "c312": {
+  "action": "built",
+  "object_id": "bottle_04"
+ },
+ "c313": {
+  "action": "duplicate",
+  "object_id": "postcard_101"
+ },
+ "c314": {
+  "action": "built",
+  "object_id": "postcard_126"
+ },
+ "c316": {
+  "action": "built",
+  "object_id": "postcard_127"
+ },
+ "c318": {
+  "action": "part",
+  "object_id": "wall_shelf_lower_01"
+ },
+ "c319": {
+  "action": "built",
+  "object_id": "postcard_128"
+ },
+ "c320": {
+  "action": "built",
+  "object_id": "postcard_002"
+ },
+ "c321": {
+  "action": "built",
+  "object_id": "postcard_008"
+ },
+ "c322": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c323": {
+  "action": "built",
+  "object_id": "book_31"
+ },
+ "c324": {
+  "action": "duplicate",
+  "object_id": "postcard_087"
+ },
+ "c326": {
+  "action": "built",
+  "object_id": "floor_cable_02"
+ },
+ "c327": {
+  "action": "built",
+  "object_id": "postcard_033"
+ },
+ "c328": {
+  "action": "built",
+  "object_id": "postcard_034"
+ },
+ "c329": {
+  "action": "built",
+  "object_id": "postcard_129"
+ },
+ "c330": {
+  "action": "duplicate",
+  "object_id": "bottle_03"
+ },
+ "c332": {
+  "action": "built",
+  "object_id": "bottle_05"
+ },
+ "c334": {
+  "action": "part",
+  "object_id": "mouse_01"
+ },
+ "c335": {
+  "action": "built",
+  "object_id": "pillow_02"
+ },
+ "c337": {
+  "action": "duplicate",
+  "object_id": "postcard_104"
+ },
+ "c338": {
+  "action": "part",
+  "object_id": "hallway_table_lamp_01"
+ },
+ "c339": {
+  "action": "built",
+  "object_id": "postcard_130"
+ },
+ "c341": {
+  "action": "duplicate",
+  "object_id": "postcard_112"
+ },
+ "c342": {
+  "action": "built",
+  "object_id": "book_32"
+ },
+ "c344": {
+  "action": "built",
+  "object_id": "book_18"
+ },
+ "c345": {
+  "action": "built",
+  "object_id": "storage_box_01"
+ },
+ "c346": {
+  "action": "duplicate",
+  "object_id": "box_stack_lower_01"
+ },
+ "c347": {
+  "action": "built",
+  "object_id": "window_01"
+ },
+ "c348": {
+  "action": "built",
+  "object_id": "window_sill_pot_01"
+ },
+ "c349": {
+  "action": "built",
+  "object_id": "book_33"
+ },
+ "c350": {
+  "action": "built",
+  "object_id": "book_10"
+ },
+ "c352": {
+  "action": "built",
+  "object_id": "postcard_009"
+ },
+ "c353": {
+  "action": "built",
+  "object_id": "postcard_035"
+ },
+ "c358": {
+  "action": "part",
+  "object_id": "nightstand_01"
+ },
+ "c359": {
+  "action": "duplicate",
+  "object_id": "bottle_09"
+ },
+ "c360": {
+  "action": "built",
+  "object_id": "postcard_036"
+ },
+ "c365": {
+  "action": "duplicate",
+  "object_id": "bottle_10"
+ },
+ "c366": {
+  "action": "built",
+  "object_id": "book_06"
+ },
+ "c368": {
+  "action": "duplicate",
+  "object_id": "postcard_085"
+ },
+ "c369": {
+  "action": "built",
+  "object_id": "hallway_rug_01"
+ },
+ "c372": {
+  "action": "duplicate",
+  "object_id": "postcard_020"
+ },
+ "c373": {
+  "action": "built",
+  "object_id": "postcard_037"
+ },
+ "c374": {
+  "action": "built",
+  "object_id": "postcard_038"
+ },
+ "c375": {
+  "action": "built",
+  "object_id": "postcard_039"
+ },
+ "c378": {
+  "action": "duplicate",
+  "object_id": "postcard_079"
+ },
+ "c379": {
+  "action": "built",
+  "object_id": "postcard_040"
+ },
+ "c380": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c381": {
+  "action": "duplicate",
+  "object_id": "postcard_090"
+ },
+ "c383": {
+  "action": "built",
+  "object_id": "postcard_131"
+ },
+ "c384": {
+  "action": "built",
+  "object_id": "postcard_010"
+ },
+ "c387": {
+  "action": "built",
+  "object_id": "bottle_11"
+ },
+ "c388": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_02"
+ },
+ "c389": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_03"
+ },
+ "c390": {
+  "action": "built",
+  "object_id": "tote_bag_01"
+ },
+ "c391": {
+  "action": "built",
+  "object_id": "book_19"
+ },
+ "c393": {
+  "action": "built",
+  "object_id": "book_20"
+ },
+ "c394": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c395": {
+  "action": "duplicate",
+  "object_id": "postcard_057"
+ },
+ "c401": {
+  "action": "built",
+  "object_id": "postcard_041"
+ },
+ "c405": {
+  "action": "built",
+  "object_id": "postcard_042"
+ },
+ "c406": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c408": {
+  "action": "built",
+  "object_id": "postcard_132"
+ },
+ "c411": {
+  "action": "built",
+  "object_id": "book_50"
+ },
+ "c412": {
+  "action": "built",
+  "object_id": "postcard_011"
+ },
+ "c413": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c415": {
+  "action": "duplicate",
+  "object_id": "light_switch_01"
+ },
+ "c416": {
+  "action": "duplicate",
+  "object_id": "light_switch_01"
+ },
+ "c419": {
+  "action": "built",
+  "object_id": "coat_on_rack_04"
+ },
+ "c420": {
+  "action": "built",
+  "object_id": "box_stack_top_card_01"
+ },
+ "c422": {
+  "action": "built",
+  "object_id": "postcard_133"
+ },
+ "c424": {
+  "action": "built",
+  "object_id": "postcard_012"
+ },
+ "c425": {
+  "action": "built",
+  "object_id": "postcard_043"
+ },
+ "c428": {
+  "action": "duplicate",
+  "object_id": "suitcase_01"
+ },
+ "c431": {
+  "action": "built",
+  "object_id": "book_11"
+ },
+ "c434": {
+  "action": "duplicate",
+  "object_id": "postcard_112"
+ },
+ "c435": {
+  "action": "built",
+  "object_id": "postcard_044"
+ },
+ "c436": {
+  "action": "built",
+  "object_id": "postcard_134"
+ },
+ "c437": {
+  "action": "built",
+  "object_id": "postcard_135"
+ },
+ "c439": {
+  "action": "built",
+  "object_id": "postcard_045"
+ },
+ "c440": {
+  "action": "built",
+  "object_id": "postcard_046"
+ },
+ "c441": {
+  "action": "built",
+  "object_id": "postcard_047"
+ },
+ "c442": {
+  "action": "built",
+  "object_id": "postcard_048"
+ },
+ "c445": {
+  "action": "duplicate",
+  "object_id": "hanging_card_blue_figure_01"
+ },
+ "c447": {
+  "action": "built",
+  "object_id": "book_34"
+ },
+ "c451": {
+  "action": "built",
+  "object_id": "postcard_049"
+ },
+ "c453": {
+  "action": "duplicate",
+  "object_id": "hanging_card_blue_figure_01"
+ },
+ "c454": {
+  "action": "built",
+  "object_id": "postcard_013"
+ },
+ "c455": {
+  "action": "built",
+  "object_id": "postcard_136"
+ },
+ "c456": {
+  "action": "built",
+  "object_id": "postcard_137"
+ },
+ "c461": {
+  "action": "duplicate",
+  "object_id": "postcard_106"
+ },
+ "c462": {
+  "action": "duplicate",
+  "object_id": "postcard_096"
+ },
+ "c467": {
+  "action": "duplicate",
+  "object_id": "postcard_074"
+ },
+ "c468": {
+  "action": "duplicate",
+  "object_id": "postcard_070"
+ },
+ "c470": {
+  "action": "built",
+  "object_id": "book_04"
+ },
+ "c471": {
+  "action": "built",
+  "object_id": "postcard_050"
+ },
+ "c475": {
+  "action": "built",
+  "object_id": "bottle_12"
+ },
+ "c476": {
+  "action": "built",
+  "object_id": "shoe_dark_02"
+ },
+ "c477": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c479": {
+  "action": "built",
+  "object_id": "postcard_051"
+ },
+ "c481": {
+  "action": "duplicate",
+  "object_id": "throw_blanket_yellow_01"
+ },
+ "c483": {
+  "action": "built",
+  "object_id": "postcard_052"
+ },
+ "c484": {
+  "action": "built",
+  "object_id": "postcard_138"
+ },
+ "c485": {
+  "action": "built",
+  "object_id": "postcard_053"
+ },
+ "c488": {
+  "action": "built",
+  "object_id": "hutch_card_01"
+ },
+ "c493": {
+  "action": "built",
+  "object_id": "postcard_139"
+ },
+ "c494": {
+  "action": "built",
+  "object_id": "postcard_140"
+ },
+ "c495": {
+  "action": "built",
+  "object_id": "postcard_141"
+ },
+ "c497": {
+  "action": "built",
+  "object_id": "postcard_142"
+ },
+ "c498": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c501": {
+  "action": "built",
+  "object_id": "postcard_054"
+ },
+ "c503": {
+  "action": "duplicate",
+  "object_id": "nightstand_01"
+ },
+ "c505": {
+  "action": "built",
+  "object_id": "book_12"
+ },
+ "c506": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c507": {
+  "action": "built",
+  "object_id": "postcard_143"
+ },
+ "c509": {
+  "action": "duplicate",
+  "object_id": "postcard_112"
+ },
+ "c510": {
+  "action": "built",
+  "object_id": "postcard_014"
+ },
+ "c511": {
+  "action": "built",
+  "object_id": "postcard_055"
+ },
+ "c512": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_01"
+ },
+ "c513": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c514": {
+  "action": "built",
+  "object_id": "book_21"
+ },
+ "c516": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c519": {
+  "action": "built",
+  "object_id": "postcard_144"
+ },
+ "c521": {
+  "action": "built",
+  "object_id": "postcard_056"
+ },
+ "c523": {
+  "action": "built",
+  "object_id": "postcard_015"
+ },
+ "c525": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c526": {
+  "action": "built",
+  "object_id": "postcard_016"
+ },
+ "c527": {
+  "action": "duplicate",
+  "object_id": "postcard_049"
+ },
+ "c530": {
+  "action": "duplicate",
+  "object_id": "mouse_pad_01"
+ },
+ "c533": {
+  "action": "built",
+  "object_id": "string_lights_01"
+ },
+ "c534": {
+  "action": "built",
+  "object_id": "postcard_057"
+ },
+ "c535": {
+  "action": "duplicate",
+  "object_id": "postcard_126"
+ },
+ "c536": {
+  "action": "duplicate",
+  "object_id": "postcard_022"
+ },
+ "c541": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c542": {
+  "action": "duplicate",
+  "object_id": "framed_sunset_picture_01"
+ },
+ "c545": {
+  "action": "built",
+  "object_id": "postcard_145"
+ },
+ "c548": {
+  "action": "built",
+  "object_id": "postcard_058"
+ },
+ "c550": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c551": {
+  "action": "built",
+  "object_id": "book_22"
+ },
+ "c553": {
+  "action": "built",
+  "object_id": "postcard_146"
+ },
+ "c554": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c555": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c557": {
+  "action": "built",
+  "object_id": "postcard_003"
+ },
+ "c559": {
+  "action": "duplicate",
+  "object_id": "postcard_056"
+ },
+ "c564": {
+  "action": "built",
+  "object_id": "postcard_059"
+ },
+ "c566": {
+  "action": "built",
+  "object_id": "postcard_060"
+ },
+ "c568": {
+  "action": "duplicate",
+  "object_id": "curtain_right_01"
+ },
+ "c572": {
+  "action": "duplicate",
+  "object_id": "postcard_082"
+ },
+ "c576": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c580": {
+  "action": "built",
+  "object_id": "book_51"
+ },
+ "c581": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c584": {
+  "action": "duplicate",
+  "object_id": "postcard_105"
+ },
+ "c587": {
+  "action": "built",
+  "object_id": "postcard_147"
+ },
+ "c591": {
+  "action": "duplicate",
+  "object_id": "postcard_022"
+ },
+ "c592": {
+  "action": "built",
+  "object_id": "postcard_061"
+ },
+ "c593": {
+  "action": "duplicate",
+  "object_id": "storage_box_01"
+ },
+ "c597": {
+  "action": "duplicate",
+  "object_id": "hutch_card_01"
+ },
+ "c600": {
+  "action": "built",
+  "object_id": "postcard_148"
+ },
+ "c601": {
+  "action": "built",
+  "object_id": "postcard_004"
+ },
+ "c602": {
+  "action": "built",
+  "object_id": "postcard_149"
+ },
+ "c605": {
+  "action": "built",
+  "object_id": "postcard_150"
+ },
+ "c610": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c611": {
+  "action": "built",
+  "object_id": "office_chair_01"
+ },
+ "c612": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c614": {
+  "action": "duplicate",
+  "object_id": "postcard_130"
+ },
+ "c618": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c623": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c624": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c628": {
+  "action": "built",
+  "object_id": "postcard_062"
+ },
+ "c630": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c632": {
+  "action": "built",
+  "object_id": "postcard_063"
+ },
+ "c634": {
+  "action": "built",
+  "object_id": "postcard_064"
+ },
+ "c638": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c640": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c641": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c645": {
+  "action": "duplicate",
+  "object_id": "postcard_110"
+ },
+ "c648": {
+  "action": "built",
+  "object_id": "postcard_151"
+ },
+ "c649": {
+  "action": "duplicate",
+  "object_id": "postcard_118"
+ },
+ "c657": {
+  "action": "built",
+  "object_id": "book_35"
+ },
+ "c658": {
+  "action": "built",
+  "object_id": "postcard_152"
+ },
+ "c659": {
+  "action": "built",
+  "object_id": "postcard_065"
+ },
+ "c661": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_01"
+ },
+ "c662": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c664": {
+  "action": "built",
+  "object_id": "postcard_153"
+ },
+ "c671": {
+  "action": "built",
+  "object_id": "book_13"
+ },
+ "c674": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c678": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c682": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c683": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c685": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c686": {
+  "action": "built",
+  "object_id": "postcard_066"
+ },
+ "c688": {
+  "action": "built",
+  "object_id": "postcard_005"
+ },
+ "c691": {
+  "action": "built",
+  "object_id": "window_sill_pot_02"
+ },
+ "c692": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c696": {
+  "action": "duplicate",
+  "object_id": "nightstand_01"
+ },
+ "c701": {
+  "action": "duplicate",
+  "object_id": "postcard_086"
+ },
+ "c704": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c707": {
+  "action": "duplicate",
+  "object_id": "postcard_064"
+ },
+ "c708": {
+  "action": "duplicate",
+  "object_id": "postcard_055"
+ },
+ "c711": {
+  "action": "built",
+  "object_id": "postcard_067"
+ },
+ "c716": {
+  "action": "duplicate",
+  "object_id": "wardrobe_top_paper_01"
+ },
+ "c717": {
+  "action": "built",
+  "object_id": "book_52"
+ },
+ "c718": {
+  "action": "built",
+  "object_id": "storage_box_04"
+ },
+ "c722": {
+  "action": "duplicate",
+  "object_id": "postcard_089"
+ },
+ "c723": {
+  "action": "built",
+  "object_id": "postcard_068"
+ },
+ "c729": {
+  "action": "part",
+  "object_id": "desk_01"
+ },
+ "c730": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_03"
+ },
+ "c731": {
+  "action": "built",
+  "object_id": "book_23"
+ },
+ "c736": {
+  "action": "built",
+  "object_id": "clothes_on_bed_01"
+ },
+ "c741": {
+  "action": "built",
+  "object_id": "bottle_13"
+ },
+ "c746": {
+  "action": "duplicate",
+  "object_id": "bottle_11"
+ },
+ "c748": {
+  "action": "built",
+  "object_id": "bottle_01"
+ },
+ "c749": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c750": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c759": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c762": {
+  "action": "built",
+  "object_id": "book_53"
+ },
+ "c764": {
+  "action": "part",
+  "object_id": "mouse_01"
+ },
+ "c766": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c768": {
+  "action": "built",
+  "object_id": "cat_figurine_01"
+ },
+ "c769": {
+  "action": "built",
+  "object_id": "book_54"
+ },
+ "c777": {
+  "action": "built",
+  "object_id": "postcard_069"
+ },
+ "c779": {
+  "action": "duplicate",
+  "object_id": "throw_blanket_yellow_01"
+ },
+ "c780": {
+  "action": "part",
+  "object_id": "string_lights_01"
+ },
+ "c782": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c783": {
+  "action": "built",
+  "object_id": "bottle_14"
+ },
+ "c784": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c785": {
+  "action": "built",
+  "object_id": "postcard_070"
+ },
+ "c788": {
+  "action": "built",
+  "object_id": "book_36"
+ },
+ "c789": {
+  "action": "built",
+  "object_id": "book_55"
+ },
+ "c790": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c792": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c795": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c797": {
+  "action": "built",
+  "object_id": "book_56"
+ },
+ "c800": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c805": {
+  "action": "built",
+  "object_id": "hallway_wall_light_01"
+ },
+ "c806": {
+  "action": "built",
+  "object_id": "postcard_017"
+ },
+ "c808": {
+  "action": "duplicate",
+  "object_id": "postcard_077"
+ },
+ "c809": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c810": {
+  "action": "part",
+  "object_id": "office_chair_01"
+ },
+ "c812": {
+  "action": "built",
+  "object_id": "postcard_154"
+ },
+ "c816": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_02"
+ },
+ "c817": {
+  "action": "built",
+  "object_id": "robin_card_01"
+ },
+ "c818": {
+  "action": "built",
+  "object_id": "storage_box_05"
+ },
+ "c821": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c823": {
+  "action": "duplicate",
+  "object_id": "postcard_147"
+ },
+ "c826": {
+  "action": "duplicate",
+  "object_id": "postcard_020"
+ },
+ "c827": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c829": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c830": {
+  "action": "part",
+  "object_id": "nightstand_01"
+ },
+ "c835": {
+  "action": "part",
+  "object_id": "hallway_table_lamp_01"
+ },
+ "c837": {
+  "action": "duplicate",
+  "object_id": "postcard_120"
+ },
+ "c838": {
+  "action": "duplicate",
+  "object_id": "postcard_117"
+ },
+ "c840": {
+  "action": "duplicate",
+  "object_id": "postcard_065"
+ },
+ "c841": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c843": {
+  "action": "built",
+  "object_id": "book_14"
+ },
+ "c844": {
+  "action": "built",
+  "object_id": "postcard_018"
+ },
+ "c845": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c846": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c851": {
+  "action": "duplicate",
+  "object_id": "postcard_119"
+ },
+ "c856": {
+  "action": "duplicate",
+  "object_id": "postcard_004"
+ },
+ "c858": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c859": {
+  "action": "part",
+  "object_id": "wardrobe_01"
+ },
+ "c861": {
+  "action": "duplicate",
+  "object_id": "postcard_017"
+ },
+ "c863": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c864": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c866": {
+  "action": "part",
+  "object_id": "office_chair_01"
+ },
+ "c867": {
+  "action": "duplicate",
+  "object_id": "laundry_basket_01"
+ },
+ "c874": {
+  "action": "duplicate",
+  "object_id": "postcard_140"
+ },
+ "c876": {
+  "action": "duplicate",
+  "object_id": "postcard_056"
+ },
+ "c877": {
+  "action": "part",
+  "object_id": "string_lights_01"
+ },
+ "c881": {
+  "action": "duplicate",
+  "object_id": "postcard_056"
+ },
+ "c882": {
+  "action": "built",
+  "object_id": "postcard_155"
+ },
+ "c886": {
+  "action": "duplicate",
+  "object_id": "postcard_103"
+ },
+ "c889": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c890": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c891": {
+  "action": "duplicate",
+  "object_id": "robin_card_01"
+ },
+ "c892": {
+  "action": "duplicate",
+  "object_id": "postcard_011"
+ },
+ "c894": {
+  "action": "built",
+  "object_id": "wall_card_blue_figure_01"
+ },
+ "c895": {
+  "action": "part",
+  "object_id": "daybed_01"
+ },
+ "c900": {
+  "action": "built",
+  "object_id": "postcard_156"
+ },
+ "c908": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c909": {
+  "action": "built",
+  "object_id": "coat_on_rack_03"
+ },
+ "c912": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c914": {
+  "action": "duplicate",
+  "object_id": "postcard_095"
+ },
+ "c918": {
+  "action": "built",
+  "object_id": "book_37"
+ },
+ "c919": {
+  "action": "built",
+  "object_id": "bottle_08"
+ },
+ "c920": {
+  "action": "built",
+  "object_id": "book_38"
+ },
+ "c922": {
+  "action": "built",
+  "object_id": "postcard_157"
+ },
+ "c924": {
+  "action": "duplicate",
+  "object_id": "box_stack_top_card_01"
+ },
+ "c930": {
+  "action": "built",
+  "object_id": "postcard_158"
+ },
+ "c931": {
+  "action": "part",
+  "object_id": "clothes_rack_01"
+ },
+ "c932": {
+  "action": "built",
+  "object_id": "book_24"
+ },
+ "c939": {
+  "action": "duplicate",
+  "object_id": "postcard_115"
+ },
+ "c940": {
+  "action": "built",
+  "object_id": "postcard_159"
+ },
+ "c941": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c942": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c944": {
+  "action": "duplicate",
+  "object_id": "window_sill_pot_03"
+ },
+ "c948": {
+  "action": "skipped",
+  "reason": "foliage of the garden tree seen through the window glass, outside the room"
+ },
+ "c949": {
+  "action": "duplicate",
+  "object_id": "postcard_126"
+ },
+ "c951": {
+  "action": "duplicate",
+  "object_id": "postcard_140"
+ },
+ "c959": {
+  "action": "duplicate",
+  "object_id": "wall_strip_print_01"
+ },
+ "c961": {
+  "action": "built",
+  "object_id": "book_39"
+ },
+ "c962": {
+  "action": "part",
+  "object_id": "curtain_right_01"
+ },
+ "c966": {
+  "action": "built",
+  "object_id": "postcard_160"
+ },
+ "c970": {
+  "action": "built",
+  "object_id": "postcard_071"
+ },
+ "c972": {
+  "action": "built",
+  "object_id": "book_57"
+ },
+ "c974": {
+  "action": "part",
+  "object_id": "duvet_01"
+ },
+ "c975": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c976": {
+  "action": "built",
+  "object_id": "wardrobe_top_paper_01"
+ },
+ "c977": {
+  "action": "part",
+  "object_id": "desk_hutch_01"
+ },
+ "c978": {
+  "action": "built",
+  "object_id": "book_40"
+ },
+ "c983": {
+  "action": "duplicate",
+  "object_id": "postcard_084"
+ },
+ "c987": {
+  "action": "duplicate",
+  "object_id": "postcard_089"
+ },
+ "c994": {
+  "action": "built",
+  "object_id": "postcard_072"
+ },
+ "c996": {
+  "action": "duplicate",
+  "object_id": "bottle_06"
+ },
+ "c997": {
+  "action": "duplicate",
+  "object_id": "box_stack_top_card_01"
+ },
+ "c998": {
+  "action": "part",
+  "object_id": "nightstand_01"
+ },
+ "c999": {
+  "action": "part",
+  "object_id": "duvet_01"
+ }
+}

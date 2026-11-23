@@ -1,0 +1,1644 @@
+{
+ "rows": [
+  {
+   "gt_id": "3ec7dd3e-a1ec-4fe4-9afc-5fa2e72349a0",
+   "category": "radiator",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.5441038761199579,
+   "iou": 0.0,
+   "pred_id": "radiator_01"
+  },
+  {
+   "gt_id": "85c125d2-c9a2-4d4a-ab33-b76004f3240b",
+   "category": "yogo mat",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.15379971402249037,
+   "iou": 0.19175317113638932,
+   "pred_id": "yoga_mat_01"
+  },
+  {
+   "gt_id": "4ea562dd-5f32-4267-b5fa-0a7b554cabe2",
+   "category": "towels",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.6817982571211179,
+   "iou": 0.1481056672474395,
+   "pred_id": "clothes_pile_floor_01"
+  },
+  {
+   "gt_id": "303774dd-88e6-42fc-9ec0-273e1aed7aa7",
+   "category": "shoe",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7389418518886826,
+   "iou": 0.0,
+   "pred_id": "shoe_brown_01"
+  },
+  {
+   "gt_id": "8c33d01f-d1c9-4293-8b3b-c6beb3489633",
+   "category": "shoe",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.6429718877052607,
+   "iou": 0.06454983142838215,
+   "pred_id": "shoe_brown_02"
+  },
+  {
+   "gt_id": "dc8ca227-3813-4de5-9d48-c751958dba53",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a8615920-7685-4f29-ac4d-205fdc7d4307",
+   "category": "object",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.10422018693232454,
+   "iou": 0.4011710116791291,
+   "pred_id": "wardrobe_01"
+  },
+  {
+   "gt_id": "9c1c4adf-31e5-410b-8a6a-e4e42d3c9f85",
+   "category": "shoe",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.5365255688032606,
+   "iou": 0.17259682314405178,
+   "pred_id": "shoe_dark_01"
+  },
+  {
+   "gt_id": "b863edef-5345-4b5c-81d1-44b9bfe63995",
+   "category": "shoe",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.6043716220440075,
+   "iou": 0.18456140019874478,
+   "pred_id": "shoe_dark_02"
+  },
+  {
+   "gt_id": "21fd802b-633f-47f7-a63c-432a9303ab57",
+   "category": "shoe",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "fcf7dc98-7306-47e1-b764-e4fdfbf447c8",
+   "category": "shoe",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "619f7688-2e81-4e11-8b80-c397fd8aebae",
+   "category": "slipper",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.622320498840116,
+   "iou": 0.0,
+   "pred_id": "slipper_01"
+  },
+  {
+   "gt_id": "cedfc894-1d61-4961-995c-c93cc3a54fb3",
+   "category": "slipper",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.5728319779796461,
+   "iou": 0.028594908922541348,
+   "pred_id": "slipper_02"
+  },
+  {
+   "gt_id": "7d230913-165c-4c96-aa74-c0ad71b2bece",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "3c7d26b4-9367-4ead-b3fd-9fc352118b1f",
+   "category": "ring light",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.3976348121045334,
+   "iou": 0.035823495485271355,
+   "pred_id": "floor_cable_02"
+  },
+  {
+   "gt_id": "b4272508-ada3-4075-bc25-c95c36621636",
+   "category": "door knob",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "776331a7-060d-433f-8300-94379fe34a9e",
+   "category": "suitcase",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "8d8a67ac-b3c1-4f57-b85c-4896bf5e3787",
+   "category": "box",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.5495868628353132,
+   "iou": 0.14444887941075907,
+   "pred_id": "wardrobe_top_box_01"
+  },
+  {
+   "gt_id": "b1eb82cd-9cfc-447c-8853-6f48bfc2fe25",
+   "category": "box",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "400f1e08-be7f-4e19-9160-a8a760241fac",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "aa98294f-f741-4983-9cd7-ac4b76db0021",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.6209545932615604,
+   "iou": 0.1556273659339346,
+   "pred_id": "wardrobe_top_paper_01"
+  },
+  {
+   "gt_id": "75870daf-f4b0-47a3-b4da-974f09d2e289",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "8d778ed3-474b-46a7-948d-a8cfbde839be",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.4304391308042079,
+   "iou": 0.2297414412904587,
+   "pred_id": "suitcase_01"
+  },
+  {
+   "gt_id": "b5a566de-8b2c-476a-b1b0-1de3c1997c3a",
+   "category": "coats",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.25755805033873935,
+   "iou": 0.33180837448900874,
+   "pred_id": "clothes_rack_01"
+  },
+  {
+   "gt_id": "92ff97be-f6cb-4911-bc1a-e321d81121cf",
+   "category": "clothes rack",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.6509185304752755,
+   "iou": 0.010720555936803646,
+   "pred_id": "coat_on_rack_04"
+  },
+  {
+   "gt_id": "7de39c7c-b223-4fad-9c35-1342db0a2449",
+   "category": "curtain rod",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "4c9d74f2-8856-4456-8753-ba23bc416f6f",
+   "category": "curtain",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.27389083769465916,
+   "iou": 0.17689638182307726,
+   "pred_id": "curtain_right_01"
+  },
+  {
+   "gt_id": "223fed8a-9dc4-4e72-9daf-8780b97314c3",
+   "category": "curtain",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.29082287282524455,
+   "iou": 0.0,
+   "pred_id": "curtain_left_01"
+  },
+  {
+   "gt_id": "91e0714c-7f6a-4eab-afba-8e0dfd8bf78e",
+   "category": "lamp",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.21955581795369367,
+   "iou": 0.5202048346920269,
+   "pred_id": "pendant_lamp_01"
+  },
+  {
+   "gt_id": "92774458-a919-4824-9577-31a19ae493dc",
+   "category": "plant pot",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.7206023160750004,
+   "iou": 0.0,
+   "pred_id": "window_sill_pot_03"
+  },
+  {
+   "gt_id": "dd438a74-7ffb-4fb1-aa0a-eb241d541b29",
+   "category": "plant pot",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 3.2905339102923143,
+   "iou": 0.0,
+   "pred_id": "window_sill_pot_02"
+  },
+  {
+   "gt_id": "6c4852af-b608-448e-bd71-abddbabe33c6",
+   "category": "plant pot",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.988816773914091,
+   "iou": 0.0,
+   "pred_id": "window_plant_01"
+  },
+  {
+   "gt_id": "d1de0188-51af-4dcb-8446-524fa59390ee",
+   "category": "basket",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.3613810322030602,
+   "iou": 0.4102842113016828,
+   "pred_id": "laundry_basket_01"
+  },
+  {
+   "gt_id": "378236fb-29ef-4b4a-bbbf-3c2884ce80ba",
+   "category": "painting",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.4035252423032113,
+   "iou": 0.0,
+   "pred_id": "framed_sunset_picture_01"
+  },
+  {
+   "gt_id": "221173f5-1753-4e49-bdbe-8f64004989d7",
+   "category": "badge holder",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.3866203956312813,
+   "iou": 0.0,
+   "pred_id": "wall_strip_print_01"
+  },
+  {
+   "gt_id": "0eca319e-9eab-4cb3-8774-932564561b0f",
+   "category": "motion detector",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "c948a1b1-bca6-474c-911d-979fa9fc87f3",
+   "category": "backpack",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.8192797607083113,
+   "iou": 0.16878793781060572,
+   "pred_id": "tote_bag_01"
+  },
+  {
+   "gt_id": "440b7e3e-17c1-42c1-a076-53df32cf65af",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a4a9dcf0-214a-45eb-951b-bafda224a7cf",
+   "category": "desk chair",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.25445625473515654,
+   "iou": 0.4469160405189541,
+   "pred_id": "office_chair_01"
+  },
+  {
+   "gt_id": "84e04203-8702-4f8d-b495-d632d83dcae9",
+   "category": "dressing gown",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.20639096829978726,
+   "iou": 0.47425143790827157,
+   "pred_id": "dressing_gown_01"
+  },
+  {
+   "gt_id": "62a63d7f-324f-4ed5-8503-3f517776fbde",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7814614670877128,
+   "iou": 0.07131193096131043,
+   "pred_id": "book_26"
+  },
+  {
+   "gt_id": "36e84c20-f7ca-4220-bfce-9f34d1521d33",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.0979800618716726,
+   "iou": 0.0,
+   "pred_id": "book_13"
+  },
+  {
+   "gt_id": "e154b4e6-33cf-4b7d-9c44-9578fcf7b268",
+   "category": "object",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.37820606869253803,
+   "iou": 0.33140258278934487,
+   "pred_id": "book_09"
+  },
+  {
+   "gt_id": "19208edb-4133-4e01-9e6f-d051a6f3fefc",
+   "category": "mouse pad",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.1451055078107064,
+   "iou": 0.0,
+   "pred_id": "mouse_pad_01"
+  },
+  {
+   "gt_id": "37657435-9b36-4431-a12d-acb20af1f8c4",
+   "category": "mouse",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.5748540011122247,
+   "iou": 0.0,
+   "pred_id": "bottle_09"
+  },
+  {
+   "gt_id": "ec8d9045-89a8-402d-90dd-a2bccd0562e5",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.1346444806402465,
+   "iou": 0.0,
+   "pred_id": "book_39"
+  },
+  {
+   "gt_id": "c6bca49d-d116-4d10-b1ad-d27a29827ffb",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.9691317696560198,
+   "iou": 0.0,
+   "pred_id": "book_37"
+  },
+  {
+   "gt_id": "9da96fd5-31b0-4556-9e88-875e6683432f",
+   "category": "bottle",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.0383215642430106,
+   "iou": 0.0,
+   "pred_id": "bottle_03"
+  },
+  {
+   "gt_id": "142e6030-9032-43f4-90ee-20ea28dd264d",
+   "category": "bottle",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 1.043824810982009,
+   "iou": 0.15622465544807335,
+   "pred_id": "bottle_06"
+  },
+  {
+   "gt_id": "06e9e7de-25e9-40a8-9282-c7eabfffa92c",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.0043776505708117,
+   "iou": 0.0,
+   "pred_id": "book_48"
+  },
+  {
+   "gt_id": "c1412024-bc75-455c-bb75-87339a0a18dd",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.2753203772736903,
+   "iou": 0.0,
+   "pred_id": "book_24"
+  },
+  {
+   "gt_id": "6087493a-be48-440a-ba9a-cc1581101c31",
+   "category": "bottle",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.9294238451824097,
+   "iou": 0.0,
+   "pred_id": "bottle_10"
+  },
+  {
+   "gt_id": "c70b2ae1-bce4-4b14-8e30-1abc21c0e2f2",
+   "category": "bottle",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7428096713657135,
+   "iou": 0.0,
+   "pred_id": "bottle_12"
+  },
+  {
+   "gt_id": "e14273a8-da48-4ff7-8314-efa71f55e23a",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "370594e6-494d-4432-bec5-b86a882f505e",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.067107305424471,
+   "iou": 0.0,
+   "pred_id": "hutch_clutter_09"
+  },
+  {
+   "gt_id": "b8036201-13a3-47a0-90ac-0ef467004266",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.9186384093390468,
+   "iou": 0.013493502808927332,
+   "pred_id": "bottle_11"
+  },
+  {
+   "gt_id": "a2801683-e6d2-4ebf-9ce7-3da2335c2a84",
+   "category": "bottle",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "bc2002ca-d898-4346-b5db-bfb2f45cb9fe",
+   "category": "bottle",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "d2824d54-41e6-41d6-bfd3-9311c378dea3",
+   "category": "vanity box",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.4115065425741204,
+   "iou": 0.0,
+   "pred_id": "tissue_box_01"
+  },
+  {
+   "gt_id": "c15b2a4f-ed77-4b4c-b85f-cf37c02f1dd5",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "530420c6-80b2-471d-ab50-4b49a6041dac",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.9123625621824696,
+   "iou": 0.0,
+   "pred_id": "book_32"
+  },
+  {
+   "gt_id": "d160fd64-bc01-4117-8b94-311107030990",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "b5638545-e572-4997-b5d9-632bd350779c",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.5113116132388078,
+   "iou": 0.02246753998255434,
+   "pred_id": "bottle_16"
+  },
+  {
+   "gt_id": "3aa5c772-fbff-4976-afac-2fc3801b20a2",
+   "category": "jar",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.3798922788774215,
+   "iou": 0.0,
+   "pred_id": "bottle_07"
+  },
+  {
+   "gt_id": "00f4580a-078c-4a82-9866-9fcc3bb6f7b1",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "760d3aea-efa3-4428-943f-25cab7180370",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "2570c8ab-7b50-45f5-96d5-0be18fc22f59",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "ad83758b-a82e-47ec-a957-ea84538c55a2",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.1939010592860853,
+   "iou": 0.0,
+   "pred_id": "storage_box_06"
+  },
+  {
+   "gt_id": "a17afaf4-8d91-451d-8c5d-c771e0f877ee",
+   "category": "bottle",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.9754887405358461,
+   "iou": 0.0,
+   "pred_id": "bottle_05"
+  },
+  {
+   "gt_id": "2cf536a8-337b-4e39-88a4-9d20f96ca6b5",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.2071052536122455,
+   "iou": 0.0,
+   "pred_id": "cat_figurine_01"
+  },
+  {
+   "gt_id": "570fcf5c-a9e9-4d73-a2a7-92bba77270d4",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 3.1206546103424224,
+   "iou": 0.0,
+   "pred_id": "storage_box_05"
+  },
+  {
+   "gt_id": "9214d729-c644-49fc-b78b-b4715e86f4ff",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.1835540958317248,
+   "iou": 0.0,
+   "pred_id": "small_card_01"
+  },
+  {
+   "gt_id": "4f52705c-1b5a-4110-8b12-c9236d81a7b7",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 3.6596669044695425,
+   "iou": 0.0,
+   "pred_id": "storage_box_04"
+  },
+  {
+   "gt_id": "8e6d7825-615e-42cd-977c-0f402ba96c74",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "156f5805-11a2-4197-bab2-7c574280f41e",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.678207816910019,
+   "iou": 0.0,
+   "pred_id": "storage_box_07"
+  },
+  {
+   "gt_id": "e66bbb9a-ed0c-4a94-927c-b602aaf4a652",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.198815100629938,
+   "iou": 0.0,
+   "pred_id": "book_63"
+  },
+  {
+   "gt_id": "2271fe3d-cd8a-4cd3-b958-53f8dfe5e9be",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.6542524049200125,
+   "iou": 0.12683195659684945,
+   "pred_id": "red_tin_01"
+  },
+  {
+   "gt_id": "3cd3dbad-08ec-47b3-b007-0e9341a2666e",
+   "category": "box",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.0717327776756012,
+   "iou": 0.0063682566524037665,
+   "pred_id": "book_58"
+  },
+  {
+   "gt_id": "87c2af33-28dd-444f-8ec5-71aa80890b8d",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "9b125acf-495c-4fdb-86e2-b0d9481f3751",
+   "category": "box",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.3532401435748183,
+   "iou": 0.0,
+   "pred_id": "robin_card_01"
+  },
+  {
+   "gt_id": "5f611568-802d-48ef-ade5-b5eb5e459470",
+   "category": "box",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.3479104575439158,
+   "iou": 0.02806056285284378,
+   "pred_id": "box_stack_upper_01"
+  },
+  {
+   "gt_id": "77ae0a35-e825-4fb0-9e95-dadaf8d4a6bc",
+   "category": "box",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.9751694451404641,
+   "iou": 0.0,
+   "pred_id": "box_stack_top_card_01"
+  },
+  {
+   "gt_id": "dd0f1e4f-d86f-44af-9685-20c2d8eb4abb",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.8458535131928442,
+   "iou": 0.0,
+   "pred_id": "book_65"
+  },
+  {
+   "gt_id": "91f35296-dd13-4463-97e2-25fd650130de",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "57472644-a145-41f0-8af4-3cf256afc064",
+   "category": "toy",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "ed9a36a6-8062-44c7-bc7d-461bab21276d",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.9302697314874858,
+   "iou": 0.03443385043007801,
+   "pred_id": "box_stack_lower_01"
+  },
+  {
+   "gt_id": "fad9ce49-999a-4d40-885a-0e3bbc2b3b1b",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "674eeecc-cf1e-4ac8-85c2-1ca222847a38",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.5362303394318955,
+   "iou": 0.0036772525345198427,
+   "pred_id": "hutch_clutter_04"
+  },
+  {
+   "gt_id": "83d217af-dbc6-4f1b-b2f7-2f7bb8af5bea",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.7450867459366395,
+   "iou": 0.03745049090812743,
+   "pred_id": "hutch_black_pouch_01"
+  },
+  {
+   "gt_id": "e812712a-fb2e-4888-b749-25f914019ae5",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.7460789282684617,
+   "iou": 0.11962318660951177,
+   "pred_id": "book_59"
+  },
+  {
+   "gt_id": "3992393e-64ab-4cb4-b051-1de6969d3d63",
+   "category": "file holder",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.8701182915502755,
+   "iou": 0.02956974219826904,
+   "pred_id": "book_40"
+  },
+  {
+   "gt_id": "ec39fc49-f0bb-4490-97d4-b000598d4444",
+   "category": "file holder",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.6052890055992202,
+   "iou": 0.18437074902151257,
+   "pred_id": "book_25"
+  },
+  {
+   "gt_id": "232c6ac0-162c-4bdf-a261-40857d24e470",
+   "category": "file holder",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.5412450550447219,
+   "iou": 0.04345129828453224,
+   "pred_id": "book_49"
+  },
+  {
+   "gt_id": "60a0eac6-b330-469d-9fbd-f58c8f0decca",
+   "category": "calendar",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.2856400645590801,
+   "iou": 0.0,
+   "pred_id": "calendar_01"
+  },
+  {
+   "gt_id": "3b758335-b7e8-49ec-8916-29064f313779",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.9541758617831163,
+   "iou": 0.07082204743656646,
+   "pred_id": "book_47"
+  },
+  {
+   "gt_id": "f729f6b7-22b6-4d34-a809-b28ae110e576",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.7385220174729124,
+   "iou": 0.08165410711919655,
+   "pred_id": "book_46"
+  },
+  {
+   "gt_id": "b4beaaf0-a95d-473d-9f03-a35b9168ba00",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.7571147389978474,
+   "iou": 0.0,
+   "pred_id": "book_61"
+  },
+  {
+   "gt_id": "f5f4c981-79e2-49a0-be82-2b3c3b1505b3",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "762fe682-91a3-45b4-bfc2-4ee776ec598d",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.0349479578196725,
+   "iou": 0.02051222127192443,
+   "pred_id": "book_41"
+  },
+  {
+   "gt_id": "5ab16853-600a-4442-a29a-0ab69a8556fb",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.3098421233707163,
+   "iou": 0.07762422853642824,
+   "pred_id": "book_66"
+  },
+  {
+   "gt_id": "aa302593-dc46-4dc0-8f2a-28e77422f685",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.272595984188058,
+   "iou": 0.0,
+   "pred_id": "figure_card_01"
+  },
+  {
+   "gt_id": "82793754-f031-4d81-b5be-e02c68db5dae",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.925357971831002,
+   "iou": 0.0,
+   "pred_id": "storage_box_01"
+  },
+  {
+   "gt_id": "3353f5ab-a8ca-4cff-8b37-8e66444c5b41",
+   "category": "books",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.4157906191880467,
+   "iou": 0.11119106664599912,
+   "pred_id": "book_23"
+  },
+  {
+   "gt_id": "d4cfcbe1-cf39-4f1b-ad0c-a3b678cb1fd0",
+   "category": "books",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.1443984192295549,
+   "iou": 0.0,
+   "pred_id": "book_17"
+  },
+  {
+   "gt_id": "390a247f-7379-47b6-a9f4-f02e68e27d2f",
+   "category": "books",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.46117377430636514,
+   "iou": 0.0,
+   "pred_id": "book_06"
+  },
+  {
+   "gt_id": "59a176a8-29ca-4bf9-b5e6-398484b188f7",
+   "category": "book",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.8083921193297952,
+   "iou": 0.07304360312003802,
+   "pred_id": "book_15"
+  },
+  {
+   "gt_id": "9d37a481-6583-48d7-b2ff-fc4fd81e7f85",
+   "category": "book",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.9795579062288461,
+   "iou": 0.027424333788788977,
+   "pred_id": "book_16"
+  },
+  {
+   "gt_id": "2d20e44f-230b-4edc-8c66-4f30945c48ae",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.9507887172497677,
+   "iou": 0.0,
+   "pred_id": "book_19"
+  },
+  {
+   "gt_id": "db1b6ac3-7707-42e4-aa2e-1c6a6f0e8e8b",
+   "category": "table",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.21819585430398758,
+   "iou": 0.5082140439035578,
+   "pred_id": "nightstand_01"
+  },
+  {
+   "gt_id": "539e1d2a-e2c4-49bc-9401-aef7b4400e21",
+   "category": "object",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.2299833262406199,
+   "iou": 0.3843099960343612,
+   "pred_id": "desk_01"
+  },
+  {
+   "gt_id": "c096ee3f-6589-457d-b707-ab7c398bd0a8",
+   "category": "box",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.1556928606979553,
+   "iou": 0.169884545704174,
+   "pred_id": "cardboard_box_01"
+  },
+  {
+   "gt_id": "63e99fdf-123b-4498-8004-801ebf7ba344",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.1911771527197757,
+   "iou": 0.1801127227154073,
+   "pred_id": "wall_shelf_lower_01"
+  },
+  {
+   "gt_id": "513cabb5-91d8-4fc5-acc2-69f9874f88ca",
+   "category": "books",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.0020483071368378,
+   "iou": 0.0,
+   "pred_id": "book_12"
+  },
+  {
+   "gt_id": "c47fa5e7-e3bb-40fe-99ec-ebe0c927ad59",
+   "category": "bed",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.04620167851428644,
+   "iou": 0.8051598146926559,
+   "pred_id": "daybed_01"
+  },
+  {
+   "gt_id": "76474b19-3cfb-4f45-8c51-1ac4f252cace",
+   "category": "pillow",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.539692508812927,
+   "iou": 0.19574962929729592,
+   "pred_id": "pillow_01"
+  },
+  {
+   "gt_id": "b7df071f-0c83-48e6-ad33-13a50d5ad51f",
+   "category": "nightstand",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.8076808191971334,
+   "iou": 0.09512538610707183,
+   "pred_id": "hallway_nightstand_01"
+  },
+  {
+   "gt_id": "75dec984-c614-4909-9881-2c6642636498",
+   "category": "lamp",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.7451002094728423,
+   "iou": 0.0,
+   "pred_id": "hallway_table_lamp_01"
+  },
+  {
+   "gt_id": "c6a39b01-129b-4381-9a78-0ce1325dcecc",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "364ff071-a6cf-4ecd-bab3-4ec6609a4a33",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.4815901859042861,
+   "iou": 0.0,
+   "pred_id": "book_42"
+  },
+  {
+   "gt_id": "8566256c-eab6-4639-9536-d98b2198cdfc",
+   "category": "books",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.2930964741757378,
+   "iou": 0.09505001213455508,
+   "pred_id": "book_04"
+  },
+  {
+   "gt_id": "8ce35d0e-487f-4512-8bb2-94e84a48412d",
+   "category": "shelf",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.29257438612032155,
+   "iou": 0.16178193519826245,
+   "pred_id": "wall_shelf_upper_01"
+  },
+  {
+   "gt_id": "80eadf39-12cc-4844-ab32-18f39405a00d",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "7ecebffe-d38a-441f-be63-c1eb5aa02c9d",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "f86f3e61-2701-459f-87c5-beda6214a61f",
+   "category": "lamp",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "aa2f4092-0933-43a2-b33a-e0b2b277c0fc",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "d0a68f2a-5b78-4659-a4ab-a44913b636a7",
+   "category": "object",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.16940608084455855,
+   "iou": 0.0,
+   "pred_id": "curtain_rod_01"
+  },
+  {
+   "gt_id": "c608176b-92d5-4525-9983-0ea62bba3c09",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "b0717f6d-6620-472f-926e-031c319ee0e8",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "2af99044-89a6-4dd7-92ad-bd7d170e97f2",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "f9c5fc44-ed8a-43f4-8ee9-faf2f6714d77",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "25f2dc52-d4bc-4893-ae4e-ee84340aeb25",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.9585882581232956,
+   "iou": 0.0,
+   "pred_id": "pillow_03"
+  },
+  {
+   "gt_id": "d1a3244f-0fe4-413a-a0ac-6727ba9be6fd",
+   "category": "object",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.8008189537886854,
+   "iou": 0.0,
+   "pred_id": "string_lights_01"
+  },
+  {
+   "gt_id": "8a9961c2-9b5d-4196-9129-7ffa0c6c5c06",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "e07902a9-3acc-4139-b1ad-8d1359842c9d",
+   "category": "book",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.4691823007434517,
+   "iou": 0.004845984692087662,
+   "pred_id": "book_03"
+  },
+  {
+   "gt_id": "a5e81097-4238-4213-9fd8-2381b76679b4",
+   "category": "books",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7855767052757179,
+   "iou": 0.004488858366882641,
+   "pred_id": "book_08"
+  },
+  {
+   "gt_id": "64c0d1e5-b836-4cdd-8632-302200ee1f8d",
+   "category": "books",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.6857304565289493,
+   "iou": 0.0,
+   "pred_id": "book_51"
+  },
+  {
+   "gt_id": "709f09bf-c26d-497a-adf7-0283f6d7f68b",
+   "category": "basket",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "cee9d3b4-4ad5-42cc-9c2d-96473bad0b4e",
+   "category": "object",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.953844450183668,
+   "iou": 0.0,
+   "pred_id": "duvet_01"
+  },
+  {
+   "gt_id": "5666a2dd-f14f-4f29-990e-6401440e2f48",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "489e6221-0dae-4c70-b7f1-d5953bfdad96",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "e6dbfce8-a59e-4895-9f91-03e3f339b084",
+   "category": "table",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.5285919525496976,
+   "iou": 0.006067890858299168,
+   "pred_id": "projector_cable_01"
+  },
+  {
+   "gt_id": "2e54c084-e0f8-4a92-b2c1-6985a224124f",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 3.5142153322929963,
+   "iou": 0.0,
+   "pred_id": "hutch_clutter_05"
+  },
+  {
+   "gt_id": "2b0a2ec6-1985-4cfd-9c83-68c9c1f12f76",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.7602664758235245,
+   "iou": 0.0,
+   "pred_id": "bottle_02"
+  },
+  {
+   "gt_id": "5f9c57a3-2a53-4960-abc4-6dd17b1ef029",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.2255040375732924,
+   "iou": 0.0,
+   "pred_id": "hutch_card_01"
+  },
+  {
+   "gt_id": "bdf1ddf4-85d9-4ece-b35d-965e734dc8ce",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.8813779118165812,
+   "iou": 0.0,
+   "pred_id": "bottle_08"
+  },
+  {
+   "gt_id": "b80170d9-fcd7-414a-b32e-a289db643184",
+   "category": "nail polish",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.1210160905700126,
+   "iou": 0.016976838357100562,
+   "pred_id": "bottle_04"
+  },
+  {
+   "gt_id": "69d904e9-37a0-413a-92f0-c36a409ad393",
+   "category": "nail polish",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "6317ac5e-0687-4f59-955b-4b3d53efeb3b",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 1.0836913617589663,
+   "iou": 0.014134780335947575,
+   "pred_id": "bottle_01"
+  },
+  {
+   "gt_id": "d75260c3-5bb7-431d-b8c4-b9bdf888ed5e",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.746670940114723,
+   "iou": 0.0,
+   "pred_id": "hutch_clutter_07"
+  },
+  {
+   "gt_id": "14c132f3-b1ec-4846-9de3-6b1b4cfcf138",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7975375775437413,
+   "iou": 0.18745709368623412,
+   "pred_id": "hutch_clutter_08"
+  },
+  {
+   "gt_id": "f0e80bfd-71d1-4464-9384-639a6128c59c",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 3.6986546116098116,
+   "iou": 0.0,
+   "pred_id": "bottle_13"
+  },
+  {
+   "gt_id": "4e8f6322-68a0-4e1b-bba0-cdaeac7c4897",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7869144798529876,
+   "iou": 0.07252021886475446,
+   "pred_id": "desk_paper_01"
+  },
+  {
+   "gt_id": "40942dd0-b716-4b75-921f-3b1132aeffd4",
+   "category": "sticky note",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.5869781672165901,
+   "iou": 0.0,
+   "pred_id": "sticky_note_01"
+  },
+  {
+   "gt_id": "a2084d8a-a471-4d19-b478-25d37232332d",
+   "category": "sticky note",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.5233799527105676,
+   "iou": 0.0,
+   "pred_id": "hanging_card_blue_figure_01"
+  },
+  {
+   "gt_id": "916fd572-b21f-43a3-83bf-8a5cfbec16ec",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 2.3951989080650953,
+   "iou": 0.0,
+   "pred_id": "hutch_clutter_01"
+  },
+  {
+   "gt_id": "e3b7982d-c0b3-4f59-be05-2bac6cac38c3",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.047081269229335,
+   "iou": 0.07404846279023657,
+   "pred_id": "hutch_clutter_06"
+  },
+  {
+   "gt_id": "0aba75c6-7ee0-424f-97f9-f13ae12ad6c6",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "0f2b7abc-93af-498c-931e-09777aaf6298",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "ab5c7ab4-891c-4cbe-b7da-d5f3f2ccd322",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 1.0784299375779989,
+   "iou": 0.01079213340411357,
+   "pred_id": "hutch_clutter_03"
+  },
+  {
+   "gt_id": "77fb10ca-da13-4961-808b-3dee3592c323",
+   "category": "object",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.7779007391121258,
+   "iou": 0.05196016719833674,
+   "pred_id": "hutch_clutter_02"
+  },
+  {
+   "gt_id": "6851609e-329d-40c3-ae51-cb3638e9e27e",
+   "category": "switch",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7199051574269404,
+   "iou": 0.0,
+   "pred_id": "postcard_166"
+  },
+  {
+   "gt_id": "d5e83891-59d2-4f80-b4e1-b02d4d3dcc38",
+   "category": "cable",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "bb98b3c7-8a8c-4902-9926-925251b153ae",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a140956b-5713-4d72-ac6f-7912eb9bfa69",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.9362980597789627,
+   "iou": 0.05815071905904967,
+   "pred_id": "book_68"
+  }
+ ],
+ "summary": {
+  "XS": {
+   "n": 73,
+   "recall_I": 0.0,
+   "misplaced_I": 0.726027397260274,
+   "missed_I": 0.273972602739726,
+   "recall_D": 0.1917808219178082,
+   "misplaced_D": 0.5342465753424658,
+   "missed_D": 0.273972602739726
+  },
+  "S": {
+   "n": 55,
+   "recall_I": 0.03636363636363636,
+   "misplaced_I": 0.7454545454545455,
+   "missed_I": 0.21818181818181817,
+   "recall_D": 0.23636363636363636,
+   "misplaced_D": 0.5454545454545454,
+   "missed_D": 0.21818181818181817
+  },
+  "M": {
+   "n": 26,
+   "recall_I": 0.19230769230769232,
+   "misplaced_I": 0.46153846153846156,
+   "missed_I": 0.34615384615384615,
+   "recall_D": 0.46153846153846156,
+   "misplaced_D": 0.19230769230769232,
+   "missed_D": 0.34615384615384615
+  },
+  "L": {
+   "n": 10,
+   "recall_I": 0.3,
+   "misplaced_I": 0.4,
+   "missed_I": 0.3,
+   "recall_D": 0.4,
+   "misplaced_D": 0.3,
+   "missed_D": 0.3
+  }
+ },
+ "n_pred": 361,
+ "alignment": {
+  "s": 1.0,
+  "residual_median_m": 0.04350083936784503,
+  "ok": true
+ }
+}

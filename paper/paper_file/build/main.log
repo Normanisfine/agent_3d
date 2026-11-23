@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.8.30)  23 NOV 2026 11:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.8.30)  23 NOV 2026 17:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -533,10 +533,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
+) [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
@@ -552,40 +549,28 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  (./visual-evidence.tex
-<figures/system-pipeline.pdf, id=99, 401.74089pt x 302.52023pt>
+<figures/system-pipeline.pdf, id=100, 401.74089pt x 308.21147pt>
 File: figures/system-pipeline.pdf Graphic file (type pdf)
 <use figures/system-pipeline.pdf>
 Package pdftex.def Info: figures/system-pipeline.pdf  used on input line 3.
-(pdftex.def)             Requested size: 397.48499pt x 299.32977pt.
-) [2]) (./architecture.tex [3 <./figures/system-pipeline.pdf>]
+(pdftex.def)             Requested size: 397.48499pt x 304.96098pt.
+) [2] [3 <./figures/system-pipeline.pdf>]) (./architecture.tex
 
 pdfTeX warning: pdflatex (file ./figures/parallelism.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<figures/parallelism.pdf, id=245, 1043.9pt x 537.00626pt>
+<figures/parallelism.pdf, id=251, 1043.9pt x 537.00626pt>
 File: figures/parallelism.pdf Graphic file (type pdf)
 <use figures/parallelism.pdf>
-Package pdftex.def Info: figures/parallelism.pdf  used on input line 24.
-(pdftex.def)             Requested size: 397.48499pt x 204.4742pt.
-) (./completion.tex) [4 <./figures/parallelism.pdf>]
-<figures/ai2thor-source.png, id=266, 1445.4pt x 963.6pt>
-File: figures/ai2thor-source.png Graphic file (type png)
-<use figures/ai2thor-source.png>
-Package pdftex.def Info: figures/ai2thor-source.png  used on input line 138.
-(pdftex.def)             Requested size: 121.41277pt x 80.94185pt.
-<figures/ai2thor-reconstruction.png, id=267, 618.31pt x 407.5225pt>
-File: figures/ai2thor-reconstruction.png Graphic file (type png)
-<use figures/ai2thor-reconstruction.png>
-Package pdftex.def Info: figures/ai2thor-reconstruction.png  used on input line
- 140.
-(pdftex.def)             Requested size: 122.80125pt x 80.93718pt.
- (./reconstruction.tex
-<figures/small-object-results.pdf, id=270, 397.485pt x 238.49101pt>
+Package pdftex.def Info: figures/parallelism.pdf  used on input line 14.
+(pdftex.def)             Requested size: 310.0378pt x 159.48889pt.
+) [4 <./figures/parallelism.pdf>] (./reconstruction.tex
+<figures/small-object-results.pdf, id=276, 397.485pt x 209.58301pt>
 File: figures/small-object-results.pdf Graphic file (type pdf)
 <use figures/small-object-results.pdf>
-Package pdftex.def Info: figures/small-object-results.pdf  used on input line 1
-3.
-(pdftex.def)             Requested size: 397.48499pt x 238.49768pt.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 48
+Package pdftex.def Info: figures/small-object-results.pdf  used on input line 5
+.
+(pdftex.def)             Requested size: 397.48499pt x 209.58888pt.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 46
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -595,350 +580,379 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/panels/42897538_frame.jpg, id=274, 803.0pt x 602.25pt>
+<figures/panels/42897538_frame.jpg, id=282, 803.0pt x 602.25pt>
 File: figures/panels/42897538_frame.jpg Graphic file (type jpg)
 <use figures/panels/42897538_frame.jpg>
 Package pdftex.def Info: figures/panels/42897538_frame.jpg  used on input line 
-49.
+47.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42897538_A0.jpg, id=275, 803.0pt x 602.25pt>
+<figures/panels/42897538_A0.jpg, id=283, 803.0pt x 602.25pt>
 File: figures/panels/42897538_A0.jpg Graphic file (type jpg)
 <use figures/panels/42897538_A0.jpg>
-Package pdftex.def Info: figures/panels/42897538_A0.jpg  used on input line 49.
+Package pdftex.def Info: figures/panels/42897538_A0.jpg  used on input line 47.
 
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42897538_A1.jpg, id=276, 803.0pt x 602.25pt>
+<figures/panels/42897538_A1.jpg, id=284, 803.0pt x 602.25pt>
 File: figures/panels/42897538_A1.jpg Graphic file (type jpg)
 <use figures/panels/42897538_A1.jpg>
-Package pdftex.def Info: figures/panels/42897538_A1.jpg  used on input line 49.
+Package pdftex.def Info: figures/panels/42897538_A1.jpg  used on input line 47.
 
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42897538_A2.jpg, id=277, 803.0pt x 602.25pt>
+<figures/panels/42897538_A2.jpg, id=285, 803.0pt x 602.25pt>
 File: figures/panels/42897538_A2.jpg Graphic file (type jpg)
 <use figures/panels/42897538_A2.jpg>
-Package pdftex.def Info: figures/panels/42897538_A2.jpg  used on input line 49.
+Package pdftex.def Info: figures/panels/42897538_A2.jpg  used on input line 47.
 
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42897538_A5.jpg, id=278, 803.0pt x 602.25pt>
+<figures/panels/42897538_A5.jpg, id=286, 803.0pt x 602.25pt>
 File: figures/panels/42897538_A5.jpg Graphic file (type jpg)
 <use figures/panels/42897538_A5.jpg>
-Package pdftex.def Info: figures/panels/42897538_A5.jpg  used on input line 49.
+Package pdftex.def Info: figures/panels/42897538_A5.jpg  used on input line 47.
 
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42897538_MAT.jpg, id=279, 803.0pt x 602.25pt>
+<figures/panels/42897538_MAT.jpg, id=287, 803.0pt x 602.25pt>
 File: figures/panels/42897538_MAT.jpg Graphic file (type jpg)
 <use figures/panels/42897538_MAT.jpg>
-Package pdftex.def Info: figures/panels/42897538_MAT.jpg  used on input line 49
+Package pdftex.def Info: figures/panels/42897538_MAT.jpg  used on input line 47
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42898849_frame.jpg, id=280, 803.0pt x 602.25pt>
+<figures/panels/42898849_frame.jpg, id=288, 803.0pt x 602.25pt>
 File: figures/panels/42898849_frame.jpg Graphic file (type jpg)
 <use figures/panels/42898849_frame.jpg>
 Package pdftex.def Info: figures/panels/42898849_frame.jpg  used on input line 
-50.
+48.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42898849_A0.jpg, id=281, 803.0pt x 602.25pt>
+<figures/panels/42898849_A0.jpg, id=289, 803.0pt x 602.25pt>
 File: figures/panels/42898849_A0.jpg Graphic file (type jpg)
 <use figures/panels/42898849_A0.jpg>
-Package pdftex.def Info: figures/panels/42898849_A0.jpg  used on input line 50.
+Package pdftex.def Info: figures/panels/42898849_A0.jpg  used on input line 48.
 
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42898849_A1.jpg, id=282, 803.0pt x 602.25pt>
+<figures/panels/42898849_A1.jpg, id=290, 803.0pt x 602.25pt>
 File: figures/panels/42898849_A1.jpg Graphic file (type jpg)
 <use figures/panels/42898849_A1.jpg>
-Package pdftex.def Info: figures/panels/42898849_A1.jpg  used on input line 50.
+Package pdftex.def Info: figures/panels/42898849_A1.jpg  used on input line 48.
 
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42898849_A2.jpg, id=283, 803.0pt x 602.25pt>
+<figures/panels/42898849_A2.jpg, id=291, 803.0pt x 602.25pt>
 File: figures/panels/42898849_A2.jpg Graphic file (type jpg)
 <use figures/panels/42898849_A2.jpg>
-Package pdftex.def Info: figures/panels/42898849_A2.jpg  used on input line 50.
+Package pdftex.def Info: figures/panels/42898849_A2.jpg  used on input line 48.
 
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42898849_A5.jpg, id=284, 803.0pt x 602.25pt>
+<figures/panels/42898849_A5.jpg, id=292, 803.0pt x 602.25pt>
 File: figures/panels/42898849_A5.jpg Graphic file (type jpg)
 <use figures/panels/42898849_A5.jpg>
-Package pdftex.def Info: figures/panels/42898849_A5.jpg  used on input line 50.
+Package pdftex.def Info: figures/panels/42898849_A5.jpg  used on input line 48.
 
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42898849_MAT.jpg, id=285, 803.0pt x 602.25pt>
+<figures/panels/42898849_MAT.jpg, id=293, 803.0pt x 602.25pt>
 File: figures/panels/42898849_MAT.jpg Graphic file (type jpg)
 <use figures/panels/42898849_MAT.jpg>
-Package pdftex.def Info: figures/panels/42898849_MAT.jpg  used on input line 50
+Package pdftex.def Info: figures/panels/42898849_MAT.jpg  used on input line 48
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/44358442_frame.jpg, id=286, 803.0pt x 602.25pt>
-File: figures/panels/44358442_frame.jpg Graphic file (type jpg)
-<use figures/panels/44358442_frame.jpg>
-Package pdftex.def Info: figures/panels/44358442_frame.jpg  used on input line 
-51.
+<figures/panels/44358442d_frame.jpg, id=294, 803.0pt x 602.25pt>
+File: figures/panels/44358442d_frame.jpg Graphic file (type jpg)
+<use figures/panels/44358442d_frame.jpg>
+Package pdftex.def Info: figures/panels/44358442d_frame.jpg  used on input line
+ 49.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/44358442_A0.jpg, id=287, 803.0pt x 602.25pt>
-File: figures/panels/44358442_A0.jpg Graphic file (type jpg)
-<use figures/panels/44358442_A0.jpg>
-Package pdftex.def Info: figures/panels/44358442_A0.jpg  used on input line 51.
-
-(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/44358442_A1.jpg, id=288, 803.0pt x 602.25pt>
-File: figures/panels/44358442_A1.jpg Graphic file (type jpg)
-<use figures/panels/44358442_A1.jpg>
-Package pdftex.def Info: figures/panels/44358442_A1.jpg  used on input line 51.
-
-(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/44358442_A2.jpg, id=289, 803.0pt x 602.25pt>
-File: figures/panels/44358442_A2.jpg Graphic file (type jpg)
-<use figures/panels/44358442_A2.jpg>
-Package pdftex.def Info: figures/panels/44358442_A2.jpg  used on input line 51.
-
-(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/44358442_A5.jpg, id=290, 803.0pt x 602.25pt>
-File: figures/panels/44358442_A5.jpg Graphic file (type jpg)
-<use figures/panels/44358442_A5.jpg>
-Package pdftex.def Info: figures/panels/44358442_A5.jpg  used on input line 51.
-
-(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/44358442_MAT.jpg, id=291, 803.0pt x 602.25pt>
-File: figures/panels/44358442_MAT.jpg Graphic file (type jpg)
-<use figures/panels/44358442_MAT.jpg>
-Package pdftex.def Info: figures/panels/44358442_MAT.jpg  used on input line 51
+<figures/panels/44358442d_A0.jpg, id=295, 803.0pt x 602.25pt>
+File: figures/panels/44358442d_A0.jpg Graphic file (type jpg)
+<use figures/panels/44358442d_A0.jpg>
+Package pdftex.def Info: figures/panels/44358442d_A0.jpg  used on input line 49
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
- [5 <./figures/ai2thor-source.png (PNG copy)> <./figures/ai2thor-reconstruction
-.png>])
-(./systems-results.tex
+<figures/panels/44358442d_A1.jpg, id=296, 803.0pt x 602.25pt>
+File: figures/panels/44358442d_A1.jpg Graphic file (type jpg)
+<use figures/panels/44358442d_A1.jpg>
+Package pdftex.def Info: figures/panels/44358442d_A1.jpg  used on input line 49
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442d_A2.jpg, id=297, 803.0pt x 602.25pt>
+File: figures/panels/44358442d_A2.jpg Graphic file (type jpg)
+<use figures/panels/44358442d_A2.jpg>
+Package pdftex.def Info: figures/panels/44358442d_A2.jpg  used on input line 49
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442d_A5.jpg, id=298, 803.0pt x 602.25pt>
+File: figures/panels/44358442d_A5.jpg Graphic file (type jpg)
+<use figures/panels/44358442d_A5.jpg>
+Package pdftex.def Info: figures/panels/44358442d_A5.jpg  used on input line 49
+.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442d_MAT.jpg, id=299, 803.0pt x 602.25pt>
+File: figures/panels/44358442d_MAT.jpg Graphic file (type jpg)
+<use figures/panels/44358442d_MAT.jpg>
+Package pdftex.def Info: figures/panels/44358442d_MAT.jpg  used on input line 4
+9.
+(pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+ [5 <./figures/small-object-results.pdf>]) (./systems-results.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6 <./figures/small-object-results.pdf>]
-<figures/experimental-settings.pdf, id=347, 503.61952pt x 101.67586pt>
-File: figures/experimental-settings.pdf Graphic file (type pdf)
-<use figures/experimental-settings.pdf>
-Package pdftex.def Info: figures/experimental-settings.pdf  used on input line 
-53.
-(pdftex.def)             Requested size: 397.48499pt x 80.25166pt.
- [7 <./figures/panels/42897538_frame.jpg> <./figures/panels/42897538_A0.jpg> <.
+ [6 <./figures/panels/42897538_frame.jpg> <./figures/panels/42897538_A0.jpg> <.
 /figures/panels/42897538_A1.jpg> <./figures/panels/42897538_A2.jpg> <./figures/
 panels/42897538_A5.jpg> <./figures/panels/42897538_MAT.jpg> <./figures/panels/4
 2898849_frame.jpg> <./figures/panels/42898849_A0.jpg> <./figures/panels/4289884
 9_A1.jpg> <./figures/panels/42898849_A2.jpg> <./figures/panels/42898849_A5.jpg>
- <./figures/panels/42898849_MAT.jpg> <./figures/panels/44358442_frame.jpg> <./f
-igures/panels/44358442_A0.jpg> <./figures/panels/44358442_A1.jpg> <./figures/pa
-nels/44358442_A2.jpg> <./figures/panels/44358442_A5.jpg> <./figures/panels/4435
-8442_MAT.jpg>]) (./cost-results.tex)
-(./physics-results.tex
-<figures/ca1m-coffee-physics.pdf, id=364, 424.46912pt x 261.48656pt>
-File: figures/ca1m-coffee-physics.pdf Graphic file (type pdf)
-<use figures/ca1m-coffee-physics.pdf>
-Package pdftex.def Info: figures/ca1m-coffee-physics.pdf  used on input line 20
-.
-(pdftex.def)             Requested size: 369.65811pt x 227.73483pt.
-) [8 <./figures/experimental-settings.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ <./figures/panels/42898849_MAT.jpg> <./figures/panels/44358442d_frame.jpg> <./
+figures/panels/44358442d_A0.jpg> <./figures/panels/44358442d_A1.jpg> <./figures
+/panels/44358442d_A2.jpg> <./figures/panels/44358442d_A5.jpg> <./figures/panels
+/44358442d_MAT.jpg>]
+<figures/experimental-settings.pdf, id=357, 503.61952pt x 101.67586pt>
+File: figures/experimental-settings.pdf Graphic file (type pdf)
+<use figures/experimental-settings.pdf>
+Package pdftex.def Info: figures/experimental-settings.pdf  used on input line 
+51.
+(pdftex.def)             Requested size: 397.48499pt x 80.25166pt.
+) (./cost-results.tex [7 <./figures/experimental-settings.pdf>])
+[8] (build/main.bbl [9
 
- [9 <./figures/ca1m-coffee-physics.pdf>] [10] (build/main.bbl [11
-
-]) [12]
-(./appendix-small-objects.tex [13
+]) [10] (./appendix-small-objects.tex [11
 
 ]
 File: figures/panels/42897538_frame.jpg Graphic file (type jpg)
 <use figures/panels/42897538_frame.jpg>
 Package pdftex.def Info: figures/panels/42897538_frame.jpg  used on input line 
-153.
+157.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42897538_A0.jpg Graphic file (type jpg)
 <use figures/panels/42897538_A0.jpg>
-Package pdftex.def Info: figures/panels/42897538_A0.jpg  used on input line 153
+Package pdftex.def Info: figures/panels/42897538_A0.jpg  used on input line 157
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42897538_A1.jpg Graphic file (type jpg)
 <use figures/panels/42897538_A1.jpg>
-Package pdftex.def Info: figures/panels/42897538_A1.jpg  used on input line 153
+Package pdftex.def Info: figures/panels/42897538_A1.jpg  used on input line 157
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42897538_A2.jpg Graphic file (type jpg)
 <use figures/panels/42897538_A2.jpg>
-Package pdftex.def Info: figures/panels/42897538_A2.jpg  used on input line 153
+Package pdftex.def Info: figures/panels/42897538_A2.jpg  used on input line 157
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42897538_A5.jpg Graphic file (type jpg)
 <use figures/panels/42897538_A5.jpg>
-Package pdftex.def Info: figures/panels/42897538_A5.jpg  used on input line 153
+Package pdftex.def Info: figures/panels/42897538_A5.jpg  used on input line 157
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42897538_MAT.jpg Graphic file (type jpg)
 <use figures/panels/42897538_MAT.jpg>
 Package pdftex.def Info: figures/panels/42897538_MAT.jpg  used on input line 15
-3.
+7.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42898849_frame.jpg Graphic file (type jpg)
 <use figures/panels/42898849_frame.jpg>
 Package pdftex.def Info: figures/panels/42898849_frame.jpg  used on input line 
-154.
+158.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42898849_A0.jpg Graphic file (type jpg)
 <use figures/panels/42898849_A0.jpg>
-Package pdftex.def Info: figures/panels/42898849_A0.jpg  used on input line 154
+Package pdftex.def Info: figures/panels/42898849_A0.jpg  used on input line 158
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42898849_A1.jpg Graphic file (type jpg)
 <use figures/panels/42898849_A1.jpg>
-Package pdftex.def Info: figures/panels/42898849_A1.jpg  used on input line 154
+Package pdftex.def Info: figures/panels/42898849_A1.jpg  used on input line 158
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42898849_A2.jpg Graphic file (type jpg)
 <use figures/panels/42898849_A2.jpg>
-Package pdftex.def Info: figures/panels/42898849_A2.jpg  used on input line 154
+Package pdftex.def Info: figures/panels/42898849_A2.jpg  used on input line 158
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42898849_A5.jpg Graphic file (type jpg)
 <use figures/panels/42898849_A5.jpg>
-Package pdftex.def Info: figures/panels/42898849_A5.jpg  used on input line 154
+Package pdftex.def Info: figures/panels/42898849_A5.jpg  used on input line 158
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
 File: figures/panels/42898849_MAT.jpg Graphic file (type jpg)
 <use figures/panels/42898849_MAT.jpg>
 Package pdftex.def Info: figures/panels/42898849_MAT.jpg  used on input line 15
-4.
+8.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899617_frame.jpg, id=459, 803.0pt x 602.25pt>
+<figures/panels/42899617_frame.jpg, id=440, 803.0pt x 602.25pt>
 File: figures/panels/42899617_frame.jpg Graphic file (type jpg)
 <use figures/panels/42899617_frame.jpg>
 Package pdftex.def Info: figures/panels/42899617_frame.jpg  used on input line 
-155.
+159.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899617_A0.jpg, id=460, 803.0pt x 602.25pt>
+<figures/panels/42899617_A0.jpg, id=441, 803.0pt x 602.25pt>
 File: figures/panels/42899617_A0.jpg Graphic file (type jpg)
 <use figures/panels/42899617_A0.jpg>
-Package pdftex.def Info: figures/panels/42899617_A0.jpg  used on input line 155
+Package pdftex.def Info: figures/panels/42899617_A0.jpg  used on input line 159
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899617_A1.jpg, id=461, 803.0pt x 602.25pt>
+<figures/panels/42899617_A1.jpg, id=442, 803.0pt x 602.25pt>
 File: figures/panels/42899617_A1.jpg Graphic file (type jpg)
 <use figures/panels/42899617_A1.jpg>
-Package pdftex.def Info: figures/panels/42899617_A1.jpg  used on input line 155
+Package pdftex.def Info: figures/panels/42899617_A1.jpg  used on input line 159
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899617_A2.jpg, id=462, 803.0pt x 602.25pt>
+<figures/panels/42899617_A2.jpg, id=443, 803.0pt x 602.25pt>
 File: figures/panels/42899617_A2.jpg Graphic file (type jpg)
 <use figures/panels/42899617_A2.jpg>
-Package pdftex.def Info: figures/panels/42899617_A2.jpg  used on input line 155
+Package pdftex.def Info: figures/panels/42899617_A2.jpg  used on input line 159
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899617_A5.jpg, id=463, 803.0pt x 602.25pt>
+<figures/panels/42899617_A5.jpg, id=444, 803.0pt x 602.25pt>
 File: figures/panels/42899617_A5.jpg Graphic file (type jpg)
 <use figures/panels/42899617_A5.jpg>
-Package pdftex.def Info: figures/panels/42899617_A5.jpg  used on input line 155
+Package pdftex.def Info: figures/panels/42899617_A5.jpg  used on input line 159
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899617_MAT.jpg, id=464, 803.0pt x 602.25pt>
+<figures/panels/42899617_MAT.jpg, id=445, 803.0pt x 602.25pt>
 File: figures/panels/42899617_MAT.jpg Graphic file (type jpg)
 <use figures/panels/42899617_MAT.jpg>
 Package pdftex.def Info: figures/panels/42899617_MAT.jpg  used on input line 15
-5.
+9.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899712_frame.jpg, id=465, 803.0pt x 602.25pt>
+<figures/panels/42899712_frame.jpg, id=446, 803.0pt x 602.25pt>
 File: figures/panels/42899712_frame.jpg Graphic file (type jpg)
 <use figures/panels/42899712_frame.jpg>
 Package pdftex.def Info: figures/panels/42899712_frame.jpg  used on input line 
-156.
+160.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899712_A0.jpg, id=466, 803.0pt x 602.25pt>
+<figures/panels/42899712_A0.jpg, id=447, 803.0pt x 602.25pt>
 File: figures/panels/42899712_A0.jpg Graphic file (type jpg)
 <use figures/panels/42899712_A0.jpg>
-Package pdftex.def Info: figures/panels/42899712_A0.jpg  used on input line 156
+Package pdftex.def Info: figures/panels/42899712_A0.jpg  used on input line 160
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899712_A1.jpg, id=467, 803.0pt x 602.25pt>
+<figures/panels/42899712_A1.jpg, id=448, 803.0pt x 602.25pt>
 File: figures/panels/42899712_A1.jpg Graphic file (type jpg)
 <use figures/panels/42899712_A1.jpg>
-Package pdftex.def Info: figures/panels/42899712_A1.jpg  used on input line 156
+Package pdftex.def Info: figures/panels/42899712_A1.jpg  used on input line 160
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899712_A2.jpg, id=468, 803.0pt x 602.25pt>
+<figures/panels/42899712_A2.jpg, id=449, 803.0pt x 602.25pt>
 File: figures/panels/42899712_A2.jpg Graphic file (type jpg)
 <use figures/panels/42899712_A2.jpg>
-Package pdftex.def Info: figures/panels/42899712_A2.jpg  used on input line 156
+Package pdftex.def Info: figures/panels/42899712_A2.jpg  used on input line 160
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899712_A5.jpg, id=469, 803.0pt x 602.25pt>
+<figures/panels/42899712_A5.jpg, id=450, 803.0pt x 602.25pt>
 File: figures/panels/42899712_A5.jpg Graphic file (type jpg)
 <use figures/panels/42899712_A5.jpg>
-Package pdftex.def Info: figures/panels/42899712_A5.jpg  used on input line 156
+Package pdftex.def Info: figures/panels/42899712_A5.jpg  used on input line 160
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899712_MAT.jpg, id=470, 803.0pt x 602.25pt>
+<figures/panels/42899712_MAT.jpg, id=451, 803.0pt x 602.25pt>
 File: figures/panels/42899712_MAT.jpg Graphic file (type jpg)
 <use figures/panels/42899712_MAT.jpg>
-Package pdftex.def Info: figures/panels/42899712_MAT.jpg  used on input line 15
-6.
+Package pdftex.def Info: figures/panels/42899712_MAT.jpg  used on input line 16
+0.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899729_frame.jpg, id=471, 803.0pt x 602.25pt>
+<figures/panels/42899729_frame.jpg, id=452, 803.0pt x 602.25pt>
 File: figures/panels/42899729_frame.jpg Graphic file (type jpg)
 <use figures/panels/42899729_frame.jpg>
 Package pdftex.def Info: figures/panels/42899729_frame.jpg  used on input line 
-157.
+161.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899729_A0.jpg, id=472, 803.0pt x 602.25pt>
+<figures/panels/42899729_A0.jpg, id=453, 803.0pt x 602.25pt>
 File: figures/panels/42899729_A0.jpg Graphic file (type jpg)
 <use figures/panels/42899729_A0.jpg>
-Package pdftex.def Info: figures/panels/42899729_A0.jpg  used on input line 157
+Package pdftex.def Info: figures/panels/42899729_A0.jpg  used on input line 161
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899729_A1.jpg, id=473, 803.0pt x 602.25pt>
+<figures/panels/42899729_A1.jpg, id=454, 803.0pt x 602.25pt>
 File: figures/panels/42899729_A1.jpg Graphic file (type jpg)
 <use figures/panels/42899729_A1.jpg>
-Package pdftex.def Info: figures/panels/42899729_A1.jpg  used on input line 157
+Package pdftex.def Info: figures/panels/42899729_A1.jpg  used on input line 161
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899729_A2.jpg, id=474, 803.0pt x 602.25pt>
+<figures/panels/42899729_A2.jpg, id=455, 803.0pt x 602.25pt>
 File: figures/panels/42899729_A2.jpg Graphic file (type jpg)
 <use figures/panels/42899729_A2.jpg>
-Package pdftex.def Info: figures/panels/42899729_A2.jpg  used on input line 157
+Package pdftex.def Info: figures/panels/42899729_A2.jpg  used on input line 161
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899729_A5.jpg, id=475, 803.0pt x 602.25pt>
+<figures/panels/42899729_A5.jpg, id=456, 803.0pt x 602.25pt>
 File: figures/panels/42899729_A5.jpg Graphic file (type jpg)
 <use figures/panels/42899729_A5.jpg>
-Package pdftex.def Info: figures/panels/42899729_A5.jpg  used on input line 157
+Package pdftex.def Info: figures/panels/42899729_A5.jpg  used on input line 161
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-<figures/panels/42899729_MAT.jpg, id=476, 803.0pt x 602.25pt>
+<figures/panels/42899729_MAT.jpg, id=457, 803.0pt x 602.25pt>
 File: figures/panels/42899729_MAT.jpg Graphic file (type jpg)
 <use figures/panels/42899729_MAT.jpg>
-Package pdftex.def Info: figures/panels/42899729_MAT.jpg  used on input line 15
-7.
+Package pdftex.def Info: figures/panels/42899729_MAT.jpg  used on input line 16
+1.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_frame.jpg, id=458, 803.0pt x 602.25pt>
 File: figures/panels/44358442_frame.jpg Graphic file (type jpg)
 <use figures/panels/44358442_frame.jpg>
 Package pdftex.def Info: figures/panels/44358442_frame.jpg  used on input line 
-158.
+162.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_A0.jpg, id=459, 803.0pt x 602.25pt>
 File: figures/panels/44358442_A0.jpg Graphic file (type jpg)
 <use figures/panels/44358442_A0.jpg>
-Package pdftex.def Info: figures/panels/44358442_A0.jpg  used on input line 158
+Package pdftex.def Info: figures/panels/44358442_A0.jpg  used on input line 162
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_A1.jpg, id=460, 803.0pt x 602.25pt>
 File: figures/panels/44358442_A1.jpg Graphic file (type jpg)
 <use figures/panels/44358442_A1.jpg>
-Package pdftex.def Info: figures/panels/44358442_A1.jpg  used on input line 158
+Package pdftex.def Info: figures/panels/44358442_A1.jpg  used on input line 162
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_A2.jpg, id=461, 803.0pt x 602.25pt>
 File: figures/panels/44358442_A2.jpg Graphic file (type jpg)
 <use figures/panels/44358442_A2.jpg>
-Package pdftex.def Info: figures/panels/44358442_A2.jpg  used on input line 158
+Package pdftex.def Info: figures/panels/44358442_A2.jpg  used on input line 162
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_A5.jpg, id=462, 803.0pt x 602.25pt>
 File: figures/panels/44358442_A5.jpg Graphic file (type jpg)
 <use figures/panels/44358442_A5.jpg>
-Package pdftex.def Info: figures/panels/44358442_A5.jpg  used on input line 158
+Package pdftex.def Info: figures/panels/44358442_A5.jpg  used on input line 162
 .
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
+<figures/panels/44358442_MAT.jpg, id=463, 803.0pt x 602.25pt>
 File: figures/panels/44358442_MAT.jpg Graphic file (type jpg)
 <use figures/panels/44358442_MAT.jpg>
-Package pdftex.def Info: figures/panels/44358442_MAT.jpg  used on input line 15
-8.
+Package pdftex.def Info: figures/panels/44358442_MAT.jpg  used on input line 16
+2.
 (pdftex.def)             Requested size: 62.40422pt x 46.80254pt.
-) [14] [15 <./figures/panels/42899617_frame.jpg> <./figures/panels/42899617_A0.
+<figures/panels/42897538_MAT_ov.jpg, id=468, 1003.75pt x 752.8125pt>
+File: figures/panels/42897538_MAT_ov.jpg Graphic file (type jpg)
+<use figures/panels/42897538_MAT_ov.jpg>
+Package pdftex.def Info: figures/panels/42897538_MAT_ov.jpg  used on input line
+ 177.
+(pdftex.def)             Requested size: 186.81842pt x 140.10667pt.
+<figures/panels/42898849_MAT_ov.jpg, id=469, 1003.75pt x 752.8125pt>
+File: figures/panels/42898849_MAT_ov.jpg Graphic file (type jpg)
+<use figures/panels/42898849_MAT_ov.jpg>
+Package pdftex.def Info: figures/panels/42898849_MAT_ov.jpg  used on input line
+ 177.
+(pdftex.def)             Requested size: 186.81842pt x 140.10667pt.
+<figures/panels/42899617_MAT_ov.jpg, id=470, 1003.75pt x 752.8125pt>
+File: figures/panels/42899617_MAT_ov.jpg Graphic file (type jpg)
+<use figures/panels/42899617_MAT_ov.jpg>
+Package pdftex.def Info: figures/panels/42899617_MAT_ov.jpg  used on input line
+ 179.
+(pdftex.def)             Requested size: 186.81842pt x 140.10667pt.
+<figures/panels/42899712_MAT_ov.jpg, id=471, 1003.75pt x 752.8125pt>
+File: figures/panels/42899712_MAT_ov.jpg Graphic file (type jpg)
+<use figures/panels/42899712_MAT_ov.jpg>
+Package pdftex.def Info: figures/panels/42899712_MAT_ov.jpg  used on input line
+ 179.
+(pdftex.def)             Requested size: 186.81842pt x 140.10667pt.
+<figures/panels/42899729_MAT_ov.jpg, id=472, 1003.75pt x 752.8125pt>
+File: figures/panels/42899729_MAT_ov.jpg Graphic file (type jpg)
+<use figures/panels/42899729_MAT_ov.jpg>
+Package pdftex.def Info: figures/panels/42899729_MAT_ov.jpg  used on input line
+ 181.
+(pdftex.def)             Requested size: 186.81842pt x 140.10667pt.
+<figures/panels/44358442_MAT_ov.jpg, id=473, 1003.75pt x 752.8125pt>
+File: figures/panels/44358442_MAT_ov.jpg Graphic file (type jpg)
+<use figures/panels/44358442_MAT_ov.jpg>
+Package pdftex.def Info: figures/panels/44358442_MAT_ov.jpg  used on input line
+ 181.
+(pdftex.def)             Requested size: 186.81842pt x 140.10667pt.
+) [12] [13 <./figures/panels/42899617_frame.jpg> <./figures/panels/42899617_A0.
 jpg> <./figures/panels/42899617_A1.jpg> <./figures/panels/42899617_A2.jpg> <./f
 igures/panels/42899617_A5.jpg> <./figures/panels/42899617_MAT.jpg> <./figures/p
 anels/42899712_frame.jpg> <./figures/panels/42899712_A0.jpg> <./figures/panels/
@@ -946,22 +960,38 @@ anels/42899712_frame.jpg> <./figures/panels/42899712_A0.jpg> <./figures/panels/
 A5.jpg> <./figures/panels/42899712_MAT.jpg> <./figures/panels/42899729_frame.jp
 g> <./figures/panels/42899729_A0.jpg> <./figures/panels/42899729_A1.jpg> <./fig
 ures/panels/42899729_A2.jpg> <./figures/panels/42899729_A5.jpg> <./figures/pane
-ls/42899729_MAT.jpg>] (build/main.aux)
+ls/42899729_MAT.jpg> <./figures/panels/44358442_frame.jpg> <./figures/panels/44
+358442_A0.jpg> <./figures/panels/44358442_A1.jpg> <./figures/panels/44358442_A2
+.jpg> <./figures/panels/44358442_A5.jpg> <./figures/panels/44358442_MAT.jpg>] [
+14 <./figures/panels/42897538_MAT_ov.jpg> <./figures/panels/42898849_MAT_ov.jpg
+> <./figures/panels/42899617_MAT_ov.jpg> <./figures/panels/42899712_MAT_ov.jpg>
+ <./figures/panels/42899729_MAT_ov.jpg> <./figures/panels/44358442_MAT_ov.jpg>]
+
+(./completion.tex) (./physics-results.tex
+<figures/ca1m-coffee-physics.pdf, id=493, 424.46912pt x 261.48656pt>
+File: figures/ca1m-coffee-physics.pdf Graphic file (type pdf)
+<use figures/ca1m-coffee-physics.pdf>
+Package pdftex.def Info: figures/ca1m-coffee-physics.pdf  used on input line 20
+.
+(pdftex.def)             Requested size: 369.65811pt x 227.73483pt.
+) [15
+
+ <./figures/ca1m-coffee-physics.pdf>] (build/main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4B02F23EB18119C3B38DF2E1F87C7B76;3000.
+(rerunfilecheck)             Checksum: D79F58CF744A171DA8E7859373179F5D;2807.
  ) 
 Here is how much of TeX's memory you used:
- 13774 strings out of 476182
- 218147 string characters out of 5795595
- 1951975 words of memory out of 5000000
- 35234 multiletter control sequences out of 15000+600000
- 606097 words of font info for 239 fonts, out of 8000000 for 9000
+ 13845 strings out of 476182
+ 220957 string characters out of 5795595
+ 1952975 words of memory out of 5000000
+ 35307 multiletter control sequences out of 15000+600000
+ 606094 words of font info for 239 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,13n,79p,1001b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,1471b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </tmp/texfonts/pk/ljfour/jknappen/ec/ectt1000.600pk></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts
@@ -979,10 +1009,10 @@ vetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on build/main.pdf (15 pages, 6257085 bytes).
+Output written on build/main.pdf (15 pages, 5395132 bytes).
 PDF statistics:
- 621 PDF objects out of 1000 (max. 8388607)
- 394 compressed objects within 4 object streams
- 71 named destinations out of 1000 (max. 500000)
- 48472 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 650 PDF objects out of 1000 (max. 8388607)
+ 406 compressed objects within 5 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 48514 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -1,0 +1,3238 @@
+{
+ "c000": {
+  "action": "built",
+  "object_id": "rug-centre"
+ },
+ "c001": {
+  "action": "built",
+  "object_id": "table-lamp-living"
+ },
+ "c002": {
+  "action": "part",
+  "object_id": "rug-living"
+ },
+ "c003": {
+  "action": "built",
+  "object_id": "radiator-back-kitchen"
+ },
+ "c004": {
+  "action": "built",
+  "object_id": "throw-sofa-a"
+ },
+ "c005": {
+  "action": "built",
+  "object_id": "side-table-flowers"
+ },
+ "c006": {
+  "action": "built",
+  "object_id": "piano-chair"
+ },
+ "c008": {
+  "action": "part",
+  "object_id": "rug-centre"
+ },
+ "c009": {
+  "action": "built",
+  "object_id": "wicker-lantern"
+ },
+ "c010": {
+  "action": "built",
+  "object_id": "piano"
+ },
+ "c011": {
+  "action": "part",
+  "object_id": "rug-bay"
+ },
+ "c012": {
+  "action": "part",
+  "object_id": "sofa-b"
+ },
+ "c013": {
+  "action": "built",
+  "object_id": "lamp-table"
+ },
+ "c015": {
+  "action": "duplicate",
+  "object_id": "curtain-rod-french"
+ },
+ "c017": {
+  "action": "part",
+  "object_id": "trunk-coffee-table"
+ },
+ "c018": {
+  "action": "part",
+  "object_id": "floor-lamp"
+ },
+ "c019": {
+  "action": "built",
+  "object_id": "curtain-french-right"
+ },
+ "c020": {
+  "action": "built",
+  "object_id": "radiator-back-living"
+ },
+ "c021": {
+  "action": "built",
+  "object_id": "rug-bay"
+ },
+ "c023": {
+  "action": "part",
+  "object_id": "rug-living"
+ },
+ "c024": {
+  "action": "part",
+  "object_id": "mantel-living"
+ },
+ "c026": {
+  "action": "built",
+  "object_id": "frame-corner-1"
+ },
+ "c027": {
+  "action": "part",
+  "object_id": "table-lamp-kitchen"
+ },
+ "c029": {
+  "action": "built",
+  "object_id": "basket-throw"
+ },
+ "c030": {
+  "action": "built",
+  "object_id": "throw-in-basket"
+ },
+ "c031": {
+  "action": "part",
+  "object_id": "chimney-breast"
+ },
+ "c033": {
+  "action": "built",
+  "object_id": "bar-stool-1"
+ },
+ "c034": {
+  "action": "part",
+  "object_id": "bar-stool-4"
+ },
+ "c035": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c036": {
+  "action": "built",
+  "object_id": "radiator-bay"
+ },
+ "c037": {
+  "action": "built",
+  "object_id": "plant-floor-bay"
+ },
+ "c038": {
+  "action": "built",
+  "object_id": "frame-piano-1"
+ },
+ "c039": {
+  "action": "built",
+  "object_id": "frame-piano-3"
+ },
+ "c040": {
+  "action": "built",
+  "object_id": "sofa-a"
+ },
+ "c041": {
+  "action": "built",
+  "object_id": "vase-hydrangea"
+ },
+ "c044": {
+  "action": "built",
+  "object_id": "bar-stool-2"
+ },
+ "c046": {
+  "action": "duplicate",
+  "object_id": "frame-wall-tree"
+ },
+ "c047": {
+  "action": "duplicate",
+  "object_id": "curtain-rod-french"
+ },
+ "c048": {
+  "action": "built",
+  "object_id": "curtain-french-left"
+ },
+ "c049": {
+  "action": "part",
+  "object_id": "rug-bay"
+ },
+ "c050": {
+  "action": "built",
+  "object_id": "corner-cabinet"
+ },
+ "c051": {
+  "action": "built",
+  "object_id": "frame-piano-2"
+ },
+ "c052": {
+  "action": "part",
+  "object_id": "table-lamp-living"
+ },
+ "c054": {
+  "action": "built",
+  "object_id": "rug-living"
+ },
+ "c055": {
+  "action": "part",
+  "object_id": "rug-centre"
+ },
+ "c056": {
+  "action": "built",
+  "object_id": "trunk-coffee-table"
+ },
+ "c057": {
+  "action": "built",
+  "object_id": "frame-sill-1"
+ },
+ "c058": {
+  "action": "built",
+  "object_id": "doormat-french"
+ },
+ "c059": {
+  "action": "built",
+  "object_id": "table-lamp-tv"
+ },
+ "c060": {
+  "action": "part",
+  "object_id": "radiator-bay"
+ },
+ "c061": {
+  "action": "built",
+  "object_id": "frame-bay-sill-1"
+ },
+ "c062": {
+  "action": "part",
+  "object_id": "plant-floor-bay"
+ },
+ "c063": {
+  "action": "built",
+  "object_id": "frame-wall-tree"
+ },
+ "c065": {
+  "action": "duplicate",
+  "object_id": "frame-wall-tree"
+ },
+ "c066": {
+  "action": "built",
+  "object_id": "plant-corner-shelf"
+ },
+ "c067": {
+  "action": "built",
+  "object_id": "floor-lamp"
+ },
+ "c069": {
+  "action": "built",
+  "object_id": "christmas-tree"
+ },
+ "c070": {
+  "action": "built",
+  "object_id": "table-lamp-kitchen"
+ },
+ "c071": {
+  "action": "part",
+  "object_id": "christmas-tree"
+ },
+ "c072": {
+  "action": "duplicate",
+  "object_id": "oven-glove"
+ },
+ "c073": {
+  "action": "duplicate",
+  "object_id": "clock-kitchen"
+ },
+ "c075": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c076": {
+  "action": "built",
+  "object_id": "cushion-001"
+ },
+ "c077": {
+  "action": "built",
+  "object_id": "cushion-002"
+ },
+ "c079": {
+  "action": "built",
+  "object_id": "chess-board"
+ },
+ "c080": {
+  "action": "built",
+  "object_id": "candle-trunk-1"
+ },
+ "c081": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c082": {
+  "action": "built",
+  "object_id": "kettle"
+ },
+ "c083": {
+  "action": "part",
+  "object_id": "table-lamp-living"
+ },
+ "c084": {
+  "action": "built",
+  "object_id": "cushion-003"
+ },
+ "c086": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c087": {
+  "action": "built",
+  "object_id": "bar-stool-5"
+ },
+ "c088": {
+  "action": "duplicate",
+  "object_id": "kettle"
+ },
+ "c089": {
+  "action": "part",
+  "object_id": "bar-stool-3"
+ },
+ "c090": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c091": {
+  "action": "built",
+  "object_id": "clock-kitchen"
+ },
+ "c093": {
+  "action": "built",
+  "object_id": "cushion-004"
+ },
+ "c095": {
+  "action": "built",
+  "object_id": "bar-stool-3"
+ },
+ "c096": {
+  "action": "part",
+  "object_id": "rug-centre"
+ },
+ "c097": {
+  "action": "duplicate",
+  "object_id": "curtain-rod-french"
+ },
+ "c099": {
+  "action": "duplicate",
+  "object_id": "vase-hydrangea"
+ },
+ "c1000": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-025"
+ },
+ "c1001": {
+  "action": "built",
+  "object_id": "canister-black"
+ },
+ "c1004": {
+  "action": "part",
+  "object_id": "plant-floor-bay"
+ },
+ "c1007": {
+  "action": "built",
+  "object_id": "ornament-tree-087"
+ },
+ "c1008": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-063"
+ },
+ "c101": {
+  "action": "built",
+  "object_id": "cushion-005"
+ },
+ "c1015": {
+  "action": "duplicate",
+  "object_id": "bar-stool-3"
+ },
+ "c1016": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-086"
+ },
+ "c1019": {
+  "action": "built",
+  "object_id": "fruit-003"
+ },
+ "c1021": {
+  "action": "part",
+  "object_id": "french-doors"
+ },
+ "c1022": {
+  "action": "built",
+  "object_id": "island-cutting-board"
+ },
+ "c1026": {
+  "action": "built",
+  "object_id": "log-032"
+ },
+ "c1029": {
+  "action": "duplicate",
+  "object_id": "blind-back-kitchen"
+ },
+ "c103": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c1031": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c1033": {
+  "action": "built",
+  "object_id": "letter-06-c"
+ },
+ "c1034": {
+  "action": "built",
+  "object_id": "letter-05-y"
+ },
+ "c1035": {
+  "action": "built",
+  "object_id": "letter-07-h"
+ },
+ "c1036": {
+  "action": "duplicate",
+  "object_id": "cushion-004"
+ },
+ "c1037": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-029"
+ },
+ "c1038": {
+  "action": "built",
+  "object_id": "goblet-piano-4"
+ },
+ "c1040": {
+  "action": "part",
+  "object_id": "chimney-breast"
+ },
+ "c1041": {
+  "action": "duplicate",
+  "object_id": "candle-trunk-2"
+ },
+ "c1042": {
+  "action": "built",
+  "object_id": "ornament-tree-088"
+ },
+ "c1046": {
+  "action": "part",
+  "object_id": "tall-unit-hall-side"
+ },
+ "c1049": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1050": {
+  "action": "built",
+  "object_id": "letter-01-m"
+ },
+ "c1051": {
+  "action": "built",
+  "object_id": "letter-11-t"
+ },
+ "c1055": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1056": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c106": {
+  "action": "part",
+  "object_id": "radiator-back-living"
+ },
+ "c1060": {
+  "action": "duplicate",
+  "object_id": "log-016"
+ },
+ "c1065": {
+  "action": "built",
+  "object_id": "letter-02-e"
+ },
+ "c1066": {
+  "action": "built",
+  "object_id": "letter-04-r"
+ },
+ "c1067": {
+  "action": "built",
+  "object_id": "letter-03-r"
+ },
+ "c1068": {
+  "action": "built",
+  "object_id": "letter-08-r"
+ },
+ "c1070": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1072": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-056"
+ },
+ "c1074": {
+  "action": "built",
+  "object_id": "present-basket"
+ },
+ "c1078": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-009"
+ },
+ "c1079": {
+  "action": "built",
+  "object_id": "fruit-004"
+ },
+ "c108": {
+  "action": "part",
+  "object_id": "pendant-2"
+ },
+ "c1083": {
+  "action": "built",
+  "object_id": "letter-13-a"
+ },
+ "c1084": {
+  "action": "built",
+  "object_id": "letter-12-m"
+ },
+ "c1087": {
+  "action": "built",
+  "object_id": "tall-fridge-unit"
+ },
+ "c1089": {
+  "action": "built",
+  "object_id": "goblet-piano-2"
+ },
+ "c109": {
+  "action": "duplicate",
+  "object_id": "toaster"
+ },
+ "c1091": {
+  "action": "part",
+  "object_id": "kitchen-shelf-high"
+ },
+ "c1092": {
+  "action": "built",
+  "object_id": "ornament-tree-089"
+ },
+ "c1093": {
+  "action": "built",
+  "object_id": "present-bag"
+ },
+ "c1094": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-064"
+ },
+ "c1095": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-009"
+ },
+ "c1098": {
+  "action": "part",
+  "object_id": "worktop-back-left"
+ },
+ "c110": {
+  "action": "duplicate",
+  "object_id": "curtain-french-right"
+ },
+ "c1101": {
+  "action": "part",
+  "object_id": "worktop-back-left"
+ },
+ "c1102": {
+  "action": "built",
+  "object_id": "letter-10-s"
+ },
+ "c1105": {
+  "action": "part",
+  "object_id": "french-doors"
+ },
+ "c1106": {
+  "action": "built",
+  "object_id": "ornament-tree-090"
+ },
+ "c1107": {
+  "action": "built",
+  "object_id": "ornament-tree-091"
+ },
+ "c1109": {
+  "action": "built",
+  "object_id": "red-box-piano"
+ },
+ "c111": {
+  "action": "duplicate",
+  "object_id": "vase-hydrangea"
+ },
+ "c1112": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-017"
+ },
+ "c1113": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-064"
+ },
+ "c1116": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-053"
+ },
+ "c1119": {
+  "action": "built",
+  "object_id": "letter-14-s"
+ },
+ "c112": {
+  "action": "duplicate",
+  "object_id": "frame-piano-2"
+ },
+ "c1120": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-057"
+ },
+ "c1123": {
+  "action": "duplicate",
+  "object_id": "goblet-piano-4"
+ },
+ "c1124": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1126": {
+  "action": "built",
+  "object_id": "blind-left-kitchen"
+ },
+ "c1130": {
+  "action": "built",
+  "object_id": "ornament-tree-092"
+ },
+ "c1131": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c1135": {
+  "action": "duplicate",
+  "object_id": "log-015"
+ },
+ "c1137": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c114": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c1140": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-085"
+ },
+ "c1141": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-074"
+ },
+ "c1149": {
+  "action": "duplicate",
+  "object_id": "plant-sill-kitchen-1"
+ },
+ "c115": {
+  "action": "built",
+  "object_id": "worktop-back-right"
+ },
+ "c1150": {
+  "action": "part",
+  "object_id": "chimney-breast"
+ },
+ "c1151": {
+  "action": "part",
+  "object_id": "wall-cabinet-back-right"
+ },
+ "c1158": {
+  "action": "built",
+  "object_id": "fruit-005"
+ },
+ "c116": {
+  "action": "built",
+  "object_id": "coffee-machine-1"
+ },
+ "c1160": {
+  "action": "built",
+  "object_id": "ornament-tree-093"
+ },
+ "c1161": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-049"
+ },
+ "c1168": {
+  "action": "duplicate",
+  "object_id": "curtain-french-left"
+ },
+ "c117": {
+  "action": "duplicate",
+  "object_id": "curtain-french-right"
+ },
+ "c1171": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c1175": {
+  "action": "built",
+  "object_id": "cup-sink"
+ },
+ "c1176": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c1177": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-093"
+ },
+ "c118": {
+  "action": "duplicate",
+  "object_id": "cushion-004"
+ },
+ "c1182": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-006"
+ },
+ "c1184": {
+  "action": "built",
+  "object_id": "tall-unit-hall-side"
+ },
+ "c1189": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-088"
+ },
+ "c1195": {
+  "action": "part",
+  "object_id": "console-cabinet"
+ },
+ "c1197": {
+  "action": "built",
+  "object_id": "ornament-tree-094"
+ },
+ "c120": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c1201": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-089"
+ },
+ "c1202": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-075"
+ },
+ "c1203": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-046"
+ },
+ "c1207": {
+  "action": "part",
+  "object_id": "knife-block"
+ },
+ "c1208": {
+  "action": "built",
+  "object_id": "ornament-tree-095"
+ },
+ "c1210": {
+  "action": "duplicate",
+  "object_id": "plant-corner-shelf"
+ },
+ "c1214": {
+  "action": "duplicate",
+  "object_id": "curtain-french-left"
+ },
+ "c1215": {
+  "action": "built",
+  "object_id": "ornament-tree-096"
+ },
+ "c1217": {
+  "action": "duplicate",
+  "object_id": "book-island-3"
+ },
+ "c122": {
+  "action": "duplicate",
+  "object_id": "plant-corner-shelf"
+ },
+ "c1220": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c1222": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-053"
+ },
+ "c1224": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1226": {
+  "action": "built",
+  "object_id": "goblet-piano-3"
+ },
+ "c1227": {
+  "action": "built",
+  "object_id": "log-033"
+ },
+ "c1228": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-013"
+ },
+ "c1231": {
+  "action": "built",
+  "object_id": "log-holder"
+ },
+ "c1232": {
+  "action": "built",
+  "object_id": "ornament-tree-097"
+ },
+ "c1238": {
+  "action": "built",
+  "object_id": "ornament-tree-098"
+ },
+ "c124": {
+  "action": "duplicate",
+  "object_id": "frame-bay-sill-2"
+ },
+ "c1242": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c1246": {
+  "action": "built",
+  "object_id": "cup-bay-sill"
+ },
+ "c1248": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-064"
+ },
+ "c125": {
+  "action": "part",
+  "object_id": "worktop-left"
+ },
+ "c1251": {
+  "action": "part",
+  "object_id": "french-doors"
+ },
+ "c1252": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c1255": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1256": {
+  "action": "built",
+  "object_id": "log-034"
+ },
+ "c1258": {
+  "action": "built",
+  "object_id": "ornament-tree-099"
+ },
+ "c126": {
+  "action": "built",
+  "object_id": "ornament-tree-001"
+ },
+ "c1261": {
+  "action": "part",
+  "object_id": "log-holder"
+ },
+ "c1264": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-086"
+ },
+ "c1267": {
+  "action": "built",
+  "object_id": "fruit-006"
+ },
+ "c127": {
+  "action": "built",
+  "object_id": "plant-mantel-right"
+ },
+ "c1270": {
+  "action": "duplicate",
+  "object_id": "plant-sill-kitchen-1"
+ },
+ "c1271": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1273": {
+  "action": "duplicate",
+  "object_id": "hydrangea-flowers"
+ },
+ "c128": {
+  "action": "built",
+  "object_id": "range-cooker"
+ },
+ "c1280": {
+  "action": "built",
+  "object_id": "fruit-007"
+ },
+ "c1281": {
+  "action": "built",
+  "object_id": "charger-clutter"
+ },
+ "c1283": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1285": {
+  "action": "built",
+  "object_id": "cable-coffee"
+ },
+ "c1286": {
+  "action": "built",
+  "object_id": "ornament-tree-100"
+ },
+ "c1287": {
+  "action": "built",
+  "object_id": "letter-09-i"
+ },
+ "c129": {
+  "action": "built",
+  "object_id": "worktop-back-left"
+ },
+ "c1293": {
+  "action": "duplicate",
+  "object_id": "plant-mantel-right"
+ },
+ "c1297": {
+  "action": "duplicate",
+  "object_id": "blind-bay"
+ },
+ "c130": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c1301": {
+  "action": "duplicate",
+  "object_id": "plant-shelf"
+ },
+ "c1304": {
+  "action": "duplicate",
+  "object_id": "cup-sink"
+ },
+ "c1309": {
+  "action": "built",
+  "object_id": "pot-bay-sill"
+ },
+ "c131": {
+  "action": "part",
+  "object_id": "trunk-coffee-table"
+ },
+ "c1311": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1312": {
+  "action": "part",
+  "object_id": "tall-fridge-unit"
+ },
+ "c1316": {
+  "action": "built",
+  "object_id": "coffee-machine-2"
+ },
+ "c1318": {
+  "action": "part",
+  "object_id": "tv-cabinet"
+ },
+ "c1319": {
+  "action": "part",
+  "object_id": "console-cabinet"
+ },
+ "c132": {
+  "action": "part",
+  "object_id": "christmas-tree"
+ },
+ "c1323": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-097"
+ },
+ "c1324": {
+  "action": "part",
+  "object_id": "kitchen-shelf-low"
+ },
+ "c133": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c1331": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1336": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c134": {
+  "action": "built",
+  "object_id": "cushion-006"
+ },
+ "c1341": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-014"
+ },
+ "c1342": {
+  "action": "built",
+  "object_id": "ornament-tree-101"
+ },
+ "c1345": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c1347": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1348": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c1351": {
+  "action": "built",
+  "object_id": "ornament-tree-102"
+ },
+ "c1353": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-093"
+ },
+ "c1355": {
+  "action": "duplicate",
+  "object_id": "log-022"
+ },
+ "c1356": {
+  "action": "built",
+  "object_id": "painting-hall"
+ },
+ "c1358": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-034"
+ },
+ "c1359": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c136": {
+  "action": "built",
+  "object_id": "wall-cabinet-left-b"
+ },
+ "c1361": {
+  "action": "duplicate",
+  "object_id": "hydrangea-flowers"
+ },
+ "c1363": {
+  "action": "built",
+  "object_id": "log-035"
+ },
+ "c1365": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-046"
+ },
+ "c1366": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-046"
+ },
+ "c137": {
+  "action": "part",
+  "object_id": "bar-stool-3"
+ },
+ "c1373": {
+  "action": "duplicate",
+  "object_id": "plant-mantel-right"
+ },
+ "c1377": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c138": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c1384": {
+  "action": "built",
+  "object_id": "ornament-tree-103"
+ },
+ "c1385": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c1388": {
+  "action": "built",
+  "object_id": "banner-string"
+ },
+ "c139": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c1396": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-096"
+ },
+ "c1401": {
+  "action": "built",
+  "object_id": "dish-drainer"
+ },
+ "c1403": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-016"
+ },
+ "c1404": {
+  "action": "part",
+  "object_id": "lamp-table"
+ },
+ "c1405": {
+  "action": "part",
+  "object_id": "tv-cabinet"
+ },
+ "c1407": {
+  "action": "part",
+  "object_id": "rug-bay"
+ },
+ "c1411": {
+  "action": "built",
+  "object_id": "log-036"
+ },
+ "c1412": {
+  "action": "built",
+  "object_id": "ornament-tree-104"
+ },
+ "c1414": {
+  "action": "built",
+  "object_id": "present-3"
+ },
+ "c1417": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c1418": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-103"
+ },
+ "c142": {
+  "action": "duplicate",
+  "object_id": "cushion-006"
+ },
+ "c1428": {
+  "action": "built",
+  "object_id": "ornament-tree-105"
+ },
+ "c143": {
+  "action": "built",
+  "object_id": "frame-corner-shelf"
+ },
+ "c1431": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-060"
+ },
+ "c1434": {
+  "action": "built",
+  "object_id": "log-037"
+ },
+ "c1436": {
+  "action": "built",
+  "object_id": "present-2"
+ },
+ "c1437": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-046"
+ },
+ "c1439": {
+  "action": "built",
+  "object_id": "ornament-tree-106"
+ },
+ "c144": {
+  "action": "part",
+  "object_id": "piano"
+ },
+ "c1441": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-051"
+ },
+ "c1444": {
+  "action": "built",
+  "object_id": "fruit-008"
+ },
+ "c1448": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c1449": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c145": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c1450": {
+  "action": "part",
+  "object_id": "kitchen-base-back-right"
+ },
+ "c1451": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-098"
+ },
+ "c1457": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c1460": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-099"
+ },
+ "c1463": {
+  "action": "built",
+  "object_id": "ornament-tree-107"
+ },
+ "c147": {
+  "action": "built",
+  "object_id": "heart-ornament"
+ },
+ "c1471": {
+  "action": "built",
+  "object_id": "plant-shelf"
+ },
+ "c1473": {
+  "action": "duplicate",
+  "object_id": "book-island-1"
+ },
+ "c1479": {
+  "action": "duplicate",
+  "object_id": "log-015"
+ },
+ "c1483": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-094"
+ },
+ "c1488": {
+  "action": "built",
+  "object_id": "ornament-tree-108"
+ },
+ "c149": {
+  "action": "duplicate",
+  "object_id": "curtain-rod-french"
+ },
+ "c150": {
+  "action": "part",
+  "object_id": "corner-cabinet"
+ },
+ "c153": {
+  "action": "built",
+  "object_id": "ornament-tree-002"
+ },
+ "c154": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-001"
+ },
+ "c156": {
+  "action": "built",
+  "object_id": "kitchen-island"
+ },
+ "c158": {
+  "action": "duplicate",
+  "object_id": "frame-corner-1"
+ },
+ "c160": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c162": {
+  "action": "built",
+  "object_id": "stove"
+ },
+ "c163": {
+  "action": "part",
+  "object_id": "radiator-back-living"
+ },
+ "c167": {
+  "action": "built",
+  "object_id": "toaster"
+ },
+ "c168": {
+  "action": "built",
+  "object_id": "cushion-007"
+ },
+ "c172": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c173": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c174": {
+  "action": "duplicate",
+  "object_id": "candle-trunk-1"
+ },
+ "c176": {
+  "action": "part",
+  "object_id": "christmas-tree"
+ },
+ "c177": {
+  "action": "duplicate",
+  "object_id": "kettle"
+ },
+ "c178": {
+  "action": "built",
+  "object_id": "plant-mantel-left"
+ },
+ "c179": {
+  "action": "built",
+  "object_id": "wall-cabinet-back-left"
+ },
+ "c181": {
+  "action": "built",
+  "object_id": "tv"
+ },
+ "c182": {
+  "action": "built",
+  "object_id": "frame-bay-sill-2"
+ },
+ "c183": {
+  "action": "built",
+  "object_id": "oven-glove"
+ },
+ "c184": {
+  "action": "part",
+  "object_id": "side-table-flowers"
+ },
+ "c185": {
+  "action": "duplicate",
+  "object_id": "figurine-angel-small"
+ },
+ "c186": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c187": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c188": {
+  "action": "duplicate",
+  "object_id": "tea-towel"
+ },
+ "c189": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c190": {
+  "action": "part",
+  "object_id": "radiator-bay"
+ },
+ "c192": {
+  "action": "built",
+  "object_id": "outlet-living-low"
+ },
+ "c193": {
+  "action": "duplicate",
+  "object_id": "candle-trunk-1"
+ },
+ "c194": {
+  "action": "built",
+  "object_id": "pendant-1"
+ },
+ "c195": {
+  "action": "built",
+  "object_id": "frame-corner-2"
+ },
+ "c196": {
+  "action": "duplicate",
+  "object_id": "plant-mantel-right"
+ },
+ "c197": {
+  "action": "part",
+  "object_id": "mantel-living"
+ },
+ "c199": {
+  "action": "built",
+  "object_id": "table-lamp-hall"
+ },
+ "c200": {
+  "action": "part",
+  "object_id": "corner-cabinet"
+ },
+ "c201": {
+  "action": "built",
+  "object_id": "figurine-angel-small"
+ },
+ "c202": {
+  "action": "duplicate",
+  "object_id": "cushion-003"
+ },
+ "c204": {
+  "action": "part",
+  "object_id": "sofa-b"
+ },
+ "c205": {
+  "action": "duplicate",
+  "object_id": "potted-tree-hearth"
+ },
+ "c206": {
+  "action": "built",
+  "object_id": "kitchen-shelf-low"
+ },
+ "c207": {
+  "action": "part",
+  "object_id": "table-lamp-living"
+ },
+ "c209": {
+  "action": "built",
+  "object_id": "frame-back-wall"
+ },
+ "c210": {
+  "action": "built",
+  "object_id": "pendant-2"
+ },
+ "c211": {
+  "action": "built",
+  "object_id": "ornament-tree-003"
+ },
+ "c212": {
+  "action": "part",
+  "object_id": "rug-centre"
+ },
+ "c215": {
+  "action": "part",
+  "object_id": "christmas-tree"
+ },
+ "c216": {
+  "action": "part",
+  "object_id": "table-lamp-kitchen"
+ },
+ "c217": {
+  "action": "built",
+  "object_id": "wine-glass-shelf-1"
+ },
+ "c218": {
+  "action": "duplicate",
+  "object_id": "curtain-french-left"
+ },
+ "c219": {
+  "action": "built",
+  "object_id": "sofa-b"
+ },
+ "c220": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c221": {
+  "action": "built",
+  "object_id": "doormat-hall"
+ },
+ "c222": {
+  "action": "duplicate",
+  "object_id": "cushion-006"
+ },
+ "c223": {
+  "action": "part",
+  "object_id": "radiator-bay"
+ },
+ "c224": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c225": {
+  "action": "built",
+  "object_id": "fruit-bowl"
+ },
+ "c226": {
+  "action": "built",
+  "object_id": "frame-sill-2"
+ },
+ "c227": {
+  "action": "duplicate",
+  "object_id": "plant-mantel-right"
+ },
+ "c228": {
+  "action": "built",
+  "object_id": "plant-sill-kitchen-1"
+ },
+ "c230": {
+  "action": "duplicate",
+  "object_id": "plant-mantel-left"
+ },
+ "c231": {
+  "action": "built",
+  "object_id": "wall-cabinet-back-right"
+ },
+ "c232": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-003"
+ },
+ "c233": {
+  "action": "built",
+  "object_id": "book-side-table"
+ },
+ "c235": {
+  "action": "built",
+  "object_id": "candle-trunk-2"
+ },
+ "c238": {
+  "action": "part",
+  "object_id": "table-lamp-living"
+ },
+ "c239": {
+  "action": "built",
+  "object_id": "mantel-living"
+ },
+ "c240": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c241": {
+  "action": "built",
+  "object_id": "hearth"
+ },
+ "c242": {
+  "action": "part",
+  "object_id": "pendant-2"
+ },
+ "c243": {
+  "action": "built",
+  "object_id": "book-counter"
+ },
+ "c244": {
+  "action": "built",
+  "object_id": "ornament-tree-004"
+ },
+ "c245": {
+  "action": "built",
+  "object_id": "sink"
+ },
+ "c246": {
+  "action": "built",
+  "object_id": "knife-block"
+ },
+ "c248": {
+  "action": "duplicate",
+  "object_id": "letter-07-h"
+ },
+ "c249": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c250": {
+  "action": "part",
+  "object_id": "corner-lamp-table"
+ },
+ "c251": {
+  "action": "part",
+  "object_id": "wall-cabinet-back-right"
+ },
+ "c252": {
+  "action": "part",
+  "object_id": "tall-unit-hall-side"
+ },
+ "c254": {
+  "action": "part",
+  "object_id": "banner-string"
+ },
+ "c255": {
+  "action": "duplicate",
+  "object_id": "letter-06-c"
+ },
+ "c256": {
+  "action": "duplicate",
+  "object_id": "frame-back-wall"
+ },
+ "c257": {
+  "action": "built",
+  "object_id": "log-bucket"
+ },
+ "c259": {
+  "action": "built",
+  "object_id": "blind-bay"
+ },
+ "c260": {
+  "action": "built",
+  "object_id": "log-001"
+ },
+ "c261": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c262": {
+  "action": "built",
+  "object_id": "outlet-kitchen-back-2"
+ },
+ "c265": {
+  "action": "duplicate",
+  "object_id": "cushion-005"
+ },
+ "c267": {
+  "action": "built",
+  "object_id": "ornament-tree-005"
+ },
+ "c269": {
+  "action": "duplicate",
+  "object_id": "basket-throw"
+ },
+ "c270": {
+  "action": "built",
+  "object_id": "ornament-tree-006"
+ },
+ "c271": {
+  "action": "part",
+  "object_id": "tall-fridge-unit"
+ },
+ "c274": {
+  "action": "part",
+  "object_id": "side-table-flowers"
+ },
+ "c275": {
+  "action": "built",
+  "object_id": "ornament-tree-007"
+ },
+ "c276": {
+  "action": "built",
+  "object_id": "ornament-tree-008"
+ },
+ "c277": {
+  "action": "duplicate",
+  "object_id": "cushion-006"
+ },
+ "c278": {
+  "action": "duplicate",
+  "object_id": "cushion-004"
+ },
+ "c279": {
+  "action": "built",
+  "object_id": "log-002"
+ },
+ "c284": {
+  "action": "built",
+  "object_id": "candle-sill-kitchen"
+ },
+ "c286": {
+  "action": "built",
+  "object_id": "ornament-tree-009"
+ },
+ "c291": {
+  "action": "built",
+  "object_id": "ornament-tree-010"
+ },
+ "c294": {
+  "action": "built",
+  "object_id": "log-003"
+ },
+ "c297": {
+  "action": "part",
+  "object_id": "table-lamp-kitchen"
+ },
+ "c299": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c300": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c301": {
+  "action": "built",
+  "object_id": "blind-back-living"
+ },
+ "c303": {
+  "action": "part",
+  "object_id": "christmas-tree"
+ },
+ "c305": {
+  "action": "part",
+  "object_id": "side-table-flowers"
+ },
+ "c306": {
+  "action": "built",
+  "object_id": "log-004"
+ },
+ "c307": {
+  "action": "part",
+  "object_id": "banner-string"
+ },
+ "c308": {
+  "action": "duplicate",
+  "object_id": "cushion-005"
+ },
+ "c310": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-008"
+ },
+ "c311": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-005"
+ },
+ "c312": {
+  "action": "built",
+  "object_id": "ornament-tree-011"
+ },
+ "c314": {
+  "action": "built",
+  "object_id": "log-005"
+ },
+ "c315": {
+  "action": "built",
+  "object_id": "bar-stool-4"
+ },
+ "c317": {
+  "action": "part",
+  "object_id": "table-lamp-kitchen"
+ },
+ "c319": {
+  "action": "part",
+  "object_id": "mantel-kitchen"
+ },
+ "c321": {
+  "action": "duplicate",
+  "object_id": "plant-mantel-left"
+ },
+ "c323": {
+  "action": "built",
+  "object_id": "tv-cabinet"
+ },
+ "c324": {
+  "action": "built",
+  "object_id": "ornament-tree-012"
+ },
+ "c325": {
+  "action": "built",
+  "object_id": "ornament-tree-013"
+ },
+ "c326": {
+  "action": "duplicate",
+  "object_id": "plant-sill-kitchen-1"
+ },
+ "c327": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c329": {
+  "action": "built",
+  "object_id": "plant-sill-kitchen-2"
+ },
+ "c330": {
+  "action": "part",
+  "object_id": "christmas-tree"
+ },
+ "c331": {
+  "action": "built",
+  "object_id": "ornament-tree-014"
+ },
+ "c332": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-006"
+ },
+ "c333": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-007"
+ },
+ "c334": {
+  "action": "built",
+  "object_id": "kitchen-shelf-high"
+ },
+ "c336": {
+  "action": "part",
+  "object_id": "bar-stool-5"
+ },
+ "c337": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c338": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c340": {
+  "action": "built",
+  "object_id": "ornament-tree-015"
+ },
+ "c341": {
+  "action": "built",
+  "object_id": "log-006"
+ },
+ "c342": {
+  "action": "part",
+  "object_id": "sofa-b"
+ },
+ "c343": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-008"
+ },
+ "c344": {
+  "action": "duplicate",
+  "object_id": "letter-03-r"
+ },
+ "c346": {
+  "action": "built",
+  "object_id": "potted-tree-hearth"
+ },
+ "c347": {
+  "action": "part",
+  "object_id": "rug-living"
+ },
+ "c348": {
+  "action": "built",
+  "object_id": "glass-candle-island"
+ },
+ "c349": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-011"
+ },
+ "c350": {
+  "action": "built",
+  "object_id": "ornament-tree-016"
+ },
+ "c351": {
+  "action": "duplicate",
+  "object_id": "cushion-007"
+ },
+ "c352": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c354": {
+  "action": "built",
+  "object_id": "ornament-tree-017"
+ },
+ "c355": {
+  "action": "part",
+  "object_id": "bar-stool-1"
+ },
+ "c356": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-013"
+ },
+ "c358": {
+  "action": "part",
+  "object_id": "console-cabinet"
+ },
+ "c359": {
+  "action": "part",
+  "object_id": "lamp-table"
+ },
+ "c361": {
+  "action": "built",
+  "object_id": "ornament-tree-018"
+ },
+ "c362": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c364": {
+  "action": "built",
+  "object_id": "ornament-tree-019"
+ },
+ "c365": {
+  "action": "duplicate",
+  "object_id": "potted-tree-hearth"
+ },
+ "c366": {
+  "action": "built",
+  "object_id": "console-cabinet"
+ },
+ "c367": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-014"
+ },
+ "c370": {
+  "action": "duplicate",
+  "object_id": "log-003"
+ },
+ "c371": {
+  "action": "built",
+  "object_id": "ornament-tree-020"
+ },
+ "c372": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c373": {
+  "action": "built",
+  "object_id": "ornament-tree-021"
+ },
+ "c374": {
+  "action": "duplicate",
+  "object_id": "letter-08-r"
+ },
+ "c375": {
+  "action": "built",
+  "object_id": "ornament-tree-022"
+ },
+ "c377": {
+  "action": "built",
+  "object_id": "plant-mantel-living"
+ },
+ "c379": {
+  "action": "built",
+  "object_id": "ornament-tree-023"
+ },
+ "c383": {
+  "action": "built",
+  "object_id": "curtain-rod-french"
+ },
+ "c385": {
+  "action": "part",
+  "object_id": "trunk-coffee-table"
+ },
+ "c386": {
+  "action": "built",
+  "object_id": "frame-sill-living"
+ },
+ "c388": {
+  "action": "duplicate",
+  "object_id": "bar-stool-3"
+ },
+ "c390": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-016"
+ },
+ "c391": {
+  "action": "built",
+  "object_id": "ornament-tree-024"
+ },
+ "c394": {
+  "action": "built",
+  "object_id": "ornament-tree-025"
+ },
+ "c395": {
+  "action": "duplicate",
+  "object_id": "frame-corner-shelf"
+ },
+ "c396": {
+  "action": "duplicate",
+  "object_id": "cushion-007"
+ },
+ "c397": {
+  "action": "built",
+  "object_id": "wall-cabinet-left-a"
+ },
+ "c399": {
+  "action": "built",
+  "object_id": "ornament-tree-026"
+ },
+ "c400": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-012"
+ },
+ "c402": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c403": {
+  "action": "duplicate",
+  "object_id": "letter-04-r"
+ },
+ "c404": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-022"
+ },
+ "c405": {
+  "action": "built",
+  "object_id": "ornament-tree-027"
+ },
+ "c406": {
+  "action": "built",
+  "object_id": "log-007"
+ },
+ "c407": {
+  "action": "part",
+  "object_id": "plant-floor-bay"
+ },
+ "c408": {
+  "action": "duplicate",
+  "object_id": "log-004"
+ },
+ "c409": {
+  "action": "built",
+  "object_id": "log-008"
+ },
+ "c411": {
+  "action": "built",
+  "object_id": "present-1"
+ },
+ "c412": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-003"
+ },
+ "c413": {
+  "action": "part",
+  "object_id": "wall-cabinet-back-right"
+ },
+ "c415": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c417": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-016"
+ },
+ "c418": {
+  "action": "duplicate",
+  "object_id": "curtain-french-left"
+ },
+ "c419": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-005"
+ },
+ "c420": {
+  "action": "built",
+  "object_id": "ornament-tree-028"
+ },
+ "c421": {
+  "action": "built",
+  "object_id": "ornament-tree-029"
+ },
+ "c422": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c423": {
+  "action": "built",
+  "object_id": "outlet-kitchen-back-3"
+ },
+ "c424": {
+  "action": "duplicate",
+  "object_id": "heart-ornament"
+ },
+ "c425": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-024"
+ },
+ "c426": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c428": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c431": {
+  "action": "built",
+  "object_id": "ornament-tree-030"
+ },
+ "c432": {
+  "action": "built",
+  "object_id": "frame-kitchen-shelf"
+ },
+ "c433": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-014"
+ },
+ "c434": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-011"
+ },
+ "c435": {
+  "action": "built",
+  "object_id": "ornament-tree-031"
+ },
+ "c436": {
+  "action": "built",
+  "object_id": "bottle-shelf"
+ },
+ "c437": {
+  "action": "built",
+  "object_id": "wine-glass-shelf-2"
+ },
+ "c438": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c440": {
+  "action": "duplicate",
+  "object_id": "curtain-french-right"
+ },
+ "c441": {
+  "action": "built",
+  "object_id": "blind-back-kitchen"
+ },
+ "c446": {
+  "action": "built",
+  "object_id": "piano-stool"
+ },
+ "c448": {
+  "action": "built",
+  "object_id": "ornament-tree-032"
+ },
+ "c449": {
+  "action": "built",
+  "object_id": "ornament-tree-033"
+ },
+ "c450": {
+  "action": "built",
+  "object_id": "ornament-tree-034"
+ },
+ "c451": {
+  "action": "part",
+  "object_id": "trunk-coffee-table"
+ },
+ "c452": {
+  "action": "duplicate",
+  "object_id": "cushion-003"
+ },
+ "c454": {
+  "action": "part",
+  "object_id": "kitchen-base-back-right"
+ },
+ "c457": {
+  "action": "built",
+  "object_id": "red-throw"
+ },
+ "c458": {
+  "action": "built",
+  "object_id": "log-009"
+ },
+ "c459": {
+  "action": "part",
+  "object_id": "christmas-tree"
+ },
+ "c460": {
+  "action": "built",
+  "object_id": "log-010"
+ },
+ "c462": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-015"
+ },
+ "c463": {
+  "action": "built",
+  "object_id": "ornament-tree-035"
+ },
+ "c464": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-032"
+ },
+ "c467": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c468": {
+  "action": "built",
+  "object_id": "worktop-left"
+ },
+ "c471": {
+  "action": "built",
+  "object_id": "wreath-sill-living"
+ },
+ "c473": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-018"
+ },
+ "c474": {
+  "action": "built",
+  "object_id": "ornament-tree-036"
+ },
+ "c475": {
+  "action": "built",
+  "object_id": "ornament-tree-037"
+ },
+ "c476": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-025"
+ },
+ "c477": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-019"
+ },
+ "c478": {
+  "action": "built",
+  "object_id": "wine-glass-shelf-5"
+ },
+ "c484": {
+  "action": "part",
+  "object_id": "tall-fridge-unit"
+ },
+ "c486": {
+  "action": "built",
+  "object_id": "ornament-tree-038"
+ },
+ "c487": {
+  "action": "built",
+  "object_id": "ornament-tree-039"
+ },
+ "c488": {
+  "action": "duplicate",
+  "object_id": "log-007"
+ },
+ "c490": {
+  "action": "built",
+  "object_id": "log-011"
+ },
+ "c491": {
+  "action": "built",
+  "object_id": "log-012"
+ },
+ "c493": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-023"
+ },
+ "c497": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c498": {
+  "action": "part",
+  "object_id": "sofa-b"
+ },
+ "c500": {
+  "action": "built",
+  "object_id": "hall-console"
+ },
+ "c502": {
+  "action": "duplicate",
+  "object_id": "fruit-bowl"
+ },
+ "c503": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-026"
+ },
+ "c504": {
+  "action": "built",
+  "object_id": "wine-glass-counter"
+ },
+ "c505": {
+  "action": "built",
+  "object_id": "ornament-tree-040"
+ },
+ "c506": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-029"
+ },
+ "c508": {
+  "action": "built",
+  "object_id": "ornament-tree-041"
+ },
+ "c509": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-019"
+ },
+ "c510": {
+  "action": "duplicate",
+  "object_id": "letter-09-i"
+ },
+ "c512": {
+  "action": "duplicate",
+  "object_id": "log-012"
+ },
+ "c513": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c514": {
+  "action": "built",
+  "object_id": "log-013"
+ },
+ "c515": {
+  "action": "part",
+  "object_id": "sofa-b"
+ },
+ "c517": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-014"
+ },
+ "c518": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-011"
+ },
+ "c519": {
+  "action": "built",
+  "object_id": "ornament-tree-042"
+ },
+ "c521": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-038"
+ },
+ "c522": {
+  "action": "duplicate",
+  "object_id": "curtain-french-left"
+ },
+ "c524": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-003"
+ },
+ "c525": {
+  "action": "built",
+  "object_id": "ornament-tree-043"
+ },
+ "c526": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-011"
+ },
+ "c528": {
+  "action": "built",
+  "object_id": "ornament-tree-044"
+ },
+ "c530": {
+  "action": "built",
+  "object_id": "wine-glass-shelf-4"
+ },
+ "c531": {
+  "action": "built",
+  "object_id": "ornament-tree-045"
+ },
+ "c533": {
+  "action": "part",
+  "object_id": "sink"
+ },
+ "c534": {
+  "action": "duplicate",
+  "object_id": "star-red-right"
+ },
+ "c535": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c536": {
+  "action": "built",
+  "object_id": "ornament-tree-046"
+ },
+ "c537": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-005"
+ },
+ "c543": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-030"
+ },
+ "c544": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-024"
+ },
+ "c545": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c547": {
+  "action": "skipped",
+  "reason": "Banner/door-head decoration already built as banner parts"
+ },
+ "c548": {
+  "action": "part",
+  "object_id": "range-cooker"
+ },
+ "c549": {
+  "action": "built",
+  "object_id": "lantern-tree"
+ },
+ "c550": {
+  "action": "built",
+  "object_id": "ornament-tree-047"
+ },
+ "c551": {
+  "action": "built",
+  "object_id": "cushion-008"
+ },
+ "c552": {
+  "action": "part",
+  "object_id": "corner-cabinet"
+ },
+ "c554": {
+  "action": "built",
+  "object_id": "log-014"
+ },
+ "c556": {
+  "action": "built",
+  "object_id": "ornament-tree-048"
+ },
+ "c557": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-040"
+ },
+ "c558": {
+  "action": "duplicate",
+  "object_id": "plant-sill-kitchen-1"
+ },
+ "c561": {
+  "action": "built",
+  "object_id": "figurine-angel-large"
+ },
+ "c562": {
+  "action": "built",
+  "object_id": "ornament-tree-049"
+ },
+ "c563": {
+  "action": "built",
+  "object_id": "ornament-tree-050"
+ },
+ "c565": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c566": {
+  "action": "part",
+  "object_id": "tall-unit-hall-side"
+ },
+ "c567": {
+  "action": "built",
+  "object_id": "star-green-right"
+ },
+ "c569": {
+  "action": "duplicate",
+  "object_id": "wicker-lantern"
+ },
+ "c570": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c573": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-003"
+ },
+ "c574": {
+  "action": "duplicate",
+  "object_id": "log-008"
+ },
+ "c575": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-036"
+ },
+ "c576": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-037"
+ },
+ "c577": {
+  "action": "built",
+  "object_id": "ornament-tree-051"
+ },
+ "c578": {
+  "action": "built",
+  "object_id": "ornament-tree-052"
+ },
+ "c579": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-036"
+ },
+ "c580": {
+  "action": "built",
+  "object_id": "book-island-2"
+ },
+ "c581": {
+  "action": "part",
+  "object_id": "lamp-table"
+ },
+ "c584": {
+  "action": "part",
+  "object_id": "corner-cabinet"
+ },
+ "c585": {
+  "action": "duplicate",
+  "object_id": "cushion-003"
+ },
+ "c586": {
+  "action": "part",
+  "object_id": "sofa-b"
+ },
+ "c588": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-037"
+ },
+ "c589": {
+  "action": "built",
+  "object_id": "log-015"
+ },
+ "c590": {
+  "action": "built",
+  "object_id": "log-016"
+ },
+ "c591": {
+  "action": "part",
+  "object_id": "tall-fridge-unit"
+ },
+ "c592": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-020"
+ },
+ "c593": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-044"
+ },
+ "c596": {
+  "action": "built",
+  "object_id": "ornament-tree-053"
+ },
+ "c598": {
+  "action": "duplicate",
+  "object_id": "book-side-table"
+ },
+ "c599": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-046"
+ },
+ "c600": {
+  "action": "built",
+  "object_id": "log-017"
+ },
+ "c602": {
+  "action": "part",
+  "object_id": "kitchen-shelf-low"
+ },
+ "c603": {
+  "action": "built",
+  "object_id": "tissue-box-red"
+ },
+ "c604": {
+  "action": "built",
+  "object_id": "candle-wreath-sill"
+ },
+ "c605": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-050"
+ },
+ "c606": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-034"
+ },
+ "c608": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c610": {
+  "action": "part",
+  "object_id": "wall-cabinet-left-a"
+ },
+ "c611": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-036"
+ },
+ "c612": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-045"
+ },
+ "c613": {
+  "action": "built",
+  "object_id": "ornament-tree-054"
+ },
+ "c614": {
+  "action": "built",
+  "object_id": "kitchen-base-left"
+ },
+ "c615": {
+  "action": "duplicate",
+  "object_id": "cushion-005"
+ },
+ "c616": {
+  "action": "built",
+  "object_id": "ornament-tree-055"
+ },
+ "c619": {
+  "action": "built",
+  "object_id": "ornament-tree-056"
+ },
+ "c620": {
+  "action": "built",
+  "object_id": "ornament-tree-057"
+ },
+ "c621": {
+  "action": "built",
+  "object_id": "outlet-living-high"
+ },
+ "c623": {
+  "action": "duplicate",
+  "object_id": "glass-jar-lamp"
+ },
+ "c625": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-006"
+ },
+ "c626": {
+  "action": "built",
+  "object_id": "outlet-kitchen-left"
+ },
+ "c628": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-054"
+ },
+ "c629": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c630": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-033"
+ },
+ "c631": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-034"
+ },
+ "c634": {
+  "action": "built",
+  "object_id": "card-piano"
+ },
+ "c635": {
+  "action": "built",
+  "object_id": "door-sign-front"
+ },
+ "c636": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-046"
+ },
+ "c639": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-006"
+ },
+ "c643": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-048"
+ },
+ "c644": {
+  "action": "built",
+  "object_id": "tea-towel"
+ },
+ "c646": {
+  "action": "part",
+  "object_id": "range-cooker"
+ },
+ "c647": {
+  "action": "built",
+  "object_id": "plant-sill-kitchen-3"
+ },
+ "c648": {
+  "action": "duplicate",
+  "object_id": "letter-01-m"
+ },
+ "c649": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c650": {
+  "action": "built",
+  "object_id": "ornament-tree-058"
+ },
+ "c654": {
+  "action": "built",
+  "object_id": "cable-living"
+ },
+ "c655": {
+  "action": "built",
+  "object_id": "ornament-tree-059"
+ },
+ "c657": {
+  "action": "built",
+  "object_id": "ornament-tree-060"
+ },
+ "c659": {
+  "action": "part",
+  "object_id": "french-doors"
+ },
+ "c660": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c661": {
+  "action": "duplicate",
+  "object_id": "letter-14-s"
+ },
+ "c662": {
+  "action": "part",
+  "object_id": "sofa-a"
+ },
+ "c664": {
+  "action": "built",
+  "object_id": "ornament-tree-061"
+ },
+ "c667": {
+  "action": "part",
+  "object_id": "bar-stool-4"
+ },
+ "c668": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-036"
+ },
+ "c669": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-049"
+ },
+ "c671": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c672": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c674": {
+  "action": "built",
+  "object_id": "frame-tv-cabinet"
+ },
+ "c675": {
+  "action": "built",
+  "object_id": "ornament-tree-062"
+ },
+ "c677": {
+  "action": "built",
+  "object_id": "log-018"
+ },
+ "c680": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-003"
+ },
+ "c681": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c683": {
+  "action": "built",
+  "object_id": "chimney-breast"
+ },
+ "c687": {
+  "action": "built",
+  "object_id": "ornament-tree-063"
+ },
+ "c688": {
+  "action": "part",
+  "object_id": "bar-stool-2"
+ },
+ "c689": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c692": {
+  "action": "duplicate",
+  "object_id": "cushion-002"
+ },
+ "c693": {
+  "action": "duplicate",
+  "object_id": "letter-13-a"
+ },
+ "c695": {
+  "action": "built",
+  "object_id": "log-019"
+ },
+ "c697": {
+  "action": "built",
+  "object_id": "log-020"
+ },
+ "c699": {
+  "action": "built",
+  "object_id": "log-021"
+ },
+ "c702": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-045"
+ },
+ "c707": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c708": {
+  "action": "duplicate",
+  "object_id": "hydrangea-flowers"
+ },
+ "c709": {
+  "action": "duplicate",
+  "object_id": "throw-in-basket"
+ },
+ "c710": {
+  "action": "built",
+  "object_id": "log-022"
+ },
+ "c711": {
+  "action": "built",
+  "object_id": "tap"
+ },
+ "c715": {
+  "action": "part",
+  "object_id": "corner-cabinet"
+ },
+ "c717": {
+  "action": "part",
+  "object_id": "wall-cabinet-back-right"
+ },
+ "c718": {
+  "action": "built",
+  "object_id": "ornament-tree-064"
+ },
+ "c720": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-039"
+ },
+ "c721": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-036"
+ },
+ "c722": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-031"
+ },
+ "c723": {
+  "action": "built",
+  "object_id": "ornament-tree-065"
+ },
+ "c724": {
+  "action": "built",
+  "object_id": "corner-lamp-table"
+ },
+ "c725": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c726": {
+  "action": "built",
+  "object_id": "ornament-tree-066"
+ },
+ "c728": {
+  "action": "duplicate",
+  "object_id": "cushion-004"
+ },
+ "c730": {
+  "action": "built",
+  "object_id": "ornament-tree-067"
+ },
+ "c731": {
+  "action": "part",
+  "object_id": "chimney-breast"
+ },
+ "c732": {
+  "action": "built",
+  "object_id": "log-023"
+ },
+ "c734": {
+  "action": "built",
+  "object_id": "log-024"
+ },
+ "c735": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-027"
+ },
+ "c736": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-003"
+ },
+ "c737": {
+  "action": "built",
+  "object_id": "wine-glass-shelf-3"
+ },
+ "c739": {
+  "action": "part",
+  "object_id": "console-cabinet"
+ },
+ "c743": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-005"
+ },
+ "c744": {
+  "action": "built",
+  "object_id": "log-025"
+ },
+ "c747": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c749": {
+  "action": "duplicate",
+  "object_id": "log-005"
+ },
+ "c750": {
+  "action": "built",
+  "object_id": "ornament-tree-068"
+ },
+ "c752": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-003"
+ },
+ "c753": {
+  "action": "built",
+  "object_id": "ornament-tree-069"
+ },
+ "c755": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-065"
+ },
+ "c756": {
+  "action": "built",
+  "object_id": "ornament-tree-070"
+ },
+ "c757": {
+  "action": "built",
+  "object_id": "ornament-tree-071"
+ },
+ "c758": {
+  "action": "duplicate",
+  "object_id": "log-014"
+ },
+ "c759": {
+  "action": "part",
+  "object_id": "tall-fridge-unit"
+ },
+ "c760": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-003"
+ },
+ "c770": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-022"
+ },
+ "c772": {
+  "action": "built",
+  "object_id": "outlet-kitchen-back-1"
+ },
+ "c777": {
+  "action": "part",
+  "object_id": "piano"
+ },
+ "c779": {
+  "action": "skipped",
+  "reason": "Dark blurred shape at the hall wall base in one frame; no identifiable object at this location in the source frames"
+ },
+ "c783": {
+  "action": "built",
+  "object_id": "log-026"
+ },
+ "c785": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-046"
+ },
+ "c786": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-028"
+ },
+ "c787": {
+  "action": "built",
+  "object_id": "fruit-001"
+ },
+ "c790": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-035"
+ },
+ "c791": {
+  "action": "built",
+  "object_id": "ornament-tree-072"
+ },
+ "c792": {
+  "action": "part",
+  "object_id": "corner-cabinet"
+ },
+ "c794": {
+  "action": "built",
+  "object_id": "log-027"
+ },
+ "c795": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c798": {
+  "action": "built",
+  "object_id": "ornament-tree-073"
+ },
+ "c799": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-069"
+ },
+ "c800": {
+  "action": "built",
+  "object_id": "mantel-kitchen"
+ },
+ "c802": {
+  "action": "duplicate",
+  "object_id": "card-piano"
+ },
+ "c804": {
+  "action": "duplicate",
+  "object_id": "bar-stool-1"
+ },
+ "c808": {
+  "action": "built",
+  "object_id": "ornament-tree-074"
+ },
+ "c809": {
+  "action": "part",
+  "object_id": "wall-cabinet-left-a"
+ },
+ "c810": {
+  "action": "built",
+  "object_id": "ornament-tree-075"
+ },
+ "c811": {
+  "action": "built",
+  "object_id": "book-island-3"
+ },
+ "c812": {
+  "action": "built",
+  "object_id": "ornament-tree-076"
+ },
+ "c815": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-071"
+ },
+ "c816": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-057"
+ },
+ "c819": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-052"
+ },
+ "c821": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c824": {
+  "action": "skipped",
+  "reason": "Banner/door-head decoration already built as banner parts"
+ },
+ "c825": {
+  "action": "built",
+  "object_id": "ornament-tree-077"
+ },
+ "c826": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c832": {
+  "action": "part",
+  "object_id": "tv-cabinet"
+ },
+ "c833": {
+  "action": "part",
+  "object_id": "tv-cabinet"
+ },
+ "c834": {
+  "action": "built",
+  "object_id": "kitchen-base-back-right"
+ },
+ "c837": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c838": {
+  "action": "built",
+  "object_id": "log-028"
+ },
+ "c839": {
+  "action": "built",
+  "object_id": "log-029"
+ },
+ "c841": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-027"
+ },
+ "c843": {
+  "action": "built",
+  "object_id": "ornament-tree-078"
+ },
+ "c845": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c846": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-073"
+ },
+ "c847": {
+  "action": "built",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c848": {
+  "action": "built",
+  "object_id": "star-red-right"
+ },
+ "c850": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-061"
+ },
+ "c851": {
+  "action": "part",
+  "object_id": "kitchen-shelf-high"
+ },
+ "c853": {
+  "action": "built",
+  "object_id": "ornament-tree-079"
+ },
+ "c860": {
+  "action": "part",
+  "object_id": "kitchen-base-left"
+ },
+ "c861": {
+  "action": "built",
+  "object_id": "ornament-tree-080"
+ },
+ "c862": {
+  "action": "built",
+  "object_id": "ornament-tree-081"
+ },
+ "c863": {
+  "action": "built",
+  "object_id": "ornament-tree-082"
+ },
+ "c865": {
+  "action": "built",
+  "object_id": "log-030"
+ },
+ "c866": {
+  "action": "duplicate",
+  "object_id": "plant-corner-shelf"
+ },
+ "c868": {
+  "action": "built",
+  "object_id": "ornament-tree-083"
+ },
+ "c869": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-010"
+ },
+ "c871": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c875": {
+  "action": "built",
+  "object_id": "frame-hearth-floor"
+ },
+ "c882": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-010"
+ },
+ "c885": {
+  "action": "part",
+  "object_id": "kitchen-base-back-right"
+ },
+ "c888": {
+  "action": "duplicate",
+  "object_id": "star-green-right"
+ },
+ "c889": {
+  "action": "built",
+  "object_id": "ornament-tree-084"
+ },
+ "c890": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c895": {
+  "action": "duplicate",
+  "object_id": "log-013"
+ },
+ "c897": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c899": {
+  "action": "part",
+  "object_id": "kitchen-shelf-high"
+ },
+ "c900": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-016"
+ },
+ "c904": {
+  "action": "duplicate",
+  "object_id": "plant-sill-kitchen-1"
+ },
+ "c906": {
+  "action": "part",
+  "object_id": "kitchen-base-back-left"
+ },
+ "c907": {
+  "action": "part",
+  "object_id": "kitchen-island"
+ },
+ "c912": {
+  "action": "skipped",
+  "reason": "Outdoor garden/patio item seen through window glass, outside the room"
+ },
+ "c914": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-002"
+ },
+ "c921": {
+  "action": "built",
+  "object_id": "glass-jar-lamp"
+ },
+ "c924": {
+  "action": "built",
+  "object_id": "fruit-002"
+ },
+ "c926": {
+  "action": "duplicate",
+  "object_id": "outlet-kitchen-back-1"
+ },
+ "c928": {
+  "action": "duplicate",
+  "object_id": "plant-mantel-left"
+ },
+ "c929": {
+  "action": "part",
+  "object_id": "double-door-hall"
+ },
+ "c931": {
+  "action": "built",
+  "object_id": "log-031"
+ },
+ "c937": {
+  "action": "part",
+  "object_id": "sofa-b"
+ },
+ "c941": {
+  "action": "duplicate",
+  "object_id": "cushion-007"
+ },
+ "c942": {
+  "action": "duplicate",
+  "object_id": "cushion-001"
+ },
+ "c943": {
+  "action": "built",
+  "object_id": "hydrangea-flowers"
+ },
+ "c945": {
+  "action": "part",
+  "object_id": "kitchen-shelf-high"
+ },
+ "c947": {
+  "action": "duplicate",
+  "object_id": "wine-glass-shelf-2"
+ },
+ "c948": {
+  "action": "built",
+  "object_id": "book-island-1"
+ },
+ "c951": {
+  "action": "built",
+  "object_id": "ornament-tree-085"
+ },
+ "c955": {
+  "action": "built",
+  "object_id": "goblet-piano-1"
+ },
+ "c956": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-013"
+ },
+ "c958": {
+  "action": "built",
+  "object_id": "ornament-tree-086"
+ },
+ "c963": {
+  "action": "part",
+  "object_id": "worktop-back-left"
+ },
+ "c968": {
+  "action": "part",
+  "object_id": "range-cooker"
+ },
+ "c972": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-005"
+ },
+ "c974": {
+  "action": "duplicate",
+  "object_id": "log-015"
+ },
+ "c982": {
+  "action": "part",
+  "object_id": "knife-block"
+ },
+ "c986": {
+  "action": "part",
+  "object_id": "french-doors"
+ },
+ "c987": {
+  "action": "part",
+  "object_id": "front-door"
+ },
+ "c994": {
+  "action": "duplicate",
+  "object_id": "ornament-tree-005"
+ }
+}

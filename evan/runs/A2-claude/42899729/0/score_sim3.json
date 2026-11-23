@@ -1,0 +1,679 @@
+{
+ "rows": [
+  {
+   "gt_id": "4a56089e-91cb-4b37-8fd0-48ad7d1cb4f7",
+   "category": "painting",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.48841896714472643,
+   "iou": 0.04665714230801648,
+   "pred_id": "art-poppy-3"
+  },
+  {
+   "gt_id": "97686d21-71c7-4c29-900e-0a3b2fe87543",
+   "category": "painting",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.3629269812149438,
+   "iou": 0.11582421693476962,
+   "pred_id": "art-poppy-2"
+  },
+  {
+   "gt_id": "24f5e728-3b97-4a10-9485-3dc3ca3edf1a",
+   "category": "painting",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.5514490954471029,
+   "iou": 0.1889530547524864,
+   "pred_id": "art-poppy-1"
+  },
+  {
+   "gt_id": "18a1e8ce-b0be-4f12-b3d5-3432225183ce",
+   "category": "outlet",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "12074db9-e2e4-4795-ad2e-287591102de3",
+   "category": "painting",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.3276546789601464,
+   "iou": 0.3511248644947849,
+   "pred_id": "art-paris-umbrella"
+  },
+  {
+   "gt_id": "12276c43-dc9d-47c4-bfdd-2985bccb3bef",
+   "category": "window frame",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "02eb162c-fdae-4339-8795-fc0c4d8c78d7",
+   "category": "outlet",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "57890fc6-3a1e-4b6f-97f7-6e33b0eb2abc",
+   "category": "tower fan",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.3401758861815926,
+   "iou": 0.2851079183867218,
+   "pred_id": "tower-fan"
+  },
+  {
+   "gt_id": "a21a9836-8896-43f4-a549-17ed25c74b6a",
+   "category": "cabinet",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.04794869630835132,
+   "iou": 0.8449232137298617,
+   "pred_id": "chest-of-drawers"
+  },
+  {
+   "gt_id": "58d399f8-7822-4454-b521-e774e7b8bcc6",
+   "category": "closet",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.045959955413761126,
+   "iou": 0.9004940596359322,
+   "pred_id": "wardrobe"
+  },
+  {
+   "gt_id": "bb6c3fc8-2787-4b8f-a2c2-235c47f6eef4",
+   "category": "night stand",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.008884251419009117,
+   "iou": 0.8856250226281605,
+   "pred_id": "nightstand-window"
+  },
+  {
+   "gt_id": "19ead6cd-9d0e-49cb-88c9-6cf0442da794",
+   "category": "night stand",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.18983205982984866,
+   "iou": 0.629877336304934,
+   "pred_id": "nightstand-door"
+  },
+  {
+   "gt_id": "a6bdd69b-7c61-42e9-b408-65a7e50f218c",
+   "category": "light switch",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 1.2754997887551704,
+   "iou": 0.0,
+   "pred_id": "switch-door-wall-2"
+  },
+  {
+   "gt_id": "419332ed-9ea0-47f7-b793-83167d1573bb",
+   "category": "wall plate",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "8ad8b9b3-a402-46f3-9511-10aae7761715",
+   "category": "light switch",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.903078924190916,
+   "iou": 0.0,
+   "pred_id": "switch-door-wall-1"
+  },
+  {
+   "gt_id": "991244c8-1526-444c-8b34-417a1cf522d5",
+   "category": "outlet",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.1943329590877971,
+   "iou": 0.0,
+   "pred_id": "socket-door-wall"
+  },
+  {
+   "gt_id": "d4ff052a-12b4-494a-9204-7bbf56989a78",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "7c752794-69ed-49c8-9eae-70dc37bd8253",
+   "category": "painting",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "75a2c703-aecb-4346-9237-1196e42b52f5",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "f17b2aaf-585e-4bf6-b652-dcba6f2ac0a4",
+   "category": "mirror",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "5955e2ef-7f1e-4c1e-8e91-c284bcb7876a",
+   "category": "lamp",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.36320676060419504,
+   "iou": 0.35737317805407115,
+   "pred_id": "lamp-door"
+  },
+  {
+   "gt_id": "617b525a-eefe-4999-a73c-2b2a756665fe",
+   "category": "lamp",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.26226550427361706,
+   "iou": 0.4835055276090494,
+   "pred_id": "lamp-window"
+  },
+  {
+   "gt_id": "0d150534-216e-4569-a9db-39215c14e05c",
+   "category": "lamp",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.5788330793277667,
+   "iou": 0.0,
+   "pred_id": "downlight-2"
+  },
+  {
+   "gt_id": "56340421-6202-4026-b024-3b225dddebda",
+   "category": "wall plate",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.8120197476575695,
+   "iou": 0.18142283617396607,
+   "pred_id": "smoke-detector"
+  },
+  {
+   "gt_id": "bc4fbe8c-5db1-4c5d-98cf-f87b167f8bdf",
+   "category": "wall mirror",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.1533719699170735,
+   "iou": 0.38895544123826237,
+   "pred_id": "mirror-floor"
+  },
+  {
+   "gt_id": "dd22b99f-0b40-499b-b3f2-71a6297cfe80",
+   "category": "towels",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.22960165750667655,
+   "iou": 0.29667107207632926,
+   "pred_id": "towels-folded-stack"
+  },
+  {
+   "gt_id": "26161304-2aa1-49a9-8809-9dbe89d0ace3",
+   "category": "paper cover",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.24601462925108403,
+   "iou": 0.1968233317898807,
+   "pred_id": "flyer-chaplin"
+  },
+  {
+   "gt_id": "35a7524e-f967-4e98-ae5c-ec2e69efb0af",
+   "category": "chairs",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.1273149086427586,
+   "iou": 0.42987757470800425,
+   "pred_id": "chair-folding-2"
+  },
+  {
+   "gt_id": "a3e266ea-5218-480d-9cd8-5b4b76d8bf54",
+   "category": "radiator",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.05073708921043422,
+   "iou": 0.5984886143046683,
+   "pred_id": "radiator"
+  },
+  {
+   "gt_id": "e234f446-4baa-4478-91c7-c62ceb709897",
+   "category": "blind",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.15707403585180582,
+   "iou": 0.030315584290657213,
+   "pred_id": "blind-left"
+  },
+  {
+   "gt_id": "900b8374-2e4f-443d-9686-81e94babe0f8",
+   "category": "blind",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.1460207718322466,
+   "iou": 0.026572033272654758,
+   "pred_id": "blind-right"
+  },
+  {
+   "gt_id": "1a61609e-d33b-4597-a778-7e9aa17e2800",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a1758dc9-041e-4b72-bd3a-ab10ec7dc48f",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "122c298c-97b5-43b1-b4b1-749cf30d0a87",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "0eff7332-25ae-48a0-8cd6-e1250af79763",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "e4a3f137-1d2c-4978-9e52-32366858c4e6",
+   "category": "trash can",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.45800223608026835,
+   "iou": 0.3478456425740787,
+   "pred_id": "wastebasket"
+  },
+  {
+   "gt_id": "dcf63dc9-8b3d-4632-982d-c0f60db598a9",
+   "category": "bed",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.06784589396373325,
+   "iou": 0.7709071614124081,
+   "pred_id": "bed"
+  },
+  {
+   "gt_id": "6c780c58-31c3-49c5-a099-8764777ae4a1",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a007742e-bc6c-4b40-a89a-2ff7be51c799",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "7bbd67ac-252b-4a36-a01f-d77b14d37f08",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "7494624a-2316-460f-8014-6b6349a4ff2d",
+   "category": "object",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.18828695283964444,
+   "iou": 0.0,
+   "pred_id": "bed-throw"
+  },
+  {
+   "gt_id": "7d39a57d-5e13-4176-9091-7271c9f9f7f2",
+   "category": "painting",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "465ebb6b-2cfc-44f1-9143-802dfb289721",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "5c673138-434b-42fc-bd2c-567a5e16c0ff",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.696531786673742,
+   "iou": 0.15754817597869789,
+   "pred_id": "bathroom-toilet"
+  },
+  {
+   "gt_id": "76b4f198-034b-4274-9a1d-bc9afaff26a1",
+   "category": "trash can",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "5f4b2e11-815c-42d3-a2eb-379797d39c54",
+   "category": "towel rack",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.13551192046979052,
+   "iou": 0.3148026856231946,
+   "pred_id": "bathroom-towel-rail"
+  },
+  {
+   "gt_id": "8164dea7-fe16-471a-bf1a-3ad08fd29d08",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "70f73460-1540-464a-a85b-db2d2c9644c4",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7523307998139293,
+   "iou": 0.0,
+   "pred_id": "bathroom-pedal-bin"
+  },
+  {
+   "gt_id": "8ff46d08-e224-4422-b941-93a76dc229e0",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "5fe3e10d-4198-4bd6-ad82-90541f80a963",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "3eee2866-7e2e-45c6-8c26-bdd37000a032",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "aa12a248-1954-43ba-8747-9fdb2f889412",
+   "category": "shower head",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "ee62dbdd-1c11-4481-98b4-83f8dd3add33",
+   "category": "object",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.7954878485147898,
+   "iou": 0.007593972720162453,
+   "pred_id": "bathroom-sink"
+  },
+  {
+   "gt_id": "42c4c2f5-b19c-493f-a765-52314d3243f8",
+   "category": "mirror",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.2690317865718863,
+   "iou": 0.2359034554220155,
+   "pred_id": "bathroom-mirror-cabinet"
+  },
+  {
+   "gt_id": "983b10a6-77e7-477f-b32f-8b0edbea0c9e",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "0ac4f1e2-b73a-4fe5-9dc4-a923f7ce0568",
+   "category": "outlet",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "3f6ee076-120b-4e5e-a5f0-6667823cdbea",
+   "category": "charger",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "621a3eaf-9401-4e8c-ae77-c3e7b8f646f9",
+   "category": "pillow",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.5976286067658709,
+   "iou": 0.18571810960772298,
+   "pred_id": "cushion-green-2"
+  },
+  {
+   "gt_id": "af301f89-04d8-460f-a71a-7f6c0e46e3ed",
+   "category": "pillow",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.4473974918478588,
+   "iou": 0.3104151627826728,
+   "pred_id": "pillow-white-4"
+  },
+  {
+   "gt_id": "a6a31523-9f61-4806-afee-4cb62eaaad17",
+   "category": "pillow",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.514171492762547,
+   "iou": 0.2186925902214859,
+   "pred_id": "pillow-white-3"
+  },
+  {
+   "gt_id": "cccff2cc-a61f-4ef5-96c0-316dbb8593b2",
+   "category": "pillow",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.336940464904749,
+   "iou": 0.36238392610548065,
+   "pred_id": "cushion-green-1"
+  },
+  {
+   "gt_id": "e62348d5-e536-42e2-baa8-c975d96de1c3",
+   "category": "pillow",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.17985799156871873,
+   "iou": 0.47238507282069786,
+   "pred_id": "pillow-white-2"
+  },
+  {
+   "gt_id": "a125552b-3664-4c53-b5ad-e5c61fb285a2",
+   "category": "pillow",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.2774781422651495,
+   "iou": 0.34443603383476257,
+   "pred_id": "pillow-white-1"
+  },
+  {
+   "gt_id": "20f6bdd2-1255-4428-8e5a-c2e7a9638f2b",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "70971728-b4c4-4ea7-a095-125dfef463a7",
+   "category": "soap",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "0af6a94d-5675-4b40-aa1f-202c3474e1f9",
+   "category": "shower mixer",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  }
+ ],
+ "summary": {
+  "XS": {
+   "n": 10,
+   "recall_I": 0.0,
+   "misplaced_I": 0.4,
+   "missed_I": 0.6,
+   "recall_D": 0.3,
+   "misplaced_D": 0.1,
+   "missed_D": 0.6
+  },
+  "S": {
+   "n": 22,
+   "recall_I": 0.2727272727272727,
+   "misplaced_I": 0.2727272727272727,
+   "missed_I": 0.45454545454545453,
+   "recall_D": 0.4090909090909091,
+   "misplaced_D": 0.13636363636363635,
+   "missed_D": 0.45454545454545453
+  },
+  "M": {
+   "n": 21,
+   "recall_I": 0.42857142857142855,
+   "misplaced_I": 0.19047619047619047,
+   "missed_I": 0.38095238095238093,
+   "recall_D": 0.47619047619047616,
+   "misplaced_D": 0.14285714285714285,
+   "missed_D": 0.38095238095238093
+  },
+  "L": {
+   "n": 13,
+   "recall_I": 0.3076923076923077,
+   "misplaced_I": 0.3076923076923077,
+   "missed_I": 0.38461538461538464,
+   "recall_D": 0.46153846153846156,
+   "misplaced_D": 0.15384615384615385,
+   "missed_D": 0.38461538461538464
+  }
+ },
+ "n_pred": 48,
+ "alignment": {
+  "s": 1.0841864213204153,
+  "residual_median_m": 0.05946380150721027,
+  "ok": true
+ }
+}

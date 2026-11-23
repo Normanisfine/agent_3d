@@ -1,0 +1,439 @@
+{
+ "rows": [
+  {
+   "gt_id": "0e24db84-93d0-4880-aca5-79d4d254ea26",
+   "category": "stool",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "c693e031-a737-4d86-af3a-4fe5c01eae3a",
+   "category": "faucet",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.27384463662868197,
+   "iou": 0.196834811404764,
+   "pred_id": "bath-shower-handset"
+  },
+  {
+   "gt_id": "debb2e0a-cb82-4354-b2da-db744ccd764f",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "bc6a507d-eeaf-41e9-8d65-964a5e29df83",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.6260074813306116,
+   "iou": 0.027904686113195593,
+   "pred_id": "toilet-ledge-south"
+  },
+  {
+   "gt_id": "a3ee7307-aa76-4d53-b04b-3c917f7b2ae6",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "edfc59a6-e932-4992-bf55-a8803853aa3e",
+   "category": "trash can",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.4300921087884367,
+   "iou": 0.3393220854925578,
+   "pred_id": "pedal-bin"
+  },
+  {
+   "gt_id": "07a2dcb0-8066-447b-b81b-d31b693bfa01",
+   "category": "lamp",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.2971761323261852,
+   "iou": 0.0,
+   "pred_id": "ceiling-light-main"
+  },
+  {
+   "gt_id": "1b618a45-b316-4a3d-a37b-5435b14384f6",
+   "category": "lamp",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.50171114213739,
+   "iou": 0.27198279788592633,
+   "pred_id": "ceiling-light-alcove"
+  },
+  {
+   "gt_id": "fa5f09bc-a355-4c79-9b41-24b9236c4c44",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "5a15d9a9-8172-4d0e-8a07-b8cf4e4fcbba",
+   "category": "curtain",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "3ce50c40-c182-4006-a44b-f7b705e12e83",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.9256184242175622,
+   "iou": 0.0,
+   "pred_id": "toilet-cistern"
+  },
+  {
+   "gt_id": "3f0f51cc-8e0c-494f-a7ee-d7febe2934e7",
+   "category": "lamp",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.29015921880291295,
+   "iou": 0.153041428208728,
+   "pred_id": "basin-wall-light"
+  },
+  {
+   "gt_id": "a92745a1-1f6c-4bee-89bd-e5a7c59f46bc",
+   "category": "extractor fan",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "bfa467f8-3da3-4668-9aa8-ecc8bcdf53ec",
+   "category": "object",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "783f66ec-10a4-4f8b-ad1d-7a879326c534",
+   "category": "object",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.3253077566885959,
+   "iou": 0.07162045111662917,
+   "pred_id": "radiator-control-box"
+  },
+  {
+   "gt_id": "ff0118d2-20ba-44f9-ad4c-5e2605e90e1b",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "c2fd4af2-490c-4a4c-99ac-b3ea30bb9246",
+   "category": "object",
+   "bin": "S",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.40474956036761495,
+   "iou": 0.3702352799526404,
+   "pred_id": "bath-mat-towel"
+  },
+  {
+   "gt_id": "450171e8-53e5-4d67-87c2-f57dcb6ad70e",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.1256893494544527,
+   "iou": 0.0,
+   "pred_id": "poster"
+  },
+  {
+   "gt_id": "63e5d211-c5f2-4e63-9eb2-42b8b936f97f",
+   "category": "towel radiator",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.2541775982244155,
+   "iou": 0.27893221853370337,
+   "pred_id": "towel-radiator"
+  },
+  {
+   "gt_id": "65751de4-5055-4393-8aab-0af9a71a7572",
+   "category": "toiler brush",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.0265180721874456,
+   "iou": 0.0,
+   "pred_id": "toilet-brush"
+  },
+  {
+   "gt_id": "6071dd3f-a426-4e81-ba7c-e7b38faf835b",
+   "category": "toilet",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.22701056948576107,
+   "iou": 0.3256490827796405,
+   "pred_id": "toilet"
+  },
+  {
+   "gt_id": "3f6b2260-27b5-43e3-9935-b62ff4c5698d",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "837b7120-d42b-455e-9102-1659f8ee9f3b",
+   "category": "object",
+   "bin": "L",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.485713938217557,
+   "iou": 0.037487703149650775,
+   "pred_id": "door"
+  },
+  {
+   "gt_id": "0a0c2c5a-45bf-4ded-acd8-43543e123c36",
+   "category": "picture",
+   "bin": "S",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.10742226620677095,
+   "iou": 0.11394262557817005,
+   "pred_id": "painting"
+  },
+  {
+   "gt_id": "07726f33-01e3-4a71-8a3b-b8133aa3d766",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.05184477836675086,
+   "iou": 0.014468786622674425,
+   "pred_id": "basin-mirror"
+  },
+  {
+   "gt_id": "fa9e5dbd-60c9-40d1-8bb1-854f334e26fa",
+   "category": "drain",
+   "bin": "XS",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "a2b0cf2c-8234-4d60-b516-8a2ca845e993",
+   "category": "curtain",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "8f53a122-b392-45e9-9ba6-c228a79233e4",
+   "category": "toilet paper holder",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.4119277656069733,
+   "iou": 0.0038283033698995193,
+   "pred_id": "toilet-roll-holder"
+  },
+  {
+   "gt_id": "4a755bad-d999-47fc-8e81-0163cdd0adb0",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "d730e513-7000-446b-8da8-37ea542ec05b",
+   "category": "bathtub",
+   "bin": "L",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.06260336610023715,
+   "iou": 0.7839126525707993,
+   "pred_id": "bathtub"
+  },
+  {
+   "gt_id": "4f7ae5b5-2a6c-400e-bc10-af52a59bb6e1",
+   "category": "bathroom sink",
+   "bin": "M",
+   "I": "correct",
+   "D": "correct",
+   "dhat": 0.45699518614409546,
+   "iou": 0.3573656129188573,
+   "pred_id": "washbasin"
+  },
+  {
+   "gt_id": "a1c2805a-9990-4be5-825f-3b59064ff80a",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "correct",
+   "dhat": 0.4234709373034417,
+   "iou": 0.05743512925014554,
+   "pred_id": "toilet-ledge-north"
+  },
+  {
+   "gt_id": "1cd27515-f729-45a9-ba71-f5c8702eaed2",
+   "category": "object",
+   "bin": "M",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 0.18577212220278363,
+   "iou": 0.05573352822813212,
+   "pred_id": "toilet-ledge-back"
+  },
+  {
+   "gt_id": "7a6d85df-4430-4985-8602-f99a3786a6cf",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "64d3fe19-6827-4120-91a8-5d81190b954e",
+   "category": "toilet paper",
+   "bin": "XS",
+   "I": "misplaced",
+   "D": "misplaced",
+   "dhat": 1.024053705536755,
+   "iou": 0.04842150000550692,
+   "pred_id": "toilet-roll"
+  },
+  {
+   "gt_id": "4e435ae4-eb0a-406c-b672-0ba112860697",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "494c4ceb-8846-4492-a127-598e9e41ab2c",
+   "category": "object",
+   "bin": "S",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "828f202b-5e87-4ee1-a1e6-9e6e4351298c",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "0a6a0927-bb31-43f3-a292-f46a1da795b4",
+   "category": "object",
+   "bin": "M",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "de8e0f44-cc55-4c5b-9947-90e38436d577",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  },
+  {
+   "gt_id": "c2bf7414-a3a6-42b3-a61d-800b17593a78",
+   "category": "object",
+   "bin": "L",
+   "I": "missed",
+   "D": "missed",
+   "dhat": null,
+   "iou": null
+  }
+ ],
+ "summary": {
+  "XS": {
+   "n": 6,
+   "recall_I": 0.0,
+   "misplaced_I": 0.3333333333333333,
+   "missed_I": 0.6666666666666666,
+   "recall_D": 0.0,
+   "misplaced_D": 0.3333333333333333,
+   "missed_D": 0.6666666666666666
+  },
+  "S": {
+   "n": 10,
+   "recall_I": 0.3,
+   "misplaced_I": 0.5,
+   "missed_I": 0.2,
+   "recall_D": 0.6,
+   "misplaced_D": 0.2,
+   "missed_D": 0.2
+  },
+  "M": {
+   "n": 19,
+   "recall_I": 0.15789473684210525,
+   "misplaced_I": 0.3684210526315789,
+   "missed_I": 0.47368421052631576,
+   "recall_D": 0.3684210526315789,
+   "misplaced_D": 0.15789473684210525,
+   "missed_D": 0.47368421052631576
+  },
+  "L": {
+   "n": 6,
+   "recall_I": 0.16666666666666666,
+   "misplaced_I": 0.16666666666666666,
+   "missed_I": 0.6666666666666666,
+   "recall_D": 0.3333333333333333,
+   "misplaced_D": 0.0,
+   "missed_D": 0.6666666666666666
+  }
+ },
+ "n_pred": 28,
+ "alignment": {
+  "s": 1.0,
+  "residual_median_m": 0.025103038697994396,
+  "ok": true
+ }
+}

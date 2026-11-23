@@ -1,0 +1,9634 @@
+[
+ {
+  "item_id": "c000",
+  "label": "television",
+  "alt_labels": [
+   "tv_monitor",
+   "monitor"
+  ],
+  "n_members": 3,
+  "members": [
+   "c000",
+   "c036",
+   "c353"
+  ],
+  "object_id": "c000",
+  "category": "television",
+  "center": [
+   0.01208788968136397,
+   1.5977618956257158,
+   0.8551782623179728
+  ],
+  "yaw": -0.041188573748160984,
+  "size": [
+   1.2267850796866737,
+   0.16048296567648243,
+   0.8182265625680669
+  ],
+  "confidence": 0.98828125,
+  "source": "clean",
+  "score": 0.98828125,
+  "best_frame": 185,
+  "bbox2d_xyxy": [
+   -0.7220458984375,
+   273.2449951171875,
+   938.75439453125,
+   768.5594482421875
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c001",
+  "label": "sofa",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c001"
+  ],
+  "object_id": "c001",
+  "category": "sofa",
+  "center": [
+   -3.1050438627209314,
+   -0.5612357046477583,
+   0.4780121751845139
+  ],
+  "yaw": 1.5526257530024106,
+  "size": [
+   1.5108691995955525,
+   0.8361906011859267,
+   0.7621848102281814
+  ],
+  "confidence": 0.98828125,
+  "source": "clean",
+  "score": 0.98828125,
+  "best_frame": 431,
+  "bbox2d_xyxy": [
+   -2.302581787109375,
+   -0.8549423217773438,
+   894.815673828125,
+   638.8519287109375
+  ],
+  "n_frames": 5,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c002",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c002"
+  ],
+  "object_id": "c002",
+  "category": "rug",
+  "center": [
+   -1.4486868918261995,
+   -1.2873804711457375,
+   0.01707768495562867
+  ],
+  "yaw": 0.0050447095424202,
+  "size": [
+   1.784746351485814,
+   0.7244599365056625,
+   0.024135846067866226
+  ],
+  "confidence": 0.98828125,
+  "source": "clean",
+  "score": 0.98828125,
+  "best_frame": 493,
+  "bbox2d_xyxy": [
+   -1.807220458984375,
+   378.4549865722656,
+   762.137451171875,
+   767.6861572265625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c003",
+  "label": "sofa",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c003"
+  ],
+  "object_id": "c003",
+  "category": "sofa",
+  "center": [
+   1.5317763522844003,
+   -0.8933739117908913,
+   0.40619245359008405
+  ],
+  "yaw": 1.580833827113448,
+  "size": [
+   2.088476537526028,
+   1.1171057991832187,
+   0.8248695366794291
+  ],
+  "confidence": 0.98828125,
+  "source": "clean",
+  "score": 0.98828125,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   114.2822265625,
+   -1.3840827941894531,
+   1002.23095703125,
+   320.9317932128906
+  ],
+  "n_frames": 5,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c004",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c004"
+  ],
+  "object_id": "c004",
+  "category": "rug",
+  "center": [
+   0.226748160412193,
+   -0.5762528504052407,
+   0.001304701997110469
+  ],
+  "yaw": 1.5378586275483883,
+  "size": [
+   2.2401633893136554,
+   1.3549901263827662,
+   0.04000575301749143
+  ],
+  "confidence": 0.98828125,
+  "source": "clean",
+  "score": 0.98828125,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   -0.827880859375,
+   304.12091064453125,
+   873.281982421875,
+   768.0224609375
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 0,
+  "settled_on": null
+ },
+ {
+  "item_id": "c005",
+  "label": "coffee table",
+  "alt_labels": [
+   "table",
+   "shelf"
+  ],
+  "n_members": 3,
+  "members": [
+   "c005",
+   "c058",
+   "c091"
+  ],
+  "object_id": "c005",
+  "category": "coffee table",
+  "center": [
+   0.5521478407387201,
+   -0.744257617886889,
+   0.24979525997771163
+  ],
+  "yaw": -0.07079990557924454,
+  "size": [
+   0.3769842607256912,
+   0.8519192496089061,
+   0.5003267679845194
+  ],
+  "confidence": 0.98828125,
+  "source": "clean",
+  "score": 0.98828125,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   192.7977294921875,
+   212.9608154296875,
+   686.2575073242188,
+   530.5548095703125
+  ],
+  "n_frames": 4,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c006",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c006",
+   "c038"
+  ],
+  "object_id": "c006",
+  "category": "pillow",
+  "center": [
+   -3.1714011710253796,
+   -0.9620227652826129,
+   0.5544378961550396
+  ],
+  "yaw": 1.9168082358411977,
+  "size": [
+   0.45851517178851414,
+   0.3578076732007921,
+   0.2701008750126821
+  ],
+  "confidence": 0.984375,
+  "source": "clean",
+  "score": 0.984375,
+  "best_frame": 370,
+  "bbox2d_xyxy": [
+   -1.5717620849609375,
+   207.75692749023438,
+   254.94566345214844,
+   445.25537109375
+  ],
+  "n_frames": 4,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c007",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c007",
+   "c033"
+  ],
+  "object_id": "c007",
+  "category": "pillow",
+  "center": [
+   -3.215349602721297,
+   -0.31939849506642554,
+   0.5718693571156193
+  ],
+  "yaw": 1.378850985689339,
+  "size": [
+   0.44016871925228584,
+   0.2716724069626536,
+   0.2719026210614005
+  ],
+  "confidence": 0.984375,
+  "source": "clean",
+  "score": 0.984375,
+  "best_frame": 370,
+  "bbox2d_xyxy": [
+   332.0239562988281,
+   270.13311767578125,
+   664.37060546875,
+   601.1546630859375
+  ],
+  "n_frames": 5,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c008",
+  "label": "radiator",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c008"
+  ],
+  "object_id": "c008",
+  "category": "radiator",
+  "center": [
+   -2.2132726662304587,
+   -2.167115944676009,
+   0.5066326345032879
+  ],
+  "yaw": 3.136739495912307,
+  "size": [
+   1.4004393128560086,
+   0.14092693310349672,
+   0.6725955001670098
+  ],
+  "confidence": 0.984375,
+  "source": "clean",
+  "score": 0.984375,
+  "best_frame": 493,
+  "bbox2d_xyxy": [
+   472.1646423339844,
+   57.504547119140625,
+   1026.9981689453125,
+   487.71954345703125
+  ],
+  "n_frames": 3,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c009",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c009"
+  ],
+  "object_id": "c009",
+  "category": "rug",
+  "center": [
+   -1.109813400623246,
+   -0.5719331838170089,
+   0.00813306405111991
+  ],
+  "yaw": -0.02386723542987479,
+  "size": [
+   2.5116058406580444,
+   2.206953461002719,
+   0.16958903039330542
+  ],
+  "confidence": 0.984375,
+  "source": "clean",
+  "score": 0.984375,
+  "best_frame": 955,
+  "bbox2d_xyxy": [
+   2.69378662109375,
+   1.0323715209960938,
+   1024.37646484375,
+   765.7930908203125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c011",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c011"
+  ],
+  "object_id": "c011",
+  "category": "rug",
+  "center": [
+   -1.8495167936779717,
+   -0.21166304821149315,
+   0.05397214547271634
+  ],
+  "yaw": -1.5614475645244477,
+  "size": [
+   1.568045940412664,
+   0.930764703040778,
+   0.040590486164521655
+  ],
+  "confidence": 0.98046875,
+  "source": "clean",
+  "score": 0.98046875,
+  "best_frame": 246,
+  "bbox2d_xyxy": [
+   -3.4014892578125,
+   572.1688232421875,
+   497.77325439453125,
+   768.7172241210938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c012",
+  "label": "rug",
+  "alt_labels": [
+   "doormat"
+  ],
+  "n_members": 2,
+  "members": [
+   "c012",
+   "c062"
+  ],
+  "object_id": "c012",
+  "category": "rug",
+  "center": [
+   -2.4954133233492155,
+   2.2333421867820964,
+   0.04426973974514248
+  ],
+  "yaw": 1.5559508144351506,
+  "size": [
+   1.577382537635651,
+   0.9766821753364545,
+   0.08761441023733174
+  ],
+  "confidence": 0.98046875,
+  "source": "clean",
+  "score": 0.98046875,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   4.054595947265625,
+   339.2760314941406,
+   416.06304931640625,
+   681.8045654296875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c013",
+  "label": "ottoman",
+  "alt_labels": [
+   "stool",
+   "sofa"
+  ],
+  "n_members": 3,
+  "members": [
+   "c013",
+   "c057",
+   "c109"
+  ],
+  "object_id": "c013",
+  "category": "ottoman",
+  "center": [
+   -1.0858424243816498,
+   -1.7870016619578444,
+   0.23260813071526645
+  ],
+  "yaw": 3.12424087115871,
+  "size": [
+   0.703080348689894,
+   0.5838509520371167,
+   0.41812042515969006
+  ],
+  "confidence": 0.98046875,
+  "source": "clean",
+  "score": 0.98046875,
+  "best_frame": 493,
+  "bbox2d_xyxy": [
+   33.0701904296875,
+   191.936279296875,
+   454.04132080078125,
+   524.2332763671875
+  ],
+  "n_frames": 4,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c014",
+  "label": "sofa",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c014"
+  ],
+  "object_id": "c014",
+  "category": "sofa",
+  "center": [
+   1.8317953677565315,
+   -0.22895218001811743,
+   0.5782578992271173
+  ],
+  "yaw": 3.112422889968851,
+  "size": [
+   0.8199004327477865,
+   1.3986490124989173,
+   0.8032216510643452
+  ],
+  "confidence": 0.98046875,
+  "source": "clean",
+  "score": 0.98046875,
+  "best_frame": 832,
+  "bbox2d_xyxy": [
+   369.9718322753906,
+   -2.3958663940429688,
+   1026.3282470703125,
+   707.2869873046875
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c015",
+  "label": "lamp",
+  "alt_labels": [
+   "table lamp"
+  ],
+  "n_members": 2,
+  "members": [
+   "c015",
+   "c026"
+  ],
+  "object_id": "c015",
+  "category": "lamp",
+  "center": [
+   -1.1100689062353664,
+   1.444518128424179,
+   1.0003030395575583
+  ],
+  "yaw": 2.7072132215062474,
+  "size": [
+   0.44078060177943407,
+   0.3990687455170614,
+   0.6707003516451203
+  ],
+  "confidence": 0.9765625,
+  "source": "clean",
+  "score": 0.9765625,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   129.838134765625,
+   72.93033599853516,
+   395.4346923828125,
+   534.7784423828125
+  ],
+  "n_frames": 4,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c017",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c017",
+   "c042"
+  ],
+  "object_id": "c017",
+  "category": "pillow",
+  "center": [
+   1.6035656174140198,
+   -1.594788714380361,
+   0.5567888554688746
+  ],
+  "yaw": -2.7659746651682413,
+  "size": [
+   0.4482488307409237,
+   0.43423879960713724,
+   0.29342805223829094
+  ],
+  "confidence": 0.9765625,
+  "source": "clean",
+  "score": 0.9765625,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   710.9060668945312,
+   46.00686264038086,
+   926.3501586914062,
+   181.16920471191406
+  ],
+  "n_frames": 4,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c020",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c020",
+   "c050"
+  ],
+  "object_id": "c020",
+  "category": "pillow",
+  "center": [
+   1.7487108509059024,
+   0.002434872462183306,
+   0.5527152579406059
+  ],
+  "yaw": -1.2626490502261525,
+  "size": [
+   0.49474802500809817,
+   0.32356903689363065,
+   0.2575185433504142
+  ],
+  "confidence": 0.97265625,
+  "source": "clean",
+  "score": 0.97265625,
+  "best_frame": 832,
+  "bbox2d_xyxy": [
+   529.07763671875,
+   160.4550323486328,
+   779.487060546875,
+   368.88433837890625
+  ],
+  "n_frames": 6,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c021",
+  "label": "lampshade",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c021"
+  ],
+  "object_id": "c021",
+  "category": "lampshade",
+  "center": [
+   -1.0780367973101388,
+   1.415737211604371,
+   1.1341272189184897
+  ],
+  "yaw": -2.5706715465336574,
+  "size": [
+   0.39527291346727517,
+   0.3624467378807438,
+   0.3309966611807406
+  ],
+  "confidence": 0.96875,
+  "source": "clean",
+  "score": 0.96875,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   200.08193969726562,
+   8.395683288574219,
+   473.2084045410156,
+   254.62185668945312
+  ],
+  "n_frames": 4,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c022",
+  "label": "refrigerator",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c022"
+  ],
+  "object_id": "c022",
+  "category": "refrigerator",
+  "center": [
+   -2.941272584870999,
+   1.2023085818958155,
+   1.0417578133937766
+  ],
+  "yaw": -1.4313241176870202,
+  "size": [
+   0.7220874436499101,
+   0.15986342082685923,
+   1.7275917757249224
+  ],
+  "confidence": 0.96875,
+  "source": "clean",
+  "score": 0.96875,
+  "best_frame": 277,
+  "bbox2d_xyxy": [
+   515.108154296875,
+   36.39715576171875,
+   762.6512451171875,
+   767.1227416992188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c023",
+  "label": "table",
+  "alt_labels": [
+   "coffee table"
+  ],
+  "n_members": 2,
+  "members": [
+   "c023",
+   "c028"
+  ],
+  "object_id": "c023",
+  "category": "table",
+  "center": [
+   -3.2763226728856685,
+   -1.863459519194646,
+   0.30827054814130067
+  ],
+  "yaw": -1.602923674886091,
+  "size": [
+   0.6014904562564054,
+   0.6156346132512899,
+   0.460382527650801
+  ],
+  "confidence": 0.96875,
+  "source": "clean",
+  "score": 0.96875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   345.5971374511719,
+   355.4569091796875,
+   767.21728515625,
+   679.7373657226562
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c024",
+  "label": "radiator",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c024"
+  ],
+  "object_id": "c024",
+  "category": "radiator",
+  "center": [
+   -2.706027986358833,
+   -2.16569710060626,
+   0.5254585073788087
+  ],
+  "yaw": -0.03606904400997424,
+  "size": [
+   0.5666107518450332,
+   0.11342422612195735,
+   0.6552994866744571
+  ],
+  "confidence": 0.96875,
+  "source": "clean",
+  "score": 0.96875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   -2.207672119140625,
+   299.81573486328125,
+   355.1717529296875,
+   767.263427734375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c025",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c025"
+  ],
+  "object_id": "c025",
+  "category": "door handle",
+  "center": [
+   0.7164037720380841,
+   1.5425455823879202,
+   1.0896006327125807
+  ],
+  "yaw": 0.1951390015679717,
+  "size": [
+   0.15066632261051827,
+   0.046775330495639755,
+   0.06072171282917305
+  ],
+  "confidence": 0.96484375,
+  "source": "clean",
+  "score": 0.96484375,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   646.1823120117188,
+   169.3078155517578,
+   803.4716186523438,
+   267.10107421875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c027",
+  "label": "television",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c027"
+  ],
+  "object_id": "c027",
+  "category": "television",
+  "center": [
+   0.4700339102772401,
+   1.5409787296447872,
+   1.130671263420203
+  ],
+  "yaw": -2.8027988152101866,
+  "size": [
+   0.17004315817325877,
+   0.05478590308308507,
+   0.36973372243937486
+  ],
+  "confidence": 0.9609375,
+  "source": "clean",
+  "score": 0.9609375,
+  "best_frame": 0,
+  "bbox2d_xyxy": [
+   -1.0546493530273438,
+   554.413818359375,
+   82.0137939453125,
+   767.2992553710938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c029",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c029"
+  ],
+  "object_id": "c029",
+  "category": "rug",
+  "center": [
+   -1.0158667373558306,
+   -1.4792077268178074,
+   0.0026030351743503433
+  ],
+  "yaw": -0.01982052727661321,
+  "size": [
+   0.8650650619256528,
+   0.3478155708201005,
+   0.02306139903951299
+  ],
+  "confidence": 0.9609375,
+  "source": "clean",
+  "score": 0.9609375,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   -0.6133270263671875,
+   602.0929565429688,
+   389.181884765625,
+   767.03125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c030",
+  "label": "coffee table",
+  "alt_labels": [
+   "table"
+  ],
+  "n_members": 2,
+  "members": [
+   "c030",
+   "c083"
+  ],
+  "object_id": "c030",
+  "category": "coffee table",
+  "center": [
+   0.5341320287218734,
+   -1.0817417573500272,
+   0.36099693023567225
+  ],
+  "yaw": 1.479024193091166,
+  "size": [
+   0.35703608349030946,
+   0.25324180681887964,
+   0.256577783469057
+  ],
+  "confidence": 0.9609375,
+  "source": "clean",
+  "score": 0.9609375,
+  "best_frame": 739,
+  "bbox2d_xyxy": [
+   -1.840362548828125,
+   387.91827392578125,
+   322.5538635253906,
+   766.7564697265625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c031",
+  "label": "television",
+  "alt_labels": [
+   "monitor"
+  ],
+  "n_members": 2,
+  "members": [
+   "c031",
+   "c123"
+  ],
+  "object_id": "c031",
+  "category": "television",
+  "center": [
+   -0.2380031115322245,
+   1.447552093972363,
+   0.9210611233685165
+  ],
+  "yaw": 0.005273836519290143,
+  "size": [
+   1.143815372279402,
+   0.046529595001440605,
+   0.7787691297107122
+  ],
+  "confidence": 0.95703125,
+  "source": "clean",
+  "score": 0.95703125,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   494.3983154296875,
+   -1.1121597290039062,
+   1026.267333984375,
+   399.5213928222656
+  ],
+  "n_frames": 3,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c032",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c032",
+   "c168"
+  ],
+  "object_id": "c032",
+  "category": "pillow",
+  "center": [
+   -3.125095144745658,
+   -0.11119440423252124,
+   0.6439122214767737
+  ],
+  "yaw": 0.03145852325886134,
+  "size": [
+   0.30055034095741284,
+   0.12716597836471957,
+   0.20481204536133446
+  ],
+  "confidence": 0.95703125,
+  "source": "clean",
+  "score": 0.95703125,
+  "best_frame": 277,
+  "bbox2d_xyxy": [
+   -0.5892066955566406,
+   595.4258422851562,
+   70.28645324707031,
+   767.8428955078125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c034",
+  "label": "tissue box",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c034"
+  ],
+  "object_id": "c034",
+  "category": "tissue box",
+  "center": [
+   0.4724467051767171,
+   -0.6796215838868579,
+   0.2795171985570948
+  ],
+  "yaw": 1.8349424724902557,
+  "size": [
+   0.2538916135606523,
+   0.19861089086909514,
+   0.17038617364154218
+  ],
+  "confidence": 0.95703125,
+  "source": "clean",
+  "score": 0.95703125,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   331.58831787109375,
+   335.8498840332031,
+   461.63385009765625,
+   423.97503662109375
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c071"
+ },
+ {
+  "item_id": "c035",
+  "label": "bowl",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c035"
+  ],
+  "object_id": "c035",
+  "category": "bowl",
+  "center": [
+   0.5368660716165886,
+   -0.7567048315855478,
+   0.5606358627211873
+  ],
+  "yaw": -2.1858287871837794,
+  "size": [
+   0.24996785799322266,
+   0.2420753207780307,
+   0.12135443750243198
+  ],
+  "confidence": 0.95703125,
+  "source": "clean",
+  "score": 0.95703125,
+  "best_frame": 678,
+  "bbox2d_xyxy": [
+   397.1722412109375,
+   77.13188171386719,
+   552.054931640625,
+   213.729248046875
+  ],
+  "n_frames": 3,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": "c005"
+ },
+ {
+  "item_id": "c039",
+  "label": "rug",
+  "alt_labels": [
+   "doormat"
+  ],
+  "n_members": 2,
+  "members": [
+   "c039",
+   "c054"
+  ],
+  "object_id": "c039",
+  "category": "rug",
+  "center": [
+   3.0056183322013266,
+   2.8875360047798755,
+   0.14964472553787822
+  ],
+  "yaw": 0.7109104951643981,
+  "size": [
+   1.3095440588232896,
+   0.3733912449744639,
+   0.27802305254579474
+  ],
+  "confidence": 0.94921875,
+  "source": "clean",
+  "score": 0.94921875,
+  "best_frame": 0,
+  "bbox2d_xyxy": [
+   472.05291748046875,
+   649.9659423828125,
+   563.9651489257812,
+   756.9307861328125
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c040",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c040"
+  ],
+  "object_id": "c040",
+  "category": "rug",
+  "center": [
+   -2.111122251350003,
+   -0.4280164263718481,
+   0.03521272737559056
+  ],
+  "yaw": -1.6041939332253374,
+  "size": [
+   1.1996200816272746,
+   0.4815142798413503,
+   0.033565116265035444
+  ],
+  "confidence": 0.94921875,
+  "source": "clean",
+  "score": 0.94921875,
+  "best_frame": 431,
+  "bbox2d_xyxy": [
+   468.27777099609375,
+   375.662109375,
+   1030.152587890625,
+   768.8157958984375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c041",
+  "label": "picture frame",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c041"
+  ],
+  "object_id": "c041",
+  "category": "picture frame",
+  "center": [
+   -2.2707488611834212,
+   -2.2017713459145036,
+   1.343128558199537
+  ],
+  "yaw": -0.00391134486626088,
+  "size": [
+   0.6901919815047319,
+   0.046512764406713814,
+   0.45894138758116054
+  ],
+  "confidence": 0.94921875,
+  "source": "clean",
+  "score": 0.94921875,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   666.2711181640625,
+   -0.8044509887695312,
+   1027.6873779296875,
+   277.44573974609375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c043",
+  "label": "stool",
+  "alt_labels": [
+   "table"
+  ],
+  "n_members": 2,
+  "members": [
+   "c043",
+   "c056"
+  ],
+  "object_id": "c043",
+  "category": "stool",
+  "center": [
+   -1.1309716759905877,
+   1.5114512023655062,
+   0.336913969444423
+  ],
+  "yaw": 1.5620652383787146,
+  "size": [
+   0.3901859990323827,
+   0.2933438507161019,
+   0.3904517173248396
+  ],
+  "confidence": 0.9453125,
+  "source": "clean",
+  "score": 0.9453125,
+  "best_frame": 246,
+  "bbox2d_xyxy": [
+   832.2747192382812,
+   643.8220825195312,
+   1028.882568359375,
+   769.764892578125
+  ],
+  "n_frames": 4,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "c457"
+ },
+ {
+  "item_id": "c044",
+  "label": "television",
+  "alt_labels": [
+   "tv_monitor"
+  ],
+  "n_members": 2,
+  "members": [
+   "c044",
+   "c466"
+  ],
+  "object_id": "c044",
+  "category": "television",
+  "center": [
+   0.42752682264030695,
+   1.6333259774802547,
+   1.20393802690848
+  ],
+  "yaw": 2.5188691742741645,
+  "size": [
+   0.11775817008954814,
+   0.07599755793800456,
+   0.17811602990206588
+  ],
+  "confidence": 0.94140625,
+  "source": "clean",
+  "score": 0.94140625,
+  "best_frame": 31,
+  "bbox2d_xyxy": [
+   -1.0218467712402344,
+   661.403076171875,
+   68.80561828613281,
+   769.18994140625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c045",
+  "label": "plate",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c045"
+  ],
+  "object_id": "c045",
+  "category": "plate",
+  "center": [
+   0.5785156502165159,
+   -0.9452339991651914,
+   0.5717170400349202
+  ],
+  "yaw": -2.238479298926796,
+  "size": [
+   0.22398585341913957,
+   0.09320257606232848,
+   0.042629190062333705
+  ],
+  "confidence": 0.94140625,
+  "source": "clean",
+  "score": 0.94140625,
+  "best_frame": 739,
+  "bbox2d_xyxy": [
+   -0.9243240356445312,
+   445.614013671875,
+   89.83889770507812,
+   634.2311401367188
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c085"
+ },
+ {
+  "item_id": "c046",
+  "label": "mirror",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c046"
+  ],
+  "object_id": "c046",
+  "category": "mirror",
+  "center": [
+   2.32760978952842,
+   -0.7426927561706085,
+   1.4021911786221033
+  ],
+  "yaw": -1.5965450440230484,
+  "size": [
+   1.4948038257312846,
+   0.13629534103418678,
+   0.8160040934734323
+  ],
+  "confidence": 0.94140625,
+  "source": "clean",
+  "score": 0.94140625,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   -2.948974609375,
+   -0.5309600830078125,
+   526.92431640625,
+   348.46826171875
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c047",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c047"
+  ],
+  "object_id": "c047",
+  "category": "door handle",
+  "center": [
+   0.7031487368731669,
+   1.5777612165046417,
+   1.0793648633955029
+  ],
+  "yaw": -3.043123441640935,
+  "size": [
+   0.13089795091703604,
+   0.03173130404053735,
+   0.0548352339485573
+  ],
+  "confidence": 0.9375,
+  "source": "clean",
+  "score": 0.9375,
+  "best_frame": 0,
+  "bbox2d_xyxy": [
+   132.28176879882812,
+   638.2254638671875,
+   226.3419189453125,
+   677.50048828125
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c049",
+  "label": "side table",
+  "alt_labels": [
+   "cable"
+  ],
+  "n_members": 2,
+  "members": [
+   "c049",
+   "c222"
+  ],
+  "object_id": "c049",
+  "category": "side table",
+  "center": [
+   -1.1185041711647656,
+   1.4986810252912741,
+   0.19511968670624502
+  ],
+  "yaw": 1.5509994758719259,
+  "size": [
+   0.3527292231238155,
+   0.3368682444413487,
+   0.39023937341249004
+  ],
+  "confidence": 0.9375,
+  "source": "clean",
+  "score": 0.9375,
+  "best_frame": 216,
+  "bbox2d_xyxy": [
+   94.67939758300781,
+   499.0359191894531,
+   298.7647705078125,
+   768.6651611328125
+  ],
+  "n_frames": 5,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c051",
+  "label": "sofa",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c051"
+  ],
+  "object_id": "c051",
+  "category": "sofa",
+  "center": [
+   1.2791510117825564,
+   -0.5203318939612553,
+   0.24794296291608842
+  ],
+  "yaw": 1.5213892431964249,
+  "size": [
+   0.5926466281118005,
+   0.11403986059397297,
+   0.31962184380335956
+  ],
+  "confidence": 0.9375,
+  "source": "clean",
+  "score": 0.9375,
+  "best_frame": 678,
+  "bbox2d_xyxy": [
+   -0.15911865234375,
+   257.4175720214844,
+   167.93043518066406,
+   767.3648681640625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c052",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c052"
+  ],
+  "object_id": "c052",
+  "category": "rug",
+  "center": [
+   0.7617337890091439,
+   -1.0998355270848066,
+   0.1512575420895594
+  ],
+  "yaw": 1.555230199230495,
+  "size": [
+   0.8073263558550555,
+   0.27976743413290295,
+   0.3376981666950933
+  ],
+  "confidence": 0.9375,
+  "source": "clean",
+  "score": 0.9375,
+  "best_frame": 739,
+  "bbox2d_xyxy": [
+   -2.18890380859375,
+   323.0579833984375,
+   620.7967529296875,
+   769.313232421875
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c053",
+  "label": "power strip",
+  "alt_labels": [
+   "power outlet"
+  ],
+  "n_members": 2,
+  "members": [
+   "c053",
+   "c216"
+  ],
+  "object_id": "c053",
+  "category": "power strip",
+  "center": [
+   1.6535740941221857,
+   -2.067323677165156,
+   0.05077131718732275
+  ],
+  "yaw": -1.0172993709696025,
+  "size": [
+   0.23643035125659972,
+   0.0798602014746962,
+   0.04579274281135115
+  ],
+  "confidence": 0.9375,
+  "source": "clean",
+  "score": 0.9375,
+  "best_frame": 801,
+  "bbox2d_xyxy": [
+   713.1795654296875,
+   490.465087890625,
+   806.7940673828125,
+   537.7916870117188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c216"
+ },
+ {
+  "item_id": "c055",
+  "label": "tv stand",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c055"
+  ],
+  "object_id": "c055",
+  "category": "tv stand",
+  "center": [
+   -0.08102047838796826,
+   1.455908233446319,
+   0.2632676855929061
+  ],
+  "yaw": 3.130251135719292,
+  "size": [
+   1.1445966651542647,
+   0.3703463982747037,
+   0.41617410314951897
+  ],
+  "confidence": 0.93359375,
+  "source": "clean",
+  "score": 0.93359375,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   526.228759765625,
+   314.11236572265625,
+   1024.935302734375,
+   625.8671875
+  ],
+  "n_frames": 5,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c059",
+  "label": "plate",
+  "alt_labels": [
+   "bowl"
+  ],
+  "n_members": 2,
+  "members": [
+   "c059",
+   "c294"
+  ],
+  "object_id": "c059",
+  "category": "plate",
+  "center": [
+   0.522886588878147,
+   -1.163345556168149,
+   0.5511419110120344
+  ],
+  "yaw": -2.395327491813204,
+  "size": [
+   0.26578436913182657,
+   0.22177553138111428,
+   0.04456326857508675
+  ],
+  "confidence": 0.93359375,
+  "source": "clean",
+  "score": 0.93359375,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   838.2678833007812,
+   705.8463745117188,
+   958.1696166992188,
+   768.40625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c083"
+ },
+ {
+  "item_id": "c060",
+  "label": "power outlet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c060"
+  ],
+  "object_id": "c060",
+  "category": "power outlet",
+  "center": [
+   -1.4077077862182656,
+   1.1671402532627915,
+   0.050478898189252
+  ],
+  "yaw": -1.5982127852555543,
+  "size": [
+   0.16342803382512416,
+   0.018232383560222942,
+   0.100957796378504
+  ],
+  "confidence": 0.9296875,
+  "source": "clean",
+  "score": 0.9296875,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   89.1657485961914,
+   241.21710205078125,
+   149.92701721191406,
+   282.22216796875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "same_size_group": "power outlet",
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c061",
+  "label": "power outlet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c061"
+  ],
+  "object_id": "c061",
+  "category": "power outlet",
+  "center": [
+   -1.2937460480274279,
+   1.1535481023184069,
+   0.25861114953575814
+  ],
+  "yaw": -1.5165932024117572,
+  "size": [
+   0.16342803382512416,
+   0.018232383560222942,
+   0.100957796378504
+  ],
+  "confidence": 0.9296875,
+  "source": "clean",
+  "score": 0.9296875,
+  "best_frame": 246,
+  "bbox2d_xyxy": [
+   710.1353759765625,
+   706.567138671875,
+   775.410888671875,
+   742.05712890625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "same_size_group": "power outlet",
+  "settled_on": null
+ },
+ {
+  "item_id": "c063",
+  "label": "power outlet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c063"
+  ],
+  "object_id": "c063",
+  "category": "power outlet",
+  "center": [
+   -1.3728908846531034,
+   1.1919417694480299,
+   0.050478898189252
+  ],
+  "yaw": -1.5848587715120495,
+  "size": [
+   0.16342803382512416,
+   0.018232383560222942,
+   0.100957796378504
+  ],
+  "confidence": 0.92578125,
+  "source": "clean",
+  "score": 0.92578125,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   99.31790924072266,
+   635.2239990234375,
+   160.21115112304688,
+   718.12060546875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "same_size_group": "power outlet",
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c064",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c064"
+  ],
+  "object_id": "c064",
+  "category": "ornament",
+  "center": [
+   -3.1100395037676063,
+   -1.9070898012310715,
+   0.5634695508099887
+  ],
+  "yaw": -1.0886805656284744,
+  "size": [
+   0.04594491535346523,
+   0.03764062073988139,
+   0.050015477686575216
+  ],
+  "confidence": 0.92578125,
+  "source": "clean",
+  "score": 0.92578125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   485.38897705078125,
+   406.3006591796875,
+   516.728271484375,
+   436.42431640625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "ornament",
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c065",
+  "label": "picture frame",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c065"
+  ],
+  "object_id": "c065",
+  "category": "picture frame",
+  "center": [
+   -2.3772615533046824,
+   -2.183015424639292,
+   1.6804207311749386
+  ],
+  "yaw": -0.005947708294868903,
+  "size": [
+   0.8739461845692331,
+   0.09860431305554007,
+   1.1032585601793832
+  ],
+  "confidence": 0.92578125,
+  "source": "clean",
+  "score": 0.92578125,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   369.0367431640625,
+   398.1759033203125,
+   477.39752197265625,
+   615.6929321289062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c066",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c066"
+  ],
+  "object_id": "c066",
+  "category": "ornament",
+  "center": [
+   -3.13801154754512,
+   -1.9205186817436077,
+   0.8537030023821177
+  ],
+  "yaw": -1.0346497523283098,
+  "size": [
+   0.04594491535346523,
+   0.03764062073988139,
+   0.050015477686575216
+  ],
+  "confidence": 0.921875,
+  "source": "clean",
+  "score": 0.921875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   489.5760498046875,
+   266.1209716796875,
+   523.6539306640625,
+   302.8827819824219
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "ornament",
+  "settled_on": null
+ },
+ {
+  "item_id": "c067",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c067"
+  ],
+  "object_id": "c067",
+  "category": "ornament",
+  "center": [
+   -3.1056014009929434,
+   -1.985595372482355,
+   0.5634695508099887
+  ],
+  "yaw": -1.3271317422743518,
+  "size": [
+   0.04594491535346523,
+   0.03764062073988139,
+   0.050015477686575216
+  ],
+  "confidence": 0.91796875,
+  "source": "clean",
+  "score": 0.91796875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   438.6471862792969,
+   407.27392578125,
+   470.4220886230469,
+   437.369140625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "ornament",
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c068",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c068"
+  ],
+  "object_id": "c068",
+  "category": "ornament",
+  "center": [
+   -3.261581738177792,
+   -1.8167448900526053,
+   0.5635794800175025
+  ],
+  "yaw": -0.09225725281670316,
+  "size": [
+   0.060688419016408535,
+   0.02399777301757311,
+   0.05023533610160247
+  ],
+  "confidence": 0.91796875,
+  "source": "clean",
+  "score": 0.91796875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   580.3141479492188,
+   356.0200500488281,
+   604.9392700195312,
+   385.90972900390625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c069",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c069"
+  ],
+  "object_id": "c069",
+  "category": "ornament",
+  "center": [
+   -3.10804159738112,
+   -1.9384928546240638,
+   0.5634695508099887
+  ],
+  "yaw": -1.405977908624423,
+  "size": [
+   0.04594491535346523,
+   0.03764062073988139,
+   0.050015477686575216
+  ],
+  "confidence": 0.91796875,
+  "source": "clean",
+  "score": 0.91796875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   467.65594482421875,
+   427.5341796875,
+   498.415283203125,
+   455.95361328125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "ornament",
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c070",
+  "label": "cable",
+  "alt_labels": [
+   "string light"
+  ],
+  "n_members": 2,
+  "members": [
+   "c070",
+   "c096"
+  ],
+  "object_id": "c070",
+  "category": "cable",
+  "center": [
+   -2.321744516463139,
+   -2.2750322201129416,
+   0.9499921696857159
+  ],
+  "yaw": -0.062263835044826354,
+  "size": [
+   0.39061151950887707,
+   0.01783072773248051,
+   0.18776082684188522
+  ],
+  "confidence": 0.91796875,
+  "source": "clean",
+  "score": 0.91796875,
+  "best_frame": 493,
+  "bbox2d_xyxy": [
+   835.3929443359375,
+   0.23296737670898438,
+   1024.236328125,
+   140.14846801757812
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c071",
+  "label": "box",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c071"
+  ],
+  "object_id": "c071",
+  "category": "box",
+  "center": [
+   0.4726174600430611,
+   -0.6792166593579549,
+   0.10781584512108992
+  ],
+  "yaw": 1.8349424724902557,
+  "size": [
+   0.25507826454962124,
+   0.1989649971808308,
+   0.17301653323046748
+  ],
+  "confidence": 0.91796875,
+  "source": "clean",
+  "score": 0.91796875,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   331.5693664550781,
+   336.0544128417969,
+   461.4002990722656,
+   424.04425048828125
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c004"
+ },
+ {
+  "item_id": "c072",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c072",
+   "c082"
+  ],
+  "object_id": "c072",
+  "category": "pillow",
+  "center": [
+   1.560563523459216,
+   -1.4181536336543308,
+   0.4423458930728138
+  ],
+  "yaw": 0.8572379624423077,
+  "size": [
+   0.49839215454226016,
+   0.22380215903453737,
+   0.1168666938190337
+  ],
+  "confidence": 0.91796875,
+  "source": "clean",
+  "score": 0.91796875,
+  "best_frame": 647,
+  "bbox2d_xyxy": [
+   425.0968017578125,
+   -1.7406878471374512,
+   583.5618286132812,
+   36.825130462646484
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c073",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c073"
+  ],
+  "object_id": "c073",
+  "category": "ornament",
+  "center": [
+   -3.2100998055593735,
+   -1.8744434005212522,
+   0.7984917645239782
+  ],
+  "yaw": -0.1857823243865453,
+  "size": [
+   0.04594491535346523,
+   0.03764062073988139,
+   0.050015477686575216
+  ],
+  "confidence": 0.9140625,
+  "source": "clean",
+  "score": 0.9140625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   538.8731689453125,
+   289.1040344238281,
+   568.71533203125,
+   321.80230712890625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "ornament",
+  "settled_on": null
+ },
+ {
+  "item_id": "c074",
+  "label": "sink",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c074"
+  ],
+  "object_id": "c074",
+  "category": "sink",
+  "center": [
+   -2.6526525375910754,
+   3.4966082485794696,
+   0.8697554578200878
+  ],
+  "yaw": 1.3973000191967637,
+  "size": [
+   0.4039883398615287,
+   0.43194527971177576,
+   0.04673101203832087
+  ],
+  "confidence": 0.91015625,
+  "source": "clean",
+  "score": 0.91015625,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   89.1632308959961,
+   75.32127380371094,
+   213.3070068359375,
+   97.68873596191406
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c075",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c075"
+  ],
+  "object_id": "c075",
+  "category": "ornament",
+  "center": [
+   -3.1359068023211787,
+   -1.8524725493587686,
+   0.7190238388019179
+  ],
+  "yaw": -0.8911703029555098,
+  "size": [
+   0.04594491535346523,
+   0.03764062073988139,
+   0.050015477686575216
+  ],
+  "confidence": 0.91015625,
+  "source": "clean",
+  "score": 0.91015625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   526.9275512695312,
+   365.443359375,
+   559.7077026367188,
+   396.175048828125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "ornament",
+  "settled_on": null
+ },
+ {
+  "item_id": "c076",
+  "label": "table",
+  "alt_labels": [
+   "coffee table"
+  ],
+  "n_members": 2,
+  "members": [
+   "c076",
+   "c114"
+  ],
+  "object_id": "c076",
+  "category": "table",
+  "center": [
+   2.3606079637751307,
+   -0.28264194493439226,
+   1.1370012104161105
+  ],
+  "yaw": -1.5782883393305425,
+  "size": [
+   0.32260820338866264,
+   0.031258900711686355,
+   0.10496507654180309
+  ],
+  "confidence": 0.91015625,
+  "source": "clean",
+  "score": 0.91015625,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   -0.9339447021484375,
+   242.34580993652344,
+   137.91127014160156,
+   292.13720703125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c077",
+  "label": "coffee table",
+  "alt_labels": [
+   "table"
+  ],
+  "n_members": 2,
+  "members": [
+   "c077",
+   "c079"
+  ],
+  "object_id": "c077",
+  "category": "coffee table",
+  "center": [
+   0.5122453093956647,
+   -1.3440822658630067,
+   0.357633838060746
+  ],
+  "yaw": 1.611742861537465,
+  "size": [
+   0.5812726395957664,
+   0.3627885637065479,
+   0.2109054372660042
+  ],
+  "confidence": 0.91015625,
+  "source": "clean",
+  "score": 0.91015625,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   782.9861450195312,
+   678.4597778320312,
+   1004.0407104492188,
+   767.1088256835938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c080",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c080"
+  ],
+  "object_id": "c080",
+  "category": "ornament",
+  "center": [
+   -3.1574126556804516,
+   -1.8411462796624951,
+   0.5634695508099887
+  ],
+  "yaw": -0.8616357475496668,
+  "size": [
+   0.04594491535346523,
+   0.03764062073988139,
+   0.050015477686575216
+  ],
+  "confidence": 0.90234375,
+  "source": "clean",
+  "score": 0.90234375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   538.4826049804688,
+   397.7886657714844,
+   567.5126342773438,
+   423.76519775390625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "ornament",
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c081",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c081"
+  ],
+  "object_id": "c081",
+  "category": "ornament",
+  "center": [
+   -3.2088363299930305,
+   -1.8231925934226794,
+   0.5680069773551435
+  ],
+  "yaw": -0.33504785179453433,
+  "size": [
+   0.060118778868821554,
+   0.024157567449592413,
+   0.059090330776884636
+  ],
+  "confidence": 0.90234375,
+  "source": "clean",
+  "score": 0.90234375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   562.3257446289062,
+   384.5374755859375,
+   588.9928588867188,
+   413.3070068359375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c084",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c084"
+  ],
+  "object_id": "c084",
+  "category": "cable",
+  "center": [
+   -0.5113499159150815,
+   1.5092216989978693,
+   0.48175649672251913
+  ],
+  "yaw": 0.9832866761882633,
+  "size": [
+   0.23167263123712867,
+   0.08511291882783234,
+   0.020803519109707125
+  ],
+  "confidence": 0.8984375,
+  "source": "clean",
+  "score": 0.8984375,
+  "best_frame": 62,
+  "bbox2d_xyxy": [
+   77.86336517333984,
+   366.6445007324219,
+   186.5482177734375,
+   401.8039855957031
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c055"
+ },
+ {
+  "item_id": "c085",
+  "label": "plate",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c085"
+  ],
+  "object_id": "c085",
+  "category": "plate",
+  "center": [
+   0.5600592153611419,
+   -1.0086594966191877,
+   0.5659375099964498
+  ],
+  "yaw": 2.6798536589555724,
+  "size": [
+   0.29004111082581363,
+   0.24777735131162598,
+   0.07415446654391748
+  ],
+  "confidence": 0.8984375,
+  "source": "clean",
+  "score": 0.8984375,
+  "best_frame": 678,
+  "bbox2d_xyxy": [
+   337.7275390625,
+   27.148956298828125,
+   466.977294921875,
+   103.15577697753906
+  ],
+  "n_frames": 3,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c083"
+ },
+ {
+  "item_id": "c086",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c086"
+  ],
+  "object_id": "c086",
+  "category": "ornament",
+  "center": [
+   -3.0987968426471735,
+   -1.9947743625587107,
+   0.7384525785877234
+  ],
+  "yaw": -1.0264690288997396,
+  "size": [
+   0.03764062073988139,
+   0.04594491535346523,
+   0.050015477686575216
+  ],
+  "confidence": 0.89453125,
+  "source": "clean",
+  "score": 0.89453125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   431.105224609375,
+   341.175048828125,
+   461.8734130859375,
+   372.71270751953125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "ornament",
+  "settled_on": null
+ },
+ {
+  "item_id": "c087",
+  "label": "window blind",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c087"
+  ],
+  "object_id": "c087",
+  "category": "window blind",
+  "center": [
+   -0.5319785117825263,
+   -2.2801829397672635,
+   1.4254512427580868
+  ],
+  "yaw": 3.1325862355899776,
+  "size": [
+   0.7341210013429235,
+   0.06258487385398404,
+   1.4522672242839458
+  ],
+  "confidence": 0.89453125,
+  "source": "clean",
+  "score": 0.89453125,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   -0.9704360961914062,
+   365.0095520019531,
+   192.845703125,
+   767.0824584960938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c088",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c088",
+   "c100"
+  ],
+  "object_id": "c088",
+  "category": "pillow",
+  "center": [
+   1.8271292799933967,
+   -0.20949173287130238,
+   0.5522369225095778
+  ],
+  "yaw": -2.972060610417381,
+  "size": [
+   0.19889783774698144,
+   0.04673604508582784,
+   0.294714895204817
+  ],
+  "confidence": 0.890625,
+  "source": "clean",
+  "score": 0.890625,
+  "best_frame": 801,
+  "bbox2d_xyxy": [
+   -1.5043582916259766,
+   19.308265686035156,
+   25.4811954498291,
+   180.291259765625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c089",
+  "label": "window blind",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c089"
+  ],
+  "object_id": "c089",
+  "category": "window blind",
+  "center": [
+   -3.9182071047781837,
+   -0.8966703657736919,
+   1.2727002419272404
+  ],
+  "yaw": 1.6132837857599167,
+  "size": [
+   2.6141184221655163,
+   0.2836251397750429,
+   1.7436691859412385
+  ],
+  "confidence": 0.890625,
+  "source": "clean",
+  "score": 0.890625,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   565.6970825195312,
+   426.0372619628906,
+   1008.4542846679688,
+   767.6028442382812
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c090",
+  "label": "ornament",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c090"
+  ],
+  "object_id": "c090",
+  "category": "ornament",
+  "center": [
+   -3.108511821345599,
+   -2.0110388447911585,
+   0.5633502872151732
+  ],
+  "yaw": -1.7207983755530245,
+  "size": [
+   0.04979747212519348,
+   0.017580345818394072,
+   0.04977695049694408
+  ],
+  "confidence": 0.8828125,
+  "source": "clean",
+  "score": 0.8828125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   430.5362854003906,
+   386.59161376953125,
+   456.3484802246094,
+   410.0684814453125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c092",
+  "label": "book",
+  "alt_labels": [
+   "poster"
+  ],
+  "n_members": 2,
+  "members": [
+   "c092",
+   "c254"
+  ],
+  "object_id": "c092",
+  "category": "book",
+  "center": [
+   -0.6594371490941299,
+   -0.5727642655154582,
+   0.10967926959536878
+  ],
+  "yaw": -2.122642368627713,
+  "size": [
+   0.24517876845426945,
+   0.3377673624446984,
+   0.03350338069519232
+  ],
+  "confidence": 0.87109375,
+  "source": "clean",
+  "score": 0.87109375,
+  "best_frame": 955,
+  "bbox2d_xyxy": [
+   328.7663879394531,
+   370.67767333984375,
+   528.609375,
+   503.98529052734375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c009"
+ },
+ {
+  "item_id": "c093",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c093"
+  ],
+  "object_id": "c093",
+  "category": "cable",
+  "center": [
+   1.7872639212471,
+   -2.224444733536762,
+   0.15064288395075576
+  ],
+  "yaw": -0.15480815659939662,
+  "size": [
+   0.14274848097239357,
+   0.03483810062562642,
+   0.2767114305967373
+  ],
+  "confidence": 0.8671875,
+  "source": "clean",
+  "score": 0.8671875,
+  "best_frame": 801,
+  "bbox2d_xyxy": [
+   820.3248901367188,
+   411.7169494628906,
+   870.0033569335938,
+   503.8871154785156
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c138"
+ },
+ {
+  "item_id": "c095",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c095"
+  ],
+  "object_id": "c095",
+  "category": "cable",
+  "center": [
+   -1.2497895757913393,
+   1.3785283549015124,
+   0.2707646885075433
+  ],
+  "yaw": 2.478838698633271,
+  "size": [
+   0.14587421809545398,
+   0.0586311592602865,
+   0.2581531554510803
+  ],
+  "confidence": 0.859375,
+  "source": "clean",
+  "score": 0.859375,
+  "best_frame": 246,
+  "bbox2d_xyxy": [
+   839.9239501953125,
+   661.1683349609375,
+   862.8944091796875,
+   771.0423583984375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c457"
+ },
+ {
+  "item_id": "c097",
+  "label": "cabinet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c097"
+  ],
+  "object_id": "c097",
+  "category": "cabinet",
+  "center": [
+   -2.559449401051622,
+   3.179039522158558,
+   0.5149701437164973
+  ],
+  "yaw": -0.025463525527355646,
+  "size": [
+   0.6764729959752196,
+   0.04443498271692725,
+   0.705313950476783
+  ],
+  "confidence": 0.85546875,
+  "source": "clean",
+  "score": 0.85546875,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   71.00757598876953,
+   106.49472045898438,
+   249.26577758789062,
+   304.9144287109375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c098",
+  "label": "sofa",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c098"
+  ],
+  "object_id": "c098",
+  "category": "sofa",
+  "center": [
+   -3.1342111475220507,
+   -1.3744240455815966,
+   0.5639979576786325
+  ],
+  "yaw": -0.08586467255446495,
+  "size": [
+   0.7650744631779934,
+   0.37958033534773905,
+   0.42327018234006275
+  ],
+  "confidence": 0.85546875,
+  "source": "clean",
+  "score": 0.85546875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   609.0718994140625,
+   188.6959228515625,
+   1023.730224609375,
+   767.4573974609375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "same_size_group": "sofa",
+  "settled_on": null
+ },
+ {
+  "item_id": "c099",
+  "label": "christmas tree",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c099"
+  ],
+  "object_id": "c099",
+  "category": "christmas tree",
+  "center": [
+   -3.3006196721882333,
+   -1.972404527796825,
+   0.7770811298993965
+  ],
+  "yaw": -2.732693661837153,
+  "size": [
+   0.3483735428258444,
+   0.3149990780950278,
+   0.47723863586539056
+  ],
+  "confidence": 0.85546875,
+  "source": "clean",
+  "score": 0.85546875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   407.0308837890625,
+   178.96827697753906,
+   603.0236206054688,
+   478.3336486816406
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full",
+   "tile"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c101",
+  "label": "table",
+  "alt_labels": [
+   "coffee table",
+   "side table"
+  ],
+  "n_members": 3,
+  "members": [
+   "c101",
+   "c291",
+   "c479"
+  ],
+  "object_id": "c101",
+  "category": "table",
+  "center": [
+   -0.48872325831089203,
+   1.4490875595209263,
+   1.0081127763139246
+  ],
+  "yaw": 0.020629261439590874,
+  "size": [
+   0.30564326751414017,
+   0.01,
+   0.31534750707202164
+  ],
+  "confidence": 0.8515625,
+  "source": "clean",
+  "score": 0.8515625,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   598.0115356445312,
+   71.64281463623047,
+   753.1078491210938,
+   232.04910278320312
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c103",
+  "label": "ottoman",
+  "alt_labels": [
+   "stool"
+  ],
+  "n_members": 2,
+  "members": [
+   "c103",
+   "c106"
+  ],
+  "object_id": "c103",
+  "category": "ottoman",
+  "center": [
+   2.4031468752211205,
+   -0.3418323097812283,
+   1.3117730699580235
+  ],
+  "yaw": -1.605782959158952,
+  "size": [
+   0.37646133729678094,
+   0.05153999951416432,
+   0.20823688148506456
+  ],
+  "confidence": 0.8515625,
+  "source": "clean",
+  "score": 0.8515625,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   -3.239715576171875,
+   142.44064331054688,
+   157.31396484375,
+   235.2946014404297
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c104",
+  "label": "window blind",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c104"
+  ],
+  "object_id": "c104",
+  "category": "window blind",
+  "center": [
+   2.357958527690983,
+   -1.1228469725375347,
+   1.3996490241002655
+  ],
+  "yaw": -1.6166374657882658,
+  "size": [
+   1.1516007627258409,
+   0.08375557503775921,
+   0.658233939873816
+  ],
+  "confidence": 0.8515625,
+  "source": "clean",
+  "score": 0.8515625,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   164.5552978515625,
+   22.06710433959961,
+   500.35772705078125,
+   270.83807373046875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c105",
+  "label": "poster",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c105"
+  ],
+  "object_id": "c105",
+  "category": "poster",
+  "center": [
+   -0.7497058469230562,
+   -0.563544012334286,
+   0.13192767216019063
+  ],
+  "yaw": -0.605970472119457,
+  "size": [
+   0.3078017671349551,
+   0.23243500525270122,
+   0.010993424434451391
+  ],
+  "confidence": 0.84765625,
+  "source": "clean",
+  "score": 0.84765625,
+  "best_frame": 678,
+  "bbox2d_xyxy": [
+   898.5552978515625,
+   158.8943634033203,
+   1027.579345703125,
+   225.19107055664062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c092"
+ },
+ {
+  "item_id": "c107",
+  "label": "tv stand",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c107"
+  ],
+  "object_id": "c107",
+  "category": "tv stand",
+  "center": [
+   -0.12144856240329038,
+   1.4736264169890978,
+   0.47129064921179475
+  ],
+  "yaw": -3.1306933248767286,
+  "size": [
+   0.6666499612459801,
+   0.22246389051075643,
+   0.11614989449273969
+  ],
+  "confidence": 0.84375,
+  "source": "clean",
+  "score": 0.84375,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   589.3259887695312,
+   566.1861572265625,
+   921.8026733398438,
+   693.552490234375
+  ],
+  "n_frames": 4,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c108",
+  "label": "ceiling light",
+  "alt_labels": [
+   "string light"
+  ],
+  "n_members": 2,
+  "members": [
+   "c108",
+   "c274"
+  ],
+  "object_id": "c108",
+  "category": "ceiling light",
+  "center": [
+   0.3588663872395517,
+   -0.4005788315363278,
+   2.3351904118762667
+  ],
+  "yaw": -2.2860796422228518,
+  "size": [
+   0.8939551107943517,
+   0.8480475630189437,
+   0.23779805522702366
+  ],
+  "confidence": 0.84375,
+  "source": "clean",
+  "score": 0.84375,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   8.549545288085938,
+   0.4339485168457031,
+   507.8614501953125,
+   213.10427856445312
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c110",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c110"
+  ],
+  "object_id": "c110",
+  "category": "cable",
+  "center": [
+   -0.5574625415374191,
+   1.4996082949475085,
+   0.5027212589336159
+  ],
+  "yaw": 0.9920719123383996,
+  "size": [
+   0.23036573096302168,
+   0.07285712576175163,
+   0.02112600531248643
+  ],
+  "confidence": 0.83984375,
+  "source": "clean",
+  "score": 0.83984375,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   500.48046875,
+   564.62841796875,
+   593.16259765625,
+   612.9537963867188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c084"
+ },
+ {
+  "item_id": "c111",
+  "label": "window blind",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c111"
+  ],
+  "object_id": "c111",
+  "category": "window blind",
+  "center": [
+   -3.7515879676104125,
+   0.07347934915989246,
+   1.2890013063682866
+  ],
+  "yaw": -1.580681260251794,
+  "size": [
+   0.5716124034450771,
+   0.13288059025167742,
+   1.432240158686391
+  ],
+  "confidence": 0.83984375,
+  "source": "clean",
+  "score": 0.83984375,
+  "best_frame": 277,
+  "bbox2d_xyxy": [
+   -1.9594802856445312,
+   -1.8733291625976562,
+   234.23147583007812,
+   615.9794921875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c112",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c112",
+   "c146"
+  ],
+  "object_id": "c112",
+  "category": "pillow",
+  "center": [
+   -3.09550290724182,
+   -1.212518763068928,
+   0.5679494474799764
+  ],
+  "yaw": -3.1071532089031733,
+  "size": [
+   0.3144011779552951,
+   0.10389276175494411,
+   0.09462461218920436
+  ],
+  "confidence": 0.8359375,
+  "source": "clean",
+  "score": 0.8359375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   935.4368896484375,
+   537.5237426757812,
+   1028.7073974609375,
+   766.9161376953125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c113",
+  "label": "plate",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c113"
+  ],
+  "object_id": "c113",
+  "category": "plate",
+  "center": [
+   0.47467867064836267,
+   -0.8938003677935829,
+   0.549168720876953
+  ],
+  "yaw": -2.6499937028065093,
+  "size": [
+   0.272324125316584,
+   0.235674901622293,
+   0.0984201538139634
+  ],
+  "confidence": 0.8359375,
+  "source": "clean",
+  "score": 0.8359375,
+  "best_frame": 709,
+  "bbox2d_xyxy": [
+   750.3392333984375,
+   -0.5673866271972656,
+   967.81640625,
+   140.37521362304688
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c005"
+ },
+ {
+  "item_id": "c115",
+  "label": "window blind",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c115"
+  ],
+  "object_id": "c115",
+  "category": "window blind",
+  "center": [
+   1.0128027504912487,
+   -2.327369975302813,
+   1.1855887604594404
+  ],
+  "yaw": 0.11145881449046069,
+  "size": [
+   1.1232572829774163,
+   0.16779555973436364,
+   1.6916358449983788
+  ],
+  "confidence": 0.8359375,
+  "source": "clean",
+  "score": 0.8359375,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   725.069580078125,
+   -2.24432373046875,
+   1027.3446044921875,
+   597.7406616210938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c116",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c116"
+  ],
+  "object_id": "c116",
+  "category": "cable",
+  "center": [
+   -3.3017693823935796,
+   -1.801238675945795,
+   0.019056007796778074
+  ],
+  "yaw": -1.8725863205562798,
+  "size": [
+   0.10940357705754966,
+   0.0332947961753427,
+   0.03811201559355615
+  ],
+  "confidence": 0.82421875,
+  "source": "clean",
+  "score": 0.82421875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   549.7717895507812,
+   608.6376953125,
+   592.1915893554688,
+   643.4974975585938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c118",
+  "label": "sofa",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c118"
+  ],
+  "object_id": "c118",
+  "category": "sofa",
+  "center": [
+   -2.78604617175892,
+   -0.3248342517029261,
+   0.12548505983519054
+  ],
+  "yaw": -1.6663897817091589,
+  "size": [
+   0.4683760460358768,
+   0.08409695436681996,
+   0.2509701196703811
+  ],
+  "confidence": 0.81640625,
+  "source": "clean",
+  "score": 0.81640625,
+  "best_frame": 955,
+  "bbox2d_xyxy": [
+   853.3883056640625,
+   -1.144317626953125,
+   1026.36865234375,
+   82.50772094726562
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c119",
+  "label": "cabinet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c119"
+  ],
+  "object_id": "c119",
+  "category": "cabinet",
+  "center": [
+   -2.202989151712042,
+   3.168604300634065,
+   0.5185253082077392
+  ],
+  "yaw": -0.10867870221801512,
+  "size": [
+   0.3982828276564799,
+   0.07804284759272306,
+   0.7148783840080261
+  ],
+  "confidence": 0.8125,
+  "source": "clean",
+  "score": 0.8125,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   222.26205444335938,
+   99.07533264160156,
+   351.2362365722656,
+   291.34820556640625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c120",
+  "label": "shelf",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c120"
+  ],
+  "object_id": "c120",
+  "category": "shelf",
+  "center": [
+   0.5520176268424711,
+   -0.4543717719515576,
+   0.261924423357071
+  ],
+  "yaw": 1.3017112627324305,
+  "size": [
+   0.32352534133512323,
+   0.24591892407471183,
+   0.15531805115936947
+  ],
+  "confidence": 0.80859375,
+  "source": "clean",
+  "score": 0.80859375,
+  "best_frame": 647,
+  "bbox2d_xyxy": [
+   384.4915466308594,
+   319.670654296875,
+   556.2674560546875,
+   436.87713623046875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c121",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c121"
+  ],
+  "object_id": "c121",
+  "category": "cable",
+  "center": [
+   1.8513699314828709,
+   -2.254327381672768,
+   0.1173074249312902
+  ],
+  "yaw": 3.028477522956262,
+  "size": [
+   0.13004397949067714,
+   0.03271200980054667,
+   0.2346148498625804
+  ],
+  "confidence": 0.8046875,
+  "source": "clean",
+  "score": 0.8046875,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   955.8760986328125,
+   207.9814453125,
+   988.5068359375,
+   277.2279968261719
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c122",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c122"
+  ],
+  "object_id": "c122",
+  "category": "ceiling light",
+  "center": [
+   -3.113253568246416,
+   -1.210413708207118,
+   2.3444557104490475
+  ],
+  "yaw": -2.9000538011283243,
+  "size": [
+   1.4676069617893122,
+   0.8464449529148548,
+   0.19181027564238295
+  ],
+  "confidence": 0.8046875,
+  "source": "clean",
+  "score": 0.8046875,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   594.287841796875,
+   353.9393310546875,
+   737.294677734375,
+   395.7069091796875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c124",
+  "label": "pillow",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c124"
+  ],
+  "object_id": "c124",
+  "category": "pillow",
+  "center": [
+   -3.3763596423107254,
+   -1.3658916676464985,
+   0.7722763509315828
+  ],
+  "yaw": -1.4138741074425272,
+  "size": [
+   0.36461309950512877,
+   0.3026986720627809,
+   0.34507084579131386
+  ],
+  "confidence": 0.796875,
+  "source": "clean",
+  "score": 0.796875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   770.8284912109375,
+   189.76583862304688,
+   1028.312255859375,
+   543.8589477539062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c128",
+  "label": "side table",
+  "alt_labels": [
+   "table"
+  ],
+  "n_members": 2,
+  "members": [
+   "c128",
+   "c404"
+  ],
+  "object_id": "c128",
+  "category": "side table",
+  "center": [
+   -3.21537678135862,
+   -1.9754061211163156,
+   0.16996158682936072
+  ],
+  "yaw": -1.2226031379798008,
+  "size": [
+   0.38864561315507445,
+   0.36155430332762517,
+   0.33992317365872143
+  ],
+  "confidence": 0.77734375,
+  "source": "clean",
+  "score": 0.77734375,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   509.7105407714844,
+   701.7041015625,
+   576.88623046875,
+   767.7196044921875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c129",
+  "label": "light switch",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c129"
+  ],
+  "object_id": "c129",
+  "category": "light switch",
+  "center": [
+   2.3980822440403693,
+   2.9739675107073,
+   1.5081536372624607
+  ],
+  "yaw": -3.124436832686455,
+  "size": [
+   0.10961829408327217,
+   0.01928186809467558,
+   0.0941583553798715
+  ],
+  "confidence": 0.7734375,
+  "source": "clean",
+  "score": 0.7734375,
+  "best_frame": 31,
+  "bbox2d_xyxy": [
+   771.7159423828125,
+   365.2050476074219,
+   803.26806640625,
+   393.8517150878906
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c130",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c130"
+  ],
+  "object_id": "c130",
+  "category": "door handle",
+  "center": [
+   -2.4493183230105777,
+   3.168140809762266,
+   0.731936929460729
+  ],
+  "yaw": 2.9603507197008945,
+  "size": [
+   0.0312444289987015,
+   0.010744548605792215,
+   0.2136408791853932
+  ],
+  "confidence": 0.7734375,
+  "source": "clean",
+  "score": 0.7734375,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   203.03953552246094,
+   114.459716796875,
+   220.6894073486328,
+   177.8538055419922
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c133",
+  "label": "lamp",
+  "alt_labels": [
+   "table lamp"
+  ],
+  "n_members": 2,
+  "members": [
+   "c133",
+   "c278"
+  ],
+  "object_id": "c133",
+  "category": "lamp",
+  "center": [
+   -1.1773863059688958,
+   1.4878713299808557,
+   0.726553485000475
+  ],
+  "yaw": 2.9513898949435635,
+  "size": [
+   0.7120516183456023,
+   0.15041678675961045,
+   0.47152253626315743
+  ],
+  "confidence": 0.765625,
+  "source": "clean",
+  "score": 0.765625,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   171.73974609375,
+   1.4445018768310547,
+   246.99188232421875,
+   193.22918701171875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c134",
+  "label": "sofa",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c134"
+  ],
+  "object_id": "c134",
+  "category": "sofa",
+  "center": [
+   -0.04483232261910163,
+   1.4598706075854988,
+   0.9820892343194177
+  ],
+  "yaw": 0.010014875023646397,
+  "size": [
+   0.7784125956436787,
+   0.02023656309856392,
+   0.5454473535333303
+  ],
+  "confidence": 0.765625,
+  "source": "clean",
+  "score": 0.765625,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   706.4620361328125,
+   -1.2302742004394531,
+   1025.769775390625,
+   247.52993774414062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c135",
+  "label": "power outlet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c135"
+  ],
+  "object_id": "c135",
+  "category": "power outlet",
+  "center": [
+   -1.3413833199213283,
+   1.1271657529872874,
+   0.22576977668308684
+  ],
+  "yaw": -1.5867839958656127,
+  "size": [
+   0.17418579323814787,
+   0.01,
+   0.1483248069039229
+  ],
+  "confidence": 0.765625,
+  "source": "clean",
+  "score": 0.765625,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   284.9176025390625,
+   620.5777587890625,
+   301.52374267578125,
+   711.3675537109375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c137",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c137"
+  ],
+  "object_id": "c137",
+  "category": "string light",
+  "center": [
+   -2.4387756140288848,
+   -2.249030054505211,
+   0.8710855922703619
+  ],
+  "yaw": -0.044293721504107264,
+  "size": [
+   0.02700664557598076,
+   0.01,
+   0.06058178747388986
+  ],
+  "confidence": 0.765625,
+  "source": "clean",
+  "score": 0.765625,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   876.99609375,
+   361.5343017578125,
+   893.5479736328125,
+   388.17181396484375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c138",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c138"
+  ],
+  "object_id": "c138",
+  "category": "cable",
+  "center": [
+   1.5139578730393293,
+   -2.11560865221465,
+   -0.006145704965390464
+  ],
+  "yaw": 2.862400779172731,
+  "size": [
+   0.601051050181834,
+   0.27000769677190584,
+   0.036865747235555135
+  ],
+  "confidence": 0.765625,
+  "source": "clean",
+  "score": 0.765625,
+  "best_frame": 801,
+  "bbox2d_xyxy": [
+   672.3394775390625,
+   463.0379333496094,
+   823.4085693359375,
+   686.873046875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c141",
+  "label": "cable",
+  "alt_labels": [
+   "string light"
+  ],
+  "n_members": 2,
+  "members": [
+   "c141",
+   "c148"
+  ],
+  "object_id": "c141",
+  "category": "cable",
+  "center": [
+   -2.3607704618969425,
+   -2.1882542445928967,
+   0.9736542773539552
+  ],
+  "yaw": -0.06581667811840619,
+  "size": [
+   0.6881742517314453,
+   0.15053026108841472,
+   0.28000717411000264
+  ],
+  "confidence": 0.7578125,
+  "source": "clean",
+  "score": 0.7578125,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   702.4893798828125,
+   226.68246459960938,
+   1019.9434814453125,
+   437.5749206542969
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c144",
+  "label": "power strip",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c144"
+  ],
+  "object_id": "c144",
+  "category": "power strip",
+  "center": [
+   -1.1639253954155107,
+   1.4548142497339096,
+   0.03130828111788331
+  ],
+  "yaw": 0.6819509742683727,
+  "size": [
+   0.19887488438522366,
+   0.11420960901659871,
+   0.06261656223576662
+  ],
+  "confidence": 0.75390625,
+  "source": "clean",
+  "score": 0.75390625,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   255.20895385742188,
+   655.031494140625,
+   342.7811584472656,
+   708.9126586914062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c145",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c145"
+  ],
+  "object_id": "c145",
+  "category": "door handle",
+  "center": [
+   -2.3631812915103123,
+   3.1534219361893174,
+   0.7385102773372598
+  ],
+  "yaw": 2.983891999955752,
+  "size": [
+   0.033377509258376126,
+   0.012873539029278902,
+   0.2155904680538634
+  ],
+  "confidence": 0.75390625,
+  "source": "clean",
+  "score": 0.75390625,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   228.4646453857422,
+   110.9406509399414,
+   245.29869079589844,
+   173.83538818359375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c147",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c147"
+  ],
+  "object_id": "c147",
+  "category": "string light",
+  "center": [
+   2.37070088318019,
+   -0.24481950628970775,
+   1.6138778393227275
+  ],
+  "yaw": 2.927692422149404,
+  "size": [
+   0.07635256158952375,
+   0.14499142933085019,
+   0.1775188763914348
+  ],
+  "confidence": 0.75390625,
+  "source": "clean",
+  "score": 0.75390625,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   -1.9694595336914062,
+   3.3993587493896484,
+   77.50457000732422,
+   101.91419219970703
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c149",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c149"
+  ],
+  "object_id": "c149",
+  "category": "string light",
+  "center": [
+   -2.2314521308270856,
+   -2.250634085270642,
+   0.9576582134087621
+  ],
+  "yaw": 0.1403366564578552,
+  "size": [
+   0.029055967215574796,
+   0.01,
+   0.05885056086696594
+  ],
+  "confidence": 0.7421875,
+  "source": "clean",
+  "score": 0.7421875,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   785.641357421875,
+   301.1488342285156,
+   802.341552734375,
+   327.5340881347656
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c150",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c150"
+  ],
+  "object_id": "c150",
+  "category": "string light",
+  "center": [
+   -2.335550844585079,
+   -2.2522282709098755,
+   0.916385368923375
+  ],
+  "yaw": 0.03723270950567015,
+  "size": [
+   0.021250343767558192,
+   0.01,
+   0.04432878339551849
+  ],
+  "confidence": 0.73828125,
+  "source": "clean",
+  "score": 0.73828125,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   834.2911987304688,
+   333.434814453125,
+   846.0603637695312,
+   353.3252868652344
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c154",
+  "label": "light switch",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c154"
+  ],
+  "object_id": "c154",
+  "category": "light switch",
+  "center": [
+   2.4461237023488747,
+   2.9332860255877033,
+   1.4850583843407148
+  ],
+  "yaw": -3.139909054506983,
+  "size": [
+   0.10498731982460718,
+   0.0111910436445074,
+   0.09907837952146192
+  ],
+  "confidence": 0.73046875,
+  "source": "clean",
+  "score": 0.73046875,
+  "best_frame": 0,
+  "bbox2d_xyxy": [
+   413.0473937988281,
+   388.940185546875,
+   436.6059265136719,
+   412.84075927734375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "same_size_group": "light switch",
+  "settled_on": null
+ },
+ {
+  "item_id": "c155",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c155"
+  ],
+  "object_id": "c155",
+  "category": "ceiling light",
+  "center": [
+   3.123955884797193,
+   3.1334073582114987,
+   2.203616653082517
+  ],
+  "yaw": -2.3411814527395793,
+  "size": [
+   0.34103441557640934,
+   0.0879738358842594,
+   0.09972799839521906
+  ],
+  "confidence": 0.73046875,
+  "source": "clean",
+  "score": 0.73046875,
+  "best_frame": 0,
+  "bbox2d_xyxy": [
+   493.1832275390625,
+   248.31454467773438,
+   517.1397094726562,
+   269.98431396484375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c156",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c156"
+  ],
+  "object_id": "c156",
+  "category": "string light",
+  "center": [
+   -3.048141068808324,
+   -1.8551587450424432,
+   0.5573884769928331
+  ],
+  "yaw": -2.707527162407283,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.73046875,
+  "source": "clean",
+  "score": 0.73046875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   505.4468994140625,
+   517.7206420898438,
+   515.1173095703125,
+   550.6298828125
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full",
+   "tile"
+  ],
+  "n_views": 2,
+  "same_size_group": "string light",
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c158",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c158"
+  ],
+  "object_id": "c158",
+  "category": "string light",
+  "center": [
+   -2.8433403026301427,
+   -2.113969140141389,
+   0.2890175362072074
+  ],
+  "yaw": -2.3767527995983735,
+  "size": [
+   0.06443088301908784,
+   0.03607826321765467,
+   0.11155940791235695
+  ],
+  "confidence": 0.7265625,
+  "source": "clean",
+  "score": 0.7265625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   297.5038146972656,
+   634.19189453125,
+   316.4177551269531,
+   661.9093017578125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c163",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c163"
+  ],
+  "object_id": "c163",
+  "category": "string light",
+  "center": [
+   -3.0583858457483677,
+   -2.078049514370862,
+   0.28145037945593465
+  ],
+  "yaw": -2.559960368762231,
+  "size": [
+   0.1538811636548858,
+   0.020853861725442763,
+   0.1724488482496529
+  ],
+  "confidence": 0.72265625,
+  "source": "clean",
+  "score": 0.72265625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   387.5947265625,
+   557.14453125,
+   402.3968505859375,
+   570.1089477539062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c164",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c164"
+  ],
+  "object_id": "c164",
+  "category": "string light",
+  "center": [
+   -2.7932119952471868,
+   -2.10527626110059,
+   0.42028529659959035
+  ],
+  "yaw": -1.4781985069214159,
+  "size": [
+   0.03776081545950882,
+   0.041889888839486744,
+   0.04616483860876586
+  ],
+  "confidence": 0.72265625,
+  "source": "clean",
+  "score": 0.72265625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   265.1492614746094,
+   613.8697509765625,
+   294.8551330566406,
+   635.1124267578125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c167",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c167"
+  ],
+  "object_id": "c167",
+  "category": "door handle",
+  "center": [
+   0.7012389773967714,
+   1.6070523045370408,
+   1.0952721724755228
+  ],
+  "yaw": 0.05814603115756034,
+  "size": [
+   0.13882377233674892,
+   0.04003228145765214,
+   0.04577270822048418
+  ],
+  "confidence": 0.71875,
+  "source": "clean",
+  "score": 0.71875,
+  "best_frame": 31,
+  "bbox2d_xyxy": [
+   154.238037109375,
+   757.371337890625,
+   261.6091613769531,
+   768.9537963867188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c169",
+  "label": "plate",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c169"
+  ],
+  "object_id": "c169",
+  "category": "plate",
+  "center": [
+   0.5997805350683696,
+   -0.9326024664320268,
+   0.6127357618965518
+  ],
+  "yaw": -1.2533458614268478,
+  "size": [
+   0.1353388853982829,
+   0.03104428462824102,
+   0.02871392822523409
+  ],
+  "confidence": 0.71875,
+  "source": "clean",
+  "score": 0.71875,
+  "best_frame": 678,
+  "bbox2d_xyxy": [
+   335.9731140136719,
+   87.09941101074219,
+   397.3257751464844,
+   134.2233428955078
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c113"
+ },
+ {
+  "item_id": "c170",
+  "label": "mirror",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c170"
+  ],
+  "object_id": "c170",
+  "category": "mirror",
+  "center": [
+   2.184098060070297,
+   -1.3079783954439839,
+   1.688873704863878
+  ],
+  "yaw": -1.5628544289634496,
+  "size": [
+   0.49087158543557124,
+   0.028623786083916247,
+   0.09982150295713564
+  ],
+  "confidence": 0.71875,
+  "source": "clean",
+  "score": 0.71875,
+  "best_frame": 770,
+  "bbox2d_xyxy": [
+   195.5162353515625,
+   722.2310791015625,
+   401.49432373046875,
+   768.9091186523438
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c177",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c177"
+  ],
+  "object_id": "c177",
+  "category": "string light",
+  "center": [
+   -3.1586120979903587,
+   -2.139608824179091,
+   0.7821987982544907
+  ],
+  "yaw": 0.605207545048188,
+  "size": [
+   0.27648650715859724,
+   0.013832523772548023,
+   0.16401934650501027
+  ],
+  "confidence": 0.7109375,
+  "source": "clean",
+  "score": 0.7109375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   376.27313232421875,
+   266.4708557128906,
+   386.51898193359375,
+   302.1373291015625
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full",
+   "tile"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c178",
+  "label": "mirror",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c178"
+  ],
+  "object_id": "c178",
+  "category": "mirror",
+  "center": [
+   2.1782019804815844,
+   -0.8131261477500441,
+   1.691269045603805
+  ],
+  "yaw": -1.6113011496660639,
+  "size": [
+   0.4438433147039472,
+   0.025309650602241884,
+   0.08884348610912562
+  ],
+  "confidence": 0.7109375,
+  "source": "clean",
+  "score": 0.7109375,
+  "best_frame": 770,
+  "bbox2d_xyxy": [
+   -2.799224853515625,
+   726.2013549804688,
+   187.42189025878906,
+   768.7208862304688
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c180",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c180"
+  ],
+  "object_id": "c180",
+  "category": "cable",
+  "center": [
+   -0.8862992124103144,
+   1.2951948877900696,
+   0.1967350560330986
+  ],
+  "yaw": -0.09613013902552536,
+  "size": [
+   0.525988814218004,
+   0.07488734143003217,
+   0.4140047786641213
+  ],
+  "confidence": 0.70703125,
+  "source": "clean",
+  "score": 0.70703125,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   191.61691284179688,
+   292.3049621582031,
+   222.59466552734375,
+   351.09051513671875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c182",
+  "label": "plate",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c182"
+  ],
+  "object_id": "c182",
+  "category": "plate",
+  "center": [
+   0.4950498896789306,
+   -0.9832344580590384,
+   0.5505850159991131
+  ],
+  "yaw": 1.7065718060345807,
+  "size": [
+   0.2055846005215726,
+   0.09195753873824399,
+   0.04344947854924426
+  ],
+  "confidence": 0.70703125,
+  "source": "clean",
+  "score": 0.70703125,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   494.07769775390625,
+   270.6201477050781,
+   597.0573120117188,
+   298.42388916015625
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "c083"
+ },
+ {
+  "item_id": "c187",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c187"
+  ],
+  "object_id": "c187",
+  "category": "string light",
+  "center": [
+   -2.2220992418867143,
+   -2.281107046972484,
+   0.9612672051093979
+  ],
+  "yaw": 0.09469990664259997,
+  "size": [
+   0.028792258845633967,
+   0.01,
+   0.05093453989064511
+  ],
+  "confidence": 0.703125,
+  "source": "clean",
+  "score": 0.703125,
+  "best_frame": 493,
+  "bbox2d_xyxy": [
+   862.5473022460938,
+   41.87607955932617,
+   886.0756225585938,
+   69.79849243164062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c188",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c188"
+  ],
+  "object_id": "c188",
+  "category": "string light",
+  "center": [
+   -2.4316689706489028,
+   -2.2675675412810987,
+   0.8759942432048404
+  ],
+  "yaw": -0.12845177232549831,
+  "size": [
+   0.026270722093702403,
+   0.016109298541482797,
+   0.04861747465278432
+  ],
+  "confidence": 0.703125,
+  "source": "clean",
+  "score": 0.703125,
+  "best_frame": 493,
+  "bbox2d_xyxy": [
+   963.5452880859375,
+   114.59607696533203,
+   986.2186279296875,
+   139.22653198242188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c192",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c192"
+  ],
+  "object_id": "c192",
+  "category": "string light",
+  "center": [
+   -3.437890552792328,
+   -1.92761223092185,
+   0.7665556016328439
+  ],
+  "yaw": 0.3196711234379812,
+  "size": [
+   0.2220620528288717,
+   0.02765457185286035,
+   0.09744363033471204
+  ],
+  "confidence": 0.69921875,
+  "source": "clean",
+  "score": 0.69921875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   565.3130493164062,
+   239.25027465820312,
+   584.3681030273438,
+   257.99822998046875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c195",
+  "label": "light switch",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c195"
+  ],
+  "object_id": "c195",
+  "category": "light switch",
+  "center": [
+   -1.5015591107027657,
+   0.6945315953294859,
+   1.478672733212743
+  ],
+  "yaw": -3.09542069520523,
+  "size": [
+   0.10498731982460718,
+   0.0111910436445074,
+   0.09907837952146192
+  ],
+  "confidence": 0.6953125,
+  "source": "clean",
+  "score": 0.6953125,
+  "best_frame": 246,
+  "bbox2d_xyxy": [
+   578.0187377929688,
+   155.80267333984375,
+   591.4451293945312,
+   202.3035888671875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "same_size_group": "light switch",
+  "settled_on": null
+ },
+ {
+  "item_id": "c196",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c196"
+  ],
+  "object_id": "c196",
+  "category": "cable",
+  "center": [
+   -3.256869700197953,
+   -2.087989531041699,
+   0.06291031606956954
+  ],
+  "yaw": 1.9854906688667882,
+  "size": [
+   0.2095982801022504,
+   0.05611044995050185,
+   0.12582063213913908
+  ],
+  "confidence": 0.6953125,
+  "source": "clean",
+  "score": 0.6953125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   389.5675048828125,
+   547.1709594726562,
+   492.9180908203125,
+   605.38134765625
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "same_size_group": "cable",
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c197",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c197"
+  ],
+  "object_id": "c197",
+  "category": "string light",
+  "center": [
+   -2.7785050107814926,
+   -2.0976087925193103,
+   0.5562881859287814
+  ],
+  "yaw": -2.368013018437766,
+  "size": [
+   0.051521276968965246,
+   0.033885218816248064,
+   0.05615269339773399
+  ],
+  "confidence": 0.6953125,
+  "source": "clean",
+  "score": 0.6953125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   256.825927734375,
+   563.58935546875,
+   281.648193359375,
+   581.7261352539062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c200",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c200"
+  ],
+  "object_id": "c200",
+  "category": "string light",
+  "center": [
+   -2.3287646608009194,
+   -2.277269874595884,
+   0.9220501292686011
+  ],
+  "yaw": 0.022298083174314698,
+  "size": [
+   0.021039271667789627,
+   0.01,
+   0.03668598362485476
+  ],
+  "confidence": 0.6953125,
+  "source": "clean",
+  "score": 0.6953125,
+  "best_frame": 493,
+  "bbox2d_xyxy": [
+   917.5858154296875,
+   79.383544921875,
+   935.5123291015625,
+   99.67195129394531
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c203",
+  "label": "chair",
+  "alt_labels": [
+   "sofa"
+  ],
+  "n_members": 2,
+  "members": [
+   "c203",
+   "c215"
+  ],
+  "object_id": "c203",
+  "category": "chair",
+  "center": [
+   -3.162146380925683,
+   0.01263955823498829,
+   0.7264099604688496
+  ],
+  "yaw": -3.113069913592679,
+  "size": [
+   0.7319607875578841,
+   0.37977040744103785,
+   0.42235012819091344
+  ],
+  "confidence": 0.69140625,
+  "source": "clean",
+  "score": 0.69140625,
+  "best_frame": 277,
+  "bbox2d_xyxy": [
+   -0.1823272705078125,
+   452.644775390625,
+   228.66925048828125,
+   767.4193725585938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c204",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c204"
+  ],
+  "object_id": "c204",
+  "category": "string light",
+  "center": [
+   -1.986958242897551,
+   -2.191737620289785,
+   1.4496540115379082
+  ],
+  "yaw": -0.34749378140509846,
+  "size": [
+   0.016074362237611828,
+   0.01,
+   0.029422121674045343
+  ],
+  "confidence": 0.69140625,
+  "source": "clean",
+  "score": 0.69140625,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   719.6123657226562,
+   39.91888427734375,
+   727.1563110351562,
+   55.96185302734375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c205",
+  "label": "light switch",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c205"
+  ],
+  "object_id": "c205",
+  "category": "light switch",
+  "center": [
+   2.3056160198105786,
+   1.5695057603804983,
+   1.4521999362701954
+  ],
+  "yaw": 1.4797410075190722,
+  "size": [
+   0.02949103162500899,
+   0.012806471883592963,
+   0.09458016402194214
+  ],
+  "confidence": 0.6875,
+  "source": "clean",
+  "score": 0.6875,
+  "best_frame": 863,
+  "bbox2d_xyxy": [
+   -0.9183793067932129,
+   274.25048828125,
+   10.67559814453125,
+   317.64599609375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c206",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c206"
+  ],
+  "object_id": "c206",
+  "category": "ceiling light",
+  "center": [
+   0.5670797997438357,
+   -0.427780151581999,
+   2.365783043230418
+  ],
+  "yaw": -1.8246424098667855,
+  "size": [
+   0.18044554081952505,
+   0.04545038438998017,
+   0.07895766237063162
+  ],
+  "confidence": 0.6875,
+  "source": "clean",
+  "score": 0.6875,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   59.201316833496094,
+   18.35555076599121,
+   102.9382553100586,
+   53.746498107910156
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c210",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c210"
+  ],
+  "object_id": "c210",
+  "category": "string light",
+  "center": [
+   -2.9990729248362427,
+   -2.0770069070629815,
+   0.059617797764023546
+  ],
+  "yaw": 0.6724910975430465,
+  "size": [
+   0.06045603361575092,
+   0.023123711217215074,
+   0.11923559552804709
+  ],
+  "confidence": 0.6796875,
+  "source": "clean",
+  "score": 0.6796875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   373.95281982421875,
+   614.4319458007812,
+   390.42022705078125,
+   640.8207397460938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c217",
+  "label": "rug",
+  "alt_labels": [
+   "doormat"
+  ],
+  "n_members": 2,
+  "members": [
+   "c217",
+   "c440"
+  ],
+  "object_id": "c217",
+  "category": "rug",
+  "center": [
+   0.9292021571438984,
+   0.34622734763651997,
+   0.03296304260719085
+  ],
+  "yaw": -1.2931409368012952,
+  "size": [
+   0.4057460406235734,
+   0.15759563176742308,
+   0.02331092820266933
+  ],
+  "confidence": 0.67578125,
+  "source": "clean",
+  "score": 0.67578125,
+  "best_frame": 832,
+  "bbox2d_xyxy": [
+   250.60096740722656,
+   689.462646484375,
+   527.8179321289062,
+   768.827392578125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": "c004"
+ },
+ {
+  "item_id": "c219",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c219"
+  ],
+  "object_id": "c219",
+  "category": "rug",
+  "center": [
+   0.35216595350143803,
+   1.5158040709852338,
+   1.044284967533623
+  ],
+  "yaw": -0.039622134745632476,
+  "size": [
+   0.3376488831571464,
+   0.01,
+   0.25251084393211143
+  ],
+  "confidence": 0.671875,
+  "source": "clean",
+  "score": 0.671875,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   426.1565856933594,
+   77.34803009033203,
+   557.4639892578125,
+   280.3124084472656
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c221",
+  "label": "mouse",
+  "alt_labels": [
+   "phone"
+  ],
+  "n_members": 2,
+  "members": [
+   "c221",
+   "c306"
+  ],
+  "object_id": "c221",
+  "category": "mouse",
+  "center": [
+   -0.6257384131536651,
+   1.4092822547091908,
+   0.4974762938892166
+  ],
+  "yaw": -1.4239685815403391,
+  "size": [
+   0.24177217121412992,
+   0.1489013470457383,
+   0.052243113443102056
+  ],
+  "confidence": 0.671875,
+  "source": "clean",
+  "score": 0.671875,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   562.4705810546875,
+   401.4331970214844,
+   641.3670654296875,
+   479.4800720214844
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full",
+   "tile"
+  ],
+  "n_views": 6,
+  "settled_on": "c055"
+ },
+ {
+  "item_id": "c223",
+  "label": "table",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c223"
+  ],
+  "object_id": "c223",
+  "category": "table",
+  "center": [
+   -0.07648905326552907,
+   1.4444316531289967,
+   1.0936907435624534
+  ],
+  "yaw": 0.0033381388289379643,
+  "size": [
+   0.19529124418643096,
+   0.01,
+   0.2834491671709608
+  ],
+  "confidence": 0.671875,
+  "source": "clean",
+  "score": 0.671875,
+  "best_frame": 216,
+  "bbox2d_xyxy": [
+   762.0110473632812,
+   215.89010620117188,
+   896.7412719726562,
+   414.9610290527344
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c225",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c225"
+  ],
+  "object_id": "c225",
+  "category": "cable",
+  "center": [
+   -0.5454725295824833,
+   1.4676607529443475,
+   0.5315558412136941
+  ],
+  "yaw": 1.2546026546752103,
+  "size": [
+   0.11945046708461948,
+   0.05927190304163032,
+   0.036543159247670154
+  ],
+  "confidence": 0.66796875,
+  "source": "clean",
+  "score": 0.66796875,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   264.42022705078125,
+   275.87152099609375,
+   314.2967529296875,
+   294.18115234375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c110"
+ },
+ {
+  "item_id": "c226",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c226"
+  ],
+  "object_id": "c226",
+  "category": "door handle",
+  "center": [
+   -2.85759692955755,
+   0.7333620025440272,
+   1.1089733439881222
+  ],
+  "yaw": 0.6143614367873891,
+  "size": [
+   0.09094198310331891,
+   0.03410846417434277,
+   0.072137073701241
+  ],
+  "confidence": 0.66796875,
+  "source": "clean",
+  "score": 0.66796875,
+  "best_frame": 277,
+  "bbox2d_xyxy": [
+   470.93603515625,
+   424.2613525390625,
+   508.68548583984375,
+   456.1331787109375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c227",
+  "label": "cable",
+  "alt_labels": [
+   "string light"
+  ],
+  "n_members": 2,
+  "members": [
+   "c227",
+   "c272"
+  ],
+  "object_id": "c227",
+  "category": "cable",
+  "center": [
+   -2.8859839630726367,
+   -2.0910798369490244,
+   0.8099618654166427
+  ],
+  "yaw": -0.03108862661828704,
+  "size": [
+   0.6985670031408149,
+   0.2857701687950036,
+   0.8935613564249012
+  ],
+  "confidence": 0.66796875,
+  "source": "clean",
+  "score": 0.66796875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   0.78515625,
+   -4.018180847167969,
+   610.5072631835938,
+   655.1534423828125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c228",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c228"
+  ],
+  "object_id": "c228",
+  "category": "string light",
+  "center": [
+   -2.8055254550322863,
+   -2.178874566466247,
+   0.879161798526566
+  ],
+  "yaw": 0.703391187106865,
+  "size": [
+   0.07192240657627469,
+   0.04703865102668368,
+   0.05210709562105741
+  ],
+  "confidence": 0.66796875,
+  "source": "clean",
+  "score": 0.66796875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   165.67027282714844,
+   329.3175048828125,
+   210.1001739501953,
+   345.0295104980469
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c024"
+ },
+ {
+  "item_id": "c233",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c233"
+  ],
+  "object_id": "c233",
+  "category": "string light",
+  "center": [
+   -2.6012919614510857,
+   -2.128390388182375,
+   0.8720349157421692
+  ],
+  "yaw": -2.2233630075185427,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.6640625,
+  "source": "clean",
+  "score": 0.6640625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   84.46526336669922,
+   480.75750732421875,
+   98.99315643310547,
+   522.1257934570312
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "same_size_group": "string light",
+  "settled_on": "c024"
+ },
+ {
+  "item_id": "c236",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c236"
+  ],
+  "object_id": "c236",
+  "category": "cable",
+  "center": [
+   -1.2765721422661496,
+   1.2172035811142545,
+   0.032169462472767085
+  ],
+  "yaw": -2.108023259148869,
+  "size": [
+   0.05101496978666225,
+   0.025145809088069185,
+   0.06433892494553417
+  ],
+  "confidence": 0.66015625,
+  "source": "clean",
+  "score": 0.66015625,
+  "best_frame": 246,
+  "bbox2d_xyxy": [
+   757.8034057617188,
+   739.6690063476562,
+   777.7103881835938,
+   770.2080078125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c241",
+  "label": "power outlet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c241"
+  ],
+  "object_id": "c241",
+  "category": "power outlet",
+  "center": [
+   2.3056160198105786,
+   1.5695057603804983,
+   1.5467801002921377
+  ],
+  "yaw": 1.4797410075190722,
+  "size": [
+   0.029491031625008986,
+   0.012806471883592963,
+   0.09458016402194214
+  ],
+  "confidence": 0.66015625,
+  "source": "clean",
+  "score": 0.66015625,
+  "best_frame": 863,
+  "bbox2d_xyxy": [
+   -0.9188218116760254,
+   274.11749267578125,
+   10.695024490356445,
+   317.7020263671875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c205"
+ },
+ {
+  "item_id": "c242",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c242"
+  ],
+  "object_id": "c242",
+  "category": "cable",
+  "center": [
+   -0.6815225199780874,
+   1.2806500709893176,
+   0.2983405579111593
+  ],
+  "yaw": 3.086082006215735,
+  "size": [
+   0.10971492673744333,
+   0.042172586247961386,
+   0.16367002744351833
+  ],
+  "confidence": 0.65625,
+  "source": "clean",
+  "score": 0.65625,
+  "best_frame": 62,
+  "bbox2d_xyxy": [
+   0.49391937255859375,
+   431.0629577636719,
+   26.6453800201416,
+   487.58111572265625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c243",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c243"
+  ],
+  "object_id": "c243",
+  "category": "string light",
+  "center": [
+   -3.2885237798550047,
+   -1.8801272491690544,
+   0.802600805253114
+  ],
+  "yaw": 1.6452261837386262,
+  "size": [
+   0.012041454853668032,
+   0.02802905829686564,
+   0.010354176128160364
+  ],
+  "confidence": 0.65625,
+  "source": "clean",
+  "score": 0.65625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   565.449462890625,
+   272.260498046875,
+   575.213134765625,
+   284.5237121582031
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c249",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c249"
+  ],
+  "object_id": "c249",
+  "category": "plug",
+  "center": [
+   -1.1220278824688943,
+   1.5697357661339044,
+   0.026446465283599896
+  ],
+  "yaw": 0.9087600331200285,
+  "size": [
+   0.0606345639960848,
+   0.07641004816992081,
+   0.05289293056719979
+  ],
+  "confidence": 0.65234375,
+  "source": "clean",
+  "score": 0.65234375,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   320.04046630859375,
+   628.9318237304688,
+   354.59625244140625,
+   662.8953857421875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "same_size_group": "plug",
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c255",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c255"
+  ],
+  "object_id": "c255",
+  "category": "string light",
+  "center": [
+   -2.7416924561474136,
+   -2.18667858803652,
+   0.874107644268469
+  ],
+  "yaw": -2.2157619502299446,
+  "size": [
+   0.057300763830345325,
+   0.028527557515345303,
+   0.04199878710486349
+  ],
+  "confidence": 0.6484375,
+  "source": "clean",
+  "score": 0.6484375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   94.74723815917969,
+   259.1545104980469,
+   125.74995422363281,
+   291.2519836425781
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c024"
+ },
+ {
+  "item_id": "c256",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c256"
+  ],
+  "object_id": "c256",
+  "category": "string light",
+  "center": [
+   -1.9294521784314327,
+   -2.22176702733815,
+   1.1382809303659742
+  ],
+  "yaw": -0.9145873720560278,
+  "size": [
+   0.03664957430358917,
+   0.01,
+   0.029693393077240504
+  ],
+  "confidence": 0.6484375,
+  "source": "clean",
+  "score": 0.6484375,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   664.7176513671875,
+   198.9041290283203,
+   673.797119140625,
+   214.64730834960938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c257",
+  "label": "plate",
+  "alt_labels": [
+   "bowl"
+  ],
+  "n_members": 2,
+  "members": [
+   "c257",
+   "c341"
+  ],
+  "object_id": "c257",
+  "category": "plate",
+  "center": [
+   2.368250437394615,
+   -0.25498894180181914,
+   1.2543239210158843
+  ],
+  "yaw": 1.653266912562752,
+  "size": [
+   0.13656120659313975,
+   0.026548423223485162,
+   0.07150028763067873
+  ],
+  "confidence": 0.6484375,
+  "source": "clean",
+  "score": 0.6484375,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   26.49642562866211,
+   233.16847229003906,
+   83.62471008300781,
+   265.07232666015625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c341"
+ },
+ {
+  "item_id": "c258",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c258"
+  ],
+  "object_id": "c258",
+  "category": "ceiling light",
+  "center": [
+   0.2177438992606099,
+   -0.0829964974065234,
+   2.4775592025186497
+  ],
+  "yaw": 0.7205080837881361,
+  "size": [
+   0.1405644744029979,
+   0.04922836595208522,
+   0.04693952605774232
+  ],
+  "confidence": 0.6484375,
+  "source": "clean",
+  "score": 0.6484375,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   410.7164306640625,
+   52.691375732421875,
+   443.39691162109375,
+   84.84664916992188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c108"
+ },
+ {
+  "item_id": "c260",
+  "label": "shelf",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c260"
+  ],
+  "object_id": "c260",
+  "category": "shelf",
+  "center": [
+   0.8349166481799164,
+   1.6613637737909224,
+   1.248036060266473
+  ],
+  "yaw": 0.762336707161476,
+  "size": [
+   0.08474820221531387,
+   0.02062571363947452,
+   0.01430685971208434
+  ],
+  "confidence": 0.64453125,
+  "source": "clean",
+  "score": 0.64453125,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   905.8148803710938,
+   34.48008346557617,
+   1027.660400390625,
+   59.680274963378906
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c261",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c261"
+  ],
+  "object_id": "c261",
+  "category": "string light",
+  "center": [
+   -3.2922703908592483,
+   -1.8361527121450802,
+   0.5435574100873554
+  ],
+  "yaw": -2.7886863017263233,
+  "size": [
+   0.04049091210512289,
+   0.020223611044040114,
+   0.010191196241308364
+  ],
+  "confidence": 0.64453125,
+  "source": "clean",
+  "score": 0.64453125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   574.060546875,
+   438.03717041015625,
+   584.603515625,
+   451.6435546875
+  ],
+  "n_frames": 3,
+  "det_sources": [
+   "full",
+   "tile"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c264",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c264"
+  ],
+  "object_id": "c264",
+  "category": "string light",
+  "center": [
+   -3.2784981705619196,
+   -2.0713620529230687,
+   0.8602427291983294
+  ],
+  "yaw": 0.5149680107094858,
+  "size": [
+   0.22981650295695474,
+   0.03480019354708702,
+   0.11263875265856615
+  ],
+  "confidence": 0.640625,
+  "source": "clean",
+  "score": 0.640625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   441.09759521484375,
+   205.22628784179688,
+   471.32012939453125,
+   220.484375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c270",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c270"
+  ],
+  "object_id": "c270",
+  "category": "plug",
+  "center": [
+   -1.3589757353865657,
+   1.2211221067833533,
+   0.041930684931028805
+  ],
+  "yaw": -1.580514230238546,
+  "size": [
+   0.09226654619729291,
+   0.028838791227213223,
+   0.08386136986205761
+  ],
+  "confidence": 0.63671875,
+  "source": "clean",
+  "score": 0.63671875,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   126.96475982666016,
+   650.9960327148438,
+   164.72120666503906,
+   684.5036010742188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c273",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c273"
+  ],
+  "object_id": "c273",
+  "category": "string light",
+  "center": [
+   -2.7575234773345567,
+   -2.104134884545218,
+   0.6792850752010053
+  ],
+  "yaw": -2.5952973836549793,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.63671875,
+  "source": "clean",
+  "score": 0.63671875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   233.53445434570312,
+   506.3127136230469,
+   246.19342041015625,
+   529.0713500976562
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "string light",
+  "settled_on": null
+ },
+ {
+  "item_id": "c275",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c275"
+  ],
+  "object_id": "c275",
+  "category": "string light",
+  "center": [
+   -2.034463563145439,
+   -2.248267977928136,
+   1.1420186837353759
+  ],
+  "yaw": -0.01592514497440245,
+  "size": [
+   0.03240843432533769,
+   0.01,
+   0.05672163865283842
+  ],
+  "confidence": 0.63671875,
+  "source": "clean",
+  "score": 0.63671875,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   703.6190795898438,
+   232.76275634765625,
+   720.9747924804688,
+   259.3239440917969
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c141"
+ },
+ {
+  "item_id": "c279",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c279"
+  ],
+  "object_id": "c279",
+  "category": "plug",
+  "center": [
+   -1.2028069500014038,
+   1.4054997190693856,
+   0.07389914278119958
+  ],
+  "yaw": -0.535120608581475,
+  "size": [
+   0.06695879381984193,
+   0.05754625840241146,
+   0.022565161090865926
+  ],
+  "confidence": 0.6328125,
+  "source": "clean",
+  "score": 0.6328125,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   259.1164245605469,
+   674.41162109375,
+   284.7951354980469,
+   698.426025390625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "c144"
+ },
+ {
+  "item_id": "c280",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c280"
+  ],
+  "object_id": "c280",
+  "category": "string light",
+  "center": [
+   -3.141297367017657,
+   -1.9852809635419508,
+   0.7932133884778919
+  ],
+  "yaw": 1.3444081931506888,
+  "size": [
+   0.02009539676278216,
+   0.01,
+   0.011621874267492949
+  ],
+  "confidence": 0.6328125,
+  "source": "clean",
+  "score": 0.6328125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   461.32501220703125,
+   306.7027282714844,
+   471.8734130859375,
+   317.6914367675781
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c282",
+  "label": "rug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c282"
+  ],
+  "object_id": "c282",
+  "category": "rug",
+  "center": [
+   0.8260163001259063,
+   -1.578540917399443,
+   0.08511614277525059
+  ],
+  "yaw": 1.573464131730585,
+  "size": [
+   0.2945786090788842,
+   0.10390644604735244,
+   0.12761712853878882
+  ],
+  "confidence": 0.6328125,
+  "source": "clean",
+  "score": 0.6328125,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   754.4816284179688,
+   720.3477783203125,
+   809.5267944335938,
+   767.81005859375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "c004"
+ },
+ {
+  "item_id": "c286",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c286"
+  ],
+  "object_id": "c286",
+  "category": "string light",
+  "center": [
+   -3.306866929259743,
+   -1.923337741857191,
+   0.8512758018663312
+  ],
+  "yaw": 0.27401441424816575,
+  "size": [
+   0.08982280011602173,
+   0.01,
+   0.04354944406226979
+  ],
+  "confidence": 0.62890625,
+  "source": "clean",
+  "score": 0.62890625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   546.5060424804688,
+   232.79525756835938,
+   555.1224975585938,
+   242.17694091796875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c288",
+  "label": "mirror",
+  "alt_labels": [
+   "picture frame"
+  ],
+  "n_members": 2,
+  "members": [
+   "c288",
+   "c360"
+  ],
+  "object_id": "c288",
+  "category": "mirror",
+  "center": [
+   2.1677936913381584,
+   -1.1176930588324616,
+   1.7360566524672831
+  ],
+  "yaw": -1.5623840915407192,
+  "size": [
+   1.0581867750389216,
+   0.0580080066833939,
+   0.19458604621816855
+  ],
+  "confidence": 0.62890625,
+  "source": "clean",
+  "score": 0.62890625,
+  "best_frame": 770,
+  "bbox2d_xyxy": [
+   -3.482086181640625,
+   678.6557006835938,
+   439.3222961425781,
+   770.381103515625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c292",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c292"
+  ],
+  "object_id": "c292",
+  "category": "cable",
+  "center": [
+   -0.8966976707053721,
+   1.8039740415469254,
+   0.25935801844137923
+  ],
+  "yaw": 0.18216233793782566,
+  "size": [
+   0.10071664936152258,
+   0.04466554354152774,
+   0.31169988929982373
+  ],
+  "confidence": 0.625,
+  "source": "clean",
+  "score": 0.625,
+  "best_frame": 216,
+  "bbox2d_xyxy": [
+   337.7304992675781,
+   493.3409423828125,
+   386.3211364746094,
+   604.9917602539062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "c344"
+ },
+ {
+  "item_id": "c293",
+  "label": "ceiling light",
+  "alt_labels": [
+   "string light"
+  ],
+  "n_members": 2,
+  "members": [
+   "c293",
+   "c396"
+  ],
+  "object_id": "c293",
+  "category": "ceiling light",
+  "center": [
+   0.4115003952789521,
+   -0.16946139350953704,
+   2.2834857979393113
+  ],
+  "yaw": 1.469328439062993,
+  "size": [
+   0.030014835351170988,
+   0.054339029893553104,
+   0.032377780509951215
+  ],
+  "confidence": 0.625,
+  "source": "clean",
+  "score": 0.625,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   374.8063049316406,
+   437.5978088378906,
+   399.3066711425781,
+   454.19256591796875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c295",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c295"
+  ],
+  "object_id": "c295",
+  "category": "ceiling light",
+  "center": [
+   0.1461982877624737,
+   -0.17161021878532393,
+   2.298602476012577
+  ],
+  "yaw": 0.7581902128522229,
+  "size": [
+   0.05521005692447763,
+   0.02559944558562166,
+   0.035358053647629895
+  ],
+  "confidence": 0.625,
+  "source": "clean",
+  "score": 0.625,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   403.7054138183594,
+   149.74169921875,
+   422.5291442871094,
+   171.33604431152344
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c296",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c296"
+  ],
+  "object_id": "c296",
+  "category": "ceiling light",
+  "center": [
+   0.17635072626077847,
+   -0.4668694486622343,
+   2.348305022057214
+  ],
+  "yaw": 0.9167505651122525,
+  "size": [
+   0.20586420157076724,
+   0.027613347886207062,
+   0.08170299202877462
+  ],
+  "confidence": 0.625,
+  "source": "clean",
+  "score": 0.625,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   271.1296691894531,
+   155.3340606689453,
+   287.9455261230469,
+   171.0576171875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c297",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c297"
+  ],
+  "object_id": "c297",
+  "category": "cable",
+  "center": [
+   -1.0366419442999968,
+   1.520213008937458,
+   0.05406024025306244
+  ],
+  "yaw": -2.452825248771147,
+  "size": [
+   0.36465473390466197,
+   0.2975376972952001,
+   0.10812048050612488
+  ],
+  "confidence": 0.62109375,
+  "source": "clean",
+  "score": 0.62109375,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   202.44529724121094,
+   542.5269165039062,
+   408.0616455078125,
+   728.0016479492188
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full",
+   "tile"
+  ],
+  "n_views": 6,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c304",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c304"
+  ],
+  "object_id": "c304",
+  "category": "ceiling light",
+  "center": [
+   0.43237402050060497,
+   -0.51714047508819,
+   2.3345617981378997
+  ],
+  "yaw": -2.2256244277491954,
+  "size": [
+   0.0861998735401782,
+   0.05559969144997767,
+   0.04317232563449558
+  ],
+  "confidence": 0.62109375,
+  "source": "clean",
+  "score": 0.62109375,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   114.72216033935547,
+   113.69588470458984,
+   153.5547332763672,
+   137.57762145996094
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c308",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c308"
+  ],
+  "object_id": "c308",
+  "category": "string light",
+  "center": [
+   -3.2381550284372516,
+   -1.7625664596089918,
+   0.5434618119667012
+  ],
+  "yaw": 0.9574711858094487,
+  "size": [
+   0.02469571201633869,
+   0.021599852416977372,
+   0.01
+  ],
+  "confidence": 0.6171875,
+  "source": "clean",
+  "score": 0.6171875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   601.62646484375,
+   471.0447692871094,
+   613.76123046875,
+   482.6861572265625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c309",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c309"
+  ],
+  "object_id": "c309",
+  "category": "string light",
+  "center": [
+   -2.858726322135199,
+   -2.097697632672238,
+   0.8641836314910454
+  ],
+  "yaw": 0.13003807872644213,
+  "size": [
+   0.06288531792422924,
+   0.01815186079454212,
+   0.04250649380850513
+  ],
+  "confidence": 0.6171875,
+  "source": "clean",
+  "score": 0.6171875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   260.5850830078125,
+   374.3185729980469,
+   296.1339111328125,
+   387.94659423828125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c008"
+ },
+ {
+  "item_id": "c310",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c310"
+  ],
+  "object_id": "c310",
+  "category": "string light",
+  "center": [
+   -3.023798841983775,
+   -1.9814037433986114,
+   0.5448346569667627
+  ],
+  "yaw": 1.178200603695574,
+  "size": [
+   0.032053822336573834,
+   0.014400287797305289,
+   0.012745690000123044
+  ],
+  "confidence": 0.6171875,
+  "source": "clean",
+  "score": 0.6171875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   424.57415771484375,
+   516.0147705078125,
+   437.6014404296875,
+   526.5675048828125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c311",
+  "label": "power outlet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c311"
+  ],
+  "object_id": "c311",
+  "category": "power outlet",
+  "center": [
+   -0.40268497719218743,
+   1.4893599347072652,
+   0.596279786834093
+  ],
+  "yaw": -3.062457109386936,
+  "size": [
+   0.2730486866931642,
+   0.01,
+   0.13382838075185688
+  ],
+  "confidence": 0.61328125,
+  "source": "clean",
+  "score": 0.61328125,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   277.5928955078125,
+   193.00076293945312,
+   327.04510498046875,
+   229.0181121826172
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "c107"
+ },
+ {
+  "item_id": "c314",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c314"
+  ],
+  "object_id": "c314",
+  "category": "string light",
+  "center": [
+   -2.8290250131716803,
+   -2.1136572040152086,
+   0.3605732743150274
+  ],
+  "yaw": -0.03980220474815699,
+  "size": [
+   0.019747694358577483,
+   0.01,
+   0.031552068303283054
+  ],
+  "confidence": 0.61328125,
+  "source": "clean",
+  "score": 0.61328125,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   1015.7861938476562,
+   664.4822998046875,
+   1022.1494750976562,
+   680.41259765625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": "c158"
+ },
+ {
+  "item_id": "c315",
+  "label": "power strip",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c315"
+  ],
+  "object_id": "c315",
+  "category": "power strip",
+  "center": [
+   1.7179299770293373,
+   -2.108215422763382,
+   0.04456224096268613
+  ],
+  "yaw": 2.142920151930743,
+  "size": [
+   0.2131876671414874,
+   0.08078504311580459,
+   0.033374590362077905
+  ],
+  "confidence": 0.61328125,
+  "source": "clean",
+  "score": 0.61328125,
+  "best_frame": 616,
+  "bbox2d_xyxy": [
+   903.5789794921875,
+   270.4079284667969,
+   951.7763671875,
+   296.5556335449219
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c053"
+ },
+ {
+  "item_id": "c319",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c319"
+  ],
+  "object_id": "c319",
+  "category": "door handle",
+  "center": [
+   -2.937555213103844,
+   2.8262701832636465,
+   0.9249708526452272
+  ],
+  "yaw": -1.6118852679901658,
+  "size": [
+   0.2811804744654367,
+   0.012032288696363302,
+   0.07217523049725738
+  ],
+  "confidence": 0.609375,
+  "source": "clean",
+  "score": 0.609375,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   18.862062454223633,
+   142.80621337890625,
+   49.12200164794922,
+   165.92398071289062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": "c391"
+ },
+ {
+  "item_id": "c320",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c320"
+  ],
+  "object_id": "c320",
+  "category": "string light",
+  "center": [
+   -2.7308022395094014,
+   -2.124482370659339,
+   0.8581082507160372
+  ],
+  "yaw": 1.075791927463988,
+  "size": [
+   0.017733716712630354,
+   0.012553771492327614,
+   0.01
+  ],
+  "confidence": 0.609375,
+  "source": "clean",
+  "score": 0.609375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   177.72706604003906,
+   411.5052490234375,
+   191.49159240722656,
+   423.97900390625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c024"
+ },
+ {
+  "item_id": "c321",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c321"
+  ],
+  "object_id": "c321",
+  "category": "string light",
+  "center": [
+   -3.1386582441026616,
+   -1.7859788889592905,
+   0.5435152578339387
+  ],
+  "yaw": 1.0455917014551854,
+  "size": [
+   0.03993479133646264,
+   0.020430725856856628,
+   0.01010689173447511
+  ],
+  "confidence": 0.609375,
+  "source": "clean",
+  "score": 0.609375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   568.286376953125,
+   506.3134460449219,
+   582.17724609375,
+   521.634033203125
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c323",
+  "label": "window blind",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c323"
+  ],
+  "object_id": "c323",
+  "category": "window blind",
+  "center": [
+   1.0450874837957433,
+   -2.298820206019292,
+   1.9255625162754946
+  ],
+  "yaw": 3.1261442762908835,
+  "size": [
+   0.8979285807520847,
+   0.11917349015130796,
+   0.5287850009225075
+  ],
+  "confidence": 0.609375,
+  "source": "clean",
+  "score": 0.609375,
+  "best_frame": 770,
+  "bbox2d_xyxy": [
+   751.2467651367188,
+   157.34298706054688,
+   1025.473388671875,
+   767.6383666992188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 0,
+  "settled_on": null
+ },
+ {
+  "item_id": "c324",
+  "label": "bowl",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c324"
+  ],
+  "object_id": "c324",
+  "category": "bowl",
+  "center": [
+   2.3611152690829496,
+   -0.15624593091523667,
+   1.229228790037984
+  ],
+  "yaw": 1.5472180240359652,
+  "size": [
+   0.05989764615436995,
+   0.02914952491217626,
+   0.07906947795367447
+  ],
+  "confidence": 0.609375,
+  "source": "clean",
+  "score": 0.609375,
+  "best_frame": 893,
+  "bbox2d_xyxy": [
+   -1.9449748992919922,
+   229.82899475097656,
+   24.61827850341797,
+   268.83746337890625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c114"
+ },
+ {
+  "item_id": "c326",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c326"
+  ],
+  "object_id": "c326",
+  "category": "door handle",
+  "center": [
+   -2.0085805875588516,
+   2.1003078491132157,
+   0.734946284691047
+  ],
+  "yaw": 1.6529782239566781,
+  "size": [
+   0.25614683742134314,
+   0.019042716868270304,
+   0.13897940659610075
+  ],
+  "confidence": 0.60546875,
+  "source": "clean",
+  "score": 0.60546875,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   363.6003723144531,
+   222.19384765625,
+   388.0362854003906,
+   252.0086669921875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c327",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c327"
+  ],
+  "object_id": "c327",
+  "category": "string light",
+  "center": [
+   -2.848155021862649,
+   -2.1189357949025243,
+   1.1792371888075448
+  ],
+  "yaw": 0.028198941835301472,
+  "size": [
+   1.686206024991866,
+   0.275158574021672,
+   1.7242768894292912
+  ],
+  "confidence": 0.60546875,
+  "source": "clean",
+  "score": 0.60546875,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   372.67236328125,
+   406.926513671875,
+   547.9562377929688,
+   748.21533203125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c328",
+  "label": "picture frame",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c328"
+  ],
+  "object_id": "c328",
+  "category": "picture frame",
+  "center": [
+   1.9152053216856049,
+   -0.23735432382180482,
+   2.1142114796595006
+  ],
+  "yaw": 1.4933680729330518,
+  "size": [
+   0.9794735534092684,
+   0.04106416812187996,
+   0.213693781522744
+  ],
+  "confidence": 0.6015625,
+  "source": "clean",
+  "score": 0.6015625,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   152.21139526367188,
+   688.4327392578125,
+   509.4381408691406,
+   768.7080078125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c329",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c329"
+  ],
+  "object_id": "c329",
+  "category": "ceiling light",
+  "center": [
+   0.3237221536006422,
+   -0.03466763687827281,
+   2.3599626210953013
+  ],
+  "yaw": -0.04755862605421379,
+  "size": [
+   0.06897507541629416,
+   0.03055863958517881,
+   0.03780997257411922
+  ],
+  "confidence": 0.6015625,
+  "source": "clean",
+  "score": 0.6015625,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   277.07135009765625,
+   347.21533203125,
+   304.74273681640625,
+   370.2839050292969
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c330",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c330"
+  ],
+  "object_id": "c330",
+  "category": "string light",
+  "center": [
+   -1.9567245578502288,
+   -2.201925206039097,
+   1.2579681601863486
+  ],
+  "yaw": -0.13632844031322433,
+  "size": [
+   0.01800437192886517,
+   0.01,
+   0.02750285494981131
+  ],
+  "confidence": 0.6015625,
+  "source": "clean",
+  "score": 0.6015625,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   685.5924682617188,
+   141.9783935546875,
+   694.5098266601562,
+   157.06655883789062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c331",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c331"
+  ],
+  "object_id": "c331",
+  "category": "string light",
+  "center": [
+   -2.5638453151091634,
+   -2.247333042861915,
+   0.8745320677670029
+  ],
+  "yaw": -0.009647705972448684,
+  "size": [
+   0.0178164780944865,
+   0.01,
+   0.03818722570419997
+  ],
+  "confidence": 0.6015625,
+  "source": "clean",
+  "score": 0.6015625,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   944.3130493164062,
+   377.4594421386719,
+   956.2566528320312,
+   395.85296630859375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c334",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c334"
+  ],
+  "object_id": "c334",
+  "category": "plug",
+  "center": [
+   -1.1933037758883713,
+   1.3459965331246646,
+   0.026446465283599896
+  ],
+  "yaw": 2.7730929098107833,
+  "size": [
+   0.07641004816992081,
+   0.0606345639960848,
+   0.05289293056719979
+  ],
+  "confidence": 0.59765625,
+  "source": "clean",
+  "score": 0.59765625,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   368.2828063964844,
+   617.1505737304688,
+   395.6543884277344,
+   652.7470092773438
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "same_size_group": "plug",
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c335",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c335"
+  ],
+  "object_id": "c335",
+  "category": "cable",
+  "center": [
+   -1.179199903637144,
+   1.616604783515928,
+   0.050565018545732365
+  ],
+  "yaw": -0.6542615900995781,
+  "size": [
+   0.14924386029248726,
+   0.11842142129545376,
+   0.10113003709146473
+  ],
+  "confidence": 0.59765625,
+  "source": "clean",
+  "score": 0.59765625,
+  "best_frame": 216,
+  "bbox2d_xyxy": [
+   198.08282470703125,
+   668.90380859375,
+   255.63519287109375,
+   701.3366088867188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c337",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c337"
+  ],
+  "object_id": "c337",
+  "category": "ceiling light",
+  "center": [
+   0.21310052980518254,
+   -0.5823716272615085,
+   2.295031971017619
+  ],
+  "yaw": 2.5638414779007555,
+  "size": [
+   0.0557282095615696,
+   0.021474676983412322,
+   0.03785333005226388
+  ],
+  "confidence": 0.59765625,
+  "source": "clean",
+  "score": 0.59765625,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   713.0352783203125,
+   370.81121826171875,
+   732.615478515625,
+   392.87884521484375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c339",
+  "label": "pillow",
+  "alt_labels": [
+   "throw pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c339",
+   "c376"
+  ],
+  "object_id": "c339",
+  "category": "pillow",
+  "center": [
+   1.689091839733456,
+   -0.06990649438646092,
+   0.4346989094398488
+  ],
+  "yaw": -1.141844216890242,
+  "size": [
+   0.39038672014203446,
+   0.12955130191762243,
+   0.0913512082370177
+  ],
+  "confidence": 0.59765625,
+  "source": "clean",
+  "score": 0.59765625,
+  "best_frame": 647,
+  "bbox2d_xyxy": [
+   -0.13320159912109375,
+   111.48387908935547,
+   126.53500366210938,
+   196.24154663085938
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": null
+ },
+ {
+  "item_id": "c340",
+  "label": "plate",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c340"
+  ],
+  "object_id": "c340",
+  "category": "plate",
+  "center": [
+   0.47602418334365765,
+   -0.9590846572221767,
+   0.6173786522732848
+  ],
+  "yaw": 1.1423951754529487,
+  "size": [
+   0.15881610102270577,
+   0.03399690684058104,
+   0.028727818009752656
+  ],
+  "confidence": 0.59765625,
+  "source": "clean",
+  "score": 0.59765625,
+  "best_frame": 647,
+  "bbox2d_xyxy": [
+   642.655029296875,
+   153.51487731933594,
+   714.6185302734375,
+   170.17724609375
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "tile"
+  ],
+  "n_views": 4,
+  "settled_on": "c085"
+ },
+ {
+  "item_id": "c343",
+  "label": "clock",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c343"
+  ],
+  "object_id": "c343",
+  "category": "clock",
+  "center": [
+   0.4221499165065671,
+   1.4111194417159951,
+   0.5312913145178321
+  ],
+  "yaw": -3.0286201836164466,
+  "size": [
+   0.12357873080237125,
+   0.13925417338456447,
+   0.119873154700333
+  ],
+  "confidence": 0.58984375,
+  "source": "clean",
+  "score": 0.58984375,
+  "best_frame": 62,
+  "bbox2d_xyxy": [
+   456.52606201171875,
+   460.7581787109375,
+   521.7399291992188,
+   549.89501953125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c055"
+ },
+ {
+  "item_id": "c344",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c344"
+  ],
+  "object_id": "c344",
+  "category": "cable",
+  "center": [
+   -0.9611685494781179,
+   1.7610214356695937,
+   0.051754036895733685
+  ],
+  "yaw": 0.19323906854073503,
+  "size": [
+   0.2245730044183763,
+   0.07763331548886185,
+   0.10350807379146737
+  ],
+  "confidence": 0.58984375,
+  "source": "clean",
+  "score": 0.58984375,
+  "best_frame": 216,
+  "bbox2d_xyxy": [
+   295.1042366027832,
+   625.5408935546875,
+   383.2812042236328,
+   639.150390625
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "tile"
+  ],
+  "n_views": 6,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c345",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c345"
+  ],
+  "object_id": "c345",
+  "category": "string light",
+  "center": [
+   -2.741925479514144,
+   -2.1691799387241044,
+   0.8581082507160372
+  ],
+  "yaw": 1.1747236200391233,
+  "size": [
+   0.025247369870645464,
+   0.01127133021039417,
+   0.01
+  ],
+  "confidence": 0.58984375,
+  "source": "clean",
+  "score": 0.58984375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   153.51358032226562,
+   396.6566162109375,
+   165.67095947265625,
+   407.26007080078125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c024"
+ },
+ {
+  "item_id": "c346",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c346"
+  ],
+  "object_id": "c346",
+  "category": "string light",
+  "center": [
+   -2.712054786302613,
+   -2.1883460400635433,
+   1.2660133647292096
+  ],
+  "yaw": 0.9824095233414232,
+  "size": [
+   0.04104714460923242,
+   0.029790367411080432,
+   0.018541642200232467
+  ],
+  "confidence": 0.58984375,
+  "source": "clean",
+  "score": 0.58984375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   -1.4342460632324219,
+   49.78135299682617,
+   35.836517333984375,
+   68.9674072265625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c227"
+ },
+ {
+  "item_id": "c349",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c349"
+  ],
+  "object_id": "c349",
+  "category": "string light",
+  "center": [
+   -2.6283750801617565,
+   -2.125994115664575,
+   0.8613205251840106
+  ],
+  "yaw": -1.7410944905106467,
+  "size": [
+   0.07113111360772839,
+   0.03172364978536457,
+   0.01642454893594658
+  ],
+  "confidence": 0.58984375,
+  "source": "clean",
+  "score": 0.58984375,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   980.6639404296875,
+   417.97186279296875,
+   1000.2894287109375,
+   447.44122314453125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": "c024"
+ },
+ {
+  "item_id": "c350",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c350"
+  ],
+  "object_id": "c350",
+  "category": "cable",
+  "center": [
+   1.7710166591160326,
+   -2.1233424379624757,
+   0.07513829914173542
+  ],
+  "yaw": -1.5108039907059378,
+  "size": [
+   0.124944978056853,
+   0.13029999379934298,
+   0.02777752599602068
+  ],
+  "confidence": 0.58984375,
+  "source": "clean",
+  "score": 0.58984375,
+  "best_frame": 801,
+  "bbox2d_xyxy": [
+   752.912841796875,
+   459.608154296875,
+   807.847412109375,
+   503.17462158203125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c315"
+ },
+ {
+  "item_id": "c354",
+  "label": "doormat",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c354"
+  ],
+  "object_id": "c354",
+  "category": "doormat",
+  "center": [
+   3.2279368787890927,
+   2.067201299844949,
+   0.0461633356615625
+  ],
+  "yaw": -2.9007050939571255,
+  "size": [
+   0.26143937712605325,
+   0.15269955416109404,
+   0.092326671323125
+  ],
+  "confidence": 0.5859375,
+  "source": "clean",
+  "score": 0.5859375,
+  "best_frame": 185,
+  "bbox2d_xyxy": [
+   944.3428344726562,
+   383.7530517578125,
+   983.1414184570312,
+   409.103515625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c356",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c356"
+  ],
+  "object_id": "c356",
+  "category": "string light",
+  "center": [
+   -3.1090160584562927,
+   -2.0245929953767505,
+   0.5968448036818337
+  ],
+  "yaw": 0.9088957737827137,
+  "size": [
+   0.03014529987322634,
+   0.01,
+   0.01721208243637684
+  ],
+  "confidence": 0.5859375,
+  "source": "clean",
+  "score": 0.5859375,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   426.3162536621094,
+   342.48944091796875,
+   437.4336853027344,
+   353.19549560546875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c090"
+ },
+ {
+  "item_id": "c357",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c357"
+  ],
+  "object_id": "c357",
+  "category": "ceiling light",
+  "center": [
+   0.04945188352211895,
+   -0.18607033229009934,
+   2.3571346291914708
+  ],
+  "yaw": 3.0008883640461326,
+  "size": [
+   0.04661919899593078,
+   0.02377255116326263,
+   0.044636258192018996
+  ],
+  "confidence": 0.5859375,
+  "source": "clean",
+  "score": 0.5859375,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   439.3523864746094,
+   210.31039428710938,
+   464.2383117675781,
+   244.99102783203125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c362",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c362"
+  ],
+  "object_id": "c362",
+  "category": "ceiling light",
+  "center": [
+   -2.3761801699962266,
+   -0.8623753913364272,
+   2.414052303473105
+  ],
+  "yaw": -1.6206780270463395,
+  "size": [
+   0.6356795963832325,
+   0.37436905822253586,
+   0.015963748974145986
+  ],
+  "confidence": 0.5859375,
+  "source": "clean",
+  "score": 0.5859375,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   599.38623046875,
+   341.0327453613281,
+   719.133544921875,
+   357.7291259765625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": null
+ },
+ {
+  "item_id": "c366",
+  "label": "plate",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c366"
+  ],
+  "object_id": "c366",
+  "category": "plate",
+  "center": [
+   0.48362196645853694,
+   -0.9483216934166764,
+   0.582793360167857
+  ],
+  "yaw": 1.0888255914295328,
+  "size": [
+   0.13694876597467795,
+   0.02573303698139488,
+   0.02096720978824335
+  ],
+  "confidence": 0.58203125,
+  "source": "clean",
+  "score": 0.58203125,
+  "best_frame": 647,
+  "bbox2d_xyxy": [
+   641.7315063476562,
+   165.7576904296875,
+   709.099365234375,
+   178.86343383789062
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "tile"
+  ],
+  "n_views": 4,
+  "settled_on": "c182"
+ },
+ {
+  "item_id": "c369",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c369"
+  ],
+  "object_id": "c369",
+  "category": "cable",
+  "center": [
+   -0.8537865718179218,
+   1.661632762555006,
+   0.33630402396928305
+  ],
+  "yaw": -0.6446534042217764,
+  "size": [
+   0.31619832285621063,
+   0.044450278416514166,
+   0.15777155442568724
+  ],
+  "confidence": 0.578125,
+  "source": "clean",
+  "score": 0.578125,
+  "best_frame": 62,
+  "bbox2d_xyxy": [
+   63.45618438720703,
+   334.080078125,
+   89.55457305908203,
+   351.4159851074219
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c370",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c370"
+  ],
+  "object_id": "c370",
+  "category": "plug",
+  "center": [
+   -1.1769786124760395,
+   1.4624642999917865,
+   0.07505373866128873
+  ],
+  "yaw": -0.7652991774806432,
+  "size": [
+   0.07899910217792905,
+   0.05812105211922719,
+   0.024874352851044224
+  ],
+  "confidence": 0.578125,
+  "source": "clean",
+  "score": 0.578125,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   280.5198059082031,
+   661.9029541015625,
+   306.9911804199219,
+   686.4459838867188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "c144"
+ },
+ {
+  "item_id": "c371",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c371"
+  ],
+  "object_id": "c371",
+  "category": "plug",
+  "center": [
+   -1.159713849386832,
+   1.3832954909156019,
+   0.13456694578972478
+  ],
+  "yaw": 2.669860428111651,
+  "size": [
+   0.07641004816992081,
+   0.0606345639960848,
+   0.05289293056719979
+  ],
+  "confidence": 0.578125,
+  "source": "clean",
+  "score": 0.578125,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   379.3384704589844,
+   599.1551513671875,
+   405.1523742675781,
+   621.2525634765625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "same_size_group": "plug",
+  "settled_on": "c297"
+ },
+ {
+  "item_id": "c372",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c372"
+  ],
+  "object_id": "c372",
+  "category": "door handle",
+  "center": [
+   -2.0018976653970606,
+   2.1424653334597017,
+   0.5604740960417794
+  ],
+  "yaw": -1.4670642888426206,
+  "size": [
+   0.25335585195958155,
+   0.02068066437799576,
+   0.1547774325717335
+  ],
+  "confidence": 0.578125,
+  "source": "clean",
+  "score": 0.578125,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   369.5150146484375,
+   274.7174377441406,
+   392.304931640625,
+   307.130615234375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c377",
+  "label": "throw pillow",
+  "alt_labels": [
+   "pillow"
+  ],
+  "n_members": 2,
+  "members": [
+   "c377",
+   "c402"
+  ],
+  "object_id": "c377",
+  "category": "throw pillow",
+  "center": [
+   1.8334201509898624,
+   -0.11546812339677481,
+   0.5510718371952814
+  ],
+  "yaw": 2.6058850501913433,
+  "size": [
+   0.3065704105328031,
+   0.09995172375519723,
+   0.1918782984634796
+  ],
+  "confidence": 0.578125,
+  "source": "clean",
+  "score": 0.578125,
+  "best_frame": 647,
+  "bbox2d_xyxy": [
+   -1.0370197296142578,
+   5.806875228881836,
+   59.550270080566406,
+   131.63800048828125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c380",
+  "label": "power outlet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c380"
+  ],
+  "object_id": "c380",
+  "category": "power outlet",
+  "center": [
+   -1.3302324578372933,
+   1.2023817587264491,
+   0.2285285958847896
+  ],
+  "yaw": -1.4550274648007682,
+  "size": [
+   0.09833019972381929,
+   0.029531243151840414,
+   0.0907844974293952
+  ],
+  "confidence": 0.57421875,
+  "source": "clean",
+  "score": 0.57421875,
+  "best_frame": 216,
+  "bbox2d_xyxy": [
+   3.0405845642089844,
+   732.9547119140625,
+   49.01357650756836,
+   769.4261474609375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c385",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c385"
+  ],
+  "object_id": "c385",
+  "category": "cable",
+  "center": [
+   -1.399772911660081,
+   1.2697664412010687,
+   0.06691537543466441
+  ],
+  "yaw": -1.7836308934562464,
+  "size": [
+   0.13839087015529505,
+   0.018936355805990956,
+   0.13383075086932883
+  ],
+  "confidence": 0.5703125,
+  "source": "clean",
+  "score": 0.5703125,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   140.6103515625,
+   269.182861328125,
+   192.0872802734375,
+   301.0992126464844
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c387",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c387"
+  ],
+  "object_id": "c387",
+  "category": "door handle",
+  "center": [
+   -2.0192000241797103,
+   2.1351593018408423,
+   0.8678915358137957
+  ],
+  "yaw": 1.535917249745454,
+  "size": [
+   0.39712002530578294,
+   0.015758345940117824,
+   0.11275214929715127
+  ],
+  "confidence": 0.5703125,
+  "source": "clean",
+  "score": 0.5703125,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   357.4901123046875,
+   166.68692016601562,
+   374.74420166015625,
+   192.02902221679688
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c388",
+  "label": "shelf",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c388"
+  ],
+  "object_id": "c388",
+  "category": "shelf",
+  "center": [
+   0.880494254805235,
+   1.6306068700195044,
+   1.1424343076026071
+  ],
+  "yaw": 0.25202535628929956,
+  "size": [
+   0.12016201866319753,
+   0.03050264843672612,
+   0.012531583938019786
+  ],
+  "confidence": 0.56640625,
+  "source": "clean",
+  "score": 0.56640625,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   865.351318359375,
+   181.31930541992188,
+   1028.4698486328125,
+   243.9783935546875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c389",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c389"
+  ],
+  "object_id": "c389",
+  "category": "cable",
+  "center": [
+   -0.8853749338021052,
+   1.7574169473364052,
+   0.1664183898610369
+  ],
+  "yaw": -1.0670637482013916,
+  "size": [
+   0.2095982801022504,
+   0.05611044995050185,
+   0.12582063213913908
+  ],
+  "confidence": 0.56640625,
+  "source": "clean",
+  "score": 0.56640625,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   426.6114196777344,
+   521.9993286132812,
+   461.2960510253906,
+   554.3063354492188
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "same_size_group": "cable",
+  "settled_on": "c344"
+ },
+ {
+  "item_id": "c390",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c390"
+  ],
+  "object_id": "c390",
+  "category": "plug",
+  "center": [
+   -1.1020344053378075,
+   1.5080511125457876,
+   0.13782562687552224
+  ],
+  "yaw": 0.12202011149191572,
+  "size": [
+   0.08681031897463054,
+   0.09204416117362713,
+   0.05941029273879472
+  ],
+  "confidence": 0.56640625,
+  "source": "clean",
+  "score": 0.56640625,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   392.7674865722656,
+   557.0721435546875,
+   429.0011901855469,
+   584.7429809570312
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "c297"
+ },
+ {
+  "item_id": "c391",
+  "label": "cabinet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c391"
+  ],
+  "object_id": "c391",
+  "category": "cabinet",
+  "center": [
+   -2.958510794943225,
+   2.488279869535044,
+   0.4622896046989732
+  ],
+  "yaw": -1.6070628416167143,
+  "size": [
+   1.3807855349880236,
+   0.10395853836156688,
+   0.8531872653952507
+  ],
+  "confidence": 0.56640625,
+  "source": "clean",
+  "score": 0.56640625,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   0.047176361083984375,
+   117.2442855834961,
+   102.57745361328125,
+   574.0270385742188
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c392",
+  "label": "ceiling light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c392"
+  ],
+  "object_id": "c392",
+  "category": "ceiling light",
+  "center": [
+   0.06137021065325798,
+   -0.4910150188866062,
+   2.364127223616708
+  ],
+  "yaw": -0.6814450638825553,
+  "size": [
+   0.06424834218374864,
+   0.026550831654635898,
+   0.04057060216525121
+  ],
+  "confidence": 0.56640625,
+  "source": "clean",
+  "score": 0.56640625,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   693.301025390625,
+   247.6200714111328,
+   717.435791015625,
+   269.8099365234375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c394",
+  "label": "bowl",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c394"
+  ],
+  "object_id": "c394",
+  "category": "bowl",
+  "center": [
+   0.4822337190834744,
+   -1.0134174980138555,
+   0.5960752732489689
+  ],
+  "yaw": 1.1634873814046394,
+  "size": [
+   0.2967719732472578,
+   0.2320459877290144,
+   0.09134565649043125
+  ],
+  "confidence": 0.56640625,
+  "source": "clean",
+  "score": 0.56640625,
+  "best_frame": 678,
+  "bbox2d_xyxy": [
+   337.9412841796875,
+   27.28152084350586,
+   467.47698974609375,
+   103.5999526977539
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c085"
+ },
+ {
+  "item_id": "c399",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c399"
+  ],
+  "object_id": "c399",
+  "category": "door handle",
+  "center": [
+   -2.907255814556788,
+   2.3440099082644887,
+   0.7717482658713911
+  ],
+  "yaw": -1.387917132197523,
+  "size": [
+   0.3729118728670744,
+   0.06920650300657583,
+   0.09335847203634695
+  ],
+  "confidence": 0.5546875,
+  "source": "clean",
+  "score": 0.5546875,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   -1.8121137619018555,
+   200.96978759765625,
+   31.135528564453125,
+   244.32632446289062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c400",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c400"
+  ],
+  "object_id": "c400",
+  "category": "string light",
+  "center": [
+   0.3237221536006422,
+   -0.03466763687827281,
+   2.3977725936694205
+  ],
+  "yaw": -0.04755862605421379,
+  "size": [
+   0.06897507541629416,
+   0.030558639585178807,
+   0.03780997257411922
+  ],
+  "confidence": 0.5546875,
+  "source": "clean",
+  "score": 0.5546875,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   277.0405578613281,
+   347.2613220214844,
+   304.8351135253906,
+   370.3385314941406
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c329"
+ },
+ {
+  "item_id": "c405",
+  "label": "door handle",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c405"
+  ],
+  "object_id": "c405",
+  "category": "door handle",
+  "center": [
+   1.68257422563682,
+   3.01832114837131,
+   1.1393717272944328
+  ],
+  "yaw": -3.128329600363255,
+  "size": [
+   0.06757230970032624,
+   0.012466120395434377,
+   0.05638743898062715
+  ],
+  "confidence": 0.55078125,
+  "source": "clean",
+  "score": 0.55078125,
+  "best_frame": 31,
+  "bbox2d_xyxy": [
+   588.83203125,
+   502.32147216796875,
+   608.21484375,
+   519.494140625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c407",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c407"
+  ],
+  "object_id": "c407",
+  "category": "cable",
+  "center": [
+   -1.2373514351613188,
+   1.4353166372335484,
+   0.1754069087034892
+  ],
+  "yaw": 2.3641747599833005,
+  "size": [
+   0.3046769645409429,
+   0.15542502877778583,
+   0.3508138174069784
+  ],
+  "confidence": 0.55078125,
+  "source": "clean",
+  "score": 0.55078125,
+  "best_frame": 216,
+  "bbox2d_xyxy": [
+   90.30424499511719,
+   616.438720703125,
+   222.2496795654297,
+   769.0490112304688
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full",
+   "tile"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c408",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c408"
+  ],
+  "object_id": "c408",
+  "category": "string light",
+  "center": [
+   -3.4145737697528915,
+   -2.0906376751274487,
+   0.8627371199556779
+  ],
+  "yaw": 0.4630411222670223,
+  "size": [
+   0.4254171816189771,
+   0.01865212017292972,
+   0.1907641345327601
+  ],
+  "confidence": 0.55078125,
+  "source": "clean",
+  "score": 0.55078125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   477.25213623046875,
+   172.7109832763672,
+   489.41729736328125,
+   185.51422119140625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c409",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c409"
+  ],
+  "object_id": "c409",
+  "category": "string light",
+  "center": [
+   -2.9503746111292015,
+   -2.096810354235708,
+   0.8068277665009125
+  ],
+  "yaw": -2.484435069206609,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.55078125,
+  "source": "clean",
+  "score": 0.55078125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   321.4403991699219,
+   346.24542236328125,
+   332.1163635253906,
+   363.54046630859375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "string light",
+  "settled_on": null
+ },
+ {
+  "item_id": "c413",
+  "label": "oven",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c413"
+  ],
+  "object_id": "c413",
+  "category": "oven",
+  "center": [
+   -2.941148557267954,
+   2.3046072668723934,
+   0.5783409928520873
+  ],
+  "yaw": -1.5927311148031982,
+  "size": [
+   0.6223555865734149,
+   0.10879976224000476,
+   0.5485261531723045
+  ],
+  "confidence": 0.546875,
+  "source": "clean",
+  "score": 0.546875,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   -0.8610725402832031,
+   188.5714111328125,
+   55.93222427368164,
+   446.1587219238281
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c414",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c414"
+  ],
+  "object_id": "c414",
+  "category": "string light",
+  "center": [
+   0.04988248978130716,
+   -0.18503086527016338,
+   2.3983794233136124
+  ],
+  "yaw": 2.885841715563336,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.546875,
+  "source": "clean",
+  "score": 0.546875,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   439.4996643066406,
+   210.52967834472656,
+   464.1686096191406,
+   244.5764923095703
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "string light",
+  "settled_on": "c357"
+ },
+ {
+  "item_id": "c415",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c415"
+  ],
+  "object_id": "c415",
+  "category": "string light",
+  "center": [
+   1.900237025759331,
+   -0.2502248066261802,
+   2.2368290704686897
+  ],
+  "yaw": 1.4548173455822013,
+  "size": [
+   0.025026732548670397,
+   0.01,
+   0.03154140009563422
+  ],
+  "confidence": 0.546875,
+  "source": "clean",
+  "score": 0.546875,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   337.39984130859375,
+   706.1131591796875,
+   346.59283447265625,
+   719.1441650390625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": "c328"
+ },
+ {
+  "item_id": "c417",
+  "label": "plate",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c417"
+  ],
+  "object_id": "c417",
+  "category": "plate",
+  "center": [
+   0.5139968995102793,
+   -0.7026092031552695,
+   0.5170625140536667
+  ],
+  "yaw": 0.35212389300675095,
+  "size": [
+   0.10097700349556357,
+   0.03327098935870598,
+   0.03420774016739059
+  ],
+  "confidence": 0.546875,
+  "source": "clean",
+  "score": 0.546875,
+  "best_frame": 709,
+  "bbox2d_xyxy": [
+   948.2257690429688,
+   -1.5992975234985352,
+   1026.082763671875,
+   54.207698822021484
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 4,
+  "settled_on": "c005"
+ },
+ {
+  "item_id": "c419",
+  "label": "light switch",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c419"
+  ],
+  "object_id": "c419",
+  "category": "light switch",
+  "center": [
+   2.271659152628285,
+   1.631947394707181,
+   1.4763633877814937
+  ],
+  "yaw": 1.5702745492559158,
+  "size": [
+   0.10498731982460718,
+   0.0111910436445074,
+   0.09907837952146192
+  ],
+  "confidence": 0.54296875,
+  "source": "clean",
+  "score": 0.54296875,
+  "best_frame": 0,
+  "bbox2d_xyxy": [
+   626.0476684570312,
+   407.301025390625,
+   652.0950317382812,
+   439.09136962890625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "same_size_group": "light switch",
+  "settled_on": null
+ },
+ {
+  "item_id": "c420",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c420"
+  ],
+  "object_id": "c420",
+  "category": "string light",
+  "center": [
+   -3.5709667618151935,
+   -1.8653341680120454,
+   0.48774276643534803
+  ],
+  "yaw": 0.22331170606962125,
+  "size": [
+   0.18129711557708328,
+   0.0219844200233843,
+   0.12458235379983962
+  ],
+  "confidence": 0.54296875,
+  "source": "clean",
+  "score": 0.54296875,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   606.9100952148438,
+   348.9132080078125,
+   618.9976196289062,
+   356.9713134765625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c424",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c424"
+  ],
+  "object_id": "c424",
+  "category": "string light",
+  "center": [
+   -3.136373157907726,
+   -1.9943838223727466,
+   0.7770833878152477
+  ],
+  "yaw": -1.9381649045554608,
+  "size": [
+   0.016953463195778912,
+   0.01,
+   0.0196018112467225
+  ],
+  "confidence": 0.5390625,
+  "source": "clean",
+  "score": 0.5390625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   454.4484558105469,
+   315.0945129394531,
+   464.4505310058594,
+   326.855224609375
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c425",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c425"
+  ],
+  "object_id": "c425",
+  "category": "string light",
+  "center": [
+   -2.7551514821435434,
+   -2.102566267419163,
+   0.8618570496129248
+  ],
+  "yaw": -2.3829708907365648,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.5390625,
+  "source": "clean",
+  "score": 0.5390625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   219.6872100830078,
+   445.9720458984375,
+   232.6365203857422,
+   471.4827575683594
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "string light",
+  "settled_on": "c008"
+ },
+ {
+  "item_id": "c426",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c426"
+  ],
+  "object_id": "c426",
+  "category": "string light",
+  "center": [
+   1.9171384688093707,
+   -0.6386094771353432,
+   2.236559813173776
+  ],
+  "yaw": -0.7021128517325499,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.5390625,
+  "source": "clean",
+  "score": 0.5390625,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   468.4677429199219,
+   680.6585083007812,
+   475.9450378417969,
+   693.11572265625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "string light",
+  "settled_on": null
+ },
+ {
+  "item_id": "c431",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c431"
+  ],
+  "object_id": "c431",
+  "category": "string light",
+  "center": [
+   1.892750797779922,
+   -0.49627829303546805,
+   2.239985035447005
+  ],
+  "yaw": 2.531377457008354,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.53515625,
+  "source": "clean",
+  "score": 0.53515625,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   422.103271484375,
+   693.0548706054688,
+   430.84246826171875,
+   706.8212280273438
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "same_size_group": "string light",
+  "settled_on": "c328"
+ },
+ {
+  "item_id": "c441",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c441"
+  ],
+  "object_id": "c441",
+  "category": "plug",
+  "center": [
+   -1.1383372870685842,
+   1.4363627836873416,
+   0.08906302751936651
+  ],
+  "yaw": 1.4308923678636178,
+  "size": [
+   0.07641004816992081,
+   0.0606345639960848,
+   0.05289293056719979
+  ],
+  "confidence": 0.52734375,
+  "source": "clean",
+  "score": 0.52734375,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   389.4426574707031,
+   582.30078125,
+   411.6911315917969,
+   602.5794677734375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "same_size_group": "plug",
+  "settled_on": "c144"
+ },
+ {
+  "item_id": "c446",
+  "label": "light switch",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c446"
+  ],
+  "object_id": "c446",
+  "category": "light switch",
+  "center": [
+   2.296668320632971,
+   1.765944558792797,
+   1.4759423821642341
+  ],
+  "yaw": 1.4218724748512521,
+  "size": [
+   0.10498731982460718,
+   0.0111910436445074,
+   0.09907837952146192
+  ],
+  "confidence": 0.5234375,
+  "source": "clean",
+  "score": 0.5234375,
+  "best_frame": 31,
+  "bbox2d_xyxy": [
+   996.1665649414062,
+   378.85467529296875,
+   1025.69921875,
+   429.38531494140625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "same_size_group": "light switch",
+  "settled_on": null
+ },
+ {
+  "item_id": "c447",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c447"
+  ],
+  "object_id": "c447",
+  "category": "cable",
+  "center": [
+   -0.8116222175772103,
+   1.7333868790911513,
+   0.36649372779720796
+  ],
+  "yaw": 0.007920664448182624,
+  "size": [
+   0.11279131905353557,
+   0.1411750611019309,
+   0.5642043238718121
+  ],
+  "confidence": 0.5234375,
+  "source": "clean",
+  "score": 0.5234375,
+  "best_frame": 154,
+  "bbox2d_xyxy": [
+   479.87249755859375,
+   298.1756591796875,
+   515.3538208007812,
+   470.1392822265625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": null
+ },
+ {
+  "item_id": "c449",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c449"
+  ],
+  "object_id": "c449",
+  "category": "string light",
+  "center": [
+   0.21310052980518254,
+   -0.5823716272615085,
+   2.332885301069883
+  ],
+  "yaw": 2.5638414779007555,
+  "size": [
+   0.03719957433971999,
+   0.015166088970740009,
+   0.03785333005226388
+  ],
+  "confidence": 0.5234375,
+  "source": "clean",
+  "score": 0.5234375,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   713.1238403320312,
+   370.9248352050781,
+   732.8672485351562,
+   392.79486083984375
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "same_size_group": "string light",
+  "settled_on": "c337"
+ },
+ {
+  "item_id": "c452",
+  "label": "power strip",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c452"
+  ],
+  "object_id": "c452",
+  "category": "power strip",
+  "center": [
+   -1.1560857737355914,
+   1.4889106361432092,
+   0.07659168108566206
+  ],
+  "yaw": 1.6866761609882488,
+  "size": [
+   0.24624619660455238,
+   0.1921252734913197,
+   0.1531833621713241
+  ],
+  "confidence": 0.51953125,
+  "source": "clean",
+  "score": 0.51953125,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   255.85279846191406,
+   628.4913940429688,
+   355.2456970214844,
+   709.2310180664062
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c454",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c454"
+  ],
+  "object_id": "c454",
+  "category": "string light",
+  "center": [
+   -3.191046815749519,
+   -2.072117063835367,
+   0.7871336978006047
+  ],
+  "yaw": 0.5095117225298766,
+  "size": [
+   0.02400663372373124,
+   0.01,
+   0.01
+  ],
+  "confidence": 0.51953125,
+  "source": "clean",
+  "score": 0.51953125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   427.8247375488281,
+   280.0647888183594,
+   434.9549255371094,
+   288.2574768066406
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c457",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c457"
+  ],
+  "object_id": "c457",
+  "category": "cable",
+  "center": [
+   -1.225050703760441,
+   1.53688911807317,
+   0.04518077754159622
+  ],
+  "yaw": 0.8735819014646378,
+  "size": [
+   0.6403256051323787,
+   0.20494419007482856,
+   0.1930146664808139
+  ],
+  "confidence": 0.515625,
+  "source": "clean",
+  "score": 0.515625,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   157.41659545898438,
+   605.353759765625,
+   362.8250427246094,
+   694.9483642578125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": null
+ },
+ {
+  "item_id": "c458",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c458"
+  ],
+  "object_id": "c458",
+  "category": "plug",
+  "center": [
+   -1.1550848255113344,
+   1.4318527111410104,
+   0.11713750885880203
+  ],
+  "yaw": -1.0442590454696532,
+  "size": [
+   0.082877589012744,
+   0.054934450934397194,
+   0.018034056705354296
+  ],
+  "confidence": 0.515625,
+  "source": "clean",
+  "score": 0.515625,
+  "best_frame": 216,
+  "bbox2d_xyxy": [
+   183.03611755371094,
+   735.2242431640625,
+   212.5224151611328,
+   763.9117431640625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "c297"
+ },
+ {
+  "item_id": "c462",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c462"
+  ],
+  "object_id": "c462",
+  "category": "cable",
+  "center": [
+   0.5261628570653074,
+   -0.5182627221275732,
+   2.3727665826097204
+  ],
+  "yaw": -0.46322672354964034,
+  "size": [
+   0.2985225475815218,
+   0.039497331267415184,
+   0.17599165869381414
+  ],
+  "confidence": 0.515625,
+  "source": "clean",
+  "score": 0.515625,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   578.8629913330078,
+   393.52513217926025,
+   605.2013702392578,
+   463.87278747558594
+  ],
+  "n_frames": 2,
+  "det_sources": [
+   "tile"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c463",
+  "label": "bag",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c463"
+  ],
+  "object_id": "c463",
+  "category": "bag",
+  "center": [
+   1.150733308050775,
+   -1.0095163865964054,
+   0.036653856219104775
+  ],
+  "yaw": 2.5198214451499883,
+  "size": [
+   0.12701994854464638,
+   0.09985666242390694,
+   0.07330771243820955
+  ],
+  "confidence": 0.515625,
+  "source": "clean",
+  "score": 0.515625,
+  "best_frame": 709,
+  "bbox2d_xyxy": [
+   938.4755249023438,
+   630.42431640625,
+   1026.6446533203125,
+   733.5175170898438
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c464",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c464"
+  ],
+  "object_id": "c464",
+  "category": "string light",
+  "center": [
+   -1.9493889326235732,
+   -2.222126829345445,
+   1.3699386449152455
+  ],
+  "yaw": 1.850890634298887,
+  "size": [
+   0.02330643047146541,
+   0.01,
+   0.03916253079278098
+  ],
+  "confidence": 0.515625,
+  "source": "clean",
+  "score": 0.515625,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   370.0121154785156,
+   563.5318603515625,
+   375.6310729980469,
+   572.13916015625
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c467",
+  "label": "plug",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c467"
+  ],
+  "object_id": "c467",
+  "category": "plug",
+  "center": [
+   -1.4002846671141223,
+   1.206148651737645,
+   0.04032760810140035
+  ],
+  "yaw": -1.5822410833857012,
+  "size": [
+   0.06258178927173264,
+   0.02579257314660821,
+   0.0806552162028007
+  ],
+  "confidence": 0.51171875,
+  "source": "clean",
+  "score": 0.51171875,
+  "best_frame": 92,
+  "bbox2d_xyxy": [
+   125.64471435546875,
+   251.21542358398438,
+   147.71551513671875,
+   273.7948913574219
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 5,
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c469",
+  "label": "cabinet",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c469"
+  ],
+  "object_id": "c469",
+  "category": "cabinet",
+  "center": [
+   -2.942460058131526,
+   2.860889243607751,
+   0.5144150622686494
+  ],
+  "yaw": 1.5222818154255053,
+  "size": [
+   0.6185261469432928,
+   0.06366336976272446,
+   0.745343922210667
+  ],
+  "confidence": 0.51171875,
+  "source": "clean",
+  "score": 0.51171875,
+  "best_frame": 308,
+  "bbox2d_xyxy": [
+   4.310192108154297,
+   118.32364654541016,
+   102.59214782714844,
+   354.8283386230469
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": null
+ },
+ {
+  "item_id": "c474",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c474"
+  ],
+  "object_id": "c474",
+  "category": "string light",
+  "center": [
+   -3.016862979301308,
+   -1.9660676556747698,
+   0.5470052533200717
+  ],
+  "yaw": -1.8216716833382012,
+  "size": [
+   0.0656270006603843,
+   0.02517856331173407,
+   0.01708688270674097
+  ],
+  "confidence": 0.5078125,
+  "source": "clean",
+  "score": 0.5078125,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   424.04840087890625,
+   515.850830078125,
+   455.822998046875,
+   537.2000732421875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": "c023"
+ },
+ {
+  "item_id": "c478",
+  "label": "cable",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c478"
+  ],
+  "object_id": "c478",
+  "category": "cable",
+  "center": [
+   -1.0097505360722359,
+   1.7918053422109756,
+   0.06291031606956954
+  ],
+  "yaw": 3.005380595447755,
+  "size": [
+   0.2095982801022504,
+   0.05611044995050185,
+   0.12582063213913908
+  ],
+  "confidence": 0.50390625,
+  "source": "clean",
+  "score": 0.50390625,
+  "best_frame": 123,
+  "bbox2d_xyxy": [
+   386.1271667480469,
+   552.2800903320312,
+   442.1471862792969,
+   593.8739624023438
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 6,
+  "same_size_group": "cable",
+  "settled_on": "floor"
+ },
+ {
+  "item_id": "c481",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c481"
+  ],
+  "object_id": "c481",
+  "category": "string light",
+  "center": [
+   -3.444666960726026,
+   -2.1825498861335024,
+   0.7682403589206279
+  ],
+  "yaw": -2.6541987327128362,
+  "size": [
+   0.17997426108172165,
+   0.016976143105457975,
+   0.09871386029023099
+  ],
+  "confidence": 0.50390625,
+  "source": "clean",
+  "score": 0.50390625,
+  "best_frame": 400,
+  "bbox2d_xyxy": [
+   440.6372985839844,
+   205.26531982421875,
+   451.6834411621094,
+   215.54940795898438
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 2,
+  "settled_on": null
+ },
+ {
+  "item_id": "c485",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c485"
+  ],
+  "object_id": "c485",
+  "category": "string light",
+  "center": [
+   -2.7880013683641853,
+   -2.116448927758074,
+   0.4581674033524386
+  ],
+  "yaw": 0.013473153323085185,
+  "size": [
+   0.01775611914885422,
+   0.01,
+   0.029599374896930652
+  ],
+  "confidence": 0.50390625,
+  "source": "clean",
+  "score": 0.50390625,
+  "best_frame": 524,
+  "bbox2d_xyxy": [
+   1012.50537109375,
+   618.6842041015625,
+   1018.859619140625,
+   632.4930419921875
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": "c164"
+ },
+ {
+  "item_id": "c487",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c487"
+  ],
+  "object_id": "c487",
+  "category": "string light",
+  "center": [
+   -2.350638789984973,
+   -2.2297830632985094,
+   0.8694392702658731
+  ],
+  "yaw": -0.0656754682215519,
+  "size": [
+   0.03249197119981506,
+   0.01,
+   0.05301777135816055
+  ],
+  "confidence": 0.50390625,
+  "source": "clean",
+  "score": 0.50390625,
+  "best_frame": 924,
+  "bbox2d_xyxy": [
+   417.6770324707031,
+   635.7199096679688,
+   423.0511169433594,
+   646.606689453125
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 3,
+  "settled_on": "c008"
+ },
+ {
+  "item_id": "c489",
+  "label": "string light",
+  "alt_labels": [],
+  "n_members": 1,
+  "members": [
+   "c489"
+  ],
+  "object_id": "c489",
+  "category": "string light",
+  "center": [
+   1.932612978097038,
+   0.1740123223556659,
+   2.2364083518855002
+  ],
+  "yaw": -1.6144545546182185,
+  "size": [
+   0.02245461901558027,
+   0.01,
+   0.030699962929254365
+  ],
+  "confidence": 0.5,
+  "source": "clean",
+  "score": 0.5,
+  "best_frame": 462,
+  "bbox2d_xyxy": [
+   178.28688049316406,
+   719.708251953125,
+   187.49864196777344,
+   732.8064575195312
+  ],
+  "n_frames": 1,
+  "det_sources": [
+   "full"
+  ],
+  "n_views": 1,
+  "settled_on": "c328"
+ }
+]

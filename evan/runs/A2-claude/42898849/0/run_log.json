@@ -1,0 +1,32 @@
+{
+ "status": "ok",
+ "exit_code": 0,
+ "wall_s": 5096.340344429016,
+ "paused_s": 0.0,
+ "usage": {
+  "thread_id": "2a4347ff-c0fa-4acd-9cb0-d522f487d301",
+  "input_tokens": 51964393,
+  "cached_input_tokens": 51542121,
+  "output_tokens": 208836,
+  "reasoning_output_tokens": 0,
+  "turns": 208,
+  "tool_calls": 205,
+  "cost_usd_equiv": 17.862115699999993,
+  "limit_hit": false
+ },
+ "rate_limits": {
+  "primary_start": 0,
+  "primary_end": 30.0,
+  "weekly_start": 35.0,
+  "weekly_end": 37.0,
+  "reached": false
+ },
+ "leak_suspect": false,
+ "leak_hits": [],
+ "same_video_suspect": false,
+ "same_video_hits": [],
+ "aha_accepted": false,
+ "codex_home": "claude",
+ "weekly_delta": 2.0,
+ "primary_delta": 30.0
+}

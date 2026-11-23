@@ -1,0 +1,1544 @@
+{
+ "blend": "blender/room_v13.blend",
+ "objects": [
+  {
+   "instance_id": "floor_living",
+   "semantic_class": "architecture/floor",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "ceiling_living",
+   "semantic_class": "architecture/ceiling",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "wall_west",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "wall_south",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "wall_east",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "wall_north",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": "Includes the glazed transom above the hall doorway"
+  },
+  {
+   "instance_id": "wall_jog",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": "Living-room jog wall, continuing as the kitchen east wall"
+  },
+  {
+   "instance_id": "wall_kitchen_partition",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "skirting_living",
+   "semantic_class": "architecture/trim",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "floor_kitchen",
+   "semantic_class": "architecture/floor",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "wall_kitchen_west",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "wall_kitchen_north",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "window_kitchen",
+   "semantic_class": "architecture/window",
+   "location": [
+    -2.6,
+    3.8,
+    1.05
+   ],
+   "yaw_deg": 180,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "floor_hall",
+   "semantic_class": "architecture/floor",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "ceiling_hall",
+   "semantic_class": "architecture/ceiling",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "wall_hall_north",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": "Hall north wall with closed door opening and a pier beside the chest niche"
+  },
+  {
+   "instance_id": "wall_hall_west",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "wall_hall_east",
+   "semantic_class": "architecture/wall",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": "Unseen hall continuation closed at an assumed end"
+  },
+  {
+   "instance_id": "window_west",
+   "semantic_class": "architecture/window",
+   "location": [
+    -3.8,
+    -0.85,
+    0.85
+   ],
+   "yaw_deg": -90,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "window_south",
+   "semantic_class": "architecture/window",
+   "location": [
+    0.32500000000000007,
+    -2.3,
+    0.8
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "door_frame_hall",
+   "semantic_class": "architecture/door_frame",
+   "location": [
+    1.7750000000000001,
+    1.87,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "door_frame_kitchen",
+   "semantic_class": "architecture/door_frame",
+   "location": [
+    -2.425,
+    0.77,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [],
+   "notes": ""
+  },
+  {
+   "instance_id": "door_living_hall",
+   "semantic_class": "architecture/door",
+   "location": [
+    1.39,
+    1.7750000000000001,
+    0
+   ],
+   "yaw_deg": 189,
+   "collection": "architecture",
+   "sources": [
+    "c025",
+    "c047",
+    "c167",
+    "c260",
+    "c388"
+   ],
+   "notes": "Open glazed leaf; handle at (0.70,1.58,1.08) observed"
+  },
+  {
+   "instance_id": "door_kitchen",
+   "semantic_class": "architecture/door",
+   "location": [
+    -2.83,
+    0.84,
+    0
+   ],
+   "yaw_deg": 90,
+   "collection": "architecture",
+   "sources": [
+    "c226"
+   ],
+   "notes": "Open into kitchen; only edge and knob seen (frame 277)"
+  },
+  {
+   "instance_id": "door_hall_closed",
+   "semantic_class": "architecture/door",
+   "location": [
+    1.4,
+    3.08,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "architecture",
+   "sources": [
+    "c405"
+   ],
+   "notes": "Closed oak panel door in hall (frame 31)"
+  },
+  {
+   "instance_id": "rug_main",
+   "semantic_class": "decor/rug",
+   "location": [
+    -0.72,
+    -0.5,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c009"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "sofa_three_seat",
+   "semantic_class": "furniture/seating/sofa",
+   "location": [
+    1.7,
+    -0.8,
+    0
+   ],
+   "yaw_deg": -90,
+   "collection": "objects",
+   "sources": [
+    "c003"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "sofa_loveseat",
+   "semantic_class": "furniture/seating/sofa",
+   "location": [
+    -3.22,
+    -0.5,
+    0
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c001"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "pillow_loveseat_south",
+   "semantic_class": "decor/textile/pillow",
+   "location": [
+    -3.22,
+    -0.98,
+    0.62
+   ],
+   "yaw_deg": 80,
+   "collection": "objects",
+   "sources": [
+    "c006"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "pillow_loveseat_north",
+   "semantic_class": "decor/textile/pillow",
+   "location": [
+    -3.22,
+    -0.22,
+    0.62
+   ],
+   "yaw_deg": 100,
+   "collection": "objects",
+   "sources": [
+    "c007"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "pillow_sofa_south",
+   "semantic_class": "decor/textile/pillow",
+   "location": [
+    1.7,
+    -1.54,
+    0.55
+   ],
+   "yaw_deg": -115,
+   "collection": "objects",
+   "sources": [
+    "c017"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "pillow_sofa_north",
+   "semantic_class": "decor/textile/pillow",
+   "location": [
+    1.72,
+    0.03,
+    0.6
+   ],
+   "yaw_deg": -70,
+   "collection": "objects",
+   "sources": [
+    "c020"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ottoman",
+   "semantic_class": "furniture/seating/ottoman",
+   "location": [
+    -1.13,
+    -1.79,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c013"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "coffee_table",
+   "semantic_class": "furniture/table/coffee_table",
+   "location": [
+    0.54,
+    -0.75,
+    0
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c005"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "tissue_box",
+   "semantic_class": "decor/tabletop/tissue_box",
+   "location": [
+    0.54,
+    -0.68,
+    0.183
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c034"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "bowl_glass",
+   "semantic_class": "decor/tabletop/bowl",
+   "location": [
+    0.55,
+    -0.6,
+    0.5
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c035"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "biscuit_01",
+   "semantic_class": "food/biscuit",
+   "location": [
+    0.515,
+    -0.61,
+    0.555
+   ],
+   "yaw_deg": 20,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Individual biscuit in the glass bowl (frames 616-678); not in inventory"
+  },
+  {
+   "instance_id": "biscuit_02",
+   "semantic_class": "food/biscuit",
+   "location": [
+    0.5850000000000001,
+    -0.59,
+    0.55
+   ],
+   "yaw_deg": -15,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Individual biscuit in the glass bowl (frames 616-678); not in inventory"
+  },
+  {
+   "instance_id": "biscuit_03",
+   "semantic_class": "food/biscuit",
+   "location": [
+    0.55,
+    -0.5599999999999999,
+    0.575
+   ],
+   "yaw_deg": 40,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Individual biscuit in the glass bowl (frames 616-678); not in inventory"
+  },
+  {
+   "instance_id": "biscuit_04",
+   "semantic_class": "food/biscuit",
+   "location": [
+    0.555,
+    -0.64,
+    0.585
+   ],
+   "yaw_deg": 70,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Individual biscuit in the glass bowl (frames 616-678); not in inventory"
+  },
+  {
+   "instance_id": "plate_01",
+   "semantic_class": "decor/tableware/plate",
+   "location": [
+    0.52,
+    -0.97,
+    0.5
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c085"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plate_02",
+   "semantic_class": "decor/tableware/plate",
+   "location": [
+    0.52,
+    -0.97,
+    0.512
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c113"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plate_03",
+   "semantic_class": "decor/tableware/plate",
+   "location": [
+    0.52,
+    -0.97,
+    0.524
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c182"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plate_04",
+   "semantic_class": "decor/tableware/plate",
+   "location": [
+    0.52,
+    -0.97,
+    0.536
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c340"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plate_05",
+   "semantic_class": "decor/tableware/plate",
+   "location": [
+    0.52,
+    -0.97,
+    0.548
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c045"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "magazine",
+   "semantic_class": "decor/print/magazine",
+   "location": [
+    -0.7,
+    -0.56,
+    0.012
+   ],
+   "yaw_deg": -30,
+   "collection": "objects",
+   "sources": [
+    "c092"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "tv_stand",
+   "semantic_class": "furniture/storage/tv_stand",
+   "location": [
+    -0.185,
+    1.53,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c055"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "television",
+   "semantic_class": "electronics/television",
+   "location": [
+    -0.04,
+    1.58,
+    0.44
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c000"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "clock_carriage",
+   "semantic_class": "decor/tabletop/clock",
+   "location": [
+    0.42,
+    1.41,
+    0.44
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c343"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "phone_base",
+   "semantic_class": "electronics/phone_base",
+   "location": [
+    -0.66,
+    1.52,
+    0.44
+   ],
+   "yaw_deg": 15,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Cordless phone base under the handset (frames 62, 123)"
+  },
+  {
+   "instance_id": "phone_handset",
+   "semantic_class": "electronics/phone",
+   "location": [
+    -0.64,
+    1.47,
+    0.48
+   ],
+   "yaw_deg": 80,
+   "collection": "objects",
+   "sources": [
+    "c221"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "cable_ethernet_yellow",
+   "semantic_class": "electronics/cable",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c084"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "cable_tv_left_drop",
+   "semantic_class": "electronics/cable",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c447"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "cable_floor_bundle",
+   "semantic_class": "electronics/cable",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c297"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "cable_wall_plug",
+   "semantic_class": "electronics/cable",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c385"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "side_table_lamp",
+   "semantic_class": "furniture/table/side_table",
+   "location": [
+    -1.12,
+    1.5,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c049"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "table_lamp",
+   "semantic_class": "lighting/table_lamp",
+   "location": [
+    -1.12,
+    1.5,
+    0.5
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c015"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "power_strip_lamp",
+   "semantic_class": "electronics/power_strip",
+   "location": [
+    -1.16,
+    1.47,
+    0.0
+   ],
+   "yaw_deg": 65,
+   "collection": "objects",
+   "sources": [
+    "c452"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plug_adapter_01",
+   "semantic_class": "electronics/plug",
+   "location": [
+    -1.12,
+    1.57,
+    0.04
+   ],
+   "yaw_deg": 65,
+   "collection": "objects",
+   "sources": [
+    "c249"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plug_adapter_02",
+   "semantic_class": "electronics/plug",
+   "location": [
+    -1.1,
+    1.51,
+    0.04
+   ],
+   "yaw_deg": 65,
+   "collection": "objects",
+   "sources": [
+    "c390"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plug_adapter_03",
+   "semantic_class": "electronics/plug",
+   "location": [
+    -1.17,
+    1.45,
+    0.04
+   ],
+   "yaw_deg": 65,
+   "collection": "objects",
+   "sources": [
+    "c370"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plug_adapter_04",
+   "semantic_class": "electronics/plug",
+   "location": [
+    -1.2,
+    1.4,
+    0.04
+   ],
+   "yaw_deg": 65,
+   "collection": "objects",
+   "sources": [
+    "c279"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plug_adapter_05",
+   "semantic_class": "electronics/plug",
+   "location": [
+    -1.19,
+    1.35,
+    0.04
+   ],
+   "yaw_deg": 65,
+   "collection": "objects",
+   "sources": [
+    "c334"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "outlet_lamp_corner",
+   "semantic_class": "electronics/power_outlet",
+   "location": [
+    -1.3450000000000002,
+    1.17,
+    0.25
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c061"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "plug_wall_lamp_corner",
+   "semantic_class": "electronics/plug",
+   "location": [
+    -1.32,
+    1.2,
+    0.24
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c467"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "outlet_behind_tv",
+   "semantic_class": "electronics/power_outlet",
+   "location": [
+    -0.4,
+    1.8150000000000002,
+    0.6
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c311"
+   ],
+   "notes": "Grey wall plate seen behind the TV (frame 92); depth uncertain"
+  },
+  {
+   "instance_id": "switch_kitchen_wall",
+   "semantic_class": "electronics/light_switch",
+   "location": [
+    -1.5,
+    0.715,
+    1.48
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c195"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "switch_east_wall",
+   "semantic_class": "electronics/light_switch",
+   "location": [
+    2.28,
+    1.6,
+    1.48
+   ],
+   "yaw_deg": -90,
+   "collection": "objects",
+   "sources": [
+    "c419"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "switch_hall",
+   "semantic_class": "electronics/light_switch",
+   "location": [
+    2.65,
+    3.095,
+    1.5
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c129"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "radiator",
+   "semantic_class": "fixture/radiator",
+   "location": [
+    -2.18,
+    -2.18,
+    0.52
+   ],
+   "yaw_deg": 180,
+   "collection": "objects",
+   "sources": [
+    "c008"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "picture_framed",
+   "semantic_class": "decor/wall_art/picture",
+   "location": [
+    -2.35,
+    -2.225,
+    1.62
+   ],
+   "yaw_deg": 180,
+   "collection": "objects",
+   "sources": [
+    "c065"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "side_table_corner",
+   "semantic_class": "furniture/table/side_table",
+   "location": [
+    -3.22,
+    -1.87,
+    0
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c023"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "christmas_tree",
+   "semantic_class": "decor/plant/christmas_tree",
+   "location": [
+    -3.2,
+    -1.92,
+    0.5
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c099"
+   ],
+   "notes": "Small decorated tree with its own wrapped fairy lights (bulbs are parts)"
+  },
+  {
+   "instance_id": "ornament_01",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.043738225185936,
+    -1.8505503223048605,
+    0.6
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c064"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ornament_02",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.085607030892561,
+    -2.047103299008265,
+    0.6
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c067"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ornament_03",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.138720538401573,
+    -1.7668013460039322,
+    0.62
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c080"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ornament_04",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.239290771255886,
+    -1.7628369149764562,
+    0.63
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c081"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ornament_05",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.325564765538855,
+    -1.8083868750765735,
+    0.61
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c068"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ornament_06",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.113,
+    -1.92,
+    0.88
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c066"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ornament_07",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.2496407091004955,
+    -1.8207185817990093,
+    0.8
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c073"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ornament_08",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.0997781284877806,
+    -1.8340955387038125,
+    0.73
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c075"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "ornament_09",
+   "semantic_class": "decor/ornament/bauble",
+   "location": [
+    -3.094319082253044,
+    -1.9939766424228693,
+    0.74
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c086"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "string_light_wall",
+   "semantic_class": "decor/lighting/string_light",
+   "location": [
+    -2.3,
+    -2.2,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c327"
+   ],
+   "notes": "One fairy-light strand framing the picture and draped down past the radiator to the floor"
+  },
+  {
+   "instance_id": "mirror_east",
+   "semantic_class": "decor/wall_art/mirror",
+   "location": [
+    2.27,
+    -0.85,
+    1.45
+   ],
+   "yaw_deg": -90,
+   "collection": "objects",
+   "sources": [
+    "c046"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "blind_west",
+   "semantic_class": "decor/window_treatment/vertical_blind",
+   "location": [
+    -3.67,
+    -0.85,
+    0.0
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c089"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "blind_south",
+   "semantic_class": "decor/window_treatment/vertical_blind",
+   "location": [
+    0.32500000000000007,
+    -2.17,
+    0.0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c115"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "chandelier_east",
+   "semantic_class": "lighting/ceiling_light/chandelier",
+   "location": [
+    0.33,
+    -0.33,
+    2.42
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c108"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "chandelier_west",
+   "semantic_class": "lighting/ceiling_light/chandelier",
+   "location": [
+    -2.45,
+    -0.92,
+    2.42
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c362"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "power_strip_sofa",
+   "semantic_class": "electronics/power_strip",
+   "location": [
+    1.66,
+    -2.13,
+    0.0
+   ],
+   "yaw_deg": 160,
+   "collection": "objects",
+   "sources": [
+    "c053"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "cable_sofa_white",
+   "semantic_class": "electronics/cable",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c138"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "cable_sofa_black",
+   "semantic_class": "electronics/cable",
+   "location": [
+    0,
+    0,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c093"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "kitchen_rug",
+   "semantic_class": "decor/rug",
+   "location": [
+    -2.53,
+    2.3,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c012"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "fridge_freezer",
+   "semantic_class": "appliance/refrigerator",
+   "location": [
+    -3.24,
+    1.15,
+    0
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c022"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "kitchen_cabinets_west_south",
+   "semantic_class": "furniture/storage/kitchen_base_cabinets",
+   "location": [
+    -3.2399999999999998,
+    1.75,
+    0
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [],
+   "notes": "West run between fridge and oven (frame 308)"
+  },
+  {
+   "instance_id": "kitchen_cabinets_west",
+   "semantic_class": "furniture/storage/kitchen_base_cabinets",
+   "location": [
+    -3.2399999999999998,
+    2.86,
+    0
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c391"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "oven_builtin",
+   "semantic_class": "appliance/oven",
+   "location": [
+    -2.94,
+    2.3,
+    0.1
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c413"
+   ],
+   "notes": "Built-in oven at the south end of the west run (dark glass door, frame 308)"
+  },
+  {
+   "instance_id": "kitchen_cabinets_back",
+   "semantic_class": "furniture/storage/kitchen_base_cabinets",
+   "location": [
+    -2.5,
+    3.45,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c097"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "kitchen_cabinets_east",
+   "semantic_class": "furniture/storage/kitchen_base_cabinets",
+   "location": [
+    -1.75,
+    2.66,
+    0
+   ],
+   "yaw_deg": -90,
+   "collection": "objects",
+   "sources": [],
+   "notes": "East run with hexagonal knobs (handles c326/c372/c387); missed by detector as a whole"
+  },
+  {
+   "instance_id": "sink_kitchen",
+   "semantic_class": "fixture/sink",
+   "location": [
+    -2.65,
+    3.45,
+    0.9225
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c074"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "faucet_kitchen",
+   "semantic_class": "fixture/faucet",
+   "location": [
+    -2.65,
+    3.67,
+    0.92
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Gooseneck tap behind sink (frame 308)"
+  },
+  {
+   "instance_id": "kitchen_bin",
+   "semantic_class": "decor/bin",
+   "location": [
+    -1.95,
+    1.98,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Black bin/bag at right of kitchen doorway (frame 308)"
+  },
+  {
+   "instance_id": "kitchen_sill_ornament",
+   "semantic_class": "decor/tabletop/ornament",
+   "location": [
+    -3.3,
+    3.69,
+    1.06
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Small figurine/plant on kitchen window sill (frame 308)"
+  },
+  {
+   "instance_id": "kitchen_counter_item",
+   "semantic_class": "decor/tabletop/package",
+   "location": [
+    -1.75,
+    3.05,
+    0.92
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [],
+   "notes": "White package/bag on east counter (frame 308)"
+  },
+  {
+   "instance_id": "hall_runner_rug",
+   "semantic_class": "decor/rug",
+   "location": [
+    2.85,
+    2.5,
+    0
+   ],
+   "yaw_deg": 90,
+   "collection": "objects",
+   "sources": [
+    "c039"
+   ],
+   "notes": ""
+  },
+  {
+   "instance_id": "hall_chest_drawers",
+   "semantic_class": "furniture/storage/chest_of_drawers",
+   "location": [
+    2.95,
+    2.89,
+    0
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [],
+   "notes": "White two-drawer chest with wood top in the hall niche (frames 0, 31); missed by detector"
+  },
+  {
+   "instance_id": "hall_mirror",
+   "semantic_class": "decor/wall_art/mirror",
+   "location": [
+    2.95,
+    3.08,
+    1.45
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [],
+   "notes": "Tall light mirror above the hall chest (frame 31)"
+  },
+  {
+   "instance_id": "hall_ceiling_light",
+   "semantic_class": "lighting/ceiling_light",
+   "location": [
+    2.95,
+    2.55,
+    2.42
+   ],
+   "yaw_deg": 0,
+   "collection": "objects",
+   "sources": [
+    "c155"
+   ],
+   "notes": ""
+  }
+ ]
+}
