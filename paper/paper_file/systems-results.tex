@@ -56,22 +56,25 @@ on the room used to compare controllers.}
 \end{figure}
 
 \textbf{Cost of checking worker progress.} While Blender workers built
-objects, the supervisor repeatedly checked whether they had finished.
-Each time the model was called, it processed the conversation history again.
-In the short-wait run, 65 of the supervisor's 216 responses asked to wait.
-The long-wait run used 118 supervisor calls and cost \$20.10 in total,
-compared with \$38.55 for the short-wait run. It also reused the existing
-plan and completed four of six tasks, so we cannot isolate the savings
-from checking less often.
+objects, the supervisor repeatedly checked whether they had finished, and each
+call processed the conversation history again (mean context 121k tokens).
+In the short-wait run, 149 of the supervisor's 216 calls only slept or polled
+a running command; they used 71\% of its input tokens and an estimated
+\$19.78 of the run's \$38.55 (Appendix~\ref{app:tokens}). The long-wait run
+used 118 supervisor calls and cost \$20.10. Its savings came almost entirely
+from cached input (\$27.12 to \$10.36), while uncached input and output
+changed little. It also reused the existing plan and completed four of six
+tasks, so the savings cannot be attributed to waiting alone.
 
-\textbf{Cost and placement under Python scheduling.} AHA-auto reduced
-estimated token cost by 72\% relative to AHA-driven-short while matching
-its five correct placements in the 20 to under 50\,cm group by fitted-scale
-overlap. Across all sizes, however, it placed 11 of 34 targets compared with
-16 for AHA-driven-short. A failed review blocked eight dependent tasks,
-illustrating how one failure can limit coverage under a fixed plan.
-AHA-auto also outperformed original AHa-3D by overlap only when scale was
-fitted (Table~\ref{tab:auto-floorplan209}).
+\textbf{Cost and placement under Python scheduling.} AHA-auto cost \$10.78,
+60\% less than original AHa-3D and 72\% less than AHA-driven-short. If its ten
+unrecorded calls cost as much as the average recorded call, the estimate rises
+to about \$12.3. Per target placed by fitted-scale overlap, the four runs cost
+\$3.90, \$2.41, \$2.01 and \$0.98. AHA-auto matched AHA-driven-short's five
+placements from 20 to under 50\,cm but placed 11 of 34 targets overall against
+16, because a failed review blocked eight dependent tasks. It outperformed
+original AHa-3D by overlap only when scale was fitted
+(Table~\ref{tab:auto-floorplan209}).
 
 We estimate cost at \$1, \$10 and \$50 per million cached input, uncached
 input and output tokens, respectively. The original total includes context

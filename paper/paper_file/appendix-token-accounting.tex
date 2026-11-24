@@ -1,0 +1,46 @@
+% Appendix C: supervisor token accounting (AHA-driven-short, FloorPlan209).
+% Source: Codex session log + runtime ledger, analysed with codex_usage_report.py.
+\section{Token accounting for the agent supervisor}
+\label{app:tokens}
+
+The runtime ledger records worker calls but not the supervising agent, which in AHA-driven-short accounted for 93.5\% of input tokens (26.0M of 27.8M). We therefore read the supervisor's own session log, which records the token usage of each model call, and grouped calls by the action that preceded them. A call that followed a \texttt{sleep} or an empty poll of a running command is counted as waiting. The grouping is heuristic; token counts are as recorded.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Supervisor calls in AHA-driven-short (FloorPlan209), grouped by the preceding action.}
+\label{tab:supervisor-calls}
+\begin{tabular}{lrrr}
+\toprule
+Preceding action & Calls & Input tokens & Share of input \\
+\midrule
+Waiting: empty poll (1\,s) & 84 & 10.01M & 38.4\% \\
+Waiting: \texttt{sleep} (15--20\,s) & 65 & 8.50M & 32.6\% \\
+Room review & 13 & 1.59M & 6.1\% \\
+Other commands and inspection & 54 & 5.94M & 22.8\% \\
+\midrule
+Total & 216 & 26.04M & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 149 waiting calls processed 18.4M cached and 53k uncached input tokens and produced 16k output tokens, an estimated \$19.78 of the supervisor's \$28.88. The supervisor slept for 1,265\,s in total. Its context grew from 21k to 172k tokens; printing session files and viewing 50 images contributed about 40\% of the growth.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Estimated token cost (USD) on FloorPlan209 split by token type.}
+\label{tab:cost-split}
+\begin{tabular}{lrrrr}
+\toprule
+Run & Cached input & Uncached input & Output & Total \\
+\midrule
+Original AHa-3D & 17.67 & 5.58 & 4.02 & 27.27 \\
+AHA-driven-short & 27.12 & 7.60 & 3.83 & 38.55 \\
+AHA-driven-long & 10.36 & 5.91 & 3.83 & 20.10 \\
+AHA-auto & 0.78 & 7.43 & 2.57 & 10.78 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Moving from short to long waits removed \$16.76 of cached input, the cost of re-reading history, while the other two columns barely changed. AHA-auto spends little on cached input; most of its cost is fresh worker input, which points to smaller worker requests as the next saving.
